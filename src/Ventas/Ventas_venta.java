@@ -2310,7 +2310,7 @@ public class Ventas_venta extends javax.swing.JDialog {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(mostrar);
             while (rs.next()) {
-                lbl_saldo_cuenta.setText(rs.getString(4));
+                //lbl_saldo_cuenta.setText(rs.getString(4));
 
             }
             conectar.getInstance().closeConnection(cn);
