@@ -102,7 +102,7 @@ public class Clientes_report_detalles extends javax.swing.JDialog {
                 txtbusKeyReleased(evt);
             }
         });
-        jPanel1.add(txtbus, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 400, 30));
+        jPanel1.add(txtbus, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 360, 30));
 
         tbclientes = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
@@ -284,4 +284,6 @@ public class Clientes_report_detalles extends javax.swing.JDialog {
     private javax.swing.JTextField txtbus;
     // End of variables declaration//GEN-END:variables
 
+    
+    //variable
 }
