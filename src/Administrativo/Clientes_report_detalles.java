@@ -283,5 +283,6 @@ public class Clientes_report_detalles extends javax.swing.JDialog {
     private javax.swing.JTable tbclientes;
     private javax.swing.JTextField txtbus;
     // End of variables declaration//GEN-END:variables
-//gustavo puto
+//gustavo puto doble
+    //doble
 }
