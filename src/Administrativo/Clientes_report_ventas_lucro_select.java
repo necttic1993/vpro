@@ -28,8 +28,7 @@ public class Clientes_report_ventas_lucro_select extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         txtbus.requestFocus();
-        //Shape forma = new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 15, 15);
-        //AWTUtilities.setWindowShape(this, forma);
+       
         cargar("");
     }
 
