@@ -54,18 +54,10 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="org.edisoncor.gui.progressBar.ProgressBarRound" name="cp_copy">
-          <Properties>
-            <Property name="colorDeBorde" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="99" green="66" red="0" type="rgb"/>
-            </Property>
-            <Property name="colorDeSombra" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="99" green="33" red="0" type="rgb"/>
-            </Property>
-          </Properties>
+        <Component class="javax.swing.JProgressBar" name="cp_copy">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="40" y="40" width="420" height="20"/>
+              <AbsoluteConstraints x="30" y="50" width="440" height="20"/>
             </Constraint>
           </Constraints>
         </Component>

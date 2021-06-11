@@ -97,7 +97,7 @@ public class Loadinf extends javax.swing.JDialog {
 
         jPanel1 = new javax.swing.JPanel();
         lbl_progreso = new javax.swing.JLabel();
-        cp_copy = new org.edisoncor.gui.progressBar.ProgressBarRound();
+        cp_copy = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -108,10 +108,7 @@ public class Loadinf extends javax.swing.JDialog {
 
         lbl_progreso.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jPanel1.add(lbl_progreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 160, 40));
-
-        cp_copy.setColorDeBorde(new java.awt.Color(0, 102, 153));
-        cp_copy.setColorDeSombra(new java.awt.Color(0, 51, 153));
-        jPanel1.add(cp_copy, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 420, 20));
+        jPanel1.add(cp_copy, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 440, 20));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 130));
 
@@ -163,7 +160,7 @@ public class Loadinf extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private org.edisoncor.gui.progressBar.ProgressBarRound cp_copy;
+    private javax.swing.JProgressBar cp_copy;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbl_progreso;
     // End of variables declaration//GEN-END:variables

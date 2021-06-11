@@ -10,7 +10,6 @@ import Estadisticas_productos.*;
 import Conexion_DB.conectar;
 import static Loggin_Principal.NECTTIC.ingreso;
 import static Loggin_Principal.Principal.txt_fecha_backup;
-import Productos.items.Departamentos_List_salidas;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
