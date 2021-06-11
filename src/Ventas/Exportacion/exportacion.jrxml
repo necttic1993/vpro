@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="26bd0172-7a60-45e7-a49e-8eea5a346507">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="327"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<subDataset name="detalle_exportacion" uuid="cf083e2d-94c2-465a-b8dc-0220b9bd7c05">
+		<parameter name="id_deta" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT
+     ventas_exportacion_deta.`num_bol` AS ventas_exportacion_deta_num_bol,
+     ventas_exportacion_deta.`cod_pro` AS ventas_exportacion_deta_cod_pro,
+     ventas_exportacion_deta.`des_pro` AS ventas_exportacion_deta_des_pro,
+     ventas_exportacion_deta.`iva_por` AS ventas_exportacion_deta_iva_por,
+     ventas_exportacion_deta.`cant_pro` AS ventas_exportacion_deta_cant_pro,
+     ventas_exportacion_deta.`pre_unidad` AS ventas_exportacion_deta_pre_unidad,
+     ventas_exportacion_deta.`pre_peso_unit` AS ventas_exportacion_deta_pre_peso_unit,
+     ventas_exportacion_deta.`pre_precio_unit` AS ventas_exportacion_deta_pre_precio_unit,
+     ventas_exportacion_deta.`pre_peso_total` AS ventas_exportacion_deta_pre_peso_total,
+     ventas_exportacion_deta.`pre_sub_total` AS ventas_exportacion_deta_pre_sub_total,
+     ventas_exportacion_deta.`data` AS ventas_exportacion_deta_data,
+     tienda_productos.`pro_cod` AS tienda_productos_pro_cod,
+     tienda_productos.`pro_des` AS tienda_productos_pro_des,
+     tienda_productos.`pro_des_espec` AS tienda_productos_pro_des_espec,
+     tienda_productos.`cod_ncm` AS tienda_productos_cod_ncm,
+     tienda_productos.`pro_po` AS tienda_productos_pro_po,
+     tienda_productos.`pro_kg` AS tienda_productos_pro_kg,
+     tienda_productos.`pro_unicaja` AS tienda_productos_pro_unicaja,
+     tienda_productos.`pro_volumen` AS tienda_productos_pro_volumen,
+     tienda_productos.`pro_presenta` AS tienda_productos_pro_presenta
+FROM
+     `ventas_exportacion_deta` ventas_exportacion_deta inner join 
+     `tienda_productos` tienda_productos on ventas_exportacion_deta.`cod_pro`=tienda_productos.`pro_cod`
+where 
+
+ventas_exportacion_deta.`num_bol`=$P{id_deta}]]>
+		</queryString>
+		<field name="ventas_exportacion_deta_num_bol" class="java.lang.String"/>
+		<field name="ventas_exportacion_deta_cod_pro" class="java.lang.String"/>
+		<field name="ventas_exportacion_deta_des_pro" class="java.lang.String"/>
+		<field name="ventas_exportacion_deta_iva_por" class="java.lang.String"/>
+		<field name="ventas_exportacion_deta_cant_pro" class="java.lang.Integer"/>
+		<field name="ventas_exportacion_deta_pre_unidad" class="java.lang.String"/>
+		<field name="ventas_exportacion_deta_pre_peso_unit" class="java.lang.String"/>
+		<field name="ventas_exportacion_deta_pre_precio_unit" class="java.lang.String"/>
+		<field name="ventas_exportacion_deta_pre_peso_total" class="java.lang.String"/>
+		<field name="ventas_exportacion_deta_pre_sub_total" class="java.lang.String"/>
+		<field name="ventas_exportacion_deta_data" class="java.sql.Date"/>
+		<field name="tienda_productos_pro_cod" class="java.lang.String"/>
+		<field name="tienda_productos_pro_des" class="java.lang.String"/>
+		<field name="tienda_productos_pro_des_espec" class="java.lang.String"/>
+		<field name="tienda_productos_cod_ncm" class="java.lang.String"/>
+		<field name="tienda_productos_pro_po" class="java.lang.String"/>
+		<field name="tienda_productos_pro_kg" class="java.lang.String"/>
+		<field name="tienda_productos_pro_unicaja" class="java.lang.String"/>
+		<field name="tienda_productos_pro_volumen" class="java.lang.String"/>
+		<field name="tienda_productos_pro_presenta" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="ide" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tienda_clientes.`cli_cod` AS tienda_clientes_cli_cod,
+     tienda_clientes.`cli_nombre` AS tienda_clientes_cli_nombre,
+     tienda_clientes.`cli_ruc` AS tienda_clientes_cli_ruc,
+     tienda_clientes.`cli_razon` AS tienda_clientes_cli_razon,
+     tienda_clientes.`cli_contacto` AS tienda_clientes_cli_contacto,
+     tienda_clientes.`cli_email` AS tienda_clientes_cli_email,
+     tienda_clientes.`cli_dir` AS tienda_clientes_cli_dir,
+     tienda_clientes.`cli_tipo` AS tienda_clientes_cli_tipo,
+     tienda_clientes.`cli_lim_cre` AS tienda_clientes_cli_lim_cre,
+     tienda_clientes.`cli_dias_cre` AS tienda_clientes_cli_dias_cre,
+     tienda_clientes.`cli_status` AS tienda_clientes_cli_status,
+     tienda_clientes.`cli_nota_cre` AS tienda_clientes_cli_nota_cre,
+     tienda_clientes.`nro_registro` AS tienda_clientes_nro_registro,
+     tienda_clientes.`cli_pais` AS tienda_clientes_cli_pais,
+     tienda_clientes.`cli_surc` AS tienda_clientes_cli_surc,
+     ventas_exportacion.`num_bol` AS ventas_exportacion_num_bol,
+     ventas_exportacion.`cod_cli_ventas` AS ventas_exportacion_cod_cli_ventas,
+     ventas_exportacion.`nom_cli_ventas` AS ventas_exportacion_nom_cli_ventas,
+     ventas_exportacion.`forma_pag_efectivo` AS ventas_exportacion_forma_pag_efectivo,
+     ventas_exportacion.`forma_pag_credito` AS ventas_exportacion_forma_pag_credito,
+     ventas_exportacion.`total_ventas` AS ventas_exportacion_total_ventas,
+     ventas_exportacion.`fecha_ventas` AS ventas_exportacion_fecha_ventas,
+     ventas_exportacion.`fecha_control_ventas` AS ventas_exportacion_fecha_control_ventas,
+     ventas_exportacion.`user_ventas` AS ventas_exportacion_user_ventas,
+     ventas_exportacion.`cant_ventas` AS ventas_exportacion_cant_ventas,
+     ventas_exportacion.`letras_ventas` AS ventas_exportacion_letras_ventas,
+     ventas_exportacion.`nro_seq_ventas` AS ventas_exportacion_nro_seq_ventas,
+     ventas_exportacion.`nro_estable_ventas` AS ventas_exportacion_nro_estable_ventas,
+     ventas_exportacion.`nro_fact_ventas` AS ventas_exportacion_nro_fact_ventas,
+     ventas_exportacion.`nro_timbra_ventas` AS ventas_exportacion_nro_timbra_ventas,
+     ventas_exportacion.`fact_peso_neto` AS ventas_exportacion_fact_peso_neto,
+     ventas_exportacion.`fact_peso_caja` AS ventas_exportacion_fact_peso_caja,
+     ventas_exportacion.`fact_peso_bruto` AS ventas_exportacion_fact_peso_bruto,
+     ventas_exportacion.`data_vista` AS ventas_exportacion_data_vista,
+     ventas_exportacion.`simb_moneda` AS ventas_exportacion_simb_moneda,
+     ventas_exportacion.`form_pag_lit` AS ventas_exportacion_form_pag_lit,
+     ventas_exportacion.`estado_fact` AS ventas_exportacion_estado_fact,
+     ventas_exportacion.`dia_lit` AS ventas_exportacion_dia_lit,
+     ventas_exportacion.`mes_lit` AS ventas_exportacion_mes_lit,
+     ventas_exportacion.`years_lit` AS ventas_exportacion_years_lit,
+     ventas_exportacion.`seq_pro` AS ventas_exportacion_seq_pro,
+     ventas_exportacion.`saldo_cred` AS ventas_exportacion_saldo_cred,
+     ventas_exportacion.`nro_registro` AS ventas_exportacion_nro_registro,
+     ventas_exportacion.`dolar_x` AS ventas_exportacion_dolar_x,
+     ventas_exportacion.`gs_x` AS ventas_exportacion_gs_x,
+     ventas_exportacion_deta.`num_bol` AS ventas_exportacion_deta_num_bol,
+     ventas_exportacion_deta.`cod_pro` AS ventas_exportacion_deta_cod_pro,
+     ventas_exportacion_deta.`des_pro` AS ventas_exportacion_deta_des_pro,
+     ventas_exportacion_deta.`iva_por` AS ventas_exportacion_deta_iva_por,
+     ventas_exportacion_deta.`cant_pro` AS ventas_exportacion_deta_cant_pro,
+     ventas_exportacion_deta.`pre_unidad` AS ventas_exportacion_deta_pre_unidad,
+     ventas_exportacion_deta.`pre_peso_unit` AS ventas_exportacion_deta_pre_peso_unit,
+     ventas_exportacion_deta.`pre_precio_unit` AS ventas_exportacion_deta_pre_precio_unit,
+     ventas_exportacion_deta.`pre_peso_total` AS ventas_exportacion_deta_pre_peso_total,
+     ventas_exportacion_deta.`pre_sub_total` AS ventas_exportacion_deta_pre_sub_total,
+     ventas_exportacion_deta.`data` AS ventas_exportacion_deta_data,
+     ventas_exportacion.`pais_origen` AS ventas_exportacion_pais_origen
+FROM
+     `tienda_clientes` tienda_clientes INNER JOIN `ventas_exportacion` ventas_exportacion ON tienda_clientes.`cli_cod` = ventas_exportacion.`cod_cli_ventas`
+     INNER JOIN `ventas_exportacion_deta` ventas_exportacion_deta ON ventas_exportacion.`num_bol` = ventas_exportacion_deta.`num_bol`
+WHERE
+     ventas_exportacion.`num_bol` = $P{ide}]]>
+	</queryString>
+	<field name="tienda_clientes_cli_cod" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_nombre" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_ruc" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_razon" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_contacto" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_email" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_dir" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_tipo" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_lim_cre" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_dias_cre" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_status" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_nota_cre" class="java.lang.String"/>
+	<field name="tienda_clientes_nro_registro" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_pais" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_surc" class="java.lang.String"/>
+	<field name="ventas_exportacion_num_bol" class="java.lang.String"/>
+	<field name="ventas_exportacion_cod_cli_ventas" class="java.lang.String"/>
+	<field name="ventas_exportacion_nom_cli_ventas" class="java.lang.String"/>
+	<field name="ventas_exportacion_forma_pag_efectivo" class="java.lang.String"/>
+	<field name="ventas_exportacion_forma_pag_credito" class="java.lang.String"/>
+	<field name="ventas_exportacion_total_ventas" class="java.lang.String"/>
+	<field name="ventas_exportacion_fecha_ventas" class="java.sql.Date"/>
+	<field name="ventas_exportacion_fecha_control_ventas" class="java.sql.Timestamp"/>
+	<field name="ventas_exportacion_user_ventas" class="java.lang.String"/>
+	<field name="ventas_exportacion_cant_ventas" class="java.lang.Integer"/>
+	<field name="ventas_exportacion_letras_ventas" class="java.lang.String"/>
+	<field name="ventas_exportacion_nro_seq_ventas" class="java.lang.String"/>
+	<field name="ventas_exportacion_nro_estable_ventas" class="java.lang.String"/>
+	<field name="ventas_exportacion_nro_fact_ventas" class="java.lang.String"/>
+	<field name="ventas_exportacion_nro_timbra_ventas" class="java.lang.String"/>
+	<field name="ventas_exportacion_fact_peso_neto" class="java.lang.String"/>
+	<field name="ventas_exportacion_fact_peso_caja" class="java.lang.String"/>
+	<field name="ventas_exportacion_fact_peso_bruto" class="java.lang.String"/>
+	<field name="ventas_exportacion_data_vista" class="java.lang.String"/>
+	<field name="ventas_exportacion_simb_moneda" class="java.lang.String"/>
+	<field name="ventas_exportacion_form_pag_lit" class="java.lang.String"/>
+	<field name="ventas_exportacion_estado_fact" class="java.lang.String"/>
+	<field name="ventas_exportacion_dia_lit" class="java.lang.String"/>
+	<field name="ventas_exportacion_mes_lit" class="java.lang.String"/>
+	<field name="ventas_exportacion_years_lit" class="java.lang.String"/>
+	<field name="ventas_exportacion_seq_pro" class="java.lang.String"/>
+	<field name="ventas_exportacion_saldo_cred" class="java.lang.String"/>
+	<field name="ventas_exportacion_nro_registro" class="java.lang.String"/>
+	<field name="ventas_exportacion_dolar_x" class="java.lang.String"/>
+	<field name="ventas_exportacion_gs_x" class="java.lang.String"/>
+	<field name="ventas_exportacion_deta_num_bol" class="java.lang.String"/>
+	<field name="ventas_exportacion_deta_cod_pro" class="java.lang.String"/>
+	<field name="ventas_exportacion_deta_des_pro" class="java.lang.String"/>
+	<field name="ventas_exportacion_deta_iva_por" class="java.lang.String"/>
+	<field name="ventas_exportacion_deta_cant_pro" class="java.lang.Integer"/>
+	<field name="ventas_exportacion_deta_pre_unidad" class="java.lang.String"/>
+	<field name="ventas_exportacion_deta_pre_peso_unit" class="java.lang.String"/>
+	<field name="ventas_exportacion_deta_pre_precio_unit" class="java.lang.String"/>
+	<field name="ventas_exportacion_deta_pre_peso_total" class="java.lang.String"/>
+	<field name="ventas_exportacion_deta_pre_sub_total" class="java.lang.String"/>
+	<field name="ventas_exportacion_deta_data" class="java.sql.Date"/>
+	<field name="ventas_exportacion_pais_origen" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="716" splitType="Stretch">
+			<textField>
+				<reportElement x="271" y="210" width="264" height="13" uuid="f43267f9-fac1-4124-84af-d8ba65facef0"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tienda_clientes_cli_razon}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="271" y="251" width="264" height="13" uuid="4fd1254d-80f3-4b31-8861-36135f1749c4"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tienda_clientes_cli_dir}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="279" y="272" width="100" height="12" uuid="fb0f0979-b530-4c4f-b374-07d7cd3d1965"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_exportacion_data_vista}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="233" y="568" width="34" height="13" uuid="c8607fee-1233-42a1-a92f-c63f8ec99256"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_exportacion_cant_ventas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="462" y="568" width="73" height="13" uuid="d1cda7e4-5e70-4b54-b673-562ec2143366"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_exportacion_total_ventas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="88" y="652" width="52" height="13" uuid="7ca996db-68fc-482d-842d-08c1982053f0"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_exportacion_fact_peso_neto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="210" y="652" width="51" height="13" uuid="26a853d5-de8e-4b84-be0a-9d026da8fda6"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_exportacion_fact_peso_caja}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="365" y="652" width="53" height="13" uuid="33e78990-150f-4df1-9194-6638962fb207"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_exportacion_fact_peso_bruto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="167" y="583" width="341" height="13" uuid="4eaffbc9-88cc-4cf6-a464-3d2401a840df"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_exportacion_letras_ventas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="165" y="626" width="204" height="14" uuid="72a60229-fdea-463e-bfac-cfc46fec6a13"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_exportacion_form_pag_lit}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement key="table 1" style="table 1" x="0" y="323" width="555" height="35" uuid="79fc5207-be7f-44b8-b058-ac5c99ea6a65"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="detalle_exportacion" uuid="3d962d1d-4539-4936-b4b0-daf2b3232531">
+						<datasetParameter name="id_deta">
+							<datasetParameterExpression><![CDATA[$P{ide}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="61" uuid="6e0ef7c6-7527-416a-81f5-b013fd8735cb">
+						<jr:columnHeader style="table 1_CH" height="0" rowSpan="1"/>
+						<jr:columnFooter style="table 1_CH" height="0" rowSpan="1"/>
+						<jr:detailCell style="table 1_TD" height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="61" height="34" uuid="bcf021fe-084a-4317-8260-cc2557086462"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{tienda_productos_pro_po}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="41" uuid="9c6f396d-bc0b-465d-ba4f-0064bb16f406">
+						<jr:columnHeader style="table 1_CH" height="0" rowSpan="1"/>
+						<jr:columnFooter style="table 1_CH" height="0" rowSpan="1"/>
+						<jr:detailCell style="table 1_TD" height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="41" height="34" uuid="c05cf53f-dde1-48a6-a7bc-b0ea84947959"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ventas_exportacion_deta_cod_pro}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="45" uuid="d24d2682-2348-4804-b810-d35e5269433f">
+						<jr:columnHeader style="table 1_CH" height="0" rowSpan="1"/>
+						<jr:columnFooter style="table 1_CH" height="0" rowSpan="1"/>
+						<jr:detailCell style="table 1_TD" height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="45" height="34" uuid="bdef7952-cce3-4d59-bf7d-7761a84fbf06"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{tienda_productos_cod_ncm}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="72" uuid="891d0f29-ab18-4a33-b3b3-85c60ee5b157">
+						<jr:columnHeader style="table 1_CH" height="0" rowSpan="1"/>
+						<jr:columnFooter style="table 1_CH" height="0" rowSpan="1"/>
+						<jr:detailCell style="table 1_TD" height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="72" height="34" uuid="d444a2a0-d79c-428a-83c1-fe6d768b99e0"/>
+								<textElement textAlignment="Justified" verticalAlignment="Middle">
+									<font fontName="Arial" size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{tienda_productos_pro_des}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="24" uuid="2d8e892d-0678-4508-9d30-3c0b6360a630">
+						<jr:columnHeader style="table 1_CH" height="0" rowSpan="1"/>
+						<jr:columnFooter style="table 1_CH" height="0" rowSpan="1"/>
+						<jr:detailCell style="table 1_TD" height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="24" height="34" uuid="c0406944-0a1d-47c8-a9d9-14655d4d8f4d"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ventas_exportacion_deta_cant_pro}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="30" uuid="5a084b67-4ef6-4250-9386-5e038a980f4e">
+						<jr:columnHeader style="table 1_CH" height="0" rowSpan="1"/>
+						<jr:columnFooter style="table 1_CH" height="0" rowSpan="1"/>
+						<jr:detailCell style="table 1_TD" height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="30" height="34" uuid="e55eb481-178a-475f-805a-8ad2af01ae60"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{tienda_productos_pro_presenta}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="147" uuid="1a408369-3995-451c-9190-89da9230f41d">
+						<jr:columnHeader style="table 1_CH" height="0" rowSpan="1"/>
+						<jr:columnFooter style="table 1_CH" height="0" rowSpan="1"/>
+						<jr:detailCell style="table 1_TD" height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="147" height="34" uuid="d5d8b20b-0dd5-4ae4-b68b-103f3a390ac7"/>
+								<textElement textAlignment="Justified" verticalAlignment="Middle">
+									<font fontName="Arial" size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{tienda_productos_pro_des_espec}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="31" uuid="92313805-d5ed-412f-b916-a1ef6a8e55c6">
+						<jr:columnHeader style="table 1_CH" height="0" rowSpan="1"/>
+						<jr:columnFooter style="table 1_CH" height="0" rowSpan="1"/>
+						<jr:detailCell style="table 1_TD" height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="29" height="34" uuid="63b773d9-918e-4ae0-99cb-387dbbae83b6"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ventas_exportacion_deta_pre_peso_unit}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="52" uuid="d112bde6-4adb-41d3-b2c3-0b0def3f2b3b">
+						<jr:columnHeader style="table 1_CH" height="0" rowSpan="1"/>
+						<jr:columnFooter style="table 1_CH" height="0" rowSpan="1"/>
+						<jr:detailCell style="table 1_TD" height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="51" height="34" uuid="889d5fa7-211d-46b9-9548-718fc424fcb5"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ventas_exportacion_deta_pre_precio_unit}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="67" uuid="78b3e6dd-16f7-4324-b491-260f3c4f8072">
+						<jr:columnHeader style="table 1_CH" height="0" rowSpan="1"/>
+						<jr:columnFooter style="table 1_CH" height="0" rowSpan="1"/>
+						<jr:detailCell style="table 1_TD" height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="65" height="34" uuid="6b83283e-6b38-411c-b7da-dcb4f3861264"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="7"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ventas_exportacion_deta_pre_sub_total}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="167" y="610" width="54" height="14" uuid="13e6e0d8-0272-4155-a79a-962333d50eb8"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PARAGUAY  /]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="227" y="610" width="138" height="14" uuid="793b1548-bff5-4774-9ffa-6fb01e616a0e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_exportacion_pais_origen}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

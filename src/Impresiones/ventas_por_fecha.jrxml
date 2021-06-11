@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f5a25ac7-ce56-4d2b-92f6-09cc8ec6a991">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="ini" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fin" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     detalle_ventas.`num_bol` AS detalle_ventas_num_bol,
+     detalle_ventas.`cod_pro` AS detalle_ventas_cod_pro,
+     detalle_ventas.`des_pro` AS detalle_ventas_des_pro,
+     detalle_ventas.`cant_pro` AS detalle_ventas_cant_pro,
+     detalle_ventas.`pre_unit` AS detalle_ventas_pre_unit,
+     detalle_ventas.`cant_kg` AS detalle_ventas_cant_kg,
+     detalle_ventas.`pre_venta` AS detalle_ventas_pre_venta,
+     detalle_ventas.`data` AS detalle_ventas_data
+FROM
+     `detalle_ventas` detalle_ventas
+
+where detalle_ventas.`data` between $P{ini} and $P{fin}
+]]>
+	</queryString>
+	<field name="detalle_ventas_num_bol" class="java.lang.String"/>
+	<field name="detalle_ventas_cod_pro" class="java.lang.String"/>
+	<field name="detalle_ventas_des_pro" class="java.lang.String"/>
+	<field name="detalle_ventas_cant_pro" class="java.lang.Integer"/>
+	<field name="detalle_ventas_pre_unit" class="java.lang.String"/>
+	<field name="detalle_ventas_cant_kg" class="java.lang.String"/>
+	<field name="detalle_ventas_pre_venta" class="java.lang.String"/>
+	<field name="detalle_ventas_data" class="java.sql.Date"/>
+	<variable name="Unit." class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="73" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="646" y="0" width="156" height="20" uuid="582d6b8f-0310-4d2c-85fa-f468f20116af"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="17" y="2" width="243" height="22" uuid="a0ba9b6b-1b44-49f1-9106-33d31c6d4738"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estadísticas de productos más vendidos]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="344" splitType="Stretch">
+			<lineChart>
+				<chart>
+					<reportElement x="8" y="0" width="784" height="344" forecolor="#006699" uuid="5e104cf8-813d-4b91-a762-57b0733d2cc6"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{detalle_ventas_des_pro}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{detalle_ventas_cant_pro}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{detalle_ventas_cant_pro}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<linePlot>
+					<plot orientation="Horizontal"/>
+					<categoryAxisFormat>
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</linePlot>
+			</lineChart>
+		</band>
+	</summary>
+</jasperReport>

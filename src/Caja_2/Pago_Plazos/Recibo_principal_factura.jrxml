@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="610" pageHeight="910" columnWidth="610" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" whenResourceMissingType="Empty" uuid="32043ed8-bea6-4f22-a168-89062184f5ba">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="serienro" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\Desarrollo Java\\MiniPunto\\necttic\\src\\Caja_2\\Pago_Plazos\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     almacenes.`alm_cod` AS almacenes_alm_cod,
+     almacenes.`alm_nom` AS almacenes_alm_nom,
+     almacenes.`alm_des` AS almacenes_alm_des,
+     almacenes.`alm_cap` AS almacenes_alm_cap
+FROM
+     `almacenes` almacenes]]>
+	</queryString>
+	<field name="almacenes_alm_cod" class="java.lang.String"/>
+	<field name="almacenes_alm_nom" class="java.lang.String"/>
+	<field name="almacenes_alm_des" class="java.lang.String"/>
+	<field name="almacenes_alm_cap" class="java.lang.String"/>
+	<title>
+		<band height="680" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="610" height="80" uuid="bdf5878e-fa4a-4cf8-8dd8-acb36c6fa9db"/>
+				<subreportParameter name="serie">
+					<subreportParameterExpression><![CDATA[$P{serienro}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Recibo_sub_factura.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="0" y="295" width="610" height="63" uuid="c4e57471-e89c-46ec-94a1-c3d49e620873"/>
+				<subreportParameter name="serie">
+					<subreportParameterExpression><![CDATA[$P{serienro}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Recibo_sub_factura.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="0" y="593" width="610" height="75" uuid="5ef1d03a-2a33-43ca-b6bd-0fd3262a220d"/>
+				<subreportParameter name="serie">
+					<subreportParameterExpression><![CDATA[$P{serienro}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Recibo_sub_factura.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<pageHeader>
+		<band/>
+	</pageHeader>
+	<columnHeader>
+		<band/>
+	</columnHeader>
+</jasperReport>

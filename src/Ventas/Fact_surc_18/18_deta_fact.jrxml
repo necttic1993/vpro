@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="300" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="cc778f16-757e-4593-a766-e931922bc98b">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 5">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 5_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 5_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 5_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<subDataset name="detalle" uuid="9079170c-a1b4-4101-9efe-0cc25e62b12f">
+		<parameter name="ide" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[SELECT
+     ventas_facturacion_deta_surc_18.`num_bol` AS ventas_facturacion_deta_surc_18_num_bol,
+     ventas_facturacion_deta_surc_18.`cod_pro` AS ventas_facturacion_deta_surc_18_cod_pro,
+     ventas_facturacion_deta_surc_18.`des_pro` AS ventas_facturacion_deta_surc_18_des_pro,
+     ventas_facturacion_deta_surc_18.`iva_por` AS ventas_facturacion_deta_surc_18_iva_por,
+     ventas_facturacion_deta_surc_18.`cant_pro` AS ventas_facturacion_deta_surc_18_cant_pro,
+     ventas_facturacion_deta_surc_18.`pre_unit` AS ventas_facturacion_deta_surc_18_pre_unit,
+     ventas_facturacion_deta_surc_18.`pre_exentas` AS ventas_facturacion_deta_surc_18_pre_exentas,
+     ventas_facturacion_deta_surc_18.`pre_5` AS ventas_facturacion_deta_surc_18_pre_5,
+     ventas_facturacion_deta_surc_18.`pre_10` AS ventas_facturacion_deta_surc_18_pre_10,
+     ventas_facturacion_deta_surc_18.`data` AS ventas_facturacion_deta_surc_18_data,
+     ventas_facturacion_deta_surc_18.`id_det` AS ventas_facturacion_deta_surc_18_id_det
+FROM
+     `ventas_facturacion_deta_surc_18` ventas_facturacion_deta_surc_18
+WHERE
+     ventas_facturacion_deta_surc_18.`num_bol` = $P{ide}]]>
+		</queryString>
+		<field name="ventas_facturacion_deta_surc_18_num_bol" class="java.lang.String"/>
+		<field name="ventas_facturacion_deta_surc_18_cod_pro" class="java.lang.String"/>
+		<field name="ventas_facturacion_deta_surc_18_des_pro" class="java.lang.String"/>
+		<field name="ventas_facturacion_deta_surc_18_iva_por" class="java.lang.String"/>
+		<field name="ventas_facturacion_deta_surc_18_cant_pro" class="java.lang.Integer"/>
+		<field name="ventas_facturacion_deta_surc_18_pre_unit" class="java.lang.String"/>
+		<field name="ventas_facturacion_deta_surc_18_pre_exentas" class="java.lang.String"/>
+		<field name="ventas_facturacion_deta_surc_18_pre_5" class="java.lang.String"/>
+		<field name="ventas_facturacion_deta_surc_18_pre_10" class="java.lang.String"/>
+		<field name="ventas_facturacion_deta_surc_18_data" class="java.sql.Date"/>
+		<field name="ventas_facturacion_deta_surc_18_id_det" class="java.lang.Integer"/>
+	</subDataset>
+	<parameter name="codigp" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tienda_clientes.`cli_cod` AS tienda_clientes_cli_cod,
+     tienda_clientes.`cli_nombre` AS tienda_clientes_cli_nombre,
+     tienda_clientes.`cli_ruc` AS tienda_clientes_cli_ruc,
+     tienda_clientes.`cli_razon` AS tienda_clientes_cli_razon,
+     tienda_clientes.`cli_contacto` AS tienda_clientes_cli_contacto,
+     tienda_clientes.`cli_email` AS tienda_clientes_cli_email,
+     tienda_clientes.`cli_dir` AS tienda_clientes_cli_dir,
+     tienda_clientes.`cli_tipo` AS tienda_clientes_cli_tipo,
+     tienda_clientes.`cli_lim_cre` AS tienda_clientes_cli_lim_cre,
+     tienda_clientes.`cli_dias_cre` AS tienda_clientes_cli_dias_cre,
+     tienda_clientes.`cli_status` AS tienda_clientes_cli_status,
+     tienda_clientes.`cli_nota_cre` AS tienda_clientes_cli_nota_cre,
+     ventas_facturacion_surc_18.`num_bol` AS ventas_facturacion_surc_18_num_bol,
+     ventas_facturacion_surc_18.`cod_cli_ventas` AS ventas_facturacion_surc_18_cod_cli_ventas,
+     ventas_facturacion_surc_18.`nom_cli_ventas` AS ventas_facturacion_surc_18_nom_cli_ventas,
+     ventas_facturacion_surc_18.`forma_pag_efectivo` AS ventas_facturacion_surc_18_forma_pag_efectivo,
+     ventas_facturacion_surc_18.`forma_pag_credito` AS ventas_facturacion_surc_18_forma_pag_credito,
+     ventas_facturacion_surc_18.`total_ventas` AS ventas_facturacion_surc_18_total_ventas,
+     ventas_facturacion_surc_18.`fecha_ventas` AS ventas_facturacion_surc_18_fecha_ventas,
+     ventas_facturacion_surc_18.`fecha_control_ventas` AS ventas_facturacion_surc_18_fecha_control_ventas,
+     ventas_facturacion_surc_18.`user_ventas` AS ventas_facturacion_surc_18_user_ventas,
+     ventas_facturacion_surc_18.`cant_ventas` AS ventas_facturacion_surc_18_cant_ventas,
+     ventas_facturacion_surc_18.`letras_ventas` AS ventas_facturacion_surc_18_letras_ventas,
+     ventas_facturacion_surc_18.`nro_seq_ventas` AS ventas_facturacion_surc_18_nro_seq_ventas,
+     ventas_facturacion_surc_18.`nro_estable_ventas` AS ventas_facturacion_surc_18_nro_estable_ventas,
+     ventas_facturacion_surc_18.`nro_fact_ventas` AS ventas_facturacion_surc_18_nro_fact_ventas,
+     ventas_facturacion_surc_18.`nro_timbra_ventas` AS ventas_facturacion_surc_18_nro_timbra_ventas,
+     ventas_facturacion_surc_18.`fact_sub_exe` AS ventas_facturacion_surc_18_fact_sub_exe,
+     ventas_facturacion_surc_18.`fact_sub_5` AS ventas_facturacion_surc_18_fact_sub_5,
+     ventas_facturacion_surc_18.`fact_sub_10` AS ventas_facturacion_surc_18_fact_sub_10,
+     ventas_facturacion_surc_18.`total_iva_5` AS ventas_facturacion_surc_18_total_iva_5,
+     ventas_facturacion_surc_18.`total_iva_10` AS ventas_facturacion_surc_18_total_iva_10,
+     ventas_facturacion_surc_18.`total_iva` AS ventas_facturacion_surc_18_total_iva,
+     ventas_facturacion_surc_18.`data_vista` AS ventas_facturacion_surc_18_data_vista,
+     ventas_facturacion_surc_18.`simb_moneda` AS ventas_facturacion_surc_18_simb_moneda,
+     ventas_facturacion_surc_18.`form_pag_lit` AS ventas_facturacion_surc_18_form_pag_lit,
+     ventas_facturacion_surc_18.`estado_fact` AS ventas_facturacion_surc_18_estado_fact,
+     ventas_facturacion_surc_18.`dia_lit` AS ventas_facturacion_surc_18_dia_lit,
+     ventas_facturacion_surc_18.`mes_lit` AS ventas_facturacion_surc_18_mes_lit,
+     ventas_facturacion_surc_18.`years_lit` AS ventas_facturacion_surc_18_years_lit,
+     ventas_facturacion_surc_18.`seq_pro` AS ventas_facturacion_surc_18_seq_pro,
+     ventas_facturacion_surc_18.`saldo_cred` AS ventas_facturacion_surc_18_saldo_cred
+FROM
+     `tienda_clientes` tienda_clientes inner join 
+     `ventas_facturacion_surc_18` ventas_facturacion_surc_18 on tienda_clientes.`cli_cod`=ventas_facturacion_surc_18.`cod_cli_ventas`
+WHERE
+     ventas_facturacion_surc_18.`num_bol` = $P{codigp}]]>
+	</queryString>
+	<field name="tienda_clientes_cli_cod" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_nombre" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_ruc" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_razon" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_contacto" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_email" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_dir" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_tipo" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_lim_cre" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_dias_cre" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_status" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_nota_cre" class="java.lang.String"/>
+	<field name="ventas_facturacion_surc_18_num_bol" class="java.lang.String"/>
+	<field name="ventas_facturacion_surc_18_cod_cli_ventas" class="java.lang.String"/>
+	<field name="ventas_facturacion_surc_18_nom_cli_ventas" class="java.lang.String"/>
+	<field name="ventas_facturacion_surc_18_forma_pag_efectivo" class="java.lang.String"/>
+	<field name="ventas_facturacion_surc_18_forma_pag_credito" class="java.lang.String"/>
+	<field name="ventas_facturacion_surc_18_total_ventas" class="java.lang.String"/>
+	<field name="ventas_facturacion_surc_18_fecha_ventas" class="java.sql.Date"/>
+	<field name="ventas_facturacion_surc_18_fecha_control_ventas" class="java.sql.Timestamp"/>
+	<field name="ventas_facturacion_surc_18_user_ventas" class="java.lang.String"/>
+	<field name="ventas_facturacion_surc_18_cant_ventas" class="java.lang.Integer"/>
+	<field name="ventas_facturacion_surc_18_letras_ventas" class="java.lang.String"/>
+	<field name="ventas_facturacion_surc_18_nro_seq_ventas" class="java.lang.String"/>
+	<field name="ventas_facturacion_surc_18_nro_estable_ventas" class="java.lang.String"/>
+	<field name="ventas_facturacion_surc_18_nro_fact_ventas" class="java.lang.String"/>
+	<field name="ventas_facturacion_surc_18_nro_timbra_ventas" class="java.lang.String"/>
+	<field name="ventas_facturacion_surc_18_fact_sub_exe" class="java.lang.String"/>
+	<field name="ventas_facturacion_surc_18_fact_sub_5" class="java.lang.String"/>
+	<field name="ventas_facturacion_surc_18_fact_sub_10" class="java.lang.String"/>
+	<field name="ventas_facturacion_surc_18_total_iva_5" class="java.lang.String"/>
+	<field name="ventas_facturacion_surc_18_total_iva_10" class="java.lang.String"/>
+	<field name="ventas_facturacion_surc_18_total_iva" class="java.lang.String"/>
+	<field name="ventas_facturacion_surc_18_data_vista" class="java.lang.String"/>
+	<field name="ventas_facturacion_surc_18_simb_moneda" class="java.lang.String"/>
+	<field name="ventas_facturacion_surc_18_form_pag_lit" class="java.lang.String"/>
+	<field name="ventas_facturacion_surc_18_estado_fact" class="java.lang.String"/>
+	<field name="ventas_facturacion_surc_18_dia_lit" class="java.lang.String"/>
+	<field name="ventas_facturacion_surc_18_mes_lit" class="java.lang.String"/>
+	<field name="ventas_facturacion_surc_18_years_lit" class="java.lang.String"/>
+	<field name="ventas_facturacion_surc_18_seq_pro" class="java.lang.String"/>
+	<field name="ventas_facturacion_surc_18_saldo_cred" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="260" splitType="Stretch">
+			<textField>
+				<reportElement x="101" y="54" width="174" height="10" uuid="b842e8ef-8f1f-498c-8679-98dd702ab5af"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tienda_clientes_cli_razon}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="81" y="66" width="194" height="10" uuid="ef0e7e93-6ce4-44d2-91c8-35983591ef0a"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tienda_clientes_cli_dir}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="127" y="237" width="94" height="10" uuid="76e73c23-3671-492d-ac0d-ec6ed0dcdebb"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_surc_18_total_iva_5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="252" y="237" width="100" height="10" uuid="a6c80652-6eba-4989-86fd-5e3906cc2776"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_surc_18_total_iva_10}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="368" y="237" width="100" height="10" uuid="f7532263-1a0a-4586-8a33-26e121cae7d6"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_surc_18_total_iva}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="81" y="43" width="20" height="10" uuid="3d4c143e-7b48-4f69-9376-476cc30f8746"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_surc_18_dia_lit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="141" y="43" width="80" height="10" uuid="09eeb86a-204e-4f4e-823b-eec54f03bd0b"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_surc_18_mes_lit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="237" y="43" width="40" height="10" uuid="f4217c65-7941-409d-ae72-31331b8f341c"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_surc_18_years_lit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="421" y="56" width="100" height="10" uuid="be626f86-9147-4670-9d18-241cda3f9bbd"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tienda_clientes_cli_ruc}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="534" y="43" width="21" height="10" uuid="9e03c4d2-d4b1-4c43-8c76-b7f0c5fd1cd3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_surc_18_forma_pag_credito}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="475" y="43" width="17" height="10" uuid="daf9032f-9042-4177-9b16-f210fd221081"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_surc_18_forma_pag_efectivo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="277" y="66" width="100" height="10" uuid="98c29263-8790-4787-bcd3-ebf0211b1156"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tienda_clientes_cli_contacto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="217" width="353" height="10" uuid="1f84fde0-74ce-4f8b-bd5e-fa7917e4efc4"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_surc_18_letras_ventas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="488" y="217" width="66" height="10" uuid="354a65a6-98fc-428a-aa92-f713020c5117"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_surc_18_total_ventas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="344" y="197" width="77" height="10" uuid="5587c05f-8a99-4ff1-b788-27dce65ccdad"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_surc_18_fact_sub_exe}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="488" y="197" width="66" height="10" uuid="e48b851a-dc7f-4661-9ca0-640c0b52641e"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_surc_18_fact_sub_10}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="421" y="197" width="58" height="10" uuid="aeb62989-cf36-4d9e-86fd-69741ebf54ea"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_surc_18_fact_sub_5}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement key="table 5" style="table 5" x="0" y="96" width="550" height="7" uuid="d8ed4463-f34e-4776-90c0-6a54edfd010d"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="detalle" uuid="7aa78fc0-e226-4468-aa24-a3a95dca8fa1">
+						<datasetParameter name="ide">
+							<datasetParameterExpression><![CDATA[$P{codigp}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="61" uuid="8a805ff1-5d42-4206-826d-005caa513306">
+						<jr:detailCell style="table 5_TD" height="7" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="58" height="7" uuid="893cc167-7aa7-4625-b6b8-776e3c5e888c"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="6" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ventas_facturacion_deta_surc_18_cod_pro}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="50" uuid="60a211a9-5951-4f20-ab97-52949ec5ab79">
+						<jr:detailCell style="table 5_TD" height="7" rowSpan="1">
+							<textField>
+								<reportElement x="4" y="0" width="46" height="7" uuid="f6c1617a-e1c8-490e-a988-3f8879ce2b4a"/>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" size="6" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ventas_facturacion_deta_surc_18_cant_pro}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="197" uuid="ad24067d-13ed-4288-aadf-633647d7f464">
+						<jr:detailCell style="table 5_TD" height="7" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="197" height="7" uuid="74258620-5a1a-45c0-b488-f0ae05837372"/>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" size="6" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ventas_facturacion_deta_surc_18_des_pro}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="68" uuid="f4798684-cb25-458b-8178-b6d79c8cf203">
+						<jr:detailCell style="table 5_TD" height="7" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="68" height="7" uuid="fd43d0bd-e275-4ee1-a732-1adfc98cf183"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="Arial" size="6" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ventas_facturacion_deta_surc_18_pre_unit}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="50" uuid="377d7628-1957-48dc-b160-d72bd1b21b16">
+						<jr:detailCell style="table 5_TD" height="7" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="49" height="7" uuid="a7d16367-9fe1-4722-8fcf-14e2674f549b"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="Arial" size="6" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ventas_facturacion_deta_surc_18_pre_exentas}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="63" uuid="8d9c1d1a-d575-4d19-8627-e3b7f3e11f30">
+						<jr:detailCell style="table 5_TD" height="7" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="52" height="7" uuid="0eceefe4-e85b-463a-9fe6-652030af783b"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="Arial" size="6" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ventas_facturacion_deta_surc_18_pre_5}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="66" uuid="32dd3a29-e21c-4d9d-bca4-2b2ace9a4ad2">
+						<jr:detailCell style="table 5_TD" height="7" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="65" height="7" uuid="ba65f198-debc-4d7b-8404-881efe85bc9b"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="Arial" size="6" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ventas_facturacion_deta_surc_18_pre_10}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<textField>
+				<reportElement x="104" y="217" width="26" height="10" uuid="f6c7330d-c5b9-42c3-adf0-9f21cdd83ab3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_surc_18_simb_moneda}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="200" pageHeight="819" columnWidth="200" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isSummaryNewPage="true" isIgnorePagination="true" uuid="7ce405cb-6911-406c-a0f1-1bb9c739744b">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="total_gs" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="cliente" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fecha_ini" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fecha_fin" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="est" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="forma" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     ventas.`num_bol` AS ventas_num_bol,
+     ventas.`cod_cli_ventas` AS ventas_cod_cli_ventas,
+     ventas.`nom_cli_ventas` AS ventas_nom_cli_ventas,
+     ventas.`forma_pag_ventas` AS ventas_forma_pag_ventas,
+     ventas.`dias_plazo_ventas` AS ventas_dias_plazo_ventas,
+     ventas.`total_ventas` AS ventas_total_ventas,
+     ventas.`estado_ventas` AS ventas_estado_ventas,
+     ventas.`fecha_ventas` AS ventas_fecha_ventas,
+     ventas.`fecha_control_ventas` AS ventas_fecha_control_ventas,
+     ventas.`user_ventas` AS ventas_user_ventas,
+     ventas.`almacen_ventas` AS ventas_almacen_ventas,
+     ventas.`cant_ventas` AS ventas_cant_ventas,
+     empresas.`id_empre` AS empresas_id_empre,
+     empresas.`emp_nom` AS empresas_emp_nom,
+     empresas.`emp_des` AS empresas_emp_des,
+     empresas.`emp_imag` AS empresas_emp_imag
+FROM
+     `ventas` ventas,
+     `empresas` empresas
+WHERE
+     ventas.`nom_cli_ventas` = $P{cliente}
+     and ventas.`forma_pag_ventas` = $P{forma}
+     and ventas.`estado_ventas` = $P{est}
+     and ventas.`fecha_ventas` BETWEEN $P{fecha_ini} and $P{fecha_fin}]]>
+	</queryString>
+	<field name="ventas_num_bol" class="java.lang.String"/>
+	<field name="ventas_cod_cli_ventas" class="java.lang.String"/>
+	<field name="ventas_nom_cli_ventas" class="java.lang.String"/>
+	<field name="ventas_forma_pag_ventas" class="java.lang.String"/>
+	<field name="ventas_dias_plazo_ventas" class="java.lang.String"/>
+	<field name="ventas_total_ventas" class="java.lang.String"/>
+	<field name="ventas_estado_ventas" class="java.lang.String"/>
+	<field name="ventas_fecha_ventas" class="java.sql.Date"/>
+	<field name="ventas_fecha_control_ventas" class="java.sql.Timestamp"/>
+	<field name="ventas_user_ventas" class="java.lang.String"/>
+	<field name="ventas_almacen_ventas" class="java.lang.String"/>
+	<field name="ventas_cant_ventas" class="java.lang.String"/>
+	<field name="empresas_id_empre" class="java.lang.Integer"/>
+	<field name="empresas_emp_nom" class="java.lang.String"/>
+	<field name="empresas_emp_des" class="java.lang.String"/>
+	<field name="empresas_emp_imag" class="java.io.InputStream"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="189" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="123" width="200" height="18" uuid="7ebe4ff1-eeb4-4c26-9f26-956fed33e35f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Courier New" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Extracto de Clientes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="160" width="38" height="13" uuid="15568565-029d-4a07-b79c-0e15061be749"/>
+				<textElement>
+					<font fontName="Courier New" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Desde:]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="141" width="200" height="10" uuid="e435f35c-e70b-47ac-a601-c9d587868212"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Courier New" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="4" y="173" width="52" height="16" uuid="24a9e99e-3fb7-4ed4-92be-fae3c2bf710b"/>
+				<textElement>
+					<font fontName="Courier New" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Cliente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="98" y="160" width="38" height="13" uuid="203f18ad-c04c-44c9-aae6-738fcd70ed43"/>
+				<textElement>
+					<font fontName="Courier New" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Hasta:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="56" y="173" width="136" height="16" uuid="0de43807-992e-478c-9237-16640a96217e"/>
+				<textElement>
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="42" y="160" width="56" height="13" uuid="fab2c834-96ea-4687-919c-d3d3c608e090"/>
+				<textElement>
+					<font fontName="Courier New" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fecha_ini}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="136" y="160" width="56" height="13" uuid="c375d194-7664-4d6f-9538-80caa407aad8"/>
+				<textElement>
+					<font fontName="Courier New" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fecha_fin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="96" width="200" height="25" uuid="3881f301-9f4c-4322-b118-29f9192c3eda"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Courier New" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empresas_emp_nom}]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="2" y="0" width="198" height="88" uuid="cae9f0b9-cc42-48ca-8522-8d5602ebd278"/>
+				<imageExpression><![CDATA[$F{empresas_emp_imag}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="29" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="200" height="13" uuid="e3c75cc3-4168-464a-a468-ceb6c15cd252"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[==============================================]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="13" width="62" height="16" uuid="0c712d38-81ef-4bd9-ad8a-e333e8182afa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nro Nota]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="66" y="13" width="56" height="16" uuid="828ca4f7-44c1-48b4-8d12-536b7d960d7c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="122" y="13" width="70" height="16" uuid="bf7603f3-86f7-468b-bdd2-64cb506f5c10"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[valor ]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="12" splitType="Stretch">
+			<textField>
+				<reportElement x="4" y="0" width="62" height="12" uuid="6bf2c746-2a1b-43e4-b9e0-4117ddd2b515"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_num_bol}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="66" y="0" width="56" height="12" uuid="2fe6c74b-c3ea-4351-be75-420745b637a2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Courier New" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_fecha_ventas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="122" y="0" width="70" height="12" uuid="44cca416-8096-4f0b-9ec1-f4a36eff5c54"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Courier New" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_total_ventas}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="10" width="90" height="12" uuid="13f26a42-de8a-4cb8-9408-334212e7ea4c"/>
+				<textElement>
+					<font fontName="Courier New" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[TOTAL  Gs.:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="200" height="11" uuid="03824800-0e7e-480f-ab64-13b34565e543"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[----------------------------------------------------------------------------------]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="92" y="10" width="100" height="12" uuid="db6f463f-c1dd-47ff-a2cf-5887441e0a9f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{total_gs}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="45" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="18" width="200" height="11" uuid="4f7bf0fb-75af-44c7-b0c9-e4f0e3271ac2"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[----------------------------------------------------------------------------------]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

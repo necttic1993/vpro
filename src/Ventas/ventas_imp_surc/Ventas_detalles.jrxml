@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="555" pageHeight="802" columnWidth="535" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="8a942c2a-2ca2-4098-8612-afff1c839612">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="id_deta" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     ventas_detalles.`num_bol` AS ventas_detalles_num_bol,
+     ventas_detalles.`cod_pro` AS ventas_detalles_cod_pro,
+     ventas_detalles.`des_pro` AS ventas_detalles_des_pro,
+     ventas_detalles.`cant_pro` AS ventas_detalles_cant_pro,
+     ventas_detalles.`pre_unit` AS ventas_detalles_pre_unit,
+     ventas_detalles.`cant_kg` AS ventas_detalles_cant_kg,
+     ventas_detalles.`pre_venta` AS ventas_detalles_pre_venta,
+     ventas_detalles.`data` AS ventas_detalles_data,
+     ventas_detalles.`id_ven_deta` AS ventas_detalles_id_ven_deta
+FROM
+     `ventas_detalles` ventas_detalles
+where   
+      ventas_detalles.`num_bol` =$P{id_deta}]]>
+	</queryString>
+	<field name="ventas_detalles_num_bol" class="java.lang.String"/>
+	<field name="ventas_detalles_cod_pro" class="java.lang.String"/>
+	<field name="ventas_detalles_des_pro" class="java.lang.String"/>
+	<field name="ventas_detalles_cant_pro" class="java.lang.Integer"/>
+	<field name="ventas_detalles_pre_unit" class="java.lang.String"/>
+	<field name="ventas_detalles_cant_kg" class="java.lang.String"/>
+	<field name="ventas_detalles_pre_venta" class="java.lang.String"/>
+	<field name="ventas_detalles_data" class="java.sql.Date"/>
+	<field name="ventas_detalles_id_ven_deta" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="13" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="75" height="12" uuid="8045e965-0526-4940-9208-5471fa569a4b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_detalles_cod_pro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="75" y="0" width="226" height="12" uuid="af199176-2582-4dfd-94bc-d9ff91721ad2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_detalles_des_pro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="301" y="0" width="77" height="12" uuid="94cf8cfc-f81b-4d91-bff6-711bf35eba88"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_detalles_pre_unit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="378" y="0" width="41" height="12" uuid="60235246-3c14-4fd5-ac9f-c5b0e1525b5b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_detalles_cant_pro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="419" y="0" width="77" height="12" uuid="1926fb3b-9c2f-49e1-8830-d090acc18aa1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_detalles_pre_venta}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

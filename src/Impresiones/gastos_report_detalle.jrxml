@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="gastos_report_detalle" pageWidth="500" pageHeight="802" columnWidth="500" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="c06a4080-f8d1-4e96-9bfd-8c87bd278170">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="id_deta" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     gastos_detalles.`id_seque` AS gastos_detalles_id_seque,
+     gastos_detalles.`id_gastos` AS gastos_detalles_id_gastos,
+     gastos_detalles.`des_deta_gas` AS gastos_detalles_des_deta_gas,
+     gastos_detalles.`pre_unit` AS gastos_detalles_pre_unit,
+     gastos_detalles.`cant` AS gastos_detalles_cant,
+     gastos_detalles.`pre_venta` AS gastos_detalles_pre_venta,
+     gastos_detalles.`data_det` AS gastos_detalles_data_det
+FROM
+     `gastos_detalles` gastos_detalles
+where 
+gastos_detalles.`id_gastos`=$P{id_deta}]]>
+	</queryString>
+	<field name="gastos_detalles_id_seque" class="java.lang.Integer"/>
+	<field name="gastos_detalles_id_gastos" class="java.lang.String"/>
+	<field name="gastos_detalles_des_deta_gas" class="java.lang.String"/>
+	<field name="gastos_detalles_pre_unit" class="java.lang.String"/>
+	<field name="gastos_detalles_cant" class="java.lang.String"/>
+	<field name="gastos_detalles_pre_venta" class="java.lang.String"/>
+	<field name="gastos_detalles_data_det" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="14" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="392" y="0" width="102" height="14" forecolor="#FFFFFF" backcolor="#006699" uuid="c9024005-8334-48d7-9ccf-cd56f949409a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="345" y="0" width="58" height="14" forecolor="#FFFFFF" backcolor="#006699" uuid="0fb64dd7-6a2c-42b5-968b-9dffe078647c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Cant.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="232" y="0" width="113" height="14" forecolor="#FFFFFF" backcolor="#006699" uuid="f65da408-7470-4a43-8de5-00f5fe7cda89"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Precio Unit.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="4" y="0" width="230" height="14" forecolor="#FFFFFF" backcolor="#006699" uuid="860a3b4f-f669-4ba4-9082-52ebce6b5eb6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Descripción]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<rectangle>
+				<reportElement x="5" y="0" width="489" height="15" uuid="6c15e7ea-ad4d-4b02-8cb1-c9df78b52353"/>
+			</rectangle>
+			<textField>
+				<reportElement x="5" y="0" width="229" height="15" uuid="4ad37b59-9d9f-43b1-936b-b7a73ed6dd20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gastos_detalles_des_deta_gas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="245" y="0" width="100" height="15" uuid="c918ce41-3f2b-430d-9669-226f6498a9d3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gastos_detalles_pre_unit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="345" y="0" width="47" height="15" uuid="04a4b1da-f832-4f4d-a237-9b063c5bcf6c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gastos_detalles_cant}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="403" y="0" width="89" height="15" uuid="b19fee71-1584-4d5f-9047-73fa67cac9f3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gastos_detalles_pre_venta}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

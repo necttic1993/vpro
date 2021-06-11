@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="185" pageHeight="1155" columnWidth="183" leftMargin="1" rightMargin="1" topMargin="1" bottomMargin="1" isIgnorePagination="true" uuid="7ce405cb-6911-406c-a0f1-1bb9c739744b">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="339"/>
+	<parameter name="codigo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     empresas.`id_empre` AS empresas_id_empre,
+     empresas.`emp_nom` AS empresas_emp_nom,
+     empresas.`emp_des` AS empresas_emp_des,
+     empresas.`nro_timbra` AS empresas_nro_timbra,
+     empresas.`nro_estable` AS empresas_nro_estable,
+     empresas.`nro_sequencia` AS empresas_nro_sequencia,
+     empresas.`dir_empre` AS empresas_dir_empre,
+     empresas.`fecha_desde` AS empresas_fecha_desde,
+     empresas.`fecha_hasta` AS empresas_fecha_hasta,
+     tienda_clientes.`cli_cod` AS tienda_clientes_cli_cod,
+     tienda_clientes.`cli_nombre` AS tienda_clientes_cli_nombre,
+     tienda_clientes.`cli_ruc` AS tienda_clientes_cli_ruc,
+     tienda_clientes.`cli_razon` AS tienda_clientes_cli_razon,
+     ventas_facturacion_deta.`num_bol` AS ventas_facturacion_deta_num_bol,
+     ventas_facturacion_deta.`cod_pro` AS ventas_facturacion_deta_cod_pro,
+     ventas_facturacion_deta.`des_pro` AS ventas_facturacion_deta_des_pro,
+     ventas_facturacion_deta.`cant_pro` AS ventas_facturacion_deta_cant_pro,
+     ventas_facturacion_deta.`pre_unit` AS ventas_facturacion_deta_pre_unit,  
+     ventas_facturacion_deta.`data` AS ventas_facturacion_deta_data,
+     ventas_facturacion_deta.`id_det` AS ventas_facturacion_deta_id_det,
+     ventas_facturacion.`num_bol` AS ventas_facturacion_num_bol,
+     ventas_facturacion.`cod_cli_ventas` AS ventas_facturacion_cod_cli_ventas,
+     ventas_facturacion.`nom_cli_ventas` AS ventas_facturacion_nom_cli_ventas,
+     ventas_facturacion.`total_ventas` AS ventas_facturacion_total_ventas,
+     ventas_facturacion.`fecha_ventas` AS ventas_facturacion_fecha_ventas,
+     ventas_facturacion.`fecha_control_ventas` AS ventas_facturacion_fecha_control_ventas,
+     ventas_facturacion.`user_ventas` AS ventas_facturacion_user_ventas,  
+     ventas_facturacion.`cant_ventas` AS ventas_facturacion_cant_ventas,
+     ventas_facturacion.`letras_ventas` AS ventas_facturacion_letras_ventas,
+     ventas_facturacion.`nro_seq_ventas` AS ventas_facturacion_nro_seq_ventas,
+     ventas_facturacion.`nro_estable_ventas` AS ventas_facturacion_nro_estable_ventas,
+     ventas_facturacion.`nro_fact_ventas` AS ventas_facturacion_nro_fact_ventas,
+     ventas_facturacion.`nro_timbra_ventas` AS ventas_facturacion_nro_timbra_ventas,
+     ventas_facturacion.`fact_sub_exe` AS ventas_facturacion_fact_sub_exe,
+     ventas_facturacion.`fact_sub_5` AS ventas_facturacion_fact_sub_5,
+     ventas_facturacion.`fact_sub_10` AS ventas_facturacion_fact_sub_10, 
+     ventas_facturacion.`total_iva_10` AS ventas_facturacion_total_iva_10,
+     ventas_facturacion.`total_iva_5` AS ventas_facturacion_total_iva_5,
+     ventas_facturacion.`simb_moneda` AS ventas_facturacion_simb_moneda,
+     ventas_facturacion_deta.`pre_10` AS ventas_facturacion_deta_pre_10,
+     ventas_facturacion_deta.`pre_5` AS ventas_facturacion_deta_pre_5,
+     ventas_facturacion_deta.`pre_exentas` AS ventas_facturacion_deta_pre_exentas,
+     ventas_facturacion_deta.`iva_por` AS ventas_facturacion_deta_iva_por,
+     ventas_facturacion.`forma_pag_credito` AS ventas_facturacion_forma_pag_credito,
+     ventas_facturacion.`forma_pag_efectivo` AS ventas_facturacion_forma_pag_efectivo,
+     ventas_facturacion.`total_iva` AS ventas_facturacion_total_iva,
+     ventas_facturacion.`data_vista` AS ventas_facturacion_data_vista,
+     ventas_facturacion.`form_pag_lit` AS ventas_facturacion_form_pag_lit
+FROM
+     `ventas_facturacion` ventas_facturacion INNER JOIN `ventas_facturacion_deta` ventas_facturacion_deta ON ventas_facturacion.`num_bol` = ventas_facturacion_deta.`num_bol`
+     INNER JOIN `tienda_clientes` tienda_clientes ON ventas_facturacion.`cod_cli_ventas` = tienda_clientes.`cli_cod`,
+     `empresas` empresas
+WHERE
+  ventas_facturacion.`nro_fact_ventas` = $P{codigo}]]>
+	</queryString>
+	<field name="empresas_id_empre" class="java.lang.Integer"/>
+	<field name="empresas_emp_nom" class="java.lang.String"/>
+	<field name="empresas_emp_des" class="java.lang.String"/>
+	<field name="empresas_nro_timbra" class="java.lang.String"/>
+	<field name="empresas_nro_estable" class="java.lang.String"/>
+	<field name="empresas_nro_sequencia" class="java.lang.String"/>
+	<field name="empresas_dir_empre" class="java.lang.String"/>
+	<field name="empresas_fecha_desde" class="java.lang.String"/>
+	<field name="empresas_fecha_hasta" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_cod" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_nombre" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_ruc" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_razon" class="java.lang.String"/>
+	<field name="ventas_facturacion_deta_num_bol" class="java.lang.String"/>
+	<field name="ventas_facturacion_deta_cod_pro" class="java.lang.String"/>
+	<field name="ventas_facturacion_deta_des_pro" class="java.lang.String"/>
+	<field name="ventas_facturacion_deta_cant_pro" class="java.lang.Integer"/>
+	<field name="ventas_facturacion_deta_pre_unit" class="java.lang.String"/>
+	<field name="ventas_facturacion_deta_data" class="java.sql.Date"/>
+	<field name="ventas_facturacion_deta_id_det" class="java.lang.Integer"/>
+	<field name="ventas_facturacion_num_bol" class="java.lang.String"/>
+	<field name="ventas_facturacion_cod_cli_ventas" class="java.lang.String"/>
+	<field name="ventas_facturacion_nom_cli_ventas" class="java.lang.String"/>
+	<field name="ventas_facturacion_total_ventas" class="java.lang.String"/>
+	<field name="ventas_facturacion_fecha_ventas" class="java.sql.Date"/>
+	<field name="ventas_facturacion_fecha_control_ventas" class="java.sql.Timestamp"/>
+	<field name="ventas_facturacion_user_ventas" class="java.lang.String"/>
+	<field name="ventas_facturacion_cant_ventas" class="java.lang.Integer"/>
+	<field name="ventas_facturacion_letras_ventas" class="java.lang.String"/>
+	<field name="ventas_facturacion_nro_seq_ventas" class="java.lang.String"/>
+	<field name="ventas_facturacion_nro_estable_ventas" class="java.lang.String"/>
+	<field name="ventas_facturacion_nro_fact_ventas" class="java.lang.String"/>
+	<field name="ventas_facturacion_nro_timbra_ventas" class="java.lang.String"/>
+	<field name="ventas_facturacion_fact_sub_exe" class="java.lang.String"/>
+	<field name="ventas_facturacion_fact_sub_5" class="java.lang.String"/>
+	<field name="ventas_facturacion_fact_sub_10" class="java.lang.String"/>
+	<field name="ventas_facturacion_total_iva_10" class="java.lang.String"/>
+	<field name="ventas_facturacion_total_iva_5" class="java.lang.String"/>
+	<field name="ventas_facturacion_simb_moneda" class="java.lang.String"/>
+	<field name="ventas_facturacion_deta_pre_10" class="java.lang.String"/>
+	<field name="ventas_facturacion_deta_pre_5" class="java.lang.String"/>
+	<field name="ventas_facturacion_deta_pre_exentas" class="java.lang.String"/>
+	<field name="ventas_facturacion_deta_iva_por" class="java.lang.String"/>
+	<field name="ventas_facturacion_forma_pag_credito" class="java.lang.String"/>
+	<field name="ventas_facturacion_forma_pag_efectivo" class="java.lang.String"/>
+	<field name="ventas_facturacion_total_iva" class="java.lang.String"/>
+	<field name="ventas_facturacion_data_vista" class="java.lang.String"/>
+	<field name="ventas_facturacion_form_pag_lit" class="java.lang.String"/>
+	<title>
+		<band height="237" splitType="Stretch">
+			<staticText>
+				<reportElement x="4" y="145" width="56" height="13" uuid="15568565-029d-4a07-b79c-0e15061be749"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Timbrado:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="1" y="4" width="182" height="43" uuid="85e287dc-d8a9-4904-bb85-7a58bce97941"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empresas_emp_nom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="80" width="183" height="65" uuid="a73bf7a1-ef81-4bd1-87ac-4ca371372cbe"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empresas_emp_des}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="47" width="183" height="33" uuid="1bee0904-4ed1-423f-bbf1-17548ead1fe9"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empresas_dir_empre}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="4" y="158" width="48" height="13" uuid="08da369d-553e-422b-9013-aeef50a58f56"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vigencia:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="107" y="158" width="10" height="13" uuid="e987837c-673a-48e6-999a-04be2e71de16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[a]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="190" width="87" height="13" uuid="fa442f74-04ab-45d8-80ec-04da8df06237"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Factura Contado:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="177" width="94" height="13" uuid="33821212-4702-4d4b-8e85-a7b55f38a793"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de Emisión:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="203" width="47" height="13" uuid="2a2da186-84be-4e95-aa20-59b237e383c8"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cliente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="216" width="42" height="13" uuid="e29fc96a-b028-4e6a-b6e0-4a5a6ba032bd"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CI/RUC:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="60" y="145" width="120" height="13" uuid="64f731ed-896e-42e1-bbd8-93fa8802358a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empresas_nro_timbra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="52" y="158" width="56" height="13" uuid="a3d19f81-e606-4557-abc5-62cd8769a24b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empresas_fecha_desde}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="117" y="158" width="65" height="13" uuid="7c4863fb-f954-4c5d-8ce1-cd1e8b2c8357"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empresas_fecha_hasta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="112" y="190" width="22" height="13" uuid="41537ecd-f762-45dd-9108-feb427cffe8e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_nro_seq_ventas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="89" y="190" width="24" height="13" uuid="4db2c010-1c88-4aac-b807-dd894c0f95fd"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_nro_estable_ventas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="134" y="190" width="49" height="13" uuid="26295f67-193a-4476-b11e-ad75c6360eaf"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_nro_fact_ventas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="49" y="203" width="134" height="13" uuid="74dbb83f-fc32-4651-a6f3-965b9bc55861"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tienda_clientes_cli_razon}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="44" y="216" width="139" height="13" uuid="64ef733d-09d1-4eb2-849f-f9310377c09d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tienda_clientes_cli_ruc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="95" y="177" width="75" height="13" uuid="403c9f37-cd9a-4d42-bb92-f9aad8eb1e8b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_data_vista}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="183" height="13" uuid="e3c75cc3-4168-464a-a468-ceb6c15cd252"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[---------------------------------------------------------------------------------------]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement x="124" y="0" width="10" height="12" uuid="5e7fd177-665e-4939-a70d-9f72c2c8e1ae"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="95" y="0" width="10" height="12" uuid="1471cdaa-5d97-45e3-a760-8ec4e5adfd66"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[x]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="3" y="0" width="46" height="12" uuid="0e5843eb-415d-4708-b88b-395c2d1c8a32"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_deta_cod_pro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="49" y="0" width="47" height="12" uuid="4f637bbd-6bdf-4293-89e6-b0bfeee0e36c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_deta_pre_unit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="105" y="0" width="19" height="12" uuid="1833c9aa-2179-4823-82bc-7780967aa2ee"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_deta_cant_pro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="4" y="12" width="175" height="12" uuid="936d6fcc-6a45-4927-a78a-77ce2da8f5b5"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_deta_des_pro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="134" y="0" width="45" height="12" uuid="cebb3790-06a3-4ec2-939f-a152fb226c20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_deta_pre_10}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="259" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="1" width="182" height="13" uuid="f193d924-c8e1-46c2-8235-62fba3420604"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[---------------------------------------------------------------------------------------]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="14" width="85" height="13" uuid="0957f9b4-52f5-48cf-acdb-b343b8265eb6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total a pagar:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="137" width="68" height="13" uuid="8a7a9447-7681-4db0-85b1-dba688a3c25f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Liq. IVA 5%:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="150" width="68" height="13" uuid="45faef41-2f27-46c5-a10d-bc243e60c107"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Liq. IVA 10%:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="74" width="92" height="13" uuid="060b72f7-c08c-4567-9033-31209733e853"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Exentos:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="100" width="96" height="13" uuid="fa392c7c-7b40-4720-867f-4a5b93a7e6b1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Gravadas 10%:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="87" width="96" height="13" uuid="82ddce09-dba0-4bb3-a310-08f440395252"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Gravadas  5%:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="163" width="68" height="13" uuid="0d08417e-4720-4674-8ca9-61e3cec8f7c3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Liq. IVA: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="186" width="96" height="13" uuid="664969e5-9f7b-4e84-8e13-a21ad08b0e44"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nota Interna Nro:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="27" width="75" height="13" uuid="28816360-83d2-463b-9304-c783f2d95de5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total a pagar en]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="96" y="27" width="6" height="13" uuid="6b23f574-ce93-4f49-a31e-682029b21d5a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="209" width="176" height="13" uuid="5fe2c1ca-191f-4b0c-9a07-00102035b6c9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Gráfica NV de Victor Vicente Miranda]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="222" width="178" height="13" uuid="9248d38d-f062-411c-974e-fddbb690d446"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RUC:3687065-0 Alto Paraná-CDE-PY]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="165" y="73" width="14" height="14" uuid="5b7cf349-07d0-4c43-b4a6-cd4e9c907c73"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_simb_moneda}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="79" y="27" width="17" height="13" uuid="7f878364-80f1-408f-82f5-376b7cdb1478"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_simb_moneda}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="165" y="87" width="14" height="14" uuid="3213741f-e047-4106-9a5d-5341cd705af0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_simb_moneda}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="165" y="99" width="14" height="14" uuid="f7d157d4-b7af-4c6b-9ba4-cbb1b6d72b22"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_simb_moneda}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="154" y="137" width="16" height="14" uuid="16127944-888d-4bca-855a-aefd2d85c6f0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_simb_moneda}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="154" y="149" width="16" height="14" uuid="6df42e19-f055-4927-9152-f37e54370905"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_simb_moneda}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="154" y="162" width="15" height="14" uuid="10217631-aab1-4c48-8577-0ef2e3e8e961"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_simb_moneda}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="186" width="69" height="13" uuid="5ed55929-0f9f-45ff-a3ad-174f61625431"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_num_bol}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="14" y="43" width="165" height="30" uuid="5245b2b8-ad59-41cf-8a02-76f126eadb20"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_letras_ventas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="74" width="65" height="13" uuid="75a86398-6779-4670-bb92-5ba83e159347"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_fact_sub_exe}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="87" width="65" height="13" uuid="40180fe1-227c-4cb7-b8dc-9d47c025f003"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_fact_sub_5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="99" width="65" height="14" uuid="53460d20-3282-4bbb-b01b-7a40c0ea81de"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_fact_sub_10}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="77" y="137" width="77" height="14" uuid="0f911aab-e35d-4e62-b58c-375fc4602dd4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_total_iva_5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="77" y="151" width="77" height="12" uuid="eebde44e-fac1-4aef-aef9-8aab72d0b1ff"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_total_iva_10}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="79" y="163" width="75" height="13" uuid="4e80acc3-ee00-4ce1-a472-7131e409fc94"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_total_iva_10}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="89" y="14" width="79" height="13" uuid="eb0700e5-a62f-4800-97f9-b651c369007f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_total_ventas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="168" y="14" width="14" height="13" uuid="ab6c54ba-2723-4d52-ba92-e6d05282f975"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_simb_moneda}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="62" splitType="Stretch">
+			<staticText>
+				<reportElement x="-1" y="11" width="183" height="11" uuid="a9fb8432-7425-4c34-9c6f-11e57f4ba69d"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[----------------------------------------------------------------------------------]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

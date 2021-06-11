@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b267a601-3ef7-4151-a957-2741cdcace7d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="ini" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fin" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="id" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     SUM(detalle_ventas.`cant_pro`) AS detalle_ventas_cant_pro,
+     detalle_ventas.`data` AS detalle_ventas_data,
+     detalle_ventas.`cod_pro` AS detalle_ventas_cod_pro
+FROM
+     `detalle_ventas` detalle_ventas
+WHERE
+     detalle_ventas.`data` BETWEEN $P{ini} and $P{fin} AND 	   detalle_ventas.`cod_pro`  = $P{id}]]>
+	</queryString>
+	<field name="detalle_ventas_cant_pro" class="java.math.BigDecimal"/>
+	<field name="detalle_ventas_data" class="java.sql.Date"/>
+	<field name="detalle_ventas_cod_pro" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="42" y="49" width="239" height="20" uuid="b13c0cdf-add0-462e-9a3c-520f19409ad3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estadísticas de Ventas por productos]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="652" y="0" width="150" height="20" uuid="6cdf4dd8-4976-4a16-acfb-95c4f64ab97b"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="292" y="49" width="43" height="20" uuid="fe12d9d7-9572-4a47-9252-3db12b0568d4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Desde:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="397" y="49" width="40" height="20" uuid="78ed52a8-bf91-4ff0-a842-354c6d489985"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hasta:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="335" y="49" width="60" height="20" uuid="51047e0a-044c-4117-a9e0-5cc96d8c34d5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ini}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="437" y="49" width="64" height="20" uuid="35f614b1-9084-46bd-87a8-9c50d8bce88a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fin}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="352" splitType="Stretch">
+			<barChart>
+				<chart>
+					<reportElement x="0" y="0" width="802" height="352" uuid="4e6b9fc0-7c55-409f-a2a9-9ba48f902db5"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{detalle_ventas_cod_pro}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{detalle_ventas_data}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{detalle_ventas_cant_pro}]]></valueExpression>
+						<labelExpression><![CDATA[$F{detalle_ventas_cod_pro}]]></labelExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+		</band>
+	</summary>
+</jasperReport>

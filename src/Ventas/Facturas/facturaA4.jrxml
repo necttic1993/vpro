@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="590" pageHeight="591" columnWidth="550" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="20" uuid="afc2df56-1f13-426f-91ff-cf0969c55034">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="nro" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     ventas_facturacion.`num_bol` AS ventas_facturacion_num_bol,
+     ventas_facturacion.`cod_cli_ventas` AS ventas_facturacion_cod_cli_ventas,
+     ventas_facturacion.`nom_cli_ventas` AS ventas_facturacion_nom_cli_ventas,
+     ventas_facturacion.`forma_pag_efectivo` AS ventas_facturacion_forma_pag_efectivo,
+     ventas_facturacion.`forma_pag_credito` AS ventas_facturacion_forma_pag_credito,
+     ventas_facturacion.`total_ventas` AS ventas_facturacion_total_ventas,
+     ventas_facturacion.`fecha_ventas` AS ventas_facturacion_fecha_ventas,
+     ventas_facturacion.`fecha_control_ventas` AS ventas_facturacion_fecha_control_ventas,
+     ventas_facturacion.`user_ventas` AS ventas_facturacion_user_ventas,
+     ventas_facturacion.`cant_ventas` AS ventas_facturacion_cant_ventas,
+     ventas_facturacion.`letras_ventas` AS ventas_facturacion_letras_ventas,
+     ventas_facturacion.`nro_seq_ventas` AS ventas_facturacion_nro_seq_ventas,
+     ventas_facturacion.`nro_estable_ventas` AS ventas_facturacion_nro_estable_ventas,
+     ventas_facturacion.`nro_fact_ventas` AS ventas_facturacion_nro_fact_ventas,
+     ventas_facturacion.`nro_timbra_ventas` AS ventas_facturacion_nro_timbra_ventas,
+     ventas_facturacion.`fact_sub_exe` AS ventas_facturacion_fact_sub_exe,
+     ventas_facturacion.`fact_sub_5` AS ventas_facturacion_fact_sub_5,
+     ventas_facturacion.`fact_sub_10` AS ventas_facturacion_fact_sub_10,
+     ventas_facturacion.`total_iva_5` AS ventas_facturacion_total_iva_5,
+     ventas_facturacion.`total_iva_10` AS ventas_facturacion_total_iva_10,
+     ventas_facturacion.`total_iva` AS ventas_facturacion_total_iva,
+     ventas_facturacion.`data_vista` AS ventas_facturacion_data_vista,
+     ventas_facturacion.`simb_moneda` AS ventas_facturacion_simb_moneda,
+     ventas_facturacion_deta.`num_bol` AS ventas_facturacion_deta_num_bol,
+     ventas_facturacion_deta.`cod_pro` AS ventas_facturacion_deta_cod_pro,
+     ventas_facturacion_deta.`des_pro` AS ventas_facturacion_deta_des_pro,
+     ventas_facturacion_deta.`iva_por` AS ventas_facturacion_deta_iva_por,
+     ventas_facturacion_deta.`cant_pro` AS ventas_facturacion_deta_cant_pro,
+     ventas_facturacion_deta.`pre_unit` AS ventas_facturacion_deta_pre_unit,
+     ventas_facturacion_deta.`pre_exentas` AS ventas_facturacion_deta_pre_exentas,
+     ventas_facturacion_deta.`pre_5` AS ventas_facturacion_deta_pre_5,
+     ventas_facturacion_deta.`pre_10` AS ventas_facturacion_deta_pre_10,
+     ventas_facturacion_deta.`data` AS ventas_facturacion_deta_data,
+     ventas_facturacion_deta.`id_det` AS ventas_facturacion_deta_id_det,
+     ventas_facturacion.`form_pag_lit` AS ventas_facturacion_form_pag_lit,
+     tienda_clientes.`cli_cod` AS tienda_clientes_cli_cod,
+     tienda_clientes.`cli_ruc` AS tienda_clientes_cli_ruc,
+     tienda_clientes.`cli_razon` AS tienda_clientes_cli_razon,
+     tienda_clientes.`cli_dir` AS tienda_clientes_cli_dir
+FROM
+     `ventas_facturacion` ventas_facturacion INNER JOIN `ventas_facturacion_deta` ventas_facturacion_deta ON ventas_facturacion.`num_bol` = ventas_facturacion_deta.`num_bol` INNER JOIN 
+     `tienda_clientes` tienda_clientes ON ventas_facturacion.`cod_cli_ventas`= tienda_clientes.`cli_cod`
+WHERE
+    ventas_facturacion.`nro_fact_ventas` = $P{nro}]]>
+	</queryString>
+	<field name="ventas_facturacion_num_bol" class="java.lang.String"/>
+	<field name="ventas_facturacion_cod_cli_ventas" class="java.lang.String"/>
+	<field name="ventas_facturacion_nom_cli_ventas" class="java.lang.String"/>
+	<field name="ventas_facturacion_forma_pag_efectivo" class="java.lang.String"/>
+	<field name="ventas_facturacion_forma_pag_credito" class="java.lang.String"/>
+	<field name="ventas_facturacion_total_ventas" class="java.lang.String"/>
+	<field name="ventas_facturacion_fecha_ventas" class="java.sql.Date"/>
+	<field name="ventas_facturacion_fecha_control_ventas" class="java.sql.Timestamp"/>
+	<field name="ventas_facturacion_user_ventas" class="java.lang.String"/>
+	<field name="ventas_facturacion_cant_ventas" class="java.lang.Integer"/>
+	<field name="ventas_facturacion_letras_ventas" class="java.lang.String"/>
+	<field name="ventas_facturacion_nro_seq_ventas" class="java.lang.String"/>
+	<field name="ventas_facturacion_nro_estable_ventas" class="java.lang.String"/>
+	<field name="ventas_facturacion_nro_fact_ventas" class="java.lang.String"/>
+	<field name="ventas_facturacion_nro_timbra_ventas" class="java.lang.String"/>
+	<field name="ventas_facturacion_fact_sub_exe" class="java.lang.String"/>
+	<field name="ventas_facturacion_fact_sub_5" class="java.lang.String"/>
+	<field name="ventas_facturacion_fact_sub_10" class="java.lang.String"/>
+	<field name="ventas_facturacion_total_iva_5" class="java.lang.String"/>
+	<field name="ventas_facturacion_total_iva_10" class="java.lang.String"/>
+	<field name="ventas_facturacion_total_iva" class="java.lang.String"/>
+	<field name="ventas_facturacion_data_vista" class="java.lang.String"/>
+	<field name="ventas_facturacion_simb_moneda" class="java.lang.String"/>
+	<field name="ventas_facturacion_deta_num_bol" class="java.lang.String"/>
+	<field name="ventas_facturacion_deta_cod_pro" class="java.lang.String"/>
+	<field name="ventas_facturacion_deta_des_pro" class="java.lang.String"/>
+	<field name="ventas_facturacion_deta_iva_por" class="java.lang.String"/>
+	<field name="ventas_facturacion_deta_cant_pro" class="java.lang.Integer"/>
+	<field name="ventas_facturacion_deta_pre_unit" class="java.lang.String"/>
+	<field name="ventas_facturacion_deta_pre_exentas" class="java.lang.String"/>
+	<field name="ventas_facturacion_deta_pre_5" class="java.lang.String"/>
+	<field name="ventas_facturacion_deta_pre_10" class="java.lang.String"/>
+	<field name="ventas_facturacion_deta_data" class="java.sql.Date"/>
+	<field name="ventas_facturacion_deta_id_det" class="java.lang.Integer"/>
+	<field name="ventas_facturacion_form_pag_lit" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_cod" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_ruc" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_razon" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_dir" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="228" splitType="Stretch">
+			<textField>
+				<reportElement x="91" y="115" width="100" height="15" uuid="8f189282-4ae4-47c9-bb5a-3f8676ce5645"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_data_vista}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="59" y="130" width="100" height="15" uuid="07107151-403e-42c2-8432-54f0e9c1b0e6"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_form_pag_lit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="42" y="184" width="102" height="20" uuid="91cee620-79de-495e-a265-3b8165eca51e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tienda_clientes_cli_ruc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="42" y="156" width="423" height="20" uuid="9f3658e4-1e1a-4129-b236-ec09c0695618"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tienda_clientes_cli_razon}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="42" y="0" width="200" height="20" uuid="e5019d46-4974-4ebf-a6d2-c9ad1acb3ffd"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_deta_des_pro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="242" y="0" width="46" height="20" uuid="35840479-4ea6-4a1f-8ad4-1061e28ff9d1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_deta_cod_pro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="294" y="0" width="42" height="20" uuid="9eb418a0-d74c-49d7-a97a-521155db8624"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_deta_cant_pro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="416" y="0" width="30" height="20" uuid="e819d6f2-f4c4-4fa7-9166-64e3dfec89e4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_deta_iva_por}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="336" y="0" width="70" height="20" uuid="1b398310-c117-4e47-a329-0c2c40d87bea"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_deta_pre_unit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="453" y="0" width="82" height="20" uuid="fa5b6e0a-1fd3-4d97-9416-037169013580"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_deta_pre_10}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="170" splitType="Stretch">
+			<textField>
+				<reportElement x="102" y="16" width="348" height="20" uuid="454f6b47-e09c-47d2-8dff-b5f097df37ba"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_letras_ventas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="457" y="4" width="62" height="20" uuid="92ea6f77-3d52-4c7c-b548-3a4621681af0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_total_ventas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="457" y="24" width="62" height="20" uuid="3bd7dbe5-45c4-4b36-8aee-d3120662e709"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_total_iva_10}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="457" y="44" width="62" height="20" uuid="f1b21604-a504-43d6-9652-d43eb3c4f2eb"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_total_ventas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="86" y="16" width="16" height="20" uuid="711574d4-eca8-4b0a-b1a1-9c4a8982585f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_simb_moneda}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="520" y="4" width="15" height="18" uuid="e79905ac-92a3-4db5-b4e2-d4965dc3e2a1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_simb_moneda}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="520" y="24" width="15" height="18" uuid="3aebd585-8670-4473-bd65-149689f8a4fc"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_simb_moneda}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="520" y="44" width="15" height="18" uuid="97821afa-dd76-4720-9fa4-1b00a232cd12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_simb_moneda}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

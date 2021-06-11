@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="318" whenNoDataType="NoDataSection" columnWidth="515" leftMargin="40" rightMargin="40" topMargin="20" bottomMargin="20" uuid="18368a0c-79ed-491c-b200-c537e9360397">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F8F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFBFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<subDataset name="detalles" uuid="9eba7f88-3731-46be-ab26-22797099cdc8">
+		<parameter name="id" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[SELECT
+     pago_credito_detalle.`id_pago` AS pago_credito_detalle_id_pago,
+     pago_credito_detalle.`nro_pago` AS pago_credito_detalle_nro_pago,
+     pago_credito_detalle.`nom_banco` AS pago_credito_detalle_nom_banco,
+     pago_credito_detalle.`nro_cheq` AS pago_credito_detalle_nro_cheq,
+     pago_credito_detalle.`fecha` AS pago_credito_detalle_fecha,
+     pago_credito_detalle.`importe` AS pago_credito_detalle_importe,
+     pago_credito_detalle.`fecha_entra` AS pago_credito_detalle_fecha_entra
+FROM
+     `pago_credito_detalle` pago_credito_detalle
+
+where
+ pago_credito_detalle.`nro_pago`=$P{id}]]>
+		</queryString>
+		<field name="pago_credito_detalle_id_pago" class="java.lang.Integer"/>
+		<field name="pago_credito_detalle_nro_pago" class="java.lang.String"/>
+		<field name="pago_credito_detalle_nom_banco" class="java.lang.String"/>
+		<field name="pago_credito_detalle_nro_cheq" class="java.lang.String"/>
+		<field name="pago_credito_detalle_fecha" class="java.lang.String"/>
+		<field name="pago_credito_detalle_importe" class="java.lang.String"/>
+		<field name="pago_credito_detalle_fecha_entra" class="java.sql.Date"/>
+	</subDataset>
+	<subDataset name="facturas" uuid="7ba48286-ed6f-455c-bfb1-3fe55d938229">
+		<parameter name="id_fact" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[SELECT
+  
+     pago_credito_factura.`nro_factura` AS pago_credito_factura_nro_factura,
+     pago_credito_factura.`fecha_vista` AS pago_credito_factura_fecha_vista,
+     pago_credito_factura.`importe` AS pago_credito_factura_importe,
+     pago_credito_factura.`saldo` AS pago_credito_factura_saldo,
+     pago_credito_factura.`data` AS pago_credito_factura_data,
+     pago_credito_factura.`nro_recibo` AS pago_credito_factura_nro_recibo
+FROM
+     `pago_credito_factura` pago_credito_factura
+WHERE
+     pago_credito_factura.`nro_recibo` = $P{id_fact}]]>
+		</queryString>
+		<field name="pago_credito_factura_nro_factura" class="java.lang.String"/>
+		<field name="pago_credito_factura_fecha_vista" class="java.lang.String"/>
+		<field name="pago_credito_factura_importe" class="java.lang.String"/>
+		<field name="pago_credito_factura_saldo" class="java.lang.String"/>
+		<field name="pago_credito_factura_data" class="java.sql.Date"/>
+		<field name="pago_credito_factura_nro_recibo" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="serie" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     pago_credito.`nro_pago` AS pago_credito_nro_pago,
+     pago_credito.`nro_venta` AS pago_credito_nro_venta,
+     pago_credito.`id_cli` AS pago_credito_id_cli,
+     pago_credito.`nom_cli` AS pago_credito_nom_cli,
+     pago_credito.`concept_pag_cuenta` AS pago_credito_concept_pag_cuenta,
+     pago_credito.`concept_canc` AS pago_credito_concept_canc,
+     pago_credito.`paga_efec` AS pago_credito_paga_efec,
+     pago_credito.`paga_cheque` AS pago_credito_paga_cheque,
+     pago_credito.`total_efect` AS pago_credito_total_efect,
+     pago_credito.`total_cheq` AS pago_credito_total_cheq,
+     pago_credito.`total_importe` AS pago_credito_total_importe,
+     pago_credito.`surcusal` AS pago_credito_surcusal,
+     pago_credito.`saldo_pendiente` AS pago_credito_saldo_pendiente,
+     pago_credito.`monto_fact` AS pago_credito_monto_fact,
+     pago_credito.`nro_fact` AS pago_credito_nro_fact,
+     pago_credito.`literal` AS pago_credito_literal,
+     pago_credito.`data_control` AS pago_credito_data_control,
+     pago_credito.`data_vista` AS pago_credito_data_vista,
+     pago_credito.`id_cuenta` AS pago_credito_id_cuenta,
+     pago_credito.`user_pago` AS pago_credito_user_pago,
+     tienda_clientes.`cli_cod` AS tienda_clientes_cli_cod,
+     tienda_clientes.`cli_ruc` AS tienda_clientes_cli_ruc,
+     tienda_clientes.`cli_razon` AS tienda_clientes_cli_razon
+FROM
+     `pago_credito` pago_credito INNER JOIN `tienda_clientes` tienda_clientes ON pago_credito.`id_cli` = tienda_clientes.`cli_cod`
+WHERE
+     pago_credito.`nro_pago` = $P{serie}]]>
+	</queryString>
+	<field name="pago_credito_nro_pago" class="java.lang.String"/>
+	<field name="pago_credito_nro_venta" class="java.lang.String"/>
+	<field name="pago_credito_id_cli" class="java.lang.String"/>
+	<field name="pago_credito_nom_cli" class="java.lang.String"/>
+	<field name="pago_credito_concept_pag_cuenta" class="java.lang.String"/>
+	<field name="pago_credito_concept_canc" class="java.lang.String"/>
+	<field name="pago_credito_paga_efec" class="java.lang.String"/>
+	<field name="pago_credito_paga_cheque" class="java.lang.String"/>
+	<field name="pago_credito_total_efect" class="java.lang.String"/>
+	<field name="pago_credito_total_cheq" class="java.lang.String"/>
+	<field name="pago_credito_total_importe" class="java.lang.String"/>
+	<field name="pago_credito_surcusal" class="java.lang.String"/>
+	<field name="pago_credito_saldo_pendiente" class="java.lang.String"/>
+	<field name="pago_credito_monto_fact" class="java.lang.String"/>
+	<field name="pago_credito_nro_fact" class="java.lang.String"/>
+	<field name="pago_credito_literal" class="java.lang.String"/>
+	<field name="pago_credito_data_control" class="java.sql.Date"/>
+	<field name="pago_credito_data_vista" class="java.lang.String"/>
+	<field name="pago_credito_id_cuenta" class="java.lang.String"/>
+	<field name="pago_credito_user_pago" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_cod" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_ruc" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_razon" class="java.lang.String"/>
+	<title>
+		<band height="242" splitType="Stretch">
+			<textField>
+				<reportElement x="245" y="44" width="92" height="10" uuid="9a3bfcfc-2a7f-434a-ace5-102bf6b332a9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pago_credito_id_cli}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="337" y="44" width="78" height="10" uuid="41b8bc4d-6843-4475-9d3d-95fafb5c31e5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pago_credito_data_vista}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="395" y="20" width="100" height="20" uuid="7c301f4f-10b9-413e-8243-0f4eea867f55"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pago_credito_total_importe}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="52" y="60" width="351" height="10" uuid="1ff4ae55-a37b-4318-a570-cb6745ec5b05"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tienda_clientes_cli_razon}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="209" width="54" height="10" uuid="be41052d-764f-4955-9fe1-bf5ab12c824e"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pago_credito_total_importe}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="315" y="114" width="17" height="12" uuid="be005cb2-f141-4d41-adda-3425ec80a78a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pago_credito_concept_pag_cuenta}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="316" y="127" width="16" height="12" uuid="657f456c-dbf0-4241-8ce7-0983cba7e132"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pago_credito_concept_canc}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="414" y="114" width="21" height="12" uuid="a3bd6463-c17e-4ea4-ac83-c2ae86490c64"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pago_credito_paga_efec}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="414" y="127" width="21" height="12" uuid="306b7877-04d9-42ef-8244-0a47ed1c257f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pago_credito_paga_cheque}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="393" y="211" width="100" height="9" uuid="766d5166-f46f-44ef-a928-8e3de1205845"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pago_credito_total_efect}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="393" y="218" width="100" height="9" uuid="0bcd8b7f-336f-48da-8798-786db44cc903"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pago_credito_total_importe}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="87" y="72" width="416" height="10" uuid="e276ecfb-8102-42b4-a20e-eb73849b8c38"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pago_credito_literal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="393" y="202" width="100" height="9" uuid="8a51208c-1984-40b2-b9c7-973c1705a285"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pago_credito_total_cheq}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement key="table 2" style="table 2" x="206" y="159" width="287" height="13" uuid="91a6de77-1c4c-4b40-8d81-86e846c1a714"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="detalles" uuid="2e29135c-a7fc-49ca-8de1-c61acd9d5109">
+						<datasetParameter name="id">
+							<datasetParameterExpression><![CDATA[$P{serie}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90" uuid="892418bc-c9aa-4f27-bb99-418793d8432f">
+						<jr:detailCell style="table 2_TD" height="12" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="12" uuid="38d72c5c-afd8-4b0a-9623-c948372a9b43"/>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" size="6" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{pago_credito_detalle_nom_banco}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="72" uuid="94b657df-4c08-478b-83eb-edbd9676e5ea">
+						<jr:detailCell style="table 2_TD" height="12" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="72" height="12" uuid="588242d0-6fe7-47e9-acac-fc19a1b67c5d"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="6" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{pago_credito_detalle_nro_cheq}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="62" uuid="321e4c86-63d6-4ed3-8844-9109dc9ea644">
+						<jr:detailCell style="table 2_TD" height="12" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="62" height="12" uuid="6a458af0-c1b0-41b9-aabb-2d6f61ff09d3"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="6" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{pago_credito_detalle_fecha}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="00eacc05-ca01-409a-aba7-c9a20821c708">
+						<jr:detailCell style="table 2_TD" height="12" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="65" height="12" uuid="eb27d5df-ff82-49ab-a72e-bb8578d562cd"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="Arial" size="6" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{pago_credito_detalle_importe}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<textField>
+				<reportElement x="417" y="61" width="87" height="10" uuid="d5fca457-5959-4d37-abbb-0add89bdca1d"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tienda_clientes_cli_ruc}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement key="table 3" style="table 3" x="16" y="110" width="168" height="96" uuid="d22a9669-2a4b-450a-9ae0-41aa8a1ea3e4"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="facturas" uuid="93324cd7-d11a-475a-9d07-cce35aceb7b3">
+						<datasetParameter name="id_fact">
+							<datasetParameterExpression><![CDATA[$P{serie}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="55" uuid="db43edad-0cd0-4547-b22f-6fa2e55bba2f">
+						<jr:detailCell style="table 3_TD" height="9" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="55" height="9" uuid="e426094c-d8a4-41d1-9143-f9a9d219c3a7"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="7" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{pago_credito_factura_nro_factura}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="48" uuid="92a6ea52-12ae-4ef7-b498-10823191df53">
+						<jr:detailCell style="table 3_TD" height="9" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="48" height="9" uuid="209c9752-0c8a-4915-8518-e27529d24afe"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="7" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{pago_credito_factura_fecha_vista}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="61" uuid="0d37ba03-72fe-4cde-be41-89de06f1daf2">
+						<jr:detailCell style="table 3_TD" height="9" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="61" height="9" uuid="4ea2a59d-4622-4363-a155-835e125ef9e7"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="7" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{pago_credito_factura_importe}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</title>
+</jasperReport>

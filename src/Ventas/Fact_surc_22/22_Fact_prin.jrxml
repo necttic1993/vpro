@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="610" pageHeight="980" columnWidth="610" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="44ec3638-599e-47e1-98b5-d0b400ad744d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="ide" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\Desarrollo Java\\MiniPunto\\necttic\\src\\Ventas\\Fact_surc_22\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     almacenes.`alm_cod` AS almacenes_alm_cod,
+     almacenes.`alm_nom` AS almacenes_alm_nom,
+     almacenes.`alm_des` AS almacenes_alm_des,
+     almacenes.`alm_cap` AS almacenes_alm_cap
+FROM
+     `almacenes` almacenes]]>
+	</queryString>
+	<field name="almacenes_alm_cod" class="java.lang.String"/>
+	<field name="almacenes_alm_nom" class="java.lang.String"/>
+	<field name="almacenes_alm_des" class="java.lang.String"/>
+	<field name="almacenes_alm_cap" class="java.lang.String"/>
+	<title>
+		<band height="598" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="3" width="610" height="20" uuid="8edb9a19-3f1f-462f-a3ad-a71610b41df9"/>
+				<subreportParameter name="codigp">
+					<subreportParameterExpression><![CDATA[$P{ide}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "22_deta_fact.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="0" y="278" width="610" height="17" uuid="9bfaf8ae-8fca-4f2d-af7a-c2daab4f9ef6"/>
+				<subreportParameter name="codigp">
+					<subreportParameterExpression><![CDATA[$P{ide}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "22_deta_fact.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="0" y="560" width="610" height="12" uuid="4d89b633-1306-46ff-bf15-5edeeca87122"/>
+				<subreportParameter name="codigp">
+					<subreportParameterExpression><![CDATA[$P{ide}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "22_deta_fact.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+</jasperReport>

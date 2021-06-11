@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="200" pageHeight="819" columnWidth="200" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isIgnorePagination="true" uuid="7ce405cb-6911-406c-a0f1-1bb9c739744b">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="codigo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     empresas.`id_empre` AS empresas_id_empre,
+     empresas.`emp_nom` AS empresas_emp_nom,
+     empresas.`emp_des` AS empresas_emp_des,
+     empresas.`emp_imag` AS empresas_emp_imag,
+ 
+     pago_credito_comun.`id_pago` AS pago_credito_comun_id_pago,
+     pago_credito_comun.`id_venta` AS pago_credito_comun_id_venta,
+     pago_credito_comun.`id_cliente` AS pago_credito_comun_id_cliente,
+     pago_credito_comun.`nom_cliente` AS pago_credito_comun_nom_cliente,
+     pago_credito_comun.`monto_pagado` AS pago_credito_comun_monto_pagado,
+     pago_credito_comun.`saldo_pend` AS pago_credito_comun_saldo_pend,
+     pago_credito_comun.`id_surcusal` AS pago_credito_comun_id_surcusal,
+     pago_credito_comun.`data_control` AS pago_credito_comun_data_control,
+     pago_credito_comun.`data_vista` AS pago_credito_comun_data_vista,
+     pago_credito_comun.`id_cuenta` AS pago_credito_comun_id_cuenta,
+     pago_credito_comun.`user_pago` AS pago_credito_comun_user_pago,
+     pago_credito_comun.`seire` AS pago_credito_comun_seire,
+     pago_credito_comun.`nro_facuta` AS pago_credito_comun_nro_facuta
+FROM
+     `empresas` empresas,
+     `pago_credito_comun` pago_credito_comun
+WHERE
+    pago_credito_comun.`seire` = $P{codigo}]]>
+	</queryString>
+	<field name="empresas_id_empre" class="java.lang.Integer"/>
+	<field name="empresas_emp_nom" class="java.lang.String"/>
+	<field name="empresas_emp_des" class="java.lang.String"/>
+	<field name="empresas_emp_imag" class="java.io.InputStream"/>
+	<field name="pago_credito_comun_id_pago" class="java.lang.Integer"/>
+	<field name="pago_credito_comun_id_venta" class="java.lang.String"/>
+	<field name="pago_credito_comun_id_cliente" class="java.lang.String"/>
+	<field name="pago_credito_comun_nom_cliente" class="java.lang.String"/>
+	<field name="pago_credito_comun_monto_pagado" class="java.lang.String"/>
+	<field name="pago_credito_comun_saldo_pend" class="java.lang.String"/>
+	<field name="pago_credito_comun_id_surcusal" class="java.lang.String"/>
+	<field name="pago_credito_comun_data_control" class="java.sql.Date"/>
+	<field name="pago_credito_comun_data_vista" class="java.lang.String"/>
+	<field name="pago_credito_comun_id_cuenta" class="java.lang.String"/>
+	<field name="pago_credito_comun_user_pago" class="java.lang.String"/>
+	<field name="pago_credito_comun_seire" class="java.lang.String"/>
+	<field name="pago_credito_comun_nro_facuta" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="331" splitType="Stretch">
+			<staticText>
+				<reportElement x="4" y="143" width="52" height="13" uuid="15568565-029d-4a07-b79c-0e15061be749"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Recibo N°:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="169" width="37" height="13" uuid="24a9e99e-3fb7-4ed4-92be-fae3c2bf710b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cliente:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="95" width="200" height="20" uuid="85e287dc-d8a9-4904-bb85-7a58bce97941"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empresas_emp_nom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="115" width="200" height="20" uuid="a73bf7a1-ef81-4bd1-87ac-4ca371372cbe"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empresas_emp_des}]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center" vAlign="Bottom">
+				<reportElement x="0" y="33" width="198" height="51" uuid="b209a449-bc4a-41ca-a1b0-ba72d0cfc873"/>
+				<imageExpression><![CDATA[$F{empresas_emp_imag}]]></imageExpression>
+			</image>
+			<textField pattern="MM/dd/yyyy">
+				<reportElement x="41" y="156" width="100" height="13" uuid="06d97495-23fa-47da-abf1-717f38d39a59"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="4" y="156" width="37" height="13" uuid="7a2ef543-fb2d-4b7b-8409-36e468649a28"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="182" width="200" height="13" uuid="e3c75cc3-4168-464a-a468-ceb6c15cd252"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[==============================================]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="320" width="200" height="11" uuid="4f7bf0fb-75af-44c7-b0c9-e4f0e3271ac2"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[----------------------------------------------------------------------------------]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="198" width="73" height="11" uuid="03824800-0e7e-480f-ab64-13b34565e543"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Recibí el valor de:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="119" y="198" width="79" height="11" uuid="0061a1af-ae13-4fba-a6cc-59474b7ed0d6"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[en concepto de:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="209" width="98" height="11" uuid="f105358a-21cf-4c1f-b173-71e77ddca600"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pago parcial de venta n° :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="56" y="143" width="109" height="13" uuid="8525d6c2-35f3-4db5-90fa-5cb0d3183dc0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pago_credito_comun_id_pago}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="41" y="169" width="157" height="13" uuid="57893fa6-bfb1-479e-9593-6a487adf8c80"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pago_credito_comun_nom_cliente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="4" y="232" width="66" height="11" uuid="73825082-de8c-4ad9-8f08-866badad4b7d"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Saldo pendiente:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="77" y="198" width="42" height="10" uuid="177efd7a-c615-4418-8e05-cfcb7f1db184"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pago_credito_comun_monto_pagado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="209" width="57" height="11" uuid="824e0144-3e84-4014-a8af-f7e9c9ece516"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pago_credito_comun_id_venta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="232" width="49" height="11" uuid="c2ac1553-bd7e-4a83-98c8-578173ef26db"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pago_credito_comun_saldo_pend}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="170" y="209" width="28" height="11" uuid="268f153e-ed0d-4ffe-9966-0e2ed62c081d"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[.---------]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="119" y="232" width="28" height="11" uuid="09af4629-67f6-4f6c-a25c-d9988ad395dc"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[.---------]]></text>
+			</staticText>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="47" y="253" width="100" height="67" uuid="4e315071-9e0d-4fd6-82aa-5516f057a65b"/>
+				<imageExpression><![CDATA[com.google.zxing.client.j2se.MatrixToImageWriter.toBufferedImage(
+    new com.google.zxing.qrcode.QRCodeWriter().encode(
+$F{pago_credito_comun_seire}  , com.google.zxing.BarcodeFormat.QR_CODE, 200, 200))]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

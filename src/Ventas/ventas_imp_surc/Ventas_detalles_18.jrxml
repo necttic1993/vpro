@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="500" pageHeight="802" columnWidth="500" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="8a942c2a-2ca2-4098-8612-afff1c839612">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="id_deta" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     ventas_detalles_18.`num_bol` AS ventas_detalles_18_num_bol,
+     ventas_detalles_18.`cod_pro` AS ventas_detalles_18_cod_pro,
+     ventas_detalles_18.`des_pro` AS ventas_detalles_18_des_pro,
+     ventas_detalles_18.`cant_pro` AS ventas_detalles_18_cant_pro,
+     ventas_detalles_18.`pre_unit` AS ventas_detalles_18_pre_unit,
+     ventas_detalles_18.`cant_kg` AS ventas_detalles_18_cant_kg,
+     ventas_detalles_18.`pre_venta` AS ventas_detalles_18_pre_venta,
+     ventas_detalles_18.`data` AS ventas_detalles_18_data,
+     ventas_detalles_18.`id_pre_det` AS ventas_detalles_18_id_pre_det
+FROM
+     `ventas_detalles_18` ventas_detalles_18
+WHERE
+     ventas_detalles_18.`num_bol` = $P{id_deta}]]>
+	</queryString>
+	<field name="ventas_detalles_18_num_bol" class="java.lang.String"/>
+	<field name="ventas_detalles_18_cod_pro" class="java.lang.String"/>
+	<field name="ventas_detalles_18_des_pro" class="java.lang.String"/>
+	<field name="ventas_detalles_18_cant_pro" class="java.lang.Integer"/>
+	<field name="ventas_detalles_18_pre_unit" class="java.lang.String"/>
+	<field name="ventas_detalles_18_cant_kg" class="java.lang.String"/>
+	<field name="ventas_detalles_18_pre_venta" class="java.lang.String"/>
+	<field name="ventas_detalles_18_data" class="java.sql.Date"/>
+	<field name="ventas_detalles_18_id_pre_det" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="13" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="66" height="13" uuid="3762c97b-a34e-4bbc-9b56-14bea1ffd4ee"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_detalles_18_cod_pro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="66" y="0" width="232" height="13" uuid="97d3a298-555d-42e7-be97-b384ed998e07"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_detalles_18_des_pro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="298" y="0" width="78" height="13" uuid="71db9242-b093-4586-9779-411d47877d60"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_detalles_18_pre_unit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="376" y="0" width="37" height="13" uuid="c6f7fa4c-6ec4-41f8-95a5-bb1fb3902f17"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_detalles_18_cant_pro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="413" y="0" width="80" height="13" uuid="34392170-6671-4393-8471-b2db385dcf90"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_detalles_18_pre_venta}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

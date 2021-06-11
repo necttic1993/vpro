@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="65710097-cc29-4517-87c6-a3519ba8922c">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="f082e618-a186-48f5-bd0b-0cce124e0917"/>
+	<subDataset name="prod" uuid="8899a00d-e065-45bd-a25d-f0c34224af58">
+		<queryString language="SQL">
+			<![CDATA[SELECT
+     tienda_productos.`pro_cod` AS tienda_productos_pro_cod,
+     tienda_productos.`pro_cod_barra` AS tienda_productos_pro_cod_barra,
+     tienda_productos.`pro_des` AS tienda_productos_pro_des,
+     tienda_productos.`pro_cant` AS tienda_productos_pro_cant
+FROM
+     `tienda_productos` tienda_productos]]>
+		</queryString>
+		<field name="tienda_productos_pro_cod" class="java.lang.String"/>
+		<field name="tienda_productos_pro_cod_barra" class="java.lang.String"/>
+		<field name="tienda_productos_pro_des" class="java.lang.String"/>
+		<field name="tienda_productos_pro_cant" class="java.lang.Integer"/>
+	</subDataset>
+	<parameter name="dep" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="alma" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     empresas.`id_empre` AS empresas_id_empre,
+     empresas.`emp_nom` AS empresas_emp_nom,
+     empresas.`emp_des` AS empresas_emp_des,
+     empresas.`emp_imag` AS empresas_emp_imag,
+     tienda_productos.`pro_cod` AS tienda_productos_pro_cod,
+     tienda_productos.`pro_cod_barra` AS tienda_productos_pro_cod_barra,
+     tienda_productos.`pro_des` AS tienda_productos_pro_des,
+     tienda_productos.`pro_des_espec` AS tienda_productos_pro_des_espec,
+     tienda_productos.`pro_depa` AS tienda_productos_pro_depa,
+     tienda_productos.`pro_stock_9` AS tienda_productos_pro_stock_9,
+     depar_productos.`cod_dep` AS depar_productos_cod_dep,
+     depar_productos.`des_dep` AS depar_productos_des_dep,
+     depar_productos.`descto_dep` AS depar_productos_descto_dep,
+     depar_productos.`por_uno` AS depar_productos_por_uno,
+     depar_productos.`por_dos` AS depar_productos_por_dos
+FROM
+     `empresas` empresas,
+     `tienda_productos` tienda_productos inner join 
+     `depar_productos` depar_productos on   tienda_productos.`pro_depa`=  depar_productos.`cod_dep`
+WHERE
+     tienda_productos.`pro_depa` = $P{dep}
+ AND tienda_productos.`pro_stock_9` <> 0]]>
+	</queryString>
+	<field name="empresas_id_empre" class="java.lang.Integer"/>
+	<field name="empresas_emp_nom" class="java.lang.String"/>
+	<field name="empresas_emp_des" class="java.lang.String"/>
+	<field name="empresas_emp_imag" class="java.io.InputStream"/>
+	<field name="tienda_productos_pro_cod" class="java.lang.String"/>
+	<field name="tienda_productos_pro_cod_barra" class="java.lang.String"/>
+	<field name="tienda_productos_pro_des" class="java.lang.String"/>
+	<field name="tienda_productos_pro_des_espec" class="java.lang.String"/>
+	<field name="tienda_productos_pro_depa" class="java.lang.String"/>
+	<field name="tienda_productos_pro_stock_9" class="java.lang.Integer"/>
+	<field name="depar_productos_cod_dep" class="java.lang.Integer"/>
+	<field name="depar_productos_des_dep" class="java.lang.String"/>
+	<field name="depar_productos_descto_dep" class="java.lang.String"/>
+	<field name="depar_productos_por_uno" class="java.lang.String"/>
+	<field name="depar_productos_por_dos" class="java.lang.String"/>
+	<variable name="total" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{tienda_productos_pro_stock_9}]]></variableExpression>
+	</variable>
+	<variable name="pro" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{tienda_productos_pro_cod}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="118" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="396" y="0" width="159" height="20" uuid="45efddd2-7282-4488-b6a3-379ebaeb7344"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="396" y="39" width="103" height="20" uuid="0992c764-fc17-4f23-bce1-6105d1eaa522"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Stock General]]></text>
+			</staticText>
+			<line>
+				<reportElement x="396" y="59" width="103" height="1" uuid="5993720a-605d-4fac-b34a-9d6e2b9371a2"/>
+			</line>
+			<textField>
+				<reportElement x="0" y="59" width="196" height="20" uuid="ffd76770-5e50-4624-9c0f-e01c5d5be608"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empresas_emp_nom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="79" width="196" height="20" uuid="cb0cd199-7338-470d-ba1a-08d078e5b08d"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empresas_emp_des}]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center" vAlign="Middle" isUsingCache="true">
+				<reportElement x="0" y="0" width="196" height="59" uuid="c8dcf8a3-7a97-47b8-a680-a13ee76721e7"/>
+				<imageExpression><![CDATA[$F{empresas_emp_imag}]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="0" y="104" width="555" height="1" uuid="f23a232d-bd24-4db2-95bc-149afeeceabd"/>
+			</line>
+			<rectangle>
+				<reportElement x="0" y="105" width="555" height="13" backcolor="#003399" uuid="4784bd97-53dd-472a-a34e-a60c1bd28db3"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="105" width="71" height="13" forecolor="#FFFFFF" uuid="91fcd3ea-5554-4627-9b4e-f5293f0b877d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="75" y="105" width="100" height="13" forecolor="#FFFFFF" uuid="c9037583-f7fe-49ae-8602-7d1ded5e0cac"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cód. de Barras]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="175" y="105" width="280" height="13" forecolor="#FFFFFF" uuid="965ee85b-0f4b-4d73-9800-220714f272cc"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[     Descripción]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="473" y="105" width="82" height="13" forecolor="#FFFFFF" uuid="f3a14314-ccd0-4380-bf88-6435b74de235"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Unidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="79" width="74" height="20" uuid="9137ea26-2410-4bc5-92d6-512c31b4c3c4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Departamento:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="274" y="79" width="143" height="20" uuid="2132c854-cf78-4d79-9846-2cf0c6a4f295"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{depar_productos_des_dep}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="417" y="79" width="56" height="20" uuid="844a580e-a056-4a17-bb26-3709d37f479a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sucursal:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="473" y="79" width="82" height="20" uuid="84d97497-9c3a-4f22-9967-7d900485a6cf"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{alma}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="10" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="75" height="10" uuid="206e6a92-3843-4a86-94cf-b5cad6785390"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tienda_productos_pro_cod}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="75" y="0" width="100" height="10" uuid="40fd512d-9aab-4237-b67a-fd1aefd0e9cb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tienda_productos_pro_cod_barra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="179" y="0" width="267" height="10" uuid="56d8737e-0706-4f95-80e5-e12291852d1f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tienda_productos_pro_des}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="475" y="0" width="77" height="10" uuid="e14c847c-ea7b-434d-afd8-1bab2a2fd9dd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tienda_productos_pro_stock_9}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="29" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="b022bdc7-92a6-47da-994f-ede8e569eb86"/>
+			</line>
+			<staticText>
+				<reportElement x="489" y="6" width="36" height="20" uuid="6de1d2a1-84bb-481f-b8a5-ea29cffcfa89"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Página:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="525" y="6" width="25" height="20" uuid="a4f16ffe-b0a2-4536-87d0-6565880a077e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="29" splitType="Stretch">
+			<staticText>
+				<reportElement x="414" y="5" width="59" height="13" uuid="200ef77c-d107-4600-93b9-c739e3c496f1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Total Stock:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="4" width="75" height="13" uuid="b072674a-c127-4919-b94e-b61501d70e8d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Total Producto:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="473" y="5" width="82" height="13" uuid="9873ba1c-f680-425b-aafc-d20c8e1662a6"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{total}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="71" y="2" width="402" height="1" uuid="1432e47e-f7bd-4b9c-b3b1-d0dc525b22eb"/>
+			</line>
+			<textField>
+				<reportElement x="73" y="4" width="100" height="14" uuid="ebaea7a8-f681-4214-a9b6-6eea3dad1907"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{pro}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

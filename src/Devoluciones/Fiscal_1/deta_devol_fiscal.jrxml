@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="300" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="cc778f16-757e-4593-a766-e931922bc98b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<subDataset name="productos" uuid="38192507-89db-4e4f-844a-e8f0c631b8cf">
+		<parameter name="ide" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT
+     devolucion_facturacion_deta_fiscal.`num_bol` AS devolucion_facturacion_deta_surc_2_num_bol,
+     devolucion_facturacion_deta_fiscal.`num_bol` AS devolucion_facturacion_deta_fiscal_num_bol,
+     devolucion_facturacion_deta_fiscal.`cod_pro` AS devolucion_facturacion_deta_fiscal_cod_pro,
+     devolucion_facturacion_deta_fiscal.`des_pro` AS devolucion_facturacion_deta_fiscal_des_pro,
+     devolucion_facturacion_deta_fiscal.`iva_por` AS devolucion_facturacion_deta_fiscal_iva_por,
+     devolucion_facturacion_deta_fiscal.`cant_pro` AS devolucion_facturacion_deta_fiscal_cant_pro,
+     devolucion_facturacion_deta_fiscal.`pre_unit` AS devolucion_facturacion_deta_fiscal_pre_unit,
+     devolucion_facturacion_deta_fiscal.`pre_exentas` AS devolucion_facturacion_deta_fiscal_pre_exentas,
+     devolucion_facturacion_deta_fiscal.`pre_5` AS devolucion_facturacion_deta_fiscal_pre_5,
+     devolucion_facturacion_deta_fiscal.`pre_10` AS devolucion_facturacion_deta_fiscal_pre_10,
+     devolucion_facturacion_deta_fiscal.`data` AS devolucion_facturacion_deta_fiscal_data,
+     devolucion_facturacion_deta_fiscal.`id_det` AS devolucion_facturacion_deta_fiscal_id_det
+FROM
+     `devolucion_facturacion_deta_fiscal` devolucion_facturacion_deta_fiscal
+WHERE
+     devolucion_facturacion_deta_fiscal.`num_bol` = $P{ide}]]>
+		</queryString>
+		<field name="devolucion_facturacion_deta_surc_2_num_bol" class="java.lang.String"/>
+		<field name="devolucion_facturacion_deta_fiscal_num_bol" class="java.lang.String"/>
+		<field name="devolucion_facturacion_deta_fiscal_cod_pro" class="java.lang.String"/>
+		<field name="devolucion_facturacion_deta_fiscal_des_pro" class="java.lang.String"/>
+		<field name="devolucion_facturacion_deta_fiscal_iva_por" class="java.lang.String"/>
+		<field name="devolucion_facturacion_deta_fiscal_cant_pro" class="java.lang.Integer"/>
+		<field name="devolucion_facturacion_deta_fiscal_pre_unit" class="java.lang.String"/>
+		<field name="devolucion_facturacion_deta_fiscal_pre_exentas" class="java.lang.String"/>
+		<field name="devolucion_facturacion_deta_fiscal_pre_5" class="java.lang.String"/>
+		<field name="devolucion_facturacion_deta_fiscal_pre_10" class="java.lang.String"/>
+		<field name="devolucion_facturacion_deta_fiscal_data" class="java.sql.Date"/>
+		<field name="devolucion_facturacion_deta_fiscal_id_det" class="java.lang.Integer"/>
+	</subDataset>
+	<parameter name="codigp" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tienda_clientes.`cli_cod` AS tienda_clientes_cli_cod,
+     tienda_clientes.`cli_nombre` AS tienda_clientes_cli_nombre,
+     tienda_clientes.`cli_ruc` AS tienda_clientes_cli_ruc,
+     tienda_clientes.`cli_razon` AS tienda_clientes_cli_razon,
+     tienda_clientes.`cli_contacto` AS tienda_clientes_cli_contacto,
+     tienda_clientes.`cli_email` AS tienda_clientes_cli_email,
+     tienda_clientes.`cli_dir` AS tienda_clientes_cli_dir,
+     tienda_clientes.`cli_tipo` AS tienda_clientes_cli_tipo,
+     tienda_clientes.`cli_lim_cre` AS tienda_clientes_cli_lim_cre,
+     tienda_clientes.`cli_dias_cre` AS tienda_clientes_cli_dias_cre,
+     tienda_clientes.`cli_status` AS tienda_clientes_cli_status,
+     tienda_clientes.`cli_nota_cre` AS tienda_clientes_cli_nota_cre,
+     devolucion_facturacion_fiscal.`num_bol` AS devolucion_facturacion_fiscal_num_bol,
+     devolucion_facturacion_fiscal.`cod_cli_ventas` AS devolucion_facturacion_fiscal_cod_cli_ventas,
+     devolucion_facturacion_fiscal.`nom_cli_ventas` AS devolucion_facturacion_fiscal_nom_cli_ventas,
+     devolucion_facturacion_fiscal.`forma_pag_efectivo` AS devolucion_facturacion_fiscal_forma_pag_efectivo,
+     devolucion_facturacion_fiscal.`forma_pag_credito` AS devolucion_facturacion_fiscal_forma_pag_credito,
+     devolucion_facturacion_fiscal.`total_ventas` AS devolucion_facturacion_fiscal_total_ventas,
+     devolucion_facturacion_fiscal.`fecha_ventas` AS devolucion_facturacion_fiscal_fecha_ventas,
+     devolucion_facturacion_fiscal.`fecha_control_ventas` AS devolucion_facturacion_fiscal_fecha_control_ventas,
+     devolucion_facturacion_fiscal.`user_ventas` AS devolucion_facturacion_fiscal_user_ventas,
+     devolucion_facturacion_fiscal.`cant_ventas` AS devolucion_facturacion_fiscal_cant_ventas,
+     devolucion_facturacion_fiscal.`letras_ventas` AS devolucion_facturacion_fiscal_letras_ventas,
+     devolucion_facturacion_fiscal.`nro_seq_ventas` AS devolucion_facturacion_fiscal_nro_seq_ventas,
+     devolucion_facturacion_fiscal.`nro_fact_ventas` AS devolucion_facturacion_fiscal_nro_fact_ventas,
+     devolucion_facturacion_fiscal.`nro_estable_ventas` AS devolucion_facturacion_fiscal_nro_estable_ventas,
+     devolucion_facturacion_fiscal.`nro_timbra_ventas` AS devolucion_facturacion_fiscal_nro_timbra_ventas,
+     devolucion_facturacion_fiscal.`fact_sub_exe` AS devolucion_facturacion_fiscal_fact_sub_exe,
+     devolucion_facturacion_fiscal.`fact_sub_5` AS devolucion_facturacion_fiscal_fact_sub_5,
+     devolucion_facturacion_fiscal.`fact_sub_10` AS devolucion_facturacion_fiscal_fact_sub_10,
+     devolucion_facturacion_fiscal.`total_iva_5` AS devolucion_facturacion_fiscal_total_iva_5,
+     devolucion_facturacion_fiscal.`total_iva_10` AS devolucion_facturacion_fiscal_total_iva_10,
+     devolucion_facturacion_fiscal.`total_iva` AS devolucion_facturacion_fiscal_total_iva,
+     devolucion_facturacion_fiscal.`data_vista` AS devolucion_facturacion_fiscal_data_vista,
+     devolucion_facturacion_fiscal.`simb_moneda` AS devolucion_facturacion_fiscal_simb_moneda,
+     devolucion_facturacion_fiscal.`form_pag_lit` AS devolucion_facturacion_fiscal_form_pag_lit,
+     devolucion_facturacion_fiscal.`estado_fact` AS devolucion_facturacion_fiscal_estado_fact,
+     devolucion_facturacion_fiscal.`dia_lit` AS devolucion_facturacion_fiscal_dia_lit,
+     devolucion_facturacion_fiscal.`mes_lit` AS devolucion_facturacion_fiscal_mes_lit,
+     devolucion_facturacion_fiscal.`years_lit` AS devolucion_facturacion_fiscal_years_lit,
+     devolucion_facturacion_fiscal.`nro_fact_devol` AS devolucion_facturacion_fiscal_nro_fact_devol
+FROM
+      `tienda_clientes` tienda_clientes inner join 
+     `devolucion_facturacion_fiscal` devolucion_facturacion_fiscal on tienda_clientes.`cli_cod`= devolucion_facturacion_fiscal.`cod_cli_ventas`
+WHERE
+     devolucion_facturacion_fiscal.`num_bol` = $P{codigp}]]>
+	</queryString>
+	<field name="tienda_clientes_cli_cod" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_nombre" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_ruc" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_razon" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_contacto" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_email" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_dir" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_tipo" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_lim_cre" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_dias_cre" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_status" class="java.lang.String"/>
+	<field name="tienda_clientes_cli_nota_cre" class="java.lang.String"/>
+	<field name="devolucion_facturacion_fiscal_num_bol" class="java.lang.String"/>
+	<field name="devolucion_facturacion_fiscal_cod_cli_ventas" class="java.lang.String"/>
+	<field name="devolucion_facturacion_fiscal_nom_cli_ventas" class="java.lang.String"/>
+	<field name="devolucion_facturacion_fiscal_forma_pag_efectivo" class="java.lang.String"/>
+	<field name="devolucion_facturacion_fiscal_forma_pag_credito" class="java.lang.String"/>
+	<field name="devolucion_facturacion_fiscal_total_ventas" class="java.lang.String"/>
+	<field name="devolucion_facturacion_fiscal_fecha_ventas" class="java.sql.Date"/>
+	<field name="devolucion_facturacion_fiscal_fecha_control_ventas" class="java.sql.Timestamp"/>
+	<field name="devolucion_facturacion_fiscal_user_ventas" class="java.lang.String"/>
+	<field name="devolucion_facturacion_fiscal_cant_ventas" class="java.lang.Integer"/>
+	<field name="devolucion_facturacion_fiscal_letras_ventas" class="java.lang.String"/>
+	<field name="devolucion_facturacion_fiscal_nro_seq_ventas" class="java.lang.String"/>
+	<field name="devolucion_facturacion_fiscal_nro_fact_ventas" class="java.lang.String"/>
+	<field name="devolucion_facturacion_fiscal_nro_estable_ventas" class="java.lang.String"/>
+	<field name="devolucion_facturacion_fiscal_nro_timbra_ventas" class="java.lang.String"/>
+	<field name="devolucion_facturacion_fiscal_fact_sub_exe" class="java.lang.String"/>
+	<field name="devolucion_facturacion_fiscal_fact_sub_5" class="java.lang.String"/>
+	<field name="devolucion_facturacion_fiscal_fact_sub_10" class="java.lang.String"/>
+	<field name="devolucion_facturacion_fiscal_total_iva_5" class="java.lang.String"/>
+	<field name="devolucion_facturacion_fiscal_total_iva_10" class="java.lang.String"/>
+	<field name="devolucion_facturacion_fiscal_total_iva" class="java.lang.String"/>
+	<field name="devolucion_facturacion_fiscal_data_vista" class="java.lang.String"/>
+	<field name="devolucion_facturacion_fiscal_simb_moneda" class="java.lang.String"/>
+	<field name="devolucion_facturacion_fiscal_form_pag_lit" class="java.lang.String"/>
+	<field name="devolucion_facturacion_fiscal_estado_fact" class="java.lang.String"/>
+	<field name="devolucion_facturacion_fiscal_dia_lit" class="java.lang.String"/>
+	<field name="devolucion_facturacion_fiscal_mes_lit" class="java.lang.String"/>
+	<field name="devolucion_facturacion_fiscal_years_lit" class="java.lang.String"/>
+	<field name="devolucion_facturacion_fiscal_nro_fact_devol" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="266" splitType="Stretch">
+			<textField>
+				<reportElement x="107" y="69" width="245" height="10" uuid="b842e8ef-8f1f-498c-8679-98dd702ab5af"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tienda_clientes_cli_razon}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="121" y="253" width="100" height="10" uuid="76e73c23-3671-492d-ac0d-ec6ed0dcdebb"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{devolucion_facturacion_fiscal_total_iva_5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="252" y="253" width="100" height="10" uuid="a6c80652-6eba-4989-86fd-5e3906cc2776"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{devolucion_facturacion_fiscal_total_iva_10}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="368" y="253" width="100" height="10" uuid="f7532263-1a0a-4586-8a33-26e121cae7d6"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{devolucion_facturacion_fiscal_total_iva}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="73" y="58" width="20" height="10" uuid="3d4c143e-7b48-4f69-9376-476cc30f8746"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{devolucion_facturacion_fiscal_dia_lit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="141" y="58" width="80" height="10" uuid="09eeb86a-204e-4f4e-823b-eec54f03bd0b"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{devolucion_facturacion_fiscal_mes_lit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="58" width="40" height="10" uuid="f4217c65-7941-409d-ae72-31331b8f341c"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{devolucion_facturacion_fiscal_years_lit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="443" y="69" width="100" height="10" uuid="be626f86-9147-4670-9d18-241cda3f9bbd"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tienda_clientes_cli_ruc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="233" width="349" height="10" uuid="1f84fde0-74ce-4f8b-bd5e-fa7917e4efc4"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{devolucion_facturacion_fiscal_letras_ventas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="489" y="233" width="66" height="10" uuid="354a65a6-98fc-428a-aa92-f713020c5117"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{devolucion_facturacion_fiscal_total_ventas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="352" y="213" width="77" height="10" uuid="5587c05f-8a99-4ff1-b788-27dce65ccdad"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{devolucion_facturacion_fiscal_fact_sub_exe}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="489" y="213" width="66" height="10" uuid="e48b851a-dc7f-4661-9ca0-640c0b52641e"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{devolucion_facturacion_fiscal_fact_sub_10}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="431" y="213" width="58" height="10" uuid="aeb62989-cf36-4d9e-86fd-69741ebf54ea"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{devolucion_facturacion_fiscal_fact_sub_5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="107" y="81" width="66" height="10" uuid="32e573b3-5f3b-436a-9170-6c082969e646"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{devolucion_facturacion_fiscal_nro_fact_devol}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement key="table 4" style="table 4" x="0" y="104" width="555" height="12" uuid="0bdfbff4-1502-4cd7-a10c-9394fc343c8a"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="productos" uuid="5d64e5cf-fa8d-48f8-86ab-703380341b61">
+						<datasetParameter name="ide">
+							<datasetParameterExpression><![CDATA[$P{codigp}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="61" uuid="b9598897-5c58-478c-addb-8eb29d48674f">
+						<jr:detailCell style="table 4_TD" height="13" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="58" height="12" uuid="f5c0fbc1-cff6-4c81-9788-e095564e1dc3"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{devolucion_facturacion_deta_fiscal_cod_pro}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="42" uuid="1dc196b6-64fd-44ff-b0c7-116bfc99d631">
+						<jr:detailCell style="table 4_TD" height="13" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="40" height="12" uuid="e4d58aae-4146-4103-a545-636c8af6fe0a"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="Arial" size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{devolucion_facturacion_deta_fiscal_cant_pro}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="227" uuid="87c8361b-d2b4-48c3-bd13-455097946d00">
+						<jr:detailCell style="table 4_TD" height="13" rowSpan="1">
+							<textField>
+								<reportElement x="10" y="0" width="217" height="12" uuid="1abd4e9f-b03a-4f71-9051-3bfba6f03c51"/>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Arial" size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{devolucion_facturacion_deta_fiscal_des_pro}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="62" uuid="02d7ee7b-d9b5-4cf4-a166-fd234d275cda">
+						<jr:detailCell style="table 4_TD" height="13" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="59" height="12" uuid="8b7f411c-5823-44d8-a2fc-ac4c6c9aa30f"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="Arial" size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{devolucion_facturacion_deta_fiscal_pre_unit}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="39" uuid="40effe6e-3d36-446c-8b3c-1258261aabf0">
+						<jr:detailCell style="table 4_TD" height="13" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="38" height="12" uuid="b24faec6-ae09-47a1-b248-bd82bc34b9ae"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="Arial" size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{devolucion_facturacion_deta_fiscal_pre_exentas}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="61" uuid="db4fce73-5b7f-43e7-b12d-b60e1733dd7f">
+						<jr:detailCell style="table 4_TD" height="13" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="56" height="12" uuid="f9df255b-5767-4765-8eba-41be6f1d7cf5"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="Arial" size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{devolucion_facturacion_deta_fiscal_pre_5}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="60" uuid="b83a5107-8347-463c-b88b-a22469c76030">
+						<jr:detailCell style="table 4_TD" height="13" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="56" height="12" uuid="fb0029ef-d7fc-46d6-81c0-e63cdf8654c7"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="Arial" size="8"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{devolucion_facturacion_deta_fiscal_pre_10}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

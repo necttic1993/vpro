@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="53e51476-e3d4-401e-a00b-c782196d9310">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="codigo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     compras.`cod_comp` AS compras_cod_comp,
+     compras.`cod_prov_comp` AS compras_cod_prov_comp,
+     compras.`nom_prov_comp` AS compras_nom_prov_comp,
+     compras.`nro_comp` AS compras_nro_comp,
+     compras.`fecha_emi_comp` AS compras_fecha_emi_comp,
+     compras.`alma_comp` AS compras_alma_comp,
+     compras.`fecha_entra_comp` AS compras_fecha_entra_comp,
+     compras.`pago_comp` AS compras_pago_comp,
+     compras.`dias_comp` AS compras_dias_comp,
+     compras.`valor_comp` AS compras_valor_comp,
+     compras.`fecha_entrada` AS compras_fecha_entrada,
+     compras.`user_comp` AS compras_user_comp,
+     compras.`estado_comp` AS compras_estado_comp,
+     compras.`tipo_docu` AS compras_tipo_docu,
+     compras.`id_compras` AS compras_id_compras,
+     compras_detalles.`cod_comp` AS compras_detalles_cod_comp,
+     compras_detalles.`cod_pro` AS compras_detalles_cod_pro,
+     compras_detalles.`des_pro` AS compras_detalles_des_pro,
+     compras_detalles.`cant_pro` AS compras_detalles_cant_pro,
+     compras_detalles.`pre_unit` AS compras_detalles_pre_unit,
+     compras_detalles.`pre_venta` AS compras_detalles_pre_venta,
+     compras_detalles.`data` AS compras_detalles_data,
+     compras_detalles.`pre_venta_a` AS compras_detalles_pre_venta_a,
+     compras_detalles.`id_com_det` AS compras_detalles_id_com_det,
+     empresas.`id_empre` AS empresas_id_empre,
+     empresas.`emp_nom` AS empresas_emp_nom,
+     empresas.`emp_des` AS empresas_emp_des,
+     empresas.`emp_imag` AS empresas_emp_imag
+FROM
+      `empresas` empresas,
+     `compras` compras INNER JOIN
+     `compras_detalles` compras_detalles ON compras.`cod_comp`=  compras_detalles.`cod_comp`
+WHERE 
+compras.`cod_comp`=$P{codigo}]]>
+	</queryString>
+	<field name="compras_cod_comp" class="java.lang.String"/>
+	<field name="compras_cod_prov_comp" class="java.lang.String"/>
+	<field name="compras_nom_prov_comp" class="java.lang.String"/>
+	<field name="compras_nro_comp" class="java.lang.String"/>
+	<field name="compras_fecha_emi_comp" class="java.lang.String"/>
+	<field name="compras_alma_comp" class="java.lang.String"/>
+	<field name="compras_fecha_entra_comp" class="java.lang.String"/>
+	<field name="compras_pago_comp" class="java.lang.String"/>
+	<field name="compras_dias_comp" class="java.lang.String"/>
+	<field name="compras_valor_comp" class="java.lang.String"/>
+	<field name="compras_fecha_entrada" class="java.sql.Date"/>
+	<field name="compras_user_comp" class="java.lang.String"/>
+	<field name="compras_estado_comp" class="java.lang.String"/>
+	<field name="compras_tipo_docu" class="java.lang.String"/>
+	<field name="compras_id_compras" class="java.lang.Integer"/>
+	<field name="compras_detalles_cod_comp" class="java.lang.String"/>
+	<field name="compras_detalles_cod_pro" class="java.lang.String"/>
+	<field name="compras_detalles_des_pro" class="java.lang.String"/>
+	<field name="compras_detalles_cant_pro" class="java.lang.String"/>
+	<field name="compras_detalles_pre_unit" class="java.lang.String"/>
+	<field name="compras_detalles_pre_venta" class="java.lang.String"/>
+	<field name="compras_detalles_data" class="java.sql.Date"/>
+	<field name="compras_detalles_pre_venta_a" class="java.lang.String"/>
+	<field name="compras_detalles_id_com_det" class="java.lang.Integer"/>
+	<field name="empresas_id_empre" class="java.lang.Integer"/>
+	<field name="empresas_emp_nom" class="java.lang.String"/>
+	<field name="empresas_emp_des" class="java.lang.String"/>
+	<field name="empresas_emp_imag" class="java.io.InputStream"/>
+	<title>
+		<band height="130" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="56" width="175" height="27" uuid="bc120586-b34b-4823-a1b8-7dd347f92792"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empresas_emp_nom}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="341" y="31" width="114" height="15" uuid="7881c4c1-a18a-455c-81f1-f274bec2b825"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Compra N°:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="108" width="66" height="16" uuid="ab7cef6d-322e-4d02-86af-27849f9bab81"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Proveedor:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="351" y="49" width="104" height="15" uuid="562b6520-7464-4253-836f-002e9ce17a59"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[En fecha:]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="351" y="97" width="198" height="33" uuid="5499c86e-9785-4ffe-a2ba-da8e2568a31c"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code128" drawText="false" checksumRequired="false">
+					<jr:codeExpression><![CDATA[$P{codigo}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="0" y="0" width="175" height="56" uuid="eae0742d-579a-41c9-9223-f135ac884d8b"/>
+				<imageExpression><![CDATA[$F{empresas_emp_imag}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="455" y="31" width="100" height="15" uuid="a4feb746-0372-452d-b688-e335e825f93e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{compras_cod_comp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="66" y="108" width="248" height="16" uuid="bd113107-c251-4ddc-b34b-ad9669634a40"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{compras_nom_prov_comp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="49" width="100" height="15" uuid="a02558b6-3e2a-4902-8bfe-5ee6089833ef"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{compras_fecha_entra_comp}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="18" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="18" uuid="4aff8f7c-6c6d-458b-9a98-099ee73f6de6"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="1" y="0" width="108" height="18" uuid="ee2862db-8ed8-4b58-8a38-adc689dc90d8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="109" y="0" width="220" height="18" uuid="5ec2f58f-3bfa-42de-aaeb-ac55ec95b9d9"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Producto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="0" width="81" height="18" uuid="8fe9ac04-9f9c-48ef-b8be-47aed5456573"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Precio Unit.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="412" y="0" width="60" height="18" uuid="41008c0a-4d63-4f98-835a-e901fbe962d8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Unidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="473" y="0" width="82" height="18" uuid="09b991ea-6476-4b42-bcbb-90ae3777afb7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sub Total]]></text>
+			</staticText>
+			<line>
+				<reportElement x="472" y="0" width="1" height="18" uuid="5dc22524-8af5-4c4e-98c3-f2828fe32c1f"/>
+			</line>
+			<line>
+				<reportElement x="411" y="0" width="1" height="18" uuid="1b56038c-130e-4c7a-818f-ea499e299e7a"/>
+			</line>
+			<line>
+				<reportElement x="329" y="0" width="1" height="18" uuid="0ba24835-2c4f-410a-9549-20b49a1838c6"/>
+			</line>
+			<line>
+				<reportElement x="109" y="0" width="1" height="18" uuid="5b8655df-a38d-408b-86ce-0d390829cc13"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="15" width="555" height="1" uuid="467d8bed-b2be-486b-a337-5108b196cb75"/>
+			</line>
+			<line>
+				<reportElement x="109" y="0" width="1" height="15" uuid="44398980-952e-4e84-b06c-9495c58262a8"/>
+			</line>
+			<line>
+				<reportElement x="329" y="0" width="1" height="15" uuid="f465cd74-1bd0-43e9-9284-2782f8a9863b"/>
+			</line>
+			<line>
+				<reportElement x="411" y="0" width="1" height="15" uuid="60da96ec-6b80-4579-8917-b49291343d2d"/>
+			</line>
+			<line>
+				<reportElement x="472" y="0" width="1" height="15" uuid="514d0c86-f228-41ec-8d2a-175f80e03be8"/>
+			</line>
+			<textField>
+				<reportElement x="112" y="2" width="217" height="12" uuid="47659109-b89d-4d7b-bd38-8440b976f1da"/>
+				<textElement>
+					<font fontName="Arial" size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{compras_detalles_des_pro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="413" y="2" width="60" height="12" uuid="e087e685-e4ac-4708-8f21-8f77868add0c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{compras_detalles_cant_pro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="473" y="2" width="76" height="12" uuid="0625516e-f224-463b-8a93-f0bc8f2de46e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{compras_detalles_pre_venta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="331" y="2" width="78" height="12" uuid="04f1b571-2bb1-4a12-87ce-0383a7eed730"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{compras_detalles_pre_unit}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="1" height="15" uuid="d332d6fa-0869-42e1-bed1-479e559b3170"/>
+			</line>
+			<line>
+				<reportElement x="554" y="0" width="1" height="15" uuid="d5b35139-30cb-4cfc-af6c-d87a29b47413"/>
+			</line>
+			<textField>
+				<reportElement x="16" y="1" width="85" height="13" uuid="21515289-1c60-4533-91b6-569ddd780526"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{compras_detalles_cod_pro}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="3" splitType="Stretch">
+			<line>
+				<reportElement x="386" y="0" width="163" height="1" uuid="7162d5ab-b6d6-4368-9547-73cdf60b47df"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="386" y="3" width="69" height="17" uuid="1b0f0f98-769e-4294-87cf-ed516ec23fea"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor Total:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="459" y="3" width="90" height="17" uuid="b93e5e4e-7b01-473e-940e-4605433c3f9a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{compras_valor_comp}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

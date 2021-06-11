@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="190" pageHeight="819" columnWidth="190" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isIgnorePagination="true" uuid="7ce405cb-6911-406c-a0f1-1bb9c739744b">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="codigo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="total_gs" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="total_rs" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="total_ds" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     empresas.`id_empre` AS empresas_id_empre,
+     empresas.`emp_nom` AS empresas_emp_nom,
+     empresas.`emp_des` AS empresas_emp_des,
+     empresas.`emp_imag` AS empresas_emp_imag,
+     gastos.`gas_id` AS gastos_gas_id,
+     gastos.`gas_num` AS gastos_gas_num,
+     gastos.`gas_timbra` AS gastos_gas_timbra,
+     gastos.`gas_fecha_emi` AS gastos_gas_fecha_emi,
+     gastos.`gas_des` AS gastos_gas_des,
+     gastos.`gas_provee` AS gastos_gas_provee,
+     gastos.`gas_fecha_entra` AS gastos_gas_fecha_entra,
+     gastos.`gas_histo` AS gastos_gas_histo,
+     gastos.`gas_monto` AS gastos_gas_monto,
+     gastos.`gas_situ` AS gastos_gas_situ,
+     gastos.`data_vista` AS gastos_data_vista,
+     tienda_proveedores.`prov_cod` AS tienda_proveedores_prov_cod,
+     tienda_proveedores.`prov_nom` AS tienda_proveedores_prov_nom
+FROM
+     `empresas` empresas,
+     `gastos` gastos inner join 
+     `tienda_proveedores` tienda_proveedores on  gastos.`gas_provee`=tienda_proveedores.`prov_cod`
+WHERE
+     gastos.`gas_id` = $P{codigo}]]>
+	</queryString>
+	<field name="empresas_id_empre" class="java.lang.Integer"/>
+	<field name="empresas_emp_nom" class="java.lang.String"/>
+	<field name="empresas_emp_des" class="java.lang.String"/>
+	<field name="empresas_emp_imag" class="java.io.InputStream"/>
+	<field name="gastos_gas_id" class="java.lang.String"/>
+	<field name="gastos_gas_num" class="java.lang.String"/>
+	<field name="gastos_gas_timbra" class="java.lang.String"/>
+	<field name="gastos_gas_fecha_emi" class="java.lang.String"/>
+	<field name="gastos_gas_des" class="java.lang.String"/>
+	<field name="gastos_gas_provee" class="java.lang.String"/>
+	<field name="gastos_gas_fecha_entra" class="java.lang.String"/>
+	<field name="gastos_gas_histo" class="java.lang.String"/>
+	<field name="gastos_gas_monto" class="java.lang.String"/>
+	<field name="gastos_gas_situ" class="java.lang.String"/>
+	<field name="gastos_data_vista" class="java.lang.String"/>
+	<field name="tienda_proveedores_prov_cod" class="java.lang.String"/>
+	<field name="tienda_proveedores_prov_nom" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="330" splitType="Stretch">
+			<staticText>
+				<reportElement x="5" y="151" width="19" height="13" uuid="15568565-029d-4a07-b79c-0e15061be749"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N°:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="177" width="44" height="13" uuid="24a9e99e-3fb7-4ed4-92be-fae3c2bf710b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Proveedor:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="95" width="190" height="20" uuid="85e287dc-d8a9-4904-bb85-7a58bce97941"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empresas_emp_nom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="115" width="190" height="20" uuid="a73bf7a1-ef81-4bd1-87ac-4ca371372cbe"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empresas_emp_des}]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center" vAlign="Bottom">
+				<reportElement x="23" y="27" width="143" height="57" uuid="b209a449-bc4a-41ca-a1b0-ba72d0cfc873"/>
+				<imageExpression><![CDATA[$F{empresas_emp_imag}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="49" y="177" width="142" height="13" uuid="144cfeab-9365-4a3a-9857-8294d11ee330"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tienda_proveedores_prov_nom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="24" y="151" width="49" height="13" uuid="91845a9e-7de5-4693-8360-da4953889d7d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gastos_gas_id}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="235" width="82" height="12" uuid="13f26a42-de8a-4cb8-9408-334212e7ea4c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Con un valor de:]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="4" y="269" width="176" height="20" uuid="24833439-ed36-4426-9c4f-dea57d62504c"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code128" drawText="false" checksumRequired="false">
+					<jr:codeExpression><![CDATA[$P{codigo}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+			<staticText>
+				<reportElement x="0" y="299" width="190" height="11" uuid="4f7bf0fb-75af-44c7-b0c9-e4f0e3271ac2"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[----------------------------------------------------------------------------------]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="92" y="235" width="66" height="12" uuid="3de82533-b870-4c83-9483-4428ec8152eb"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gastos_gas_monto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="164" width="44" height="13" uuid="f76b7763-c06a-4746-8723-e4ae8dfa5b04"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[En Fecha:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="190" width="68" height="13" uuid="b04f7bbd-150c-4e81-8a0f-57f017b9ab5e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[En Concepto de :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="49" y="164" width="53" height="13" uuid="14cd191a-339b-4f66-8a45-6fd8d701bc47"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gastos_data_vista}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="13" y="203" width="166" height="32" uuid="c78b1b38-c934-446a-9061-d29d414659ad"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gastos_gas_des}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="203" width="8" height="13" uuid="e50be7c8-43db-49d9-bc8c-87362eb85d69"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="135" width="190" height="13" uuid="9cfae917-0c2a-4576-8773-58e3e2611dd6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Comprobante de egreso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="158" y="235" width="21" height="12" uuid="bf0ae64d-dcd7-48cb-b844-4240a93c27fe"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[-........]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

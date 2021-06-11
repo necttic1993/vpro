@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="200" pageHeight="819" columnWidth="200" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isIgnorePagination="true" uuid="7ce405cb-6911-406c-a0f1-1bb9c739744b">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="codigo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="total_gs" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="total_rs" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="total_ds" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     empresas.`id_empre` AS empresas_id_empre,
+     empresas.`emp_nom` AS empresas_emp_nom,
+     empresas.`emp_des` AS empresas_emp_des,
+     empresas.`emp_imag` AS empresas_emp_imag,
+     presupuesto_surc_2.`num_bol` AS presupuesto_surc_2_num_bol,
+     presupuesto_surc_2.`cod_cli_ventas` AS presupuesto_surc_2_cod_cli_ventas,
+     presupuesto_surc_2.`nom_cli_ventas` AS presupuesto_surc_2_nom_cli_ventas,
+     presupuesto_surc_2.`forma_pag_ventas` AS presupuesto_surc_2_forma_pag_ventas,
+     presupuesto_surc_2.`dias_plazo_ventas` AS presupuesto_surc_2_dias_plazo_ventas,
+     presupuesto_surc_2.`total_ventas` AS presupuesto_surc_2_total_ventas,
+     presupuesto_surc_2.`total_real` AS presupuesto_surc_2_total_real,
+     presupuesto_surc_2.`total_dolar` AS presupuesto_surc_2_total_dolar,
+     presupuesto_surc_2.`estado_ventas` AS presupuesto_surc_2_estado_ventas,
+     presupuesto_surc_2.`fecha_ventas` AS presupuesto_surc_2_fecha_ventas,
+     presupuesto_surc_2.`fecha_control_ventas` AS presupuesto_surc_2_fecha_control_ventas,
+     presupuesto_surc_2.`user_ventas` AS presupuesto_surc_2_user_ventas,
+     presupuesto_surc_2.`almacen_ventas` AS presupuesto_surc_2_almacen_ventas,
+     presupuesto_surc_2.`cant_ventas` AS presupuesto_surc_2_cant_ventas,
+     presupuesto_surc_2.`letras_ventas` AS presupuesto_surc_2_letras_ventas,
+     presupuesto_surc_2.`nro_fact_ventas` AS presupuesto_surc_2_nro_fact_ventas,
+     presupuesto_surc_2.`vac_ventas` AS presupuesto_surc_2_vac_ventas,
+     presupuesto_surc_2.`id_presupuesto` AS presupuesto_surc_2_id_presupuesto,
+     presupuesto_detalles_surc_2.`num_bol` AS presupuesto_detalles_surc_2_num_bol,
+     presupuesto_detalles_surc_2.`cod_pro` AS presupuesto_detalles_surc_2_cod_pro,
+     presupuesto_detalles_surc_2.`des_pro` AS presupuesto_detalles_surc_2_des_pro,
+     presupuesto_detalles_surc_2.`cant_pro` AS presupuesto_detalles_surc_2_cant_pro,
+     presupuesto_detalles_surc_2.`pre_unit` AS presupuesto_detalles_surc_2_pre_unit,
+     presupuesto_detalles_surc_2.`cant_kg` AS presupuesto_detalles_surc_2_cant_kg,
+     presupuesto_detalles_surc_2.`pre_venta` AS presupuesto_detalles_surc_2_pre_venta,
+     presupuesto_detalles_surc_2.`data` AS presupuesto_detalles_surc_2_data,
+     presupuesto_detalles_surc_2.`id_pre_det` AS presupuesto_detalles_surc_2_id_pre_det
+FROM
+     `presupuesto_surc_2` presupuesto_surc_2 INNER JOIN `presupuesto_detalles_surc_2` presupuesto_detalles_surc_2 ON presupuesto_surc_2.`num_bol` = presupuesto_detalles_surc_2.`num_bol`,
+     `empresas` empresas
+WHERE
+ presupuesto_surc_2.`num_bol` = $P{codigo}]]>
+	</queryString>
+	<field name="empresas_id_empre" class="java.lang.Integer"/>
+	<field name="empresas_emp_nom" class="java.lang.String"/>
+	<field name="empresas_emp_des" class="java.lang.String"/>
+	<field name="empresas_emp_imag" class="java.io.InputStream"/>
+	<field name="presupuesto_surc_2_num_bol" class="java.lang.String"/>
+	<field name="presupuesto_surc_2_cod_cli_ventas" class="java.lang.String"/>
+	<field name="presupuesto_surc_2_nom_cli_ventas" class="java.lang.String"/>
+	<field name="presupuesto_surc_2_forma_pag_ventas" class="java.lang.String"/>
+	<field name="presupuesto_surc_2_dias_plazo_ventas" class="java.lang.String"/>
+	<field name="presupuesto_surc_2_total_ventas" class="java.lang.String"/>
+	<field name="presupuesto_surc_2_total_real" class="java.lang.String"/>
+	<field name="presupuesto_surc_2_total_dolar" class="java.lang.String"/>
+	<field name="presupuesto_surc_2_estado_ventas" class="java.lang.String"/>
+	<field name="presupuesto_surc_2_fecha_ventas" class="java.sql.Date"/>
+	<field name="presupuesto_surc_2_fecha_control_ventas" class="java.sql.Timestamp"/>
+	<field name="presupuesto_surc_2_user_ventas" class="java.lang.String"/>
+	<field name="presupuesto_surc_2_almacen_ventas" class="java.lang.String"/>
+	<field name="presupuesto_surc_2_cant_ventas" class="java.lang.String"/>
+	<field name="presupuesto_surc_2_letras_ventas" class="java.lang.String"/>
+	<field name="presupuesto_surc_2_nro_fact_ventas" class="java.lang.String"/>
+	<field name="presupuesto_surc_2_vac_ventas" class="java.lang.String"/>
+	<field name="presupuesto_surc_2_id_presupuesto" class="java.lang.Integer"/>
+	<field name="presupuesto_detalles_surc_2_num_bol" class="java.lang.String"/>
+	<field name="presupuesto_detalles_surc_2_cod_pro" class="java.lang.String"/>
+	<field name="presupuesto_detalles_surc_2_des_pro" class="java.lang.String"/>
+	<field name="presupuesto_detalles_surc_2_cant_pro" class="java.lang.Integer"/>
+	<field name="presupuesto_detalles_surc_2_pre_unit" class="java.lang.String"/>
+	<field name="presupuesto_detalles_surc_2_cant_kg" class="java.lang.String"/>
+	<field name="presupuesto_detalles_surc_2_pre_venta" class="java.lang.String"/>
+	<field name="presupuesto_detalles_surc_2_data" class="java.sql.Date"/>
+	<field name="presupuesto_detalles_surc_2_id_pre_det" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="169" splitType="Stretch">
+			<staticText>
+				<reportElement x="4" y="143" width="19" height="13" uuid="15568565-029d-4a07-b79c-0e15061be749"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N°:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="156" width="42" height="13" uuid="24a9e99e-3fb7-4ed4-92be-fae3c2bf710b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cliente:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="95" width="200" height="20" uuid="85e287dc-d8a9-4904-bb85-7a58bce97941"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empresas_emp_nom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="115" width="200" height="28" uuid="a73bf7a1-ef81-4bd1-87ac-4ca371372cbe"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empresas_emp_des}]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center" vAlign="Bottom">
+				<reportElement x="0" y="0" width="198" height="85" uuid="b209a449-bc4a-41ca-a1b0-ba72d0cfc873"/>
+				<imageExpression><![CDATA[$F{empresas_emp_imag}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="23" y="143" width="100" height="13" uuid="686d2f2d-60ce-490d-88ad-921a5a9b7d03"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{presupuesto_surc_2_num_bol}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="46" y="156" width="140" height="13" uuid="ff0488ad-6415-4598-a3b2-69f5cfb8183f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{presupuesto_surc_2_nom_cli_ventas}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="200" height="10" uuid="e3c75cc3-4168-464a-a468-ceb6c15cd252"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[==============================================]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement x="4" y="13" width="192" height="16" uuid="ff2a7b38-bdec-47c0-909f-6ed1fec7638d"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="147" y="14" width="39" height="13" uuid="74918b11-f139-4ad1-9a08-d0b1af5a4605"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Subtotal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="59" y="15" width="36" height="13" uuid="72a667d7-3aa7-4934-9cd9-af4fd29aac5f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[P. Unitario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="106" y="15" width="30" height="13" uuid="d05b9970-980f-4041-8c13-1688ee8218ac"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cant.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="15" width="41" height="13" uuid="1938d54f-610b-42c6-a408-0af30bcd6268"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Id producto]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="95" y="0" width="10" height="12" uuid="bffbfac6-6a02-4e08-ba02-63ff8de3deae"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[x]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="0" width="10" height="12" uuid="e217c601-ff4b-4d2c-8b3c-2dfe53b8d49e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="5" y="0" width="41" height="12" uuid="5e84e5f8-cc33-4a64-ad43-0dfaca153e4c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{presupuesto_detalles_surc_2_cod_pro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="46" y="0" width="49" height="12" uuid="403e302f-0cf1-4606-a7a2-4875b0891e35"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{presupuesto_detalles_surc_2_pre_unit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="105" y="0" width="25" height="12" uuid="ca2c82bf-2ea7-45e5-8a78-b7aca9c72129"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{presupuesto_detalles_surc_2_cant_pro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="0" width="56" height="12" uuid="e6943417-fc32-4a31-b595-ce93a74280d6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{presupuesto_detalles_surc_2_pre_venta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="5" y="12" width="191" height="12" uuid="a6e67201-4680-450a-9c55-15f0f492d061"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{presupuesto_detalles_surc_2_des_pro}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="124" splitType="Stretch">
+			<staticText>
+				<reportElement x="23" y="10" width="49" height="12" uuid="13f26a42-de8a-4cb8-9408-334212e7ea4c"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="200" height="11" uuid="03824800-0e7e-480f-ab64-13b34565e543"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[----------------------------------------------------------------------------------]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="2" y="60" width="194" height="20" uuid="24833439-ed36-4426-9c4f-dea57d62504c"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code128" drawText="false" checksumRequired="false">
+					<jr:codeExpression><![CDATA[$P{codigo}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+			<staticText>
+				<reportElement x="0" y="92" width="200" height="21" uuid="eda397b1-e151-4a7e-9c64-59a3c99d6276"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[***PRESUPUESTO***]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="113" width="200" height="11" uuid="4f7bf0fb-75af-44c7-b0c9-e4f0e3271ac2"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[----------------------------------------------------------------------------------]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="72" y="10" width="114" height="12" uuid="1c9abada-4ac8-42c4-911d-f0307315bd3f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{presupuesto_surc_2_total_ventas}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="70" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

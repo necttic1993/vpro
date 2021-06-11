@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="53e51476-e3d4-401e-a00b-c782196d9310">
+	<property name="ireport.zoom" value="2.31325973657719"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="codigo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     empresas.`id_empre` AS empresas_id_empre,
+     empresas.`emp_nom` AS empresas_emp_nom,
+     empresas.`emp_des` AS empresas_emp_des,
+     empresas.`emp_imag` AS empresas_emp_imag,
+     pedidos.`num_pedi` AS pedidos_num_pedi,
+     pedidos.`cod_provee` AS pedidos_cod_provee,
+     pedidos.`nom_provee` AS pedidos_nom_provee,
+     pedidos.`forma_pag_pedi` AS pedidos_forma_pag_pedi,
+     pedidos.`dias_plazo_pedi` AS pedidos_dias_plazo_pedi,
+     pedidos.`total_pedi` AS pedidos_total_pedi,
+     pedidos.`total_real` AS pedidos_total_real,
+     pedidos.`total_dolar` AS pedidos_total_dolar,
+     pedidos.`estado_pedi` AS pedidos_estado_pedi,
+     pedidos.`fecha_pedi` AS pedidos_fecha_pedi,
+     pedidos.`fecha_control_pedi` AS pedidos_fecha_control_pedi,
+     pedidos.`user_pedi` AS pedidos_user_pedi,
+     pedidos.`almacen_pedi` AS pedidos_almacen_pedi,
+     pedidos.`cant_pedi` AS pedidos_cant_pedi,
+     pedidos.`letras_pedi` AS pedidos_letras_pedi,
+     pedidos.`nro_fact_op` AS pedidos_nro_fact_op,
+     pedidos.`vac_ventas` AS pedidos_vac_ventas,
+     pedidos.`id_pedido` AS pedidos_id_pedido,
+     pedidos_detalles.`num_pedi` AS pedidos_detalles_num_pedi,
+     pedidos_detalles.`cod_pro` AS pedidos_detalles_cod_pro,
+     pedidos_detalles.`des_pro` AS pedidos_detalles_des_pro,
+     pedidos_detalles.`cant_pro` AS pedidos_detalles_cant_pro,
+     pedidos_detalles.`pre_unit` AS pedidos_detalles_pre_unit,
+     pedidos_detalles.`cant_kg` AS pedidos_detalles_cant_kg,
+     pedidos_detalles.`pre_venta` AS pedidos_detalles_pre_venta,
+     pedidos_detalles.`data` AS pedidos_detalles_data,
+     pedidos_detalles.`id_pre_det` AS pedidos_detalles_id_pre_det
+FROM
+     `pedidos` pedidos INNER JOIN `pedidos_detalles` pedidos_detalles ON pedidos.`num_pedi` =pedidos_detalles.`num_pedi`,
+     `empresas` empresas
+WHERE
+     pedidos.`num_pedi` = $P{codigo}]]>
+	</queryString>
+	<field name="empresas_id_empre" class="java.lang.Integer"/>
+	<field name="empresas_emp_nom" class="java.lang.String"/>
+	<field name="empresas_emp_des" class="java.lang.String"/>
+	<field name="empresas_emp_imag" class="java.io.InputStream"/>
+	<field name="pedidos_num_pedi" class="java.lang.String"/>
+	<field name="pedidos_cod_provee" class="java.lang.String"/>
+	<field name="pedidos_nom_provee" class="java.lang.String"/>
+	<field name="pedidos_forma_pag_pedi" class="java.lang.String"/>
+	<field name="pedidos_dias_plazo_pedi" class="java.lang.String"/>
+	<field name="pedidos_total_pedi" class="java.lang.String"/>
+	<field name="pedidos_total_real" class="java.lang.String"/>
+	<field name="pedidos_total_dolar" class="java.lang.String"/>
+	<field name="pedidos_estado_pedi" class="java.lang.String"/>
+	<field name="pedidos_fecha_pedi" class="java.sql.Date"/>
+	<field name="pedidos_fecha_control_pedi" class="java.sql.Timestamp"/>
+	<field name="pedidos_user_pedi" class="java.lang.String"/>
+	<field name="pedidos_almacen_pedi" class="java.lang.String"/>
+	<field name="pedidos_cant_pedi" class="java.lang.String"/>
+	<field name="pedidos_letras_pedi" class="java.lang.String"/>
+	<field name="pedidos_nro_fact_op" class="java.lang.String"/>
+	<field name="pedidos_vac_ventas" class="java.lang.String"/>
+	<field name="pedidos_id_pedido" class="java.lang.Integer"/>
+	<field name="pedidos_detalles_num_pedi" class="java.lang.String"/>
+	<field name="pedidos_detalles_cod_pro" class="java.lang.String"/>
+	<field name="pedidos_detalles_des_pro" class="java.lang.String"/>
+	<field name="pedidos_detalles_cant_pro" class="java.lang.Integer"/>
+	<field name="pedidos_detalles_pre_unit" class="java.lang.String"/>
+	<field name="pedidos_detalles_cant_kg" class="java.lang.String"/>
+	<field name="pedidos_detalles_pre_venta" class="java.lang.String"/>
+	<field name="pedidos_detalles_data" class="java.sql.Date"/>
+	<field name="pedidos_detalles_id_pre_det" class="java.lang.Integer"/>
+	<title>
+		<band height="130" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="56" width="175" height="27" uuid="bc120586-b34b-4823-a1b8-7dd347f92792"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Courier New" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empresas_emp_nom}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="386" y="31" width="69" height="15" uuid="7881c4c1-a18a-455c-81f1-f274bec2b825"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pedido N°:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="108" width="70" height="16" uuid="ab7cef6d-322e-4d02-86af-27849f9bab81"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Proveedor:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="386" y="49" width="63" height="15" uuid="562b6520-7464-4253-836f-002e9ce17a59"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[En fecha:]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="351" y="97" width="198" height="33" uuid="5499c86e-9785-4ffe-a2ba-da8e2568a31c"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code128" drawText="false" checksumRequired="false">
+					<jr:codeExpression><![CDATA[$F{pedidos_num_pedi}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="0" y="0" width="175" height="56" uuid="eae0742d-579a-41c9-9223-f135ac884d8b"/>
+				<imageExpression><![CDATA[$F{empresas_emp_imag}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="92" width="70" height="16" uuid="0bf151af-1e18-4cfc-bc22-34ecccd8a2c1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Solicitado por:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="455" y="31" width="94" height="15" uuid="18b4ed68-ee06-4976-ad81-dfa39f276be4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pedidos_num_pedi}]]></textFieldExpression>
+			</textField>
+			<textField pattern="d/M/yyyy">
+				<reportElement x="456" y="49" width="70" height="15" uuid="4b843ad1-0ef1-4487-a3e0-bf483c2bc1e2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pedidos_fecha_pedi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="92" width="243" height="16" uuid="af06c277-222b-461a-bb1c-8fecb84d2def"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pedidos_user_pedi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="108" width="243" height="16" uuid="8cb62793-64e8-43c2-b240-9f510c7e277b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pedidos_nom_provee}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="386" y="67" width="63" height="16" uuid="931a36e1-70ec-48fe-b9a6-b9c05c4f9cf1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[O.P.:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="456" y="67" width="93" height="16" uuid="4b0a0d1e-492d-4b20-b5d0-1b23768debe1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pedidos_vac_ventas}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="18" splitType="Stretch">
+			<rectangle>
+				<reportElement x="1" y="0" width="553" height="18" uuid="4aff8f7c-6c6d-458b-9a98-099ee73f6de6"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="9" y="0" width="89" height="18" uuid="ee2862db-8ed8-4b58-8a38-adc689dc90d8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cód. Producto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="109" y="0" width="220" height="18" uuid="5ec2f58f-3bfa-42de-aaeb-ac55ec95b9d9"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Producto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="0" width="81" height="18" uuid="8fe9ac04-9f9c-48ef-b8be-47aed5456573"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Precio Unit.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="412" y="0" width="60" height="18" uuid="41008c0a-4d63-4f98-835a-e901fbe962d8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Unidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="473" y="0" width="76" height="18" uuid="09b991ea-6476-4b42-bcbb-90ae3777afb7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sub Total]]></text>
+			</staticText>
+			<line>
+				<reportElement x="472" y="0" width="1" height="18" uuid="5dc22524-8af5-4c4e-98c3-f2828fe32c1f"/>
+			</line>
+			<line>
+				<reportElement x="411" y="0" width="1" height="18" uuid="1b56038c-130e-4c7a-818f-ea499e299e7a"/>
+			</line>
+			<line>
+				<reportElement x="329" y="0" width="1" height="18" uuid="0ba24835-2c4f-410a-9549-20b49a1838c6"/>
+			</line>
+			<line>
+				<reportElement x="109" y="0" width="1" height="18" uuid="5b8655df-a38d-408b-86ce-0d390829cc13"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement x="1" y="15" width="554" height="1" uuid="467d8bed-b2be-486b-a337-5108b196cb75"/>
+			</line>
+			<line>
+				<reportElement x="109" y="0" width="1" height="15" uuid="44398980-952e-4e84-b06c-9495c58262a8"/>
+			</line>
+			<line>
+				<reportElement x="329" y="0" width="1" height="15" uuid="f465cd74-1bd0-43e9-9284-2782f8a9863b"/>
+			</line>
+			<line>
+				<reportElement x="411" y="0" width="1" height="15" uuid="60da96ec-6b80-4579-8917-b49291343d2d"/>
+			</line>
+			<line>
+				<reportElement x="472" y="0" width="1" height="15" uuid="514d0c86-f228-41ec-8d2a-175f80e03be8"/>
+			</line>
+			<textField>
+				<reportElement x="120" y="0" width="209" height="14" uuid="b68621ea-f884-4d02-9985-60ecc1bf410c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pedidos_detalles_des_pro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="0" width="81" height="14" uuid="c9c24b18-d4fa-4b66-a3f8-0e4298bd9c6d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pedidos_detalles_pre_unit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="410" y="0" width="62" height="14" uuid="cf0ca7e9-bc93-49fb-9c33-054c80a57673"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pedidos_detalles_cant_pro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="473" y="0" width="81" height="14" uuid="becdda22-4c5c-4285-bdc8-89c221e9b3c9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pedidos_detalles_pre_venta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="9" y="2" width="78" height="12" uuid="dda78f98-7a3b-420c-bb90-044c6da39926"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pedidos_detalles_cod_pro}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="0" width="1" height="16" uuid="d8caba82-16ee-4820-b109-89ea753039d0"/>
+			</line>
+			<line>
+				<reportElement x="554" y="0" width="1" height="16" uuid="5910f29d-13ed-4329-b12a-043437c047c6"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="3" splitType="Stretch">
+			<line>
+				<reportElement x="386" y="0" width="163" height="1" uuid="7162d5ab-b6d6-4368-9547-73cdf60b47df"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="386" y="3" width="69" height="17" uuid="1b0f0f98-769e-4294-87cf-ed516ec23fea"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor Total:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="455" y="3" width="100" height="17" uuid="037f2cd3-4e2e-4daf-8582-48381b1c8c2d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pedidos_total_pedi}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
