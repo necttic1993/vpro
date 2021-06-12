@@ -1,0 +1,378 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package user;
+
+import Clases.machusculas;
+import Conexion_DB.conectar;
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
+/**
+ *
+ * @author Roberto
+ */
+public class Update_user extends javax.swing.JDialog {
+
+    DefaultTableModel model;
+
+    Statement sent;
+
+    public Update_user(javax.swing.JDialog parent, boolean modal) {
+        super(parent, modal);
+        initComponents();
+        txtcod.setVisible(false);
+
+    }
+
+    void limpiar() {
+        txt_por_venta.setText("");
+        txt_usu.setText("");
+        txt_pass.setText("");
+        txt_pre_a.setText("");
+        txt_pre_b.setText("");
+        txt_pre_c.setText("");
+        txt_vende_sin.setText("");
+    }
+
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jPanel1 = new javax.swing.JPanel();
+        txt_usu = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        btnactualizar = new javax.swing.JButton();
+        txtcod = new javax.swing.JTextField();
+        txt_pass = new javax.swing.JPasswordField();
+        cb_tipo = new org.jdesktop.swingx.JXComboBox();
+        cb_cat = new org.jdesktop.swingx.JXComboBox();
+        jLabel8 = new javax.swing.JLabel();
+        txt_por_venta = new javax.swing.JTextField();
+        btn_grupos = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        txt_pre_c = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        txt_pre_a = new javax.swing.JTextField();
+        txt_pre_b = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        txt_vende_sin = new javax.swing.JTextField();
+        cb_caja = new jcomboper.SComboBox();
+        lbl_pass_word = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        btn_grupos1 = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Registrar Usuarios");
+        setResizable(false);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txt_usu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txt_usu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_usuActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txt_usu, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 420, 30));
+
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel4.setText("Grupo :");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, 30));
+
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel3.setText("Contraseña:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 90, 30));
+
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel2.setText("Usuario:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 90, 30));
+
+        btnactualizar.setBackground(new java.awt.Color(255, 255, 255));
+        btnactualizar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnactualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/modificar.png"))); // NOI18N
+        btnactualizar.setMnemonic('a');
+        btnactualizar.setText("Actualizar");
+        btnactualizar.setBorderPainted(false);
+        btnactualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnactualizar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnactualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnactualizarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 150, 40));
+        jPanel1.add(txtcod, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 60, 20));
+
+        txt_pass.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jPanel1.add(txt_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 220, 30));
+
+        cb_tipo.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jPanel1.add(cb_tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 220, 30));
+
+        cb_cat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        cb_cat.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jPanel1.add(cb_cat, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 100, 30));
+
+        jLabel8.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel8.setText("Sin Stock:");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, -1, 30));
+
+        txt_por_venta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txt_por_venta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_por_ventaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txt_por_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 50, 30));
+
+        btn_grupos.setBackground(new java.awt.Color(255, 255, 255));
+        btn_grupos.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btn_grupos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/bank.png"))); // NOI18N
+        btn_grupos.setText("Cuentas");
+        btn_grupos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_grupos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btn_grupos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_gruposActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_grupos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 150, 40));
+
+        jLabel9.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel9.setText("Clasificación:");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, -1, 30));
+
+        txt_pre_c.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jPanel1.add(txt_pre_c, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 130, 40, 30));
+
+        jLabel11.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel11.setText("Panel de precio bloq:");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, -1, 30));
+
+        jLabel12.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel12.setText("Precio B:");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, -1, 30));
+
+        txt_pre_a.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jPanel1.add(txt_pre_a, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 40, 30));
+
+        txt_pre_b.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jPanel1.add(txt_pre_b, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 40, 30));
+
+        jLabel13.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel13.setText("Minimo:");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, -1, 30));
+
+        txt_vende_sin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jPanel1.add(txt_vende_sin, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, 40, 30));
+
+        cb_caja.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "NO", "SI" }));
+        cb_caja.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jPanel1.add(cb_caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 80, -1));
+
+        lbl_pass_word.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbl_pass_word.setForeground(new java.awt.Color(153, 153, 153));
+        jPanel1.add(lbl_pass_word, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 50, 30));
+
+        jLabel14.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel14.setText("Caja Rápida:");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 90, 30));
+
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel6.setText("(Lucro %):");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 60, 30));
+
+        btn_grupos1.setBackground(new java.awt.Color(255, 255, 255));
+        btn_grupos1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btn_grupos1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/shopper.png"))); // NOI18N
+        btn_grupos1.setText("Almacenes");
+        btn_grupos1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_grupos1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btn_grupos1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_grupos1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_grupos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 150, 40));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        pack();
+        setLocationRelativeTo(null);
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void txt_usuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_usuActionPerformed
+        // TODO add your handling code here:
+        txt_usu.transferFocus();
+    }//GEN-LAST:event_txt_usuActionPerformed
+
+    private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
+        // TODO add your handling code here:
+        if (txt_pass.getText().length() != 0) {
+            String sql = "UPDATE usuarios SET usu ='" + txt_usu.getText()
+                    + "',password ='" + txt_pass.getText()
+                    + "',tipo_usu ='" + cb_tipo.getSelectedItem()
+                    + "',class ='" + cb_cat.getSelectedItem()
+                    + "',alma_surc ='" + ("0")
+                    + "',usu_cuenta ='" + ("0")
+                    + "',por_ventas ='" + txt_por_venta.getText()
+                    + "',pre_a ='" + txt_pre_a.getText()
+                    + "',pre_b ='" + txt_pre_b.getText()
+                    + "',pre_c ='" + txt_pre_c.getText()
+                    + "',pre_post ='" + txt_vende_sin.getText()
+                    + "',caja_rap ='" + cb_caja.getSelectedItem()
+                    + "' WHERE usu_cod = '" + txtcod.getText() + "'";
+            try {
+                Connection cn = conectar.getInstance().getConnection();
+
+                PreparedStatement pst = cn.prepareStatement(sql);
+                pst.executeUpdate();
+                conectar.getInstance().closeConnection(cn);
+
+                JOptionPane.showMessageDialog(null, "Actualizado");
+                limpiar();
+                this.dispose();
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Confirme Contraseña ");
+        }
+    }//GEN-LAST:event_btnactualizarActionPerformed
+
+    private void txt_por_ventaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_por_ventaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_por_ventaActionPerformed
+
+    private void btn_gruposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_gruposActionPerformed
+
+    }//GEN-LAST:event_btn_gruposActionPerformed
+
+    private void btn_grupos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_grupos1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_grupos1ActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Update_user.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Update_user.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Update_user.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Update_user.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the dialog */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                Update_user dialog = new Update_user(new javax.swing.JDialog(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_grupos;
+    private javax.swing.JButton btn_grupos1;
+    private javax.swing.JButton btnactualizar;
+    private jcomboper.SComboBox cb_caja;
+    private org.jdesktop.swingx.JXComboBox cb_cat;
+    private org.jdesktop.swingx.JXComboBox cb_tipo;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lbl_pass_word;
+    private javax.swing.JPasswordField txt_pass;
+    private javax.swing.JTextField txt_por_venta;
+    private javax.swing.JTextField txt_pre_a;
+    private javax.swing.JTextField txt_pre_b;
+    private javax.swing.JTextField txt_pre_c;
+    private javax.swing.JTextField txt_usu;
+    private javax.swing.JTextField txt_vende_sin;
+    private javax.swing.JTextField txtcod;
+    // End of variables declaration//GEN-END:variables
+
+    void cargargrupo() {
+        String mostrar = "SELECT * FROM user_permisos where id_perm >1 ";
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(mostrar);
+            while (rs.next()) {
+                cb_tipo.addItem(rs.getString(2));
+
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Update_user.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+}
