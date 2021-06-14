@@ -17,6 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import static user.user.id_user;
 
 /**
  *
@@ -31,7 +32,14 @@ public class Update_user extends javax.swing.JDialog {
     public Update_user(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        txtcod.setVisible(false);
+
+        txtcod.setText(id_user);
+        txt_usu.setDocument(new machusculas());
+        txt_por_venta.setDocument(new machusculas());
+        txt_pre_a.setDocument(new machusculas());
+        txt_vende_sin.setDocument(new machusculas());
+        txt_pre_b.setDocument(new machusculas());
+        txt_pre_c.setDocument(new machusculas());
 
     }
 
@@ -75,6 +83,7 @@ public class Update_user extends javax.swing.JDialog {
         jLabel14 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         btn_grupos1 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registrar Usuarios");
@@ -89,19 +98,19 @@ public class Update_user extends javax.swing.JDialog {
                 txt_usuActionPerformed(evt);
             }
         });
-        jPanel1.add(txt_usu, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 420, 30));
+        jPanel1.add(txt_usu, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 420, 30));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel4.setText("Grupo :");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, 30));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, 30));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel3.setText("Contraseña:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 90, 30));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 90, 30));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel2.setText("Usuario:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 90, 30));
+        jLabel2.setText("Id Usuario:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 90, 30));
 
         btnactualizar.setBackground(new java.awt.Color(255, 255, 255));
         btnactualizar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -116,22 +125,26 @@ public class Update_user extends javax.swing.JDialog {
                 btnactualizarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 150, 40));
-        jPanel1.add(txtcod, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 60, 20));
+        jPanel1.add(btnactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 220, 150, 40));
+
+        txtcod.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txtcod.setDisabledTextColor(new java.awt.Color(153, 0, 0));
+        txtcod.setEnabled(false);
+        jPanel1.add(txtcod, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 90, 30));
 
         txt_pass.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jPanel1.add(txt_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 220, 30));
+        jPanel1.add(txt_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 220, 30));
 
         cb_tipo.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jPanel1.add(cb_tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 220, 30));
+        jPanel1.add(cb_tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 220, 30));
 
         cb_cat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
         cb_cat.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jPanel1.add(cb_cat, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 100, 30));
+        jPanel1.add(cb_cat, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 100, 30));
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel8.setText("Sin Stock:");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, -1, 30));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, -1, 30));
 
         txt_por_venta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_por_venta.addActionListener(new java.awt.event.ActionListener() {
@@ -139,7 +152,7 @@ public class Update_user extends javax.swing.JDialog {
                 txt_por_ventaActionPerformed(evt);
             }
         });
-        jPanel1.add(txt_por_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 50, 30));
+        jPanel1.add(txt_por_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 50, 30));
 
         btn_grupos.setBackground(new java.awt.Color(255, 255, 255));
         btn_grupos.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -152,39 +165,39 @@ public class Update_user extends javax.swing.JDialog {
                 btn_gruposActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_grupos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 150, 40));
+        jPanel1.add(btn_grupos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 150, 40));
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel9.setText("Clasificación:");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, -1, 30));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, -1, 30));
 
         txt_pre_c.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jPanel1.add(txt_pre_c, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 130, 40, 30));
+        jPanel1.add(txt_pre_c, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 160, 40, 30));
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel11.setText("Panel de precio bloq:");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, -1, 30));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, -1, 30));
 
         jLabel12.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel12.setText("Precio B:");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, -1, 30));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, -1, 30));
 
         txt_pre_a.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jPanel1.add(txt_pre_a, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 40, 30));
+        jPanel1.add(txt_pre_a, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 40, 30));
 
         txt_pre_b.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jPanel1.add(txt_pre_b, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 40, 30));
+        jPanel1.add(txt_pre_b, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 40, 30));
 
         jLabel13.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel13.setText("Minimo:");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, -1, 30));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, -1, 30));
 
         txt_vende_sin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jPanel1.add(txt_vende_sin, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, 40, 30));
+        jPanel1.add(txt_vende_sin, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 130, 40, 30));
 
         cb_caja.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "NO", "SI" }));
         cb_caja.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jPanel1.add(cb_caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 80, -1));
+        jPanel1.add(cb_caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 80, -1));
 
         lbl_pass_word.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lbl_pass_word.setForeground(new java.awt.Color(153, 153, 153));
@@ -192,11 +205,11 @@ public class Update_user extends javax.swing.JDialog {
 
         jLabel14.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel14.setText("Caja Rápida:");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 90, 30));
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 90, 30));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel6.setText("(Lucro %):");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 60, 30));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 60, 30));
 
         btn_grupos1.setBackground(new java.awt.Color(255, 255, 255));
         btn_grupos1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -209,13 +222,17 @@ public class Update_user extends javax.swing.JDialog {
                 btn_grupos1ActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_grupos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 150, 40));
+        jPanel1.add(btn_grupos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 150, 40));
+
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel5.setText("Usuario:");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 90, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 557, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -344,6 +361,7 @@ public class Update_user extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

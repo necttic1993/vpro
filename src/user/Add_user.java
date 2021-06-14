@@ -33,10 +33,14 @@ public class Add_user extends javax.swing.JDialog {
         initComponents();
 
         cargargrupo();
+        txt_usu.setDocument(new machusculas());
+        txt_por_venta.setDocument(new machusculas());
+        txt_pre_a.setDocument(new machusculas());
+        txt_vende_sin.setDocument(new machusculas());
+        txt_pre_b.setDocument(new machusculas());
+        txt_pre_c.setDocument(new machusculas());
 
     }
-
-   
 
     void limpiar() {
         txt_por_venta.setText("");

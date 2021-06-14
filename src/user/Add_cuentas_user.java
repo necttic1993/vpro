@@ -102,9 +102,11 @@ public class Add_cuentas_user extends javax.swing.JDialog {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 590, 330));
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_6_esp/ok.png"))); // NOI18N
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, 50, 30));
 
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, 50, 30));
 
@@ -121,6 +123,7 @@ public class Add_cuentas_user extends javax.swing.JDialog {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 450));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void tb_usu_almaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_usu_almaKeyPressed
