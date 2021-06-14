@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Productos.transferencias;
+package user;
 
 import Clases.machusculas;
 import Conexion_DB.conectar;
@@ -20,11 +20,11 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author user
  */
-public class almacen_destino extends javax.swing.JDialog {
+public class Listar_usu_almacen extends javax.swing.JDialog {
 
     DefaultTableModel model;
 
-    public almacen_destino(javax.swing.JDialog parent, boolean modal) {
+    public Listar_usu_almacen(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
         txt_bus.setDocument(new machusculas());
@@ -134,8 +134,8 @@ public class almacen_destino extends javax.swing.JDialog {
                 cod = (String) tb_almacen_destino.getValueAt(fila, 0);
                 nom = (String) tb_almacen_destino.getValueAt(fila, 1);
 
-                trans_dep_pro.nro_alma_des.setText(cod);
-                trans_dep_pro.nom_cuenta_des.setText(nom);
+                Add_alma_user.txt_id_alma.setText(cod);
+                Add_alma_user.txt_des_alma.setText(nom);
 
                 this.dispose();
 
@@ -174,13 +174,13 @@ public class almacen_destino extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(almacen_destino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Listar_usu_almacen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(almacen_destino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Listar_usu_almacen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(almacen_destino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Listar_usu_almacen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(almacen_destino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Listar_usu_almacen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -202,13 +202,31 @@ public class almacen_destino extends javax.swing.JDialog {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        
-     
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                almacen_destino dialog = new almacen_destino(new javax.swing.JDialog(), true);
+                Listar_usu_almacen dialog = new Listar_usu_almacen(new javax.swing.JDialog(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

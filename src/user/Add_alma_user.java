@@ -5,8 +5,23 @@
  */
 package user;
 
+import Conexion_DB.conectar;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPopupMenu;
 import javax.swing.table.DefaultTableModel;
+import static user.Update_user.id_user_cuentas;
 
 /**
  *
@@ -21,18 +36,24 @@ public class Add_alma_user extends javax.swing.JDialog {
         tb_usu_alma.getColumnModel().getColumn(0).setPreferredWidth(80);
         tb_usu_alma.getColumnModel().getColumn(1).setPreferredWidth(120);
         tb_usu_alma.getColumnModel().getColumn(1).setPreferredWidth(120);
-
+        txt_id_usuario.setText(id_user_cuentas);
+        cargar(id_user_cuentas);
+        OpcionMenu();
     }
+
+    DefaultTableModel model;
+
+    Statement sent;
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        txt_id_pro = new javax.swing.JTextField();
+        txt_id_alma = new javax.swing.JTextField();
         txt_id_usuario = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        txt_des_pro = new javax.swing.JTextField();
+        txt_des_alma = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_usu_alma = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
@@ -41,7 +62,6 @@ public class Add_alma_user extends javax.swing.JDialog {
         jLabel29 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("scanner");
         setLocation(new java.awt.Point(500, 200));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -49,10 +69,10 @@ public class Add_alma_user extends javax.swing.JDialog {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txt_id_pro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        txt_id_pro.setDisabledTextColor(new java.awt.Color(204, 0, 0));
-        txt_id_pro.setEnabled(false);
-        jPanel1.add(txt_id_pro, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 120, 30));
+        txt_id_alma.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txt_id_alma.setDisabledTextColor(new java.awt.Color(204, 0, 0));
+        txt_id_alma.setEnabled(false);
+        jPanel1.add(txt_id_alma, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 120, 30));
 
         txt_id_usuario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txt_id_usuario.setForeground(new java.awt.Color(153, 51, 0));
@@ -64,10 +84,15 @@ public class Add_alma_user extends javax.swing.JDialog {
         jLabel24.setFocusable(false);
         jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 80, 20));
 
-        txt_des_pro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        txt_des_pro.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        txt_des_pro.setEnabled(false);
-        jPanel1.add(txt_des_pro, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 370, 30));
+        txt_des_alma.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txt_des_alma.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txt_des_alma.setEnabled(false);
+        txt_des_alma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_des_almaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txt_des_alma, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 370, 30));
 
         /*tb_usu_alma = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
@@ -104,10 +129,22 @@ public class Add_alma_user extends javax.swing.JDialog {
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_6_esp/ok.png"))); // NOI18N
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, 50, 30));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, 50, 30));
 
         jLabel28.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -131,6 +168,49 @@ public class Add_alma_user extends javax.swing.JDialog {
         if (Tecla == KeyEvent.VK_ENTER) {
         }
     }//GEN-LAST:event_tb_usu_almaKeyPressed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        String id_alma, id_user;
+        String sql = "";
+
+        id_user = txt_id_usuario.getText();
+        id_alma = txt_id_alma.getText();
+
+        sql = "INSERT INTO usu_almacen (cod_usu,cod_alma) VALUES (?,?)";
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            PreparedStatement pst = cn.prepareStatement(sql);
+
+            pst.setString(1, id_user);
+            pst.setString(2, id_alma);
+
+            int n = pst.executeUpdate();
+            conectar.getInstance().closeConnection(cn);
+
+            if (n > 0) {
+                JOptionPane.showMessageDialog(null, "Usuario Guardado con Exito ");
+      cargar(txt_id_usuario.getText());
+            }
+
+        } catch (SQLException ex) {
+
+            Logger.getLogger(Add_user.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txt_des_almaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_des_almaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_des_almaActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Listar_usu_almacen add;
+        add = new Listar_usu_almacen(new javax.swing.JDialog(), true);
+        add.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,35 +270,84 @@ public class Add_alma_user extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JTable tb_usu_alma;
-    private javax.swing.JTextField txt_des_pro;
-    private javax.swing.JTextField txt_id_pro;
+    public static javax.swing.JTextField txt_des_alma;
+    public static javax.swing.JTextField txt_id_alma;
     private javax.swing.JLabel txt_id_usuario;
     // End of variables declaration//GEN-END:variables
 
-    void agregaritems() {
+    void cargar(String valor) {
+        String[] titulos = {"Id", "Usuario", "Almacen"};
+        String[] registros = new String[12];
 
-        DefaultTableModel tabladet = (DefaultTableModel) tb_usu_alma.getModel();
-        String[] dato = new String[5];
-        int c = 0;
-        int j = 0;
-        String id = txt_id_pro.getText();
-        String des = txt_des_pro.getText();
-        String id_cli = txt_id_usuario.getText();
+        String sql = "SELECT * FROM usu_almacen where cod_usu = '" + valor + "' ";
 
-        if (c == 0) {
-            dato[0] = id;
-            dato[1] = id_cli;
-            dato[2] = des;
+        model = new DefaultTableModel(null, titulos);
 
-            tabladet.addRow(dato);
+        try {
+            Connection cn = conectar.getInstance().getConnection();
 
-            tb_usu_alma.setModel(tabladet);
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
 
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+
+                model.addRow(registros);
+
+            }
+            tb_usu_alma.setModel(model);
+            tb_usu_alma.getColumnModel().getColumn(0).setPreferredWidth(120);
+            tb_usu_alma.getColumnModel().getColumn(1).setPreferredWidth(120);
+            tb_usu_alma.getColumnModel().getColumn(2).setPreferredWidth(120);
+
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
         }
-
-        txt_id_pro.setText("");
-        txt_des_pro.setText("");
 
     }
 
+    public void OpcionMenu() {
+        JPopupMenu menu_opcion = new JPopupMenu();
+
+        JMenuItem menu_eliminar_Pro = new JMenuItem("Eliminar Almacen asociado", new ImageIcon(getClass().getResource("/icon_4/eliminar.png")));
+
+        menu_eliminar_Pro.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                int filaMod = tb_usu_alma.getSelectedRow();
+                if (filaMod == -1) {
+                    JOptionPane.showMessageDialog(null, "Seleccione algun dato");
+                } else {
+
+                    String id = (String) tb_usu_alma.getValueAt(filaMod, 0);
+                    String eliminarSQL = "DELETE FROM usu_almacen WHERE id_def = '" + id + "'";
+
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(eliminarSQL);
+
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        JOptionPane.showMessageDialog(null, "Borrado");
+                        cargar(txt_id_usuario.getText());
+                    } catch (SQLException ex) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                }
+            }
+
+        });
+
+        menu_opcion.add(menu_eliminar_Pro);
+
+        tb_usu_alma.setComponentPopupMenu(menu_opcion);
+
+    }
 }

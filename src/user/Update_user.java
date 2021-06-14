@@ -28,30 +28,23 @@ public class Update_user extends javax.swing.JDialog {
     DefaultTableModel model;
 
     Statement sent;
+    public static String id_user_cuentas = "";
 
     public Update_user(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
 
         txtcod.setText(id_user);
-        cargarDatos(id_user);
+
         txt_usu.setDocument(new machusculas());
         txt_por_venta.setDocument(new machusculas());
         txt_pre_a.setDocument(new machusculas());
         txt_vende_sin.setDocument(new machusculas());
         txt_pre_b.setDocument(new machusculas());
         txt_pre_c.setDocument(new machusculas());
+        cargargrupo();
+        cargarDatos(id_user);
 
-    }
-
-    void limpiar() {
-        txt_por_venta.setText("");
-        txt_usu.setText("");
-        txt_pass.setText("");
-        txt_pre_a.setText("");
-        txt_pre_b.setText("");
-        txt_pre_c.setText("");
-        txt_vende_sin.setText("");
     }
 
     @SuppressWarnings("unchecked")
@@ -288,12 +281,16 @@ public class Update_user extends javax.swing.JDialog {
     }//GEN-LAST:event_txt_por_ventaActionPerformed
 
     private void btn_gruposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_gruposActionPerformed
+
+        id_user_cuentas = txtcod.getText();
         Add_cuentas_user ac;
         ac = new Add_cuentas_user(new javax.swing.JDialog(), true);
         ac.setVisible(true);
     }//GEN-LAST:event_btn_gruposActionPerformed
 
     private void btn_grupos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_grupos1ActionPerformed
+
+        id_user_cuentas = txtcod.getText();
         Add_alma_user aa;
         aa = new Add_alma_user(new javax.swing.JDialog(), true);
         aa.setVisible(true);
@@ -421,9 +418,9 @@ public class Update_user extends javax.swing.JDialog {
             }
 
             txt_usu.setText(nom);
-            cb_cat.addItem(clas);
-            cb_tipo.addItem(grupo);
-            cb_caja.addItem(caja_rap);
+            cb_cat.setSelectedItem(clas);
+            cb_tipo.setSelectedItem(grupo);
+            cb_caja.setSelectedItem(caja_rap);
             txt_pre_a.setText(precio_bloq);
             txt_vende_sin.setText(sin_stock);
             txt_por_venta.setText(lucro);
@@ -436,6 +433,16 @@ public class Update_user extends javax.swing.JDialog {
             System.out.println(e.getMessage());
         }
 
+    }
+
+    void limpiar() {
+        txt_por_venta.setText("");
+        txt_usu.setText("");
+        txt_pass.setText("");
+        txt_pre_a.setText("");
+        txt_pre_b.setText("");
+        txt_pre_c.setText("");
+        txt_vende_sin.setText("");
     }
 
 }
