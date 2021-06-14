@@ -270,11 +270,15 @@ public class Update_user extends javax.swing.JDialog {
     }//GEN-LAST:event_txt_por_ventaActionPerformed
 
     private void btn_gruposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_gruposActionPerformed
-
+        Add_cuentas_user ac;
+        ac = new Add_cuentas_user(new javax.swing.JDialog(), true);
+        ac.setVisible(true);
     }//GEN-LAST:event_btn_gruposActionPerformed
 
     private void btn_grupos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_grupos1ActionPerformed
-        // TODO add your handling code here:
+        Add_alma_user aa;
+        aa = new Add_alma_user(new javax.swing.JDialog(), true);
+        aa.setVisible(true);
     }//GEN-LAST:event_btn_grupos1ActionPerformed
 
     /**
