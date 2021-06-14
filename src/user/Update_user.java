@@ -34,6 +34,7 @@ public class Update_user extends javax.swing.JDialog {
         initComponents();
 
         txtcod.setText(id_user);
+        cargarDatos(id_user);
         txt_usu.setDocument(new machusculas());
         txt_por_venta.setDocument(new machusculas());
         txt_pre_a.setDocument(new machusculas());
@@ -86,7 +87,7 @@ public class Update_user extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Registrar Usuarios");
+        setTitle("Actualizar Usuarios");
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -393,6 +394,46 @@ public class Update_user extends javax.swing.JDialog {
 
         } catch (SQLException ex) {
             Logger.getLogger(Update_user.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    void cargarDatos(String cod) {
+
+        try {
+            String nom = "", clas = "", grupo = "", caja_rap = "", precio_bloq = "", sin_stock = "", lucro = "", precio_b = "", minimo = "";
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from usuarios WHERE usu_cod='" + cod + "'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                nom = rs.getString(2);
+                clas = rs.getString(5);
+                grupo = rs.getString(4);
+                caja_rap = rs.getString(13);
+                precio_bloq = rs.getString(9);
+                sin_stock = rs.getString(12);
+                lucro = rs.getString(8);
+                precio_b = rs.getString(10);
+                minimo = rs.getString(11);
+
+            }
+
+            txt_usu.setText(nom);
+            cb_cat.addItem(clas);
+            cb_tipo.addItem(grupo);
+            cb_caja.addItem(caja_rap);
+            txt_pre_a.setText(precio_bloq);
+            txt_vende_sin.setText(sin_stock);
+            txt_por_venta.setText(lucro);
+            txt_pre_b.setText(precio_b);
+            txt_pre_c.setText(minimo);
+
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
 
     }
