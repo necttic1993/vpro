@@ -7,6 +7,7 @@ package Caja_2;
 
 import Clases.machusculas;
 import Conexion_DB.conectar;
+import Loggin_Principal.Principal;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
@@ -245,8 +246,8 @@ public class Cuentas_listar_caja extends javax.swing.JDialog {
             String[] registros = new String[4];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
-
-            String cons = " select * from cuentas WHERE CONCAT (nom_cuenta) LIKE '%" + valor + "%'";
+            String id_us = Principal.lbl_id_user.getText();
+            String cons = "select u.cod_cuenta,c.nom_cuenta,c.des_cuenta,c.saldo_cuenta from usu_cuenta as u inner join cuentas as c on c.nro_cuentas=u.cod_cuenta WHERE CONCAT (nom_cuenta) LIKE '%" + valor + "%' and u.cod_usu='" + id_us + "'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {

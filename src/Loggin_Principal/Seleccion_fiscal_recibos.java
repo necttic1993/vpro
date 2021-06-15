@@ -303,13 +303,13 @@ public class Seleccion_fiscal_recibos extends javax.swing.JDialog {
 
     void cargar(String valor) {
         try {
-
+            String id_us = Principal.lbl_id_user.getText();
             String[] titulos = {"Código", "Almacén"};
             String[] registros = new String[4];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from almacenes WHERE CONCAT (alm_nom) LIKE '%" + valor + "%'";
+            String cons = " select u.cod_alma,a.alm_nom from usu_almacen as u inner join almacenes as a on a.alm_cod=u.cod_alma WHERE CONCAT (alm_nom) LIKE '%" + valor + "%' and u.cod_usu='" + id_us + "'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {

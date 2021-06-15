@@ -62,7 +62,7 @@ public class Caja_caja extends javax.swing.JDialog {
     public Caja_caja(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        this.setSize(990, 500);
+        this.setSize(999, 500);
         txt_nom_cuenta.setDisabledTextColor(Color.blue);
         txt_his_caja.setDisabledTextColor(Color.blue);
         txt_his_tipo.setDisabledTextColor(Color.blue);
@@ -176,6 +176,7 @@ public class Caja_caja extends javax.swing.JDialog {
         panel_forma_pago = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Caja");
@@ -383,8 +384,8 @@ public class Caja_caja extends javax.swing.JDialog {
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 10, 440));
 
         jLabel19.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel19.setText("Históricos:");
-        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 145, 80, 32));
+        jLabel19.setText("CLICK PARA AGREGAR FORMA DE PAGO");
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 170, 290, 20));
 
         lbl_monto.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lbl_monto.setText("Monto :");
@@ -603,7 +604,7 @@ public class Caja_caja extends javax.swing.JDialog {
         jPanel1.add(panel_tablas, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, 170, 70));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Caja_2/iconos/pago.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/undra.png"))); // NOI18N
         jLabel1.setToolTipText("Agregar forma de pago");
         jLabel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 102, 153), null, null));
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -619,7 +620,7 @@ public class Caja_caja extends javax.swing.JDialog {
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_5/banco.png"))); // NOI18N
         jLabel11.setText("Las operaciones son por default en efectivo");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 200, 330, 40));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 200, 340, 40));
 
         jLabel15.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel15.setText("Pendientes:");
@@ -695,6 +696,10 @@ public class Caja_caja extends javax.swing.JDialog {
         jLabel27.setText("Nota Nro.:");
         jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 80, 30));
 
+        jLabel28.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel28.setText("Históricos:");
+        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 145, 80, 32));
+
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         pack();
@@ -717,7 +722,7 @@ public class Caja_caja extends javax.swing.JDialog {
 
     private void btn_confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_confirmarActionPerformed
 
-        this.setSize(995, 605);
+        this.setSize(999, 605);
 
         btn_confirmar.setBackground(Color.white);
         btn_confirmar.setEnabled(false);
@@ -914,7 +919,7 @@ public class Caja_caja extends javax.swing.JDialog {
 
                 }
             }
-            this.setSize(995, 500);
+            this.setSize(999, 500);
         }
     }//GEN-LAST:event_btn_confirmarActionPerformed
 
@@ -1328,6 +1333,7 @@ public class Caja_caja extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

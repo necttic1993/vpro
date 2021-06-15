@@ -6,6 +6,7 @@
 package Conexion_DB;
 
 import Clases.machusculas;
+import Loggin_Principal.Principal;
 import static Ventas.Ventas_venta.lbl_default_id;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
@@ -245,7 +246,8 @@ public class Ajuste_almacen extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from almacenes WHERE CONCAT (alm_nom) LIKE '%" + valor + "%'";
+             String id_us = Principal.lbl_id_user.getText();
+            String cons = " select u.cod_alma,a.alm_nom from usu_almacen as u inner join almacenes as a on a.alm_cod=u.cod_alma WHERE CONCAT (alm_nom) LIKE '%" + valor + "%' and u.cod_usu='" + id_us + "'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
