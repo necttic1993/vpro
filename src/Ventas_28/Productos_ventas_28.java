@@ -89,7 +89,7 @@ public class Productos_ventas_28 extends javax.swing.JDialog {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM tienda_productos WHERE pro_cod='" + cod + "' ");
             while (rs.next()) {
-                cant = rs.getString(50);
+                cant = rs.getString(51);
             }
             conectar.getInstance().closeConnection(cn);
 
@@ -117,7 +117,7 @@ public class Productos_ventas_28 extends javax.swing.JDialog {
                 registros[1] = rs.getString(2);
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(4);
-                registros[4] = rs.getString(50);
+                registros[4] = rs.getString(51);
                 registros[5] = rs.getString(7);
                 registros[6] = rs.getString(22);
 

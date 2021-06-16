@@ -5570,7 +5570,7 @@ public class Ventas_venta_28 extends javax.swing.JDialog {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(50);//pendiente a modificacion
+                cap = rs.getString(51);//pendiente a modificacion
             }
             conectar.getInstance().closeConnection(cn);
 

@@ -406,7 +406,7 @@ public class Panel_precios_ventas_28 extends javax.swing.JDialog {
             while (rs.next()) {
                 des = rs.getString(3);
                 codi = rs.getString(1);
-                stock = rs.getString(50);
+                stock = rs.getString(51);
                 pre_compra = rs.getString(6);
                 pre_a = rs.getString(7);
                 pre_b = rs.getString(8);
@@ -446,7 +446,7 @@ public class Panel_precios_ventas_28 extends javax.swing.JDialog {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM tienda_productos WHERE pro_cod='" + cod + "'");
             while (rs.next()) {
-                cant = rs.getString(50);
+                cant = rs.getString(51);
 
             }
             conectar.getInstance().closeConnection(cn);

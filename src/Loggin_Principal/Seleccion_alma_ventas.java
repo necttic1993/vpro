@@ -26,6 +26,7 @@ import Ventas_24.Principal_ventas_24;
 import Ventas_25.Principal_ventas_25;
 import Ventas_26.Principal_ventas_26;
 import Ventas_27.Principal_ventas_27;
+import Ventas_28.Principal_ventas_28;
 import Ventas_3.Principal_ventas_3;
 import Ventas_4.Principal_ventas_4;
 import Ventas_5.Principal_ventas_5;
@@ -457,6 +458,19 @@ public class Seleccion_alma_ventas extends javax.swing.JDialog {
             }
 
         }
+        
+           if (cod.equals("0000028")) {
+            try {
+                Principal_ventas_28 pv_28 = new Principal_ventas_28(new javax.swing.JDialog(), true);
+                pv_28.setVisible(true);
+                this.dispose();
+            } catch (IOException ex) {
+                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+           
+           
 
     }//GEN-LAST:event_tb_almacen_origenMouseClicked
 
