@@ -773,6 +773,29 @@ public class Reportes {
         }
 
     }
+    
+      public void recep_28(String cod, String Moneda) throws SQLException, JRException {
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("codigo", cod);
+            parametro.put("moneda", Moneda);
+
+            URL in = this.getClass().getResource("/Ventas_28/tickect_ventas_28.jasper");
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+            JasperPrintManager.printPage(print, 0, false);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (JRException ex) {
+
+        }
+
+    }
 
     public void recep_17(String cod, String Moneda) throws SQLException, JRException {
 
