@@ -42,6 +42,7 @@ public class Update_user extends javax.swing.JDialog {
         txt_vende_sin.setDocument(new machusculas());
         txt_pre_b.setDocument(new machusculas());
         txt_pre_c.setDocument(new machusculas());
+        txt_cod_cuentas.setDocument(new machusculas());
         cargargrupo();
         cargarDatos(id_user);
 
@@ -78,6 +79,10 @@ public class Update_user extends javax.swing.JDialog {
         jLabel6 = new javax.swing.JLabel();
         btn_grupos1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        cb_almacen = new javax.swing.JComboBox();
+        jLabel7 = new javax.swing.JLabel();
+        txt_cod_cuentas = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Actualizar Usuarios");
@@ -103,8 +108,8 @@ public class Update_user extends javax.swing.JDialog {
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 90, 30));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel2.setText("Id Usuario:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 90, 30));
+        jLabel2.setText("Cuenta:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 60, 30));
 
         btnactualizar.setBackground(new java.awt.Color(255, 255, 255));
         btnactualizar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -134,11 +139,11 @@ public class Update_user extends javax.swing.JDialog {
 
         cb_cat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
         cb_cat.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jPanel1.add(cb_cat, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 100, 30));
+        jPanel1.add(cb_cat, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, 110, 30));
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel8.setText("Sin Stock:");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, -1, 30));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 160, -1, 30));
 
         txt_por_venta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_por_venta.addActionListener(new java.awt.event.ActionListener() {
@@ -146,7 +151,7 @@ public class Update_user extends javax.swing.JDialog {
                 txt_por_ventaActionPerformed(evt);
             }
         });
-        jPanel1.add(txt_por_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 50, 30));
+        jPanel1.add(txt_por_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 40, 30));
 
         btn_grupos.setBackground(new java.awt.Color(255, 255, 255));
         btn_grupos.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -162,36 +167,36 @@ public class Update_user extends javax.swing.JDialog {
         jPanel1.add(btn_grupos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 150, 40));
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel9.setText("Clasificación:");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, -1, 30));
+        jLabel9.setText("Alamacen:");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 80, 30));
 
         txt_pre_c.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jPanel1.add(txt_pre_c, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 160, 40, 30));
+        jPanel1.add(txt_pre_c, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 40, 30));
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel11.setText("Panel de precio bloq:");
+        jLabel11.setText("Precio bloq:");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, -1, 30));
 
         jLabel12.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel12.setText("Precio B:");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, -1, 30));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, 30));
 
         txt_pre_a.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jPanel1.add(txt_pre_a, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 40, 30));
+        jPanel1.add(txt_pre_a, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 40, 30));
 
         txt_pre_b.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jPanel1.add(txt_pre_b, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 40, 30));
+        jPanel1.add(txt_pre_b, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 40, 30));
 
         jLabel13.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel13.setText("Minimo:");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, -1, 30));
+        jLabel13.setText("Min:");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 30, 30));
 
         txt_vende_sin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jPanel1.add(txt_vende_sin, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 130, 40, 30));
+        jPanel1.add(txt_vende_sin, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 160, 40, 30));
 
         cb_caja.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "NO", "SI" }));
         cb_caja.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jPanel1.add(cb_caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 80, -1));
+        jPanel1.add(cb_caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 60, -1));
 
         lbl_pass_word.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lbl_pass_word.setForeground(new java.awt.Color(153, 153, 153));
@@ -222,6 +227,21 @@ public class Update_user extends javax.swing.JDialog {
         jLabel5.setText("Usuario:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 90, 30));
 
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel10.setText("Clasificación:");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, -1, 30));
+
+        cb_almacen.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        cb_almacen.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TODOS", "0000001", "0000002", "0000003", "0000004", "0000005", "0000006", "0000007", "0000008", "0000009", "0000010", "0000011", "0000012", "0000013", "0000014", "0000015", "0000016", "0000017", "0000018", "0000019", "0000020", "0000021", "0000022", "0000023", "0000024", "0000025", "0000026", "0000027", "0000028", "0000029", "0000030" }));
+        jPanel1.add(cb_almacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 100, 110, 30));
+
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel7.setText("Id Usuario:");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 90, 30));
+
+        txt_cod_cuentas.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jPanel1.add(txt_cod_cuentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, 110, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -249,8 +269,8 @@ public class Update_user extends javax.swing.JDialog {
                     + "',password ='" + txt_pass.getText()
                     + "',tipo_usu ='" + cb_tipo.getSelectedItem()
                     + "',class ='" + cb_cat.getSelectedItem()
-                    + "',alma_surc ='" + ("0")
-                    + "',usu_cuenta ='" + ("0")
+                    + "',alma_surc ='" + cb_almacen.getSelectedItem()
+                    + "',usu_cuenta ='" + txt_cod_cuentas.getText()
                     + "',por_ventas ='" + txt_por_venta.getText()
                     + "',pre_a ='" + txt_pre_a.getText()
                     + "',pre_b ='" + txt_pre_b.getText()
@@ -349,9 +369,11 @@ public class Update_user extends javax.swing.JDialog {
     private javax.swing.JButton btn_grupos;
     private javax.swing.JButton btn_grupos1;
     private javax.swing.JButton btnactualizar;
+    private javax.swing.JComboBox cb_almacen;
     private jcomboper.SComboBox cb_caja;
     private org.jdesktop.swingx.JXComboBox cb_cat;
     private org.jdesktop.swingx.JXComboBox cb_tipo;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -361,10 +383,12 @@ public class Update_user extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbl_pass_word;
+    private javax.swing.JTextField txt_cod_cuentas;
     private javax.swing.JPasswordField txt_pass;
     private javax.swing.JTextField txt_por_venta;
     private javax.swing.JTextField txt_pre_a;
@@ -398,7 +422,7 @@ public class Update_user extends javax.swing.JDialog {
     void cargarDatos(String cod) {
 
         try {
-            String nom = "", clas = "", grupo = "", caja_rap = "", precio_bloq = "", sin_stock = "", lucro = "", precio_b = "", minimo = "";
+            String nom = "", clas = "", grupo = "", caja_rap = "", precio_bloq = "", sin_stock = "", lucro = "", precio_b = "", minimo = "", cuentas = "", almacen = "";
             Connection cn = conectar.getInstance().getConnection();
 
             String cons = "select * from usuarios WHERE usu_cod='" + cod + "'";
@@ -408,6 +432,8 @@ public class Update_user extends javax.swing.JDialog {
                 nom = rs.getString(2);
                 clas = rs.getString(5);
                 grupo = rs.getString(4);
+                almacen = rs.getString(6);
+                cuentas = rs.getString(7);
                 caja_rap = rs.getString(13);
                 precio_bloq = rs.getString(9);
                 sin_stock = rs.getString(12);
@@ -426,6 +452,8 @@ public class Update_user extends javax.swing.JDialog {
             txt_por_venta.setText(lucro);
             txt_pre_b.setText(precio_b);
             txt_pre_c.setText(minimo);
+            cb_almacen.setSelectedItem(almacen);
+            txt_cod_cuentas.setText(cuentas);
 
             conectar.getInstance().closeConnection(cn);
 
