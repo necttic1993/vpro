@@ -65,6 +65,7 @@ import Productos.fabrica.Principal_fabrica;
 import Productos.transferencias.Principal_transferencia;
 import Proveedores.Plataforma_proveedor;
 import Ventas.Exportacion.Principal_factura_expo;
+import Ventas.Fact_surc_10.Principal_ventas_surc_10;
 import Ventas.Fact_surc_11.Principal_ventas_surc_11;
 import Ventas.Fact_surc_14.Principal_ventas_facturas_14;
 import Ventas.Fact_surc_16.Principal_ventas_facturas_16;
@@ -2129,6 +2130,14 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 Principal_ventas_facturas_9 vf9;
                 vf9 = new Principal_ventas_facturas_9(new javax.swing.JDialog(), true);
                 vf9.setVisible(true);
+
+            }
+            
+              if (Principal.lbl_usu_almacen.getText().equals("0000010")) {
+
+                Principal_ventas_surc_10 vf10;
+                vf10 = new Principal_ventas_surc_10(new javax.swing.JDialog(), true);
+                vf10.setVisible(true);
 
             }
 

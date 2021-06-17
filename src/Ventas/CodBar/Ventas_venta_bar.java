@@ -831,7 +831,6 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
                 btnven.setEnabled(false);
 
                 ticket();
-
                 caja();
                 if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
                         "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
@@ -1790,6 +1789,7 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
 
             if (n > 0) {
                 //JOptionPane.showMessageDialog(null, "Los datos se guardaron correctamente");
+                actCuenta();
             }
 
         } catch (SQLException ex) {

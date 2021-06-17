@@ -22,70 +22,70 @@
      empresas.`emp_nom` AS empresas_emp_nom,
      empresas.`emp_des` AS empresas_emp_des,
      empresas.`emp_imag` AS empresas_emp_imag,
-     ventas_27.`num_bol` AS ventas_27_num_bol,
-     ventas_27.`cod_cli_ventas` AS ventas_27_cod_cli_ventas,
-     ventas_27.`nom_cli_ventas` AS ventas_27_nom_cli_ventas,
-     ventas_27.`forma_pag_ventas` AS ventas_27_forma_pag_ventas,
-     ventas_27.`dias_plazo_ventas` AS ventas_27_dias_plazo_ventas,
-     ventas_27.`total_ventas` AS ventas_27_total_ventas,
-     ventas_27.`total_real` AS ventas_27_total_real,
-     ventas_27.`total_dolar` AS ventas_27_total_dolar,
-     ventas_27.`estado_ventas` AS ventas_27_estado_ventas,
-     ventas_27.`fecha_ventas` AS ventas_27_fecha_ventas,
-     ventas_27.`fecha_control_ventas` AS ventas_27_fecha_control_ventas,
-     ventas_27.`user_ventas` AS ventas_27_user_ventas,
-     ventas_27.`almacen_ventas` AS ventas_27_almacen_ventas,
-     ventas_27.`cant_ventas` AS ventas_27_cant_ventas,
-     ventas_27.`letras_ventas` AS ventas_27_letras_ventas,
-     ventas_27.`nro_fact_ventas` AS ventas_27_nro_fact_ventas,
-     ventas_27.`vac_ventas` AS ventas_27_vac_ventas,
-     ventas_27.`monto_cred` AS ventas_27_monto_cred,
-     ventas_detalles_27.`num_bol` AS ventas_detalles_27_num_bol,
-     ventas_detalles_27.`cod_pro` AS ventas_detalles_27_cod_pro,
-     ventas_detalles_27.`des_pro` AS ventas_detalles_27_des_pro,
-     ventas_detalles_27.`cant_pro` AS ventas_detalles_27_cant_pro,
-     ventas_detalles_27.`pre_unit` AS ventas_detalles_27_pre_unit,
-     ventas_detalles_27.`cant_kg` AS ventas_detalles_27_cant_kg,
-     ventas_detalles_27.`pre_venta` AS ventas_detalles_27_pre_venta,
-     ventas_detalles_27.`data` AS ventas_detalles_27_data,
-     ventas_detalles_27.`id_pre_det` AS ventas_detalles_27_id_pre_det
+     ventas_detalles_28.`num_bol` AS ventas_detalles_28_num_bol,
+     ventas_detalles_28.`cod_pro` AS ventas_detalles_28_cod_pro,
+     ventas_detalles_28.`des_pro` AS ventas_detalles_28_des_pro,
+     ventas_detalles_28.`cant_pro` AS ventas_detalles_28_cant_pro,
+     ventas_detalles_28.`pre_unit` AS ventas_detalles_28_pre_unit,
+     ventas_detalles_28.`cant_kg` AS ventas_detalles_28_cant_kg,
+     ventas_detalles_28.`pre_venta` AS ventas_detalles_28_pre_venta,
+     ventas_detalles_28.`data` AS ventas_detalles_28_data,
+     ventas_detalles_28.`id_pre_det` AS ventas_detalles_28_id_pre_det,
+     ventas_28.`num_bol` AS ventas_28_num_bol,
+     ventas_28.`cod_cli_ventas` AS ventas_28_cod_cli_ventas,
+     ventas_28.`nom_cli_ventas` AS ventas_28_nom_cli_ventas,
+     ventas_28.`forma_pag_ventas` AS ventas_28_forma_pag_ventas,
+     ventas_28.`dias_plazo_ventas` AS ventas_28_dias_plazo_ventas,
+     ventas_28.`total_ventas` AS ventas_28_total_ventas,
+     ventas_28.`total_real` AS ventas_28_total_real,
+     ventas_28.`total_dolar` AS ventas_28_total_dolar,
+     ventas_28.`estado_ventas` AS ventas_28_estado_ventas,
+     ventas_28.`fecha_ventas` AS ventas_28_fecha_ventas,
+     ventas_28.`fecha_control_ventas` AS ventas_28_fecha_control_ventas,
+     ventas_28.`user_ventas` AS ventas_28_user_ventas,
+     ventas_28.`almacen_ventas` AS ventas_28_almacen_ventas,
+     ventas_28.`cant_ventas` AS ventas_28_cant_ventas,
+     ventas_28.`letras_ventas` AS ventas_28_letras_ventas,
+     ventas_28.`nro_fact_ventas` AS ventas_28_nro_fact_ventas,
+     ventas_28.`vac_ventas` AS ventas_28_vac_ventas,
+     ventas_28.`monto_cred` AS ventas_28_monto_cred
 FROM
-     `ventas_27` ventas_27 INNER JOIN `ventas_detalles_27` ventas_detalles_27 ON ventas_27.`num_bol` = ventas_detalles_27.`num_bol`,
+     `ventas_28` ventas_28 INNER JOIN `ventas_detalles_28` ventas_detalles_28 ON ventas_28.`num_bol` = ventas_detalles_28.`num_bol`,
      `empresas` empresas
 WHERE
-     ventas_27.`num_bol` = $P{codigo}]]>
+     ventas_28.`num_bol` = $P{codigo}]]>
 	</queryString>
 	<field name="empresas_id_empre" class="java.lang.Integer"/>
 	<field name="empresas_emp_nom" class="java.lang.String"/>
 	<field name="empresas_emp_des" class="java.lang.String"/>
 	<field name="empresas_emp_imag" class="java.io.InputStream"/>
-	<field name="ventas_27_num_bol" class="java.lang.Integer"/>
-	<field name="ventas_27_cod_cli_ventas" class="java.lang.String"/>
-	<field name="ventas_27_nom_cli_ventas" class="java.lang.String"/>
-	<field name="ventas_27_forma_pag_ventas" class="java.lang.String"/>
-	<field name="ventas_27_dias_plazo_ventas" class="java.lang.String"/>
-	<field name="ventas_27_total_ventas" class="java.lang.String"/>
-	<field name="ventas_27_total_real" class="java.lang.String"/>
-	<field name="ventas_27_total_dolar" class="java.lang.String"/>
-	<field name="ventas_27_estado_ventas" class="java.lang.String"/>
-	<field name="ventas_27_fecha_ventas" class="java.sql.Date"/>
-	<field name="ventas_27_fecha_control_ventas" class="java.sql.Timestamp"/>
-	<field name="ventas_27_user_ventas" class="java.lang.String"/>
-	<field name="ventas_27_almacen_ventas" class="java.lang.String"/>
-	<field name="ventas_27_cant_ventas" class="java.lang.String"/>
-	<field name="ventas_27_letras_ventas" class="java.lang.String"/>
-	<field name="ventas_27_nro_fact_ventas" class="java.lang.String"/>
-	<field name="ventas_27_vac_ventas" class="java.lang.String"/>
-	<field name="ventas_27_monto_cred" class="java.lang.String"/>
-	<field name="ventas_detalles_27_num_bol" class="java.lang.Integer"/>
-	<field name="ventas_detalles_27_cod_pro" class="java.lang.String"/>
-	<field name="ventas_detalles_27_des_pro" class="java.lang.String"/>
-	<field name="ventas_detalles_27_cant_pro" class="java.lang.Integer"/>
-	<field name="ventas_detalles_27_pre_unit" class="java.lang.String"/>
-	<field name="ventas_detalles_27_cant_kg" class="java.lang.String"/>
-	<field name="ventas_detalles_27_pre_venta" class="java.lang.String"/>
-	<field name="ventas_detalles_27_data" class="java.sql.Date"/>
-	<field name="ventas_detalles_27_id_pre_det" class="java.lang.Integer"/>
+	<field name="ventas_detalles_28_num_bol" class="java.lang.String"/>
+	<field name="ventas_detalles_28_cod_pro" class="java.lang.String"/>
+	<field name="ventas_detalles_28_des_pro" class="java.lang.String"/>
+	<field name="ventas_detalles_28_cant_pro" class="java.lang.Integer"/>
+	<field name="ventas_detalles_28_pre_unit" class="java.lang.String"/>
+	<field name="ventas_detalles_28_cant_kg" class="java.lang.String"/>
+	<field name="ventas_detalles_28_pre_venta" class="java.lang.String"/>
+	<field name="ventas_detalles_28_data" class="java.sql.Date"/>
+	<field name="ventas_detalles_28_id_pre_det" class="java.lang.Integer"/>
+	<field name="ventas_28_num_bol" class="java.lang.String"/>
+	<field name="ventas_28_cod_cli_ventas" class="java.lang.String"/>
+	<field name="ventas_28_nom_cli_ventas" class="java.lang.String"/>
+	<field name="ventas_28_forma_pag_ventas" class="java.lang.String"/>
+	<field name="ventas_28_dias_plazo_ventas" class="java.lang.String"/>
+	<field name="ventas_28_total_ventas" class="java.lang.String"/>
+	<field name="ventas_28_total_real" class="java.lang.String"/>
+	<field name="ventas_28_total_dolar" class="java.lang.String"/>
+	<field name="ventas_28_estado_ventas" class="java.lang.String"/>
+	<field name="ventas_28_fecha_ventas" class="java.sql.Date"/>
+	<field name="ventas_28_fecha_control_ventas" class="java.sql.Timestamp"/>
+	<field name="ventas_28_user_ventas" class="java.lang.String"/>
+	<field name="ventas_28_almacen_ventas" class="java.lang.String"/>
+	<field name="ventas_28_cant_ventas" class="java.lang.String"/>
+	<field name="ventas_28_letras_ventas" class="java.lang.String"/>
+	<field name="ventas_28_nro_fact_ventas" class="java.lang.String"/>
+	<field name="ventas_28_vac_ventas" class="java.lang.String"/>
+	<field name="ventas_28_monto_cred" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -135,14 +135,14 @@ WHERE
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{ventas_27_nom_cli_ventas}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{ventas_28_nom_cli_ventas}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="23" y="143" width="49" height="13" uuid="91845a9e-7de5-4693-8360-da4953889d7d"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="9" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{ventas_27_num_bol}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{ventas_28_num_bol}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="4" y="169" width="39" height="13" uuid="ab3e5a5b-9c5f-4af5-875a-e188af0dae17"/>
@@ -219,35 +219,35 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{ventas_detalles_27_cod_pro}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{ventas_detalles_28_cod_pro}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="43" y="0" width="49" height="12" uuid="13b99a09-3357-464b-8952-22e466062208"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{ventas_detalles_27_pre_unit}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{ventas_detalles_28_pre_unit}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="102" y="0" width="25" height="12" uuid="7e19933c-54fe-4bbc-b7bc-9e9fb1059c76"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{ventas_detalles_27_cant_pro}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{ventas_detalles_28_cant_pro}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="136" y="0" width="50" height="12" uuid="2b7f273e-e08f-48dc-b0e1-1972c769f2ec"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{ventas_detalles_27_pre_venta}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{ventas_detalles_28_pre_venta}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="3" y="12" width="185" height="12" uuid="d807b21c-dc6a-4770-b547-9cedf2fa6931"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="7" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{ventas_detalles_27_des_pro}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{ventas_detalles_28_des_pro}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
@@ -285,7 +285,7 @@ WHERE
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial" size="9" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{ventas_27_total_ventas}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{ventas_28_total_ventas}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="160" y="11" width="26" height="12" uuid="58be7995-a9c4-47fe-91ac-17d1f0c378b8"/>

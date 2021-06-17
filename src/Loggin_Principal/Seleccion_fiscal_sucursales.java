@@ -7,6 +7,7 @@ package Loggin_Principal;
 
 import Clases.machusculas;
 import Conexion_DB.conectar;
+import Ventas.Fact_surc_10.Principal_ventas_surc_10;
 import Ventas.Fact_surc_11.Principal_ventas_surc_11;
 import Ventas.Fact_surc_14.Principal_ventas_facturas_14;
 import Ventas.Fact_surc_16.Principal_ventas_facturas_16;
@@ -197,6 +198,13 @@ public class Seleccion_fiscal_sucursales extends javax.swing.JDialog {
             vf9.setVisible(true);
             this.dispose();
         }
+        
+         if (cod.equals("0000010")) {
+            Principal_ventas_surc_10 vf10;
+            vf10 = new Principal_ventas_surc_10(new javax.swing.JDialog(), true);
+            vf10.setVisible(true);
+            this.dispose();
+        }
         //20
         if (cod.equals("0000020")) {
 
@@ -368,8 +376,7 @@ public class Seleccion_fiscal_sucursales extends javax.swing.JDialog {
             String[] registros = new String[4];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
-
-                       String cons = " select u.cod_alma,a.alm_nom from usu_almacen as u inner join almacenes as a on a.alm_cod=u.cod_alma WHERE CONCAT (alm_nom) LIKE '%" + valor + "%' and u.cod_usu='" + id_us + "'";
+            String cons = " select u.cod_alma,a.alm_nom from usu_almacen as u inner join almacenes as a on a.alm_cod=u.cod_alma WHERE CONCAT (alm_nom) LIKE '%" + valor + "%' and u.cod_usu='" + id_us + "'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
