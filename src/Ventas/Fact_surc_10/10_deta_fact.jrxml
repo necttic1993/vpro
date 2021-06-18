@@ -209,8 +209,9 @@ WHERE
      ventas_facturacion_surc_10.`seq_pro` AS ventas_facturacion_surc_10_seq_pro,
      ventas_facturacion_surc_10.`saldo_cred` AS ventas_facturacion_surc_10_saldo_cred
 FROM
-     `tienda_clientes` tienda_clientes inner join
-     `ventas_facturacion_surc_10` ventas_facturacion_surc_10 on tienda_clientes.`cli_cod`=   ventas_facturacion_surc_10.`cod_cli_ventas`
+     `tienda_clientes` tienda_clientes inner join 
+     `ventas_facturacion_surc_10` ventas_facturacion_surc_10 on tienda_clientes.`cli_cod`= ventas_facturacion_surc_10.`cod_cli_ventas`
+
 WHERE
      ventas_facturacion_surc_10.`num_bol` = $P{codigp}]]>
 	</queryString>
@@ -262,205 +263,205 @@ WHERE
 	<title>
 		<band height="260" splitType="Stretch">
 			<textField>
-				<reportElement x="101" y="46" width="276" height="10" uuid="b842e8ef-8f1f-498c-8679-98dd702ab5af"/>
+				<reportElement x="101" y="55" width="276" height="10" uuid="b842e8ef-8f1f-498c-8679-98dd702ab5af"/>
 				<textElement>
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{tienda_clientes_cli_razon}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="81" y="58" width="194" height="10" uuid="ef0e7e93-6ce4-44d2-91c8-35983591ef0a"/>
+				<reportElement x="81" y="67" width="194" height="10" uuid="ef0e7e93-6ce4-44d2-91c8-35983591ef0a"/>
 				<textElement>
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{tienda_clientes_cli_dir}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="127" y="237" width="94" height="10" uuid="76e73c23-3671-492d-ac0d-ec6ed0dcdebb"/>
+				<reportElement x="127" y="232" width="94" height="10" uuid="76e73c23-3671-492d-ac0d-ec6ed0dcdebb"/>
 				<textElement>
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ventas_facturacion_surc_10_total_iva_5}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="252" y="237" width="100" height="10" uuid="a6c80652-6eba-4989-86fd-5e3906cc2776"/>
+				<reportElement x="252" y="232" width="100" height="10" uuid="a6c80652-6eba-4989-86fd-5e3906cc2776"/>
 				<textElement>
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ventas_facturacion_surc_10_total_iva_10}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="368" y="237" width="100" height="10" uuid="f7532263-1a0a-4586-8a33-26e121cae7d6"/>
+				<reportElement x="368" y="232" width="100" height="10" uuid="f7532263-1a0a-4586-8a33-26e121cae7d6"/>
 				<textElement>
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ventas_facturacion_surc_10_total_iva}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="81" y="35" width="20" height="10" uuid="3d4c143e-7b48-4f69-9376-476cc30f8746"/>
+				<reportElement x="81" y="44" width="20" height="10" uuid="3d4c143e-7b48-4f69-9376-476cc30f8746"/>
 				<textElement>
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ventas_facturacion_surc_10_dia_lit}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="141" y="35" width="80" height="10" uuid="09eeb86a-204e-4f4e-823b-eec54f03bd0b"/>
+				<reportElement x="141" y="44" width="80" height="10" uuid="09eeb86a-204e-4f4e-823b-eec54f03bd0b"/>
 				<textElement>
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ventas_facturacion_surc_10_mes_lit}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="257" y="35" width="40" height="10" uuid="f4217c65-7941-409d-ae72-31331b8f341c"/>
+				<reportElement x="257" y="44" width="40" height="10" uuid="f4217c65-7941-409d-ae72-31331b8f341c"/>
 				<textElement>
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ventas_facturacion_surc_10_years_lit}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="442" y="46" width="100" height="10" uuid="be626f86-9147-4670-9d18-241cda3f9bbd"/>
+				<reportElement x="442" y="55" width="100" height="10" uuid="be626f86-9147-4670-9d18-241cda3f9bbd"/>
 				<textElement>
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{tienda_clientes_cli_ruc}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="534" y="35" width="21" height="10" uuid="9e03c4d2-d4b1-4c43-8c76-b7f0c5fd1cd3"/>
+				<reportElement x="534" y="44" width="21" height="10" uuid="9e03c4d2-d4b1-4c43-8c76-b7f0c5fd1cd3"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ventas_facturacion_surc_10_forma_pag_credito}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="472" y="35" width="17" height="10" uuid="daf9032f-9042-4177-9b16-f210fd221081"/>
+				<reportElement x="475" y="44" width="17" height="10" uuid="daf9032f-9042-4177-9b16-f210fd221081"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ventas_facturacion_surc_10_forma_pag_efectivo}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="277" y="58" width="100" height="10" uuid="98c29263-8790-4787-bcd3-ebf0211b1156"/>
+				<reportElement x="277" y="67" width="100" height="10" uuid="98c29263-8790-4787-bcd3-ebf0211b1156"/>
 				<textElement>
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{tienda_clientes_cli_contacto}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="127" y="217" width="353" height="10" uuid="1f84fde0-74ce-4f8b-bd5e-fa7917e4efc4"/>
+				<reportElement x="145" y="212" width="335" height="10" uuid="1f84fde0-74ce-4f8b-bd5e-fa7917e4efc4"/>
 				<textElement>
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ventas_facturacion_surc_10_letras_ventas}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="489" y="217" width="66" height="10" uuid="354a65a6-98fc-428a-aa92-f713020c5117"/>
+				<reportElement x="488" y="212" width="66" height="10" uuid="354a65a6-98fc-428a-aa92-f713020c5117"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ventas_facturacion_surc_10_total_ventas}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="342" y="197" width="77" height="10" uuid="5587c05f-8a99-4ff1-b788-27dce65ccdad"/>
+				<reportElement x="344" y="193" width="77" height="10" uuid="5587c05f-8a99-4ff1-b788-27dce65ccdad"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ventas_facturacion_surc_10_fact_sub_5}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="489" y="197" width="66" height="10" uuid="e48b851a-dc7f-4661-9ca0-640c0b52641e"/>
+				<reportElement x="488" y="193" width="66" height="10" uuid="e48b851a-dc7f-4661-9ca0-640c0b52641e"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ventas_facturacion_surc_10_fact_sub_10}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="419" y="197" width="61" height="10" uuid="aeb62989-cf36-4d9e-86fd-69741ebf54ea"/>
+				<reportElement x="421" y="193" width="58" height="10" uuid="aeb62989-cf36-4d9e-86fd-69741ebf54ea"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ventas_facturacion_surc_10_fact_sub_5}]]></textFieldExpression>
 			</textField>
 			<componentElement>
-				<reportElement key="table 5" style="table 5" x="0" y="78" width="555" height="12" uuid="d8ed4463-f34e-4776-90c0-6a54edfd010d"/>
+				<reportElement key="table 5" style="table 5" x="0" y="95" width="550" height="7" uuid="d8ed4463-f34e-4776-90c0-6a54edfd010d"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="detalle" uuid="ebf631f7-a39a-4e01-bd5e-f5529e5de660">
+					<datasetRun subDataset="detalle" uuid="7aa78fc0-e226-4468-aa24-a3a95dca8fa1">
 						<datasetParameter name="ide">
 							<datasetParameterExpression><![CDATA[$P{codigp}]]></datasetParameterExpression>
 						</datasetParameter>
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
 					<jr:column width="61" uuid="8a805ff1-5d42-4206-826d-005caa513306">
-						<jr:detailCell style="table 5_TD" height="10" rowSpan="1">
+						<jr:detailCell style="table 5_TD" height="7" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="0" width="58" height="10" uuid="893cc167-7aa7-4625-b6b8-776e3c5e888c"/>
+								<reportElement x="0" y="0" width="58" height="7" uuid="893cc167-7aa7-4625-b6b8-776e3c5e888c"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Arial" size="7" isBold="true"/>
+									<font fontName="Arial" size="6" isBold="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{ventas_facturacion_deta_surc_10_cod_pro}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="50" uuid="60a211a9-5951-4f20-ab97-52949ec5ab79">
-						<jr:detailCell style="table 5_TD" height="10" rowSpan="1">
+						<jr:detailCell style="table 5_TD" height="7" rowSpan="1">
 							<textField>
-								<reportElement x="4" y="0" width="46" height="10" uuid="f6c1617a-e1c8-490e-a988-3f8879ce2b4a"/>
-								<textElement verticalAlignment="Middle">
-									<font fontName="Arial" size="7" isBold="true"/>
+								<reportElement x="4" y="0" width="46" height="7" uuid="f6c1617a-e1c8-490e-a988-3f8879ce2b4a"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="6" isBold="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{ventas_facturacion_deta_surc_10_cant_pro}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="197" uuid="ad24067d-13ed-4288-aadf-633647d7f464">
-						<jr:detailCell style="table 5_TD" height="10" rowSpan="1">
+						<jr:detailCell style="table 5_TD" height="7" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="0" width="197" height="10" uuid="74258620-5a1a-45c0-b488-f0ae05837372"/>
+								<reportElement x="0" y="0" width="197" height="7" uuid="74258620-5a1a-45c0-b488-f0ae05837372"/>
 								<textElement verticalAlignment="Middle">
-									<font fontName="Arial" size="7" isBold="true"/>
+									<font fontName="Arial" size="6" isBold="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{ventas_facturacion_deta_surc_10_des_pro}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="59" uuid="f4798684-cb25-458b-8178-b6d79c8cf203">
-						<jr:detailCell style="table 5_TD" height="10" rowSpan="1">
+					<jr:column width="68" uuid="f4798684-cb25-458b-8178-b6d79c8cf203">
+						<jr:detailCell style="table 5_TD" height="7" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="0" width="59" height="10" uuid="fd43d0bd-e275-4ee1-a732-1adfc98cf183"/>
+								<reportElement x="0" y="0" width="68" height="7" uuid="fd43d0bd-e275-4ee1-a732-1adfc98cf183"/>
 								<textElement textAlignment="Right" verticalAlignment="Middle">
-									<font fontName="Arial" size="7" isBold="true"/>
+									<font fontName="Arial" size="6" isBold="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{ventas_facturacion_deta_surc_10_pre_unit}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="60" uuid="377d7628-1957-48dc-b160-d72bd1b21b16">
-						<jr:detailCell style="table 5_TD" height="10" rowSpan="1">
+					<jr:column width="50" uuid="377d7628-1957-48dc-b160-d72bd1b21b16">
+						<jr:detailCell style="table 5_TD" height="7" rowSpan="1">
 							<textField>
-								<reportElement x="1" y="0" width="59" height="10" uuid="a7d16367-9fe1-4722-8fcf-14e2674f549b"/>
+								<reportElement x="0" y="0" width="49" height="7" uuid="a7d16367-9fe1-4722-8fcf-14e2674f549b"/>
 								<textElement textAlignment="Right" verticalAlignment="Middle">
-									<font fontName="Arial" size="7" isBold="true"/>
+									<font fontName="Arial" size="6" isBold="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{ventas_facturacion_deta_surc_10_pre_exentas}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="63" uuid="8d9c1d1a-d575-4d19-8627-e3b7f3e11f30">
-						<jr:detailCell style="table 5_TD" height="10" rowSpan="1">
+						<jr:detailCell style="table 5_TD" height="7" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="0" width="57" height="10" uuid="0eceefe4-e85b-463a-9fe6-652030af783b"/>
+								<reportElement x="0" y="0" width="52" height="7" uuid="0eceefe4-e85b-463a-9fe6-652030af783b"/>
 								<textElement textAlignment="Right" verticalAlignment="Middle">
-									<font fontName="Arial" size="7" isBold="true"/>
+									<font fontName="Arial" size="6" isBold="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{ventas_facturacion_deta_surc_10_pre_5}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="66" uuid="32dd3a29-e21c-4d9d-bca4-2b2ace9a4ad2">
-						<jr:detailCell style="table 5_TD" height="10" rowSpan="1">
+						<jr:detailCell style="table 5_TD" height="7" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="0" width="65" height="10" uuid="ba65f198-debc-4d7b-8404-881efe85bc9b"/>
+								<reportElement x="0" y="0" width="65" height="7" uuid="ba65f198-debc-4d7b-8404-881efe85bc9b"/>
 								<textElement textAlignment="Right" verticalAlignment="Middle">
-									<font fontName="Arial" size="7" isBold="true"/>
+									<font fontName="Arial" size="6" isBold="true"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{ventas_facturacion_deta_surc_10_pre_10}]]></textFieldExpression>
 							</textField>
@@ -468,6 +469,13 @@ WHERE
 					</jr:column>
 				</jr:table>
 			</componentElement>
+			<textField>
+				<reportElement x="131" y="212" width="14" height="10" uuid="25eca2fc-3dfb-4d89-8f2e-bf351f10a80e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_surc_10_simb_moneda}]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<pageHeader>

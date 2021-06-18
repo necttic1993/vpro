@@ -2132,8 +2132,8 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 vf9.setVisible(true);
 
             }
-            
-              if (Principal.lbl_usu_almacen.getText().equals("0000010")) {
+
+            if (Principal.lbl_usu_almacen.getText().equals("0000010")) {
 
                 Principal_ventas_surc_10 vf10;
                 vf10 = new Principal_ventas_surc_10(new javax.swing.JDialog(), true);
@@ -2228,16 +2228,13 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 vf27.setVisible(true);
 
             }
-             if (Principal.lbl_usu_almacen.getText().equals("0000006")) {
+            if (Principal.lbl_usu_almacen.getText().equals("0000006")) {
 
                 Principal_ventas_facturas_6 vf6;
                 vf6 = new Principal_ventas_facturas_6(new javax.swing.JDialog(), true);
                 vf6.setVisible(true);
 
             }
-            
-            
-            
 
         }
 
@@ -3838,14 +3835,19 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 lbl_mod_factura.setText(rs.getString(5));
                 lbl_id_empre.setText(rs.getString(1));
                 lbl_lote_activa.setText(rs.getString(57));
-
                 is = rs.getBinaryStream(4);
-                BufferedImage bi = ImageIO.read(is);
-                foto = new ImageIcon(bi);
-                Image img = foto.getImage();
-                Image newimg = img.getScaledInstance(80, 60, java.awt.Image.SCALE_SMOOTH);
-                ImageIcon newicon = new ImageIcon(newimg);
-                lbl_img_empre.setIcon(newicon);
+                if (is == null) {
+                    System.out.println("imagen vacia");
+                } else {
+                    
+                    BufferedImage bi = ImageIO.read(is);
+                    foto = new ImageIcon(bi);
+                    Image img = foto.getImage();
+                    Image newimg = img.getScaledInstance(80, 60, java.awt.Image.SCALE_SMOOTH);
+                    ImageIcon newicon = new ImageIcon(newimg);
+                    lbl_img_empre.setIcon(newicon);
+
+                }
             }
             conectar.getInstance().closeConnection(cn);
 
@@ -4401,8 +4403,8 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 lbl_dia_actual.setText(dd.format(vista));
                 SimpleDateFormat mmmm = new SimpleDateFormat("MMMM");
                 lbl_mes_actual.setText(mmmm.format(vista));
-                
-                SimpleDateFormat yy = new SimpleDateFormat("YY");              
+
+                SimpleDateFormat yy = new SimpleDateFormat("YY");
                 lbl_año_actual.setText(yy.format(vista));
                 SimpleDateFormat yyyy = new SimpleDateFormat("yyyy");
                 lbl_periodo_fiscal.setText(yyyy.format(vista));
@@ -4419,7 +4421,6 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
 
     void fecha() {
 
-      
     }
 
     void serial() {
