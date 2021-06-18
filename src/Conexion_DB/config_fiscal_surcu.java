@@ -33,12 +33,12 @@ import javax.swing.table.DefaultTableModel;
  * @author user
  */
 public class config_fiscal_surcu extends javax.swing.JDialog {
-    
+
     FileInputStream fis;
     int longitudBytes;
-    
+
     DefaultTableModel model;
-    
+
     public config_fiscal_surcu(javax.swing.JDialog parent, boolean modal) throws IOException {
         super(parent, modal);
         initComponents();
@@ -51,16 +51,16 @@ public class config_fiscal_surcu extends javax.swing.JDialog {
         txt_panel_pre_usu.setDocument(new machusculas());
         cargar();
         guardar();
-        
+
     }
-    
+
     public static String cod_cuenta_actu = "";
-    
+
     void cargar() throws IOException {
         String mostrar = "SELECT * FROM empresas";
         ImageIcon foto;
         InputStream is;
-        
+
         try {
             Connection cn = conectar.getInstance().getConnection();
             Statement st = cn.createStatement();
@@ -84,7 +84,7 @@ public class config_fiscal_surcu extends javax.swing.JDialog {
                 txt_serie.setText(rs.getString(16));
                 txt_venta_min.setText(rs.getString(17));
                 cb_tipo_ventas.setSelectedItem(rs.getString(18));
-                
+
                 txt_dir_empre.setText(rs.getString(19));
                 cb_id_codigo.setSelectedItem(rs.getString(20));
                 txt_fecha_inicial.setText(rs.getString(21));
@@ -124,13 +124,13 @@ public class config_fiscal_surcu extends javax.swing.JDialog {
                 txt_timbra_devol.setText(rs.getString(50));
                 txt_nro_timbra_19.setText(rs.getString(51));
                 txt_nro_timbra_24.setText(rs.getString(52));
-                
+                //expo
                 txt_nro_fact_expo.setText(rs.getString(53));
                 txt_nro_timbrado_expo.setText(rs.getString(54));
                 txt_nro_seq_expo.setText(rs.getString(55));
                 txt_nro_estable_expo.setText(rs.getString(56));
                 txt_hab_lote_fact.setText(rs.getString(57));
-                
+
                 BufferedImage bi = ImageIO.read(is);
                 foto = new ImageIcon(bi);
                 Image img = foto.getImage();
@@ -139,23 +139,23 @@ public class config_fiscal_surcu extends javax.swing.JDialog {
                 lbl_ima1.setIcon(newicon);
             }
             conectar.getInstance().closeConnection(cn);
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(config_fiscal_surcu.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
-    
+
     void guardar() {
         if (txtdes.getText().length() != 0) {
-            
+
             btnguardar.setEnabled(false);
         } else {
             btnguardar.setEnabled(true);
             // txtcod.setEnabled(true);
         }
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -1818,20 +1818,20 @@ public class config_fiscal_surcu extends javax.swing.JDialog {
             String sql = "";
             nom = txtnom.getText();
             des = txtdes.getText();
-            
+
             sql = "INSERT INTO empresas (emp_nom,emp_des,emp_imag) VALUES (?,?,?)";
             try {
                 Connection cn = conectar.getInstance().getConnection();
-                
+
                 PreparedStatement pst = cn.prepareStatement(sql);
-                
+
                 pst.setString(1, nom);
                 pst.setString(2, des);
                 pst.setBinaryStream(3, fis, longitudBytes);
-                
+
                 int n = pst.executeUpdate();
                 conectar.getInstance().closeConnection(cn);
-                
+
                 if (n > 0) {
                     JOptionPane.showMessageDialog(null, "Registro Guardado con Exito");
                     txtcod.setText("");
@@ -1839,7 +1839,7 @@ public class config_fiscal_surcu extends javax.swing.JDialog {
                     txtdes.setText("");
                     lbl_ima1.setIcon(null);
                 }
-                
+
             } catch (SQLException ex) {
                 Logger.getLogger(config_fiscal_surcu.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -1849,15 +1849,15 @@ public class config_fiscal_surcu extends javax.swing.JDialog {
     }//GEN-LAST:event_btnguardarActionPerformed
 
     private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
-        
+
         try {
             Connection cn = conectar.getInstance().getConnection();
-            
+
             PreparedStatement pst = cn.prepareStatement("DELETE FROM empresas  WHERE id_empre='" + txtcod.getText() + "'");
-            
+
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
-            
+
             lbl_ima1.setIcon(null);
             JOptionPane.showMessageDialog(null, "Reseteado");
         } catch (SQLException | HeadlessException e) {
@@ -1879,7 +1879,7 @@ public class config_fiscal_surcu extends javax.swing.JDialog {
                     Image icono = ImageIO.read(j.getSelectedFile()).getScaledInstance(lbl_ima1.getWidth(), lbl_ima1.getHeight(), Image.SCALE_DEFAULT);
                     lbl_ima1.setIcon(new ImageIcon(icono));
                     lbl_ima1.updateUI();
-                    
+
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(rootPane, "imagen: " + ex);
                 }
@@ -1896,157 +1896,18 @@ public class config_fiscal_surcu extends javax.swing.JDialog {
 
     private void txt_nro_cuentasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nro_cuentasKeyPressed
         char Tecla = evt.getKeyChar();
-        
+
         if (Tecla == KeyEvent.VK_ENTER) {
-            
+
             Cuentas_config ccc;
             ccc = new Cuentas_config(new javax.swing.JDialog(), true);
             ccc.setVisible(true);
-            
+
         }
     }//GEN-LAST:event_txt_nro_cuentasKeyPressed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        try {
-            
-            String id = txtcod.getText();
-            String empre = txtnom.getText();
-            String des = txtdes.getText();
-            String model_fact = (String) cb_model_caja.getSelectedItem();
-            String nro_cuenta = txt_nro_cuentas.getText();
-            String nom_cuenta = txt_nom_cuenta.getText();
-            String cred = (String) cb_mod_ticket.getSelectedItem();
-            String debi = (String) cb_tipo_lucro.getSelectedItem();
-            String fac = txt_factura.getText();
-            String timbra = txt_timbra.getText();
-            String esta = txt_estable.getText();
-            String seque = txt_seque.getText();
-            String comp_fiscal = txt_compra_fiscal.getText();
-            String venta_fiscal = txt_venta_fiscal.getText();
-            String iva_cant = txt_serie.getText();
-            String venta_min = txt_venta_min.getText();
-            String tipo_ventas = (String) cb_tipo_ventas.getSelectedItem();
-            String direc = txt_dir_empre.getText();
-            String backup = (String) cb_id_codigo.getSelectedItem();
-            String desde = txt_fecha_inicial.getText();
-            String hasta = txt_fecha_final.getText();
-            String vuelto = txt_act_vuelto.getText();
-            String moneda = (String) cb_moneda.getSelectedItem();
-            String simbolo = (String) cb_tipo_simbolo.getSelectedItem();
-            String pre_usu = txt_panel_pre_usu.getText();
-            ////surc 2//////
-            String init_surc_2 = txt_fecha_inicial_2.getText();
-            String fin_surc_2 = txt_fecha_fin_2.getText();
-            String timbra_surc_2 = txt_nro_timbra_surc_2.getText();
-            String nro_fact_surc_2 = txt_nro_fact_surc_2.getText();
-            String seq_surc_2 = txt_seq_surc_2.getText();
-            String lote_surc_2 = txt_lote_surc_2.getText();
-
-            ////surc 11//////
-            String init_surc_11 = txt_fecha_inicial_11.getText();
-            String fin_surc_11 = txt_fecha_fin_11.getText();
-            String timbra_surc_11 = txt_nro_timbra_surc_11.getText();
-            String nro_fact_surc_11 = txt_nro_fact_surc_11.getText();
-            String seq_surc_11 = txt_seq_surc_11.getText();
-            String lote_surc_11 = txt_lote_surc_11.getText();
-            ////surc 22//////
-            String init_surc_22 = txt_fecha_inicial_22.getText();
-            String fin_surc_22 = txt_fecha_fin_22.getText();
-            String timbra_surc_22 = txt_nro_timbra_surc_22.getText();
-            String nro_fact_surc_22 = txt_nro_fact_surc_22.getText();
-            String seq_surc_22 = txt_seq_surc_22.getText();
-            String lote_surc_22 = txt_lote_surc_22.getText();
-
-            ////surc 23///////
-            String timbra_surc_23 = txt_nro_timbra_surc_23.getText();
-            String seq_surc_23 = txt_seq_surc_23.getText();
-            String lote_surc_23 = txt_lote_surc_23.getText();
-            //devol central
-            String timbra_devol_central = txt_timbra_devol.getText();
-            String timbra_19 = txt_nro_timbra_19.getText();
-            String timbra_24 = txt_nro_timbra_24.getText();
-            
-            String nro_fact_expo = txt_nro_fact_expo.getText();
-            String nro_timbra_expo = txt_nro_timbrado_expo.getText();
-            String nro_seq_expo = txt_nro_seq_expo.getText();
-            String nro_estable_expo = txt_nro_estable_expo.getText();
-            ///lote
-            String hab_lote = txt_hab_lote_fact.getText();
-            
-            String sql = "UPDATE empresas SET emp_nom = '" + empre
-                    + "',emp_des ='" + des
-                    + "',caja_ra ='" + model_fact
-                    + "',nro_cta ='" + nro_cuenta
-                    + "',nom_cta ='" + nom_cuenta
-                    + "',tarje_cre ='" + cred
-                    + "',tarje_deb ='" + debi
-                    + "',nro_fact ='" + fac
-                    + "',nro_timbra ='" + timbra
-                    + "',nro_estable ='" + esta
-                    + "',nro_sequencia ='" + seque
-                    + "',compra_fiscal ='" + comp_fiscal
-                    + "',venta_fiscal ='" + venta_fiscal
-                    + "',iva_por ='" + iva_cant
-                    + "',venta_min ='" + venta_min
-                    + "',tipo_ventas ='" + tipo_ventas
-                    + "',dir_empre ='" + direc
-                    + "',dir_backup ='" + backup
-                    + "',fecha_desde ='" + desde
-                    + "',fecha_hasta ='" + hasta
-                    + "',activa_vuelto ='" + vuelto
-                    + "',mon_default ='" + moneda
-                    + "',mon_tipo ='" + simbolo
-                    + "',control_pre_usu ='" + pre_usu
-                    //surc_2///
-                    + "',fecha_init_surc_2 ='" + init_surc_2
-                    + "',fecha_fin_surc_2 ='" + fin_surc_2
-                    + "',timbra_surc_2 ='" + timbra_surc_2
-                    + "',nro_fact_surc_2 ='" + nro_fact_surc_2
-                    + "',seq_surc_2 ='" + seq_surc_2
-                    + "',lote_surc_2 ='" + lote_surc_2
-                    //surc_11///
-                    + "',fecha_init_surc_11 ='" + init_surc_11
-                    + "',fecha_fin_surc_11 ='" + fin_surc_11
-                    + "',timbra_surc_11 ='" + timbra_surc_11
-                    + "',nro_fact_surc_11 ='" + nro_fact_surc_11
-                    + "',seq_surc_11 ='" + seq_surc_11
-                    + "',lote_surc_11 ='" + lote_surc_11
-                    //surc_22///
-                    + "',fecha_init_surc_22 ='" + init_surc_22
-                    + "',fecha_fin_surc_22 ='" + fin_surc_22
-                    + "',timbra_surc_22 ='" + timbra_surc_22
-                    + "',nro_fact_surc_22 ='" + nro_fact_surc_22
-                    + "',seq_surc_22 ='" + seq_surc_22
-                    + "',lote_surc_22 ='" + lote_surc_22
-                    ////surc_23/////////
-                    + "',timbra_surc_23 ='" + timbra_surc_23
-                    + "',seq_surc_23 ='" + seq_surc_23
-                    + "',lote_surc_23 ='" + lote_surc_23
-                    //central devol
-                    + "',timbra_devol_central ='" + timbra_devol_central
-                    + "',timbra_19 ='" + timbra_19
-                    + "',timbra_24 ='" + timbra_24
-                    + "',nro_fact_expo ='" + nro_fact_expo
-                    + "',nro_timbrado_expo ='" + nro_timbra_expo
-                    + "',nro_seq_expo ='" + nro_seq_expo
-                    + "',nro_estable_expo ='" + nro_estable_expo
-                    + "',activa_lote ='" + hab_lote
-                    + "' WHERE id_empre = '" + id + "'";
-            try {
-                Connection cn = conectar.getInstance().getConnection();
-                
-                PreparedStatement pst = cn.prepareStatement(sql);
-                pst.executeUpdate();
-                conectar.getInstance().closeConnection(cn);
-                
-                JOptionPane.showMessageDialog(null, "Actualizado nuevos parámetros");
-                
-            } catch (SQLException | HeadlessException e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-            
-        } catch (Exception e) {
-        }
+        update_empre();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void txt_nro_cuentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nro_cuentasActionPerformed
@@ -2475,4 +2336,148 @@ public class config_fiscal_surcu extends javax.swing.JDialog {
     private javax.swing.JTextField txtnom;
     // End of variables declaration//GEN-END:variables
 
+    void update_empre() {
+
+        try {
+
+            String id = txtcod.getText();
+            String empre = txtnom.getText();
+            String des = txtdes.getText();
+            String model_fact = (String) cb_model_caja.getSelectedItem();
+            String nro_cuenta = txt_nro_cuentas.getText();
+            String nom_cuenta = txt_nom_cuenta.getText();
+            String cred = (String) cb_mod_ticket.getSelectedItem();
+            String debi = (String) cb_tipo_lucro.getSelectedItem();
+            String fac = txt_factura.getText();
+            String timbra = txt_timbra.getText();
+            String esta = txt_estable.getText();
+            String seque = txt_seque.getText();
+            String comp_fiscal = txt_compra_fiscal.getText();
+            String venta_fiscal = txt_venta_fiscal.getText();
+            String iva_cant = txt_serie.getText();
+            String venta_min = txt_venta_min.getText();
+            String tipo_ventas = (String) cb_tipo_ventas.getSelectedItem();
+            String direc = txt_dir_empre.getText();
+            String backup = (String) cb_id_codigo.getSelectedItem();
+            String desde = txt_fecha_inicial.getText();
+            String hasta = txt_fecha_final.getText();
+            String vuelto = txt_act_vuelto.getText();
+            String moneda = (String) cb_moneda.getSelectedItem();
+            String simbolo = (String) cb_tipo_simbolo.getSelectedItem();
+            String pre_usu = txt_panel_pre_usu.getText();
+            ////surc 2//////
+            String init_surc_2 = txt_fecha_inicial_2.getText();
+            String fin_surc_2 = txt_fecha_fin_2.getText();
+            String timbra_surc_2 = txt_nro_timbra_surc_2.getText();
+            String nro_fact_surc_2 = txt_nro_fact_surc_2.getText();
+            String seq_surc_2 = txt_seq_surc_2.getText();
+            String lote_surc_2 = txt_lote_surc_2.getText();
+
+            ////surc 11//////
+            String init_surc_11 = txt_fecha_inicial_11.getText();
+            String fin_surc_11 = txt_fecha_fin_11.getText();
+            String timbra_surc_11 = txt_nro_timbra_surc_11.getText();
+            String nro_fact_surc_11 = txt_nro_fact_surc_11.getText();
+            String seq_surc_11 = txt_seq_surc_11.getText();
+            String lote_surc_11 = txt_lote_surc_11.getText();
+            ////surc 22//////
+            String init_surc_22 = txt_fecha_inicial_22.getText();
+            String fin_surc_22 = txt_fecha_fin_22.getText();
+            String timbra_surc_22 = txt_nro_timbra_surc_22.getText();
+            String nro_fact_surc_22 = txt_nro_fact_surc_22.getText();
+            String seq_surc_22 = txt_seq_surc_22.getText();
+            String lote_surc_22 = txt_lote_surc_22.getText();
+
+            ////surc 23///////
+            String timbra_surc_23 = txt_nro_timbra_surc_23.getText();
+            String seq_surc_23 = txt_seq_surc_23.getText();
+            String lote_surc_23 = txt_lote_surc_23.getText();
+            //devol central
+            String timbra_devol_central = txt_timbra_devol.getText();
+            String timbra_19 = txt_nro_timbra_19.getText();
+            String timbra_24 = txt_nro_timbra_24.getText();
+
+            String nro_fact_expo = txt_nro_fact_expo.getText();
+            String nro_timbra_expo = txt_nro_timbrado_expo.getText();
+            String nro_seq_expo = txt_nro_seq_expo.getText();
+            String nro_estable_expo = txt_nro_estable_expo.getText();
+            ///lote
+            String hab_lote = txt_hab_lote_fact.getText();
+
+            String sql = "UPDATE empresas SET emp_nom = '" + empre
+                    + "',emp_des ='" + des
+                    + "',caja_ra ='" + model_fact
+                    + "',nro_cta ='" + nro_cuenta
+                    + "',nom_cta ='" + nom_cuenta
+                    + "',tarje_cre ='" + cred
+                    + "',tarje_deb ='" + debi
+                    + "',nro_fact ='" + fac
+                    + "',nro_timbra ='" + timbra
+                    + "',nro_estable ='" + esta
+                    + "',nro_sequencia ='" + seque
+                    + "',compra_fiscal ='" + comp_fiscal
+                    + "',venta_fiscal ='" + venta_fiscal
+                    + "',iva_por ='" + iva_cant
+                    + "',venta_min ='" + venta_min
+                    + "',tipo_ventas ='" + tipo_ventas
+                    + "',dir_empre ='" + direc
+                    + "',dir_backup ='" + backup
+                    + "',fecha_desde ='" + desde
+                    + "',fecha_hasta ='" + hasta
+                    + "',activa_vuelto ='" + vuelto
+                    + "',mon_default ='" + moneda
+                    + "',mon_tipo ='" + simbolo
+                    + "',control_pre_usu ='" + pre_usu
+                    //surc_2///
+                    + "',fecha_init_surc_2 ='" + init_surc_2
+                    + "',fecha_fin_surc_2 ='" + fin_surc_2
+                    + "',timbra_surc_2 ='" + timbra_surc_2
+                    + "',nro_fact_surc_2 ='" + nro_fact_surc_2
+                    + "',seq_surc_2 ='" + seq_surc_2
+                    + "',lote_surc_2 ='" + lote_surc_2
+                    //surc_11///
+                    + "',fecha_init_surc_11 ='" + init_surc_11
+                    + "',fecha_fin_surc_11 ='" + fin_surc_11
+                    + "',timbra_surc_11 ='" + timbra_surc_11
+                    + "',nro_fact_surc_11 ='" + nro_fact_surc_11
+                    + "',seq_surc_11 ='" + seq_surc_11
+                    + "',lote_surc_11 ='" + lote_surc_11
+                    //surc_22///
+                    + "',fecha_init_surc_22 ='" + init_surc_22
+                    + "',fecha_fin_surc_22 ='" + fin_surc_22
+                    + "',timbra_surc_22 ='" + timbra_surc_22
+                    + "',nro_fact_surc_22 ='" + nro_fact_surc_22
+                    + "',seq_surc_22 ='" + seq_surc_22
+                    + "',lote_surc_22 ='" + lote_surc_22
+                    ////surc_23/////////
+                    + "',timbra_surc_23 ='" + timbra_surc_23
+                    + "',seq_surc_23 ='" + seq_surc_23
+                    + "',lote_surc_23 ='" + lote_surc_23
+                    //central devol
+                    + "',timbra_devol_central ='" + timbra_devol_central
+                    + "',timbra_19 ='" + timbra_19
+                    + "',timbra_24 ='" + timbra_24
+                    + "',nro_fact_expo ='" + nro_fact_expo
+                    + "',nro_timbrado_expo ='" + nro_timbra_expo
+                    + "',nro_seq_expo ='" + nro_seq_expo
+                    + "',nro_estable_expo ='" + nro_estable_expo
+                    + "',activa_lote ='" + hab_lote
+                    + "' WHERE id_empre = '" + id + "'";
+            try {
+                Connection cn = conectar.getInstance().getConnection();
+
+                PreparedStatement pst = cn.prepareStatement(sql);
+                pst.executeUpdate();
+                conectar.getInstance().closeConnection(cn);
+
+                JOptionPane.showMessageDialog(null, "Actualizado nuevos parámetros");
+
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+
+        } catch (Exception e) {
+        }
+
+    }
 }
