@@ -331,8 +331,8 @@ public class Libro_ventas_lista extends javax.swing.JDialog {
         String nro_seq = txt_seq_cambio.getText();
         String cli = txt_id_cli.getText();
         String total = txt_valor_libro.getText();
-         String total_iva = txt_valor_iva.getText();
-        
+        String total_iva = txt_valor_iva.getText();
+
         java.sql.Date date1 = new java.sql.Date(jd_ini_lucro_usu.getDate().getTime());
         java.sql.Date date2 = new java.sql.Date(jd_fin_lucro_usu.getDate().getTime());
 
@@ -345,7 +345,7 @@ public class Libro_ventas_lista extends javax.swing.JDialog {
             }
         } else {
             try {
-                libro_clientes(date1, date2, cli, nro_seq, total,total_iva);
+                libro_clientes(date1, date2, cli, nro_seq, total, total_iva);
             } catch (IOException ex) {
                 Logger.getLogger(Libro_ventas_lista.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -440,7 +440,7 @@ public class Libro_ventas_lista extends javax.swing.JDialog {
     //<editor-fold defaultstate="collapsed" desc="ZONA DE METODOS GENERICOS DE LA CLASE">
 
     void cargar(Date fecha_ini, Date fecha_fin, String user, String seq) {
-        String mostrar = "SELECT v.`cod_cli_ventas` ,v.`data_vista` ,c.`cli_cod` ,c.`cli_ruc` ,c.`cli_razon`,v.`nro_estable_ventas` ,v.`nro_seq_ventas`,v.`nro_fact_ventas` ,v.`total_ventas` ,v.`fact_sub_exe`,v.`total_iva_5`,v.`total_iva_10`,v.`total_iva` ,v.`form_pag_lit` FROM ventas_facturacion as v INNER JOIN   tienda_clientes as c ON  v.`cod_cli_ventas`=c.`cli_cod` WHERE v.fecha_ventas between '" + fecha_ini + "' AND '" + fecha_fin + "' and c.`cli_cod` = '" + user + "' AND v.nro_estable_ventas='" + seq + "'";
+        String mostrar = "SELECT v.`cod_cli_ventas` ,v.`data_vista` ,c.`cli_cod` ,c.`cli_ruc` ,c.`cli_razon`,v.`nro_estable_ventas` ,v.`nro_seq_ventas`,v.`nro_fact_ventas` ,v.`total_ventas` ,v.`fact_sub_exe`,v.`total_iva_5`,v.`total_iva_10`,v.`total_iva` ,v.`form_pag_lit`,v.`form_pag_lit`,v.lote_fact FROM ventas_facturacion as v INNER JOIN   tienda_clientes as c ON  v.`cod_cli_ventas`=c.`cli_cod` WHERE v.fecha_ventas between '" + fecha_ini + "' AND '" + fecha_fin + "' and c.`cli_cod` = '" + user + "' AND v.nro_estable_ventas='" + seq + "' AND estado_fact <> 'ANULADA'";
         String[] titulos = {"Fecha Emisión", "Documento", "Contado/ Crédito", "Razón Social/Nombres", "RUC", "Totales", "IVA 5%", "IVA 10%", "Excentas", "Total IVA"};
         String[] registros = new String[30];
         model = new DefaultTableModel(null, titulos);
@@ -452,7 +452,7 @@ public class Libro_ventas_lista extends javax.swing.JDialog {
             ResultSet rs = st.executeQuery(mostrar);
             while (rs.next()) {
                 registros[0] = rs.getString(2);
-                registros[1] = rs.getString(7) + "-" + rs.getString(6) + "-" + rs.getString(8);
+                registros[1] = rs.getString(7) + "-" + rs.getString(6) + "-" + rs.getString(8) + " #LOTE: " + rs.getString(15);
                 registros[2] = rs.getString(14);
                 registros[3] = rs.getString(5);
                 registros[4] = rs.getString(4);
@@ -467,7 +467,7 @@ public class Libro_ventas_lista extends javax.swing.JDialog {
             tb_ventas.setModel(model);
 
             tb_ventas.getColumnModel().getColumn(0).setPreferredWidth(120);
-            tb_ventas.getColumnModel().getColumn(1).setPreferredWidth(150);
+            tb_ventas.getColumnModel().getColumn(1).setPreferredWidth(170);
             tb_ventas.getColumnModel().getColumn(2).setPreferredWidth(120);
             tb_ventas.getColumnModel().getColumn(3).setPreferredWidth(300);
             tb_ventas.getColumnModel().getColumn(4).setPreferredWidth(150);
@@ -485,7 +485,7 @@ public class Libro_ventas_lista extends javax.swing.JDialog {
     }
 
     void cargarC(Date fecha_ini, Date fecha_fin, String seq) {
-        String mostrar = "SELECT v.`cod_cli_ventas` ,v.`data_vista` ,c.`cli_cod` ,c.`cli_ruc` ,c.`cli_razon`,v.`nro_estable_ventas` ,v.`nro_seq_ventas`,v.`nro_fact_ventas` ,v.`total_ventas` ,v.`fact_sub_exe`,v.`total_iva_5`,v.`total_iva_10`,v.`total_iva` ,v.`form_pag_lit` FROM ventas_facturacion as v INNER JOIN   tienda_clientes as c ON  v.`cod_cli_ventas`=c.`cli_cod` WHERE v.fecha_ventas between '" + fecha_ini + "' AND '" + fecha_fin + "' AND v.nro_estable_ventas='" + seq + "'";
+        String mostrar = "SELECT v.`cod_cli_ventas` ,v.`data_vista` ,c.`cli_cod` ,c.`cli_ruc` ,c.`cli_razon`,v.`nro_estable_ventas` ,v.`nro_seq_ventas`,v.`nro_fact_ventas` ,v.`total_ventas` ,v.`fact_sub_exe`,v.`total_iva_5`,v.`total_iva_10`,v.`total_iva` ,v.`form_pag_lit`,v.lote_fact FROM ventas_facturacion as v INNER JOIN   tienda_clientes as c ON  v.`cod_cli_ventas`=c.`cli_cod` WHERE v.fecha_ventas between '" + fecha_ini + "' AND '" + fecha_fin + "' AND v.nro_estable_ventas='" + seq + "' AND estado_fact <> 'ANULADA'";
         String[] titulos = {"Fecha Emisión", "Documento", "Contado/ Crédito", "Razón Social/Nombres", "RUC", "Totales", "IVA 5%", "IVA 10%", "Excentas", "Total IVA"};
         String[] registros = new String[30];
         model = new DefaultTableModel(null, titulos);
@@ -497,7 +497,7 @@ public class Libro_ventas_lista extends javax.swing.JDialog {
             ResultSet rs = st.executeQuery(mostrar);
             while (rs.next()) {
                 registros[0] = rs.getString(2);
-                registros[1] = rs.getString(7) + "-" + rs.getString(6) + "-" + rs.getString(8);
+                registros[1] = rs.getString(7) + "-" + rs.getString(6) + "-" + rs.getString(8) + " #LOTE: " + rs.getString(15);
                 registros[2] = rs.getString(14);
                 registros[3] = rs.getString(5);
                 registros[4] = rs.getString(4);
@@ -512,10 +512,10 @@ public class Libro_ventas_lista extends javax.swing.JDialog {
             tb_ventas.setModel(model);
 
             tb_ventas.getColumnModel().getColumn(0).setPreferredWidth(120);
-            tb_ventas.getColumnModel().getColumn(1).setPreferredWidth(150);
+            tb_ventas.getColumnModel().getColumn(1).setPreferredWidth(170);
             tb_ventas.getColumnModel().getColumn(2).setPreferredWidth(120);
             tb_ventas.getColumnModel().getColumn(3).setPreferredWidth(300);
-            tb_ventas.getColumnModel().getColumn(4).setPreferredWidth(150);
+            tb_ventas.getColumnModel().getColumn(4).setPreferredWidth(100);
             tb_ventas.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_ventas.getColumnModel().getColumn(6).setPreferredWidth(100);
             tb_ventas.getColumnModel().getColumn(7).setPreferredWidth(100);
@@ -592,7 +592,6 @@ public class Libro_ventas_lista extends javax.swing.JDialog {
             // anchor.setRow1(1);
             // Picture pict = draw.createPicture(anchor, imgIndex);
             // pict.resize(1, 3);
-            
             //estilo total
             CellStyle totalEstilo = book.createCellStyle();
             totalEstilo.setFillForegroundColor(IndexedColors.GOLD.getIndex());
@@ -606,8 +605,7 @@ public class Libro_ventas_lista extends javax.swing.JDialog {
             fuenteTotal.setFontHeightInPoints((short) 10);
             totalEstilo.setFont(fuenteTotal);
 
-            
-              //estilo total iva
+            //estilo total iva
             CellStyle totalIvaEstilo = book.createCellStyle();
             totalIvaEstilo.setFillForegroundColor(IndexedColors.GOLD.getIndex());
             totalIvaEstilo.setFillPattern(FillPatternType.SOLID_FOREGROUND);
@@ -619,7 +617,7 @@ public class Libro_ventas_lista extends javax.swing.JDialog {
             fuenteTotalIva.setColor(IndexedColors.BLACK.getIndex());
             fuenteTotalIva.setFontHeightInPoints((short) 10);
             totalIvaEstilo.setFont(fuenteTotalIva);
-            
+
             ///titulo
             CellStyle tituloEstilo = book.createCellStyle();
             tituloEstilo.setAlignment(HorizontalAlignment.CENTER);
@@ -638,7 +636,7 @@ public class Libro_ventas_lista extends javax.swing.JDialog {
             //////
             sheet.addMergedRegion(new CellRangeAddress(1, 1, 1, 4));
 
-            String[] cabecera = new String[]{"Fecha Emisión", "Documento", "Contado/ Crédito", "Razón Social/Nombres", "RUC", "Totales", "IVA 5%", "IVA 10%", "Exentas", "Total IVA"};
+            String[] cabecera = new String[]{"Fecha Emisión", "Documento", "Contado/ Crédito", "Razón Social/Nombres", "RUC", "Totales", "IVA 5%", "IVA 10%", "Exentas", "Total IVA", "Lote"};
 
             CellStyle headerStyle = book.createCellStyle();
             headerStyle.setFillForegroundColor(IndexedColors.LIGHT_BLUE.getIndex());
@@ -675,7 +673,7 @@ public class Libro_ventas_lista extends javax.swing.JDialog {
             datosEstilo.setBorderBottom(BorderStyle.THIN);
             Connection cn = conectar.getInstance().getConnection();
 
-            ps = cn.prepareStatement("SELECT v.`data_vista`,v.`nro_fact_ventas` ,v.`form_pag_lit`  ,c.`cli_razon`,c.`cli_ruc`  ,v.`total_ventas` ,v.`total_iva_5`,v.`total_iva_10`,v.`fact_sub_exe`,v.`total_iva`  FROM ventas_facturacion as v INNER JOIN   tienda_clientes as c ON  v.`cod_cli_ventas`=c.`cli_cod` WHERE v.fecha_ventas between '" + fecha_ini + "' AND '" + fecha_fin + "' AND v.nro_estable_ventas='" + seq + "'");
+            ps = cn.prepareStatement("SELECT v.`data_vista`,v.`nro_fact_ventas` ,v.`form_pag_lit`  ,c.`cli_razon`,c.`cli_ruc`  ,v.`total_ventas` ,v.`total_iva_5`,v.`total_iva_10`,v.`fact_sub_exe`,v.`total_iva`,v.`lote_fact`  FROM ventas_facturacion as v INNER JOIN   tienda_clientes as c ON  v.`cod_cli_ventas`=c.`cli_cod` WHERE v.fecha_ventas between '" + fecha_ini + "' AND '" + fecha_fin + "' AND v.nro_estable_ventas='" + seq + "' AND estado_fact <> 'ANULADA'");
             rs = ps.executeQuery();
 
             int numCol = rs.getMetaData().getColumnCount();
@@ -709,17 +707,17 @@ public class Libro_ventas_lista extends javax.swing.JDialog {
             sheet.autoSizeColumn(7);
             sheet.autoSizeColumn(8);
             sheet.autoSizeColumn(9);
+            sheet.autoSizeColumn(10);
 
             Row totales = sheet.createRow(numFilaDatos + 1);
             Cell celdaTotal = totales.createCell(7);
             celdaTotal.setCellStyle(totalEstilo);
             celdaTotal.setCellValue("Total Valor: " + total);
-            
+
             Row totales_iva = sheet.createRow(numFilaDatos + 2);
             Cell celdaTotalIva = totales_iva.createCell(7);
             celdaTotalIva.setCellStyle(totalIvaEstilo);
             celdaTotalIva.setCellValue("Total IVA: " + iva);
-          
 
             sheet.setZoom(100);
 
@@ -731,7 +729,7 @@ public class Libro_ventas_lista extends javax.swing.JDialog {
 
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Libro_ventas_lista.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null,"El archivo esta abierto en otra anterior");
+            JOptionPane.showMessageDialog(null, "El archivo esta abierto en otra anterior");
         } catch (IOException | SQLException ex) {
             Logger.getLogger(Libro_ventas_lista.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Error en la conexion con el servidor");
@@ -765,8 +763,8 @@ public class Libro_ventas_lista extends javax.swing.JDialog {
             fuenteTitulo.setBold(true);
             fuenteTitulo.setFontHeightInPoints((short) 12);
             tituloEstilo.setFont(fuenteTitulo);
-            
-              //estilo total
+
+            //estilo total
             CellStyle totalEstilo = book.createCellStyle();
             totalEstilo.setFillForegroundColor(IndexedColors.GOLD.getIndex());
             totalEstilo.setFillPattern(FillPatternType.SOLID_FOREGROUND);
@@ -779,8 +777,7 @@ public class Libro_ventas_lista extends javax.swing.JDialog {
             fuenteTotal.setFontHeightInPoints((short) 10);
             totalEstilo.setFont(fuenteTotal);
 
-            
-              //estilo total iva
+            //estilo total iva
             CellStyle totalIvaEstilo = book.createCellStyle();
             totalIvaEstilo.setFillForegroundColor(IndexedColors.GOLD.getIndex());
             totalIvaEstilo.setFillPattern(FillPatternType.SOLID_FOREGROUND);
@@ -800,7 +797,7 @@ public class Libro_ventas_lista extends javax.swing.JDialog {
 
             sheet.addMergedRegion(new CellRangeAddress(1, 1, 1, 4));
 
-            String[] cabecera = new String[]{"Fecha Emisión", "Documento", "Contado/ Crédito", "Razón Social/Nombres", "RUC", "Totales", "IVA 5%", "IVA 10%", "Exentas", "Total IVA"};
+            String[] cabecera = new String[]{"Fecha Emisión", "Documento", "Contado/ Crédito", "Razón Social/Nombres", "RUC", "Totales", "IVA 5%", "IVA 10%", "Exentas", "Total IVA", "Lote"};
 
             CellStyle headerStyle = book.createCellStyle();
             headerStyle.setFillForegroundColor(IndexedColors.LIGHT_BLUE.getIndex());
@@ -837,7 +834,7 @@ public class Libro_ventas_lista extends javax.swing.JDialog {
             datosEstilo.setBorderBottom(BorderStyle.THIN);
             Connection cn = conectar.getInstance().getConnection();
 
-            ps = cn.prepareStatement("SELECT v.`data_vista`,v.`nro_fact_ventas` ,v.`form_pag_lit`  ,c.`cli_razon`,c.`cli_ruc`  ,v.`total_ventas` ,v.`total_iva_5`,v.`total_iva_10`,v.`fact_sub_exe`,v.`total_iva` FROM ventas_facturacion as v INNER JOIN   tienda_clientes as c ON  v.`cod_cli_ventas`=c.`cli_cod` WHERE v.fecha_ventas between '" + fecha_ini + "' AND '" + fecha_fin + "' and c.`cli_cod` = '" + cli + "' AND v.nro_estable_ventas='" + seq + "' ");
+            ps = cn.prepareStatement("SELECT v.`data_vista`,v.`nro_fact_ventas` ,v.`form_pag_lit`  ,c.`cli_razon`,c.`cli_ruc`  ,v.`total_ventas` ,v.`total_iva_5`,v.`total_iva_10`,v.`fact_sub_exe`,v.`total_iva`,v.`lote_fact` FROM ventas_facturacion as v INNER JOIN   tienda_clientes as c ON  v.`cod_cli_ventas`=c.`cli_cod` WHERE v.fecha_ventas between '" + fecha_ini + "' AND '" + fecha_fin + "' and c.`cli_cod` = '" + cli + "' AND v.nro_estable_ventas='" + seq + "' AND estado_fact <> 'ANULADA' ");
             rs = ps.executeQuery();
 
             int numCol = rs.getMetaData().getColumnCount();
@@ -871,12 +868,13 @@ public class Libro_ventas_lista extends javax.swing.JDialog {
             sheet.autoSizeColumn(7);
             sheet.autoSizeColumn(8);
             sheet.autoSizeColumn(9);
-            
-              Row totales = sheet.createRow(numFilaDatos + 1);
+            sheet.autoSizeColumn(10);
+
+            Row totales = sheet.createRow(numFilaDatos + 1);
             Cell celdaTotal = totales.createCell(7);
             celdaTotal.setCellStyle(totalEstilo);
             celdaTotal.setCellValue("Total Valor: " + total);
-            
+
             Row totales_iva = sheet.createRow(numFilaDatos + 2);
             Cell celdaTotalIva = totales_iva.createCell(7);
             celdaTotalIva.setCellStyle(totalIvaEstilo);

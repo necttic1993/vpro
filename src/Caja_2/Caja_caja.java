@@ -277,6 +277,7 @@ public class Caja_caja extends javax.swing.JDialog {
 
         lbl_total_gs.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lbl_total_gs.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_total_gs.setText("0");
         jPanel3.add(lbl_total_gs, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 190, 30));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, 300, 50));
@@ -1221,7 +1222,7 @@ public class Caja_caja extends javax.swing.JDialog {
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
 
-        if (lbl_total_gs.getText().equals("0")) {
+        if (lbl_total_gs.getText().equals("0") || txt_alma_caja.getText().equals("TODOS") || txt_nro_his.getText().equals("") || txt_id_his.getText().equals("") ) {
             JOptionPane.showMessageDialog(this, "Realice primero una operación válida");
         } else {
             id_doc_nro = txt_nro_docu.getText();
