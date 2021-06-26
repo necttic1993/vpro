@@ -81,7 +81,7 @@ public class credito_cliente extends javax.swing.JDialog {
         jPanel1.add(cre_des, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 630, 35));
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel3.setText("Caja Origen:");
+        jLabel3.setText("Cliente:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 35));
 
         saldo_actual.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N

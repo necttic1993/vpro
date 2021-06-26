@@ -19,7 +19,7 @@ public class conectar {
      */
     private final String DB = "necttic";
     private final String USER = "system";
-    private final String URL = "jdbc:mysql://localhost:3306/" + DB + "?autoReconnect=true";
+    private final String URL = "jdbc:mysql://localhost:3306/" + DB + "?autoReconnect=true&useCompresion=true";
     private final String PASS = "canis";
 
     //kyrios

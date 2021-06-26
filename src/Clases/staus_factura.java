@@ -21,14 +21,10 @@ public class staus_factura extends DefaultTableCellRenderer {
 
         switch (table.getValueAt(row, columna_patron).toString()) {
 
-            case "ACTIVO":
-                setBackground(Color.GREEN);
-                setForeground(Color.black);
-                setFont(font);
-                break;
+            
             case "CANCELADA":
-                setBackground(Color.BLUE);
-                setForeground(Color.white);
+                setBackground(Color.GREEN);
+                setForeground(Color.BLACK);
                 setFont(font);
                 break;
             case "ANULADA":
@@ -36,7 +32,11 @@ public class staus_factura extends DefaultTableCellRenderer {
                 setForeground(Color.white);
                 setFont(font);
                 break;
-
+            case "PENDIENTE":
+                setBackground(Color.ORANGE);
+                setForeground(Color.BLACK);
+                setFont(font);
+                break;
             default:
                 break;
         }

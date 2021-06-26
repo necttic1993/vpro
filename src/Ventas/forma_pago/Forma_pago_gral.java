@@ -78,7 +78,7 @@ public class Forma_pago_gral extends javax.swing.JDialog {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        cb_forma_pago.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SELECCIONAR:", "EFECTIVO", "CHEQUE", "TJ CRÉDITO", "TJ DÉBITO", "GIROS", "TRANSFERENCIAS BANCARIAS", "DEPÓSITOS BANCARIOS" }));
+        cb_forma_pago.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SELECCIONAR:", "EFECTIVO", "CHEQUE", "TJ CRÉDITO", "TJ DÉBITO", "GIROS", "TRANSFERENCIAS BANCARIAS", "DEPÓSITOS BANCARIOS", "NOTA DE CRÉDITO" }));
         cb_forma_pago.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         cb_forma_pago.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -204,7 +204,6 @@ public class Forma_pago_gral extends javax.swing.JDialog {
         btn_excluir.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btn_excluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/eliminar.png"))); // NOI18N
         btn_excluir.setMnemonic('e');
-        btn_excluir.setText("Extraer");
         btn_excluir.setToolTipText("Remover pagos agregados");
         btn_excluir.setBorder(null);
         btn_excluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -213,7 +212,7 @@ public class Forma_pago_gral extends javax.swing.JDialog {
                 btn_excluirActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_excluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 10, 120, 45));
+        jPanel1.add(btn_excluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 10, 60, 45));
 
         jLabel24.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel24.setText("N° Documento:");
@@ -338,6 +337,13 @@ public class Forma_pago_gral extends javax.swing.JDialog {
             MDB = new Modulo_DepB(new javax.swing.JDialog(), true);
             MDB.setVisible(true);
         }
+        if ((cb_forma_pago.getSelectedItem().equals("NOTA DE CRÉDITO"))) {
+            Modulo_DepB MDB;
+            MDB = new Modulo_DepB(new javax.swing.JDialog(), true);
+            MDB.setVisible(true);
+        }
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btn_calcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_calcActionPerformed

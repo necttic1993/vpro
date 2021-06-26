@@ -873,7 +873,7 @@ public class Facturas_facturas extends javax.swing.JDialog {
 
     void factura_ventas() {
 
-        String InsertarSQL = "INSERT INTO ventas_facturacion (num_bol,cod_cli_ventas,nom_cli_ventas,forma_pag_efectivo,forma_pag_credito,total_ventas,fecha_ventas,user_ventas,cant_ventas,letras_ventas,nro_seq_ventas,nro_estable_ventas,nro_fact_ventas,nro_timbra_ventas,fact_sub_exe,fact_sub_5,fact_sub_10,total_iva_5,total_iva_10,total_iva,data_vista,simb_moneda,form_pag_lit,dia_lit,mes_lit,years_lit,saldo_cred,dolar_x,gs_x,lote_fact) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String InsertarSQL = "INSERT INTO ventas_facturacion (num_bol,cod_cli_ventas,nom_cli_ventas,forma_pag_efectivo,forma_pag_credito,total_ventas,fecha_ventas,user_ventas,cant_ventas,letras_ventas,nro_seq_ventas,nro_estable_ventas,nro_fact_ventas,nro_timbra_ventas,fact_sub_exe,fact_sub_5,fact_sub_10,total_iva_5,total_iva_10,total_iva,data_vista,simb_moneda,form_pag_lit,dia_lit,mes_lit,years_lit,saldo_cred,dolar_x,gs_x,lote_fact,estado_fact) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         String num_bol = txt_cod.getText();
         String id_cli = txt_cod_cli.getText();
         String des_cli = txt_cli_nom.getText();
@@ -897,6 +897,8 @@ public class Facturas_facturas extends javax.swing.JDialog {
         String fecha = lbl_fecha_VISOR.getText();
         String simb_mon = txt_simbolo.getText();
         String cond = txt_forma_pago.getText();
+        //ESTADO//
+
         //fecha//
         String dia = lbl_dia_actual.getText();
         String mes = lbl_mes_actual.getText();
@@ -956,6 +958,14 @@ public class Facturas_facturas extends javax.swing.JDialog {
             if (lbl_lote_factura.getText().equals("5")) {
                 String lote = "5";
                 pst.setString(30, lote);
+            }
+
+            if (ch_contado.isSelected()) {
+                String estado = ("CANCELADA");
+                pst.setString(31, estado);
+            } else {
+                String estado = ("PENDIENTE");
+                pst.setString(31, estado);
             }
 
             int n = pst.executeUpdate();

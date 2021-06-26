@@ -29,7 +29,7 @@ public class Lista_ventas_facturar extends javax.swing.JDialog {
     public Lista_ventas_facturar(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        // cargar("");
+        cargar("");
         txt_bus.requestFocus();
         //OpcionMenu();
     }
@@ -44,6 +44,10 @@ public class Lista_ventas_facturar extends javax.swing.JDialog {
         txt_bus = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        ch_todos = new javax.swing.JCheckBox();
+        ch_contado = new javax.swing.JCheckBox();
+        ch_credito = new javax.swing.JCheckBox();
+        jLabel19 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("VENTAS");
@@ -100,7 +104,7 @@ public class Lista_ventas_facturar extends javax.swing.JDialog {
                 txt_busKeyReleased(evt);
             }
         });
-        jPanel1.add(txt_bus, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 420, 32));
+        jPanel1.add(txt_bus, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 400, 32));
 
         jPanel3.setBackground(new java.awt.Color(0, 102, 204));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 102)));
@@ -110,6 +114,40 @@ public class Lista_ventas_facturar extends javax.swing.JDialog {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 30));
+
+        ch_todos.setBackground(new java.awt.Color(255, 255, 255));
+        ch_todos.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        ch_todos.setText("Todos");
+        ch_todos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ch_todosActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ch_todos, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 10, -1, 30));
+
+        ch_contado.setBackground(new java.awt.Color(255, 255, 255));
+        ch_contado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        ch_contado.setText("Contado");
+        ch_contado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ch_contadoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ch_contado, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, -1, 30));
+
+        ch_credito.setBackground(new java.awt.Color(255, 255, 255));
+        ch_credito.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        ch_credito.setText("Crédito");
+        ch_credito.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ch_creditoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ch_credito, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 10, -1, 30));
+
+        jLabel19.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel19.setText("Filtrar por:");
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 90, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1240, 590));
 
@@ -189,6 +227,24 @@ public class Lista_ventas_facturar extends javax.swing.JDialog {
 
     }//GEN-LAST:event_txt_busKeyReleased
 
+    private void ch_todosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ch_todosActionPerformed
+       ch_todos.setSelected(true);
+        ch_credito.setSelected(false);
+        ch_contado.setSelected(false);
+    }//GEN-LAST:event_ch_todosActionPerformed
+
+    private void ch_contadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ch_contadoActionPerformed
+        ch_todos.setSelected(false);
+        ch_credito.setSelected(false);
+        ch_contado.setSelected(true);
+    }//GEN-LAST:event_ch_contadoActionPerformed
+
+    private void ch_creditoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ch_creditoActionPerformed
+        ch_todos.setSelected(false);
+        ch_credito.setSelected(true);
+        ch_contado.setSelected(false);
+    }//GEN-LAST:event_ch_creditoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -243,6 +299,10 @@ public class Lista_ventas_facturar extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox ch_contado;
+    private javax.swing.JCheckBox ch_credito;
+    private javax.swing.JCheckBox ch_todos;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
@@ -278,10 +338,6 @@ public class Lista_ventas_facturar extends javax.swing.JDialog {
 
             ColorearFilas color = new ColorearFilas(6);
             tb_can_dev.getColumnModel().getColumn(0).setCellRenderer(color);
-
-            ColorearTipoPago colorear = new ColorearTipoPago(3);
-            tb_can_dev.getColumnModel().getColumn(3).setCellRenderer(colorear);
-            tb_can_dev.getColumnModel().getColumn(4).setCellRenderer(colorear);
 
             tb_can_dev.getColumnModel().getColumn(0).setPreferredWidth(87);
             tb_can_dev.getColumnModel().getColumn(1).setPreferredWidth(87);
