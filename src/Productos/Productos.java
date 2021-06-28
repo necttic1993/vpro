@@ -46,7 +46,7 @@ public class Productos extends javax.swing.JDialog {
         initComponents();
         OpcionMenu();
         cargarUsu();
-        actualiza();
+       // actualiza();
         txt_bus.requestFocus();
         lbl_stock_minimo.setVisible(false);
         //lbl_select_alma.setVisible(false);

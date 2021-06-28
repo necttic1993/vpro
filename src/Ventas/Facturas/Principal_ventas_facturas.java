@@ -369,31 +369,28 @@ public class Principal_ventas_facturas extends javax.swing.JDialog {
 
     void cancFactura() {
         codigos();
+
+        int filasel = tbProductos.getSelectedRow();
+        String cod = (String) tbProductos.getValueAt(filasel, 8);
+        String lote = (String) tbProductos.getValueAt(filasel, 10);
+        String id_nulo = lbl_cod_nulos.getText();
+        String des = ("ANULADA");
+
+        String sql = "UPDATE ventas_facturacion SET estado_fact = '" + des
+                + "',num_bol ='" + id_nulo
+                + "',id_nulos ='" + id_nulo
+                + "' WHERE num_bol = '" + cod + "' and lote_fact='" + lote + "' ";
         try {
+            Connection cn = conectar.getInstance().getConnection();
 
-            int filasel = tbProductos.getSelectedRow();
-            String cod = (String) tbProductos.getValueAt(filasel, 8);
-            String lote = (String) tbProductos.getValueAt(filasel, 10);
-            String id_nulo = lbl_cod_nulos.getText();
-            String des = ("ANULADA");
+            PreparedStatement pst = cn.prepareStatement(sql);
+            pst.executeUpdate();
+            conectar.getInstance().closeConnection(cn);
 
-            String sql = "UPDATE ventas_facturacion SET estado_fact = '" + des
-                    + "',num_bol ='" + id_nulo
-                    + "',id_nulos ='" + id_nulo
-                    + "' WHERE num_bol = '" + cod + "' and lote_fact='" + lote + "' ";
-            try {
-                Connection cn = conectar.getInstance().getConnection();
-
-                PreparedStatement pst = cn.prepareStatement(sql);
-                pst.executeUpdate();
-                conectar.getInstance().closeConnection(cn);
-
-            } catch (SQLException | HeadlessException e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-
-        } catch (Exception e) {
+        } catch (SQLException | HeadlessException e) {
+            JOptionPane.showMessageDialog(null, e);
         }
+        StatusVentas();
 
     }
 
@@ -529,5 +526,30 @@ public class Principal_ventas_facturas extends javax.swing.JDialog {
 
         tbProductos.setComponentPopupMenu(menu_opcion);
 
+    }
+
+    void StatusVentas() {//analizar mañana cargar datos de nro de factura
+
+        String es = ("0");
+        int filasel = tbProductos.getSelectedRow();
+        if (filasel == -1) {
+            JOptionPane.showMessageDialog(null, "Seleccione algun dato");
+        } else {
+            int filaMode = tbProductos.getSelectedRow();
+            String nro = (String) tbProductos.getValueAt(filaMode, 8);
+
+            String sql = "UPDATE ventas SET nro_fact_ventas = '" + es
+                    + "' WHERE num_bol = '" + nro + "'";
+            try {
+                Connection cn = conectar.getInstance().getConnection();
+                PreparedStatement pst = cn.prepareStatement(sql);
+                pst.executeUpdate();
+                //  JOptionPane.showMessageDialog(null, "Actualizado");
+                conectar.getInstance().closeConnection(cn);
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+
+        }
     }
 }

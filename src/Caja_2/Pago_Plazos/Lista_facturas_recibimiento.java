@@ -173,8 +173,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 Agregar_factura_recibo.txt_monto_factura.setText(monto_total);
                 Agregar_factura_recibo.txt_nro_venta_rec.setText(nro_venta);
                 Agregar_factura_recibo.txt_lote_fact.setText(lote);
-                
-                
+
                 ////////////////////////////////cargar tabla detalles///////////////////////////////////
                 this.dispose();
 
@@ -195,25 +194,36 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             txt_bus.setText("");
         }
         if (Tecla == KeyEvent.VK_ENTER) {
-            /*
-             try {
 
-             int fila = tb_pago_plazos.getSelectedRow();
+            try {
 
-             if (fila == -1) {
-             JOptionPane.showMessageDialog(null, "No  ha seleccionado ningun registro");
-             } else {
-             String codins = tb_pago_plazos.getValueAt(fila, 0).toString();
+                int fila = tb_pago_cred.getSelectedRow();
 
-             pago_plazo_ventas.txt_nro_venta.setText(codins);
-             pago_plazo_ventas.txt_id_venta.setText(codins);
-             // Devolucion_Devoluciones.btncalcular.doClick();
-             this.dispose();
+                if (fila == -1) {
+                    JOptionPane.showMessageDialog(null, "No  ha seleccionado ningun registro");
+                } else {
+                   
+                    String nro_fact = tb_pago_cred.getValueAt(fila, 0).toString();
+                    String id_cli = tb_pago_cred.getValueAt(fila, 1).toString();
+                    String nom_cli = tb_pago_cred.getValueAt(fila, 2).toString();
+                    String nro_venta = tb_pago_cred.getValueAt(fila, 3).toString();
+                    String saldo = tb_pago_cred.getValueAt(fila, 4).toString();
+                    String monto_total = tb_pago_cred.getValueAt(fila, 5).toString();
+                    String lote = tb_pago_cred.getValueAt(fila, 6).toString();
+                    String surcu = txt_alma_caja.getText();
 
-             }
-             } catch (HeadlessException | NumberFormatException e) {
-             }*/
-          
+                    Agregar_factura_recibo.txt_nro_venta.setText(nro_fact);
+                    Agregar_factura_recibo.txt_plazo_saldo.setText(saldo);
+                    Agregar_factura_recibo.txt_monto_factura.setText(monto_total);
+                    Agregar_factura_recibo.txt_nro_venta_rec.setText(nro_venta);
+                    Agregar_factura_recibo.txt_lote_fact.setText(lote);
+
+                    this.dispose();
+
+                }
+            } catch (HeadlessException | NumberFormatException e) {
+            }
+
         }
 
 

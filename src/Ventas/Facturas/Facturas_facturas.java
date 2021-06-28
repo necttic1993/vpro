@@ -1040,7 +1040,8 @@ public class Facturas_facturas extends javax.swing.JDialog {
                     .getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Nota de venta ya fue facturado");
         }
-        actEstadoVentas();
+      //  actEstadoVentas();
+         StatusVentas();
 
     }
 
@@ -1279,6 +1280,31 @@ public class Facturas_facturas extends javax.swing.JDialog {
         }
 
     }
+    
+       void StatusVentas() {//analizar mañana cargar datos de nro de factura
+
+        try {
+
+            String es = ("1");
+            String nro = txt_cod.getText();
+
+            String sql = "UPDATE ventas SET nro_fact_ventas = '" + es
+                     + "' WHERE num_bol = '" + nro + "'";
+            try {
+                Connection cn = conectar.getInstance().getConnection();
+                PreparedStatement pst = cn.prepareStatement(sql);
+                pst.executeUpdate();
+                //  JOptionPane.showMessageDialog(null, "Actualizado");
+                conectar.getInstance().closeConnection(cn);
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+
+        } catch (Exception e) {
+        }
+
+    }
+
 
     void cargarConfig() {
         String mostrar = "SELECT * FROM empresas";

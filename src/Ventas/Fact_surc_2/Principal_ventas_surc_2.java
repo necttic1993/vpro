@@ -316,8 +316,8 @@ public class Principal_ventas_surc_2 extends javax.swing.JDialog {
             tbProductos.getColumnModel().getColumn(8).setPreferredWidth(100);
             conectar.getInstance().closeConnection(cn);
 
-            staus_factura estado = new staus_factura(8);
-            tbProductos.getColumnModel().getColumn(8).setCellRenderer(estado);
+           // staus_factura estado = new staus_factura(8);
+          //  tbProductos.getColumnModel().getColumn(8).setCellRenderer(estado);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
             System.out.println(e.getMessage());

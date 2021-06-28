@@ -544,7 +544,7 @@ public class Presupuesto_presupuesto extends javax.swing.JDialog {
         jPanel3.add(btn_mone, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, 50, 20));
 
         lbl_default_id.setText("lbl_default");
-        jPanel3.add(lbl_default_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, -1, -1));
+        jPanel3.add(lbl_default_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, -1, -1));
 
         lbl_cambio_mon_2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lbl_cambio_mon_2.setForeground(new java.awt.Color(0, 0, 102));
@@ -1056,7 +1056,7 @@ public class Presupuesto_presupuesto extends javax.swing.JDialog {
     }
 
     void ticket_plazo() {
-
+        codigos();
         String InsertarSQL = "INSERT INTO presupuesto (num_bol,cod_cli_ventas,nom_cli_ventas,forma_pag_ventas,dias_plazo_ventas,total_ventas,total_real,total_dolar,estado_ventas,fecha_ventas,user_ventas,almacen_ventas,cant_ventas,letras_ventas,vac_ventas) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         String numbol = lbl_cod.getText();
         String cod_cli = txt_cod_cli.getText();

@@ -13,33 +13,20 @@ import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
-import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.print.PrintService;
-import javax.print.PrintServiceLookup;
 import javax.swing.ImageIcon;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
 import javax.swing.table.DefaultTableModel;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JRExporterParameter;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.export.JRPrintServiceExporter;
-import net.sf.jasperreports.engine.export.JRPrintServiceExporterParameter;
-import net.sf.jasperreports.engine.util.JRLoader;
 
 /**
  *
@@ -70,6 +57,7 @@ public class Principal_Pedidos extends javax.swing.JDialog {
     public static String cod_ver_ventas_cli = "";
     public static String cod_ver_ventas_cli_factura = "";
     public static String cod_ped_status = "";
+    public static String cod_ped_imprimir = "";
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -187,6 +175,8 @@ public class Principal_Pedidos extends javax.swing.JDialog {
 
     private void tbProductos_pedidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProductos_pedidoMouseClicked
 
+        
+        
     }//GEN-LAST:event_tbProductos_pedidoMouseClicked
 
     private void tbProductos_pedidoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbProductos_pedidoKeyReleased
@@ -350,7 +340,7 @@ public class Principal_Pedidos extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from pedidos WHERE CONCAT (num_pedi,nom_provee) LIKE '%" + valor + "%' ORDER BY num_pedi DESC";
+            String cons = "select * from pedidos WHERE CONCAT (num_pedi,nom_provee) LIKE '%" + valor + "%'  ORDER BY num_pedi DESC LIMIT 300";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -400,7 +390,7 @@ public class Principal_Pedidos extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from pedidos WHERE CONCAT (num_pedi,nom_provee) LIKE '%" + valor + "%' AND almacen_pedi='" + almacen + "' ORDER BY num_pedi DESC";
+            String cons = "select * from pedidos WHERE CONCAT (num_pedi,nom_provee) LIKE '%" + valor + "%' AND almacen_pedi='" + almacen + "'  ORDER BY num_pedi DESC LIMIT 300";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -480,47 +470,11 @@ public class Principal_Pedidos extends javax.swing.JDialog {
             if (filasel == -1) {
                 JOptionPane.showMessageDialog(null, "Seleccione algun dato");
             } else {
-                PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-                if (printService.length > 0)//si existen impresoras
-                {
-                    //se elige la impresora
-                    PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                            "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-                    if (impresora != null) //Si se selecciono una impresora
-                    {
-                        try {
-                            int filaMod = tbProductos_pedido.getSelectedRow();
-                            String cod = (String) tbProductos_pedido.getValueAt(filaMod, 0);
-
-                            Map parametro = new HashMap();
-                            parametro.clear();
-                            parametro.put("codigo", cod);
-                            //parametro.put("total_gs", gs);
-                            //  parametro.put("total_rs", rs);
-                            Connection cn = conectar.getInstance().getConnection();
-
-                            URL in = this.getClass().getResource("/Pedidos/impresiones/Nota_pedidos.jasper");
-
-                            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                            JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                            jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                            jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                            // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                            jrprintServiceExporter.exportReport();
-                            conectar.getInstance().closeConnection(cn);
-
-                        } catch (JRException ex) {
-
-                        } catch (SQLException ex) {
-                            Logger.getLogger(Principal_Pedidos.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-
-                }
+                int filaMod = tbProductos_pedido.getSelectedRow();
+                cod_ped_imprimir = (String) tbProductos_pedido.getValueAt(filaMod, 0);
+                Printers_Pedidos est;
+                est = new Printers_Pedidos(new javax.swing.JDialog(), true);
+                est.setVisible(true);
             }
 
         });
@@ -590,7 +544,7 @@ public class Principal_Pedidos extends javax.swing.JDialog {
                 control_permisos();
             }
         };
-        timer.schedule(tesk, 60000, 60000);
+        timer.schedule(tesk, 5000, 180000);
     }
 
 }

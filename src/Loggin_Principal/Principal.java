@@ -731,7 +731,7 @@ public class Principal extends javax.swing.JFrame {
 
         lbl_version.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         lbl_version.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_version.setText("4.3.8");
+        lbl_version.setText("4.3.9");
         panel_principal.add(lbl_version, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 206, 50, 40));
 
         version_alerta.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N

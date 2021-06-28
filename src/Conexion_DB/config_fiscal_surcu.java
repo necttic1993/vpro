@@ -760,6 +760,11 @@ public class config_fiscal_surcu extends javax.swing.JDialog {
         jPanel1.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 180, 90, 30));
 
         txt_serie.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txt_serie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_serieActionPerformed(evt);
+            }
+        });
         jPanel1.add(txt_serie, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 490, 80, 30));
 
         txt_compra_fiscal.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -1923,6 +1928,10 @@ public class config_fiscal_surcu extends javax.swing.JDialog {
         pg = new Excell_pro(new javax.swing.JDialog(), true);
         pg.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void txt_serieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_serieActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_serieActionPerformed
 
     /**
      * @param args the command line arguments
