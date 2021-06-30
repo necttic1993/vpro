@@ -29,10 +29,9 @@ public class Almacen_select_ventas extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         if (Principal.lbl_mode_dark.getText().equals("oscuro")) {
-            panel_mode.setBackground(new java.awt.Color(26, 53, 91));
+            panel_mode.setBackground(new java.awt.Color(69, 84, 92));
         
-        } else {
-        }
+        } 
         txt_bus.setDocument(new machusculas());
         txt_bus.requestFocus();
         cargar("");

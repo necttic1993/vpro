@@ -7,6 +7,7 @@ package Ventas;
 
 import Clientes.Add_clientes;
 import Conexion_DB.conectar;
+import Loggin_Principal.Principal;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
@@ -29,6 +30,10 @@ public class Clientes_ventas extends javax.swing.JDialog {
     public Clientes_ventas(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
+          if (Principal.lbl_mode_dark.getText().equals("oscuro")) {
+            p_cb.setBackground(new java.awt.Color(69, 84, 92));
+
+        }
         txtbus.requestFocus();
         //Shape forma = new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 15, 15);
         //AWTUtilities.setWindowShape(this, forma);
@@ -75,7 +80,7 @@ public class Clientes_ventas extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        p_cb = new javax.swing.JPanel();
         txtbus = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbclientes = new javax.swing.JTable();
@@ -87,8 +92,8 @@ public class Clientes_ventas extends javax.swing.JDialog {
         setTitle("Buscar Clientes");
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        p_cb.setBackground(new java.awt.Color(255, 255, 255));
+        p_cb.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtbus.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txtbus.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -105,7 +110,7 @@ public class Clientes_ventas extends javax.swing.JDialog {
                 txtbusKeyReleased(evt);
             }
         });
-        jPanel1.add(txtbus, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 400, 30));
+        p_cb.add(txtbus, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 400, 30));
 
         tbclientes = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
@@ -136,7 +141,7 @@ public class Clientes_ventas extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tbclientes);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 910, 470));
+        p_cb.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 910, 470));
 
         btn_agregarcli.setBackground(new java.awt.Color(255, 255, 255));
         btn_agregarcli.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -153,30 +158,30 @@ public class Clientes_ventas extends javax.swing.JDialog {
                 btn_agregarcliKeyPressed(evt);
             }
         });
-        jPanel1.add(btn_agregarcli, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, 60, 40));
+        p_cb.add(btn_agregarcli, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, 60, 40));
 
         jPanel3.setBackground(new java.awt.Color(0, 102, 204));
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
         jPanel3.setFocusable(false);
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, 30));
+        p_cb.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
         jLabel2.setFocusable(false);
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 30));
+        p_cb.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 927, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(p_cb, javax.swing.GroupLayout.PREFERRED_SIZE, 927, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(p_cb, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -321,9 +326,9 @@ public class Clientes_ventas extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_agregarcli;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel p_cb;
     private javax.swing.JTable tbclientes;
     private javax.swing.JTextField txtbus;
     // End of variables declaration//GEN-END:variables

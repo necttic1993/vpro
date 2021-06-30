@@ -44,6 +44,11 @@ public class Principal_ventas_2 extends javax.swing.JDialog {
     public Principal_ventas_2(javax.swing.JDialog parent, boolean modal) throws IOException {
         super(parent, modal);
         initComponents();
+        
+         if (Principal.lbl_mode_dark.getText().equals("oscuro")) {
+            panel_pventas_2.setBackground(new java.awt.Color(69, 84, 92));
+
+        }
         boton();
         cargarUsu();
         control_permisos();
@@ -71,7 +76,7 @@ public class Principal_ventas_2 extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        panel_pventas_2 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tbProductos_2 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
@@ -79,6 +84,7 @@ public class Principal_ventas_2 extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         btn_cargar_datos = new javax.swing.JButton();
         lbl_almacen_ventas = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("VENTAS");
@@ -90,8 +96,8 @@ public class Principal_ventas_2 extends javax.swing.JDialog {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panel_pventas_2.setBackground(new java.awt.Color(255, 255, 255));
+        panel_pventas_2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tbProductos_2 = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
@@ -125,7 +131,7 @@ public class Principal_ventas_2 extends javax.swing.JDialog {
         });
         jScrollPane4.setViewportView(tbProductos_2);
 
-        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 1230, 500));
+        panel_pventas_2.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 1230, 500));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -138,7 +144,7 @@ public class Principal_ventas_2 extends javax.swing.JDialog {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 10, 140, 50));
+        panel_pventas_2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 10, 140, 50));
 
         txt_bus.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txt_bus.setToolTipText("Buscar Registros");
@@ -151,15 +157,14 @@ public class Principal_ventas_2 extends javax.swing.JDialog {
                 txt_busKeyReleased(evt);
             }
         });
-        jPanel1.add(txt_bus, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 18, 430, 25));
+        panel_pventas_2.add(txt_bus, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 18, 430, 25));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
-        jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         jLabel1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 15, 490, 32));
+        panel_pventas_2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 15, 40, 32));
 
         btn_cargar_datos.setText("cargar");
         btn_cargar_datos.addActionListener(new java.awt.event.ActionListener() {
@@ -167,15 +172,20 @@ public class Principal_ventas_2 extends javax.swing.JDialog {
                 btn_cargar_datosActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_cargar_datos, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 20, -1, 30));
+        panel_pventas_2.add(btn_cargar_datos, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 20, -1, 30));
 
         lbl_almacen_ventas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbl_almacen_ventas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Caja_2/iconos/dpto.png"))); // NOI18N
         lbl_almacen_ventas.setText("almacen");
         lbl_almacen_ventas.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jPanel1.add(lbl_almacen_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, 110, 40));
+        panel_pventas_2.add(lbl_almacen_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, 110, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 580));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panel_pventas_2.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 490, 40));
+
+        getContentPane().add(panel_pventas_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 580));
 
         pack();
         setLocationRelativeTo(null);
@@ -364,9 +374,10 @@ public class Principal_ventas_2 extends javax.swing.JDialog {
     public static javax.swing.JButton btn_cargar_datos;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane4;
     public static javax.swing.JLabel lbl_almacen_ventas;
+    private javax.swing.JPanel panel_pventas_2;
     public static javax.swing.JTable tbProductos_2;
     public static javax.swing.JTextField txt_bus;
     // End of variables declaration//GEN-END:variables

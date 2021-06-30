@@ -167,10 +167,9 @@ public class Principal extends javax.swing.JFrame {
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         lbl_mode_dark.setText(mode);
         if (mode.equals("oscuro")) {
-            panel_principal.setBackground(new java.awt.Color(26, 53, 91));
-            this.getContentPane().setBackground(new java.awt.Color(26, 53, 91));
-        } else {
-        }
+            panel_principal.setBackground(new java.awt.Color(8, 52, 74)); 
+            
+        } 
 
         menu_serv.setVisible(false);
         lbl_notifi_pedidos.setVisible(false);

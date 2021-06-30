@@ -9,6 +9,7 @@ import Clases.Stock_minimo_pedidos;
 import Clases.Stock_minimo_pro;
 import Clases.machusculas;
 import Conexion_DB.conectar;
+import Loggin_Principal.Principal;
 import static Loggin_Principal.Principal.lbl_panel_pre_usu;
 import Productos.DetallesProductos;
 import static Ventas.Ventas_venta.lbl_cant_produ;
@@ -39,6 +40,10 @@ public class Productos_ventas extends javax.swing.JDialog {
     public Productos_ventas(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
+         if (Principal.lbl_mode_dark.getText().equals("oscuro")) {
+            panel_stock.setBackground(new java.awt.Color(69, 84, 92));
+
+        }
         //Shape forma = new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 15, 15);
         //AWTUtilities.setWindowShape(this, forma);
 
@@ -1582,7 +1587,7 @@ public class Productos_ventas extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        panel_stock = new javax.swing.JPanel();
         txtprod = new javax.swing.JTextField();
         bus = new javax.swing.JButton();
         btnsalir = new javax.swing.JButton();
@@ -1603,8 +1608,8 @@ public class Productos_ventas extends javax.swing.JDialog {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panel_stock.setBackground(new java.awt.Color(255, 255, 255));
+        panel_stock.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtprod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtprod.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -1616,7 +1621,7 @@ public class Productos_ventas extends javax.swing.JDialog {
                 txtprodKeyReleased(evt);
             }
         });
-        jPanel1.add(txtprod, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 390, 30));
+        panel_stock.add(txtprod, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 390, 30));
 
         bus.setMnemonic('w');
         bus.setText("...");
@@ -1625,7 +1630,7 @@ public class Productos_ventas extends javax.swing.JDialog {
                 busActionPerformed(evt);
             }
         });
-        jPanel1.add(bus, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, 0, 30));
+        panel_stock.add(bus, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, 0, 30));
 
         btnsalir.setMnemonic('s');
         btnsalir.setText("..");
@@ -1634,7 +1639,7 @@ public class Productos_ventas extends javax.swing.JDialog {
                 btnsalirActionPerformed(evt);
             }
         });
-        jPanel1.add(btnsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 210, 0, -1));
+        panel_stock.add(btnsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 210, 0, -1));
 
         tbprod = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
@@ -1675,38 +1680,38 @@ public class Productos_ventas extends javax.swing.JDialog {
         });
         jScrollPane2.setViewportView(tbprod);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 1080, 470));
+        panel_stock.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 1080, 470));
 
         jPanel3.setBackground(new java.awt.Color(0, 102, 204));
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
         jPanel3.setFocusable(false);
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, 30));
+        panel_stock.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, 30));
 
         lbl_stock_minimo.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jPanel1.add(lbl_stock_minimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 10, 60, 30));
+        panel_stock.add(lbl_stock_minimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 10, 60, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
         jLabel2.setFocusable(false);
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 40, 30));
+        panel_stock.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 40, 30));
 
         lbl_surcusal_id.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lbl_surcusal_id.setForeground(new java.awt.Color(204, 0, 0));
-        jPanel1.add(lbl_surcusal_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 10, 120, 30));
+        panel_stock.add(lbl_surcusal_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 10, 120, 30));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel4.setText("Stock referente N°:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 10, -1, 30));
+        panel_stock.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 10, -1, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1100, Short.MAX_VALUE)
+            .addComponent(panel_stock, javax.swing.GroupLayout.DEFAULT_SIZE, 1100, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
+            .addComponent(panel_stock, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
         );
 
         pack();
@@ -2103,11 +2108,11 @@ public class Productos_ventas extends javax.swing.JDialog {
     private javax.swing.JButton bus;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lbl_stock_minimo;
     public static javax.swing.JLabel lbl_surcusal_id;
+    private javax.swing.JPanel panel_stock;
     public static javax.swing.JTable tbprod;
     private javax.swing.JTextField txtprod;
     // End of variables declaration//GEN-END:variables

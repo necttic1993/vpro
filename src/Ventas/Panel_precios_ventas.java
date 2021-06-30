@@ -49,7 +49,7 @@ public class Panel_precios_ventas extends javax.swing.JDialog {
             calcularStockTotal();
         }
         if (lbl_surcusal_id.getText().equals("0000001")) {
-            BuscarProductoEditar(cod_pro_ventas);
+            BuscarProductoEditar(cod_pro_ventas);          
             calcular_porciento();
             calcular_SaldoO();
             calcularStockTotal();
@@ -234,6 +234,11 @@ public class Panel_precios_ventas extends javax.swing.JDialog {
         txt_stock.setText("0");
         txt_stock.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_stock.setEnabled(false);
+        txt_stock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_stockActionPerformed(evt);
+            }
+        });
         jPanel1.add(txt_stock, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 80, 60, 30));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -2035,6 +2040,10 @@ public class Panel_precios_ventas extends javax.swing.JDialog {
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txt_stockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_stockActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_stockActionPerformed
 
     /**
      * @param args the command line arguments

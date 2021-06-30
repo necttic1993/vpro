@@ -59,13 +59,12 @@ public class Ventas_venta extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         if (Principal.lbl_mode_dark.getText().equals("oscuro")) {
-            panel_info.setBackground(new java.awt.Color(26, 53, 91));
-            panel_info_all.setBackground(new java.awt.Color(26, 53, 91));
-            panel_total_2.setBackground(new java.awt.Color(26, 53, 91));
-            panel_total.setBackground(new java.awt.Color(26, 53, 91));
-            txttotal.setForeground(new java.awt.Color(219, 219, 219));
-        } else {
-        }
+            panel_info.setBackground(new java.awt.Color(69, 84, 92));
+            panel_info_all.setBackground(new java.awt.Color(69, 84, 92));
+            panel_total_2.setBackground(new java.awt.Color(69, 84, 92));
+            panel_total.setBackground(new java.awt.Color(69, 84, 92));
+      
+        } 
         // Shape forma = new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 20, 20);
         //  AWTUtilities.setWindowShape(this, forma);
         codigos();

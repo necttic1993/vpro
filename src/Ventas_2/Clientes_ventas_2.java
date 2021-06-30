@@ -7,6 +7,7 @@ package Ventas_2;
 
 import Clientes.Add_clientes;
 import Conexion_DB.conectar;
+import Loggin_Principal.Principal;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -28,6 +29,11 @@ public class Clientes_ventas_2 extends javax.swing.JDialog {
     public Clientes_ventas_2(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
+         if (Principal.lbl_mode_dark.getText().equals("oscuro")) {
+            cp_2.setBackground(new java.awt.Color(69, 84, 92));
+
+        }
         txtbus.requestFocus();
         //Shape forma = new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 15, 15);
         //AWTUtilities.setWindowShape(this, forma);
@@ -35,14 +41,13 @@ public class Clientes_ventas_2 extends javax.swing.JDialog {
     }
 
     void cargar(String valor) {
-        String mostrar = "SELECT * FROM tienda_clientes WHERE CONCAT(cli_nombre,cli_ruc) LIKE '%" + valor + "%'";
-        String[] titulos = {"Código", "Nombre", "Razón Social", "RUC", "Contacto", "Dirección", "Status."};
+        String mostrar = "SELECT cli_cod,cli_nombre,cli_razon,cli_ruc,cli_contacto,cli_tipo,cli_surc FROM tienda_clientes WHERE CONCAT(cli_nombre,cli_ruc) LIKE '%" + valor + "%'";
+        String[] titulos = {"Código", "Nombre", "Razón Social", "RUC", "Contacto", "Tipo", "Sucursal"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
 
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(mostrar);
             while (rs.next()) {
@@ -51,8 +56,8 @@ public class Clientes_ventas_2 extends javax.swing.JDialog {
                 Registros[2] = rs.getString("cli_razon");
                 Registros[3] = rs.getString("cli_ruc");
                 Registros[4] = rs.getString("cli_contacto");
-                Registros[5] = rs.getString("cli_dir");
-                Registros[6] = rs.getString("cli_status");
+                Registros[5] = rs.getString("cli_tipo");
+                Registros[6] = rs.getString("cli_surc");
                 model.addRow(Registros);
             }
             tbclientes.setModel(model);
@@ -75,7 +80,7 @@ public class Clientes_ventas_2 extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        cp_2 = new javax.swing.JPanel();
         txtbus = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbclientes = new javax.swing.JTable();
@@ -87,8 +92,8 @@ public class Clientes_ventas_2 extends javax.swing.JDialog {
         setTitle("Buscar Clientes");
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        cp_2.setBackground(new java.awt.Color(255, 255, 255));
+        cp_2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtbus.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txtbus.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -105,7 +110,7 @@ public class Clientes_ventas_2 extends javax.swing.JDialog {
                 txtbusKeyReleased(evt);
             }
         });
-        jPanel1.add(txtbus, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 400, 30));
+        cp_2.add(txtbus, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 400, 30));
 
         tbclientes = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
@@ -136,7 +141,7 @@ public class Clientes_ventas_2 extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tbclientes);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 900, 460));
+        cp_2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 900, 460));
 
         btn_agregarcli.setBackground(new java.awt.Color(255, 255, 255));
         btn_agregarcli.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -153,27 +158,27 @@ public class Clientes_ventas_2 extends javax.swing.JDialog {
                 btn_agregarcliKeyPressed(evt);
             }
         });
-        jPanel1.add(btn_agregarcli, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, 60, 40));
+        cp_2.add(btn_agregarcli, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, 60, 40));
 
         jPanel3.setBackground(new java.awt.Color(0, 102, 204));
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
         jPanel3.setFocusable(false);
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, 30));
+        cp_2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
         jLabel2.setFocusable(false);
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 30));
+        cp_2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(cp_2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(cp_2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -199,11 +204,11 @@ public class Clientes_ventas_2 extends javax.swing.JDialog {
             } else {
                 cod = (String) tbclientes.getValueAt(fila, 0);
                 nom = (String) tbclientes.getValueAt(fila, 1);
-                dp = (String) tbclientes.getValueAt(fila, 3);
+                dp = (String) tbclientes.getValueAt(fila, 5);
 
                 Ventas_venta_2.txt_cod_cli.setText(cod);
                 Ventas_venta_2.txt_cli_nom.setText(nom);
-                // Ventas_venta.txt_dias_plazo.setText(dp);
+                Ventas_venta_2.txt_class_cli_ventas_2.setText(dp);
 
                 this.dispose();
                 Ventas_venta_2.btn_buscaar_items.doClick();
@@ -226,11 +231,11 @@ public class Clientes_ventas_2 extends javax.swing.JDialog {
                 } else {
                     cod = (String) tbclientes.getValueAt(fila, 0);
                     nom = (String) tbclientes.getValueAt(fila, 1);
-                    dp = (String) tbclientes.getValueAt(fila, 3);
+                    dp = (String) tbclientes.getValueAt(fila, 5);
 
                     Ventas_venta_2.txt_cod_cli.setText(cod);
                     Ventas_venta_2.txt_cli_nom.setText(nom);
-                    // Ventas_venta.txt_dias_plazo.setText(dp);
+                    Ventas_venta_2.txt_class_cli_ventas_2.setText(dp);
 
                     this.dispose();
                     Ventas_venta_2.btn_buscaar_items.doClick();
@@ -368,8 +373,8 @@ public class Clientes_ventas_2 extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_agregarcli;
+    private javax.swing.JPanel cp_2;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbclientes;

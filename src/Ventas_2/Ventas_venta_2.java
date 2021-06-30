@@ -53,6 +53,13 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
     public Ventas_venta_2(javax.swing.JDialog parent, boolean modal) throws IOException {
         super(parent, modal);
         initComponents();
+        if (Principal.lbl_mode_dark.getText().equals("oscuro")) {
+            panel_info_2.setBackground(new java.awt.Color(69, 84, 92));
+            panel_info_all_2.setBackground(new java.awt.Color(69, 84, 92));
+            panel_total_2.setBackground(new java.awt.Color(69, 84, 92));
+            panel_total.setBackground(new java.awt.Color(69, 84, 92));
+
+        }
         codigos();
         cargar();
         cargarConfig();
@@ -149,7 +156,7 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        panel_info_all_2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_factura = new javax.swing.JTable();
         lbl_cod = new javax.swing.JLabel();
@@ -168,10 +175,10 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
         chk_plazo = new javax.swing.JCheckBox();
         jButton1 = new javax.swing.JButton();
         chk_ecommerce = new javax.swing.JCheckBox();
-        jPanel2 = new javax.swing.JPanel();
+        panel_total = new javax.swing.JPanel();
         txttotal = new javax.swing.JLabel();
         lbl_cambio_conver_3 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
+        panel_total_2 = new javax.swing.JPanel();
         lbl_cambio_real = new javax.swing.JLabel();
         lbl_cambio_dolar = new javax.swing.JLabel();
         lbl_cambio_conver_1 = new javax.swing.JLabel();
@@ -179,7 +186,9 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
         btn_buscaar_presupuesto = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         txt_des_ventas = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
+        lbl_plazos_dias1 = new javax.swing.JLabel();
+        txt_class_cli_ventas_2 = new javax.swing.JTextField();
+        panel_info_2 = new javax.swing.JPanel();
         btn_cajaR = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         lbl_caja_rap = new javax.swing.JLabel();
@@ -236,8 +245,8 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panel_info_all_2.setBackground(new java.awt.Color(255, 255, 255));
+        panel_info_all_2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tb_factura = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
@@ -257,18 +266,18 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
         tb_factura.setRowHeight(22);
         jScrollPane1.setViewportView(tb_factura);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 800, 320));
+        panel_info_all_2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 800, 320));
 
         lbl_cod.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lbl_cod.setForeground(new java.awt.Color(255, 0, 0));
         lbl_cod.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_cod.setText("0000001");
         lbl_cod.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(lbl_cod, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 10, 110, 30));
+        panel_info_all_2.add(lbl_cod, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 10, 110, 30));
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel11.setText("Nro de Venta:");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(613, 10, 90, 30));
+        panel_info_all_2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(613, 10, 90, 30));
 
         chk_contado.setBackground(new java.awt.Color(255, 255, 255));
         chk_contado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -278,12 +287,12 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
                 chk_contadoActionPerformed(evt);
             }
         });
-        jPanel1.add(chk_contado, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 90, 30));
+        panel_info_all_2.add(chk_contado, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 90, 30));
 
         jLabel16.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel16.setText("Fecha Emisión:");
         jLabel16.setFocusable(false);
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 100, 30));
+        panel_info_all_2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 100, 30));
 
         txt_cod_cli.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt_cod_cli.setDisabledTextColor(new java.awt.Color(0, 0, 0));
@@ -298,7 +307,7 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
                 txt_cod_cliKeyPressed(evt);
             }
         });
-        jPanel1.add(txt_cod_cli, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 8, 90, 32));
+        panel_info_all_2.add(txt_cod_cli, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 8, 90, 32));
 
         txt_cli_nom.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txt_cli_nom.setEnabled(false);
@@ -307,11 +316,11 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
                 txt_cli_nomActionPerformed(evt);
             }
         });
-        jPanel1.add(txt_cli_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 8, 330, 32));
+        panel_info_all_2.add(txt_cli_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 8, 330, 32));
 
         jLabel19.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel19.setText("Condición de pago :");
-        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 130, 30));
+        panel_info_all_2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 130, 30));
 
         btn_buscaar_items.setBackground(new java.awt.Color(255, 255, 255));
         btn_buscaar_items.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -333,7 +342,7 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
                 btn_buscaar_itemsKeyPressed(evt);
             }
         });
-        jPanel1.add(btn_buscaar_items, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 80, 70, 45));
+        panel_info_all_2.add(btn_buscaar_items, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 80, 70, 45));
 
         btn_excluir.setBackground(new java.awt.Color(255, 255, 255));
         btn_excluir.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -348,28 +357,28 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
                 btn_excluirActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_excluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 70, 45));
+        panel_info_all_2.add(btn_excluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 70, 45));
 
         jLabel17.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel17.setText("Nombre del Cliente :");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 8, 130, 32));
+        panel_info_all_2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 8, 130, 32));
 
         txt_usu_ventas.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txt_usu_ventas.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_usu_ventas.setEnabled(false);
         txt_usu_ventas.setFocusable(false);
-        jPanel1.add(txt_usu_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 260, 30));
+        panel_info_all_2.add(txt_usu_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 260, 30));
 
         jLabel18.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel18.setText("Usuario Ventas:");
         jLabel18.setFocusable(false);
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 130, 30));
+        panel_info_all_2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 130, 30));
 
         lbl_fecha_VISOR.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lbl_fecha_VISOR.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         lbl_fecha_VISOR.setEnabled(false);
         lbl_fecha_VISOR.setFocusable(false);
-        jPanel1.add(lbl_fecha_VISOR, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 40, 100, 30));
+        panel_info_all_2.add(lbl_fecha_VISOR, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 40, 100, 30));
 
         chk_plazo.setBackground(new java.awt.Color(255, 255, 255));
         chk_plazo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -379,7 +388,7 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
                 chk_plazoActionPerformed(evt);
             }
         });
-        jPanel1.add(chk_plazo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 90, 30));
+        panel_info_all_2.add(chk_plazo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 90, 30));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
@@ -392,7 +401,7 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(562, 8, 40, 32));
+        panel_info_all_2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(562, 8, 40, 32));
 
         chk_ecommerce.setBackground(new java.awt.Color(255, 255, 255));
         chk_ecommerce.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -402,11 +411,11 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
                 chk_ecommerceActionPerformed(evt);
             }
         });
-        jPanel1.add(chk_ecommerce, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 120, 30));
+        panel_info_all_2.add(chk_ecommerce, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 120, 30));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Total", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 51, 153))); // NOI18N
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panel_total.setBackground(new java.awt.Color(255, 255, 255));
+        panel_total.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Total", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 51, 153))); // NOI18N
+        panel_total.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txttotal.setBackground(new java.awt.Color(102, 102, 102));
         txttotal.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -416,25 +425,25 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
         txttotal.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         txttotal.setVerifyInputWhenFocusTarget(false);
         txttotal.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-        jPanel2.add(txttotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 190, 30));
+        panel_total.add(txttotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 190, 30));
 
         lbl_cambio_conver_3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lbl_cambio_conver_3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_1/paraguay.png"))); // NOI18N
         lbl_cambio_conver_3.setText("GS.:");
-        jPanel2.add(lbl_cambio_conver_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 90, 30));
+        panel_total.add(lbl_cambio_conver_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 90, 30));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 460, 310, 80));
+        panel_info_all_2.add(panel_total, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 460, 310, 80));
 
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cotizaciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 51, 153))); // NOI18N
-        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panel_total_2.setBackground(new java.awt.Color(255, 255, 255));
+        panel_total_2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cotizaciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 51, 153))); // NOI18N
+        panel_total_2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_cambio_real.setBackground(new java.awt.Color(102, 102, 102));
         lbl_cambio_real.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lbl_cambio_real.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_cambio_real.setText("0");
         lbl_cambio_real.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jPanel6.add(lbl_cambio_real, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 170, 30));
+        panel_total_2.add(lbl_cambio_real, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 170, 30));
 
         lbl_cambio_dolar.setBackground(new java.awt.Color(102, 102, 102));
         lbl_cambio_dolar.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -442,19 +451,19 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
         lbl_cambio_dolar.setText("0");
         lbl_cambio_dolar.setAutoscrolls(true);
         lbl_cambio_dolar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jPanel6.add(lbl_cambio_dolar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 170, 30));
+        panel_total_2.add(lbl_cambio_dolar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 170, 30));
 
         lbl_cambio_conver_1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lbl_cambio_conver_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_1/brasil (1).png"))); // NOI18N
         lbl_cambio_conver_1.setText("RS$:");
-        jPanel6.add(lbl_cambio_conver_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 90, 30));
+        panel_total_2.add(lbl_cambio_conver_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 90, 30));
 
         lbl_cambio_conver_2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lbl_cambio_conver_2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_1/estados-unidos.png"))); // NOI18N
         lbl_cambio_conver_2.setText("US$:");
-        jPanel6.add(lbl_cambio_conver_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 30, -1, 30));
+        panel_total_2.add(lbl_cambio_conver_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 30, -1, 30));
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, 470, 80));
+        panel_info_all_2.add(panel_total_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, 470, 80));
 
         btn_buscaar_presupuesto.setBackground(new java.awt.Color(255, 255, 255));
         btn_buscaar_presupuesto.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -476,11 +485,11 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
                 btn_buscaar_presupuestoKeyPressed(evt);
             }
         });
-        jPanel1.add(btn_buscaar_presupuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 80, 70, 45));
+        panel_info_all_2.add(btn_buscaar_presupuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 80, 70, 45));
 
         jLabel21.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel21.setText("Descripción:");
-        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 130, 30));
+        panel_info_all_2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 130, 30));
 
         txt_des_ventas.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txt_des_ventas.addActionListener(new java.awt.event.ActionListener() {
@@ -488,12 +497,21 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
                 txt_des_ventasActionPerformed(evt);
             }
         });
-        jPanel1.add(txt_des_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 460, 30));
+        panel_info_all_2.add(txt_des_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 460, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 550));
+        lbl_plazos_dias1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lbl_plazos_dias1.setText("Clasif.");
+        panel_info_all_2.add(lbl_plazos_dias1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 40, 40, 30));
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        txt_class_cli_ventas_2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txt_class_cli_ventas_2.setDisabledTextColor(new java.awt.Color(0, 0, 51));
+        txt_class_cli_ventas_2.setEnabled(false);
+        panel_info_all_2.add(txt_class_cli_ventas_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 40, 150, 30));
+
+        getContentPane().add(panel_info_all_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 550));
+
+        panel_info_2.setBackground(new java.awt.Color(255, 255, 255));
+        panel_info_2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_cajaR.setBackground(new java.awt.Color(255, 255, 255));
         btn_cajaR.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -507,7 +525,7 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
                 btn_cajaRActionPerformed(evt);
             }
         });
-        jPanel3.add(btn_cajaR, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, 130, 50));
+        panel_info_2.add(btn_cajaR, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, 130, 50));
 
         jPanel5.setBackground(new java.awt.Color(0, 153, 204));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -521,7 +539,7 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
         jLabel6.setText("Caja Rápida:");
         jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, 28));
 
-        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 160, -1));
+        panel_info_2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 160, -1));
 
         jPanel4.setBackground(new java.awt.Color(0, 153, 204));
 
@@ -553,7 +571,7 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
                 .addGap(0, 2, Short.MAX_VALUE))
         );
 
-        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 130, 30));
+        panel_info_2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 130, 30));
 
         panel_calculo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -635,7 +653,7 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
         lbl_default_id.setText("lbl_default");
         panel_calculo.add(lbl_default_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
 
-        jPanel3.add(panel_calculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 310, 110));
+        panel_info_2.add(panel_calculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 310, 110));
 
         pn_amortizacion.setBackground(new java.awt.Color(0, 102, 0));
         pn_amortizacion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -650,7 +668,7 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
         jLabel8.setText(" Amortización:");
         pn_amortizacion.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, 28));
 
-        jPanel3.add(pn_amortizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, 30));
+        panel_info_2.add(pn_amortizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, 30));
 
         btn_salir.setBackground(new java.awt.Color(255, 255, 255));
         btn_salir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -671,11 +689,11 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
                 btn_salirKeyReleased(evt);
             }
         });
-        jPanel3.add(btn_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 480, 130, 50));
+        panel_info_2.add(btn_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 480, 130, 50));
 
         lbl_plazos_dias.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lbl_plazos_dias.setText("N° Cuotas:");
-        jPanel3.add(lbl_plazos_dias, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 70, 30));
+        panel_info_2.add(lbl_plazos_dias, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 70, 30));
 
         txt_dias_plazo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txt_dias_plazo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -685,7 +703,7 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
                 txt_dias_plazoActionPerformed(evt);
             }
         });
-        jPanel3.add(txt_dias_plazo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 50, 30));
+        panel_info_2.add(txt_dias_plazo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 50, 30));
 
         btnven.setBackground(new java.awt.Color(255, 255, 255));
         btnven.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -700,38 +718,38 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
                 btnvenActionPerformed(evt);
             }
         });
-        jPanel3.add(btnven, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 120, 50));
+        panel_info_2.add(btnven, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 120, 50));
 
         lbl_cambio_mon_1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lbl_cambio_mon_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_1/brasil (1).png"))); // NOI18N
         lbl_cambio_mon_1.setText("=");
-        jPanel3.add(lbl_cambio_mon_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, 30));
+        panel_info_2.add(lbl_cambio_mon_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, 30));
 
         lbl_r.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbl_r.setText("1,365");
-        jPanel3.add(lbl_r, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 70, 30));
+        panel_info_2.add(lbl_r, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 70, 30));
 
         lbl_cambio_mon_2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lbl_cambio_mon_2.setForeground(new java.awt.Color(0, 0, 102));
         lbl_cambio_mon_2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_1/estados-unidos.png"))); // NOI18N
         lbl_cambio_mon_2.setText("=");
-        jPanel3.add(lbl_cambio_mon_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, -1, 30));
+        panel_info_2.add(lbl_cambio_mon_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, -1, 30));
 
         lbl_dolar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbl_dolar.setForeground(new java.awt.Color(0, 0, 102));
         lbl_dolar.setText("5,780");
-        jPanel3.add(lbl_dolar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 60, 30));
+        panel_info_2.add(lbl_dolar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 60, 30));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/dollar.png"))); // NOI18N
         jLabel2.setText("   Cotización:");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 160, 40));
+        panel_info_2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 160, 40));
 
         jLabel20.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel20.setText("Informaciones:");
         jLabel20.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jLabel20.setFocusable(false);
-        jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 130, 30));
+        panel_info_2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 130, 30));
 
         pn_tipo_venta.setBackground(new java.awt.Color(0, 102, 255));
         pn_tipo_venta.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -742,9 +760,9 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
         lbl_tipo_venta.setText("CONTADO");
         pn_tipo_venta.add(lbl_tipo_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 250, 30));
 
-        jPanel3.add(pn_tipo_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 310, -1));
+        panel_info_2.add(pn_tipo_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 310, -1));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 0, 340, 550));
+        getContentPane().add(panel_info_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 0, 340, 550));
 
         pack();
         setLocationRelativeTo(null);
@@ -1426,12 +1444,8 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
-    public static javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_caja_rap;
     private javax.swing.JLabel lbl_cambio_conver_1;
@@ -1452,6 +1466,7 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
     private javax.swing.JLabel lbl_nom_cuenta;
     private javax.swing.JLabel lbl_nro_cuenta;
     private javax.swing.JLabel lbl_plazos_dias;
+    private javax.swing.JLabel lbl_plazos_dias1;
     private javax.swing.JLabel lbl_r;
     private javax.swing.JLabel lbl_saldo_actual;
     private javax.swing.JLabel lbl_saldo_cuenta;
@@ -1461,9 +1476,14 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
     public static javax.swing.JLabel lbl_valor_amortz;
     public static javax.swing.JLabel lblcanpro;
     private javax.swing.JPanel panel_calculo;
+    private javax.swing.JPanel panel_info_2;
+    public static javax.swing.JPanel panel_info_all_2;
+    private javax.swing.JPanel panel_total;
+    private javax.swing.JPanel panel_total_2;
     private javax.swing.JPanel pn_amortizacion;
     private javax.swing.JPanel pn_tipo_venta;
     public static javax.swing.JTable tb_factura;
+    public static javax.swing.JTextField txt_class_cli_ventas_2;
     public static javax.swing.JTextField txt_cli_nom;
     public static javax.swing.JTextField txt_cod_cli;
     private javax.swing.JTextField txt_des_ventas;
