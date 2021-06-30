@@ -105,6 +105,8 @@ public class Precio_modelo_dos_2 extends javax.swing.JDialog {
         jLabel4 = new javax.swing.JLabel();
         txt_descuento = new javax.swing.JTextField();
         txt_porcento = new javax.swing.JLabel();
+        txt_pre_d = new javax.swing.JCheckBox();
+        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Stock");
@@ -181,7 +183,7 @@ public class Precio_modelo_dos_2 extends javax.swing.JDialog {
                 btn_agregar_itemActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_agregar_item, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 120, 50));
+        jPanel1.add(btn_agregar_item, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 180, 120, 50));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_1/money.png"))); // NOI18N
@@ -252,7 +254,21 @@ public class Precio_modelo_dos_2 extends javax.swing.JDialog {
         jPanel1.add(txt_descuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, 50, 30));
         jPanel1.add(txt_porcento, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 80, 10));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 210));
+        txt_pre_d.setBackground(new java.awt.Color(255, 255, 255));
+        txt_pre_d.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txt_pre_d.setText("0");
+        txt_pre_d.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_pre_dActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txt_pre_d, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 110, 30));
+
+        jLabel14.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel14.setText("Precio D:");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 70, 30));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 240));
 
         pack();
         setLocationRelativeTo(null);
@@ -384,6 +400,13 @@ public class Precio_modelo_dos_2 extends javax.swing.JDialog {
         calcular_SaldoO();
     }//GEN-LAST:event_txt_descuentoKeyReleased
 
+    private void txt_pre_dActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_pre_dActionPerformed
+        txt_pre.setText(txt_pre_d.getText());
+        txt_pre_ata.setSelected(false);
+        txt_pre_a.setSelected(false);
+        lbl_precio_b.setSelected(false);
+    }//GEN-LAST:event_txt_pre_dActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -462,6 +485,7 @@ public class Precio_modelo_dos_2 extends javax.swing.JDialog {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -478,6 +502,7 @@ public class Precio_modelo_dos_2 extends javax.swing.JDialog {
     private javax.swing.JTextField txt_pre;
     private javax.swing.JCheckBox txt_pre_a;
     private javax.swing.JCheckBox txt_pre_ata;
+    private javax.swing.JCheckBox txt_pre_d;
     private javax.swing.JTextField txt_pro;
     private javax.swing.JTextField txt_stock;
     // End of variables declaration//GEN-END:variables
@@ -487,7 +512,7 @@ public class Precio_modelo_dos_2 extends javax.swing.JDialog {
         try {
             Connection cn = conectar.getInstance().getConnection();
 
-            String pre_compra = "", pre_a = "", codi = "", des = "", pre_b = "", stock = "", pre_ataca = "";
+            String pre_compra = "", pre_a = "", codi = "", des = "", pre_b = "", stock = "", pre_ataca = "",pre_d="";
             String cons = "select * from tienda_productos WHERE pro_cod='" + cod + "'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
@@ -499,14 +524,26 @@ public class Precio_modelo_dos_2 extends javax.swing.JDialog {
                 pre_a = rs.getString(7);
                 pre_b = rs.getString(8);
                 pre_ataca = rs.getString(9);
+                pre_d = rs.getString(60);
 
             }
             txt_cod.setText(codi);
             txt_pro.setText(des);
             txt_pre_a.setText(pre_a);
-            txt_pre.setText(pre_a);
+          //  txt_pre.setText(pre_a);
             txt_stock.setText(stock);
-            if (lbl_pre_b.getText().equals("S")) {
+            
+             if (Ventas_venta_2.txt_class_cli_ventas_2.getText().equals("MAYORISTAS")) {
+                txt_pre.setText(pre_b);
+            } else if (Ventas_venta_2.txt_class_cli_ventas_2.getText().equals("SUBDISTRIBUIDOR")) {
+                txt_pre.setText(pre_ataca);
+            } else if (Ventas_venta_2.txt_class_cli_ventas_2.getText().equals("DISTRIBUIDOR")) {
+                txt_pre.setText(pre_d);
+            } else if (Ventas_venta_2.txt_class_cli_ventas_2.getText().equals("MINORISTAS")) {
+                txt_pre.setText(pre_a);
+            }
+            
+              if (lbl_pre_b.getText().equals("S")) {
                 lbl_precio_b.setText(pre_b);
             } else {
                 lbl_precio_b.setVisible(false);
@@ -514,9 +551,12 @@ public class Precio_modelo_dos_2 extends javax.swing.JDialog {
 
             if (lbl_pre_c.getText().equals("S")) {
                 txt_pre_ata.setText(pre_ataca);
+                txt_pre_d.setText(pre_d);
             } else {
                 txt_pre_ata.setVisible(false);
+                txt_pre_d.setVisible(false);
             }
+
             conectar.getInstance().closeConnection(cn);
 
             dispose();

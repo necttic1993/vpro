@@ -39,7 +39,7 @@ public class Productos_ventas_2 extends javax.swing.JDialog {
     public Productos_ventas_2(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
-         if (Principal.lbl_mode_dark.getText().equals("oscuro")) {
+        if (Principal.lbl_mode_dark.getText().equals("oscuro")) {
             cp_v2.setBackground(new java.awt.Color(69, 84, 92));
 
         }
@@ -120,12 +120,18 @@ public class Productos_ventas_2 extends javax.swing.JDialog {
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(4);
                 registros[4] = rs.getString(25);
-                if (rootPaneCheckingEnabled) {
-                    if (Ventas_venta_2.txt_class_cli_ventas_2.getText().equals("MAYORISTAS")) {
-                        registros[5] = rs.getString(8);
-                    } else {
+                if (Principal.lbl_serie_empre.getText().equals("GAB")) {
+                    if (Ventas_venta_2.txt_class_cli_ventas_2.getText().equals("MINORISTAS")) {
                         registros[5] = rs.getString(7);
+                    } else if (Ventas_venta_2.txt_class_cli_ventas_2.getText().equals("MAYORISTAS")) {
+                        registros[5] = rs.getString(8);
+                    } else if (Ventas_venta_2.txt_class_cli_ventas_2.getText().equals("SUBDISTRIBUIDOR")) {
+                        registros[5] = rs.getString(9);
+                    } else if (Ventas_venta_2.txt_class_cli_ventas_2.getText().equals("DISTRIBUIDOR")) {
+                        registros[5] = rs.getString(60);
                     }
+                } else {
+                    registros[5] = rs.getString(7);
                 }
 
                 registros[6] = rs.getString(22);

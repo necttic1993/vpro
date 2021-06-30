@@ -2195,19 +2195,21 @@ public class Panel_precios_ventas extends javax.swing.JDialog {
             txt_cod.setText(codi);
             txt_pro.setText(des);
             txt_pre_a.setText(pre_a);
-            txt_pre.setText(pre_a);
+           // txt_pre.setText(pre_a);
             txt_stock.setText(stock);
             txt_descuento.setText(desc);
             lbl_stock_separado.setText(stock_separado);
+            
             if (Ventas_venta.txt_class_cli_ventas.getText().equals("MAYORISTAS")) {
                 txt_pre.setText(pre_b);
             } else if (Ventas_venta.txt_class_cli_ventas.getText().equals("SUBDISTRIBUIDOR")) {
                 txt_pre.setText(pre_ataca);
             } else if (Ventas_venta.txt_class_cli_ventas.getText().equals("DISTRIBUIDOR")) {
                 txt_pre.setText(pre_d);
-            } else {
+            } else if (Ventas_venta.txt_class_cli_ventas.getText().equals("MINORISTAS")) {
                 txt_pre.setText(pre_a);
             }
+            
             if (lbl_pre_b.getText().equals("S")) {
                 lbl_precio_b.setText(pre_b);
             } else {

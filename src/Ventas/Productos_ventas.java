@@ -40,7 +40,7 @@ public class Productos_ventas extends javax.swing.JDialog {
     public Productos_ventas(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
-         if (Principal.lbl_mode_dark.getText().equals("oscuro")) {
+        if (Principal.lbl_mode_dark.getText().equals("oscuro")) {
             panel_stock.setBackground(new java.awt.Color(69, 84, 92));
 
         }
@@ -241,10 +241,15 @@ public class Productos_ventas extends javax.swing.JDialog {
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(4);
                 registros[4] = rs.getString(5);
-                if (Ventas_venta.txt_class_cli_ventas.getText().equals("MAYORISTAS")) {
-                    registros[5] = rs.getString(8);
-                } else {
+
+                if (Ventas_venta.txt_class_cli_ventas.getText().equals("MINORISTAS")) {
                     registros[5] = rs.getString(7);
+                } else if (Ventas_venta.txt_class_cli_ventas.getText().equals("MAYORISTAS")) {
+                    registros[5] = rs.getString(8);
+                } else if (Ventas_venta.txt_class_cli_ventas.getText().equals("SUBDISTRIBUIDOR")) {
+                    registros[5] = rs.getString(9);
+                } else if (Ventas_venta.txt_class_cli_ventas.getText().equals("DISTRIBUIDOR")) {
+                    registros[5] = rs.getString(60);
                 }
 
                 registros[6] = rs.getString(22);
