@@ -23,7 +23,7 @@ public class conectar {
     private final String PASS = "canis";
 
     //kyrios
-   //  private final String URL = "jdbc:mysql://192.168.0.8:3306/" + DB + "?autoReconnect=true";
+    // private final String URL = "jdbc:mysql://192.168.0.8:3306/" + DB + "?autoReconnect=true";
     // private final String PASS = "NectticKyrios1993@";
     //gabaon
      // private final String URL = "jdbc:mysql://192.168.1.200:3306/" + DB + "?autoReconnect=true";
