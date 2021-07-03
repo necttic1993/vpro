@@ -115,6 +115,20 @@ public class Caja_ventas_cancela extends javax.swing.JDialog {
         if (lbl_almacen_ventas.getText().equals("0000026")) {
             cargar_26("");
         }
+
+        if (lbl_almacen_ventas.getText().equals("0000027")) {
+            cargar_27("");
+        }
+
+        if (lbl_almacen_ventas.getText().equals("0000028")) {
+            cargar_28("");
+        }
+        if (lbl_almacen_ventas.getText().equals("0000029")) {
+            cargar_29("");
+        }
+        if (lbl_almacen_ventas.getText().equals("0000030")) {
+            cargar_30("");
+        }
     }
 
     public static String cod_pro = "";
@@ -1685,6 +1699,211 @@ public class Caja_ventas_cancela extends javax.swing.JDialog {
             Connection cn = conectar.getInstance().getConnection();
 
             String cons = "select * from ventas_26 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%'  AND estado_ventas = 'CONFIRMADA' AND forma_pag_ventas='CONTADO' AND almacen_ventas='" + almacen + "' ORDER BY num_bol DESC";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(4);
+                registros[4] = rs.getString(5);
+                registros[5] = rs.getString(6);
+                registros[6] = rs.getString(9);
+                registros[7] = rs.getString(11);
+                registros[8] = rs.getString(12);
+
+                model.addRow(registros);
+            }
+            tbProductos.setModel(model);
+
+            ColorearFilas color = new ColorearFilas(6);
+            tbProductos.getColumnModel().getColumn(0).setCellRenderer(color);
+
+            ColorearTipoPago colorear = new ColorearTipoPago(3);
+            tbProductos.getColumnModel().getColumn(3).setCellRenderer(colorear);
+            tbProductos.getColumnModel().getColumn(4).setCellRenderer(colorear);
+
+            tbProductos.getColumnModel().getColumn(0).setPreferredWidth(87);
+            tbProductos.getColumnModel().getColumn(1).setPreferredWidth(87);
+            tbProductos.getColumnModel().getColumn(2).setPreferredWidth(340);
+            tbProductos.getColumnModel().getColumn(3).setPreferredWidth(100);
+            tbProductos.getColumnModel().getColumn(4).setPreferredWidth(80);
+            tbProductos.getColumnModel().getColumn(5).setPreferredWidth(100);
+            tbProductos.getColumnModel().getColumn(6).setPreferredWidth(120);
+            tbProductos.getColumnModel().getColumn(7).setPreferredWidth(150);
+            tbProductos.getColumnModel().getColumn(8).setPreferredWidth(150);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    void cargar_27(String valor) {
+        try {
+            String almacen = lbl_almacen_ventas.getText();
+
+            String[] titulos = {"Nro Venta", "Cód. Cliente", "Cliente", "Forma de Pago", "Días Plazos", "Valor Total", "Estado de Ventas", "Fecha", "Usuario"};
+            String[] registros = new String[23];
+            model = new DefaultTableModel(null, titulos);
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from ventas_27 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%'  AND estado_ventas = 'CONFIRMADA' AND forma_pag_ventas='CONTADO' AND almacen_ventas='" + almacen + "' ORDER BY num_bol DESC";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(4);
+                registros[4] = rs.getString(5);
+                registros[5] = rs.getString(6);
+                registros[6] = rs.getString(9);
+                registros[7] = rs.getString(11);
+                registros[8] = rs.getString(12);
+
+                model.addRow(registros);
+            }
+            tbProductos.setModel(model);
+
+            ColorearFilas color = new ColorearFilas(6);
+            tbProductos.getColumnModel().getColumn(0).setCellRenderer(color);
+
+            ColorearTipoPago colorear = new ColorearTipoPago(3);
+            tbProductos.getColumnModel().getColumn(3).setCellRenderer(colorear);
+            tbProductos.getColumnModel().getColumn(4).setCellRenderer(colorear);
+
+            tbProductos.getColumnModel().getColumn(0).setPreferredWidth(87);
+            tbProductos.getColumnModel().getColumn(1).setPreferredWidth(87);
+            tbProductos.getColumnModel().getColumn(2).setPreferredWidth(340);
+            tbProductos.getColumnModel().getColumn(3).setPreferredWidth(100);
+            tbProductos.getColumnModel().getColumn(4).setPreferredWidth(80);
+            tbProductos.getColumnModel().getColumn(5).setPreferredWidth(100);
+            tbProductos.getColumnModel().getColumn(6).setPreferredWidth(120);
+            tbProductos.getColumnModel().getColumn(7).setPreferredWidth(150);
+            tbProductos.getColumnModel().getColumn(8).setPreferredWidth(150);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    void cargar_28(String valor) {
+        try {
+            String almacen = lbl_almacen_ventas.getText();
+
+            String[] titulos = {"Nro Venta", "Cód. Cliente", "Cliente", "Forma de Pago", "Días Plazos", "Valor Total", "Estado de Ventas", "Fecha", "Usuario"};
+            String[] registros = new String[23];
+            model = new DefaultTableModel(null, titulos);
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from ventas_28 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%'  AND estado_ventas = 'CONFIRMADA' AND forma_pag_ventas='CONTADO' AND almacen_ventas='" + almacen + "' ORDER BY num_bol DESC";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(4);
+                registros[4] = rs.getString(5);
+                registros[5] = rs.getString(6);
+                registros[6] = rs.getString(9);
+                registros[7] = rs.getString(11);
+                registros[8] = rs.getString(12);
+
+                model.addRow(registros);
+            }
+            tbProductos.setModel(model);
+
+            ColorearFilas color = new ColorearFilas(6);
+            tbProductos.getColumnModel().getColumn(0).setCellRenderer(color);
+
+            ColorearTipoPago colorear = new ColorearTipoPago(3);
+            tbProductos.getColumnModel().getColumn(3).setCellRenderer(colorear);
+            tbProductos.getColumnModel().getColumn(4).setCellRenderer(colorear);
+
+            tbProductos.getColumnModel().getColumn(0).setPreferredWidth(87);
+            tbProductos.getColumnModel().getColumn(1).setPreferredWidth(87);
+            tbProductos.getColumnModel().getColumn(2).setPreferredWidth(340);
+            tbProductos.getColumnModel().getColumn(3).setPreferredWidth(100);
+            tbProductos.getColumnModel().getColumn(4).setPreferredWidth(80);
+            tbProductos.getColumnModel().getColumn(5).setPreferredWidth(100);
+            tbProductos.getColumnModel().getColumn(6).setPreferredWidth(120);
+            tbProductos.getColumnModel().getColumn(7).setPreferredWidth(150);
+            tbProductos.getColumnModel().getColumn(8).setPreferredWidth(150);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    void cargar_29(String valor) {
+        try {
+            String almacen = lbl_almacen_ventas.getText();
+
+            String[] titulos = {"Nro Venta", "Cód. Cliente", "Cliente", "Forma de Pago", "Días Plazos", "Valor Total", "Estado de Ventas", "Fecha", "Usuario"};
+            String[] registros = new String[23];
+            model = new DefaultTableModel(null, titulos);
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from ventas_29 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%'  AND estado_ventas = 'CONFIRMADA' AND forma_pag_ventas='CONTADO' AND almacen_ventas='" + almacen + "' ORDER BY num_bol DESC";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(4);
+                registros[4] = rs.getString(5);
+                registros[5] = rs.getString(6);
+                registros[6] = rs.getString(9);
+                registros[7] = rs.getString(11);
+                registros[8] = rs.getString(12);
+
+                model.addRow(registros);
+            }
+            tbProductos.setModel(model);
+
+            ColorearFilas color = new ColorearFilas(6);
+            tbProductos.getColumnModel().getColumn(0).setCellRenderer(color);
+
+            ColorearTipoPago colorear = new ColorearTipoPago(3);
+            tbProductos.getColumnModel().getColumn(3).setCellRenderer(colorear);
+            tbProductos.getColumnModel().getColumn(4).setCellRenderer(colorear);
+
+            tbProductos.getColumnModel().getColumn(0).setPreferredWidth(87);
+            tbProductos.getColumnModel().getColumn(1).setPreferredWidth(87);
+            tbProductos.getColumnModel().getColumn(2).setPreferredWidth(340);
+            tbProductos.getColumnModel().getColumn(3).setPreferredWidth(100);
+            tbProductos.getColumnModel().getColumn(4).setPreferredWidth(80);
+            tbProductos.getColumnModel().getColumn(5).setPreferredWidth(100);
+            tbProductos.getColumnModel().getColumn(6).setPreferredWidth(120);
+            tbProductos.getColumnModel().getColumn(7).setPreferredWidth(150);
+            tbProductos.getColumnModel().getColumn(8).setPreferredWidth(150);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+    
+    
+       void cargar_30(String valor) {
+        try {
+            String almacen = lbl_almacen_ventas.getText();
+
+            String[] titulos = {"Nro Venta", "Cód. Cliente", "Cliente", "Forma de Pago", "Días Plazos", "Valor Total", "Estado de Ventas", "Fecha", "Usuario"};
+            String[] registros = new String[23];
+            model = new DefaultTableModel(null, titulos);
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from ventas_30 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%'  AND estado_ventas = 'CONFIRMADA' AND forma_pag_ventas='CONTADO' AND almacen_ventas='" + almacen + "' ORDER BY num_bol DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {

@@ -78,6 +78,7 @@ import Ventas.Fact_surc_23.Principal_ventas_facturas_23;
 import Ventas.Fact_surc_24.Principal_ventas_facturas_24;
 import Ventas.Fact_surc_26.Principal_ventas_facturas_26;
 import Ventas.Fact_surc_27.Principal_ventas_facturas_27;
+import Ventas.Fact_surc_28.Principal_ventas_facturas_28;
 import Ventas.Fact_surc_3.Principal_ventas_surc_3;
 import Ventas.Fact_surc_4.Principal_ventas_facturas_4;
 import Ventas.Fact_surc_6.Principal_ventas_facturas_6;
@@ -2233,6 +2234,14 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 Principal_ventas_facturas_6 vf6;
                 vf6 = new Principal_ventas_facturas_6(new javax.swing.JDialog(), true);
                 vf6.setVisible(true);
+
+            }
+            
+              if (Principal.lbl_usu_almacen.getText().equals("0000028")) {
+
+                Principal_ventas_facturas_28 vf28;
+                vf28 = new Principal_ventas_facturas_28(new javax.swing.JDialog(), true);
+                vf28.setVisible(true);
 
             }
 
