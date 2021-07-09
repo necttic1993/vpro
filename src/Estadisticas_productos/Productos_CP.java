@@ -1334,7 +1334,6 @@ public class Productos_CP extends javax.swing.JDialog {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Buscar Productos");
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));

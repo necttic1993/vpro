@@ -155,6 +155,7 @@ public class Ventas_venta_modifica extends javax.swing.JDialog {
         lbl_cambio_conver_2 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         txt_tipo_surc_modi = new javax.swing.JTextField();
+        btneli = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         btn_cajaR = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
@@ -176,6 +177,7 @@ public class Ventas_venta_modifica extends javax.swing.JDialog {
         btncalcular = new javax.swing.JButton();
         btn_calc_amortizacion = new javax.swing.JButton();
         lbl_cant_produ_modifica = new javax.swing.JLabel();
+        btn_for = new javax.swing.JButton();
         pn_amortizacion = new javax.swing.JPanel();
         lbl_valor_amortz = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -462,6 +464,21 @@ public class Ventas_venta_modifica extends javax.swing.JDialog {
         txt_tipo_surc_modi.setEnabled(false);
         jPanel1.add(txt_tipo_surc_modi, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, 50, 30));
 
+        btneli.setBackground(new java.awt.Color(255, 255, 255));
+        btneli.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btneli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/eliminar.png"))); // NOI18N
+        btneli.setMnemonic('e');
+        btneli.setToolTipText("Remover items");
+        btneli.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btneli.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btneli.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btneli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneliActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btneli, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 90, 70, 45));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 550));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -584,6 +601,14 @@ public class Ventas_venta_modifica extends javax.swing.JDialog {
 
         lbl_cant_produ_modifica.setText("count");
         panel_calculo.add(lbl_cant_produ_modifica, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, -1, -1));
+
+        btn_for.setText("for");
+        btn_for.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_forActionPerformed(evt);
+            }
+        });
+        panel_calculo.add(btn_for, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, -1, -1));
 
         jPanel3.add(panel_calculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 320, 130));
 
@@ -1165,16 +1190,33 @@ public class Ventas_venta_modifica extends javax.swing.JDialog {
     }//GEN-LAST:event_tb_facturaKeyPressed
 
     private void tb_facturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_facturaMouseClicked
-        int filaModi = tb_factura.getSelectedRow();
-        cod_pro_modifica = (String) tb_factura.getValueAt(filaModi, 0);
-        cant_pro_modifica = (String) tb_factura.getValueAt(filaModi, 3);
-        id_deta_modifica = (String) tb_factura.getValueAt(filaModi, 6);
-        almacen_modifica = Principal_ventas.lbl_almacen_ventas.getText();
-        tipo_cli_modifica= txt_tipo_surc_modi.getText();
-        Ajuste_nota_modifica an;
-        an = new Ajuste_nota_modifica(new javax.swing.JDialog(), true);
-        an.setVisible(true);
+
     }//GEN-LAST:event_tb_facturaMouseClicked
+
+    private void btneliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliActionPerformed
+
+        int filasel = tb_factura.getSelectedRow();
+        if (filasel == -1) {
+            JOptionPane.showMessageDialog(null, "Seleccione un registro válido");
+        } else {
+
+            int filaModi = tb_factura.getSelectedRow();
+            cod_pro_modifica = (String) tb_factura.getValueAt(filaModi, 0);
+            cant_pro_modifica = (String) tb_factura.getValueAt(filaModi, 3);
+            id_deta_modifica = (String) tb_factura.getValueAt(filaModi, 6);
+            almacen_modifica = Principal_ventas.lbl_almacen_ventas.getText();
+            tipo_cli_modifica = txt_tipo_surc_modi.getText();
+            Ajuste_nota_modifica an;
+            an = new Ajuste_nota_modifica(new javax.swing.JDialog(), true);
+            an.setVisible(true);
+
+        }
+
+    }//GEN-LAST:event_btneliActionPerformed
+
+    private void btn_forActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_forActionPerformed
+
+    }//GEN-LAST:event_btn_forActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1234,9 +1276,11 @@ public class Ventas_venta_modifica extends javax.swing.JDialog {
     public static javax.swing.JButton btn_buscaar_items;
     private javax.swing.JButton btn_cajaR;
     public static javax.swing.JButton btn_calc_amortizacion;
+    public static javax.swing.JButton btn_for;
     public static javax.swing.JButton btn_mone;
     private javax.swing.JButton btn_salir;
     public static javax.swing.JButton btncalcular;
+    private javax.swing.JButton btneli;
     private javax.swing.JButton btnven;
     private javax.swing.JCheckBox chk_contado;
     private javax.swing.JCheckBox chk_ecommerce;
@@ -1760,8 +1804,13 @@ public class Ventas_venta_modifica extends javax.swing.JDialog {
     }
 
     void contarFilas() {
-        for (int i = 0; i < tb_factura.getRowCount(); i++) {
+        for (int i = -1; i < tb_factura.getRowCount(); i++) {
             lbl_cant_produ_modifica.setText(i + "");
+
+            if (i < 0) {
+              txttotal.setText("0");
+
+            }
         }
 
     }

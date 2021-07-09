@@ -182,7 +182,6 @@ public class stock_minimo extends javax.swing.JDialog {
         jButton7 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Buscar Productos");
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));

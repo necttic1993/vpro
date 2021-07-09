@@ -73,7 +73,7 @@ public class Principal_presupuesto_franco extends javax.swing.JDialog {
         lbl_almacen_ventas = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("PRESUPUESTO PF");
+        setTitle("PRESUPUESTO");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {

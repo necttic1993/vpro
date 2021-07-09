@@ -42,7 +42,6 @@ public class Lista_ventas_facturar extends javax.swing.JDialog {
         txt_bus = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        ch_todos = new javax.swing.JCheckBox();
         ch_contado = new javax.swing.JCheckBox();
         ch_credito = new javax.swing.JCheckBox();
         jLabel19 = new javax.swing.JLabel();
@@ -112,16 +111,6 @@ public class Lista_ventas_facturar extends javax.swing.JDialog {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 30));
-
-        ch_todos.setBackground(new java.awt.Color(255, 255, 255));
-        ch_todos.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        ch_todos.setText("Todos");
-        ch_todos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ch_todosActionPerformed(evt);
-            }
-        });
-        jPanel1.add(ch_todos, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 10, -1, 30));
 
         ch_contado.setBackground(new java.awt.Color(255, 255, 255));
         ch_contado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -225,8 +214,6 @@ public class Lista_ventas_facturar extends javax.swing.JDialog {
                 cargarContado(txt_bus.getText());
             } else if (ch_credito.isSelected()) {
                 cargarCredito(txt_bus.getText());
-            } else {
-                cargarTodos(txt_bus.getText());
             }
             
         }
@@ -234,25 +221,18 @@ public class Lista_ventas_facturar extends javax.swing.JDialog {
     }//GEN-LAST:event_txt_busKeyReleased
 
     private void ch_contadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ch_contadoActionPerformed
-         ch_todos.setSelected(false);
+       
         ch_credito.setSelected(false);
         ch_contado.setSelected(true);
         cargarContado("");
     }//GEN-LAST:event_ch_contadoActionPerformed
 
     private void ch_creditoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ch_creditoActionPerformed
-       ch_todos.setSelected(false);
+      
         ch_credito.setSelected(true);
         ch_contado.setSelected(false);
         cargarCredito("");
     }//GEN-LAST:event_ch_creditoActionPerformed
-
-    private void ch_todosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ch_todosActionPerformed
-        ch_todos.setSelected(true);
-        ch_credito.setSelected(false);
-        ch_contado.setSelected(false);
-        cargarTodos("");
-    }//GEN-LAST:event_ch_todosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -310,7 +290,6 @@ public class Lista_ventas_facturar extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox ch_contado;
     private javax.swing.JCheckBox ch_credito;
-    private javax.swing.JCheckBox ch_todos;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
@@ -320,50 +299,6 @@ public class Lista_ventas_facturar extends javax.swing.JDialog {
     public static javax.swing.JTextField txt_bus;
     // End of variables declaration//GEN-END:variables
 
-    void cargarTodos(String valor) {
-        try {
-            Connection cn = conectar.getInstance().getConnection();
-            String[] titulos = {"Nro Venta", "Cód. Cliente", "Cliente", "Forma de Pago", "Días Plazos", "Valor Total", "Estado de Ventas", "Fecha", "Usuario"};
-            String[] registros = new String[23];
-            model = new DefaultTableModel(null, titulos);
-            
-            String cons = "select * from ventas WHERE CONCAT (num_bol) LIKE '%" + valor + "%' AND nro_fact_ventas='0' AND estado_ventas='FINALIZADA' ORDER BY num_bol DESC ";
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(cons);
-            while (rs.next()) {
-                registros[0] = rs.getString(1);
-                registros[1] = rs.getString(2);
-                registros[2] = rs.getString(3);
-                registros[3] = rs.getString(4);
-                registros[4] = rs.getString(5);
-                registros[5] = rs.getString(6);
-                registros[6] = rs.getString(9);
-                registros[7] = rs.getString(11);
-                registros[8] = rs.getString(12);
-                
-                model.addRow(registros);
-            }
-            tb_can_dev.setModel(model);
-            
-            ColorearFilas color = new ColorearFilas(6);
-            tb_can_dev.getColumnModel().getColumn(0).setCellRenderer(color);
-            
-            tb_can_dev.getColumnModel().getColumn(0).setPreferredWidth(87);
-            tb_can_dev.getColumnModel().getColumn(1).setPreferredWidth(87);
-            tb_can_dev.getColumnModel().getColumn(2).setPreferredWidth(340);
-            tb_can_dev.getColumnModel().getColumn(3).setPreferredWidth(100);
-            tb_can_dev.getColumnModel().getColumn(4).setPreferredWidth(80);
-            tb_can_dev.getColumnModel().getColumn(5).setPreferredWidth(100);
-            tb_can_dev.getColumnModel().getColumn(6).setPreferredWidth(120);
-            tb_can_dev.getColumnModel().getColumn(7).setPreferredWidth(150);
-            tb_can_dev.getColumnModel().getColumn(8).setPreferredWidth(150);
-            
-            conectar.getInstance().closeConnection(cn);
-        } catch (HeadlessException | NumberFormatException | SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        
-    }
     
     void cargarCredito(String valor) {
         try {
@@ -372,7 +307,7 @@ public class Lista_ventas_facturar extends javax.swing.JDialog {
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             
-            String cons = "select * from ventas WHERE CONCAT (num_bol) LIKE '%" + valor + "%' AND forma_pag_ventas='CRÉDITO' AND nro_fact_ventas='0' AND estado_ventas='FINALIZADA' ORDER BY num_bol DESC ";
+            String cons = "select * from ventas WHERE CONCAT (num_bol) LIKE '%" + valor + "%' AND forma_pag_ventas='CRÉDITO' AND nro_fact_ventas='0' AND estado_ventas='FINALIZADA'  ORDER BY num_bol DESC ";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -417,7 +352,7 @@ public class Lista_ventas_facturar extends javax.swing.JDialog {
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             
-            String cons = "select * from ventas WHERE CONCAT (num_bol) LIKE '%" + valor + "%'  AND forma_pag_ventas='CONTADO' AND nro_fact_ventas='0' AND  estado_ventas='FINALIZADA' ORDER BY num_bol DESC ";
+            String cons = "select * from ventas WHERE CONCAT (num_bol) LIKE '%" + valor + "%'  AND forma_pag_ventas='CONTADO' AND nro_fact_ventas='0' AND  estado_ventas='CONFIRMADA' ORDER BY num_bol DESC ";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {

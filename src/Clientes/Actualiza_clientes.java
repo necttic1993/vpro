@@ -467,7 +467,7 @@ public class Actualiza_clientes extends javax.swing.JDialog {
                 // limite_cre = rs.getString(9);
                 dias_cre = rs.getString(10);
                 cli_status = rs.getString(11);
-                registro = rs.getString(12);
+                registro = rs.getString(13);
                 cli_pais = rs.getString(14);
                 surc = rs.getString(15);
 

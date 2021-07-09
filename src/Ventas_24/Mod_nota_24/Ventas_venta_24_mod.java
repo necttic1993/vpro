@@ -154,6 +154,7 @@ public class Ventas_venta_24_mod extends javax.swing.JDialog {
         jPanel2 = new javax.swing.JPanel();
         txttotal = new javax.swing.JLabel();
         lbl_cambio_conver_3 = new javax.swing.JLabel();
+        btneli = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         lbl_caja_rap = new javax.swing.JLabel();
@@ -404,6 +405,21 @@ public class Ventas_venta_24_mod extends javax.swing.JDialog {
         jPanel2.add(lbl_cambio_conver_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 90, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 460, 310, 80));
+
+        btneli.setBackground(new java.awt.Color(255, 255, 255));
+        btneli.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btneli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/eliminar.png"))); // NOI18N
+        btneli.setMnemonic('e');
+        btneli.setToolTipText("Remover items");
+        btneli.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btneli.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btneli.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btneli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneliActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btneli, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 60, 70, 45));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 550));
 
@@ -834,7 +850,17 @@ public class Ventas_venta_24_mod extends javax.swing.JDialog {
     }//GEN-LAST:event_formWindowIconified
 
     private void tb_facturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_facturaMouseClicked
-        int filaModi = tb_factura.getSelectedRow();
+      
+    }//GEN-LAST:event_tb_facturaMouseClicked
+
+    private void btneliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliActionPerformed
+
+        int filasel = tb_factura.getSelectedRow();
+        if (filasel == -1) {
+            JOptionPane.showMessageDialog(null, "Seleccione un registro válido");
+        } else {
+
+         int filaModi = tb_factura.getSelectedRow();
         cod_pro_24 = (String) tb_factura.getValueAt(filaModi, 0);
         cant_pro_24 = (String) tb_factura.getValueAt(filaModi, 3);
         id_deta_24 = (String) tb_factura.getValueAt(filaModi, 6);
@@ -842,7 +868,9 @@ public class Ventas_venta_24_mod extends javax.swing.JDialog {
         Ajuste_nota_24 an;
         an = new Ajuste_nota_24(new javax.swing.JDialog(), true);
         an.setVisible(true);
-    }//GEN-LAST:event_tb_facturaMouseClicked
+
+        }
+    }//GEN-LAST:event_btneliActionPerformed
 
     /**
      * @param args the command line arguments
@@ -964,6 +992,7 @@ public class Ventas_venta_24_mod extends javax.swing.JDialog {
     public static javax.swing.JButton btn_mone;
     private javax.swing.JButton btn_salir;
     public static javax.swing.JButton btncalcular;
+    private javax.swing.JButton btneli;
     private javax.swing.JButton btnven;
     private javax.swing.JCheckBox chk_contado;
     private javax.swing.JCheckBox chk_plazo;

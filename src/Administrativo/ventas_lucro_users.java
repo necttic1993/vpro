@@ -85,7 +85,6 @@ public class ventas_lucro_users extends javax.swing.JDialog {
         lbl_almacen_lucro = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Resumen Gral");
         setResizable(false);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));

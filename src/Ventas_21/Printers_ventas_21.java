@@ -5,7 +5,6 @@
  */
 package Ventas_21;
 
-
 import Conexion_DB.conectar;
 import Loggin_Principal.Principal;
 import static Ventas_21.Principal_ventas_21.cod_id_venta_print_21;
@@ -127,16 +126,56 @@ public class Printers_ventas_21 extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        Reportes reporte = new Reportes();
-        try {
-            String cod = txt_nro_venta_ticket.getText();
-            String moneda = Principal.txt_simbolo.getText();
-            reporte.recep_3(cod, moneda);
+        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+        if (printService.length > 0)//si existen impresoras
+        {
+            //se elige la impresora
+            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+            if (impresora != null) //Si se selecciono una impresora
+            {
+                try {
 
-        } catch (SQLException | JRException ex) {
+                    String cod = txt_nro_venta_ticket.getText();
+                    String moneda = Principal.txt_simbolo.getText();
+                    Map parametro = new HashMap();
+                    parametro.clear();
+                    parametro.put("codigo", cod);
+                    parametro.put("moneda", moneda);
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    URL in = this.getClass().getResource("/Ventas_21/tickect_ventas_21.jasper");
+
+                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+
+                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                    jrprintServiceExporter.exportReport();
+                    conectar.getInstance().closeConnection(cn);
+
+                } catch (JRException ex) {
+
+                } catch (SQLException ex) {
+                    Logger.getLogger(Printers_ventas_modulo_21.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
 
         }
+        /*      Reportes reporte = new Reportes();
+         try {
+         String cod = txt_nro_venta_ticket.getText();
+         String moneda = Principal.txt_simbolo.getText();
+         reporte.recep_3(cod, moneda);
 
+         } catch (SQLException | JRException ex) {
+
+         }
+         */
         this.dispose();
 
     }//GEN-LAST:event_jButton1ActionPerformed

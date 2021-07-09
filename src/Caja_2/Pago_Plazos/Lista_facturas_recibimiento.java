@@ -202,7 +202,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 if (fila == -1) {
                     JOptionPane.showMessageDialog(null, "No  ha seleccionado ningun registro");
                 } else {
-                   
+
                     String nro_fact = tb_pago_cred.getValueAt(fila, 0).toString();
                     String id_cli = tb_pago_cred.getValueAt(fila, 1).toString();
                     String nom_cli = tb_pago_cred.getValueAt(fila, 2).toString();
@@ -397,7 +397,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(3).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
-            tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(50);
+            tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -409,12 +409,12 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_2(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion_surc_2 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact<> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion_surc_2 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -424,6 +424,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[3] = rs.getString(1);
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
+                registros[6] = rs.getString(35);
 
                 model.addRow(registros);
             }
@@ -435,6 +436,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(3).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
+            tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
             conectar.getInstance().closeConnection(cn);
             System.out.println("etron en lista");
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -446,12 +448,12 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_16(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND forma_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact<> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND forma_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -461,6 +463,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[3] = rs.getString(1);
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
+                registros[6] = rs.getString(35);
 
                 model.addRow(registros);
             }
@@ -472,6 +475,8 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(3).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
+            tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
+
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -483,12 +488,12 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_18(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND forma_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact<> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND forma_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -498,6 +503,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[3] = rs.getString(1);
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
+                registros[6] = rs.getString(35);
 
                 model.addRow(registros);
             }
@@ -509,6 +515,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(3).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
+            tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -520,12 +527,12 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_20(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND forma_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact<> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND forma_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -535,6 +542,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[3] = rs.getString(1);
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
+                registros[6] = rs.getString(35);
 
                 model.addRow(registros);
             }
@@ -546,6 +554,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(3).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
+            tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {

@@ -84,7 +84,6 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
         lbl_almacen_usu = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Listar Ventas");
         setResizable(false);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));

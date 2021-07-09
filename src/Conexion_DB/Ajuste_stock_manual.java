@@ -156,723 +156,728 @@ public class Ajuste_stock_manual extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         cagada();
 
-        if (txt_alma_aju.getText().equals("TODOS")) {
-            try {
-                String id = txt_id.getText();
-                String des = txtdes.getText();
-                String sql = "UPDATE tienda_productos SET pro_cant = '" + des
-                        + "' WHERE pro_cod = '" + id + "'";
+        if (txtdes.getText().equals("0") || txtdes.getText() == null) {
+
+            JOptionPane.showMessageDialog(null, "Ingrese un valor válido");
+        } else {
+
+            if (txt_alma_aju.getText().equals("TODOS")) {
                 try {
-                    Connection cn = conectar.getInstance().getConnection();
+                    String id = txt_id.getText();
+                    String des = txtdes.getText();
+                    String sql = "UPDATE tienda_productos SET pro_cant = '" + des
+                            + "' WHERE pro_cod = '" + id + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
 
-                    PreparedStatement pst = cn.prepareStatement(sql);
-                    pst.executeUpdate();
-                    conectar.getInstance().closeConnection(cn);
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
 
-                    JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
-                    limpiar();
+                        JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
+                        limpiar();
 
-                } catch (SQLException | HeadlessException e) {
-                    JOptionPane.showMessageDialog(null, e);
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
                 }
 
-            } catch (Exception e) {
+            }
+            if (txt_alma_aju.getText().equals("0000001")) {
+                try {
+                    String id = txt_id.getText();
+                    String des = txtdes.getText();
+                    String sql = "UPDATE tienda_productos SET pro_cant = '" + des
+                            + "' WHERE pro_cod = '" + id + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
+                        limpiar();
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+
+            }
+
+            if (txt_alma_aju.getText().equals("0000002")) {
+                try {
+                    String id = txt_id.getText();
+                    String des = txtdes.getText();
+                    String sql = "UPDATE tienda_productos SET pro_stock_2 = '" + des
+                            + "' WHERE pro_cod = '" + id + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
+                        limpiar();
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+
+            }
+            if (txt_alma_aju.getText().equals("0000003")) {
+                try {
+                    String id = txt_id.getText();
+                    String des = txtdes.getText();
+                    String sql = "UPDATE tienda_productos SET pro_stock_3 = '" + des
+                            + "' WHERE pro_cod = '" + id + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
+                        limpiar();
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+
+            }
+            if (txt_alma_aju.getText().equals("0000004")) {
+                try {
+                    String id = txt_id.getText();
+                    String des = txtdes.getText();
+                    String sql = "UPDATE tienda_productos SET pro_stock_4 = '" + des
+                            + "' WHERE pro_cod = '" + id + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
+                        limpiar();
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+
+            }
+            if (txt_alma_aju.getText().equals("0000005")) {
+                try {
+                    String id = txt_id.getText();
+                    String des = txtdes.getText();
+                    String sql = "UPDATE tienda_productos SET pro_stock_5 = '" + des
+                            + "' WHERE pro_cod = '" + id + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
+                        limpiar();
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+
+            }
+            ////nuevos depositos
+            if (txt_alma_aju.getText().equals("0000006")) {
+                try {
+                    String id = txt_id.getText();
+                    String des = txtdes.getText();
+                    String sql = "UPDATE tienda_productos SET pro_stock_6 = '" + des
+                            + "' WHERE pro_cod = '" + id + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
+                        limpiar();
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+
+            }
+            if (txt_alma_aju.getText().equals("0000007")) {
+                try {
+                    String id = txt_id.getText();
+                    String des = txtdes.getText();
+                    String sql = "UPDATE tienda_productos SET pro_stock_7 = '" + des
+                            + "' WHERE pro_cod = '" + id + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
+                        limpiar();
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+
+            }
+            if (txt_alma_aju.getText().equals("0000008")) {
+                try {
+                    String id = txt_id.getText();
+                    String des = txtdes.getText();
+                    String sql = "UPDATE tienda_productos SET pro_stock_8 = '" + des
+                            + "' WHERE pro_cod = '" + id + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
+                        limpiar();
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+
+            }
+            if (txt_alma_aju.getText().equals("0000009")) {
+                try {
+                    String id = txt_id.getText();
+                    String des = txtdes.getText();
+                    String sql = "UPDATE tienda_productos SET pro_stock_9 = '" + des
+                            + "' WHERE pro_cod = '" + id + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
+                        limpiar();
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+
+            }
+            if (txt_alma_aju.getText().equals("0000010")) {
+                try {
+                    String id = txt_id.getText();
+                    String des = txtdes.getText();
+                    String sql = "UPDATE tienda_productos SET pro_stock_10 = '" + des
+                            + "' WHERE pro_cod = '" + id + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
+                        limpiar();
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+
+            }
+            if (txt_alma_aju.getText().equals("0000011")) {
+                try {
+                    String id = txt_id.getText();
+                    String des = txtdes.getText();
+                    String sql = "UPDATE tienda_productos SET pro_stock_11 = '" + des
+                            + "' WHERE pro_cod = '" + id + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
+                        limpiar();
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+
+            }
+            if (txt_alma_aju.getText().equals("0000012")) {
+                try {
+                    String id = txt_id.getText();
+                    String des = txtdes.getText();
+                    String sql = "UPDATE tienda_productos SET pro_stock_12 = '" + des
+                            + "' WHERE pro_cod = '" + id + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
+                        limpiar();
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+
+            }
+            if (txt_alma_aju.getText().equals("0000013")) {
+                try {
+                    String id = txt_id.getText();
+                    String des = txtdes.getText();
+                    String sql = "UPDATE tienda_productos SET pro_stock_13 = '" + des
+                            + "' WHERE pro_cod = '" + id + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
+                        limpiar();
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+
+            }
+            if (txt_alma_aju.getText().equals("0000014")) {
+                try {
+                    String id = txt_id.getText();
+                    String des = txtdes.getText();
+                    String sql = "UPDATE tienda_productos SET pro_stock_14 = '" + des
+                            + "' WHERE pro_cod = '" + id + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
+                        limpiar();
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+
+            }
+            if (txt_alma_aju.getText().equals("0000015")) {
+                try {
+                    String id = txt_id.getText();
+                    String des = txtdes.getText();
+                    String sql = "UPDATE tienda_productos SET pro_stock_15 = '" + des
+                            + "' WHERE pro_cod = '" + id + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
+                        limpiar();
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+
+            }
+            if (txt_alma_aju.getText().equals("0000016")) {
+                try {
+                    String id = txt_id.getText();
+                    String des = txtdes.getText();
+                    String sql = "UPDATE tienda_productos SET pro_stock_16 = '" + des
+                            + "' WHERE pro_cod = '" + id + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
+                        limpiar();
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+
+            }
+            if (txt_alma_aju.getText().equals("0000017")) {
+                try {
+                    String id = txt_id.getText();
+                    String des = txtdes.getText();
+                    String sql = "UPDATE tienda_productos SET pro_stock_17 = '" + des
+                            + "' WHERE pro_cod = '" + id + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
+                        limpiar();
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+
+            }
+            if (txt_alma_aju.getText().equals("0000018")) {
+                try {
+                    String id = txt_id.getText();
+                    String des = txtdes.getText();
+                    String sql = "UPDATE tienda_productos SET pro_stock_18 = '" + des
+                            + "' WHERE pro_cod = '" + id + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
+                        limpiar();
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+
+            }
+            if (txt_alma_aju.getText().equals("0000019")) {
+                try {
+                    String id = txt_id.getText();
+                    String des = txtdes.getText();
+                    String sql = "UPDATE tienda_productos SET pro_stock_19 = '" + des
+                            + "' WHERE pro_cod = '" + id + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
+                        limpiar();
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+
+            }
+            if (txt_alma_aju.getText().equals("0000020")) {
+                try {
+                    String id = txt_id.getText();
+                    String des = txtdes.getText();
+                    String sql = "UPDATE tienda_productos SET pro_stock_20 = '" + des
+                            + "' WHERE pro_cod = '" + id + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
+                        limpiar();
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+
+            }
+            if (txt_alma_aju.getText().equals("0000021")) {
+                try {
+                    String id = txt_id.getText();
+                    String des = txtdes.getText();
+                    String sql = "UPDATE tienda_productos SET pro_stock_21 = '" + des
+                            + "' WHERE pro_cod = '" + id + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
+                        limpiar();
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+
+            }
+            if (txt_alma_aju.getText().equals("0000022")) {
+                try {
+                    String id = txt_id.getText();
+                    String des = txtdes.getText();
+                    String sql = "UPDATE tienda_productos SET pro_stock_22 = '" + des
+                            + "' WHERE pro_cod = '" + id + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
+                        limpiar();
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+
+            }
+            if (txt_alma_aju.getText().equals("0000023")) {
+                try {
+                    String id = txt_id.getText();
+                    String des = txtdes.getText();
+                    String sql = "UPDATE tienda_productos SET pro_stock_23 = '" + des
+                            + "' WHERE pro_cod = '" + id + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
+                        limpiar();
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+
+            }
+            if (txt_alma_aju.getText().equals("0000024")) {
+                try {
+                    String id = txt_id.getText();
+                    String des = txtdes.getText();
+                    String sql = "UPDATE tienda_productos SET pro_stock_24 = '" + des
+                            + "' WHERE pro_cod = '" + id + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
+                        limpiar();
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+
+            }
+            if (txt_alma_aju.getText().equals("0000025")) {
+                try {
+                    String id = txt_id.getText();
+                    String des = txtdes.getText();
+                    String sql = "UPDATE tienda_productos SET pro_stock_25 = '" + des
+                            + "' WHERE pro_cod = '" + id + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
+                        limpiar();
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+
+            }
+            if (txt_alma_aju.getText().equals("0000026")) {
+                try {
+                    String id = txt_id.getText();
+                    String des = txtdes.getText();
+                    String sql = "UPDATE tienda_productos SET pro_stock_26 = '" + des
+                            + "' WHERE pro_cod = '" + id + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
+                        limpiar();
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+
+            }
+            if (txt_alma_aju.getText().equals("0000027")) {
+                try {
+                    String id = txt_id.getText();
+                    String des = txtdes.getText();
+                    String sql = "UPDATE tienda_productos SET pro_stock_27 = '" + des
+                            + "' WHERE pro_cod = '" + id + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
+                        limpiar();
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+
+            }
+            if (txt_alma_aju.getText().equals("0000028")) {
+                try {
+                    String id = txt_id.getText();
+                    String des = txtdes.getText();
+                    String sql = "UPDATE tienda_productos SET pro_stock_28 = '" + des
+                            + "' WHERE pro_cod = '" + id + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
+                        limpiar();
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+
+            }
+            if (txt_alma_aju.getText().equals("0000029")) {
+                try {
+                    String id = txt_id.getText();
+                    String des = txtdes.getText();
+                    String sql = "UPDATE tienda_productos SET pro_stock_29 = '" + des
+                            + "' WHERE pro_cod = '" + id + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
+                        limpiar();
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+            }
+            if (txt_alma_aju.getText().equals("0000030")) {
+                try {
+                    String id = txt_id.getText();
+                    String des = txtdes.getText();
+                    String sql = "UPDATE tienda_productos SET pro_stock_30 = '" + des
+                            + "' WHERE pro_cod = '" + id + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
+                        limpiar();
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+
             }
 
         }
-        if (txt_alma_aju.getText().equals("0000001")) {
-            try {
-                String id = txt_id.getText();
-                String des = txtdes.getText();
-                String sql = "UPDATE tienda_productos SET pro_cant = '" + des
-                        + "' WHERE pro_cod = '" + id + "'";
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    PreparedStatement pst = cn.prepareStatement(sql);
-                    pst.executeUpdate();
-                    conectar.getInstance().closeConnection(cn);
-
-                    JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
-                    limpiar();
-                } catch (SQLException | HeadlessException e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-
-            } catch (Exception e) {
-            }
-
-        }
-
-        if (txt_alma_aju.getText().equals("0000002")) {
-            try {
-                String id = txt_id.getText();
-                String des = txtdes.getText();
-                String sql = "UPDATE tienda_productos SET pro_stock_2 = '" + des
-                        + "' WHERE pro_cod = '" + id + "'";
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    PreparedStatement pst = cn.prepareStatement(sql);
-                    pst.executeUpdate();
-                    conectar.getInstance().closeConnection(cn);
-
-                    JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
-                    limpiar();
-                } catch (SQLException | HeadlessException e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-
-            } catch (Exception e) {
-            }
-
-        }
-        if (txt_alma_aju.getText().equals("0000003")) {
-            try {
-                String id = txt_id.getText();
-                String des = txtdes.getText();
-                String sql = "UPDATE tienda_productos SET pro_stock_3 = '" + des
-                        + "' WHERE pro_cod = '" + id + "'";
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    PreparedStatement pst = cn.prepareStatement(sql);
-                    pst.executeUpdate();
-                    conectar.getInstance().closeConnection(cn);
-
-                    JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
-                    limpiar();
-                } catch (SQLException | HeadlessException e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-
-            } catch (Exception e) {
-            }
-
-        }
-        if (txt_alma_aju.getText().equals("0000004")) {
-            try {
-                String id = txt_id.getText();
-                String des = txtdes.getText();
-                String sql = "UPDATE tienda_productos SET pro_stock_4 = '" + des
-                        + "' WHERE pro_cod = '" + id + "'";
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    PreparedStatement pst = cn.prepareStatement(sql);
-                    pst.executeUpdate();
-                    conectar.getInstance().closeConnection(cn);
-
-                    JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
-                    limpiar();
-                } catch (SQLException | HeadlessException e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-
-            } catch (Exception e) {
-            }
-
-        }
-        if (txt_alma_aju.getText().equals("0000005")) {
-            try {
-                String id = txt_id.getText();
-                String des = txtdes.getText();
-                String sql = "UPDATE tienda_productos SET pro_stock_5 = '" + des
-                        + "' WHERE pro_cod = '" + id + "'";
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    PreparedStatement pst = cn.prepareStatement(sql);
-                    pst.executeUpdate();
-                    conectar.getInstance().closeConnection(cn);
-
-                    JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
-                    limpiar();
-                } catch (SQLException | HeadlessException e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-
-            } catch (Exception e) {
-            }
-
-        }
-        ////nuevos depositos
-        if (txt_alma_aju.getText().equals("0000006")) {
-            try {
-                String id = txt_id.getText();
-                String des = txtdes.getText();
-                String sql = "UPDATE tienda_productos SET pro_stock_6 = '" + des
-                        + "' WHERE pro_cod = '" + id + "'";
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    PreparedStatement pst = cn.prepareStatement(sql);
-                    pst.executeUpdate();
-                    conectar.getInstance().closeConnection(cn);
-
-                    JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
-                    limpiar();
-                } catch (SQLException | HeadlessException e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-
-            } catch (Exception e) {
-            }
-
-        }
-        if (txt_alma_aju.getText().equals("0000007")) {
-            try {
-                String id = txt_id.getText();
-                String des = txtdes.getText();
-                String sql = "UPDATE tienda_productos SET pro_stock_7 = '" + des
-                        + "' WHERE pro_cod = '" + id + "'";
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    PreparedStatement pst = cn.prepareStatement(sql);
-                    pst.executeUpdate();
-                    conectar.getInstance().closeConnection(cn);
-
-                    JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
-                    limpiar();
-                } catch (SQLException | HeadlessException e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-
-            } catch (Exception e) {
-            }
-
-        }
-        if (txt_alma_aju.getText().equals("0000008")) {
-            try {
-                String id = txt_id.getText();
-                String des = txtdes.getText();
-                String sql = "UPDATE tienda_productos SET pro_stock_8 = '" + des
-                        + "' WHERE pro_cod = '" + id + "'";
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    PreparedStatement pst = cn.prepareStatement(sql);
-                    pst.executeUpdate();
-                    conectar.getInstance().closeConnection(cn);
-
-                    JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
-                    limpiar();
-                } catch (SQLException | HeadlessException e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-
-            } catch (Exception e) {
-            }
-
-        }
-        if (txt_alma_aju.getText().equals("0000009")) {
-            try {
-                String id = txt_id.getText();
-                String des = txtdes.getText();
-                String sql = "UPDATE tienda_productos SET pro_stock_9 = '" + des
-                        + "' WHERE pro_cod = '" + id + "'";
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    PreparedStatement pst = cn.prepareStatement(sql);
-                    pst.executeUpdate();
-                    conectar.getInstance().closeConnection(cn);
-
-                    JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
-                    limpiar();
-                } catch (SQLException | HeadlessException e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-
-            } catch (Exception e) {
-            }
-
-        }
-        if (txt_alma_aju.getText().equals("0000010")) {
-            try {
-                String id = txt_id.getText();
-                String des = txtdes.getText();
-                String sql = "UPDATE tienda_productos SET pro_stock_10 = '" + des
-                        + "' WHERE pro_cod = '" + id + "'";
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    PreparedStatement pst = cn.prepareStatement(sql);
-                    pst.executeUpdate();
-                    conectar.getInstance().closeConnection(cn);
-
-                    JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
-                    limpiar();
-                } catch (SQLException | HeadlessException e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-
-            } catch (Exception e) {
-            }
-
-        }
-        if (txt_alma_aju.getText().equals("0000011")) {
-            try {
-                String id = txt_id.getText();
-                String des = txtdes.getText();
-                String sql = "UPDATE tienda_productos SET pro_stock_11 = '" + des
-                        + "' WHERE pro_cod = '" + id + "'";
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    PreparedStatement pst = cn.prepareStatement(sql);
-                    pst.executeUpdate();
-                    conectar.getInstance().closeConnection(cn);
-
-                    JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
-                    limpiar();
-                } catch (SQLException | HeadlessException e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-
-            } catch (Exception e) {
-            }
-
-        }
-        if (txt_alma_aju.getText().equals("0000012")) {
-            try {
-                String id = txt_id.getText();
-                String des = txtdes.getText();
-                String sql = "UPDATE tienda_productos SET pro_stock_12 = '" + des
-                        + "' WHERE pro_cod = '" + id + "'";
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    PreparedStatement pst = cn.prepareStatement(sql);
-                    pst.executeUpdate();
-                    conectar.getInstance().closeConnection(cn);
-
-                    JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
-                    limpiar();
-                } catch (SQLException | HeadlessException e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-
-            } catch (Exception e) {
-            }
-
-        }
-        if (txt_alma_aju.getText().equals("0000013")) {
-            try {
-                String id = txt_id.getText();
-                String des = txtdes.getText();
-                String sql = "UPDATE tienda_productos SET pro_stock_13 = '" + des
-                        + "' WHERE pro_cod = '" + id + "'";
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    PreparedStatement pst = cn.prepareStatement(sql);
-                    pst.executeUpdate();
-                    conectar.getInstance().closeConnection(cn);
-
-                    JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
-                    limpiar();
-                } catch (SQLException | HeadlessException e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-
-            } catch (Exception e) {
-            }
-
-        }
-        if (txt_alma_aju.getText().equals("0000014")) {
-            try {
-                String id = txt_id.getText();
-                String des = txtdes.getText();
-                String sql = "UPDATE tienda_productos SET pro_stock_14 = '" + des
-                        + "' WHERE pro_cod = '" + id + "'";
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    PreparedStatement pst = cn.prepareStatement(sql);
-                    pst.executeUpdate();
-                    conectar.getInstance().closeConnection(cn);
-
-                    JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
-                    limpiar();
-                } catch (SQLException | HeadlessException e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-
-            } catch (Exception e) {
-            }
-
-        }
-        if (txt_alma_aju.getText().equals("0000015")) {
-            try {
-                String id = txt_id.getText();
-                String des = txtdes.getText();
-                String sql = "UPDATE tienda_productos SET pro_stock_15 = '" + des
-                        + "' WHERE pro_cod = '" + id + "'";
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    PreparedStatement pst = cn.prepareStatement(sql);
-                    pst.executeUpdate();
-                    conectar.getInstance().closeConnection(cn);
-
-                    JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
-                    limpiar();
-                } catch (SQLException | HeadlessException e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-
-            } catch (Exception e) {
-            }
-
-        }
-        if (txt_alma_aju.getText().equals("0000016")) {
-            try {
-                String id = txt_id.getText();
-                String des = txtdes.getText();
-                String sql = "UPDATE tienda_productos SET pro_stock_16 = '" + des
-                        + "' WHERE pro_cod = '" + id + "'";
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    PreparedStatement pst = cn.prepareStatement(sql);
-                    pst.executeUpdate();
-                    conectar.getInstance().closeConnection(cn);
-
-                    JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
-                    limpiar();
-                } catch (SQLException | HeadlessException e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-
-            } catch (Exception e) {
-            }
-
-        }
-        if (txt_alma_aju.getText().equals("0000017")) {
-            try {
-                String id = txt_id.getText();
-                String des = txtdes.getText();
-                String sql = "UPDATE tienda_productos SET pro_stock_17 = '" + des
-                        + "' WHERE pro_cod = '" + id + "'";
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    PreparedStatement pst = cn.prepareStatement(sql);
-                    pst.executeUpdate();
-                    conectar.getInstance().closeConnection(cn);
-
-                    JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
-                    limpiar();
-                } catch (SQLException | HeadlessException e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-
-            } catch (Exception e) {
-            }
-
-        }
-        if (txt_alma_aju.getText().equals("0000018")) {
-            try {
-                String id = txt_id.getText();
-                String des = txtdes.getText();
-                String sql = "UPDATE tienda_productos SET pro_stock_18 = '" + des
-                        + "' WHERE pro_cod = '" + id + "'";
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    PreparedStatement pst = cn.prepareStatement(sql);
-                    pst.executeUpdate();
-                    conectar.getInstance().closeConnection(cn);
-
-                    JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
-                    limpiar();
-                } catch (SQLException | HeadlessException e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-
-            } catch (Exception e) {
-            }
-
-        }
-        if (txt_alma_aju.getText().equals("0000019")) {
-            try {
-                String id = txt_id.getText();
-                String des = txtdes.getText();
-                String sql = "UPDATE tienda_productos SET pro_stock_19 = '" + des
-                        + "' WHERE pro_cod = '" + id + "'";
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    PreparedStatement pst = cn.prepareStatement(sql);
-                    pst.executeUpdate();
-                    conectar.getInstance().closeConnection(cn);
-
-                    JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
-                    limpiar();
-                } catch (SQLException | HeadlessException e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-
-            } catch (Exception e) {
-            }
-
-        }
-        if (txt_alma_aju.getText().equals("0000020")) {
-            try {
-                String id = txt_id.getText();
-                String des = txtdes.getText();
-                String sql = "UPDATE tienda_productos SET pro_stock_20 = '" + des
-                        + "' WHERE pro_cod = '" + id + "'";
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    PreparedStatement pst = cn.prepareStatement(sql);
-                    pst.executeUpdate();
-                    conectar.getInstance().closeConnection(cn);
-
-                    JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
-                    limpiar();
-                } catch (SQLException | HeadlessException e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-
-            } catch (Exception e) {
-            }
-
-        }
-        if (txt_alma_aju.getText().equals("0000021")) {
-            try {
-                String id = txt_id.getText();
-                String des = txtdes.getText();
-                String sql = "UPDATE tienda_productos SET pro_stock_21 = '" + des
-                        + "' WHERE pro_cod = '" + id + "'";
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    PreparedStatement pst = cn.prepareStatement(sql);
-                    pst.executeUpdate();
-                    conectar.getInstance().closeConnection(cn);
-
-                    JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
-                    limpiar();
-                } catch (SQLException | HeadlessException e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-
-            } catch (Exception e) {
-            }
-
-        }
-        if (txt_alma_aju.getText().equals("0000022")) {
-            try {
-                String id = txt_id.getText();
-                String des = txtdes.getText();
-                String sql = "UPDATE tienda_productos SET pro_stock_22 = '" + des
-                        + "' WHERE pro_cod = '" + id + "'";
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    PreparedStatement pst = cn.prepareStatement(sql);
-                    pst.executeUpdate();
-                    conectar.getInstance().closeConnection(cn);
-
-                    JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
-                    limpiar();
-                } catch (SQLException | HeadlessException e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-
-            } catch (Exception e) {
-            }
-
-        }
-        if (txt_alma_aju.getText().equals("0000023")) {
-            try {
-                String id = txt_id.getText();
-                String des = txtdes.getText();
-                String sql = "UPDATE tienda_productos SET pro_stock_23 = '" + des
-                        + "' WHERE pro_cod = '" + id + "'";
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    PreparedStatement pst = cn.prepareStatement(sql);
-                    pst.executeUpdate();
-                    conectar.getInstance().closeConnection(cn);
-
-                    JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
-                    limpiar();
-                } catch (SQLException | HeadlessException e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-
-            } catch (Exception e) {
-            }
-
-        }
-        if (txt_alma_aju.getText().equals("0000024")) {
-            try {
-                String id = txt_id.getText();
-                String des = txtdes.getText();
-                String sql = "UPDATE tienda_productos SET pro_stock_24 = '" + des
-                        + "' WHERE pro_cod = '" + id + "'";
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    PreparedStatement pst = cn.prepareStatement(sql);
-                    pst.executeUpdate();
-                    conectar.getInstance().closeConnection(cn);
-
-                    JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
-                    limpiar();
-                } catch (SQLException | HeadlessException e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-
-            } catch (Exception e) {
-            }
-
-        }
-        if (txt_alma_aju.getText().equals("0000025")) {
-            try {
-                String id = txt_id.getText();
-                String des = txtdes.getText();
-                String sql = "UPDATE tienda_productos SET pro_stock_25 = '" + des
-                        + "' WHERE pro_cod = '" + id + "'";
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    PreparedStatement pst = cn.prepareStatement(sql);
-                    pst.executeUpdate();
-                    conectar.getInstance().closeConnection(cn);
-
-                    JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
-                    limpiar();
-                } catch (SQLException | HeadlessException e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-
-            } catch (Exception e) {
-            }
-
-        }
-        if (txt_alma_aju.getText().equals("0000026")) {
-            try {
-                String id = txt_id.getText();
-                String des = txtdes.getText();
-                String sql = "UPDATE tienda_productos SET pro_stock_26 = '" + des
-                        + "' WHERE pro_cod = '" + id + "'";
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    PreparedStatement pst = cn.prepareStatement(sql);
-                    pst.executeUpdate();
-                    conectar.getInstance().closeConnection(cn);
-
-                    JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
-                    limpiar();
-                } catch (SQLException | HeadlessException e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-
-            } catch (Exception e) {
-            }
-
-        }
-        if (txt_alma_aju.getText().equals("0000027")) {
-            try {
-                String id = txt_id.getText();
-                String des = txtdes.getText();
-                String sql = "UPDATE tienda_productos SET pro_stock_27 = '" + des
-                        + "' WHERE pro_cod = '" + id + "'";
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    PreparedStatement pst = cn.prepareStatement(sql);
-                    pst.executeUpdate();
-                    conectar.getInstance().closeConnection(cn);
-
-                    JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
-                    limpiar();
-                } catch (SQLException | HeadlessException e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-
-            } catch (Exception e) {
-            }
-
-        }
-        if (txt_alma_aju.getText().equals("0000028")) {
-            try {
-                String id = txt_id.getText();
-                String des = txtdes.getText();
-                String sql = "UPDATE tienda_productos SET pro_stock_28 = '" + des
-                        + "' WHERE pro_cod = '" + id + "'";
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    PreparedStatement pst = cn.prepareStatement(sql);
-                    pst.executeUpdate();
-                    conectar.getInstance().closeConnection(cn);
-
-                    JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
-                    limpiar();
-                } catch (SQLException | HeadlessException e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-
-            } catch (Exception e) {
-            }
-
-        }
-        if (txt_alma_aju.getText().equals("0000029")) {
-            try {
-                String id = txt_id.getText();
-                String des = txtdes.getText();
-                String sql = "UPDATE tienda_productos SET pro_stock_29 = '" + des
-                        + "' WHERE pro_cod = '" + id + "'";
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    PreparedStatement pst = cn.prepareStatement(sql);
-                    pst.executeUpdate();
-                    conectar.getInstance().closeConnection(cn);
-
-                    JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
-                    limpiar();
-                } catch (SQLException | HeadlessException e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-
-            } catch (Exception e) {
-            }
-        }
-        if (txt_alma_aju.getText().equals("0000030")) {
-            try {
-                String id = txt_id.getText();
-                String des = txtdes.getText();
-                String sql = "UPDATE tienda_productos SET pro_stock_30 = '" + des
-                        + "' WHERE pro_cod = '" + id + "'";
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    PreparedStatement pst = cn.prepareStatement(sql);
-                    pst.executeUpdate();
-                    conectar.getInstance().closeConnection(cn);
-
-                    JOptionPane.showMessageDialog(null, "Actualizado, Stock actual=" + des);
-                    limpiar();
-                } catch (SQLException | HeadlessException e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-
-            } catch (Exception e) {
-            }
-
-        }
-
-
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
