@@ -95,10 +95,6 @@ public class Actualiza_clientes extends javax.swing.JDialog {
         jLabel15 = new javax.swing.JLabel();
         cb_contro_surc = new javax.swing.JComboBox<String>();
         jLabel16 = new javax.swing.JLabel();
-        lbl_tipo_cli = new javax.swing.JLabel();
-        lbl_sucursal = new javax.swing.JLabel();
-        lbl_nac_cli = new javax.swing.JLabel();
-        lbl_status = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -218,13 +214,13 @@ public class Actualiza_clientes extends javax.swing.JDialog {
 
         cb_tipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "MINORISTAS", "MAYORISTAS", "SUBDISTRIBUIDOR", "DISTRIBUIDOR" }));
         cb_tipo.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jPanel3.add(cb_tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 130, 120, 30));
+        jPanel3.add(cb_tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 130, 220, 30));
 
         cb_status.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ACTIVO", "INACTIVO" }));
         cb_status.setToolTipText("");
         cb_status.setDoubleBuffered(true);
         cb_status.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jPanel3.add(cb_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 160, 100, 30));
+        jPanel3.add(cb_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 160, 160, 30));
 
         jLabel14.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel14.setText("Crédito/Días:");
@@ -235,7 +231,7 @@ public class Actualiza_clientes extends javax.swing.JDialog {
 
         cb_cli_pais.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         cb_cli_pais.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "PY", "EX" }));
-        jPanel3.add(cb_cli_pais, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 160, 60, 30));
+        jPanel3.add(cb_cli_pais, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 160, 90, 30));
 
         jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel12.setText("Nac.:");
@@ -247,27 +243,11 @@ public class Actualiza_clientes extends javax.swing.JDialog {
 
         cb_contro_surc.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         cb_contro_surc.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "NO", "SI" }));
-        jPanel3.add(cb_contro_surc, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 70, 70, 30));
+        jPanel3.add(cb_contro_surc, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, 150, 30));
 
         jLabel16.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel16.setText("Tipos de Clientes:");
         jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(446, 130, -1, 30));
-
-        lbl_tipo_cli.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lbl_tipo_cli.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel3.add(lbl_tipo_cli, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 130, 110, 30));
-
-        lbl_sucursal.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lbl_sucursal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel3.add(lbl_sucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 70, 60, 30));
-
-        lbl_nac_cli.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        lbl_nac_cli.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel3.add(lbl_nac_cli, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 160, 40, 30));
-
-        lbl_status.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lbl_status.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel3.add(lbl_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 160, 70, 30));
 
         jLabel17.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(204, 0, 0));
@@ -429,10 +409,6 @@ public class Actualiza_clientes extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JLabel lbl_nac_cli;
-    private javax.swing.JLabel lbl_status;
-    private javax.swing.JLabel lbl_sucursal;
-    private javax.swing.JLabel lbl_tipo_cli;
     private javax.swing.JTextField txt_cli_registro;
     private javax.swing.JTextField txt_dias_plazos;
     private javax.swing.JTextField txt_razon;
@@ -480,12 +456,12 @@ public class Actualiza_clientes extends javax.swing.JDialog {
             txttel.setText(contacto);
             txtemail.setText(email);
             txtdir.setText(dir);
-            lbl_tipo_cli.setText(tipo);
+            cb_tipo.setSelectedItem(tipo);
             txt_dias_plazos.setText(dias_cre);
-            lbl_status.setText(cli_status);
+            cb_status.setSelectedItem(cli_status);
             txt_cli_registro.setText(registro);
-            lbl_nac_cli.setText(cli_pais);
-            lbl_sucursal.setText(surc);
+            cb_cli_pais.setSelectedItem(cli_pais);
+            cb_contro_surc.setSelectedItem(surc);
             conectar.getInstance().closeConnection(cn);
 
         } catch (SQLException e) {

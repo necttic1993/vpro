@@ -12,6 +12,7 @@ import static Caja_2.Caja_caja.txt_nro_docu;
 import Clases.Clase_Literal;
 import Conexion_DB.conectar;
 import static Loggin_Principal.NECTTIC.ingreso;
+import Loggin_Principal.Principal;
 import static Loggin_Principal.Principal.lbl_fecha_hoy;
 import static Loggin_Principal.Principal.lbl_fecha_principal;
 import static Loggin_Principal.Principal.lbl_mone_def;
@@ -87,7 +88,6 @@ public class pago_factura_credito extends javax.swing.JDialog {
         txt_monto_pago = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txt_almacen = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         panel_config = new javax.swing.JPanel();
         lbl_literal = new javax.swing.JLabel();
@@ -108,14 +108,14 @@ public class pago_factura_credito extends javax.swing.JDialog {
         lbl_total_cheque = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_detalles = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        btn_cheques = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         txt_venta_cre_saldo = new javax.swing.JLabel();
         txt_periodo_fiscal = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
+        txt_monto_credito = new javax.swing.JLabel();
         txt_nro_recibo = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -128,6 +128,19 @@ public class pago_factura_credito extends javax.swing.JDialog {
         jLabel10 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         txt_lote_recibos_fact = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jSeparator4 = new javax.swing.JSeparator();
+        jSeparator5 = new javax.swing.JSeparator();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tb_nota_cred = new javax.swing.JTable();
+        jButton3 = new javax.swing.JButton();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jSeparator6 = new javax.swing.JSeparator();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        txt_cred_entrada_caja = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -138,20 +151,21 @@ public class pago_factura_credito extends javax.swing.JDialog {
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jLabel2.setText("Facturas a Pagar:");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 140, 30));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 140, 30));
 
-        jSeparator2.setForeground(new java.awt.Color(0, 102, 153));
-        jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 900, 10));
+        jSeparator2.setBackground(new java.awt.Color(255, 0, 0));
+        jSeparator2.setForeground(new java.awt.Color(153, 0, 0));
+        jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 40, 430, 10));
 
         txt_nom_cli_cred.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txt_nom_cli_cred.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_nom_cli_cred.setEnabled(false);
-        jPanel2.add(txt_nom_cli_cred, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 500, 32));
+        jPanel2.add(txt_nom_cli_cred, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 340, 32));
 
         lbl_serie_pago.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lbl_serie_pago.setForeground(new java.awt.Color(153, 0, 0));
         lbl_serie_pago.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jPanel2.add(lbl_serie_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 430, 190, 30));
+        jPanel2.add(lbl_serie_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 450, 250, 30));
 
         id_cliente_cre.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         id_cliente_cre.setDisabledTextColor(new java.awt.Color(0, 0, 0));
@@ -170,24 +184,20 @@ public class pago_factura_credito extends javax.swing.JDialog {
                 txt_monto_pagoKeyReleased(evt);
             }
         });
-        jPanel2.add(txt_monto_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 100, 160, 32));
+        jPanel2.add(txt_monto_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 50, 160, 32));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jLabel6.setText("Lote Factura:");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 490, 90, 30));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 90, 30));
 
         txt_almacen.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txt_almacen.setDisabledTextColor(new java.awt.Color(0, 102, 0));
         txt_almacen.setEnabled(false);
-        jPanel2.add(txt_almacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 430, 110, 30));
-
-        jLabel7.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        jLabel7.setText("Cliente:");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 30));
+        jPanel2.add(txt_almacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, 110, 30));
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jLabel9.setText("Recibo N°:");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 460, 70, 30));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 480, 70, 30));
 
         panel_config.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -229,11 +239,11 @@ public class pago_factura_credito extends javax.swing.JDialog {
         lbl_literal_pro.setText("Son:");
         panel_config.add(lbl_literal_pro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 40, -1));
 
-        jPanel2.add(panel_config, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 450, 110, 70));
+        jPanel2.add(panel_config, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 510, -1, 10));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jLabel4.setText("Surcusal:");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 430, 90, 30));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 70, 30));
 
         chk_contado.setBackground(new java.awt.Color(255, 255, 255));
         chk_contado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -243,7 +253,7 @@ public class pago_factura_credito extends javax.swing.JDialog {
                 chk_contadoActionPerformed(evt);
             }
         });
-        jPanel2.add(chk_contado, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 110, 30));
+        jPanel2.add(chk_contado, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 110, 30));
 
         chk_plazo.setBackground(new java.awt.Color(255, 255, 255));
         chk_plazo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -253,11 +263,11 @@ public class pago_factura_credito extends javax.swing.JDialog {
                 chk_plazoActionPerformed(evt);
             }
         });
-        jPanel2.add(chk_plazo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 100, 30));
+        jPanel2.add(chk_plazo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 100, 30));
 
         jLabel12.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jLabel12.setText("En concepto:");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 110, 30));
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 110, 30));
 
         chk_efectivo.setBackground(new java.awt.Color(255, 255, 255));
         chk_efectivo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -267,7 +277,7 @@ public class pago_factura_credito extends javax.swing.JDialog {
                 chk_efectivoActionPerformed(evt);
             }
         });
-        jPanel2.add(chk_efectivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 100, 80, 30));
+        jPanel2.add(chk_efectivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 50, 80, 30));
 
         chk_cheque.setBackground(new java.awt.Color(255, 255, 255));
         chk_cheque.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -277,30 +287,32 @@ public class pago_factura_credito extends javax.swing.JDialog {
                 chk_chequeActionPerformed(evt);
             }
         });
-        jPanel2.add(chk_cheque, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 130, 100, 30));
+        jPanel2.add(chk_cheque, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 100, 100, 30));
 
         lbl_import_total.setBackground(new java.awt.Color(153, 0, 51));
-        lbl_import_total.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        lbl_import_total.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lbl_import_total.setForeground(new java.awt.Color(204, 0, 51));
         lbl_import_total.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_import_total.setText("0");
-        jPanel2.add(lbl_import_total, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 390, 100, 30));
+        jPanel2.add(lbl_import_total, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 560, 140, 30));
 
         jLabel14.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel14.setText("Monto a pagar:");
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 100, 90, 30));
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 50, 90, 30));
 
         lbl_total_efect.setBackground(new java.awt.Color(153, 0, 51));
         lbl_total_efect.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         lbl_total_efect.setForeground(new java.awt.Color(204, 0, 51));
+        lbl_total_efect.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_total_efect.setText("0");
-        jPanel2.add(lbl_total_efect, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, 140, 30));
+        jPanel2.add(lbl_total_efect, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 460, 140, 30));
 
         lbl_total_cheque.setBackground(new java.awt.Color(153, 0, 51));
         lbl_total_cheque.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         lbl_total_cheque.setForeground(new java.awt.Color(204, 0, 51));
+        lbl_total_cheque.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_total_cheque.setText("0");
-        jPanel2.add(lbl_total_cheque, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 390, 150, 30));
+        jPanel2.add(lbl_total_cheque, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 490, 140, 30));
 
         tb_detalles.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         tb_detalles.setModel(new javax.swing.table.DefaultTableModel(
@@ -328,32 +340,32 @@ public class pago_factura_credito extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tb_detalles);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 160, 430, 150));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 140, 430, 120));
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/sumar.png"))); // NOI18N
-        jButton1.setBorderPainted(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_cheques.setBackground(new java.awt.Color(255, 255, 255));
+        btn_cheques.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btn_cheques.setForeground(new java.awt.Color(255, 255, 255));
+        btn_cheques.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/agrega.png"))); // NOI18N
+        btn_cheques.setBorderPainted(false);
+        btn_cheques.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_cheques.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_chequesActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 120, 50, 40));
+        jPanel2.add(btn_cheques, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 100, 50, 40));
 
         jLabel17.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jLabel17.setText("Importe Total:");
-        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 390, 90, 30));
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 560, 90, 30));
 
         jLabel18.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        jLabel18.setText("Total Cheque:");
-        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 390, 90, 30));
+        jLabel18.setText("Total NC:");
+        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 520, 120, 30));
 
         jLabel16.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jLabel16.setText("Total efectivo:");
-        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, 90, 30));
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 460, 110, 30));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -365,22 +377,24 @@ public class pago_factura_credito extends javax.swing.JDialog {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 510, 120, 50));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 540, 120, 50));
 
         txt_venta_cre_saldo.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         txt_venta_cre_saldo.setForeground(new java.awt.Color(204, 0, 51));
-        txt_venta_cre_saldo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        txt_venta_cre_saldo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         txt_venta_cre_saldo.setText("0");
-        jPanel2.add(txt_venta_cre_saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 320, 150, 30));
+        jPanel2.add(txt_venta_cre_saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 420, 160, 30));
 
         txt_periodo_fiscal.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txt_periodo_fiscal.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_periodo_fiscal.setEnabled(false);
-        jPanel2.add(txt_periodo_fiscal, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 460, 110, 30));
+        jPanel2.add(txt_periodo_fiscal, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 110, 30));
 
-        jLabel11.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        jLabel11.setText("Serie N°:");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 430, 70, 30));
+        txt_monto_credito.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        txt_monto_credito.setForeground(new java.awt.Color(204, 0, 51));
+        txt_monto_credito.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        txt_monto_credito.setText("0");
+        jPanel2.add(txt_monto_credito, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 520, 140, 30));
 
         txt_nro_recibo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txt_nro_recibo.setText("0");
@@ -389,11 +403,13 @@ public class pago_factura_credito extends javax.swing.JDialog {
                 txt_nro_reciboKeyReleased(evt);
             }
         });
-        jPanel2.add(txt_nro_recibo, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 460, 120, 30));
+        jPanel2.add(txt_nro_recibo, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 480, 120, 30));
 
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        jLabel3.setBackground(new java.awt.Color(153, 0, 0));
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(153, 0, 0));
         jLabel3.setText("Paga en:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, 80, 30));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 10, 100, 30));
 
         tb_facturas.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         tb_facturas.setModel(new javax.swing.table.DefaultTableModel(
@@ -421,12 +437,12 @@ public class pago_factura_credito extends javax.swing.JDialog {
         });
         jScrollPane2.setViewportView(tb_facturas);
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 130, -1, 180));
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 570, 210));
 
         btn_agreagr_factura.setBackground(new java.awt.Color(255, 255, 255));
         btn_agreagr_factura.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_agreagr_factura.setForeground(new java.awt.Color(255, 255, 255));
-        btn_agreagr_factura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/sumar.png"))); // NOI18N
+        btn_agreagr_factura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/agrega.png"))); // NOI18N
         btn_agreagr_factura.setBorderPainted(false);
         btn_agreagr_factura.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_agreagr_factura.addActionListener(new java.awt.event.ActionListener() {
@@ -434,7 +450,7 @@ public class pago_factura_credito extends javax.swing.JDialog {
                 btn_agreagr_facturaActionPerformed(evt);
             }
         });
-        jPanel2.add(btn_agreagr_factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 50, 40));
+        jPanel2.add(btn_agreagr_factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 120, 50, 40));
 
         btn_busar.setBackground(new java.awt.Color(255, 255, 255));
         btn_busar.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
@@ -445,7 +461,7 @@ public class pago_factura_credito extends javax.swing.JDialog {
                 btn_busarActionPerformed(evt);
             }
         });
-        jPanel2.add(btn_busar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 50, 32));
+        jPanel2.add(btn_busar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 50, 32));
 
         txt_total_saldo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txt_total_saldo.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -457,30 +473,106 @@ public class pago_factura_credito extends javax.swing.JDialog {
                 txt_total_saldoActionPerformed(evt);
             }
         });
-        jPanel2.add(txt_total_saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 320, 160, 32));
+        jPanel2.add(txt_total_saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 380, 160, 32));
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        jLabel8.setText("Total a pagar: ");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 110, 30));
+        jLabel8.setText("Seleccionar Nota de Crédito");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 280, 210, 30));
 
+        jSeparator3.setBackground(new java.awt.Color(0, 153, 51));
         jSeparator3.setForeground(new java.awt.Color(0, 102, 153));
-        jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 420, 680, 10));
+        jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 550, 250, 10));
 
-        jLabel10.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(204, 0, 51));
-        jLabel10.setText("Diferencia >>>");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, 100, 30));
+        jLabel10.setText("*");
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 486, 10, -1));
 
         jLabel13.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jLabel13.setText("Período:");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, 70, 30));
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 70, 30));
 
         txt_lote_recibos_fact.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txt_lote_recibos_fact.setDisabledTextColor(new java.awt.Color(153, 0, 0));
         txt_lote_recibos_fact.setEnabled(false);
-        jPanel2.add(txt_lote_recibos_fact, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 490, 50, 30));
+        jPanel2.add(txt_lote_recibos_fact, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 440, 50, 30));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 570));
+        jLabel15.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        jLabel15.setText("Cliente:");
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 30));
+
+        jSeparator4.setForeground(new java.awt.Color(0, 102, 153));
+        jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 570, 10));
+
+        jSeparator5.setForeground(new java.awt.Color(0, 102, 153));
+        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 270, 430, 10));
+
+        tb_nota_cred.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nro NC", "Monto", "Saldo"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tb_nota_cred.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tb_nota_credMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tb_nota_cred);
+
+        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 320, 430, 120));
+
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/agrega.png"))); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 280, 50, 40));
+
+        jLabel19.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        jLabel19.setText("Total Cheque:");
+        jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 490, 110, 30));
+
+        jLabel20.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        jLabel20.setText("Serie N°:");
+        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 450, 70, 30));
+
+        jSeparator6.setForeground(new java.awt.Color(0, 102, 153));
+        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 90, 430, 10));
+
+        jLabel21.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(204, 0, 51));
+        jLabel21.setText("Diferencia >>>");
+        jPanel2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 420, 100, 30));
+
+        jLabel22.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(204, 0, 51));
+        jLabel22.setText("Entrada en caja >>>");
+        jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 560, 120, 30));
+
+        txt_cred_entrada_caja.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txt_cred_entrada_caja.setText("0");
+        txt_cred_entrada_caja.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txt_cred_entrada_caja.setEnabled(false);
+        jPanel2.add(txt_cred_entrada_caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 560, 170, 30));
+
+        jLabel11.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        jLabel11.setText("Total a pagar: ");
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, 100, 30));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 610));
 
         pack();
         setLocationRelativeTo(null);
@@ -488,8 +580,8 @@ public class pago_factura_credito extends javax.swing.JDialog {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
-        if (lbl_import_total.getText().equals("0") && txt_nro_recibo.getText().equals("0") && txt_nro_recibo.getText() == null) {
-            JOptionPane.showMessageDialog(this, "La descripción o el monto no fueron agregados");
+        if (lbl_import_total.getText().equals("0") || txt_nro_recibo.getText().equals("0") || txt_nro_recibo.getText() == null) {
+            JOptionPane.showMessageDialog(this, "El nro de recibo o el monto no fueron agregados");
 
         } else {
 
@@ -526,6 +618,7 @@ public class pago_factura_credito extends javax.swing.JDialog {
     private void chk_efectivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chk_efectivoActionPerformed
         chk_cheque.setSelected(false);
         txt_monto_pago.setEnabled(true);
+        btn_cheques.setEnabled(false);
         chk_efec = "X";
         chk_cheq = "";
     }//GEN-LAST:event_chk_efectivoActionPerformed
@@ -533,6 +626,8 @@ public class pago_factura_credito extends javax.swing.JDialog {
     private void chk_chequeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chk_chequeActionPerformed
         chk_efectivo.setSelected(false);
         txt_monto_pago.setEnabled(false);
+        btn_cheques.setEnabled(true);
+        txt_monto_pago.setText("0");
         chk_cheq = "X";
         chk_efec = "";
 // TODO add your handling code here:
@@ -565,16 +660,18 @@ public class pago_factura_credito extends javax.swing.JDialog {
 
         calcularCheque();
         calcularfacturas();
+        calcularCreditos();
         calcular_total_tipo();
         calcular_diferencia();
+        calcular_entrada_caja();
         literal();
     }//GEN-LAST:event_btncalcularActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_chequesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_chequesActionPerformed
         Modulo_recibo_factura mrf;
         mrf = new Modulo_recibo_factura(new javax.swing.JDialog(), true);
         mrf.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btn_chequesActionPerformed
 
     private void tb_facturasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_facturasMouseClicked
 
@@ -617,6 +714,31 @@ public class pago_factura_credito extends javax.swing.JDialog {
     private void txt_nro_reciboKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nro_reciboKeyReleased
         genera();
     }//GEN-LAST:event_txt_nro_reciboKeyReleased
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        cod_cliente = id_cliente_cre.getText();
+        Agregar_nota_credito acf;
+        acf = new Agregar_nota_credito(new javax.swing.JDialog(), true);
+        acf.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void tb_nota_credMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_nota_credMouseClicked
+        if (JOptionPane.showConfirmDialog(rootPane, "Excluir, ¿desea continuar?",
+                "Items", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            DefaultTableModel model = (DefaultTableModel) tb_nota_cred.getModel();
+            int fila = tb_nota_cred.getSelectedRow();
+            if (fila >= 0) {
+                model.removeRow(fila);
+
+                if (fila == 0) {
+
+                    txt_monto_credito.setText("0");
+                }
+                btncalcular.doClick();
+            }
+
+        }
+    }//GEN-LAST:event_tb_nota_credMouseClicked
 
     /**
      * @param args the command line arguments
@@ -666,35 +788,44 @@ public class pago_factura_credito extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_agreagr_factura;
     private javax.swing.JButton btn_busar;
+    private javax.swing.JButton btn_cheques;
     public static javax.swing.JButton btncalcular;
     private javax.swing.JCheckBox chk_cheque;
     private javax.swing.JCheckBox chk_contado;
     private javax.swing.JCheckBox chk_efectivo;
     private javax.swing.JCheckBox chk_plazo;
     public static javax.swing.JTextField id_cliente_cre;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JLabel lbl_import_total;
     private javax.swing.JLabel lbl_literal;
     private javax.swing.JLabel lbl_literal_pro;
@@ -704,8 +835,11 @@ public class pago_factura_credito extends javax.swing.JDialog {
     private javax.swing.JPanel panel_config;
     public static javax.swing.JTable tb_detalles;
     public static javax.swing.JTable tb_facturas;
+    public static javax.swing.JTable tb_nota_cred;
     public static javax.swing.JTextField txt_almacen;
+    private javax.swing.JTextField txt_cred_entrada_caja;
     public static javax.swing.JTextField txt_lote_recibos_fact;
+    private javax.swing.JLabel txt_monto_credito;
     private javax.swing.JTextField txt_monto_pago;
     public static javax.swing.JTextField txt_monto_total;
     public static javax.swing.JTextField txt_nom_cli_cred;
@@ -729,7 +863,7 @@ public class pago_factura_credito extends javax.swing.JDialog {
         String nro_recibo = txt_nro_recibo.getText();
         String id_cliente = id_cliente_cre.getText();
         String fact = lbl_serie_pago.getText();
-        String valor = lbl_import_total.getText();
+        String valor = txt_cred_entrada_caja.getText();
 
         txt_nro_docu.setText(nro_recibo);
         txt_des_caja.setText("Recibo de dinero segun Serie N°:" + fact + " /" + " Id cliente:" + id_cliente);
@@ -965,6 +1099,52 @@ public class pago_factura_credito extends javax.swing.JDialog {
         return ReadyToExhibit;
     }// FIN METODO
 
+    void actEstadoDevo(String cod, String monto) {
+        if (txt_almacen.getText().equals("0000001")) {
+            try {
+
+                String sql = "UPDATE devolucion_facturacion_fiscal SET saldo_cred = '" + monto
+                        + "' WHERE num_bol = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+
+        //2
+        if (txt_almacen.getText().equals("0000002")) {
+            try {
+
+                String sql = "UPDATE devolucion_facturacion_surc_2 SET saldo_cred = '" + monto
+                        + "' WHERE num_bol = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+
+    }
+
     void actEstadoVentas(String cod, String monto) {
         if (txt_almacen.getText().equals("0000001")) {
             try {
@@ -1135,6 +1315,8 @@ public class pago_factura_credito extends javax.swing.JDialog {
 
                 detalle_pago_credito();
                 detalle_pago_facturas();
+                detalle_nota_credito();
+
                 String capcod = "", capcan = "", vn = "";
                 for (int i = 0; i < pago_factura_credito.tb_facturas.getRowCount(); i++) {
                     //  capcod = pago_factura_credito.tb_facturas.getValueAt(i, 0).toString();
@@ -1143,6 +1325,14 @@ public class pago_factura_credito extends javax.swing.JDialog {
                     actEstadoVentas(vn, capcan);
                     actpagosStatus(capcan, vn);
                 }
+                
+                  String cod = "", scred = "";
+                    for (int i = 0; i < pago_factura_credito.tb_nota_cred.getRowCount(); i++) {
+                        cod = pago_factura_credito.tb_nota_cred.getValueAt(i, 0).toString();
+                        scred = pago_factura_credito.tb_nota_cred.getValueAt(i, 2).toString();
+
+                        actEstadoDevo(cod, scred);
+                    }
 
                 cargar_Caja();
                 JOptionPane.showMessageDialog(null, "Operación exitosa!");
@@ -1227,6 +1417,44 @@ public class pago_factura_credito extends javax.swing.JDialog {
         }
     }
 
+    void detalle_nota_credito() {
+        for (int i = 0; i < tb_nota_cred.getRowCount(); i++) {
+            String InsertarSQL = "INSERT INTO pago_credito_devo (nro_nota_pago,nro_nota_dev,monto_importe,monto_saldo,fecha_data,fecha_vista,ope_sucursal) VALUES (?,?,?,?,?,?,?)";
+            String nro = lbl_serie_pago.getText();
+            String factura = tb_nota_cred.getValueAt(i, 0).toString();
+            String importe = tb_nota_cred.getValueAt(i, 1).toString();
+            String saldo = tb_nota_cred.getValueAt(i, 2).toString();
+            String fecha_data = lbl_fecha_hoy.getText();
+            String fecha_vista = Principal.lbl_fecha_principal.getText();
+            String sucursal = Caja_caja.txt_alma_caja.getText();
+
+            try {
+                Connection cn = conectar.getInstance().getConnection();
+
+                PreparedStatement pst = cn.prepareStatement(InsertarSQL);
+                pst.setString(1, nro);
+                pst.setString(2, factura);
+                pst.setString(3, importe);
+                pst.setString(4, saldo);
+                pst.setString(5, fecha_data);
+                pst.setString(6, fecha_vista);
+                pst.setString(7, sucursal);
+
+                int n = pst.executeUpdate();
+                conectar.getInstance().closeConnection(cn);
+
+                if (n > 0) {
+
+                  
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(pago_factura_credito.class
+                        .getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
     public void calcularCheque() {
 
         ///
@@ -1253,13 +1481,42 @@ public class pago_factura_credito extends javax.swing.JDialog {
         }
     }
 
+    public void calcularCreditos() {
+
+        ///
+        String imp = "0", subtotal = "0", total = "0";
+
+        for (int i = 0; i < tb_nota_cred.getRowCount(); i++) {
+            BigDecimal PulidoPrec = ingreso.TransformReales(tb_nota_cred.getValueAt(i, 1).toString().replaceAll("\\s", ""));
+            imp = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(PulidoPrec.toString());
+            subtotal = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(ingreso.TransformReales(subtotal).add(ingreso.TransformReales(imp)).toString());
+            txt_monto_credito.setText(subtotal);
+        }
+    }
+
     public void calcular_total_tipo() {
 
-        String totalpor = "0";
+        String totalpor = "0", inter = "0", totalRec = "0";
         BigDecimal Precio_efec = ingreso.TransformReales(lbl_total_efect.getText());
         BigDecimal precio_cheque = ingreso.TransformReales(lbl_total_cheque.getText());
         totalpor = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(precio_cheque.add(Precio_efec).toString());
-        lbl_import_total.setText(totalpor);
+        inter = totalpor;
+        ///
+        BigDecimal credEfect = ingreso.TransformReales(inter);
+        BigDecimal notaCre = ingreso.TransformReales(txt_monto_credito.getText());
+        totalRec = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(credEfect.add(notaCre).toString());
+
+        lbl_import_total.setText(totalRec);
+
+    }
+
+    public void calcular_entrada_caja() {
+
+        String totalpor = "0";
+        BigDecimal Precio_efec = ingreso.TransformReales(lbl_import_total.getText());
+        BigDecimal precio_cheque = ingreso.TransformReales(txt_monto_credito.getText());
+        totalpor = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(Precio_efec.subtract(precio_cheque).toString());
+        txt_cred_entrada_caja.setText(totalpor);
 
     }
 

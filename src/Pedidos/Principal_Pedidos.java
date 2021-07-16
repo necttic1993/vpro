@@ -9,6 +9,7 @@ import Clases.Colorear_Pedidos;
 import Conexion_DB.conectar;
 import Loggin_Principal.Principal;
 import static Loggin_Principal.Principal.lbl_usu_nom;
+import Loggin_Principal.Seleccion_alma_pedidos;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -71,6 +72,8 @@ public class Principal_Pedidos extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         btn_cargar_datos = new javax.swing.JButton();
         lbl_almacen_pedidos = new javax.swing.JLabel();
+        lbl_ambiente = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("PEDIDOS");
@@ -159,13 +162,26 @@ public class Principal_Pedidos extends javax.swing.JDialog {
                 btn_cargar_datosActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_cargar_datos, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 20, -1, 30));
+        jPanel1.add(btn_cargar_datos, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 10, -1, 30));
 
-        lbl_almacen_pedidos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbl_almacen_pedidos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lbl_almacen_pedidos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Caja_2/iconos/dpto.png"))); // NOI18N
-        lbl_almacen_pedidos.setText("almacen");
+        lbl_almacen_pedidos.setText("Almacen");
+        lbl_almacen_pedidos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lbl_almacen_pedidos.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        lbl_almacen_pedidos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_almacen_pedidosMouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_almacen_pedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, 110, 40));
+
+        lbl_ambiente.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jPanel1.add(lbl_ambiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 20, 80, 30));
+
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel3.setText("Ambiente:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, 80, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 600));
 
@@ -175,8 +191,7 @@ public class Principal_Pedidos extends javax.swing.JDialog {
 
     private void tbProductos_pedidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProductos_pedidoMouseClicked
 
-        
-        
+
     }//GEN-LAST:event_tbProductos_pedidoMouseClicked
 
     private void tbProductos_pedidoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbProductos_pedidoKeyReleased
@@ -223,7 +238,7 @@ public class Principal_Pedidos extends javax.swing.JDialog {
             this.dispose();
         }
 
-        if (lbl_almacen_pedidos.getText().equals("TODOS")) {
+          if (lbl_ambiente.getText().equals("0")) {
             cargar(txt_bus.getText());
         } else {
             cargar_espe(txt_bus.getText());
@@ -242,6 +257,16 @@ public class Principal_Pedidos extends javax.swing.JDialog {
     private void btn_cargar_datosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cargar_datosActionPerformed
         control_permisos();
     }//GEN-LAST:event_btn_cargar_datosActionPerformed
+
+    private void lbl_almacen_pedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_almacen_pedidosMouseClicked
+        if (Principal.lbl_usu_almacen.getText().equals("TODOS")) {
+            Seleccion_alma_pedidos aped;
+            aped = new Seleccion_alma_pedidos(new javax.swing.JDialog(), true);
+            aped.setVisible(true);
+        } else {
+
+        }
+    }//GEN-LAST:event_lbl_almacen_pedidosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -273,29 +298,7 @@ public class Principal_Pedidos extends javax.swing.JDialog {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -325,9 +328,11 @@ public class Principal_Pedidos extends javax.swing.JDialog {
     public static javax.swing.JButton btn_cargar_datos;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane4;
     public static javax.swing.JLabel lbl_almacen_pedidos;
+    private javax.swing.JLabel lbl_ambiente;
     public static javax.swing.JTable tbProductos_pedido;
     public static javax.swing.JTextField txt_bus;
     // End of variables declaration//GEN-END:variables
@@ -409,6 +414,9 @@ public class Principal_Pedidos extends javax.swing.JDialog {
                 model.addRow(registros);
             }
             tbProductos_pedido.setModel(model);
+
+            Colorear_Pedidos color = new Colorear_Pedidos(6);
+            tbProductos_pedido.getColumnModel().getColumn(0).setCellRenderer(color);
 
             tbProductos_pedido.getColumnModel().getColumn(0).setPreferredWidth(80);
             tbProductos_pedido.getColumnModel().getColumn(1).setPreferredWidth(95);
@@ -502,8 +510,8 @@ public class Principal_Pedidos extends javax.swing.JDialog {
 
     void cargarUsu() {
 
-        String user = lbl_usu_nom.getText();
-        String mostrar = "select * from usuarios where usu='" + user + "' ";
+        String user = Principal.lbl_id_user.getText();
+        String mostrar = "select * from usuarios where usu_cod='" + user + "' ";
 
         try {
             Connection cn = conectar.getInstance().getConnection();
@@ -513,6 +521,7 @@ public class Principal_Pedidos extends javax.swing.JDialog {
             while (rs.next()) {
 
                 lbl_almacen_pedidos.setText(rs.getString(6));
+                lbl_ambiente.setText(rs.getString(14));
 
             }
             conectar.getInstance().closeConnection(cn);
@@ -525,12 +534,11 @@ public class Principal_Pedidos extends javax.swing.JDialog {
 
     void control_permisos() {
 
-        if (Principal.lbl_usu_almacen.getText().equals("TODOS")) {
+        if (lbl_ambiente.getText().equals("0")) {
             cargar("");
         } else {
             cargar_espe("");
         }
-
     }
 
     public void actualiza() {

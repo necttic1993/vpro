@@ -37,7 +37,7 @@ public class Clientes_buscar_factura extends javax.swing.JDialog {
 
     void cargar(String valor) {
         String mostrar = "SELECT * FROM tienda_clientes WHERE CONCAT(cli_nombre,cli_ruc) LIKE '%" + valor + "%'";
-        String[] titulos = {"Código", "Nombre", "Razón Social", "RUC", "Contacto", "Dirección", "Status."};
+        String[] titulos = {"Código", "Nombre", "Razón Social", "RUC", "Contacto", "Dirección", "Status.", "Crédito"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
 
@@ -54,6 +54,7 @@ public class Clientes_buscar_factura extends javax.swing.JDialog {
                 Registros[4] = rs.getString("cli_contacto");
                 Registros[5] = rs.getString("cli_dir");
                 Registros[6] = rs.getString("cli_status");
+                Registros[7] = rs.getString("credito_fis");
                 model.addRow(Registros);
             }
             tbclientes.setModel(model);
@@ -64,6 +65,7 @@ public class Clientes_buscar_factura extends javax.swing.JDialog {
             tbclientes.getColumnModel().getColumn(4).setPreferredWidth(100);
             tbclientes.getColumnModel().getColumn(5).setPreferredWidth(250);
             tbclientes.getColumnModel().getColumn(6).setPreferredWidth(100);
+            tbclientes.getColumnModel().getColumn(7).setPreferredWidth(100);
             conectar.getInstance().closeConnection(cn);
 
         } catch (SQLException ex) {
@@ -175,7 +177,7 @@ public class Clientes_buscar_factura extends javax.swing.JDialog {
     }//GEN-LAST:event_txtbusKeyReleased
 
     private void tbclientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbclientesMouseClicked
-        String nom = "", dp = "", dir = "", cod = "", nac = "";
+        String nom = "", cred = "", dir = "", cod = "", nac = "";
         int fila = tbclientes.getSelectedRow();
         try {
             if (fila == -1) {
@@ -184,9 +186,11 @@ public class Clientes_buscar_factura extends javax.swing.JDialog {
             } else {
                 cod = (String) tbclientes.getValueAt(fila, 0);
                 nom = (String) tbclientes.getValueAt(fila, 1);
+                cred = (String) tbclientes.getValueAt(fila, 7);
 
                 pago_factura_credito.id_cliente_cre.setText(cod);
                 pago_factura_credito.txt_nom_cli_cred.setText(nom);
+              
                 // Ventas_venta.txt_dias_plazo.setText(dp);
 
                 this.dispose();
@@ -200,7 +204,7 @@ public class Clientes_buscar_factura extends javax.swing.JDialog {
         char Tecla = evt.getKeyChar();
 
         if (Tecla == KeyEvent.VK_ENTER) {
-            String nom = "", dp = "", dir = "", cod = "", nac = "";
+            String nom = "", dp = "", cred = "", cod = "", nac = "";
             int fila = tbclientes.getSelectedRow();
             try {
                 if (fila == -1) {
@@ -209,10 +213,11 @@ public class Clientes_buscar_factura extends javax.swing.JDialog {
                 } else {
                     cod = (String) tbclientes.getValueAt(fila, 0);
                     nom = (String) tbclientes.getValueAt(fila, 1);
-                    dp = (String) tbclientes.getValueAt(fila, 3);
+                    cred = (String) tbclientes.getValueAt(fila, 7);
 
                     pago_factura_credito.id_cliente_cre.setText(cod);
                     pago_factura_credito.txt_nom_cli_cred.setText(nom);
+                
                     // Ventas_venta.txt_dias_plazo.setText(dp);
                     // Ventas_venta.txt_dias_plazo.setText(dp);
 

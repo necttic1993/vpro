@@ -5,7 +5,6 @@
  */
 package Ventas.Fact_surc_9;
 
-import Ventas.Fact_surc_9.*;
 import Clases.Clase_Literal;
 
 import Clases.GenerarNumero;
@@ -49,6 +48,8 @@ public class Facturas_facturas_9 extends javax.swing.JDialog {
     public Facturas_facturas_9(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
+        btn_buscar.setVisible(false);
         codigos();
 
         cargarConfig();
@@ -180,6 +181,8 @@ public class Facturas_facturas_9 extends javax.swing.JDialog {
         jPanel1.add(txt_cli_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 370, 30));
 
         txt_cod.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txt_cod.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txt_cod.setEnabled(false);
         txt_cod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_codActionPerformed(evt);
@@ -414,7 +417,7 @@ public class Facturas_facturas_9 extends javax.swing.JDialog {
 
         txt_esta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_esta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt_esta.setText("001");
+        txt_esta.setText("002");
         txt_esta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txt_esta.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_esta.setEnabled(false);
@@ -430,7 +433,7 @@ public class Facturas_facturas_9 extends javax.swing.JDialog {
 
         txt_timbrado.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_timbrado.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt_timbrado.setText("10101010");
+        txt_timbrado.setText("14944544");
         txt_timbrado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txt_timbrado.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_timbrado.setEnabled(false);
@@ -939,7 +942,7 @@ public class Facturas_facturas_9 extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_buscar;
+    public static javax.swing.JButton btn_buscar;
     public static javax.swing.JButton btncalcular;
     private javax.swing.JButton btneli;
     private javax.swing.JButton btnven;
@@ -1279,7 +1282,8 @@ public class Facturas_facturas_9 extends javax.swing.JDialog {
     void codigos() {
 
         String c = "";
-        String SQL = "select max(nro_fact_ventas) from ventas_facturacion_surc_9";
+        
+          String SQL = "select max(nro_fact_ventas) from ventas_facturacion_surc_9 where nro_timbra_ventas='" + txt_timbrado.getText() + "'";
 
         try {
             Connection cn = conectar.getInstance().getConnection();

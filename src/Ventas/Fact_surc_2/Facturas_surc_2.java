@@ -47,6 +47,7 @@ public class Facturas_surc_2 extends javax.swing.JDialog {
     public Facturas_surc_2(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        btn_buscar.setVisible(false);
         codigos();
 
         cargarConfig();
@@ -196,6 +197,8 @@ public class Facturas_surc_2 extends javax.swing.JDialog {
         jPanel1.add(txt_cli_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 370, 30));
 
         txt_cod.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txt_cod.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txt_cod.setEnabled(false);
         txt_cod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_codActionPerformed(evt);
@@ -756,7 +759,7 @@ public class Facturas_surc_2 extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_buscar;
+    public static javax.swing.JButton btn_buscar;
     public static javax.swing.JButton btncalcular;
     private javax.swing.JButton btneli;
     private javax.swing.JButton btnven;

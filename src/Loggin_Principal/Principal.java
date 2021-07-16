@@ -169,9 +169,9 @@ public class Principal extends javax.swing.JFrame {
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         lbl_mode_dark.setText(mode);
         if (mode.equals("oscuro")) {
-            panel_principal.setBackground(new java.awt.Color(8, 52, 74)); 
-            
-        } 
+            panel_principal.setBackground(new java.awt.Color(8, 52, 74));
+
+        }
 
         menu_serv.setVisible(false);
         lbl_notifi_pedidos.setVisible(false);
@@ -2236,8 +2236,8 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 vf6.setVisible(true);
 
             }
-            
-              if (Principal.lbl_usu_almacen.getText().equals("0000028")) {
+
+            if (Principal.lbl_usu_almacen.getText().equals("0000028")) {
 
                 Principal_ventas_facturas_28 vf28;
                 vf28 = new Principal_ventas_facturas_28(new javax.swing.JDialog(), true);
@@ -2324,6 +2324,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     }//GEN-LAST:event_menu_recibosActionPerformed
 
     private void menu_pedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_pedidosActionPerformed
+
         try {
             Principal_Pedidos pped;
             pped = new Principal_Pedidos(new javax.swing.JDialog(), true);
@@ -2333,6 +2334,8 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
             Logger.getLogger(Principal.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
+
+
     }//GEN-LAST:event_menu_pedidosActionPerformed
 
     private void menu_egresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_egresoActionPerformed
@@ -2814,8 +2817,8 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 }
 
             }
-            
-               if (Principal.lbl_usu_almacen.getText().equals("0000028")) {
+
+            if (Principal.lbl_usu_almacen.getText().equals("0000028")) {
 
                 try {
                     Principal_ventas_28 pv_28 = new Principal_ventas_28(new javax.swing.JDialog(), true);
@@ -3861,7 +3864,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 if (is == null) {
                     System.out.println("imagen vacia");
                 } else {
-                    
+
                     BufferedImage bi = ImageIO.read(is);
                     foto = new ImageIcon(bi);
                     Image img = foto.getImage();

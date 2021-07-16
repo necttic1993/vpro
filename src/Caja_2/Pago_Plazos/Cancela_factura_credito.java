@@ -104,7 +104,7 @@ public class Cancela_factura_credito extends javax.swing.JDialog {
         lbl_serie_pago.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lbl_serie_pago.setForeground(new java.awt.Color(153, 0, 0));
         lbl_serie_pago.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jPanel2.add(lbl_serie_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 130, 30));
+        jPanel2.add(lbl_serie_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 230, 30));
 
         id_cliente_cre.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         id_cliente_cre.setDisabledTextColor(new java.awt.Color(0, 0, 0));

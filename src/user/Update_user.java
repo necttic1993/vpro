@@ -83,6 +83,8 @@ public class Update_user extends javax.swing.JDialog {
         cb_almacen = new javax.swing.JComboBox();
         jLabel7 = new javax.swing.JLabel();
         txt_cod_cuentas = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        txt_ambiente = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Actualizar Usuarios");
@@ -188,8 +190,8 @@ public class Update_user extends javax.swing.JDialog {
         jPanel1.add(txt_pre_b, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 40, 30));
 
         jLabel13.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel13.setText("Min:");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 30, 30));
+        jLabel13.setText("Amb.:");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 40, 30));
 
         txt_vende_sin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jPanel1.add(txt_vende_sin, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 160, 40, 30));
@@ -242,6 +244,13 @@ public class Update_user extends javax.swing.JDialog {
         txt_cod_cuentas.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jPanel1.add(txt_cod_cuentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, 110, 30));
 
+        jLabel15.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel15.setText("Min:");
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 30, 30));
+
+        txt_ambiente.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jPanel1.add(txt_ambiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(369, 160, 40, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -277,6 +286,7 @@ public class Update_user extends javax.swing.JDialog {
                     + "',pre_c ='" + txt_pre_c.getText()
                     + "',pre_post ='" + txt_vende_sin.getText()
                     + "',caja_rap ='" + cb_caja.getSelectedItem()
+                    + "',user_local ='" + txt_ambiente.getText()
                     + "' WHERE usu_cod = '" + txtcod.getText() + "'";
             try {
                 Connection cn = conectar.getInstance().getConnection();
@@ -378,6 +388,7 @@ public class Update_user extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -388,6 +399,7 @@ public class Update_user extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbl_pass_word;
+    private javax.swing.JTextField txt_ambiente;
     private javax.swing.JTextField txt_cod_cuentas;
     private javax.swing.JPasswordField txt_pass;
     private javax.swing.JTextField txt_por_venta;
@@ -422,7 +434,7 @@ public class Update_user extends javax.swing.JDialog {
     void cargarDatos(String cod) {
 
         try {
-            String nom = "", clas = "", grupo = "", caja_rap = "", precio_bloq = "", sin_stock = "", lucro = "", precio_b = "", minimo = "", cuentas = "", almacen = "";
+            String nom = "", clas = "", grupo = "", caja_rap = "", precio_bloq = "", sin_stock = "", lucro = "", precio_b = "", minimo = "", cuentas = "", almacen = "", ambiente = "";
             Connection cn = conectar.getInstance().getConnection();
 
             String cons = "select * from usuarios WHERE usu_cod='" + cod + "'";
@@ -440,6 +452,7 @@ public class Update_user extends javax.swing.JDialog {
                 lucro = rs.getString(8);
                 precio_b = rs.getString(10);
                 minimo = rs.getString(11);
+                ambiente = rs.getString(14);
 
             }
 
@@ -454,6 +467,7 @@ public class Update_user extends javax.swing.JDialog {
             txt_pre_c.setText(minimo);
             cb_almacen.setSelectedItem(almacen);
             txt_cod_cuentas.setText(cuentas);
+            txt_ambiente.setText(ambiente);
 
             conectar.getInstance().closeConnection(cn);
 

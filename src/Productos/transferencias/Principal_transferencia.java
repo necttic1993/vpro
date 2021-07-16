@@ -8,6 +8,7 @@ package Productos.transferencias;
 import Clases.Colorear_Transfe;
 import Conexion_DB.conectar;
 import Loggin_Principal.Principal;
+import Loggin_Principal.Seleccion_alma_transferencia;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -48,14 +49,8 @@ public class Principal_transferencia extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
 
-        if (Principal.lbl_usu_almacen.getText().equals("TODOS")) {
-            lbl_almacen_ventas.setText("TODOS");
-            cargar("");
-        } else {
-            lbl_almacen_ventas.setText(Principal.lbl_usu_almacen.getText());
-            btn_transfe.setEnabled(false);
-            cargar_espe("");
-        }
+        cargarUsu();
+        control_permisos();
 
         txt_bus.requestFocus();
         btn_cargar_trans.setVisible(false);
@@ -77,7 +72,9 @@ public class Principal_transferencia extends javax.swing.JDialog {
         txt_bus = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         btn_cargar_trans = new javax.swing.JButton();
-        lbl_almacen_ventas = new javax.swing.JLabel();
+        lbl_almacen_transferencia = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        lbl_ambiente_transfer = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("TRANSFERENCIAS");
@@ -163,13 +160,26 @@ public class Principal_transferencia extends javax.swing.JDialog {
                 btn_cargar_transActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_cargar_trans, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 20, -1, 30));
+        jPanel1.add(btn_cargar_trans, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 10, -1, 30));
 
-        lbl_almacen_ventas.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        lbl_almacen_ventas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Caja_2/iconos/dpto.png"))); // NOI18N
-        lbl_almacen_ventas.setText("almacen");
-        lbl_almacen_ventas.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jPanel1.add(lbl_almacen_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, 110, 40));
+        lbl_almacen_transferencia.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbl_almacen_transferencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Caja_2/iconos/dpto.png"))); // NOI18N
+        lbl_almacen_transferencia.setText("almacen");
+        lbl_almacen_transferencia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbl_almacen_transferencia.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        lbl_almacen_transferencia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_almacen_transferenciaMouseClicked(evt);
+            }
+        });
+        jPanel1.add(lbl_almacen_transferencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 130, 40));
+
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel3.setText("Ambiente:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, 80, 30));
+
+        lbl_ambiente_transfer.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jPanel1.add(lbl_ambiente_transfer, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 20, 80, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1260, 580));
 
@@ -193,7 +203,12 @@ public class Principal_transferencia extends javax.swing.JDialog {
             txt_bus.setText("");
         }
         if (Tecla == KeyEvent.VK_ENTER) {
+            int filaMod = tb_trans.getSelectedRow();
+            cod_trans_detalle = (String) tb_trans.getValueAt(filaMod, 0);
 
+            Visor_transferecia visor;
+            visor = new Visor_transferecia(new javax.swing.JDialog(), true);
+            visor.setVisible(true);
         }
     }//GEN-LAST:event_tb_transKeyPressed
 
@@ -213,7 +228,7 @@ public class Principal_transferencia extends javax.swing.JDialog {
     }//GEN-LAST:event_txt_busKeyPressed
 
     private void txt_busKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_busKeyReleased
-        if (Principal.lbl_usu_almacen.getText().equals("TODOS")) {
+        if (lbl_ambiente_transfer.getText().equals("0")) {
             cargar(txt_bus.getText());
         } else {
             cargar_espe(txt_bus.getText());
@@ -223,15 +238,17 @@ public class Principal_transferencia extends javax.swing.JDialog {
     }//GEN-LAST:event_txt_busKeyReleased
 
     private void btn_cargar_transActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cargar_transActionPerformed
-        if (Principal.lbl_usu_almacen.getText().equals("TODOS")) {
-            lbl_almacen_ventas.setText("TODOS");
-            cargar("");
-        } else {
-            lbl_almacen_ventas.setText(Principal.lbl_usu_almacen.getText());
-            btn_transfe.setEnabled(false);
-            cargar_espe("");
-        }
+        control_permisos();
     }//GEN-LAST:event_btn_cargar_transActionPerformed
+
+    private void lbl_almacen_transferenciaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_almacen_transferenciaMouseClicked
+
+        if (Principal.lbl_usu_almacen.getText().equals("TODOS")) {
+            Seleccion_alma_transferencia tped;
+            tped = new Seleccion_alma_transferencia(new javax.swing.JDialog(), true);
+            tped.setVisible(true);
+        } 
+    }//GEN-LAST:event_lbl_almacen_transferenciaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -294,9 +311,11 @@ public class Principal_transferencia extends javax.swing.JDialog {
     public static javax.swing.JButton btn_cargar_trans;
     private javax.swing.JButton btn_transfe;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JLabel lbl_almacen_ventas;
+    public static javax.swing.JLabel lbl_almacen_transferencia;
+    private javax.swing.JLabel lbl_ambiente_transfer;
     public static javax.swing.JTable tb_trans;
     public static javax.swing.JTextField txt_bus;
     // End of variables declaration//GEN-END:variables
@@ -348,7 +367,7 @@ public class Principal_transferencia extends javax.swing.JDialog {
 
     void cargar_espe(String valor) {
         try {
-            String almacen = lbl_almacen_ventas.getText();
+            String almacen = lbl_almacen_transferencia.getText();
             String[] titulos = {"Nro Transf.", "Almacén Origen", "Almacém Destino", "Descripción", "Items", "Valor Total", "Fecha", "Situación"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
@@ -460,6 +479,41 @@ public class Principal_transferencia extends javax.swing.JDialog {
         menu_opcion.add(menu_modPro);
         tb_trans.setComponentPopupMenu(menu_opcion);
 
+    }
+
+    void cargarUsu() {
+
+        String user = Principal.lbl_id_user.getText();
+        String mostrar = "select * from usuarios where usu_cod='" + user + "' ";
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(mostrar);
+            while (rs.next()) {
+
+                lbl_almacen_transferencia.setText(rs.getString(6));
+                lbl_ambiente_transfer.setText(rs.getString(14));
+
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal_transferencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    void control_permisos() {
+
+        if (lbl_ambiente_transfer.getText().equals("0")) {
+            cargar("");
+
+        } else {
+            cargar_espe("");
+            btn_transfe.setEnabled(false);
+        }
     }
 
 }

@@ -130,13 +130,16 @@ public class config_fiscal_surcu extends javax.swing.JDialog {
                 txt_nro_seq_expo.setText(rs.getString(55));
                 txt_nro_estable_expo.setText(rs.getString(56));
                 txt_hab_lote_fact.setText(rs.getString(57));
-
-                BufferedImage bi = ImageIO.read(is);
-                foto = new ImageIcon(bi);
-                Image img = foto.getImage();
-                Image newimg = img.getScaledInstance(240, 160, java.awt.Image.SCALE_SMOOTH);
-                ImageIcon newicon = new ImageIcon(newimg);
-                lbl_ima1.setIcon(newicon);
+                if (is == null) {
+                    System.out.println("imagen vacia");
+                } else {
+                    BufferedImage bi = ImageIO.read(is);
+                    foto = new ImageIcon(bi);
+                    Image img = foto.getImage();
+                    Image newimg = img.getScaledInstance(240, 160, java.awt.Image.SCALE_SMOOTH);
+                    ImageIcon newicon = new ImageIcon(newimg);
+                    lbl_ima1.setIcon(newicon);
+                }
             }
             conectar.getInstance().closeConnection(cn);
 

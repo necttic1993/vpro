@@ -56,6 +56,7 @@ public class Devol_surc_fiscal extends javax.swing.JDialog {
         lbl_sub_total.setVisible(false);
         lbl_literal_pro.setVisible(false);
         lbl_literal.setVisible(false);
+        pn_componentes.setVisible(false);
         txt_cli_nom.setDisabledTextColor(Color.black);
         txt_forma_pago.setDisabledTextColor(Color.black);
         txt_forma_pago.setDisabledTextColor(Color.black);
@@ -81,15 +82,12 @@ public class Devol_surc_fiscal extends javax.swing.JDialog {
         txt_cod_cli = new javax.swing.JTextField();
         txt_cli_nom = new javax.swing.JTextField();
         txt_cod = new javax.swing.JTextField();
-        txt_forma_pago = new javax.swing.JTextField();
-        btn_buscar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         txt_sequencia = new javax.swing.JTextField();
         lbl_cod = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         lbl_fecha_VISOR = new javax.swing.JLabel();
-        btncalcular = new javax.swing.JButton();
         btneli = new javax.swing.JButton();
         btnven = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -100,7 +98,6 @@ public class Devol_surc_fiscal extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         txttotal = new javax.swing.JLabel();
-        lbl_literal_pro = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
@@ -111,15 +108,21 @@ public class Devol_surc_fiscal extends javax.swing.JDialog {
         jLabel14 = new javax.swing.JLabel();
         txt_timbrado = new javax.swing.JTextField();
         lbl_sub_total = new javax.swing.JLabel();
-        lbl_literal = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
-        lbl_count_filas = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         txt_nro_fact_devol = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
+        ch_generar_stock = new javax.swing.JCheckBox();
+        jLabel17 = new javax.swing.JLabel();
+        pn_componentes = new javax.swing.JPanel();
+        lbl_literal = new javax.swing.JLabel();
+        btncalcular = new javax.swing.JButton();
+        lbl_count_filas = new javax.swing.JLabel();
+        txt_forma_pago = new javax.swing.JTextField();
+        lbl_literal_pro = new javax.swing.JLabel();
+        btn_buscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Facturas");
@@ -193,22 +196,6 @@ public class Devol_surc_fiscal extends javax.swing.JDialog {
         });
         jPanel1.add(txt_cod, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 140, 32));
 
-        txt_forma_pago.setEnabled(false);
-        jPanel1.add(txt_forma_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 540, 80, 30));
-
-        btn_buscar.setBackground(new java.awt.Color(255, 255, 255));
-        btn_buscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btn_buscar.setForeground(new java.awt.Color(255, 255, 255));
-        btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
-        btn_buscar.setToolTipText("");
-        btn_buscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_buscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_buscarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 50, 32));
-
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_5/agregando-boton-cuadrado-negro-simbolo-de-interfaz.png"))); // NOI18N
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -222,7 +209,6 @@ public class Devol_surc_fiscal extends javax.swing.JDialog {
         txt_sequencia.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_sequencia.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_sequencia.setText("001");
-        txt_sequencia.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txt_sequencia.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_sequencia.setEnabled(false);
         txt_sequencia.addActionListener(new java.awt.event.ActionListener() {
@@ -255,19 +241,6 @@ public class Devol_surc_fiscal extends javax.swing.JDialog {
         lbl_fecha_VISOR.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_fecha_VISOR.setText("Nro");
         jPanel1.add(lbl_fecha_VISOR, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 70, 80, 30));
-
-        btncalcular.setBackground(new java.awt.Color(255, 255, 255));
-        btncalcular.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        btncalcular.setMnemonic('c');
-        btncalcular.setToolTipText("Calcular ALT+C");
-        btncalcular.setBorder(new javax.swing.border.MatteBorder(null));
-        btncalcular.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btncalcular.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncalcularActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btncalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 520, 40, 20));
 
         btneli.setBackground(new java.awt.Color(255, 255, 255));
         btneli.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -356,10 +329,6 @@ public class Devol_surc_fiscal extends javax.swing.JDialog {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 490, 270, 30));
 
-        lbl_literal_pro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lbl_literal_pro.setText("Son:");
-        jPanel1.add(lbl_literal_pro, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 550, 40, -1));
-
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 102)));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -391,7 +360,6 @@ public class Devol_surc_fiscal extends javax.swing.JDialog {
         txt_esta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_esta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_esta.setText("001");
-        txt_esta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txt_esta.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_esta.setEnabled(false);
         jPanel1.add(txt_esta, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 40, 50, 30));
@@ -405,9 +373,8 @@ public class Devol_surc_fiscal extends javax.swing.JDialog {
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 40, 100, 30));
 
         txt_timbrado.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        txt_timbrado.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_timbrado.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txt_timbrado.setText("0");
-        txt_timbrado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txt_timbrado.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_timbrado.setEnabled(false);
         txt_timbrado.addActionListener(new java.awt.event.ActionListener() {
@@ -418,19 +385,11 @@ public class Devol_surc_fiscal extends javax.swing.JDialog {
         jPanel1.add(txt_timbrado, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 40, 100, 30));
         jPanel1.add(lbl_sub_total, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 580, 170, 20));
 
-        lbl_literal.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lbl_literal.setText("gs");
-        jPanel1.add(lbl_literal, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 520, 180, 20));
-
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("NOTA DE CRÉDITO/DEV");
         jLabel1.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, 170, 30));
-
-        jLabel12.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel12.setText("N° Factura :");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 70, 90, 30));
 
         jPanel4.setBackground(new java.awt.Color(153, 0, 0));
 
@@ -462,9 +421,6 @@ public class Devol_surc_fiscal extends javax.swing.JDialog {
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 420, 10));
 
-        lbl_count_filas.setText("count ");
-        jPanel1.add(lbl_count_filas, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 520, -1, 30));
-
         jLabel15.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel15.setText("Número de Venta :");
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 130, 30));
@@ -485,6 +441,67 @@ public class Devol_surc_fiscal extends javax.swing.JDialog {
             }
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 110, 70, 40));
+
+        ch_generar_stock.setBackground(new java.awt.Color(0, 0, 153));
+        ch_generar_stock.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        ch_generar_stock.setForeground(new java.awt.Color(255, 255, 255));
+        ch_generar_stock.setText("Devolver Stock Físico");
+        ch_generar_stock.setContentAreaFilled(false);
+        ch_generar_stock.setOpaque(true);
+        ch_generar_stock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ch_generar_stockActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ch_generar_stock, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 110, -1, 30));
+
+        jLabel17.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel17.setText("N° Factura :");
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 70, 90, 30));
+
+        pn_componentes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lbl_literal.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lbl_literal.setText("gs");
+        pn_componentes.add(lbl_literal, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 40, 20));
+
+        btncalcular.setBackground(new java.awt.Color(255, 255, 255));
+        btncalcular.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        btncalcular.setMnemonic('c');
+        btncalcular.setToolTipText("Calcular ALT+C");
+        btncalcular.setBorder(new javax.swing.border.MatteBorder(null));
+        btncalcular.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btncalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncalcularActionPerformed(evt);
+            }
+        });
+        pn_componentes.add(btncalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 40, 20));
+
+        lbl_count_filas.setText("count ");
+        pn_componentes.add(lbl_count_filas, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, -1, 20));
+
+        txt_forma_pago.setEnabled(false);
+        pn_componentes.add(txt_forma_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 30, -1));
+
+        lbl_literal_pro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbl_literal_pro.setText("Son:");
+        pn_componentes.add(lbl_literal_pro, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 40, -1));
+
+        btn_buscar.setBackground(new java.awt.Color(255, 255, 255));
+        btn_buscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_buscar.setForeground(new java.awt.Color(255, 255, 255));
+        btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
+        btn_buscar.setToolTipText("");
+        btn_buscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_buscarActionPerformed(evt);
+            }
+        });
+        pn_componentes.add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 50, 32));
+
+        jPanel1.add(pn_componentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 510, 140, 80));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 600));
 
@@ -535,6 +552,18 @@ public class Devol_surc_fiscal extends javax.swing.JDialog {
             try {
                 // codigos();
                 factura_ventas();
+              
+                
+                if (ch_generar_stock.isSelected()) {
+                     String capcod = "", capcan = "";
+                for (int i = 0; i < Devol_surc_fiscal.tb_factura.getRowCount(); i++) {
+                    capcod = Devol_surc_fiscal.tb_factura.getValueAt(i, 0).toString();
+                    capcan = Devol_surc_fiscal.tb_factura.getValueAt(i, 3).toString();
+                    System.out.println("descontando stock en devoluciones");
+                    devolverstock(capcod, capcan);
+
+                }
+                }
                 lmpiarTxt();
 
                 DefaultTableModel modelo = (DefaultTableModel) tb_factura.getModel();
@@ -588,13 +617,11 @@ public class Devol_surc_fiscal extends javax.swing.JDialog {
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
 
-        try {
+      
             cargar(txt_cod.getText());
             cargarTxt(txt_cod_cli.getText());
             btncalcular.doClick();
-        } catch (Exception e) {
-
-        }
+        System.out.println("click");
 
         // ch_contado.doClick();
         // ch_credito.setSelected(false);
@@ -631,6 +658,10 @@ public class Devol_surc_fiscal extends javax.swing.JDialog {
         prod = new Productos_Dev(new javax.swing.JDialog(), true);
         prod.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void ch_generar_stockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ch_generar_stockActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ch_generar_stockActionPerformed
 
     /**
      * @param args the command line arguments
@@ -675,18 +706,19 @@ public class Devol_surc_fiscal extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_buscar;
+    public static javax.swing.JButton btn_buscar;
     public static javax.swing.JButton btncalcular;
     private javax.swing.JButton btneli;
     private javax.swing.JButton btnven;
+    private javax.swing.JCheckBox ch_generar_stock;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
@@ -711,6 +743,7 @@ public class Devol_surc_fiscal extends javax.swing.JDialog {
     private javax.swing.JLabel lbl_sub_total;
     private javax.swing.JLabel lbl_total_monto_iva;
     public static javax.swing.JLabel lblcanpro;
+    private javax.swing.JPanel pn_componentes;
     public static javax.swing.JTable tb_factura;
     public static javax.swing.JTextField txt_cli_nom;
     public static javax.swing.JTextField txt_cod;
@@ -1136,5 +1169,38 @@ public class Devol_surc_fiscal extends javax.swing.JDialog {
             lbl_count_filas.setText(i + "");
         }
 
+    }
+    
+    
+    
+    
+       void devolverstock(String codi, String can) {
+        int des = Integer.parseInt(can);
+        String cap = "";
+        int desfinal;
+        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(consul);
+            while (rs.next()) {
+                cap = rs.getString(5);
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (Exception e) {
+        }
+        desfinal = Integer.parseInt(cap) + des;
+        String modi = "UPDATE tienda_productos SET pro_cant='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            PreparedStatement pst = cn.prepareStatement(modi);
+            pst.executeUpdate();
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (Exception e) {
+        }
     }
 }

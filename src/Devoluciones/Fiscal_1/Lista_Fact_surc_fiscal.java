@@ -130,7 +130,7 @@ public class Lista_Fact_surc_fiscal extends javax.swing.JDialog {
                 Devol_surc_fiscal.txt_nro_fact_devol.setText(fact);
                 Devol_surc_fiscal.txt_cod_cli.setText(id_cli);
 
-                // Devolucion_Devoluciones.btncalcular.doClick();
+               Devol_surc_fiscal.btn_buscar.doClick();
                 this.dispose();
 
             }
@@ -166,7 +166,7 @@ public class Lista_Fact_surc_fiscal extends javax.swing.JDialog {
                     Devol_surc_fiscal.txt_nro_fact_devol.setText(fact);
                     Devol_surc_fiscal.txt_cod_cli.setText(id_cli);
 
-                    // Devolucion_Devoluciones.btncalcular.doClick();
+                    Devol_surc_fiscal.btn_buscar.doClick();
                     this.dispose();
 
                 }
@@ -252,7 +252,7 @@ public class Lista_Fact_surc_fiscal extends javax.swing.JDialog {
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
 
-            String cons = "select * from ventas_facturacion  WHERE CONCAT (num_bol,cod_cli_ventas,nom_cli_ventas) LIKE '%" + valor + "%'";
+            String cons = "select * from ventas_facturacion  WHERE CONCAT (num_bol,cod_cli_ventas,nom_cli_ventas) LIKE '%" + valor + "%' and  estado_fact <> 'ANULADA' ";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
