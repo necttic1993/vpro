@@ -265,8 +265,6 @@ public class Productos_Dev extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         lbl_stock_minimo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        lbl_surcusal_id = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Buscar Productos");
@@ -363,14 +361,6 @@ public class Productos_Dev extends javax.swing.JDialog {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
         jLabel2.setFocusable(false);
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 40, 30));
-
-        lbl_surcusal_id.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        lbl_surcusal_id.setForeground(new java.awt.Color(204, 0, 0));
-        jPanel1.add(lbl_surcusal_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 10, 120, 30));
-
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel4.setText("Stock referente N°:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 10, -1, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -743,12 +733,10 @@ public class Productos_Dev extends javax.swing.JDialog {
     private javax.swing.JButton btnsalir;
     private javax.swing.JButton bus;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lbl_stock_minimo;
-    public static javax.swing.JLabel lbl_surcusal_id;
     public static javax.swing.JTable tbprod;
     private javax.swing.JTextField txtprod;
     // End of variables declaration//GEN-END:variables

@@ -756,9 +756,8 @@ public class Ventas_venta_9 extends javax.swing.JDialog {
                  cv = new calculo_vuelto(new javax.swing.JDialog(), true);
                  cv.setVisible(true);*/
 
-                codigos();
                 ticket();
-                detalle_ticket();
+
                 // caja();
                 String capcod = "", capcan = "";
                 for (int i = 0; i < Ventas_venta_9.tb_factura.getRowCount(); i++) {
@@ -770,7 +769,7 @@ public class Ventas_venta_9 extends javax.swing.JDialog {
                 if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
                         "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                     Reportes reporte = new Reportes();
-                     String moneda= Principal.txt_simbolo.getText();
+                    String moneda = Principal.txt_simbolo.getText();
                     try {
                         try {
                             reporte.recep_9(Ventas_venta_9.lbl_cod.getText(), moneda);
@@ -816,9 +815,8 @@ public class Ventas_venta_9 extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(this, "Ingrese cliente, producto o realice operacion");
             } else {
 
-                codigos();
                 ticket_plazo();
-                detalle_ticket();
+
                 String capcod = "", capcan = "";
                 for (int i = 0; i < Ventas_venta_9.tb_factura.getRowCount(); i++) {
                     capcod = Ventas_venta_9.tb_factura.getValueAt(i, 0).toString();
@@ -830,7 +828,7 @@ public class Ventas_venta_9 extends javax.swing.JDialog {
                 if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
                         "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                     Reportes reporte = new Reportes();
-                     String moneda= Principal.txt_simbolo.getText();
+                    String moneda = Principal.txt_simbolo.getText();
                     try {
                         reporte.recep_9(Ventas_venta_9.lbl_cod.getText(), moneda);
 
@@ -872,14 +870,13 @@ public class Ventas_venta_9 extends javax.swing.JDialog {
             if ((lbl_cod.getText().equals("")) || (txttotal.getText().equals("")) || (txt_cli_nom.getText().equals(""))) {
                 JOptionPane.showMessageDialog(this, "Ingrese cliente, producto o realice operacion");
             } else {
-                codigos();
+
                 ticket_ecommerce();
-                detalle_ticket();
 
                 if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
                         "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                     Reportes reporte = new Reportes();
-                     String moneda= Principal.txt_simbolo.getText();
+                    String moneda = Principal.txt_simbolo.getText();
                     try {
                         reporte.recep_9(Ventas_venta_9.lbl_cod.getText(), moneda);
 
@@ -1028,9 +1025,7 @@ public class Ventas_venta_9 extends javax.swing.JDialog {
                  cv = new calculo_vuelto(new javax.swing.JDialog(), true);
                  cv.setVisible(true);*/
 
-                codigos();
                 ticketCR();
-                detalle_ticket();
 
                 String capcod = "", capcan = "";
                 for (int i = 0; i < Ventas_venta_9.tb_factura.getRowCount(); i++) {
@@ -1045,7 +1040,7 @@ public class Ventas_venta_9 extends javax.swing.JDialog {
                 if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
                         "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                     Reportes reporte = new Reportes();
-                     String moneda= Principal.txt_simbolo.getText();
+                    String moneda = Principal.txt_simbolo.getText();
                     try {
                         reporte.recep_9(Ventas_venta_9.lbl_cod.getText(), moneda);
 
@@ -1089,9 +1084,8 @@ public class Ventas_venta_9 extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(this, "Ingrese cliente, producto o realice operacion");
             } else {
 
-                codigos();
                 ticket_plazoCR();
-                detalle_ticket();
+
                 String capcod = "", capcan = "";
                 for (int i = 0; i < Ventas_venta_9.tb_factura.getRowCount(); i++) {
                     capcod = Ventas_venta_9.tb_factura.getValueAt(i, 0).toString();
@@ -1105,7 +1099,7 @@ public class Ventas_venta_9 extends javax.swing.JDialog {
                 if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
                         "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                     Reportes reporte = new Reportes();
-                     String moneda= Principal.txt_simbolo.getText();
+                    String moneda = Principal.txt_simbolo.getText();
                     try {
                         reporte.recep_9(Ventas_venta_9.lbl_cod.getText(), moneda);
 
@@ -1146,9 +1140,9 @@ public class Ventas_venta_9 extends javax.swing.JDialog {
             if ((lbl_cod.getText().equals("")) || (txttotal.getText().equals("")) || (txt_cli_nom.getText().equals(""))) {
                 JOptionPane.showMessageDialog(this, "Ingrese cliente, producto o realice operacion");
             } else {
-                codigos();
+
                 ticket_ecommerce();
-                detalle_ticket();
+
                 String capcod = "", capcan = "";
                 for (int i = 0; i < Ventas_venta_9.tb_factura.getRowCount(); i++) {
                     capcod = Ventas_venta_9.tb_factura.getValueAt(i, 0).toString();
@@ -1162,9 +1156,9 @@ public class Ventas_venta_9 extends javax.swing.JDialog {
                 if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
                         "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                     Reportes reporte = new Reportes();
-                     String moneda= Principal.txt_simbolo.getText();
+                    String moneda = Principal.txt_simbolo.getText();
                     try {
-                        reporte.recep_9(Ventas_venta_9.lbl_cod.getText(),moneda);
+                        reporte.recep_9(Ventas_venta_9.lbl_cod.getText(), moneda);
 
                     } catch (SQLException | JRException ex) {
                         Logger.getLogger(Ventas_venta_9.class.getName()).log(Level.SEVERE, null, ex);
@@ -1548,7 +1542,7 @@ public class Ventas_venta_9 extends javax.swing.JDialog {
     }
 
     void ticket() {
-
+        codigos();
         String InsertarSQL = "INSERT INTO ventas_9 (num_bol,cod_cli_ventas,nom_cli_ventas,forma_pag_ventas,dias_plazo_ventas,total_ventas,total_real,total_dolar,estado_ventas,fecha_ventas,user_ventas,almacen_ventas,cant_ventas,letras_ventas,vac_ventas) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         String numbol = lbl_cod.getText();
         String cod_cli = txt_cod_cli.getText();
@@ -1590,6 +1584,8 @@ public class Ventas_venta_9 extends javax.swing.JDialog {
             conectar.getInstance().closeConnection(cn);
 
             if (n > 0) {
+
+                detalle_ticket();
                 JOptionPane.showMessageDialog(null, "Venta realizada con éxito");
 
             }
@@ -1646,6 +1642,7 @@ public class Ventas_venta_9 extends javax.swing.JDialog {
             conectar.getInstance().closeConnection(cn);
 
             if (n > 0) {
+                detalle_ticket();
                 JOptionPane.showMessageDialog(null, "Venta realizada con éxito");
 
             }
@@ -1722,7 +1719,7 @@ public class Ventas_venta_9 extends javax.swing.JDialog {
 
     ////////////////////////////////////////CAJA RAPIDA////////////////////////////////////////////////
     void ticketCR() {
-
+        codigos();
         String InsertarSQL = "INSERT INTO ventas_9 (num_bol,cod_cli_ventas,nom_cli_ventas,forma_pag_ventas,dias_plazo_ventas,total_ventas,total_real,total_dolar,estado_ventas,fecha_ventas,user_ventas,almacen_ventas,cant_ventas,letras_ventas,vac_ventas) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         String numbol = lbl_cod.getText();
         String cod_cli = txt_cod_cli.getText();
@@ -1763,6 +1760,7 @@ public class Ventas_venta_9 extends javax.swing.JDialog {
             conectar.getInstance().closeConnection(cn);
 
             if (n > 0) {
+                detalle_ticket();
                 JOptionPane.showMessageDialog(null, "Venta realizada con éxito");
 
             }
@@ -1775,7 +1773,7 @@ public class Ventas_venta_9 extends javax.swing.JDialog {
     }
 
     void ticket_plazoCR() {
-
+        codigos();
         String InsertarSQL = "INSERT INTO ventas_9 (num_bol,cod_cli_ventas,nom_cli_ventas,forma_pag_ventas,dias_plazo_ventas,total_ventas,total_real,total_dolar,estado_ventas,fecha_ventas,user_ventas,almacen_ventas,cant_ventas,letras_ventas,vac_ventas) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         String numbol = lbl_cod.getText();
         String cod_cli = txt_cod_cli.getText();
@@ -1816,6 +1814,8 @@ public class Ventas_venta_9 extends javax.swing.JDialog {
             conectar.getInstance().closeConnection(cn);
 
             if (n > 0) {
+
+                detalle_ticket();
                 JOptionPane.showMessageDialog(null, "Venta realizada con éxito");
 
             }
@@ -2216,7 +2216,7 @@ public class Ventas_venta_9 extends javax.swing.JDialog {
     }
 
     void ticket_ecommerce() {
-
+        codigos();
         String InsertarSQL = "INSERT INTO ventas_9 (num_bol,cod_cli_ventas,nom_cli_ventas,forma_pag_ventas,dias_plazo_ventas,total_ventas,total_real,total_dolar,estado_ventas,fecha_ventas,user_ventas,almacen_ventas,cant_ventas,letras_ventas) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         String numbol = lbl_cod.getText();
         String cod_cli = txt_cod_cli.getText();
@@ -2258,7 +2258,7 @@ public class Ventas_venta_9 extends javax.swing.JDialog {
             conectar.getInstance().closeConnection(cn);
 
             if (n > 0) {
-
+                detalle_ticket();
                 JOptionPane.showMessageDialog(null, "Venta realizada con éxito");
 
             }

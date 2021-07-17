@@ -41,11 +41,9 @@ public class Cancela_factura_credito extends javax.swing.JDialog {
         cargarPago(serie);
         cargarFacturas(serie);
         cargarPagos(serie);
+        cargarDevo(serie);
+        btncalcular.doClick();
 
-        tb_detalles.getColumnModel().getColumn(0).setPreferredWidth(100);
-        tb_detalles.getColumnModel().getColumn(1).setPreferredWidth(80);
-        tb_detalles.getColumnModel().getColumn(2).setPreferredWidth(80);
-        tb_detalles.getColumnModel().getColumn(3).setPreferredWidth(80);
     }
 
     /**
@@ -81,6 +79,12 @@ public class Cancela_factura_credito extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tb_nota_cred = new javax.swing.JTable();
+        txt_monto_credito = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        txt_cred_entrada_caja = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -103,8 +107,7 @@ public class Cancela_factura_credito extends javax.swing.JDialog {
 
         lbl_serie_pago.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lbl_serie_pago.setForeground(new java.awt.Color(153, 0, 0));
-        lbl_serie_pago.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jPanel2.add(lbl_serie_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 230, 30));
+        jPanel2.add(lbl_serie_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 310, 30));
 
         id_cliente_cre.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         id_cliente_cre.setDisabledTextColor(new java.awt.Color(0, 0, 0));
@@ -184,7 +187,7 @@ public class Cancela_factura_credito extends javax.swing.JDialog {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 370, 130, 50));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 430, 130, 50));
 
         lbl_lote_fact_canc.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         lbl_lote_fact_canc.setText("0");
@@ -243,7 +246,7 @@ public class Cancela_factura_credito extends javax.swing.JDialog {
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jLabel8.setText("Total pagado: ");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 320, 110, 30));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 320, 100, 30));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jLabel5.setText("Facturas:");
@@ -257,7 +260,54 @@ public class Cancela_factura_credito extends javax.swing.JDialog {
         jLabel13.setText("Lote de Factura:");
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 110, 30));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 430));
+        tb_nota_cred.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nro NC", "Monto", "Saldo"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tb_nota_cred.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tb_nota_credMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tb_nota_cred);
+
+        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 450, 120));
+
+        txt_monto_credito.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        txt_monto_credito.setForeground(new java.awt.Color(204, 0, 51));
+        txt_monto_credito.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        txt_monto_credito.setText("0");
+        jPanel2.add(txt_monto_credito, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 350, 140, 30));
+
+        jLabel18.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        jLabel18.setText("Total NC:");
+        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 350, 120, 30));
+
+        jLabel22.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(204, 0, 51));
+        jLabel22.setText("Entrada en caja >>>");
+        jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 380, 120, 30));
+
+        txt_cred_entrada_caja.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txt_cred_entrada_caja.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txt_cred_entrada_caja.setText("0");
+        txt_cred_entrada_caja.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txt_cred_entrada_caja.setEnabled(false);
+        jPanel2.add(txt_cred_entrada_caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 380, 160, 30));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 490));
 
         pack();
         setLocationRelativeTo(null);
@@ -271,10 +321,20 @@ public class Cancela_factura_credito extends javax.swing.JDialog {
             BigDecimal saldo = ingreso.TransformReales(tb_facturas.getValueAt(i, 3).toString().replaceAll("\\s", ""));
             capcan = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(importe.add(saldo).toString());
             nv = Cancela_factura_credito.tb_facturas.getValueAt(i, 4).toString();
-            
+
             actEstadoVentas(nv, capcan);
             actpagosStatus(capcod, capcan, nv);
 
+        }
+
+        String cod = "", scred = "";
+        for (int i = 0; i < Cancela_factura_credito.tb_nota_cred.getRowCount(); i++) {
+            BigDecimal importeDevo = ingreso.TransformReales(tb_nota_cred.getValueAt(i, 1).toString().replaceAll("\\s", ""));
+            BigDecimal importeSaldo = ingreso.TransformReales(tb_nota_cred.getValueAt(i, 2).toString().replaceAll("\\s", ""));
+            scred = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(importeDevo.add(importeSaldo).toString());
+            cod = Cancela_factura_credito.tb_nota_cred.getValueAt(i, 0).toString();
+
+            actEstadoDevo(cod, scred);
         }
         eliminarNota();
         cargar_Caja();
@@ -292,6 +352,8 @@ public class Cancela_factura_credito extends javax.swing.JDialog {
     private void btncalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncalcularActionPerformed
 
         calcularfacturas();
+        calcularCreditos();
+        calcular_entrada_caja();
     }//GEN-LAST:event_btncalcularActionPerformed
 
     private void tb_facturasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_facturasMouseClicked
@@ -306,6 +368,24 @@ public class Cancela_factura_credito extends javax.swing.JDialog {
     private void txt_nro_reciboKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nro_reciboKeyReleased
 
     }//GEN-LAST:event_txt_nro_reciboKeyReleased
+
+    private void tb_nota_credMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_nota_credMouseClicked
+        if (JOptionPane.showConfirmDialog(rootPane, "Excluir, ¿desea continuar?",
+                "Items", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            DefaultTableModel model = (DefaultTableModel) tb_nota_cred.getModel();
+            int fila = tb_nota_cred.getSelectedRow();
+            if (fila >= 0) {
+                model.removeRow(fila);
+
+                if (fila == 0) {
+
+                    txt_monto_credito.setText("0");
+                }
+                btncalcular.doClick();
+            }
+
+        }
+    }//GEN-LAST:event_tb_nota_credMouseClicked
 
     /**
      * @param args the command line arguments
@@ -362,7 +442,9 @@ public class Cancela_factura_credito extends javax.swing.JDialog {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
@@ -371,13 +453,17 @@ public class Cancela_factura_credito extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator2;
     public static javax.swing.JLabel lbl_lote_fact_canc;
     public static javax.swing.JLabel lbl_serie_pago;
     private javax.swing.JPanel panel_config;
     public static javax.swing.JTable tb_detalles;
     public static javax.swing.JTable tb_facturas;
+    public static javax.swing.JTable tb_nota_cred;
     public static javax.swing.JTextField txt_almacen;
+    private javax.swing.JTextField txt_cred_entrada_caja;
+    private javax.swing.JLabel txt_monto_credito;
     public static javax.swing.JTextField txt_nom_cli_cred;
     private javax.swing.JTextField txt_nro_recibo;
     public static javax.swing.JTextField txt_total_saldo;
@@ -447,7 +533,7 @@ public class Cancela_factura_credito extends javax.swing.JDialog {
 
     public void cargarFacturas(String valor) {
         String mostrar = "SELECT * FROM pago_credito_factura WHERE nro_recibo='" + valor + "'";
-        String[] titulos = {"Nro Factura", "Fecha", "Importe", "Saldo ant.", "Nro Venta","Lote"};
+        String[] titulos = {"Nro Factura", "Fecha", "Importe", "Saldo ant.", "Nro Venta", "Lote"};
         String[] Registros = new String[9];
         DefaultTableModel modelf = new DefaultTableModel(null, titulos);
 
@@ -484,6 +570,39 @@ public class Cancela_factura_credito extends javax.swing.JDialog {
 
     }
 
+    public void cargarDevo(String valor) {
+        String mostrar = "SELECT * FROM pago_credito_devo WHERE nro_nota_pago='" + valor + "'";
+        String[] titulos = {"Nro Devol.", "Importe", "Saldo ant."};
+        String[] Registros = new String[9];
+        DefaultTableModel modelf = new DefaultTableModel(null, titulos);
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(mostrar);
+            while (rs.next()) {
+
+                Registros[0] = rs.getString(2);
+                Registros[1] = rs.getString(3);
+                Registros[2] = rs.getString(4);
+
+                modelf.addRow(Registros);
+            }
+            tb_nota_cred.setModel(modelf);
+
+            tb_nota_cred.getColumnModel().getColumn(0).setPreferredWidth(100);
+            tb_nota_cred.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tb_nota_cred.getColumnModel().getColumn(2).setPreferredWidth(110);
+
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Cancela_factura_credito.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
     void eliminarNota() {
 
         String cod = lbl_serie_pago.getText();
@@ -507,7 +626,7 @@ public class Cancela_factura_credito extends javax.swing.JDialog {
         String nro_recibo = txt_nro_recibo.getText();
         String id_cliente = id_cliente_cre.getText();
         String fact = lbl_serie_pago.getText();
-        String valor = txt_total_saldo.getText();
+        String valor = txt_cred_entrada_caja.getText();
 
         txt_nro_docu.setText(nro_recibo);
         txt_des_caja.setText("Cancelamiento de Recibo segun Serie N°:" + fact + " /" + " Id cliente:" + id_cliente);
@@ -636,6 +755,75 @@ public class Cancela_factura_credito extends javax.swing.JDialog {
             subtotal = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(ingreso.TransformReales(subtotal).add(ingreso.TransformReales(imp)).toString());
             txt_total_saldo.setText(subtotal);
         }
+    }
+
+    public void calcular_entrada_caja() {
+
+        String totalpor = "0";
+        BigDecimal Precio_efec = ingreso.TransformReales(txt_total_saldo.getText());
+        BigDecimal precio_cheque = ingreso.TransformReales(txt_monto_credito.getText());
+        totalpor = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(Precio_efec.subtract(precio_cheque).toString());
+        txt_cred_entrada_caja.setText(totalpor);
+
+    }
+
+    public void calcularCreditos() {
+
+        ///
+        String imp = "0", subtotal = "0", total = "0";
+
+        for (int i = 0; i < tb_nota_cred.getRowCount(); i++) {
+            BigDecimal PulidoPrec = ingreso.TransformReales(tb_nota_cred.getValueAt(i, 1).toString().replaceAll("\\s", ""));
+            imp = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(PulidoPrec.toString());
+            subtotal = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(ingreso.TransformReales(subtotal).add(ingreso.TransformReales(imp)).toString());
+            txt_monto_credito.setText(subtotal);
+        }
+    }
+
+    void actEstadoDevo(String cod, String monto) {
+        if (txt_almacen.getText().equals("0000001")) {
+            try {
+
+                String sql = "UPDATE devolucion_facturacion_fiscal SET saldo_cred = '" + monto
+                        + "' WHERE num_bol = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+
+        //2
+        if (txt_almacen.getText().equals("0000002")) {
+            try {
+
+                String sql = "UPDATE devolucion_facturacion_surc_2 SET saldo_cred = '" + monto
+                        + "' WHERE num_bol = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+
     }
 
 }

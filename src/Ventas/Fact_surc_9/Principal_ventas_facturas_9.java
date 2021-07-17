@@ -5,7 +5,6 @@
  */
 package Ventas.Fact_surc_9;
 
-
 import Ventas.Fact_surc_9.*;
 import Conexion_DB.conectar;
 import java.awt.HeadlessException;
@@ -761,7 +760,7 @@ public class Principal_ventas_facturas_9 extends javax.swing.JDialog {
     void cargar(String valor) {
         try {
             Connection cn = conectar.getInstance().getConnection();
-            String[] titulos = {"Factura Nro", "Cód Cliente", "Cliente/Razón Social", "Valor Total", "Fecha Emisión", "Usuario", "Moneda", "Venta Nro", "Estado"};
+            String[] titulos = {"Factura Nro", "Cód Cliente", "Cliente/Razón Social", "Valor Total", "Fecha Emisión", "Usuario", "Timbrado", "Venta Nro", "Estado"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
 
@@ -775,7 +774,7 @@ public class Principal_ventas_facturas_9 extends javax.swing.JDialog {
                 registros[3] = rs.getString(6);
                 registros[4] = rs.getString(22);
                 registros[5] = rs.getString(9);
-                registros[6] = rs.getString(23);
+                registros[6] = rs.getString(15);
                 registros[7] = rs.getString(1);
                 registros[8] = rs.getString(25);
 
@@ -810,7 +809,8 @@ public class Principal_ventas_facturas_9 extends javax.swing.JDialog {
                 if (JOptionPane.showConfirmDialog(rootPane, "Anular Factura de venta" + ", ¿desea continuar?",
                         "Anular", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                     String cod = (String) tbProductos.getValueAt(filasel, 0);
-                    String eliminarSQL = "DELETE FROM ventas_facturacion_surc_9 WHERE nro_fact_ventas = '" + cod + "'";
+                    String timbra = (String) tbProductos.getValueAt(filasel, 6);
+                    String eliminarSQL = "DELETE FROM ventas_facturacion_surc_9 WHERE nro_fact_ventas = '" + cod + "' AND nro_timbra_ventas='" + timbra + "'";
 
                     try {
                         Connection cn = conectar.getInstance().getConnection();
