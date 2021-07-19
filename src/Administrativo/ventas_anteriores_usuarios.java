@@ -82,6 +82,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
         txt_id_user = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         lbl_almacen_usu = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        cb_situ_ventas = new org.jdesktop.swingx.JXComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -113,7 +115,7 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tb_ventas);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 970, 400));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 1000, 400));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/graphic.png"))); // NOI18N
@@ -123,7 +125,7 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 10, 70, 50));
+        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 20, 70, 50));
 
         jLabel16.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel16.setText("Fecha Final:");
@@ -135,7 +137,7 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
 
         jLabel18.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel18.setText("Total :");
-        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 490, 50, 30));
+        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 490, 50, 30));
 
         txt_total_gs_usu.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txt_total_gs_usu.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -145,7 +147,7 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
                 txt_total_gs_usuActionPerformed(evt);
             }
         });
-        jPanel3.add(txt_total_gs_usu, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 490, 200, 30));
+        jPanel3.add(txt_total_gs_usu, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 490, 200, 30));
 
         chk_plazo.setBackground(new java.awt.Color(255, 255, 255));
         chk_plazo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -165,7 +167,7 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 10, 70, 50));
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 20, 70, 50));
 
         jLabel15.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel15.setText("Fecha Inicio:");
@@ -186,7 +188,7 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_5/agregando-boton-cuadrado-negro-simbolo-de-interfaz.png"))); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -195,7 +197,7 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 40, 32, 32));
+        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 40, 40, 32));
 
         lbl_almacen_usu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbl_almacen_usu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Caja_2/iconos/dpto.png"))); // NOI18N
@@ -206,13 +208,21 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
                 lbl_almacen_usuMouseClicked(evt);
             }
         });
-        jPanel3.add(lbl_almacen_usu, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, 110, 40));
+        jPanel3.add(lbl_almacen_usu, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 20, 110, 50));
+
+        jLabel22.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel22.setText("Situación:");
+        jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 40, 80, 30));
+
+        cb_situ_ventas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CONFIRMADA", "FINALIZADA" }));
+        cb_situ_ventas.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jPanel3.add(cb_situ_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 40, 130, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 990, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 1019, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,21 +249,22 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String user = txt_nom_user.getText();
+        String status = cb_situ_ventas.getSelectedItem().toString();
         java.sql.Date date1 = new java.sql.Date(jd_ini_lucro_usu.getDate().getTime());
         java.sql.Date date2 = new java.sql.Date(jd_fin_lucro_usu.getDate().getTime());
 
-        if (lbl_almacen_usu.getText().equals("TODOS")) {
+        if (Principal.lbl_usu_almacen.getText().equals("TODOS")) {
             JOptionPane.showMessageDialog(null, "Selecione un Almacén/sucursal válido");
         } else {
 
             if (lbl_almacen_usu.getText().equals("0000001")) {
                 if (chk_plazo.isSelected()) {
                     txt_total_gs_usu.setText("0");
-                    cargarC(date1, date2, user);
+                    cargarC(date1, date2, user, status);
                     calcularGS();
                 } else {
                     txt_total_gs_usu.setText("0");
-                    cargar(date1, date2, user);
+                    cargar(date1, date2, user, status);
                     calcularGS();
                 }
             }
@@ -261,220 +272,220 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
             if (lbl_almacen_usu.getText().equals("0000002")) {
                 if (chk_plazo.isSelected()) {
                     txt_total_gs_usu.setText("0");
-                    cargarC_2(date1, date2, user);
+                    cargarC_2(date1, date2, user, status);
                     calcularGS();
                 } else {
                     txt_total_gs_usu.setText("0");
-                    cargar_2(date1, date2, user);
+                    cargar_2(date1, date2, user, status);
                     calcularGS();
                 }
             }
             if (lbl_almacen_usu.getText().equals("0000003")) {
                 if (chk_plazo.isSelected()) {
                     txt_total_gs_usu.setText("0");
-                    cargarC_3(date1, date2, user);
+                    cargarC_3(date1, date2, user, status);
                     calcularGS();
                 } else {
                     txt_total_gs_usu.setText("0");
-                    cargar_3(date1, date2, user);
+                    cargar_3(date1, date2, user, status);
                     calcularGS();
                 }
             }
             if (lbl_almacen_usu.getText().equals("0000004")) {
                 if (chk_plazo.isSelected()) {
                     txt_total_gs_usu.setText("0");
-                    cargarC_4(date1, date2, user);
+                    cargarC_4(date1, date2, user, status);
                     calcularGS();
                 } else {
                     txt_total_gs_usu.setText("0");
-                    cargar_4(date1, date2, user);
+                    cargar_4(date1, date2, user, status);
                     calcularGS();
                 }
             }
             if (lbl_almacen_usu.getText().equals("0000005")) {
                 if (chk_plazo.isSelected()) {
                     txt_total_gs_usu.setText("0");
-                    cargarC_5(date1, date2, user);
+                    cargarC_5(date1, date2, user, status);
                     calcularGS();
                 } else {
                     txt_total_gs_usu.setText("0");
-                    cargar_5(date1, date2, user);
+                    cargar_5(date1, date2, user, status);
                     calcularGS();
                 }
             }
             if (lbl_almacen_usu.getText().equals("0000006")) {
                 if (chk_plazo.isSelected()) {
                     txt_total_gs_usu.setText("0");
-                    cargarC_6(date1, date2, user);
+                    cargarC_6(date1, date2, user, status);
                     calcularGS();
                 } else {
                     txt_total_gs_usu.setText("0");
-                    cargar_6(date1, date2, user);
+                    cargar_6(date1, date2, user, status);
                     calcularGS();
                 }
             }
             if (lbl_almacen_usu.getText().equals("0000007")) {
                 if (chk_plazo.isSelected()) {
                     txt_total_gs_usu.setText("0");
-                    cargarC_7(date1, date2, user);
+                    cargarC_7(date1, date2, user, status);
                     calcularGS();
                 } else {
                     txt_total_gs_usu.setText("0");
-                    cargar_7(date1, date2, user);
+                    cargar_7(date1, date2, user, status);
                     calcularGS();
                 }
             }
             if (lbl_almacen_usu.getText().equals("0000008")) {
                 if (chk_plazo.isSelected()) {
                     txt_total_gs_usu.setText("0");
-                    cargarC_8(date1, date2, user);
+                    cargarC_8(date1, date2, user, status);
                     calcularGS();
                 } else {
                     txt_total_gs_usu.setText("0");
-                    cargar_8(date1, date2, user);
+                    cargar_8(date1, date2, user, status);
                     calcularGS();
                 }
             }
             if (lbl_almacen_usu.getText().equals("0000009")) {
                 if (chk_plazo.isSelected()) {
                     txt_total_gs_usu.setText("0");
-                    cargarC_9(date1, date2, user);
+                    cargarC_9(date1, date2, user, status);
                     calcularGS();
                 } else {
                     txt_total_gs_usu.setText("0");
-                    cargar_9(date1, date2, user);
+                    cargar_9(date1, date2, user, status);
                     calcularGS();
                 }
             }
             if (lbl_almacen_usu.getText().equals("0000010")) {
                 if (chk_plazo.isSelected()) {
                     txt_total_gs_usu.setText("0");
-                    cargarC_10(date1, date2, user);
+                    cargarC_10(date1, date2, user, status);
                     calcularGS();
                 } else {
                     txt_total_gs_usu.setText("0");
-                    cargar_10(date1, date2, user);
+                    cargar_10(date1, date2, user, status);
                     calcularGS();
                 }
             }
             if (lbl_almacen_usu.getText().equals("0000011")) {
                 if (chk_plazo.isSelected()) {
                     txt_total_gs_usu.setText("0");
-                    cargarC_11(date1, date2, user);
+                    cargarC_11(date1, date2, user, status);
                     calcularGS();
                 } else {
                     txt_total_gs_usu.setText("0");
-                    cargar_11(date1, date2, user);
+                    cargar_11(date1, date2, user, status);
                     calcularGS();
                 }
             }
             if (lbl_almacen_usu.getText().equals("0000012")) {
                 if (chk_plazo.isSelected()) {
                     txt_total_gs_usu.setText("0");
-                    cargarC_12(date1, date2, user);
+                    cargarC_12(date1, date2, user, status);
                     calcularGS();
                 } else {
                     txt_total_gs_usu.setText("0");
-                    cargar_12(date1, date2, user);
+                    cargar_12(date1, date2, user, status);
                     calcularGS();
                 }
             }
             if (lbl_almacen_usu.getText().equals("0000013")) {
                 if (chk_plazo.isSelected()) {
                     txt_total_gs_usu.setText("0");
-                    cargarC_13(date1, date2, user);
+                    cargarC_13(date1, date2, user, status);
                     calcularGS();
                 } else {
                     txt_total_gs_usu.setText("0");
-                    cargar_13(date1, date2, user);
+                    cargar_13(date1, date2, user, status);
                     calcularGS();
                 }
             }
             if (lbl_almacen_usu.getText().equals("0000014")) {
                 if (chk_plazo.isSelected()) {
                     txt_total_gs_usu.setText("0");
-                    cargarC_14(date1, date2, user);
+                    cargarC_14(date1, date2, user, status);
                     calcularGS();
                 } else {
                     txt_total_gs_usu.setText("0");
-                    cargar_14(date1, date2, user);
+                    cargar_14(date1, date2, user, status);
                     calcularGS();
                 }
             }
             if (lbl_almacen_usu.getText().equals("0000015")) {
                 if (chk_plazo.isSelected()) {
                     txt_total_gs_usu.setText("0");
-                    cargarC_15(date1, date2, user);
+                    cargarC_15(date1, date2, user, status);
                     calcularGS();
                 } else {
                     txt_total_gs_usu.setText("0");
-                    cargar_15(date1, date2, user);
+                    cargar_15(date1, date2, user, status);
                     calcularGS();
                 }
             }
             if (lbl_almacen_usu.getText().equals("0000016")) {
                 if (chk_plazo.isSelected()) {
                     txt_total_gs_usu.setText("0");
-                    cargarC_16(date1, date2, user);
+                    cargarC_16(date1, date2, user, status);
                     calcularGS();
                 } else {
                     txt_total_gs_usu.setText("0");
-                    cargar_16(date1, date2, user);
+                    cargar_16(date1, date2, user, status);
                     calcularGS();
                 }
             }
             if (lbl_almacen_usu.getText().equals("0000017")) {
                 if (chk_plazo.isSelected()) {
                     txt_total_gs_usu.setText("0");
-                    cargarC_17(date1, date2, user);
+                    cargarC_17(date1, date2, user, status);
                     calcularGS();
                 } else {
                     txt_total_gs_usu.setText("0");
-                    cargar_17(date1, date2, user);
+                    cargar_17(date1, date2, user, status);
                     calcularGS();
                 }
             }
             if (lbl_almacen_usu.getText().equals("0000018")) {
                 if (chk_plazo.isSelected()) {
                     txt_total_gs_usu.setText("0");
-                    cargarC_18(date1, date2, user);
+                    cargarC_18(date1, date2, user, status);
                     calcularGS();
                 } else {
                     txt_total_gs_usu.setText("0");
-                    cargar_18(date1, date2, user);
+                    cargar_18(date1, date2, user, status);
                     calcularGS();
                 }
             }
             if (lbl_almacen_usu.getText().equals("0000019")) {
                 if (chk_plazo.isSelected()) {
                     txt_total_gs_usu.setText("0");
-                    cargarC_19(date1, date2, user);
+                    cargarC_19(date1, date2, user, status);
                     calcularGS();
                 } else {
                     txt_total_gs_usu.setText("0");
-                    cargar_19(date1, date2, user);
+                    cargar_19(date1, date2, user, status);
                     calcularGS();
                 }
             }
             if (lbl_almacen_usu.getText().equals("0000020")) {
                 if (chk_plazo.isSelected()) {
                     txt_total_gs_usu.setText("0");
-                    cargarC_20(date1, date2, user);
+                    cargarC_20(date1, date2, user, status);
                     calcularGS();
                 } else {
                     txt_total_gs_usu.setText("0");
-                    cargar_20(date1, date2, user);
+                    cargar_20(date1, date2, user, status);
                     calcularGS();
                 }
             }
             if (lbl_almacen_usu.getText().equals("0000021")) {
                 if (chk_plazo.isSelected()) {
                     txt_total_gs_usu.setText("0");
-                    cargarC_21(date1, date2, user);
+                    cargarC_21(date1, date2, user, status);
                     calcularGS();
                 } else {
                     txt_total_gs_usu.setText("0");
-                    cargar_21(date1, date2, user);
+                    cargar_21(date1, date2, user, status);
                     calcularGS();
                 }
             }
@@ -482,77 +493,77 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
             if (lbl_almacen_usu.getText().equals("0000022")) {
                 if (chk_plazo.isSelected()) {
                     txt_total_gs_usu.setText("0");
-                    cargarC_22(date1, date2, user);
+                    cargarC_22(date1, date2, user, status);
                     calcularGS();
                 } else {
                     txt_total_gs_usu.setText("0");
-                    cargar_22(date1, date2, user);
+                    cargar_22(date1, date2, user, status);
                     calcularGS();
                 }
             }
             if (lbl_almacen_usu.getText().equals("0000023")) {
                 if (chk_plazo.isSelected()) {
                     txt_total_gs_usu.setText("0");
-                    cargarC_23(date1, date2, user);
+                    cargarC_23(date1, date2, user, status);
                     calcularGS();
                 } else {
                     txt_total_gs_usu.setText("0");
-                    cargar_23(date1, date2, user);
+                    cargar_23(date1, date2, user, status);
                     calcularGS();
                 }
             }
             if (lbl_almacen_usu.getText().equals("0000024")) {
                 if (chk_plazo.isSelected()) {
                     txt_total_gs_usu.setText("0");
-                    cargarC_24(date1, date2, user);
+                    cargarC_24(date1, date2, user, status);
                     calcularGS();
                 } else {
                     txt_total_gs_usu.setText("0");
-                    cargar_24(date1, date2, user);
+                    cargar_24(date1, date2, user, status);
                     calcularGS();
                 }
             }
             if (lbl_almacen_usu.getText().equals("0000025")) {
                 if (chk_plazo.isSelected()) {
                     txt_total_gs_usu.setText("0");
-                    cargarC_25(date1, date2, user);
+                    cargarC_25(date1, date2, user, status);
                     calcularGS();
                 } else {
                     txt_total_gs_usu.setText("0");
-                    cargar_25(date1, date2, user);
+                    cargar_25(date1, date2, user, status);
                     calcularGS();
                 }
             }
             if (lbl_almacen_usu.getText().equals("0000026")) {
                 if (chk_plazo.isSelected()) {
                     txt_total_gs_usu.setText("0");
-                    cargarC_26(date1, date2, user);
+                    cargarC_26(date1, date2, user, status);
                     calcularGS();
                 } else {
                     txt_total_gs_usu.setText("0");
-                    cargar_26(date1, date2, user);
+                    cargar_26(date1, date2, user, status);
                     calcularGS();
                 }
             }
             if (lbl_almacen_usu.getText().equals("0000027")) {
                 if (chk_plazo.isSelected()) {
                     txt_total_gs_usu.setText("0");
-                    cargarC_27(date1, date2, user);
+                    cargarC_27(date1, date2, user, status);
                     calcularGS();
                 } else {
                     txt_total_gs_usu.setText("0");
-                    cargar_27(date1, date2, user);
+                    cargar_27(date1, date2, user, status);
                     calcularGS();
                 }
             }
             if (lbl_almacen_usu.getText().equals("0000028")) {
                 if (chk_plazo.isSelected()) {
                     txt_total_gs_usu.setText("0");
-                    cargarC_28(date1, date2, user);
+                    cargarC_28(date1, date2, user, status);
                     calcularGS();
                 } else {
                     txt_total_gs_usu.setText("0");
-                    cargar_28(date1, date2, user);
+                    cargar_28(date1, date2, user, status);
                     calcularGS();
                 }
             }
@@ -560,22 +571,22 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
             if (lbl_almacen_usu.getText().equals("0000029")) {
                 if (chk_plazo.isSelected()) {
                     txt_total_gs_usu.setText("0");
-                    cargarC_29(date1, date2, user);
+                    cargarC_29(date1, date2, user, status);
                     calcularGS();
                 } else {
                     txt_total_gs_usu.setText("0");
-                    cargar_29(date1, date2, user);
+                    cargar_29(date1, date2, user, status);
                     calcularGS();
                 }
             }
             if (lbl_almacen_usu.getText().equals("0000030")) {
                 if (chk_plazo.isSelected()) {
                     txt_total_gs_usu.setText("0");
-                    cargarC_30(date1, date2, user);
+                    cargarC_30(date1, date2, user, status);
                     calcularGS();
                 } else {
                     txt_total_gs_usu.setText("0");
-                    cargar_30(date1, date2, user);
+                    cargar_30(date1, date2, user, status);
                     calcularGS();
                 }
             }
@@ -713,6 +724,7 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
     }// FIN METODO PRINCIPAL
     //</editor-fold>   
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private org.jdesktop.swingx.JXComboBox cb_situ_ventas;
     private javax.swing.JCheckBox chk_plazo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -721,6 +733,7 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     public static org.jdesktop.swingx.JXDatePicker jd_fin_lucro_usu;
@@ -733,8 +746,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
     //<editor-fold defaultstate="collapsed" desc="ZONA DE METODOS GENERICOS DE LA CLASE">
 
-    void cargar(Date fecha_ini, Date fecha_fin, String user) {
-        String mostrar = "SELECT * FROM ventas WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "'";
+    void cargar(Date fecha_ini, Date fecha_fin, String user, String status) {
+        String mostrar = "SELECT * FROM ventas WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta", "Usuario"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -769,8 +782,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
 
     }
 
-    void cargarC(Date fecha_ini, Date fecha_fin, String users) {
-        String mostrar = "SELECT * FROM ventas WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "'";
+    void cargarC(Date fecha_ini, Date fecha_fin, String users, String status) {
+        String mostrar = "SELECT * FROM ventas WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -821,8 +834,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
     }
 
     ///2
-    void cargar_2(Date fecha_ini, Date fecha_fin, String user) {
-        String mostrar = "SELECT * FROM ventas_2 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "'";
+    void cargar_2(Date fecha_ini, Date fecha_fin, String user, String status) {
+        String mostrar = "SELECT * FROM ventas_2 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -857,8 +870,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
 
     }
 
-    void cargarC_2(Date fecha_ini, Date fecha_fin, String users) {
-        String mostrar = "SELECT * FROM ventas_2 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "'";
+    void cargarC_2(Date fecha_ini, Date fecha_fin, String users, String status) {
+        String mostrar = "SELECT * FROM ventas_2 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -894,8 +907,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
     }
 
     //3
-    void cargar_3(Date fecha_ini, Date fecha_fin, String user) {
-        String mostrar = "SELECT * FROM ventas_3 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "'";
+    void cargar_3(Date fecha_ini, Date fecha_fin, String user, String status) {
+        String mostrar = "SELECT * FROM ventas_3 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -930,8 +943,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
 
     }
 
-    void cargarC_3(Date fecha_ini, Date fecha_fin, String users) {
-        String mostrar = "SELECT * FROM ventas_3 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "'";
+    void cargarC_3(Date fecha_ini, Date fecha_fin, String users, String status) {
+        String mostrar = "SELECT * FROM ventas_3 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -967,8 +980,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
     }
 
     //4
-    void cargar_4(Date fecha_ini, Date fecha_fin, String user) {
-        String mostrar = "SELECT * FROM ventas_4 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "'";
+    void cargar_4(Date fecha_ini, Date fecha_fin, String user, String status) {
+        String mostrar = "SELECT * FROM ventas_4 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -1003,8 +1016,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
 
     }
 
-    void cargarC_4(Date fecha_ini, Date fecha_fin, String users) {
-        String mostrar = "SELECT * FROM ventas_4 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "'";
+    void cargarC_4(Date fecha_ini, Date fecha_fin, String users, String status) {
+        String mostrar = "SELECT * FROM ventas_4 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -1040,8 +1053,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
     }
 
     //5
-    void cargar_5(Date fecha_ini, Date fecha_fin, String user) {
-        String mostrar = "SELECT * FROM ventas_5 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "'";
+    void cargar_5(Date fecha_ini, Date fecha_fin, String user, String status) {
+        String mostrar = "SELECT * FROM ventas_5 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -1076,8 +1089,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
 
     }
 
-    void cargarC_5(Date fecha_ini, Date fecha_fin, String users) {
-        String mostrar = "SELECT * FROM ventas_5 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "'";
+    void cargarC_5(Date fecha_ini, Date fecha_fin, String users, String status) {
+        String mostrar = "SELECT * FROM ventas_5 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -1113,8 +1126,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
     }
 
     //6
-    void cargar_6(Date fecha_ini, Date fecha_fin, String user) {
-        String mostrar = "SELECT * FROM ventas_6 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "'";
+    void cargar_6(Date fecha_ini, Date fecha_fin, String user, String status) {
+        String mostrar = "SELECT * FROM ventas_6 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -1149,8 +1162,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
 
     }
 
-    void cargarC_6(Date fecha_ini, Date fecha_fin, String users) {
-        String mostrar = "SELECT * FROM ventas_6 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "'";
+    void cargarC_6(Date fecha_ini, Date fecha_fin, String users, String status) {
+        String mostrar = "SELECT * FROM ventas_6 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -1186,8 +1199,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
     }
 
     //7
-    void cargar_7(Date fecha_ini, Date fecha_fin, String user) {
-        String mostrar = "SELECT * FROM ventas_7 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "'";
+    void cargar_7(Date fecha_ini, Date fecha_fin, String user, String status) {
+        String mostrar = "SELECT * FROM ventas_7 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta", "Usuario"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -1223,8 +1236,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
 
     }
 
-    void cargarC_7(Date fecha_ini, Date fecha_fin, String users) {
-        String mostrar = "SELECT * FROM ventas_7 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "'";
+    void cargarC_7(Date fecha_ini, Date fecha_fin, String users, String status) {
+        String mostrar = "SELECT * FROM ventas_7 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -1260,8 +1273,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
     }
 
     //8
-    void cargar_8(Date fecha_ini, Date fecha_fin, String user) {
-        String mostrar = "SELECT * FROM ventas_8 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "'";
+    void cargar_8(Date fecha_ini, Date fecha_fin, String user, String status) {
+        String mostrar = "SELECT * FROM ventas_8 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -1296,8 +1309,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
 
     }
 
-    void cargarC_8(Date fecha_ini, Date fecha_fin, String users) {
-        String mostrar = "SELECT * FROM ventas_8 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "'";
+    void cargarC_8(Date fecha_ini, Date fecha_fin, String users, String status) {
+        String mostrar = "SELECT * FROM ventas_8 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -1333,8 +1346,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
     }
 
     //9
-    void cargar_9(Date fecha_ini, Date fecha_fin, String user) {
-        String mostrar = "SELECT * FROM ventas_9 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "'";
+    void cargar_9(Date fecha_ini, Date fecha_fin, String user, String status) {
+        String mostrar = "SELECT * FROM ventas_9 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -1369,8 +1382,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
 
     }
 
-    void cargarC_9(Date fecha_ini, Date fecha_fin, String users) {
-        String mostrar = "SELECT * FROM ventas_9 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "'";
+    void cargarC_9(Date fecha_ini, Date fecha_fin, String users, String status) {
+        String mostrar = "SELECT * FROM ventas_9 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -1406,8 +1419,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
     }
 
     //10
-    void cargar_10(Date fecha_ini, Date fecha_fin, String user) {
-        String mostrar = "SELECT * FROM ventas_10 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "'";
+    void cargar_10(Date fecha_ini, Date fecha_fin, String user, String status) {
+        String mostrar = "SELECT * FROM ventas_10 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -1442,8 +1455,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
 
     }
 
-    void cargarC_10(Date fecha_ini, Date fecha_fin, String users) {
-        String mostrar = "SELECT * FROM ventas_10 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "'";
+    void cargarC_10(Date fecha_ini, Date fecha_fin, String users, String status) {
+        String mostrar = "SELECT * FROM ventas_10 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -1479,8 +1492,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
     }
 
     //11
-    void cargar_11(Date fecha_ini, Date fecha_fin, String user) {
-        String mostrar = "SELECT * FROM ventas_11 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "'";
+    void cargar_11(Date fecha_ini, Date fecha_fin, String user, String status) {
+        String mostrar = "SELECT * FROM ventas_11 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -1515,8 +1528,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
 
     }
 
-    void cargarC_11(Date fecha_ini, Date fecha_fin, String users) {
-        String mostrar = "SELECT * FROM ventas_11 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "'";
+    void cargarC_11(Date fecha_ini, Date fecha_fin, String users, String status) {
+        String mostrar = "SELECT * FROM ventas_11 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -1552,8 +1565,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
     }
 
     //12
-    void cargar_12(Date fecha_ini, Date fecha_fin, String user) {
-        String mostrar = "SELECT * FROM ventas_12 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "'";
+    void cargar_12(Date fecha_ini, Date fecha_fin, String user, String status) {
+        String mostrar = "SELECT * FROM ventas_12 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -1588,8 +1601,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
 
     }
 
-    void cargarC_12(Date fecha_ini, Date fecha_fin, String users) {
-        String mostrar = "SELECT * FROM ventas_12 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "'";
+    void cargarC_12(Date fecha_ini, Date fecha_fin, String users, String status) {
+        String mostrar = "SELECT * FROM ventas_12 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -1625,8 +1638,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
     }
 
     //13
-    void cargar_13(Date fecha_ini, Date fecha_fin, String user) {
-        String mostrar = "SELECT * FROM ventas_13 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "'";
+    void cargar_13(Date fecha_ini, Date fecha_fin, String user, String status) {
+        String mostrar = "SELECT * FROM ventas_13 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -1661,8 +1674,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
 
     }
 
-    void cargarC_13(Date fecha_ini, Date fecha_fin, String users) {
-        String mostrar = "SELECT * FROM ventas_13 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "'";
+    void cargarC_13(Date fecha_ini, Date fecha_fin, String users, String status) {
+        String mostrar = "SELECT * FROM ventas_13 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -1698,8 +1711,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
     }
 
     //14
-    void cargar_14(Date fecha_ini, Date fecha_fin, String user) {
-        String mostrar = "SELECT * FROM ventas_14 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "'";
+    void cargar_14(Date fecha_ini, Date fecha_fin, String user, String status) {
+        String mostrar = "SELECT * FROM ventas_14 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -1734,8 +1747,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
 
     }
 
-    void cargarC_14(Date fecha_ini, Date fecha_fin, String users) {
-        String mostrar = "SELECT * FROM ventas_14 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "'";
+    void cargarC_14(Date fecha_ini, Date fecha_fin, String users, String status) {
+        String mostrar = "SELECT * FROM ventas_14 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -1771,8 +1784,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
     }
 
     //15
-    void cargar_15(Date fecha_ini, Date fecha_fin, String user) {
-        String mostrar = "SELECT * FROM ventas_15 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "'";
+    void cargar_15(Date fecha_ini, Date fecha_fin, String user, String status) {
+        String mostrar = "SELECT * FROM ventas_15 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -1807,8 +1820,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
 
     }
 
-    void cargarC_15(Date fecha_ini, Date fecha_fin, String users) {
-        String mostrar = "SELECT * FROM ventas_15 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "'";
+    void cargarC_15(Date fecha_ini, Date fecha_fin, String users, String status) {
+        String mostrar = "SELECT * FROM ventas_15 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -1844,8 +1857,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
     }
 
     //16
-    void cargar_16(Date fecha_ini, Date fecha_fin, String user) {
-        String mostrar = "SELECT * FROM ventas_16 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "'";
+    void cargar_16(Date fecha_ini, Date fecha_fin, String user, String status) {
+        String mostrar = "SELECT * FROM ventas_16 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -1880,8 +1893,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
 
     }
 
-    void cargarC_16(Date fecha_ini, Date fecha_fin, String users) {
-        String mostrar = "SELECT * FROM ventas_16 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "'";
+    void cargarC_16(Date fecha_ini, Date fecha_fin, String users, String status) {
+        String mostrar = "SELECT * FROM ventas_16 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -1917,8 +1930,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
     }
 
     //17
-    void cargar_17(Date fecha_ini, Date fecha_fin, String user) {
-        String mostrar = "SELECT * FROM ventas_17 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "'";
+    void cargar_17(Date fecha_ini, Date fecha_fin, String user, String status) {
+        String mostrar = "SELECT * FROM ventas_17 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -1953,8 +1966,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
 
     }
 
-    void cargarC_17(Date fecha_ini, Date fecha_fin, String users) {
-        String mostrar = "SELECT * FROM ventas_17 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "'";
+    void cargarC_17(Date fecha_ini, Date fecha_fin, String users, String status) {
+        String mostrar = "SELECT * FROM ventas_17 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -1990,8 +2003,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
     }
 
     //18
-    void cargar_18(Date fecha_ini, Date fecha_fin, String user) {
-        String mostrar = "SELECT * FROM ventas_18 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "'";
+    void cargar_18(Date fecha_ini, Date fecha_fin, String user, String status) {
+        String mostrar = "SELECT * FROM ventas_18 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -2026,8 +2039,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
 
     }
 
-    void cargarC_18(Date fecha_ini, Date fecha_fin, String users) {
-        String mostrar = "SELECT * FROM ventas_18 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "'";
+    void cargarC_18(Date fecha_ini, Date fecha_fin, String users, String status) {
+        String mostrar = "SELECT * FROM ventas_18 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -2063,8 +2076,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
     }
 
     //19
-    void cargar_19(Date fecha_ini, Date fecha_fin, String user) {
-        String mostrar = "SELECT * FROM ventas_19 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "'";
+    void cargar_19(Date fecha_ini, Date fecha_fin, String user, String status) {
+        String mostrar = "SELECT * FROM ventas_19 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -2099,8 +2112,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
 
     }
 
-    void cargarC_19(Date fecha_ini, Date fecha_fin, String users) {
-        String mostrar = "SELECT * FROM ventas_9 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "'";
+    void cargarC_19(Date fecha_ini, Date fecha_fin, String users, String status) {
+        String mostrar = "SELECT * FROM ventas_9 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -2136,8 +2149,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
     }
 
     ///20
-    void cargar_20(Date fecha_ini, Date fecha_fin, String user) {
-        String mostrar = "SELECT * FROM ventas_20 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "'";
+    void cargar_20(Date fecha_ini, Date fecha_fin, String user, String status) {
+        String mostrar = "SELECT * FROM ventas_20 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -2172,8 +2185,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
 
     }
 
-    void cargarC_20(Date fecha_ini, Date fecha_fin, String users) {
-        String mostrar = "SELECT * FROM ventas_20 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "'";
+    void cargarC_20(Date fecha_ini, Date fecha_fin, String users, String status) {
+        String mostrar = "SELECT * FROM ventas_20 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -2209,8 +2222,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
     }
 
     //21
-    void cargar_21(Date fecha_ini, Date fecha_fin, String user) {
-        String mostrar = "SELECT * FROM ventas_21 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "'";
+    void cargar_21(Date fecha_ini, Date fecha_fin, String user, String status) {
+        String mostrar = "SELECT * FROM ventas_21 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -2245,8 +2258,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
 
     }
 
-    void cargarC_21(Date fecha_ini, Date fecha_fin, String users) {
-        String mostrar = "SELECT * FROM ventas_21 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "'";
+    void cargarC_21(Date fecha_ini, Date fecha_fin, String users, String status) {
+        String mostrar = "SELECT * FROM ventas_21 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -2282,8 +2295,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
     }
 
     //22
-    void cargar_22(Date fecha_ini, Date fecha_fin, String user) {
-        String mostrar = "SELECT * FROM ventas_22 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "'";
+    void cargar_22(Date fecha_ini, Date fecha_fin, String user, String status) {
+        String mostrar = "SELECT * FROM ventas_22 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -2318,8 +2331,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
 
     }
 
-    void cargarC_22(Date fecha_ini, Date fecha_fin, String users) {
-        String mostrar = "SELECT * FROM ventas_22 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "'";
+    void cargarC_22(Date fecha_ini, Date fecha_fin, String users, String status) {
+        String mostrar = "SELECT * FROM ventas_22 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -2355,8 +2368,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
     }
 
     //23
-    void cargar_23(Date fecha_ini, Date fecha_fin, String user) {
-        String mostrar = "SELECT * FROM ventas_23 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "'";
+    void cargar_23(Date fecha_ini, Date fecha_fin, String user, String status) {
+        String mostrar = "SELECT * FROM ventas_23 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -2391,8 +2404,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
 
     }
 
-    void cargarC_23(Date fecha_ini, Date fecha_fin, String users) {
-        String mostrar = "SELECT * FROM ventas_23 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "'";
+    void cargarC_23(Date fecha_ini, Date fecha_fin, String users, String status) {
+        String mostrar = "SELECT * FROM ventas_23 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -2428,8 +2441,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
     }
 
     //24
-    void cargar_24(Date fecha_ini, Date fecha_fin, String user) {
-        String mostrar = "SELECT * FROM ventas_24 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "'";
+    void cargar_24(Date fecha_ini, Date fecha_fin, String user, String status) {
+        String mostrar = "SELECT * FROM ventas_24 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -2464,8 +2477,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
 
     }
 
-    void cargarC_24(Date fecha_ini, Date fecha_fin, String users) {
-        String mostrar = "SELECT * FROM ventas_24 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "'";
+    void cargarC_24(Date fecha_ini, Date fecha_fin, String users, String status) {
+        String mostrar = "SELECT * FROM ventas_24 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -2501,8 +2514,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
     }
 
     //25
-    void cargar_25(Date fecha_ini, Date fecha_fin, String user) {
-        String mostrar = "SELECT * FROM ventas_25 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "'";
+    void cargar_25(Date fecha_ini, Date fecha_fin, String user, String status) {
+        String mostrar = "SELECT * FROM ventas_25 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -2537,8 +2550,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
 
     }
 
-    void cargarC_25(Date fecha_ini, Date fecha_fin, String users) {
-        String mostrar = "SELECT * FROM ventas_25 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "'";
+    void cargarC_25(Date fecha_ini, Date fecha_fin, String users, String status) {
+        String mostrar = "SELECT * FROM ventas_25 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -2574,8 +2587,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
     }
     //26
 
-    void cargar_26(Date fecha_ini, Date fecha_fin, String user) {
-        String mostrar = "SELECT * FROM ventas_26 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "'";
+    void cargar_26(Date fecha_ini, Date fecha_fin, String user, String status) {
+        String mostrar = "SELECT * FROM ventas_26 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -2610,8 +2623,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
 
     }
 
-    void cargarC_26(Date fecha_ini, Date fecha_fin, String users) {
-        String mostrar = "SELECT * FROM ventas_26 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "'";
+    void cargarC_26(Date fecha_ini, Date fecha_fin, String users, String status) {
+        String mostrar = "SELECT * FROM ventas_26 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -2647,8 +2660,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
     }
 
     //27
-    void cargar_27(Date fecha_ini, Date fecha_fin, String user) {
-        String mostrar = "SELECT * FROM ventas_27 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "'";
+    void cargar_27(Date fecha_ini, Date fecha_fin, String user, String status) {
+        String mostrar = "SELECT * FROM ventas_27 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -2683,8 +2696,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
 
     }
 
-    void cargarC_27(Date fecha_ini, Date fecha_fin, String users) {
-        String mostrar = "SELECT * FROM ventas_27 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "'";
+    void cargarC_27(Date fecha_ini, Date fecha_fin, String users, String status) {
+        String mostrar = "SELECT * FROM ventas_27 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -2720,8 +2733,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
     }
 
     //28
-    void cargar_28(Date fecha_ini, Date fecha_fin, String user) {
-        String mostrar = "SELECT * FROM ventas_28 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "'";
+    void cargar_28(Date fecha_ini, Date fecha_fin, String user, String status) {
+        String mostrar = "SELECT * FROM ventas_28 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -2756,8 +2769,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
 
     }
 
-    void cargarC_28(Date fecha_ini, Date fecha_fin, String users) {
-        String mostrar = "SELECT * FROM ventas_28 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "'";
+    void cargarC_28(Date fecha_ini, Date fecha_fin, String users, String status) {
+        String mostrar = "SELECT * FROM ventas_28 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -2793,8 +2806,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
     }
 
     //29
-    void cargar_29(Date fecha_ini, Date fecha_fin, String user) {
-        String mostrar = "SELECT * FROM ventas_29 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "'";
+    void cargar_29(Date fecha_ini, Date fecha_fin, String user, String status) {
+        String mostrar = "SELECT * FROM ventas_29 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -2829,8 +2842,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
 
     }
 
-    void cargarC_29(Date fecha_ini, Date fecha_fin, String users) {
-        String mostrar = "SELECT * FROM ventas_29 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "'";
+    void cargarC_29(Date fecha_ini, Date fecha_fin, String users, String status) {
+        String mostrar = "SELECT * FROM ventas_29 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -2866,8 +2879,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
     }
 
     //30
-    void cargar_30(Date fecha_ini, Date fecha_fin, String user) {
-        String mostrar = "SELECT * FROM ventas_30 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "'";
+    void cargar_30(Date fecha_ini, Date fecha_fin, String user, String status) {
+        String mostrar = "SELECT * FROM ventas_30 WHERE forma_pag_ventas = 'CONTADO' AND fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + user + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -2902,8 +2915,8 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
 
     }
 
-    void cargarC_30(Date fecha_ini, Date fecha_fin, String users) {
-        String mostrar = "SELECT * FROM ventas_30 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "'";
+    void cargarC_30(Date fecha_ini, Date fecha_fin, String users, String status) {
+        String mostrar = "SELECT * FROM ventas_30 WHERE  fecha_ventas BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND user_ventas='" + users + "' AND estado_ventas='" + status + "'";
         String[] titulos = {"N° Venta", "Cliente", "Condición", " Valor Total", "Fecha de Venta"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);

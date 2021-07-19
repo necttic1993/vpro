@@ -7,7 +7,6 @@ package Caja_2.Pago_Plazos;
 
 import static Caja_2.Pago_Plazos.pago_factura_credito.cod_cliente;
 import static Loggin_Principal.NECTTIC.ingreso;
-import Loggin_Principal.Principal;
 import static Loggin_Principal.Principal.lbl_mone_def;
 import java.awt.event.KeyEvent;
 import java.math.BigDecimal;

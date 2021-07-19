@@ -35,16 +35,91 @@ public class Lista_devolucion_fis extends javax.swing.JDialog {
         if (txt_alma_caja.getText().equals("0000002")) {
             cargar_2("");
         }
-        /*  if (lbl_almacen_ventas.getText().equals("0000016")) {
-         cargar_16("");
-         }
-         if (lbl_almacen_ventas.getText().equals("0000018")) {
-         cargar_18("");
-         }
 
-         if (lbl_almacen_ventas.getText().equals("0000020")) {
-         cargar_20("");
-         }*/
+        if (txt_alma_caja.getText().equals("0000003")) {
+            cargar_3("");
+        }
+        if (txt_alma_caja.getText().equals("0000004")) {
+            cargar_4("");
+        }
+        if (txt_alma_caja.getText().equals("0000005")) {
+            cargar_5("");
+        }
+        if (txt_alma_caja.getText().equals("0000006")) {
+            cargar_6("");
+        }
+        if (txt_alma_caja.getText().equals("0000007")) {
+            cargar_7("");
+        }
+        if (txt_alma_caja.getText().equals("0000008")) {
+            cargar_8("");
+        }
+        if (txt_alma_caja.getText().equals("0000009")) {
+            cargar_9("");
+        }
+        if (txt_alma_caja.getText().equals("0000010")) {
+            cargar_10("");
+        }
+        if (txt_alma_caja.getText().equals("0000011")) {
+            cargar_11("");
+        }
+        if (txt_alma_caja.getText().equals("0000012")) {
+            cargar_12("");
+        }
+        if (txt_alma_caja.getText().equals("0000013")) {
+            cargar_13("");
+        }
+        if (txt_alma_caja.getText().equals("0000014")) {
+            cargar_14("");
+        }
+        if (txt_alma_caja.getText().equals("0000015")) {
+            cargar_15("");
+        }
+        if (txt_alma_caja.getText().equals("0000016")) {
+            cargar_16("");
+        }
+        if (txt_alma_caja.getText().equals("0000017")) {
+            cargar_17("");
+        }
+        if (txt_alma_caja.getText().equals("0000018")) {
+            cargar_18("");
+        }
+        if (txt_alma_caja.getText().equals("0000019")) {
+            cargar_19("");
+        }
+        if (txt_alma_caja.getText().equals("0000020")) {
+            cargar_20("");
+        }
+        if (txt_alma_caja.getText().equals("0000021")) {
+            cargar_21("");
+        }
+        if (txt_alma_caja.getText().equals("0000022")) {
+            cargar_22("");
+        }
+        if (txt_alma_caja.getText().equals("0000023")) {
+            cargar_23("");
+        }
+        if (txt_alma_caja.getText().equals("0000024")) {
+            cargar_24("");
+        }
+        if (txt_alma_caja.getText().equals("0000025")) {
+            cargar_25("");
+        }
+        if (txt_alma_caja.getText().equals("0000026")) {
+            cargar_26("");
+        }
+        if (txt_alma_caja.getText().equals("0000027")) {
+            cargar_27("");
+        }
+        if (txt_alma_caja.getText().equals("0000028")) {
+            cargar_28("");
+        }
+        if (txt_alma_caja.getText().equals("0000029")) {
+            cargar_29("");
+        }
+        if (txt_alma_caja.getText().equals("0000030")) {
+            cargar_30("");
+        }
 
         txt_bus.requestFocus();
         //OpcionMenu();
@@ -236,17 +311,91 @@ public class Lista_devolucion_fis extends javax.swing.JDialog {
         if (txt_alma_caja.getText().equals("0000002")) {
             cargar_2(txt_bus.getText());
         }
-        //16
-        /*  if (lbl_almacen_ventas.getText().equals("0000016")) {
-         cargar_16(txt_bus.getText());
-         }
-         //18
-         if (lbl_almacen_ventas.getText().equals("0000018")) {
-         cargar_18(txt_bus.getText());
-         }
-         if (lbl_almacen_ventas.getText().equals("0000020")) {
-         cargar_20(txt_bus.getText());
-         }*/
+
+        if (txt_alma_caja.getText().equals("0000003")) {
+            cargar_3(txt_bus.getText());
+        }
+        if (txt_alma_caja.getText().equals("0000004")) {
+            cargar_4(txt_bus.getText());
+        }
+        if (txt_alma_caja.getText().equals("0000005")) {
+            cargar_5(txt_bus.getText());
+        }
+        if (txt_alma_caja.getText().equals("0000006")) {
+            cargar_6(txt_bus.getText());
+        }
+        if (txt_alma_caja.getText().equals("0000007")) {
+            cargar_7(txt_bus.getText());
+        }
+        if (txt_alma_caja.getText().equals("0000008")) {
+            cargar_8(txt_bus.getText());
+        }
+        if (txt_alma_caja.getText().equals("0000009")) {
+            cargar_9(txt_bus.getText());
+        }
+        if (txt_alma_caja.getText().equals("0000010")) {
+            cargar_10(txt_bus.getText());
+        }
+        if (txt_alma_caja.getText().equals("0000011")) {
+            cargar_11(txt_bus.getText());
+        }
+        if (txt_alma_caja.getText().equals("0000012")) {
+            cargar_12(txt_bus.getText());
+        }
+        if (txt_alma_caja.getText().equals("0000013")) {
+            cargar_13(txt_bus.getText());
+        }
+        if (txt_alma_caja.getText().equals("0000014")) {
+            cargar_14(txt_bus.getText());
+        }
+        if (txt_alma_caja.getText().equals("0000015")) {
+            cargar_15(txt_bus.getText());
+        }
+        if (txt_alma_caja.getText().equals("0000016")) {
+            cargar_16(txt_bus.getText());
+        }
+        if (txt_alma_caja.getText().equals("0000017")) {
+            cargar_17(txt_bus.getText());
+        }
+        if (txt_alma_caja.getText().equals("0000018")) {
+            cargar_18(txt_bus.getText());
+        }
+        if (txt_alma_caja.getText().equals("0000019")) {
+            cargar_19(txt_bus.getText());
+        }
+        if (txt_alma_caja.getText().equals("0000020")) {
+            cargar_20(txt_bus.getText());
+        }
+        if (txt_alma_caja.getText().equals("0000021")) {
+            cargar_21(txt_bus.getText());
+        }
+        if (txt_alma_caja.getText().equals("0000022")) {
+            cargar_22(txt_bus.getText());
+        }
+        if (txt_alma_caja.getText().equals("0000023")) {
+            cargar_23(txt_bus.getText());
+        }
+        if (txt_alma_caja.getText().equals("0000024")) {
+            cargar_24(txt_bus.getText());
+        }
+        if (txt_alma_caja.getText().equals("0000025")) {
+            cargar_25(txt_bus.getText());
+        }
+        if (txt_alma_caja.getText().equals("0000026")) {
+            cargar_26(txt_bus.getText());
+        }
+        if (txt_alma_caja.getText().equals("0000027")) {
+            cargar_27(txt_bus.getText());
+        }
+        if (txt_alma_caja.getText().equals("0000028")) {
+            cargar_28(txt_bus.getText());
+        }
+        if (txt_alma_caja.getText().equals("0000029")) {
+            cargar_29(txt_bus.getText());
+        }
+        if (txt_alma_caja.getText().equals("0000030")) {
+            cargar_30(txt_bus.getText());
+        }
 
     }//GEN-LAST:event_txt_busKeyReleased
 
@@ -351,6 +500,1070 @@ public class Lista_devolucion_fis extends javax.swing.JDialog {
             Connection cn = conectar.getInstance().getConnection();
 
             String cons = "select * from devolucion_facturacion_surc_2  WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND cod_cli_ventas='" + lbl_id_cli.getText() + "'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(6);
+                registros[4] = rs.getString(22);
+                registros[5] = rs.getString(30);
+                registros[6] = rs.getString(29);
+
+                model.addRow(registros);
+            }
+            tb_notacred.setModel(model);
+            tb_notacred.getColumnModel().getColumn(0).setPreferredWidth(200);
+            tb_notacred.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tb_notacred.getColumnModel().getColumn(2).setPreferredWidth(250);
+            tb_notacred.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(4).setPreferredWidth(120);
+            tb_notacred.getColumnModel().getColumn(5).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(6).setPreferredWidth(100);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    void cargar_3(String valor) {
+        try {
+
+            String[] titulos = {"Nota Nro", "Cód Cliente", "Cliente/Razón Social", "Valor Total", "Fecha Emisión", "Saldo", "Factura Nro"};
+            String[] registros = new String[23];
+            model = new DefaultTableModel(null, titulos);
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from devolucion_facturacion_surc_3  WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND cod_cli_ventas='" + lbl_id_cli.getText() + "'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(6);
+                registros[4] = rs.getString(22);
+                registros[5] = rs.getString(30);
+                registros[6] = rs.getString(29);
+
+                model.addRow(registros);
+            }
+            tb_notacred.setModel(model);
+            tb_notacred.getColumnModel().getColumn(0).setPreferredWidth(200);
+            tb_notacred.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tb_notacred.getColumnModel().getColumn(2).setPreferredWidth(250);
+            tb_notacred.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(4).setPreferredWidth(120);
+            tb_notacred.getColumnModel().getColumn(5).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(6).setPreferredWidth(100);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    void cargar_4(String valor) {
+        try {
+
+            String[] titulos = {"Nota Nro", "Cód Cliente", "Cliente/Razón Social", "Valor Total", "Fecha Emisión", "Saldo", "Factura Nro"};
+            String[] registros = new String[23];
+            model = new DefaultTableModel(null, titulos);
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from devolucion_facturacion_surc_4  WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND cod_cli_ventas='" + lbl_id_cli.getText() + "'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(6);
+                registros[4] = rs.getString(22);
+                registros[5] = rs.getString(30);
+                registros[6] = rs.getString(29);
+
+                model.addRow(registros);
+            }
+            tb_notacred.setModel(model);
+            tb_notacred.getColumnModel().getColumn(0).setPreferredWidth(200);
+            tb_notacred.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tb_notacred.getColumnModel().getColumn(2).setPreferredWidth(250);
+            tb_notacred.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(4).setPreferredWidth(120);
+            tb_notacred.getColumnModel().getColumn(5).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(6).setPreferredWidth(100);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    void cargar_5(String valor) {
+        try {
+
+            String[] titulos = {"Nota Nro", "Cód Cliente", "Cliente/Razón Social", "Valor Total", "Fecha Emisión", "Saldo", "Factura Nro"};
+            String[] registros = new String[23];
+            model = new DefaultTableModel(null, titulos);
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from devolucion_facturacion_surc_5  WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND cod_cli_ventas='" + lbl_id_cli.getText() + "'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(6);
+                registros[4] = rs.getString(22);
+                registros[5] = rs.getString(30);
+                registros[6] = rs.getString(29);
+
+                model.addRow(registros);
+            }
+            tb_notacred.setModel(model);
+            tb_notacred.getColumnModel().getColumn(0).setPreferredWidth(200);
+            tb_notacred.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tb_notacred.getColumnModel().getColumn(2).setPreferredWidth(250);
+            tb_notacred.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(4).setPreferredWidth(120);
+            tb_notacred.getColumnModel().getColumn(5).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(6).setPreferredWidth(100);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    void cargar_6(String valor) {
+        try {
+
+            String[] titulos = {"Nota Nro", "Cód Cliente", "Cliente/Razón Social", "Valor Total", "Fecha Emisión", "Saldo", "Factura Nro"};
+            String[] registros = new String[23];
+            model = new DefaultTableModel(null, titulos);
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from devolucion_facturacion_surc_6  WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND cod_cli_ventas='" + lbl_id_cli.getText() + "'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(6);
+                registros[4] = rs.getString(22);
+                registros[5] = rs.getString(30);
+                registros[6] = rs.getString(29);
+
+                model.addRow(registros);
+            }
+            tb_notacred.setModel(model);
+            tb_notacred.getColumnModel().getColumn(0).setPreferredWidth(200);
+            tb_notacred.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tb_notacred.getColumnModel().getColumn(2).setPreferredWidth(250);
+            tb_notacred.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(4).setPreferredWidth(120);
+            tb_notacred.getColumnModel().getColumn(5).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(6).setPreferredWidth(100);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    void cargar_7(String valor) {
+        try {
+
+            String[] titulos = {"Nota Nro", "Cód Cliente", "Cliente/Razón Social", "Valor Total", "Fecha Emisión", "Saldo", "Factura Nro"};
+            String[] registros = new String[23];
+            model = new DefaultTableModel(null, titulos);
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from devolucion_facturacion_surc_7  WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND cod_cli_ventas='" + lbl_id_cli.getText() + "'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(6);
+                registros[4] = rs.getString(22);
+                registros[5] = rs.getString(30);
+                registros[6] = rs.getString(29);
+
+                model.addRow(registros);
+            }
+            tb_notacred.setModel(model);
+            tb_notacred.getColumnModel().getColumn(0).setPreferredWidth(200);
+            tb_notacred.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tb_notacred.getColumnModel().getColumn(2).setPreferredWidth(250);
+            tb_notacred.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(4).setPreferredWidth(120);
+            tb_notacred.getColumnModel().getColumn(5).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(6).setPreferredWidth(100);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    void cargar_8(String valor) {
+        try {
+
+            String[] titulos = {"Nota Nro", "Cód Cliente", "Cliente/Razón Social", "Valor Total", "Fecha Emisión", "Saldo", "Factura Nro"};
+            String[] registros = new String[23];
+            model = new DefaultTableModel(null, titulos);
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from devolucion_facturacion_surc_8  WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND cod_cli_ventas='" + lbl_id_cli.getText() + "'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(6);
+                registros[4] = rs.getString(22);
+                registros[5] = rs.getString(30);
+                registros[6] = rs.getString(29);
+
+                model.addRow(registros);
+            }
+            tb_notacred.setModel(model);
+            tb_notacred.getColumnModel().getColumn(0).setPreferredWidth(200);
+            tb_notacred.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tb_notacred.getColumnModel().getColumn(2).setPreferredWidth(250);
+            tb_notacred.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(4).setPreferredWidth(120);
+            tb_notacred.getColumnModel().getColumn(5).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(6).setPreferredWidth(100);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    void cargar_9(String valor) {
+        try {
+
+            String[] titulos = {"Nota Nro", "Cód Cliente", "Cliente/Razón Social", "Valor Total", "Fecha Emisión", "Saldo", "Factura Nro"};
+            String[] registros = new String[23];
+            model = new DefaultTableModel(null, titulos);
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from devolucion_facturacion_surc_9  WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND cod_cli_ventas='" + lbl_id_cli.getText() + "'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(6);
+                registros[4] = rs.getString(22);
+                registros[5] = rs.getString(30);
+                registros[6] = rs.getString(29);
+
+                model.addRow(registros);
+            }
+            tb_notacred.setModel(model);
+            tb_notacred.getColumnModel().getColumn(0).setPreferredWidth(200);
+            tb_notacred.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tb_notacred.getColumnModel().getColumn(2).setPreferredWidth(250);
+            tb_notacred.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(4).setPreferredWidth(120);
+            tb_notacred.getColumnModel().getColumn(5).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(6).setPreferredWidth(100);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    void cargar_10(String valor) {
+        try {
+
+            String[] titulos = {"Nota Nro", "Cód Cliente", "Cliente/Razón Social", "Valor Total", "Fecha Emisión", "Saldo", "Factura Nro"};
+            String[] registros = new String[23];
+            model = new DefaultTableModel(null, titulos);
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from devolucion_facturacion_surc_10  WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND cod_cli_ventas='" + lbl_id_cli.getText() + "'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(6);
+                registros[4] = rs.getString(22);
+                registros[5] = rs.getString(30);
+                registros[6] = rs.getString(29);
+
+                model.addRow(registros);
+            }
+            tb_notacred.setModel(model);
+            tb_notacred.getColumnModel().getColumn(0).setPreferredWidth(200);
+            tb_notacred.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tb_notacred.getColumnModel().getColumn(2).setPreferredWidth(250);
+            tb_notacred.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(4).setPreferredWidth(120);
+            tb_notacred.getColumnModel().getColumn(5).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(6).setPreferredWidth(100);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    void cargar_11(String valor) {
+        try {
+
+            String[] titulos = {"Nota Nro", "Cód Cliente", "Cliente/Razón Social", "Valor Total", "Fecha Emisión", "Saldo", "Factura Nro"};
+            String[] registros = new String[23];
+            model = new DefaultTableModel(null, titulos);
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from devolucion_facturacion_surc_11  WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND cod_cli_ventas='" + lbl_id_cli.getText() + "'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(6);
+                registros[4] = rs.getString(22);
+                registros[5] = rs.getString(30);
+                registros[6] = rs.getString(29);
+
+                model.addRow(registros);
+            }
+            tb_notacred.setModel(model);
+            tb_notacred.getColumnModel().getColumn(0).setPreferredWidth(200);
+            tb_notacred.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tb_notacred.getColumnModel().getColumn(2).setPreferredWidth(250);
+            tb_notacred.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(4).setPreferredWidth(120);
+            tb_notacred.getColumnModel().getColumn(5).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(6).setPreferredWidth(100);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    void cargar_12(String valor) {
+        try {
+
+            String[] titulos = {"Nota Nro", "Cód Cliente", "Cliente/Razón Social", "Valor Total", "Fecha Emisión", "Saldo", "Factura Nro"};
+            String[] registros = new String[23];
+            model = new DefaultTableModel(null, titulos);
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from devolucion_facturacion_surc_12  WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND cod_cli_ventas='" + lbl_id_cli.getText() + "'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(6);
+                registros[4] = rs.getString(22);
+                registros[5] = rs.getString(30);
+                registros[6] = rs.getString(29);
+
+                model.addRow(registros);
+            }
+            tb_notacred.setModel(model);
+            tb_notacred.getColumnModel().getColumn(0).setPreferredWidth(200);
+            tb_notacred.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tb_notacred.getColumnModel().getColumn(2).setPreferredWidth(250);
+            tb_notacred.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(4).setPreferredWidth(120);
+            tb_notacred.getColumnModel().getColumn(5).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(6).setPreferredWidth(100);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    void cargar_13(String valor) {
+        try {
+
+            String[] titulos = {"Nota Nro", "Cód Cliente", "Cliente/Razón Social", "Valor Total", "Fecha Emisión", "Saldo", "Factura Nro"};
+            String[] registros = new String[23];
+            model = new DefaultTableModel(null, titulos);
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from devolucion_facturacion_surc_13 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND cod_cli_ventas='" + lbl_id_cli.getText() + "'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(6);
+                registros[4] = rs.getString(22);
+                registros[5] = rs.getString(30);
+                registros[6] = rs.getString(29);
+
+                model.addRow(registros);
+            }
+            tb_notacred.setModel(model);
+            tb_notacred.getColumnModel().getColumn(0).setPreferredWidth(200);
+            tb_notacred.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tb_notacred.getColumnModel().getColumn(2).setPreferredWidth(250);
+            tb_notacred.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(4).setPreferredWidth(120);
+            tb_notacred.getColumnModel().getColumn(5).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(6).setPreferredWidth(100);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    void cargar_14(String valor) {
+        try {
+
+            String[] titulos = {"Nota Nro", "Cód Cliente", "Cliente/Razón Social", "Valor Total", "Fecha Emisión", "Saldo", "Factura Nro"};
+            String[] registros = new String[23];
+            model = new DefaultTableModel(null, titulos);
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from devolucion_facturacion_surc_14  WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND cod_cli_ventas='" + lbl_id_cli.getText() + "'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(6);
+                registros[4] = rs.getString(22);
+                registros[5] = rs.getString(30);
+                registros[6] = rs.getString(29);
+
+                model.addRow(registros);
+            }
+            tb_notacred.setModel(model);
+            tb_notacred.getColumnModel().getColumn(0).setPreferredWidth(200);
+            tb_notacred.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tb_notacred.getColumnModel().getColumn(2).setPreferredWidth(250);
+            tb_notacred.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(4).setPreferredWidth(120);
+            tb_notacred.getColumnModel().getColumn(5).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(6).setPreferredWidth(100);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    void cargar_15(String valor) {
+        try {
+
+            String[] titulos = {"Nota Nro", "Cód Cliente", "Cliente/Razón Social", "Valor Total", "Fecha Emisión", "Saldo", "Factura Nro"};
+            String[] registros = new String[23];
+            model = new DefaultTableModel(null, titulos);
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from devolucion_facturacion_surc_15  WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND cod_cli_ventas='" + lbl_id_cli.getText() + "'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(6);
+                registros[4] = rs.getString(22);
+                registros[5] = rs.getString(30);
+                registros[6] = rs.getString(29);
+
+                model.addRow(registros);
+            }
+            tb_notacred.setModel(model);
+            tb_notacred.getColumnModel().getColumn(0).setPreferredWidth(200);
+            tb_notacred.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tb_notacred.getColumnModel().getColumn(2).setPreferredWidth(250);
+            tb_notacred.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(4).setPreferredWidth(120);
+            tb_notacred.getColumnModel().getColumn(5).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(6).setPreferredWidth(100);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    void cargar_16(String valor) {
+        try {
+
+            String[] titulos = {"Nota Nro", "Cód Cliente", "Cliente/Razón Social", "Valor Total", "Fecha Emisión", "Saldo", "Factura Nro"};
+            String[] registros = new String[23];
+            model = new DefaultTableModel(null, titulos);
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from devolucion_facturacion_surc_16  WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND cod_cli_ventas='" + lbl_id_cli.getText() + "'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(6);
+                registros[4] = rs.getString(22);
+                registros[5] = rs.getString(30);
+                registros[6] = rs.getString(29);
+
+                model.addRow(registros);
+            }
+            tb_notacred.setModel(model);
+            tb_notacred.getColumnModel().getColumn(0).setPreferredWidth(200);
+            tb_notacred.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tb_notacred.getColumnModel().getColumn(2).setPreferredWidth(250);
+            tb_notacred.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(4).setPreferredWidth(120);
+            tb_notacred.getColumnModel().getColumn(5).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(6).setPreferredWidth(100);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    void cargar_17(String valor) {
+        try {
+
+            String[] titulos = {"Nota Nro", "Cód Cliente", "Cliente/Razón Social", "Valor Total", "Fecha Emisión", "Saldo", "Factura Nro"};
+            String[] registros = new String[23];
+            model = new DefaultTableModel(null, titulos);
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from devolucion_facturacion_surc_17  WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND cod_cli_ventas='" + lbl_id_cli.getText() + "'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(6);
+                registros[4] = rs.getString(22);
+                registros[5] = rs.getString(30);
+                registros[6] = rs.getString(29);
+
+                model.addRow(registros);
+            }
+            tb_notacred.setModel(model);
+            tb_notacred.getColumnModel().getColumn(0).setPreferredWidth(200);
+            tb_notacred.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tb_notacred.getColumnModel().getColumn(2).setPreferredWidth(250);
+            tb_notacred.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(4).setPreferredWidth(120);
+            tb_notacred.getColumnModel().getColumn(5).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(6).setPreferredWidth(100);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    void cargar_18(String valor) {
+        try {
+
+            String[] titulos = {"Nota Nro", "Cód Cliente", "Cliente/Razón Social", "Valor Total", "Fecha Emisión", "Saldo", "Factura Nro"};
+            String[] registros = new String[23];
+            model = new DefaultTableModel(null, titulos);
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from devolucion_facturacion_surc_18  WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND cod_cli_ventas='" + lbl_id_cli.getText() + "'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(6);
+                registros[4] = rs.getString(22);
+                registros[5] = rs.getString(30);
+                registros[6] = rs.getString(29);
+
+                model.addRow(registros);
+            }
+            tb_notacred.setModel(model);
+            tb_notacred.getColumnModel().getColumn(0).setPreferredWidth(200);
+            tb_notacred.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tb_notacred.getColumnModel().getColumn(2).setPreferredWidth(250);
+            tb_notacred.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(4).setPreferredWidth(120);
+            tb_notacred.getColumnModel().getColumn(5).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(6).setPreferredWidth(100);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    void cargar_19(String valor) {
+        try {
+
+            String[] titulos = {"Nota Nro", "Cód Cliente", "Cliente/Razón Social", "Valor Total", "Fecha Emisión", "Saldo", "Factura Nro"};
+            String[] registros = new String[23];
+            model = new DefaultTableModel(null, titulos);
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from devolucion_facturacion_surc_19  WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND cod_cli_ventas='" + lbl_id_cli.getText() + "'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(6);
+                registros[4] = rs.getString(22);
+                registros[5] = rs.getString(30);
+                registros[6] = rs.getString(29);
+
+                model.addRow(registros);
+            }
+            tb_notacred.setModel(model);
+            tb_notacred.getColumnModel().getColumn(0).setPreferredWidth(200);
+            tb_notacred.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tb_notacred.getColumnModel().getColumn(2).setPreferredWidth(250);
+            tb_notacred.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(4).setPreferredWidth(120);
+            tb_notacred.getColumnModel().getColumn(5).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(6).setPreferredWidth(100);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    void cargar_20(String valor) {
+        try {
+
+            String[] titulos = {"Nota Nro", "Cód Cliente", "Cliente/Razón Social", "Valor Total", "Fecha Emisión", "Saldo", "Factura Nro"};
+            String[] registros = new String[23];
+            model = new DefaultTableModel(null, titulos);
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from devolucion_facturacion_surc_20  WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND cod_cli_ventas='" + lbl_id_cli.getText() + "'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(6);
+                registros[4] = rs.getString(22);
+                registros[5] = rs.getString(30);
+                registros[6] = rs.getString(29);
+
+                model.addRow(registros);
+            }
+            tb_notacred.setModel(model);
+            tb_notacred.getColumnModel().getColumn(0).setPreferredWidth(200);
+            tb_notacred.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tb_notacred.getColumnModel().getColumn(2).setPreferredWidth(250);
+            tb_notacred.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(4).setPreferredWidth(120);
+            tb_notacred.getColumnModel().getColumn(5).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(6).setPreferredWidth(100);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    void cargar_21(String valor) {
+        try {
+
+            String[] titulos = {"Nota Nro", "Cód Cliente", "Cliente/Razón Social", "Valor Total", "Fecha Emisión", "Saldo", "Factura Nro"};
+            String[] registros = new String[23];
+            model = new DefaultTableModel(null, titulos);
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from devolucion_facturacion_surc_21  WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND cod_cli_ventas='" + lbl_id_cli.getText() + "'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(6);
+                registros[4] = rs.getString(22);
+                registros[5] = rs.getString(30);
+                registros[6] = rs.getString(29);
+
+                model.addRow(registros);
+            }
+            tb_notacred.setModel(model);
+            tb_notacred.getColumnModel().getColumn(0).setPreferredWidth(200);
+            tb_notacred.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tb_notacred.getColumnModel().getColumn(2).setPreferredWidth(250);
+            tb_notacred.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(4).setPreferredWidth(120);
+            tb_notacred.getColumnModel().getColumn(5).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(6).setPreferredWidth(100);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    void cargar_22(String valor) {
+        try {
+
+            String[] titulos = {"Nota Nro", "Cód Cliente", "Cliente/Razón Social", "Valor Total", "Fecha Emisión", "Saldo", "Factura Nro"};
+            String[] registros = new String[23];
+            model = new DefaultTableModel(null, titulos);
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from devolucion_facturacion_surc_22  WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND cod_cli_ventas='" + lbl_id_cli.getText() + "'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(6);
+                registros[4] = rs.getString(22);
+                registros[5] = rs.getString(30);
+                registros[6] = rs.getString(29);
+
+                model.addRow(registros);
+            }
+            tb_notacred.setModel(model);
+            tb_notacred.getColumnModel().getColumn(0).setPreferredWidth(200);
+            tb_notacred.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tb_notacred.getColumnModel().getColumn(2).setPreferredWidth(250);
+            tb_notacred.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(4).setPreferredWidth(120);
+            tb_notacred.getColumnModel().getColumn(5).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(6).setPreferredWidth(100);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    void cargar_23(String valor) {
+        try {
+
+            String[] titulos = {"Nota Nro", "Cód Cliente", "Cliente/Razón Social", "Valor Total", "Fecha Emisión", "Saldo", "Factura Nro"};
+            String[] registros = new String[23];
+            model = new DefaultTableModel(null, titulos);
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from devolucion_facturacion_surc_23  WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND cod_cli_ventas='" + lbl_id_cli.getText() + "'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(6);
+                registros[4] = rs.getString(22);
+                registros[5] = rs.getString(30);
+                registros[6] = rs.getString(29);
+
+                model.addRow(registros);
+            }
+            tb_notacred.setModel(model);
+            tb_notacred.getColumnModel().getColumn(0).setPreferredWidth(200);
+            tb_notacred.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tb_notacred.getColumnModel().getColumn(2).setPreferredWidth(250);
+            tb_notacred.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(4).setPreferredWidth(120);
+            tb_notacred.getColumnModel().getColumn(5).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(6).setPreferredWidth(100);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    void cargar_24(String valor) {
+        try {
+
+            String[] titulos = {"Nota Nro", "Cód Cliente", "Cliente/Razón Social", "Valor Total", "Fecha Emisión", "Saldo", "Factura Nro"};
+            String[] registros = new String[23];
+            model = new DefaultTableModel(null, titulos);
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from devolucion_facturacion_surc_24  WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND cod_cli_ventas='" + lbl_id_cli.getText() + "'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(6);
+                registros[4] = rs.getString(22);
+                registros[5] = rs.getString(30);
+                registros[6] = rs.getString(29);
+
+                model.addRow(registros);
+            }
+            tb_notacred.setModel(model);
+            tb_notacred.getColumnModel().getColumn(0).setPreferredWidth(200);
+            tb_notacred.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tb_notacred.getColumnModel().getColumn(2).setPreferredWidth(250);
+            tb_notacred.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(4).setPreferredWidth(120);
+            tb_notacred.getColumnModel().getColumn(5).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(6).setPreferredWidth(100);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    void cargar_25(String valor) {
+        try {
+
+            String[] titulos = {"Nota Nro", "Cód Cliente", "Cliente/Razón Social", "Valor Total", "Fecha Emisión", "Saldo", "Factura Nro"};
+            String[] registros = new String[23];
+            model = new DefaultTableModel(null, titulos);
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from devolucion_facturacion_surc_25  WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND cod_cli_ventas='" + lbl_id_cli.getText() + "'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(6);
+                registros[4] = rs.getString(22);
+                registros[5] = rs.getString(30);
+                registros[6] = rs.getString(29);
+
+                model.addRow(registros);
+            }
+            tb_notacred.setModel(model);
+            tb_notacred.getColumnModel().getColumn(0).setPreferredWidth(200);
+            tb_notacred.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tb_notacred.getColumnModel().getColumn(2).setPreferredWidth(250);
+            tb_notacred.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(4).setPreferredWidth(120);
+            tb_notacred.getColumnModel().getColumn(5).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(6).setPreferredWidth(100);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    void cargar_26(String valor) {
+        try {
+
+            String[] titulos = {"Nota Nro", "Cód Cliente", "Cliente/Razón Social", "Valor Total", "Fecha Emisión", "Saldo", "Factura Nro"};
+            String[] registros = new String[23];
+            model = new DefaultTableModel(null, titulos);
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from devolucion_facturacion_surc_26  WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND cod_cli_ventas='" + lbl_id_cli.getText() + "'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(6);
+                registros[4] = rs.getString(22);
+                registros[5] = rs.getString(30);
+                registros[6] = rs.getString(29);
+
+                model.addRow(registros);
+            }
+            tb_notacred.setModel(model);
+            tb_notacred.getColumnModel().getColumn(0).setPreferredWidth(200);
+            tb_notacred.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tb_notacred.getColumnModel().getColumn(2).setPreferredWidth(250);
+            tb_notacred.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(4).setPreferredWidth(120);
+            tb_notacred.getColumnModel().getColumn(5).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(6).setPreferredWidth(100);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    void cargar_27(String valor) {
+        try {
+
+            String[] titulos = {"Nota Nro", "Cód Cliente", "Cliente/Razón Social", "Valor Total", "Fecha Emisión", "Saldo", "Factura Nro"};
+            String[] registros = new String[23];
+            model = new DefaultTableModel(null, titulos);
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from devolucion_facturacion_surc_27  WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND cod_cli_ventas='" + lbl_id_cli.getText() + "'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(6);
+                registros[4] = rs.getString(22);
+                registros[5] = rs.getString(30);
+                registros[6] = rs.getString(29);
+
+                model.addRow(registros);
+            }
+            tb_notacred.setModel(model);
+            tb_notacred.getColumnModel().getColumn(0).setPreferredWidth(200);
+            tb_notacred.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tb_notacred.getColumnModel().getColumn(2).setPreferredWidth(250);
+            tb_notacred.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(4).setPreferredWidth(120);
+            tb_notacred.getColumnModel().getColumn(5).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(6).setPreferredWidth(100);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    void cargar_28(String valor) {
+        try {
+
+            String[] titulos = {"Nota Nro", "Cód Cliente", "Cliente/Razón Social", "Valor Total", "Fecha Emisión", "Saldo", "Factura Nro"};
+            String[] registros = new String[23];
+            model = new DefaultTableModel(null, titulos);
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from devolucion_facturacion_surc_28  WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND cod_cli_ventas='" + lbl_id_cli.getText() + "'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(6);
+                registros[4] = rs.getString(22);
+                registros[5] = rs.getString(30);
+                registros[6] = rs.getString(29);
+
+                model.addRow(registros);
+            }
+            tb_notacred.setModel(model);
+            tb_notacred.getColumnModel().getColumn(0).setPreferredWidth(200);
+            tb_notacred.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tb_notacred.getColumnModel().getColumn(2).setPreferredWidth(250);
+            tb_notacred.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(4).setPreferredWidth(120);
+            tb_notacred.getColumnModel().getColumn(5).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(6).setPreferredWidth(100);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    void cargar_29(String valor) {
+        try {
+
+            String[] titulos = {"Nota Nro", "Cód Cliente", "Cliente/Razón Social", "Valor Total", "Fecha Emisión", "Saldo", "Factura Nro"};
+            String[] registros = new String[23];
+            model = new DefaultTableModel(null, titulos);
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from devolucion_facturacion_surc_29  WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND cod_cli_ventas='" + lbl_id_cli.getText() + "'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(6);
+                registros[4] = rs.getString(22);
+                registros[5] = rs.getString(30);
+                registros[6] = rs.getString(29);
+
+                model.addRow(registros);
+            }
+            tb_notacred.setModel(model);
+            tb_notacred.getColumnModel().getColumn(0).setPreferredWidth(200);
+            tb_notacred.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tb_notacred.getColumnModel().getColumn(2).setPreferredWidth(250);
+            tb_notacred.getColumnModel().getColumn(3).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(4).setPreferredWidth(120);
+            tb_notacred.getColumnModel().getColumn(5).setPreferredWidth(150);
+            tb_notacred.getColumnModel().getColumn(6).setPreferredWidth(100);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    void cargar_30(String valor) {
+        try {
+
+            String[] titulos = {"Nota Nro", "Cód Cliente", "Cliente/Razón Social", "Valor Total", "Fecha Emisión", "Saldo", "Factura Nro"};
+            String[] registros = new String[23];
+            model = new DefaultTableModel(null, titulos);
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select * from devolucion_facturacion_surc_30  WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND cod_cli_ventas='" + lbl_id_cli.getText() + "'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {

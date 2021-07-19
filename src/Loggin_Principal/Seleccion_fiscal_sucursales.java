@@ -9,6 +9,7 @@ import Clases.machusculas;
 import Conexion_DB.conectar;
 import Ventas.Fact_surc_10.Principal_ventas_surc_10;
 import Ventas.Fact_surc_11.Principal_ventas_surc_11;
+import Ventas.Fact_surc_13.Principal_ventas_facturas_13;
 import Ventas.Fact_surc_14.Principal_ventas_facturas_14;
 import Ventas.Fact_surc_16.Principal_ventas_facturas_16;
 import Ventas.Fact_surc_18.Principal_ventas_facturas_18;
@@ -204,6 +205,13 @@ public class Seleccion_fiscal_sucursales extends javax.swing.JDialog {
             Principal_ventas_surc_10 vf10;
             vf10 = new Principal_ventas_surc_10(new javax.swing.JDialog(), true);
             vf10.setVisible(true);
+            this.dispose();
+        }
+         
+            if (cod.equals("0000013")) {
+            Principal_ventas_facturas_13 vf13;
+            vf13 = new Principal_ventas_facturas_13(new javax.swing.JDialog(), true);
+            vf13.setVisible(true);
             this.dispose();
         }
         //20
