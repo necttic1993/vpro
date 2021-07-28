@@ -290,8 +290,8 @@ public class Almaccen_Principal extends javax.swing.JDialog {
     void cargar(String valor) {
         try {
 
-            String[] titulos = {"Código", "Almacén", "Descripción", "Capacidad M²"};
-            String[] registros = new String[4];
+            String[] titulos = {"Código", "Almacén", "Descripción", "Capacidad M²", "Outlet"};
+            String[] registros = new String[5];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
@@ -303,6 +303,7 @@ public class Almaccen_Principal extends javax.swing.JDialog {
                 registros[1] = rs.getString(2);
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(4);
+                registros[4] = rs.getString(5);
 
                 model.addRow(registros);
             }
@@ -311,6 +312,7 @@ public class Almaccen_Principal extends javax.swing.JDialog {
             tb_almacen.getColumnModel().getColumn(1).setPreferredWidth(250);
             tb_almacen.getColumnModel().getColumn(2).setPreferredWidth(350);
             tb_almacen.getColumnModel().getColumn(3).setPreferredWidth(120);
+            tb_almacen.getColumnModel().getColumn(4).setPreferredWidth(50);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {

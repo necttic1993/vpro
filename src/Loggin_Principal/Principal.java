@@ -167,6 +167,7 @@ public class Principal extends javax.swing.JFrame {
 
     public Principal() throws IOException {
         initComponents();
+
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         lbl_mode_dark.setText(mode);
         if (mode.equals("oscuro")) {
@@ -183,16 +184,24 @@ public class Principal extends javax.swing.JFrame {
         panel_config_gral.setVisible(false);
         //  cargar();
         cargarUsu(cod);
+        System.out.println("Usuario OK");
         controlFecha();
+        System.out.println("Fecha OK");
         //licencia();
         cargarConfig();
+        System.out.println("Config OK");
         permisos_users(lbl_tipo.getText());
+        System.out.println("permisos OK");
         OpcionMenu();
+        System.out.println("Opcion menu OK");
         //cargar_Agenda();
         configuracion();
+        System.out.println("Configuraciones empresas OK");
         //nooo serial();
         control_version();
+        System.out.println("Versiones OK");
         HORA_SERVIDOR();
+        System.out.println("Hora del servidor OK");
 
     }
 
@@ -322,6 +331,7 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem16 = new javax.swing.JMenuItem();
         menu_clientes = new javax.swing.JMenu();
         jMenuItem11 = new javax.swing.JMenuItem();
+        jMenuItem27 = new javax.swing.JMenuItem();
         menu_proveedor = new javax.swing.JMenu();
         jMenuItem17 = new javax.swing.JMenuItem();
         menu_usuario = new javax.swing.JMenu();
@@ -1031,6 +1041,11 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         menu_clientes.add(jMenuItem11);
+
+        jMenuItem27.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jMenuItem27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/map.png"))); // NOI18N
+        jMenuItem27.setText("-Ciudad");
+        menu_clientes.add(jMenuItem27);
 
         jMenu1.add(menu_clientes);
 
@@ -3225,6 +3240,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JMenuItem jMenuItem24;
     private javax.swing.JMenuItem jMenuItem25;
     private javax.swing.JMenuItem jMenuItem26;
+    private javax.swing.JMenuItem jMenuItem27;
     private javax.swing.JMenuItem jMenuItem28;
     private javax.swing.JMenuItem jMenuItem29;
     private javax.swing.JMenuItem jMenuItem3;
@@ -3870,16 +3886,16 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 lbl_id_empre.setText(rs.getString(1));
                 lbl_lote_activa.setText(rs.getString(57));
                 is = rs.getBinaryStream(4);
-                if (is == null) {
-                    System.out.println("imagen vacia");
-                } else {
+               if (is == null) {
+                  System.out.println("imagen vacia");
+                 } else {
 
-                    BufferedImage bi = ImageIO.read(is);
-                    foto = new ImageIcon(bi);
-                    Image img = foto.getImage();
-                    Image newimg = img.getScaledInstance(80, 60, java.awt.Image.SCALE_SMOOTH);
-                    ImageIcon newicon = new ImageIcon(newimg);
-                    lbl_img_empre.setIcon(newicon);
+                BufferedImage bi = ImageIO.read(is);
+                foto = new ImageIcon(bi);
+                Image img = foto.getImage();
+                Image newimg = img.getScaledInstance(80, 60, java.awt.Image.SCALE_SMOOTH);
+                ImageIcon newicon = new ImageIcon(newimg);
+                lbl_img_empre.setIcon(newicon);
 
                 }
             }
@@ -3888,6 +3904,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         } catch (SQLException ex) {
             Logger.getLogger(Caja_caja.class
                     .getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
         }
 
     }
@@ -4226,6 +4243,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
 
             }
             conectar.getInstance().closeConnection(cn);
+
             int nro = Integer.parseInt(notif);
 
             if (nro > 0) {

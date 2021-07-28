@@ -55,6 +55,8 @@ public class actualizar_almacen extends javax.swing.JDialog {
         txt_cap = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txt_nom = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        cb_activa_outlet = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Actualizar ");
@@ -73,7 +75,7 @@ public class actualizar_almacen extends javax.swing.JDialog {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 90, 130, 50));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 130, 50));
         jPanel1.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 60, -1));
 
         txt_des.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -102,38 +104,48 @@ public class actualizar_almacen extends javax.swing.JDialog {
         txt_nom.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jPanel1.add(txt_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 440, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 170));
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel3.setText("Activa precio outlet:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, -1, 30));
+
+        cb_activa_outlet.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        cb_activa_outlet.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "N", "S" }));
+        jPanel1.add(cb_activa_outlet, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 50, 30));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 160));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+        
         try {
             String id = txt_id.getText();
             String nom = txt_nom.getText();
             String des = txt_des.getText();
             String cap = txt_cap.getText();
-
+            String act_out = cb_activa_outlet.getSelectedItem().toString();
+            
             String sql = "UPDATE almacenes SET alm_nom = '" + nom
                     + "',alm_des ='" + des
                     + "',alm_cap ='" + cap
+                    + "',alm_act_out ='" + act_out
                     + "' WHERE alm_cod = '" + id + "'";
             try {
                 Connection cn = conectar.getInstance().getConnection();
-
+                
                 PreparedStatement pst = cn.prepareStatement(sql);
                 pst.executeUpdate();
                 conectar.getInstance().closeConnection(cn);
-
+                
                 JOptionPane.showMessageDialog(null, "Actualizado");
                 this.dispose();
-
+                
             } catch (SQLException | HeadlessException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
-
+            
         } catch (Exception e) {
         }
         Almaccen_Principal.btn_cargar_datos.doClick();
@@ -193,8 +205,10 @@ public class actualizar_almacen extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox cb_activa_outlet;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
@@ -205,12 +219,12 @@ public class actualizar_almacen extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     void BuscarProductoEditarA(String cod) {
-
+        
         try {
-
-            String id = "", des = "", cap = "", nom = "";
+            
+            String id = "", des = "", cap = "", nom = "", out = "";
             Connection cn = conectar.getInstance().getConnection();
-
+            
             String cons = "select * from almacenes WHERE alm_cod='" + cod + "'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
@@ -219,19 +233,21 @@ public class actualizar_almacen extends javax.swing.JDialog {
                 nom = rs.getString(2);
                 des = rs.getString(3);
                 cap = rs.getString(4);
-
+                out = rs.getString(5);
+                
             }
-
+            
             txt_id.setText(id);
             txt_nom.setText(nom);
             txt_des.setText(des);
             txt_cap.setText(cap);
+            cb_activa_outlet.setSelectedItem(out);
             conectar.getInstance().closeConnection(cn);
-
+            
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-
+        
     }
-
+    
 }

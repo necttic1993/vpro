@@ -53,6 +53,14 @@ public class Precio_modelo_dos extends javax.swing.JDialog {
             calcular_SaldoO();
             calcularStockTotal();
         }
+
+        if (Principal_ventas.lbl_activa_out.getText().equals("S")) {
+            ch_precio_outlet.setVisible(true);
+            des_out.setVisible(true);
+        } else {
+            ch_precio_outlet.setVisible(false);
+            des_out.setVisible(false);
+        }
         /* if (lbl_surcusal_id.getText().equals("0000002")) {
          BuscarProductoEditar_2(cod_pro_ventas);
 
@@ -219,6 +227,8 @@ public class Precio_modelo_dos extends javax.swing.JDialog {
         txt_stock_disponible = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         txt_pre_d = new javax.swing.JCheckBox();
+        des_out = new javax.swing.JLabel();
+        ch_precio_outlet = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Stock");
@@ -396,7 +406,17 @@ public class Precio_modelo_dos extends javax.swing.JDialog {
                 txt_pre_dActionPerformed(evt);
             }
         });
-        jPanel1.add(txt_pre_d, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 110, 30));
+        jPanel1.add(txt_pre_d, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 100, 30));
+
+        des_out.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        des_out.setText("Outlet:");
+        jPanel1.add(des_out, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 80, 30));
+
+        ch_precio_outlet.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        ch_precio_outlet.setForeground(new java.awt.Color(204, 0, 0));
+        ch_precio_outlet.setText("0");
+        ch_precio_outlet.setContentAreaFilled(false);
+        jPanel1.add(ch_precio_outlet, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 110, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 260));
 
@@ -2021,6 +2041,8 @@ public class Precio_modelo_dos extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton btn_agregar_item;
+    private javax.swing.JCheckBox ch_precio_outlet;
+    private javax.swing.JLabel des_out;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2054,10 +2076,10 @@ public class Precio_modelo_dos extends javax.swing.JDialog {
 
         try {
 
-            String stock_separado = "", pre_a = "", codi = "", des = "", pre_b = "", stock = "", pre_ataca = "", desc = "", pre_d = "";
+            String stock_separado = "", pre_a = "", codi = "", des = "", pre_b = "", stock = "", pre_ataca = "", desc = "", pre_d = "", pre_o = "";
             Connection cn = conectar.getInstance().getConnection();
 
-            String sql = "select p.pro_cod,p.pro_des,p.pro_pre_a,p.pro_pre_b,p.pro_pre_atacado,p.pro_alma,p.pro_pre_d, p.pro_cant, d.descto_dep from tienda_productos as p inner join depar_productos as d on p.pro_depa=d.cod_dep where p.pro_cod='" + cod + "'";
+            String sql = "select p.pro_cod,p.pro_des,p.pro_pre_a,p.pro_pre_b,p.pro_pre_atacado,p.pro_alma,p.pro_pre_d,,p.pro_pre_o, p.pro_cant, d.descto_dep from tienda_productos as p inner join depar_productos as d on p.pro_depa=d.cod_dep where p.pro_cod='" + cod + "'";
             //String cons = "select * from tienda_productos WHERE pro_cod='" + cod + "'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -2071,16 +2093,18 @@ public class Precio_modelo_dos extends javax.swing.JDialog {
                 desc = rs.getString("descto_dep");
                 stock_separado = rs.getString("pro_alma");
                 pre_d = rs.getString("pro_pre_d");
+                pre_o = rs.getString("pro_pre_o");
 
             }
             txt_cod.setText(codi);
             txt_pro.setText(des);
             txt_pre_a.setText(pre_a);
-           // txt_pre.setText(pre_a);
+            // txt_pre.setText(pre_a);
             txt_stock.setText(stock);
             txt_descuento.setText(desc);
             lbl_stock_separado.setText(stock_separado);
-            
+            ch_precio_outlet.setText(pre_o);
+
             if (Ventas_venta.txt_class_cli_ventas.getText().equals("MAYORISTAS")) {
                 txt_pre.setText(pre_b);
             } else if (Ventas_venta.txt_class_cli_ventas.getText().equals("SUBDISTRIBUIDOR")) {
@@ -2090,7 +2114,7 @@ public class Precio_modelo_dos extends javax.swing.JDialog {
             } else if (Ventas_venta.txt_class_cli_ventas.getText().equals("MINORISTAS")) {
                 txt_pre.setText(pre_a);
             }
-            
+
             if (lbl_pre_b.getText().equals("S")) {
                 lbl_precio_b.setText(pre_b);
             } else {

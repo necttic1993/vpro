@@ -455,8 +455,10 @@ public class NECTTIC extends javax.swing.JFrame {
                     ingreso = new Principal();
                     ingreso.setVisible(true);
                     ingreso.pack();
+             
                     noti_backup logi = new noti_backup();
                     logi.setVisible(true);
+                    
                 }
 
             } else {

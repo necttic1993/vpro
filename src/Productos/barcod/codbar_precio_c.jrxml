@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="200" pageHeight="70" columnWidth="200" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="c58b355a-03e7-41a3-b783-417fe30d5730">
+	<property name="ireport.zoom" value="5.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="codigo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tienda_productos.`pro_cod` AS tienda_productos_pro_cod,
+     tienda_productos.`pro_des` AS tienda_productos_pro_des,
+     empresas.`emp_imag` AS empresas_emp_imag,
+     tienda_productos.`pro_tama` AS tienda_productos_pro_tama,
+     tienda_productos.`pro_pre_atacado` AS tienda_productos_pro_pre_atacado
+FROM
+     `tienda_productos` tienda_productos,
+     `empresas` empresas
+WHERE
+     tienda_productos.`pro_cod` = $P{codigo}]]>
+	</queryString>
+	<field name="tienda_productos_pro_cod" class="java.lang.String"/>
+	<field name="tienda_productos_pro_des" class="java.lang.String"/>
+	<field name="empresas_emp_imag" class="java.io.InputStream"/>
+	<field name="tienda_productos_pro_tama" class="java.lang.String"/>
+	<field name="tienda_productos_pro_pre_atacado" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="69" splitType="Stretch">
+			<textField>
+				<reportElement x="43" y="48" width="52" height="10" uuid="72f418af-27e4-40c4-bfbd-3beea71f72a4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tienda_productos_pro_cod}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="33" y="13" width="123" height="23" uuid="05d1b3e5-8c18-4683-aba3-431390977bb5"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tienda_productos_pro_des}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="43" y="36" width="102" height="12" uuid="a90897d0-ae93-4bc0-93ce-bff8e872081b"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code128" drawText="false" checksumRequired="false">
+					<jr:codeExpression><![CDATA[$F{tienda_productos_pro_cod}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="5" y="1" width="28" height="35" uuid="74f0d58b-3449-43b6-adda-246a8f20a683"/>
+				<imageExpression><![CDATA[$F{empresas_emp_imag}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="5" y="38" width="28" height="20" uuid="90d86050-a520-4df7-89b2-fdf06bf78ab3"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tienda_productos_pro_tama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="95" y="48" width="50" height="10" uuid="6315b570-a1fe-4471-81df-65c926fad9ec"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tienda_productos_pro_pre_atacado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

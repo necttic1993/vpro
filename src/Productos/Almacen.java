@@ -54,6 +54,8 @@ public class Almacen extends javax.swing.JDialog {
         txt_nom = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        cb_activa_outlet = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Almacenes");
@@ -83,11 +85,11 @@ public class Almacen extends javax.swing.JDialog {
                 txt_capActionPerformed(evt);
             }
         });
-        jPanel1.add(txt_cap, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 120, -1));
+        jPanel1.add(txt_cap, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 100, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel2.setText("Capacidad M²:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, 30));
+        jLabel2.setText("Activa precio outlet:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, -1, 30));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel3.setText("Nro. Almacen:");
@@ -107,6 +109,14 @@ public class Almacen extends javax.swing.JDialog {
         jLabel5.setText("Descripciones:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 90, 30));
 
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel6.setText("Capacidad M²:");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, 30));
+
+        cb_activa_outlet.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        cb_activa_outlet.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "N", "S" }));
+        jPanel1.add(cb_activa_outlet, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 101, 50, 30));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 190));
 
         pack();
@@ -119,8 +129,9 @@ public class Almacen extends javax.swing.JDialog {
         String nom = txt_nom.getText();
         String des = txt_des.getText();
         String cap = txt_cap.getText();
+        String act_out = cb_activa_outlet.getSelectedItem().toString();
 
-        sql = "INSERT INTO almacenes (alm_cod,alm_nom,alm_des,alm_cap) VALUES (?,?,?,?)";
+        sql = "INSERT INTO almacenes (alm_cod,alm_nom,alm_des,alm_cap,alm_act_out) VALUES (?,?,?,?,?)";
         try {
             Connection cn = conectar.getInstance().getConnection();
 
@@ -129,6 +140,7 @@ public class Almacen extends javax.swing.JDialog {
             pst.setString(2, nom);
             pst.setString(3, des);
             pst.setString(4, cap);
+            pst.setString(5, act_out);
 
             int n = pst.executeUpdate();
             if (n > 0) {
@@ -137,6 +149,7 @@ public class Almacen extends javax.swing.JDialog {
                 txt_nom.setText("");
                 txt_des.setText("");
                 txt_cap.setText("");
+                cb_activa_outlet.setSelectedItem("N");
 
             }
             conectar.getInstance().closeConnection(cn);
@@ -196,11 +209,13 @@ public class Almacen extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox cb_activa_outlet;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txt_cap;
     private javax.swing.JTextField txt_cod;

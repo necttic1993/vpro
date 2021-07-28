@@ -49,10 +49,18 @@ public class Panel_precios_ventas extends javax.swing.JDialog {
             calcularStockTotal();
         }
         if (lbl_surcusal_id.getText().equals("0000001")) {
-            BuscarProductoEditar(cod_pro_ventas);          
+            BuscarProductoEditar(cod_pro_ventas);
             calcular_porciento();
             calcular_SaldoO();
             calcularStockTotal();
+        }
+
+        if (Principal_ventas.lbl_activa_out.getText().equals("S")) {
+            lbl_precio_outlet.setVisible(true);
+            des_out.setVisible(true);
+        } else {
+            lbl_precio_outlet.setVisible(false);
+            des_out.setVisible(false);
         }
         /*if (lbl_surcusal_id.getText().equals("0000002")) {
          BuscarProductoEditar_2(cod_pro_ventas);
@@ -220,7 +228,9 @@ public class Panel_precios_ventas extends javax.swing.JDialog {
         txt_stock_disponible = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        lbl_precio_outlet = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        des_out = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Stock");
@@ -379,9 +389,18 @@ public class Panel_precios_ventas extends javax.swing.JDialog {
         jLabel11.setText("Precio venta:");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, 30));
 
-        jLabel14.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel14.setText("Precio D:");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 70, 30));
+        lbl_precio_outlet.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lbl_precio_outlet.setForeground(new java.awt.Color(204, 0, 0));
+        lbl_precio_outlet.setText("0");
+        jPanel1.add(lbl_precio_outlet, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, 110, 30));
+
+        jLabel15.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel15.setText("Precio D:");
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 70, 30));
+
+        des_out.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        des_out.setText("Outlet:");
+        jPanel1.add(des_out, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 70, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 240));
 
@@ -2095,13 +2114,14 @@ public class Panel_precios_ventas extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton btn_agregar_item;
+    private javax.swing.JLabel des_out;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -2111,6 +2131,7 @@ public class Panel_precios_ventas extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbl_pre_d;
     private javax.swing.JLabel lbl_precio_b;
+    private javax.swing.JLabel lbl_precio_outlet;
     private javax.swing.JTextField lbl_stock_separado;
     private javax.swing.JTextField txt_cant;
     private javax.swing.JTextField txt_cod;
@@ -2174,10 +2195,10 @@ public class Panel_precios_ventas extends javax.swing.JDialog {
 
         try {
 
-            String stock_separado = "", pre_a = "", codi = "", des = "", pre_b = "", stock = "", pre_ataca = "", desc = "", pre_d = "";
+            String stock_separado = "", pre_a = "", codi = "", des = "", pre_b = "", stock = "", pre_ataca = "", desc = "", pre_d = "", pre_o = "";
             Connection cn = conectar.getInstance().getConnection();
 
-            String sql = "select p.pro_cod,p.pro_des,p.pro_pre_a,p.pro_pre_b,p.pro_pre_atacado,p.pro_pre_d,p.pro_alma, p.pro_cant, d.descto_dep from tienda_productos as p inner join depar_productos as d on p.pro_depa=d.cod_dep where p.pro_cod='" + cod + "'";
+            String sql = "select p.pro_cod,p.pro_des,p.pro_pre_a,p.pro_pre_b,p.pro_pre_atacado,p.pro_pre_d,p.pro_pre_o,p.pro_alma, p.pro_cant, d.descto_dep from tienda_productos as p inner join depar_productos as d on p.pro_depa=d.cod_dep where p.pro_cod='" + cod + "'";
             //String cons = "select * from tienda_productos WHERE pro_cod='" + cod + "'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -2190,16 +2211,19 @@ public class Panel_precios_ventas extends javax.swing.JDialog {
                 pre_ataca = rs.getString("pro_pre_atacado"); //PRECIO C
                 desc = rs.getString("descto_dep");
                 stock_separado = rs.getString("pro_alma");
-                pre_d = rs.getString("pro_pre_d"); //PRECIO D
+                pre_d = rs.getString("pro_pre_d");
+                pre_o = rs.getString("pro_pre_o");                
+//PRECIO D
             }
             txt_cod.setText(codi);
             txt_pro.setText(des);
             txt_pre_a.setText(pre_a);
-           // txt_pre.setText(pre_a);
+            // txt_pre.setText(pre_a);
             txt_stock.setText(stock);
             txt_descuento.setText(desc);
             lbl_stock_separado.setText(stock_separado);
-            
+            lbl_precio_outlet.setText(pre_o);
+
             if (Ventas_venta.txt_class_cli_ventas.getText().equals("MAYORISTAS")) {
                 txt_pre.setText(pre_b);
             } else if (Ventas_venta.txt_class_cli_ventas.getText().equals("SUBDISTRIBUIDOR")) {
@@ -2209,7 +2233,7 @@ public class Panel_precios_ventas extends javax.swing.JDialog {
             } else if (Ventas_venta.txt_class_cli_ventas.getText().equals("MINORISTAS")) {
                 txt_pre.setText(pre_a);
             }
-            
+
             if (lbl_pre_b.getText().equals("S")) {
                 lbl_precio_b.setText(pre_b);
             } else {
