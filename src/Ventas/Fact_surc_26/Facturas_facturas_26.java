@@ -19,7 +19,6 @@ import static Loggin_Principal.Principal.lbl_mes_actual;
 import static Loggin_Principal.Principal.lbl_usu_nom;
 import static Loggin_Principal.Principal.txt_simbolo;
 import java.awt.Color;
-import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -50,9 +49,18 @@ public class Facturas_facturas_26 extends javax.swing.JDialog {
     public Facturas_facturas_26(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        codigos();
 
-        cargarConfig();
+        if (Principal.lbl_serie_empre.getText().equals("KYR")) {
+            parametro_cambio_26 pamc;
+            pamc = new parametro_cambio_26(new javax.swing.JDialog(), true);
+            pamc.setVisible(true);
+
+        }
+        if (Principal.lbl_lote_activa.getText().equals("N")) {
+            codigos();
+
+        }
+        btn_buscar.setVisible(false);
         btncalcular.setVisible(false);
         txt_forma_pago.setVisible(false);
         lbl_sub_total.setVisible(false);
@@ -150,7 +158,7 @@ public class Facturas_facturas_26 extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tb_factura);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 1030, 330));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 1030, 300));
 
         jLabel16.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel16.setText("Nombre del Cliente :");
@@ -181,6 +189,8 @@ public class Facturas_facturas_26 extends javax.swing.JDialog {
         jPanel1.add(txt_cli_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 370, 30));
 
         txt_cod.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txt_cod.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txt_cod.setEnabled(false);
         txt_cod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_codActionPerformed(evt);
@@ -297,7 +307,6 @@ public class Facturas_facturas_26 extends javax.swing.JDialog {
         btneli.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btneli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/eliminar.png"))); // NOI18N
         btneli.setMnemonic('e');
-        btneli.setText("Quitar Items");
         btneli.setToolTipText("Remover Productos ALT+E");
         btneli.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btneli.addActionListener(new java.awt.event.ActionListener() {
@@ -305,7 +314,7 @@ public class Facturas_facturas_26 extends javax.swing.JDialog {
                 btneliActionPerformed(evt);
             }
         });
-        jPanel1.add(btneli, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 530, 150, 50));
+        jPanel1.add(btneli, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 100, 80, 40));
 
         btnven.setBackground(new java.awt.Color(255, 255, 255));
         btnven.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -547,7 +556,7 @@ public class Facturas_facturas_26 extends javax.swing.JDialog {
                 modelo.removeRow(i);
             }
             codigos();
-           // cargarConfig();
+            // cargarConfig();
 
         }
 
@@ -748,7 +757,7 @@ public class Facturas_facturas_26 extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_buscar;
+    public static javax.swing.JButton btn_buscar;
     public static javax.swing.JButton btncalcular;
     private javax.swing.JButton btneli;
     private javax.swing.JButton btnven;
@@ -788,10 +797,10 @@ public class Facturas_facturas_26 extends javax.swing.JDialog {
     public static javax.swing.JTextField txt_cli_nom;
     public static javax.swing.JTextField txt_cod;
     public static javax.swing.JTextField txt_cod_cli;
-    private javax.swing.JTextField txt_esta;
+    public static javax.swing.JTextField txt_esta;
     private javax.swing.JTextField txt_forma_pago;
-    private javax.swing.JTextField txt_sequencia;
-    private javax.swing.JTextField txt_timbrado;
+    public static javax.swing.JTextField txt_sequencia;
+    public static javax.swing.JTextField txt_timbrado;
     public static javax.swing.JLabel txttotal;
     // End of variables declaration//GEN-END:variables
 
@@ -893,7 +902,7 @@ public class Facturas_facturas_26 extends javax.swing.JDialog {
             pst.setString(27, total_nota);
 
             int n = pst.executeUpdate();
-             conectar.getInstance().closeConnection(cn);
+            conectar.getInstance().closeConnection(cn);
             if (n > 0) {
                 detalle_factura();
                 JOptionPane.showMessageDialog(null, "Factura de venta realizada con éxito");
@@ -924,7 +933,7 @@ public class Facturas_facturas_26 extends javax.swing.JDialog {
                      Logger.getLogger(Facturas_facturas_26.class.getName()).log(Level.SEVERE, null, ex);
                      }
 
-                    /*   String cod = lbl_cod.getText();
+                     /*   String cod = lbl_cod.getText();
                      Reportes reporte = new Reportes();
                      try {
                      reporte.factKyrios(cod);
@@ -943,7 +952,7 @@ public class Facturas_facturas_26 extends javax.swing.JDialog {
                 }
 
             }
-           
+
         } catch (SQLException ex) {
             Logger.getLogger(Facturas_facturas_26.class
                     .getName()).log(Level.SEVERE, null, ex);
@@ -1136,25 +1145,7 @@ public class Facturas_facturas_26 extends javax.swing.JDialog {
 
     }
 
-    void cargarConfig() {
-        String mostrar = "SELECT * FROM empresas";
-
-        try {
-            Connection cn = conectar.getInstance().getConnection();
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(mostrar);
-            while (rs.next()) {
-
-             //   txt_timbrado.setText(rs.getString(52)); //////////modificar
-               
-
-            }
-            conectar.getInstance().closeConnection(cn);
-        } catch (SQLException ex) {
-            Logger.getLogger(Facturas_facturas_26.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
+ 
 
     public void calcularLucro() {
 
