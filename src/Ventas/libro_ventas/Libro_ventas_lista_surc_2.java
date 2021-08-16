@@ -6,6 +6,7 @@ package Ventas.libro_ventas;
 import Conexion_DB.conectar;
 import static Loggin_Principal.NECTTIC.ingreso;
 import Loggin_Principal.Principal;
+import static Loggin_Principal.Principal.lbl_tipo;
 import java.awt.Color;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -18,6 +19,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -202,7 +205,7 @@ public class Libro_ventas_lista_surc_2 extends javax.swing.JDialog {
         txt_exentos.setEnabled(false);
         panel_precios.add(txt_exentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 40, 30));
 
-        jPanel3.add(panel_precios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 520, 300, 40));
+        jPanel3.add(panel_precios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 520, 300, 50));
 
         jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_4/rehacer.png"))); // NOI18N
@@ -264,7 +267,7 @@ public class Libro_ventas_lista_surc_2 extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 573, Short.MAX_VALUE)
         );
 
         pack();
@@ -320,9 +323,12 @@ public class Libro_ventas_lista_surc_2 extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
-        Clientes_libro_ventas_surc_2 cli_search;
-        cli_search = new Clientes_libro_ventas_surc_2(new javax.swing.JDialog(), true);
+
+    
+        Clientes_libro_ventas_2 cli_search;
+        cli_search = new Clientes_libro_ventas_2(new javax.swing.JDialog(), true);
         cli_search.setVisible(true);
+
 
     }//GEN-LAST:event_btn_buscarActionPerformed
 
@@ -331,11 +337,11 @@ public class Libro_ventas_lista_surc_2 extends javax.swing.JDialog {
     }//GEN-LAST:event_txt_id_cliActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-     String nro_seq = txt_seq_cambio.getText();
+        String nro_seq = txt_seq_cambio.getText();
         String cli = txt_id_cli.getText();
         String total = txt_valor_libro.getText();
-         String total_iva = txt_valor_iva.getText();
-        
+        String total_iva = txt_valor_iva.getText();
+
         java.sql.Date date1 = new java.sql.Date(jd_ini_lucro_usu.getDate().getTime());
         java.sql.Date date2 = new java.sql.Date(jd_fin_lucro_usu.getDate().getTime());
 
@@ -348,7 +354,7 @@ public class Libro_ventas_lista_surc_2 extends javax.swing.JDialog {
             }
         } else {
             try {
-                libro_clientes(date1, date2, cli, nro_seq, total,total_iva);
+                libro_clientes(date1, date2, cli, nro_seq, total, total_iva);
             } catch (IOException ex) {
                 Logger.getLogger(Libro_ventas_lista.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -629,8 +635,8 @@ public class Libro_ventas_lista_surc_2 extends javax.swing.JDialog {
             font.setColor(IndexedColors.WHITE.getIndex());
             font.setFontHeightInPoints((short) 10);
             headerStyle.setFont(font);
-            
-                   //estilo total
+
+            //estilo total
             CellStyle totalEstilo = book.createCellStyle();
             totalEstilo.setFillForegroundColor(IndexedColors.GOLD.getIndex());
             totalEstilo.setFillPattern(FillPatternType.SOLID_FOREGROUND);
@@ -643,8 +649,7 @@ public class Libro_ventas_lista_surc_2 extends javax.swing.JDialog {
             fuenteTotal.setFontHeightInPoints((short) 10);
             totalEstilo.setFont(fuenteTotal);
 
-            
-              //estilo total iva
+            //estilo total iva
             CellStyle totalIvaEstilo = book.createCellStyle();
             totalIvaEstilo.setFillForegroundColor(IndexedColors.GOLD.getIndex());
             totalIvaEstilo.setFillPattern(FillPatternType.SOLID_FOREGROUND);
@@ -656,7 +661,6 @@ public class Libro_ventas_lista_surc_2 extends javax.swing.JDialog {
             fuenteTotalIva.setColor(IndexedColors.BLACK.getIndex());
             fuenteTotalIva.setFontHeightInPoints((short) 10);
             totalIvaEstilo.setFont(fuenteTotalIva);
-            
 
             Row filaEncabezados = sheet.createRow(3);  //desde donde empieza los titulos
 
@@ -712,12 +716,12 @@ public class Libro_ventas_lista_surc_2 extends javax.swing.JDialog {
             sheet.autoSizeColumn(7);
             sheet.autoSizeColumn(8);
             sheet.autoSizeColumn(9);
-            
+
             Row totales = sheet.createRow(numFilaDatos + 1);
             Cell celdaTotal = totales.createCell(7);
             celdaTotal.setCellStyle(totalEstilo);
             celdaTotal.setCellValue("Total Valor: " + total);
-            
+
             Row totales_iva = sheet.createRow(numFilaDatos + 2);
             Cell celdaTotalIva = totales_iva.createCell(7);
             celdaTotalIva.setCellStyle(totalIvaEstilo);
@@ -770,8 +774,8 @@ public class Libro_ventas_lista_surc_2 extends javax.swing.JDialog {
             Cell celdaTitulo = filaTitulo.createCell(1);
             celdaTitulo.setCellStyle(tituloEstilo);
             celdaTitulo.setCellValue("Libo de Ventas");
-            
-                   //estilo total
+
+            //estilo total
             CellStyle totalEstilo = book.createCellStyle();
             totalEstilo.setFillForegroundColor(IndexedColors.GOLD.getIndex());
             totalEstilo.setFillPattern(FillPatternType.SOLID_FOREGROUND);
@@ -784,8 +788,7 @@ public class Libro_ventas_lista_surc_2 extends javax.swing.JDialog {
             fuenteTotal.setFontHeightInPoints((short) 10);
             totalEstilo.setFont(fuenteTotal);
 
-            
-              //estilo total iva
+            //estilo total iva
             CellStyle totalIvaEstilo = book.createCellStyle();
             totalIvaEstilo.setFillForegroundColor(IndexedColors.GOLD.getIndex());
             totalIvaEstilo.setFillPattern(FillPatternType.SOLID_FOREGROUND);
@@ -797,7 +800,6 @@ public class Libro_ventas_lista_surc_2 extends javax.swing.JDialog {
             fuenteTotalIva.setColor(IndexedColors.BLACK.getIndex());
             fuenteTotalIva.setFontHeightInPoints((short) 10);
             totalIvaEstilo.setFont(fuenteTotalIva);
-            
 
             sheet.addMergedRegion(new CellRangeAddress(1, 1, 1, 4));
 
@@ -876,7 +878,7 @@ public class Libro_ventas_lista_surc_2 extends javax.swing.JDialog {
             Cell celdaTotal = totales.createCell(7);
             celdaTotal.setCellStyle(totalEstilo);
             celdaTotal.setCellValue("Total Valor: " + total);
-            
+
             Row totales_iva = sheet.createRow(numFilaDatos + 2);
             Cell celdaTotalIva = totales_iva.createCell(7);
             celdaTotalIva.setCellStyle(totalIvaEstilo);
@@ -896,6 +898,21 @@ public class Libro_ventas_lista_surc_2 extends javax.swing.JDialog {
             Logger.getLogger(Libro_ventas_lista_surc_2.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+
+    public void actualiza() {
+
+        Timer timer = new Timer();
+        TimerTask tesk = new TimerTask() {
+            int Cont = 0;
+
+            @Override
+            public void run() {
+                Clientes_libro_ventas.lbl_sequencia_cliente.setText("2");
+
+            }
+        };
+        timer.schedule(tesk, 200, 500);
     }
 
 }//FIN CLASE

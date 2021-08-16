@@ -5,7 +5,6 @@
  */
 package Ventas.libro_ventas;
 
-import Clientes.Add_clientes;
 import Conexion_DB.conectar;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
@@ -81,6 +80,8 @@ public class Clientes_libro_ventas extends javax.swing.JDialog {
         tbclientes = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        lbl_sequencia_cliente = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Buscar Clientes");
@@ -147,6 +148,13 @@ public class Clientes_libro_ventas extends javax.swing.JDialog {
         jLabel2.setFocusable(false);
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 30));
 
+        lbl_sequencia_cliente.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jPanel1.add(lbl_sequencia_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 70, 30));
+
+        jLabel19.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel19.setText("Sequencia:");
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 70, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -183,9 +191,14 @@ public class Clientes_libro_ventas extends javax.swing.JDialog {
                 nom = (String) tbclientes.getValueAt(fila, 1);
                 dp = (String) tbclientes.getValueAt(fila, 3);
 
-                Libro_ventas_lista.txt_id_cli.setText(cod);
-                Libro_ventas_lista.txt_nom_cli_fact.setText(nom);
-                // Ventas_venta.txt_dias_plazo.setText(dp);
+                if (lbl_sequencia_cliente.getText().equals("1")) {
+                    Libro_ventas_lista.txt_id_cli.setText(cod);
+                    Libro_ventas_lista.txt_nom_cli_fact.setText(nom);
+
+                } else if (lbl_sequencia_cliente.getText().equals("2")) {
+JOptionPane.showMessageDialog(null, "Dos");
+
+                }
 
                 this.dispose();
 
@@ -198,25 +211,6 @@ public class Clientes_libro_ventas extends javax.swing.JDialog {
         char Tecla = evt.getKeyChar();
 
         if (Tecla == KeyEvent.VK_ENTER) {
-            String nom = "", dp = "", dir = "", cod = "", nac = "";
-            int fila = tbclientes.getSelectedRow();
-            try {
-                if (fila == -1) {
-                    JOptionPane.showMessageDialog(null, "No ha seleccionado ningun dato");
-
-                } else {
-                    cod = (String) tbclientes.getValueAt(fila, 0);
-                    nom = (String) tbclientes.getValueAt(fila, 1);
-                    dp = (String) tbclientes.getValueAt(fila, 3);
-
-                    Libro_ventas_lista.txt_id_cli.setText(cod);
-                    Libro_ventas_lista.txt_nom_cli_fact.setText(nom);
-
-                    this.dispose();
-
-                }
-            } catch (Exception e) {
-            }
 
         }
     }//GEN-LAST:event_tbclientesKeyPressed
@@ -280,10 +274,12 @@ public class Clientes_libro_ventas extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    public static javax.swing.JLabel lbl_sequencia_cliente;
     private javax.swing.JTable tbclientes;
     private javax.swing.JTextField txtbus;
     // End of variables declaration//GEN-END:variables

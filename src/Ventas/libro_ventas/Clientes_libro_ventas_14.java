@@ -5,7 +5,6 @@
  */
 package Ventas.libro_ventas;
 
-import Clientes.Add_clientes;
 import Conexion_DB.conectar;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
@@ -21,11 +20,11 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Roberto
  */
-public class Clientes_libro_ventas_surc_19 extends javax.swing.JDialog {
+public class Clientes_libro_ventas_14 extends javax.swing.JDialog {
 
     DefaultTableModel model;
 
-    public Clientes_libro_ventas_surc_19(javax.swing.JDialog parent, boolean modal) {
+    public Clientes_libro_ventas_14(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
         txtbus.requestFocus();
@@ -66,7 +65,7 @@ public class Clientes_libro_ventas_surc_19 extends javax.swing.JDialog {
             conectar.getInstance().closeConnection(cn);
 
         } catch (SQLException ex) {
-            Logger.getLogger(Clientes_libro_ventas_surc_19.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Clientes_libro_ventas_14.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -183,9 +182,11 @@ public class Clientes_libro_ventas_surc_19 extends javax.swing.JDialog {
                 nom = (String) tbclientes.getValueAt(fila, 1);
                 dp = (String) tbclientes.getValueAt(fila, 3);
 
-                Libro_ventas_lista_surc_19.txt_id_cli.setText(cod);
-                Libro_ventas_lista_surc_19.txt_nom_cli_fact.setText(nom);
-                // Ventas_venta.txt_dias_plazo.setText(dp);
+               
+                    Libro_ventas_lista_surc_14.txt_id_cli.setText(cod);
+                    Libro_ventas_lista_surc_14.txt_nom_cli_fact.setText(nom);
+
+              
 
                 this.dispose();
 
@@ -198,25 +199,6 @@ public class Clientes_libro_ventas_surc_19 extends javax.swing.JDialog {
         char Tecla = evt.getKeyChar();
 
         if (Tecla == KeyEvent.VK_ENTER) {
-            String nom = "", dp = "", dir = "", cod = "", nac = "";
-            int fila = tbclientes.getSelectedRow();
-            try {
-                if (fila == -1) {
-                    JOptionPane.showMessageDialog(null, "No ha seleccionado ningun dato");
-
-                } else {
-                    cod = (String) tbclientes.getValueAt(fila, 0);
-                    nom = (String) tbclientes.getValueAt(fila, 1);
-                    dp = (String) tbclientes.getValueAt(fila, 3);
-
-                    Libro_ventas_lista_surc_19.txt_id_cli.setText(cod);
-                    Libro_ventas_lista_surc_19.txt_nom_cli_fact.setText(nom);
-
-                    this.dispose();
-
-                }
-            } catch (Exception e) {
-            }
 
         }
     }//GEN-LAST:event_tbclientesKeyPressed
@@ -247,13 +229,13 @@ public class Clientes_libro_ventas_surc_19 extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Clientes_libro_ventas_surc_19.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Clientes_libro_ventas_14.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Clientes_libro_ventas_surc_19.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Clientes_libro_ventas_14.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Clientes_libro_ventas_surc_19.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Clientes_libro_ventas_14.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Clientes_libro_ventas_surc_19.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Clientes_libro_ventas_14.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -291,7 +273,7 @@ public class Clientes_libro_ventas_surc_19 extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Clientes_libro_ventas_surc_19 dialog = new Clientes_libro_ventas_surc_19(new javax.swing.JDialog(), true);
+                Clientes_libro_ventas_14 dialog = new Clientes_libro_ventas_14(new javax.swing.JDialog(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

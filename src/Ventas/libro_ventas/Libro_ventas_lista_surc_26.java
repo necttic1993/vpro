@@ -55,7 +55,7 @@ public class Libro_ventas_lista_surc_26 extends javax.swing.JDialog {
         initComponents();
         panel_precios.setVisible(false);
 
-        txt_iva.setDisabledTextColor(Color.black);
+        txt_valor_iva.setDisabledTextColor(Color.black);
 
     }// FIN CONSTRUCTOR
     //</editor-fold>
@@ -80,12 +80,14 @@ public class Libro_ventas_lista_surc_26 extends javax.swing.JDialog {
         jButton3 = new javax.swing.JButton();
         panel_precios = new javax.swing.JPanel();
         txt_exentos = new javax.swing.JTextField();
-        txt_iva = new javax.swing.JTextField();
-        txt_total = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         txt_seq_cambio = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        txt_valor_libro = new javax.swing.JTextField();
+        txt_valor_iva = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Listar Facturas de Ventas");
@@ -200,26 +202,7 @@ public class Libro_ventas_lista_surc_26 extends javax.swing.JDialog {
         txt_exentos.setEnabled(false);
         panel_precios.add(txt_exentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 40, 30));
 
-        txt_iva.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        txt_iva.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txt_iva.setText("0");
-        txt_iva.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        txt_iva.setEnabled(false);
-        txt_iva.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_ivaActionPerformed(evt);
-            }
-        });
-        panel_precios.add(txt_iva, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 40, 30));
-
-        txt_total.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        txt_total.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txt_total.setText("0");
-        txt_total.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        txt_total.setEnabled(false);
-        panel_precios.add(txt_total, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 40, 30));
-
-        jPanel3.add(panel_precios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 530, 300, 40));
+        jPanel3.add(panel_precios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 520, 300, 40));
 
         jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_4/rehacer.png"))); // NOI18N
@@ -246,6 +229,33 @@ public class Libro_ventas_lista_surc_26 extends javax.swing.JDialog {
         });
         jPanel3.add(txt_seq_cambio, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 60, 30));
 
+        jLabel20.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel20.setText("Total Valor:");
+        jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 530, 70, 30));
+
+        jLabel19.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel19.setText("Total IVA:");
+        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 530, 70, 30));
+
+        txt_valor_libro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txt_valor_libro.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txt_valor_libro.setText("0");
+        txt_valor_libro.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txt_valor_libro.setEnabled(false);
+        jPanel3.add(txt_valor_libro, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 530, 150, 30));
+
+        txt_valor_iva.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txt_valor_iva.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txt_valor_iva.setText("0");
+        txt_valor_iva.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txt_valor_iva.setEnabled(false);
+        txt_valor_iva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_valor_ivaActionPerformed(evt);
+            }
+        });
+        jPanel3.add(txt_valor_iva, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 530, 110, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -254,7 +264,7 @@ public class Libro_ventas_lista_surc_26 extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 573, Short.MAX_VALUE)
         );
 
         pack();
@@ -298,9 +308,9 @@ public class Libro_ventas_lista_surc_26 extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void txt_ivaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ivaActionPerformed
+    private void txt_valor_ivaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_valor_ivaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_ivaActionPerformed
+    }//GEN-LAST:event_txt_valor_ivaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (txt_id_cli.getText().equals("0")) {
@@ -310,8 +320,8 @@ public class Libro_ventas_lista_surc_26 extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
-        Clientes_libro_ventas_surc_26 cli_search;
-        cli_search = new Clientes_libro_ventas_surc_26(new javax.swing.JDialog(), true);
+       Clientes_libro_ventas_26 cli_search;
+        cli_search = new Clientes_libro_ventas_26(new javax.swing.JDialog(), true);
         cli_search.setVisible(true);
 
     }//GEN-LAST:event_btn_buscarActionPerformed
@@ -321,22 +331,26 @@ public class Libro_ventas_lista_surc_26 extends javax.swing.JDialog {
     }//GEN-LAST:event_txt_id_cliActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        String nro_seq = txt_seq_cambio.getText();
+     String nro_seq = txt_seq_cambio.getText();
         String cli = txt_id_cli.getText();
+        String total = txt_valor_libro.getText();
+         String total_iva = txt_valor_iva.getText();
+        
         java.sql.Date date1 = new java.sql.Date(jd_ini_lucro_usu.getDate().getTime());
         java.sql.Date date2 = new java.sql.Date(jd_fin_lucro_usu.getDate().getTime());
+
         if (txt_id_cli.getText().equals("0")) {
             try {
 
-                libro_todos(date1, date2, nro_seq);
+                libro_todos(date1, date2, nro_seq, total, total_iva);
             } catch (IOException ex) {
-                Logger.getLogger(Libro_ventas_lista_surc_26.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Libro_ventas_lista.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
             try {
-                libro_clientes(date1, date2, cli, nro_seq);
+                libro_clientes(date1, date2, cli, nro_seq, total,total_iva);
             } catch (IOException ex) {
-                Logger.getLogger(Libro_ventas_lista_surc_26.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Libro_ventas_lista.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 
@@ -417,6 +431,8 @@ public class Libro_ventas_lista_surc_26 extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private org.jdesktop.swingx.JXDatePicker jd_fin_lucro_usu;
@@ -425,15 +441,15 @@ public class Libro_ventas_lista_surc_26 extends javax.swing.JDialog {
     public static javax.swing.JTable tb_ventas;
     private javax.swing.JTextField txt_exentos;
     public static javax.swing.JTextField txt_id_cli;
-    public static javax.swing.JTextField txt_iva;
     public static javax.swing.JTextField txt_nom_cli_fact;
     private static javax.swing.JTextField txt_seq_cambio;
-    private javax.swing.JTextField txt_total;
+    public static javax.swing.JTextField txt_valor_iva;
+    private javax.swing.JTextField txt_valor_libro;
     // End of variables declaration//GEN-END:variables
     //<editor-fold defaultstate="collapsed" desc="ZONA DE METODOS GENERICOS DE LA CLASE">
 
     void cargar(Date fecha_ini, Date fecha_fin, String user, String seq) {
-        String mostrar = "SELECT v.`cod_cli_ventas` ,v.`data_vista` ,c.`cli_cod` ,c.`cli_ruc` ,c.`cli_razon`,v.`nro_estable_ventas` ,v.`nro_seq_ventas`,v.`nro_fact_ventas` ,v.`total_ventas` ,v.`fact_sub_exe`,v.`total_iva_5`,v.`total_iva_10`,v.`total_iva` ,v.`form_pag_lit` FROM ventas_facturacion_surc_26 as v INNER JOIN   tienda_clientes as c ON  v.`cod_cli_ventas`=c.`cli_cod` WHERE v.fecha_ventas between '" + fecha_ini + "' AND '" + fecha_fin + "' and c.`cli_cod` = '" + user + "' AND v.nro_estable_ventas='" + seq + "'";
+        String mostrar = "SELECT v.`cod_cli_ventas` ,v.`data_vista` ,c.`cli_cod` ,c.`cli_ruc` ,c.`cli_razon`,v.`nro_estable_ventas` ,v.`nro_seq_ventas`,v.`nro_fact_ventas` ,v.`total_ventas` ,v.`fact_sub_exe`,v.`total_iva_5`,v.`total_iva_10`,v.`total_iva` ,v.`form_pag_lit` FROM ventas_facturacion_surc_26 as v INNER JOIN   tienda_clientes as c ON  v.`cod_cli_ventas`=c.`cli_cod` WHERE v.fecha_ventas between '" + fecha_ini + "' AND '" + fecha_fin + "' and c.`cli_cod` = '" + user + "' AND v.nro_estable_ventas='" + seq + "' AND estado_fact <> 'ANULADA'";
         String[] titulos = {"Fecha Emisión", "Documento", "Contado/ Crédito", "Razón Social/Nombres", "RUC", "Totales", "IVA 5%", "IVA 10%", "Excentas", "Total IVA"};
         String[] registros = new String[30];
         model = new DefaultTableModel(null, titulos);
@@ -478,7 +494,7 @@ public class Libro_ventas_lista_surc_26 extends javax.swing.JDialog {
     }
 
     void cargarC(Date fecha_ini, Date fecha_fin, String seq) {
-        String mostrar = "SELECT v.`cod_cli_ventas` ,v.`data_vista` ,c.`cli_cod` ,c.`cli_ruc` ,c.`cli_razon`,v.`nro_estable_ventas` ,v.`nro_seq_ventas`,v.`nro_fact_ventas` ,v.`total_ventas` ,v.`fact_sub_exe`,v.`total_iva_5`,v.`total_iva_10`,v.`total_iva` ,v.`form_pag_lit` FROM ventas_facturacion_surc_26 as v INNER JOIN   tienda_clientes as c ON  v.`cod_cli_ventas`=c.`cli_cod` WHERE v.fecha_ventas between '" + fecha_ini + "' AND '" + fecha_fin + "' AND v.nro_estable_ventas='" + seq + "'";
+        String mostrar = "SELECT v.`cod_cli_ventas` ,v.`data_vista` ,c.`cli_cod` ,c.`cli_ruc` ,c.`cli_razon`,v.`nro_estable_ventas` ,v.`nro_seq_ventas`,v.`nro_fact_ventas` ,v.`total_ventas` ,v.`fact_sub_exe`,v.`total_iva_5`,v.`total_iva_10`,v.`total_iva` ,v.`form_pag_lit` FROM ventas_facturacion_surc_26 as v INNER JOIN   tienda_clientes as c ON  v.`cod_cli_ventas`=c.`cli_cod` WHERE v.fecha_ventas between '" + fecha_ini + "' AND '" + fecha_fin + "' AND v.nro_estable_ventas='" + seq + "' AND estado_fact <> 'ANULADA'";
         String[] titulos = {"Fecha Emisión", "Documento", "Contado/ Crédito", "Razón Social/Nombres", "RUC", "Totales", "IVA 5%", "IVA 10%", "Excentas", "Total IVA"};
         String[] registros = new String[30];
         model = new DefaultTableModel(null, titulos);
@@ -532,7 +548,7 @@ public class Libro_ventas_lista_surc_26 extends javax.swing.JDialog {
             imp = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(PulidoPrec.toString());
             subtotal = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(ingreso.TransformReales(subtotal).add(ingreso.TransformReales(imp)).toString());
 
-            txt_iva.setText(subtotal);
+            txt_valor_iva.setText(subtotal);
 
         }
     }//FIN METODO
@@ -547,7 +563,7 @@ public class Libro_ventas_lista_surc_26 extends javax.swing.JDialog {
             imp = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(PulidoPrec.toString());
             subtotal = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(ingreso.TransformReales(subtotal).add(ingreso.TransformReales(imp)).toString());
 
-            txt_total.setText(subtotal);
+            txt_valor_libro.setText(subtotal);
 
         }
     }//FIN METODO
@@ -567,7 +583,7 @@ public class Libro_ventas_lista_surc_26 extends javax.swing.JDialog {
         }
     }//FIN METODO
 
-    public static void libro_todos(Date fecha_ini, Date fecha_fin, String seq) throws IOException {
+    public static void libro_todos(Date fecha_ini, Date fecha_fin, String seq, String total, String iva) throws IOException {
 
         Workbook book = new XSSFWorkbook();
         Sheet sheet = book.createSheet("Libro de Ventas");
@@ -617,6 +633,34 @@ public class Libro_ventas_lista_surc_26 extends javax.swing.JDialog {
             font.setColor(IndexedColors.WHITE.getIndex());
             font.setFontHeightInPoints((short) 10);
             headerStyle.setFont(font);
+            
+                   //estilo total
+            CellStyle totalEstilo = book.createCellStyle();
+            totalEstilo.setFillForegroundColor(IndexedColors.GOLD.getIndex());
+            totalEstilo.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+            totalEstilo.setAlignment(HorizontalAlignment.LEFT);
+            totalEstilo.setVerticalAlignment(VerticalAlignment.CENTER);
+            Font fuenteTotal = book.createFont();
+            fuenteTotal.setFontName("Arial");
+            fuenteTotal.setBold(true);
+            fuenteTotal.setColor(IndexedColors.BLACK.getIndex());
+            fuenteTotal.setFontHeightInPoints((short) 10);
+            totalEstilo.setFont(fuenteTotal);
+
+            
+              //estilo total iva
+            CellStyle totalIvaEstilo = book.createCellStyle();
+            totalIvaEstilo.setFillForegroundColor(IndexedColors.GOLD.getIndex());
+            totalIvaEstilo.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+            totalIvaEstilo.setAlignment(HorizontalAlignment.LEFT);
+            totalIvaEstilo.setVerticalAlignment(VerticalAlignment.CENTER);
+            Font fuenteTotalIva = book.createFont();
+            fuenteTotalIva.setFontName("Arial");
+            fuenteTotalIva.setBold(true);
+            fuenteTotalIva.setColor(IndexedColors.BLACK.getIndex());
+            fuenteTotalIva.setFontHeightInPoints((short) 10);
+            totalIvaEstilo.setFont(fuenteTotalIva);
+            
 
             Row filaEncabezados = sheet.createRow(3);  //desde donde empieza los titulos
 
@@ -638,7 +682,7 @@ public class Libro_ventas_lista_surc_26 extends javax.swing.JDialog {
             datosEstilo.setBorderBottom(BorderStyle.THIN);
             Connection cn = conectar.getInstance().getConnection();
 
-            ps = cn.prepareStatement("SELECT v.`data_vista`,v.`nro_fact_ventas` ,v.`form_pag_lit`  ,c.`cli_razon`,c.`cli_ruc`  ,v.`total_ventas` ,v.`total_iva_5`,v.`total_iva_10`,v.`fact_sub_exe`,v.`total_iva`  FROM ventas_facturacion_surc_26 as v INNER JOIN   tienda_clientes as c ON  v.`cod_cli_ventas`=c.`cli_cod` WHERE v.fecha_ventas between '" + fecha_ini + "' AND '" + fecha_fin + "' AND v.nro_estable_ventas='" + seq + "'");
+            ps = cn.prepareStatement("SELECT v.`data_vista`,v.`nro_fact_ventas` ,v.`form_pag_lit`  ,c.`cli_razon`,c.`cli_ruc`  ,v.`total_ventas` ,v.`total_iva_5`,v.`total_iva_10`,v.`fact_sub_exe`,v.`total_iva`  FROM ventas_facturacion_surc_26 as v INNER JOIN   tienda_clientes as c ON  v.`cod_cli_ventas`=c.`cli_cod` WHERE v.fecha_ventas between '" + fecha_ini + "' AND '" + fecha_fin + "' AND v.nro_estable_ventas='" + seq + "' AND estado_fact <> 'ANULADA'");
             rs = ps.executeQuery();
 
             int numCol = rs.getMetaData().getColumnCount();
@@ -672,6 +716,16 @@ public class Libro_ventas_lista_surc_26 extends javax.swing.JDialog {
             sheet.autoSizeColumn(7);
             sheet.autoSizeColumn(8);
             sheet.autoSizeColumn(9);
+            
+            Row totales = sheet.createRow(numFilaDatos + 1);
+            Cell celdaTotal = totales.createCell(7);
+            celdaTotal.setCellStyle(totalEstilo);
+            celdaTotal.setCellValue("Total Valor: " + total);
+            
+            Row totales_iva = sheet.createRow(numFilaDatos + 2);
+            Cell celdaTotalIva = totales_iva.createCell(7);
+            celdaTotalIva.setCellStyle(totalIvaEstilo);
+            celdaTotalIva.setCellValue("Total IVA: " + iva);
 
             sheet.setZoom(100);
 
@@ -689,7 +743,7 @@ public class Libro_ventas_lista_surc_26 extends javax.swing.JDialog {
 
     }
 
-    public static void libro_clientes(Date fecha_ini, Date fecha_fin, String cli, String seq) throws IOException {
+    public static void libro_clientes(Date fecha_ini, Date fecha_fin, String cli, String seq, String total, String iva) throws IOException {
 
         Workbook book = new XSSFWorkbook();
         Sheet sheet = book.createSheet("Libro de Ventas");
@@ -720,6 +774,34 @@ public class Libro_ventas_lista_surc_26 extends javax.swing.JDialog {
             Cell celdaTitulo = filaTitulo.createCell(1);
             celdaTitulo.setCellStyle(tituloEstilo);
             celdaTitulo.setCellValue("Libo de Ventas");
+            
+                   //estilo total
+            CellStyle totalEstilo = book.createCellStyle();
+            totalEstilo.setFillForegroundColor(IndexedColors.GOLD.getIndex());
+            totalEstilo.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+            totalEstilo.setAlignment(HorizontalAlignment.LEFT);
+            totalEstilo.setVerticalAlignment(VerticalAlignment.CENTER);
+            Font fuenteTotal = book.createFont();
+            fuenteTotal.setFontName("Arial");
+            fuenteTotal.setBold(true);
+            fuenteTotal.setColor(IndexedColors.BLACK.getIndex());
+            fuenteTotal.setFontHeightInPoints((short) 10);
+            totalEstilo.setFont(fuenteTotal);
+
+            
+              //estilo total iva
+            CellStyle totalIvaEstilo = book.createCellStyle();
+            totalIvaEstilo.setFillForegroundColor(IndexedColors.GOLD.getIndex());
+            totalIvaEstilo.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+            totalIvaEstilo.setAlignment(HorizontalAlignment.LEFT);
+            totalIvaEstilo.setVerticalAlignment(VerticalAlignment.CENTER);
+            Font fuenteTotalIva = book.createFont();
+            fuenteTotalIva.setFontName("Arial");
+            fuenteTotalIva.setBold(true);
+            fuenteTotalIva.setColor(IndexedColors.BLACK.getIndex());
+            fuenteTotalIva.setFontHeightInPoints((short) 10);
+            totalIvaEstilo.setFont(fuenteTotalIva);
+            
 
             sheet.addMergedRegion(new CellRangeAddress(1, 1, 1, 4));
 
@@ -760,7 +842,7 @@ public class Libro_ventas_lista_surc_26 extends javax.swing.JDialog {
             datosEstilo.setBorderBottom(BorderStyle.THIN);
             Connection cn = conectar.getInstance().getConnection();
 
-            ps = cn.prepareStatement("SELECT v.`data_vista`,v.`nro_fact_ventas` ,v.`form_pag_lit`  ,c.`cli_razon`,c.`cli_ruc`  ,v.`total_ventas` ,v.`total_iva_5`,v.`total_iva_10`,v.`fact_sub_exe`,v.`total_iva` FROM ventas_facturacion_surc_26 as v INNER JOIN   tienda_clientes as c ON  v.`cod_cli_ventas`=c.`cli_cod` WHERE v.fecha_ventas between '" + fecha_ini + "' AND '" + fecha_fin + "' and c.`cli_cod` = '" + cli + "' AND v.nro_estable_ventas='" + seq + "' ");
+            ps = cn.prepareStatement("SELECT v.`data_vista`,v.`nro_fact_ventas` ,v.`form_pag_lit`  ,c.`cli_razon`,c.`cli_ruc`  ,v.`total_ventas` ,v.`total_iva_5`,v.`total_iva_10`,v.`fact_sub_exe`,v.`total_iva` FROM ventas_facturacion_surc_26 as v INNER JOIN   tienda_clientes as c ON  v.`cod_cli_ventas`=c.`cli_cod` WHERE v.fecha_ventas between '" + fecha_ini + "' AND '" + fecha_fin + "' and c.`cli_cod` = '" + cli + "' AND v.nro_estable_ventas='" + seq + "' AND estado_fact <> 'ANULADA'");
             rs = ps.executeQuery();
 
             int numCol = rs.getMetaData().getColumnCount();
@@ -794,6 +876,15 @@ public class Libro_ventas_lista_surc_26 extends javax.swing.JDialog {
             sheet.autoSizeColumn(7);
             sheet.autoSizeColumn(8);
             sheet.autoSizeColumn(9);
+            Row totales = sheet.createRow(numFilaDatos + 1);
+            Cell celdaTotal = totales.createCell(7);
+            celdaTotal.setCellStyle(totalEstilo);
+            celdaTotal.setCellValue("Total Valor: " + total);
+            
+            Row totales_iva = sheet.createRow(numFilaDatos + 2);
+            Cell celdaTotalIva = totales_iva.createCell(7);
+            celdaTotalIva.setCellStyle(totalIvaEstilo);
+            celdaTotalIva.setCellValue("Total IVA: " + iva);
 
             sheet.setZoom(100);
 
