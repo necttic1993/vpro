@@ -127,7 +127,7 @@ public class Lista_ventas_canc extends javax.swing.JDialog {
                 String codins = tb_can_dev.getValueAt(fila, 0).toString();
 
                 Devolucion_Devoluciones.txt_cod.setText(codins);
-                // Devolucion_Devoluciones.btncalcular.doClick();
+                Devolucion_Devoluciones.btn_buscar.doClick();
                 this.dispose();
 
             }
@@ -158,7 +158,7 @@ public class Lista_ventas_canc extends javax.swing.JDialog {
                     String codins = tb_can_dev.getValueAt(fila, 0).toString();
 
                     Devolucion_Devoluciones.txt_cod.setText(codins);
-                    // Devolucion_Devoluciones.btncalcular.doClick();
+                     Devolucion_Devoluciones.btn_buscar.doClick();
                     this.dispose();
 
                 }

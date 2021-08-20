@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="200" pageHeight="819" columnWidth="200" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isSummaryNewPage="true" isIgnorePagination="true" uuid="7ce405cb-6911-406c-a0f1-1bb9c739744b">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="codigo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     empresas.`id_empre` AS empresas_id_empre,
+     empresas.`emp_nom` AS empresas_emp_nom,
+     empresas.`emp_des` AS empresas_emp_des,
+     empresas.`emp_imag` AS empresas_emp_imag,
+     devoluciones_surc_2.`cod_dev` AS devoluciones_surc_2_cod_dev,
+     devoluciones_surc_2.`cod_venta_dev` AS devoluciones_surc_2_cod_venta_dev,
+     devoluciones_surc_2.`cod_cli_dev` AS devoluciones_surc_2_cod_cli_dev,
+     devoluciones_surc_2.`nom_cli_dev` AS devoluciones_surc_2_nom_cli_dev,
+     devoluciones_surc_2.`des_dev` AS devoluciones_surc_2_des_dev,
+     devoluciones_surc_2.`items_dev` AS devoluciones_surc_2_items_dev,
+     devoluciones_surc_2.`total_dev` AS devoluciones_surc_2_total_dev,
+     devoluciones_surc_2.`fecha_dev` AS devoluciones_surc_2_fecha_dev,
+     devoluciones_surc_2.`user_dev` AS devoluciones_surc_2_user_dev,
+     devoluciones_surc_2.`fecha_control_dev` AS devoluciones_surc_2_fecha_control_dev,
+     devoluciones_surc_2.`estado_dev` AS devoluciones_surc_2_estado_dev,
+     devoluciones_surc_2.`id_devol` AS devoluciones_surc_2_id_devol,
+     devoluciones_detalles_surc_2.`cod_dev` AS devoluciones_detalles_surc_2_cod_dev,
+     devoluciones_detalles_surc_2.`cod_pro` AS devoluciones_detalles_surc_2_cod_pro,
+     devoluciones_detalles_surc_2.`des_pro` AS devoluciones_detalles_surc_2_des_pro,
+     devoluciones_detalles_surc_2.`cant_pro` AS devoluciones_detalles_surc_2_cant_pro,
+     devoluciones_detalles_surc_2.`pre_unit` AS devoluciones_detalles_surc_2_pre_unit,
+     devoluciones_detalles_surc_2.`pre_venta` AS devoluciones_detalles_surc_2_pre_venta,
+     devoluciones_detalles_surc_2.`data` AS devoluciones_detalles_surc_2_data,
+     devoluciones_detalles_surc_2.`id_dev_det` AS devoluciones_detalles_surc_2_id_dev_det
+FROM
+     `devoluciones_surc_2` devoluciones_surc_2 INNER JOIN `devoluciones_detalles_surc_2` devoluciones_detalles_surc_2 ON devoluciones_surc_2.`cod_dev` = devoluciones_detalles_surc_2.`cod_dev`,
+     `empresas` empresas
+WHERE
+     devoluciones_surc_2.`cod_dev` = $P{codigo}]]>
+	</queryString>
+	<field name="empresas_id_empre" class="java.lang.Integer"/>
+	<field name="empresas_emp_nom" class="java.lang.String"/>
+	<field name="empresas_emp_des" class="java.lang.String"/>
+	<field name="empresas_emp_imag" class="java.io.InputStream"/>
+	<field name="devoluciones_surc_2_cod_dev" class="java.lang.String"/>
+	<field name="devoluciones_surc_2_cod_venta_dev" class="java.lang.String"/>
+	<field name="devoluciones_surc_2_cod_cli_dev" class="java.lang.String"/>
+	<field name="devoluciones_surc_2_nom_cli_dev" class="java.lang.String"/>
+	<field name="devoluciones_surc_2_des_dev" class="java.lang.String"/>
+	<field name="devoluciones_surc_2_items_dev" class="java.lang.String"/>
+	<field name="devoluciones_surc_2_total_dev" class="java.lang.String"/>
+	<field name="devoluciones_surc_2_fecha_dev" class="java.sql.Date"/>
+	<field name="devoluciones_surc_2_user_dev" class="java.lang.String"/>
+	<field name="devoluciones_surc_2_fecha_control_dev" class="java.sql.Timestamp"/>
+	<field name="devoluciones_surc_2_estado_dev" class="java.lang.String"/>
+	<field name="devoluciones_surc_2_id_devol" class="java.lang.Integer"/>
+	<field name="devoluciones_detalles_surc_2_cod_dev" class="java.lang.String"/>
+	<field name="devoluciones_detalles_surc_2_cod_pro" class="java.lang.String"/>
+	<field name="devoluciones_detalles_surc_2_des_pro" class="java.lang.String"/>
+	<field name="devoluciones_detalles_surc_2_cant_pro" class="java.lang.String"/>
+	<field name="devoluciones_detalles_surc_2_pre_unit" class="java.lang.String"/>
+	<field name="devoluciones_detalles_surc_2_pre_venta" class="java.lang.String"/>
+	<field name="devoluciones_detalles_surc_2_data" class="java.sql.Date"/>
+	<field name="devoluciones_detalles_surc_2_id_dev_det" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="188" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="130" width="19" height="13" uuid="15568565-029d-4a07-b79c-0e15061be749"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[N°:]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="77" y="130" width="113" height="13" uuid="e435f35c-e70b-47ac-a601-c9d587868212"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="143" width="34" height="13" uuid="24a9e99e-3fb7-4ed4-92be-fae3c2bf710b"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Cliente:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="90" width="200" height="20" uuid="85e287dc-d8a9-4904-bb85-7a58bce97941"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empresas_emp_nom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="110" width="200" height="20" uuid="a73bf7a1-ef81-4bd1-87ac-4ca371372cbe"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empresas_emp_des}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="156" width="75" height="13" uuid="8f5f8e2c-523d-44fc-b62e-f024081e65de"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Descripción:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="21" y="130" width="56" height="13" uuid="4e476679-4559-4b17-b1b4-69850a18a8ee"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{devoluciones_surc_2_cod_dev}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="36" y="143" width="148" height="13" uuid="aad56455-6f33-4fec-8ae2-444b6b9c5f43"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{devoluciones_surc_2_nom_cli_dev}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="169" width="188" height="19" uuid="b46bf8f5-1211-4237-92b9-d0fc99dd874a"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{devoluciones_surc_2_des_dev}]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="0" y="0" width="200" height="85" uuid="82c7614e-2673-46d3-8532-0b4eb68031c5"/>
+				<imageExpression><![CDATA[$F{empresas_emp_imag}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="200" height="13" uuid="e3c75cc3-4168-464a-a468-ceb6c15cd252"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[==============================================]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement x="4" y="13" width="192" height="16" uuid="b33a98c9-2d8a-49d3-9313-f558d373064a"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="57" y="15" width="36" height="13" uuid="581fa1e1-cf80-4438-bee9-837831cde024"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[P. Unitario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="8" y="15" width="41" height="13" uuid="c709f6fb-c301-417b-bf0a-ce1ae15270d2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Id producto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="145" y="15" width="39" height="13" uuid="ccfa700a-6c0d-48c8-9c49-67f52de1099b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Subtotal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="101" y="15" width="30" height="13" uuid="05eb1f51-c29d-4c84-96e5-2bc1d624f745"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cant.]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="4" y="12" width="188" height="14" uuid="95777992-0869-406e-9c0e-2d7ef89475d7"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{devoluciones_detalles_surc_2_des_pro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="102" y="0" width="25" height="12" uuid="affc60d1-d743-4d15-a6dd-044466aa4b71"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{devoluciones_detalles_surc_2_cant_pro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="137" y="0" width="55" height="12" uuid="743a57e5-5486-4600-a9ee-bcf0fafbdda7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{devoluciones_detalles_surc_2_pre_venta}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="127" y="0" width="10" height="12" uuid="7a87884b-5147-459e-b907-d3325fc775a6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="92" y="0" width="10" height="12" uuid="d5b40bb3-cf28-4370-9547-243b8c56a411"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[x]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="4" y="1" width="42" height="11" uuid="3a4abc17-7157-4b46-b538-956b19993380"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{devoluciones_detalles_surc_2_cod_pro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="46" y="1" width="46" height="11" uuid="6de746d9-a361-45d8-af9f-27343addcce5"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{devoluciones_detalles_surc_2_pre_unit}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="37" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="10" width="90" height="12" uuid="13f26a42-de8a-4cb8-9408-334212e7ea4c"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Gs.:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="200" height="11" uuid="03824800-0e7e-480f-ab64-13b34565e543"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[----------------------------------------------------------------------------------]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="92" y="10" width="100" height="12" uuid="1d3b2abd-064f-481b-aa9c-162b025631f1"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{devoluciones_surc_2_total_dev}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="87" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="76" width="200" height="11" uuid="4f7bf0fb-75af-44c7-b0c9-e4f0e3271ac2"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[----------------------------------------------------------------------------------]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="41" width="200" height="16" uuid="dbbde6e9-f19c-4948-b5d1-403b96c3a42d"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[********Devoluciones********]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="4" y="14" width="196" height="27" uuid="e64eaf27-ebb4-49ec-b085-0015e288da9d"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code128" drawText="false" checksumRequired="false">
+					<jr:codeExpression><![CDATA[$P{codigo}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

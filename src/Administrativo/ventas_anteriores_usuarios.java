@@ -253,7 +253,7 @@ public class ventas_anteriores_usuarios extends javax.swing.JDialog {
         java.sql.Date date1 = new java.sql.Date(jd_ini_lucro_usu.getDate().getTime());
         java.sql.Date date2 = new java.sql.Date(jd_fin_lucro_usu.getDate().getTime());
 
-        if (Principal.lbl_usu_almacen.getText().equals("TODOS")) {
+        if (lbl_almacen_usu.getText().equals("TODOS")) {
             JOptionPane.showMessageDialog(null, "Selecione un Almacén/sucursal válido");
         } else {
 

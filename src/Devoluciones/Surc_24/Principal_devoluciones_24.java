@@ -5,14 +5,12 @@
  */
 package Devoluciones.Surc_24;
 
-import Devoluciones.Surc_franco.*;
 import Clases.ColorearFilas_devoluciones;
 import Conexion_DB.conectar;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -169,15 +167,15 @@ public class Principal_devoluciones_24 extends javax.swing.JDialog {
             int filaMod = tbProductos_dev.getSelectedRow();
             cod_devol_surc_24 = (String) tbProductos_dev.getValueAt(filaMod, 0);
 
-            Visor_devoluciones_franco visor;
-            visor = new Visor_devoluciones_franco(new javax.swing.JDialog(), true);
+            Visor_devoluciones_24 visor;
+            visor = new Visor_devoluciones_24(new javax.swing.JDialog(), true);
             visor.setVisible(true);
         }
     }//GEN-LAST:event_tbProductos_devKeyPressed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Devolucion_Devoluciones_franco dv;
-        dv = new Devolucion_Devoluciones_franco(new javax.swing.JDialog(), true);
+        Devolucion_Devoluciones_24 dv;
+        dv = new Devolucion_Devoluciones_24(new javax.swing.JDialog(), true);
         dv.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -31,9 +31,34 @@ import Devoluciones.Fiscal_1.Principal_Devol_surc_fiscal;
 import Devoluciones.Fiscal_2.Principal_Devol_surc_2;
 import Devoluciones.Fiscal_24.Principal_Devol_surc_24;
 import Devoluciones.Principal_devoluciones;
+import Devoluciones.Surc_10.Principal_devoluciones_10;
+import Devoluciones.Surc_11.Principal_devoluciones_11;
+import Devoluciones.Surc_12.Principal_devoluciones_12;
+import Devoluciones.Surc_13.Principal_devoluciones_13;
+import Devoluciones.Surc_14.Principal_devoluciones_14;
+import Devoluciones.Surc_15.Principal_devoluciones_15;
+import Devoluciones.Surc_16.Principal_devoluciones_16;
+import Devoluciones.Surc_17.Principal_devoluciones_17;
 import Devoluciones.Surc_18.Principal_devoluciones_18;
+import Devoluciones.Surc_19.Principal_devoluciones_19;
 import Devoluciones.Surc_24.Principal_devoluciones_24;
-import Devoluciones.Surc_franco.Principal_devoluciones_franco;
+import Devoluciones.Surc_2.Principal_devoluciones_2;
+import Devoluciones.Surc_21.Principal_devoluciones_21;
+import Devoluciones.Surc_22.Principal_devoluciones_22;
+import Devoluciones.Surc_23.Principal_devoluciones_23;
+import Devoluciones.Surc_25.Principal_devoluciones_25;
+import Devoluciones.Surc_26.Principal_devoluciones_26;
+import Devoluciones.Surc_27.Principal_devoluciones_27;
+import Devoluciones.Surc_28.Principal_devoluciones_28;
+import Devoluciones.Surc_29.Principal_devoluciones_29;
+import Devoluciones.Surc_3.Principal_devoluciones_3;
+import Devoluciones.Surc_30.Principal_devoluciones_30;
+import Devoluciones.Surc_4.Principal_devoluciones_4;
+import Devoluciones.Surc_5.Principal_devoluciones_5;
+import Devoluciones.Surc_6.Principal_devoluciones_6;
+import Devoluciones.Surc_7.Principal_devoluciones_7;
+import Devoluciones.Surc_8.Principal_devoluciones_8;
+import Devoluciones.Surc_9.Principal_devoluciones_9;
 import Estadisticas_productos.Listado_marcas_pro;
 import Estadisticas_productos.Pro_con_stock;
 import Estadisticas_productos.Productos_CP;
@@ -2440,13 +2465,116 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
             //2
             if (Principal.lbl_usu_almacen.getText().equals("0000002")) {
 
-                Principal_devoluciones_franco pvf;
-                pvf = new Principal_devoluciones_franco(new javax.swing.JDialog(), true);
+                Principal_devoluciones_2 pvf;
+                pvf = new Principal_devoluciones_2(new javax.swing.JDialog(), true);
                 pvf.setVisible(true);
 
             }
 
+            if (Principal.lbl_usu_almacen.getText().equals("0000003")) {
+
+                Principal_devoluciones_3 pvf3;
+                pvf3 = new Principal_devoluciones_3(new javax.swing.JDialog(), true);
+                pvf3.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000004")) {
+
+                Principal_devoluciones_4 pvf4;
+                pvf4 = new Principal_devoluciones_4(new javax.swing.JDialog(), true);
+                pvf4.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000005")) {
+
+                Principal_devoluciones_5 pvf5;
+                pvf5 = new Principal_devoluciones_5(new javax.swing.JDialog(), true);
+                pvf5.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000006")) {
+
+                Principal_devoluciones_6 pvf6;
+                pvf6 = new Principal_devoluciones_6(new javax.swing.JDialog(), true);
+                pvf6.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000007")) {
+
+                Principal_devoluciones_7 pvf7;
+                pvf7 = new Principal_devoluciones_7(new javax.swing.JDialog(), true);
+                pvf7.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000008")) {
+
+                Principal_devoluciones_8 pvf8;
+                pvf8 = new Principal_devoluciones_8(new javax.swing.JDialog(), true);
+                pvf8.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000009")) {
+
+                Principal_devoluciones_9 pvf9;
+                pvf9 = new Principal_devoluciones_9(new javax.swing.JDialog(), true);
+                pvf9.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000010")) {
+
+                Principal_devoluciones_10 pvf10;
+                pvf10 = new Principal_devoluciones_10(new javax.swing.JDialog(), true);
+                pvf10.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000011")) {
+
+                Principal_devoluciones_11 pvf11;
+                pvf11 = new Principal_devoluciones_11(new javax.swing.JDialog(), true);
+                pvf11.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000012")) {
+
+                Principal_devoluciones_12 pvf12;
+                pvf12 = new Principal_devoluciones_12(new javax.swing.JDialog(), true);
+                pvf12.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000013")) {
+
+                Principal_devoluciones_13 pvf13;
+                pvf13 = new Principal_devoluciones_13(new javax.swing.JDialog(), true);
+                pvf13.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000014")) {
+
+                Principal_devoluciones_14 pvf14;
+                pvf14 = new Principal_devoluciones_14(new javax.swing.JDialog(), true);
+                pvf14.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000015")) {
+
+                Principal_devoluciones_15 pvf15;
+                pvf15 = new Principal_devoluciones_15(new javax.swing.JDialog(), true);
+                pvf15.setVisible(true);
+
+            }
+
             if (Principal.lbl_usu_almacen.getText().equals("0000016")) {
+
+                Principal_devoluciones_16 pvf16;
+                pvf16 = new Principal_devoluciones_16(new javax.swing.JDialog(), true);
+                pvf16.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000017")) {
+
+                Principal_devoluciones_17 pvf17;
+                pvf17 = new Principal_devoluciones_17(new javax.swing.JDialog(), true);
+                pvf17.setVisible(true);
 
             }
 
@@ -2455,16 +2583,91 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 pv18 = new Principal_devoluciones_18(new javax.swing.JDialog(), true);
                 pv18.setVisible(true);
             }
-            if (Principal.lbl_usu_almacen.getText().equals("0000020")) {
+            if (Principal.lbl_usu_almacen.getText().equals("0000019")) {
+
+                Principal_devoluciones_19 pvf19;
+                pvf19 = new Principal_devoluciones_19(new javax.swing.JDialog(), true);
+                pvf19.setVisible(true);
 
             }
+            if (Principal.lbl_usu_almacen.getText().equals("0000020")) {
+
+                Principal_devoluciones_21 pvf21;
+                pvf21 = new Principal_devoluciones_21(new javax.swing.JDialog(), true);
+                pvf21.setVisible(true);
+
+            }
+            
+             if (Principal.lbl_usu_almacen.getText().equals("0000021")) {
+
+                Principal_devoluciones_21 pvf21;
+                pvf21 = new Principal_devoluciones_21(new javax.swing.JDialog(), true);
+                pvf21.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000022")) {
+
+                Principal_devoluciones_22 pvf22;
+                pvf22 = new Principal_devoluciones_22(new javax.swing.JDialog(), true);
+                pvf22.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000023")) {
+
+                Principal_devoluciones_23 pvf23;
+                pvf23 = new Principal_devoluciones_23(new javax.swing.JDialog(), true);
+                pvf23.setVisible(true);
+
+            }
+           
 
             if (Principal.lbl_usu_almacen.getText().equals("0000024")) {
                 Principal_devoluciones_24 pvf4;
                 pvf4 = new Principal_devoluciones_24(new javax.swing.JDialog(), true);
                 pvf4.setVisible(true);
             }
+            if (Principal.lbl_usu_almacen.getText().equals("0000025")) {
 
+                Principal_devoluciones_25 pvf25;
+                pvf25 = new Principal_devoluciones_25(new javax.swing.JDialog(), true);
+                pvf25.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000026")) {
+
+                Principal_devoluciones_26 pvf26;
+                pvf26 = new Principal_devoluciones_26(new javax.swing.JDialog(), true);
+                pvf26.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000027")) {
+
+                Principal_devoluciones_27 pvf27;
+                pvf27 = new Principal_devoluciones_27(new javax.swing.JDialog(), true);
+                pvf27.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000028")) {
+
+                Principal_devoluciones_28 pvf28;
+                pvf28 = new Principal_devoluciones_28(new javax.swing.JDialog(), true);
+                pvf28.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000029")) {
+
+                Principal_devoluciones_29 pvf29;
+                pvf29 = new Principal_devoluciones_29(new javax.swing.JDialog(), true);
+                pvf29.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000030")) {
+
+                Principal_devoluciones_30 pvf30;
+                pvf30 = new Principal_devoluciones_30(new javax.swing.JDialog(), true);
+                pvf30.setVisible(true);
+
+            }
         }
 
 
@@ -3886,16 +4089,16 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 lbl_id_empre.setText(rs.getString(1));
                 lbl_lote_activa.setText(rs.getString(57));
                 is = rs.getBinaryStream(4);
-               if (is == null) {
-                  System.out.println("imagen vacia");
-                 } else {
+                if (is == null) {
+                    System.out.println("imagen vacia");
+                } else {
 
-                BufferedImage bi = ImageIO.read(is);
-                foto = new ImageIcon(bi);
-                Image img = foto.getImage();
-                Image newimg = img.getScaledInstance(80, 60, java.awt.Image.SCALE_SMOOTH);
-                ImageIcon newicon = new ImageIcon(newimg);
-                lbl_img_empre.setIcon(newicon);
+                    BufferedImage bi = ImageIO.read(is);
+                    foto = new ImageIcon(bi);
+                    Image img = foto.getImage();
+                    Image newimg = img.getScaledInstance(80, 60, java.awt.Image.SCALE_SMOOTH);
+                    ImageIcon newicon = new ImageIcon(newimg);
+                    lbl_img_empre.setIcon(newicon);
 
                 }
             }

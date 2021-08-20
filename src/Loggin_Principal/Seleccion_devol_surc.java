@@ -8,9 +8,35 @@ package Loggin_Principal;
 import Clases.machusculas;
 import Conexion_DB.conectar;
 import Devoluciones.Principal_devoluciones;
+import Devoluciones.Surc_10.Principal_devoluciones_10;
+import Devoluciones.Surc_11.Principal_devoluciones_11;
+import Devoluciones.Surc_12.Principal_devoluciones_12;
+import Devoluciones.Surc_13.Principal_devoluciones_13;
+import Devoluciones.Surc_14.Principal_devoluciones_14;
+import Devoluciones.Surc_15.Principal_devoluciones_15;
+import Devoluciones.Surc_16.Principal_devoluciones_16;
+import Devoluciones.Surc_17.Principal_devoluciones_17;
 import Devoluciones.Surc_18.Principal_devoluciones_18;
+import Devoluciones.Surc_19.Principal_devoluciones_19;
 import Devoluciones.Surc_24.Principal_devoluciones_24;
-import Devoluciones.Surc_franco.Principal_devoluciones_franco;
+import Devoluciones.Surc_2.Principal_devoluciones_2;
+import Devoluciones.Surc_20.Principal_devoluciones_20;
+import Devoluciones.Surc_21.Principal_devoluciones_21;
+import Devoluciones.Surc_22.Principal_devoluciones_22;
+import Devoluciones.Surc_23.Principal_devoluciones_23;
+import Devoluciones.Surc_25.Principal_devoluciones_25;
+import Devoluciones.Surc_26.Principal_devoluciones_26;
+import Devoluciones.Surc_27.Principal_devoluciones_27;
+import Devoluciones.Surc_28.Principal_devoluciones_28;
+import Devoluciones.Surc_29.Principal_devoluciones_29;
+import Devoluciones.Surc_3.Principal_devoluciones_3;
+import Devoluciones.Surc_30.Principal_devoluciones_30;
+import Devoluciones.Surc_4.Principal_devoluciones_4;
+import Devoluciones.Surc_5.Principal_devoluciones_5;
+import Devoluciones.Surc_6.Principal_devoluciones_6;
+import Devoluciones.Surc_7.Principal_devoluciones_7;
+import Devoluciones.Surc_8.Principal_devoluciones_8;
+import Devoluciones.Surc_9.Principal_devoluciones_9;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
@@ -139,20 +165,123 @@ public class Seleccion_devol_surc extends javax.swing.JDialog {
         }
         //2
         if (cod.equals("0000002")) {
-            Principal_devoluciones_franco pvf = new Principal_devoluciones_franco(new javax.swing.JDialog(), true);
+            Principal_devoluciones_2 pvf = new Principal_devoluciones_2(new javax.swing.JDialog(), true);
+            pvf.setVisible(true);
+        }
+        if (cod.equals("0000003")) {
+            Principal_devoluciones_3 pvf = new Principal_devoluciones_3(new javax.swing.JDialog(), true);
+            pvf.setVisible(true);
+        }
+        if (cod.equals("0000004")) {
+            Principal_devoluciones_4 pvf = new Principal_devoluciones_4(new javax.swing.JDialog(), true);
+            pvf.setVisible(true);
+        }
+        if (cod.equals("0000005")) {
+            Principal_devoluciones_5 pvf = new Principal_devoluciones_5(new javax.swing.JDialog(), true);
+            pvf.setVisible(true);
+        }
+        if (cod.equals("0000006")) {
+            Principal_devoluciones_6 pvf = new Principal_devoluciones_6(new javax.swing.JDialog(), true);
+            pvf.setVisible(true);
+        }
+        if (cod.equals("0000007")) {
+            Principal_devoluciones_7 pvf = new Principal_devoluciones_7(new javax.swing.JDialog(), true);
+            pvf.setVisible(true);
+        }
+        if (cod.equals("0000008")) {
+            Principal_devoluciones_8 pvf = new Principal_devoluciones_8(new javax.swing.JDialog(), true);
+            pvf.setVisible(true);
+        }
+        if (cod.equals("0000009")) {
+            Principal_devoluciones_9 pvf = new Principal_devoluciones_9(new javax.swing.JDialog(), true);
+            pvf.setVisible(true);
+        }
+        if (cod.equals("0000010")) {
+            Principal_devoluciones_10 pvf = new Principal_devoluciones_10(new javax.swing.JDialog(), true);
+            pvf.setVisible(true);
+        }
+        if (cod.equals("0000011")) {
+            Principal_devoluciones_11 pvf = new Principal_devoluciones_11(new javax.swing.JDialog(), true);
+            pvf.setVisible(true);
+        }
+        if (cod.equals("0000012")) {
+            Principal_devoluciones_12 pvf = new Principal_devoluciones_12(new javax.swing.JDialog(), true);
+            pvf.setVisible(true);
+        }
+        if (cod.equals("0000013")) {
+            Principal_devoluciones_13 pvf = new Principal_devoluciones_13(new javax.swing.JDialog(), true);
+            pvf.setVisible(true);
+        }
+        if (cod.equals("0000014")) {
+            Principal_devoluciones_14 pvf = new Principal_devoluciones_14(new javax.swing.JDialog(), true);
+            pvf.setVisible(true);
+        }
+        if (cod.equals("0000015")) {
+            Principal_devoluciones_15 pvf = new Principal_devoluciones_15(new javax.swing.JDialog(), true);
+            pvf.setVisible(true);
+        }
+        if (cod.equals("0000016")) {
+            Principal_devoluciones_16 pvf = new Principal_devoluciones_16(new javax.swing.JDialog(), true);
+            pvf.setVisible(true);
+        }
+        if (cod.equals("0000017")) {
+            Principal_devoluciones_17 pvf = new Principal_devoluciones_17(new javax.swing.JDialog(), true);
+            pvf.setVisible(true);
+        }
+        if (cod.equals("0000018")) {
+            Principal_devoluciones_18 pvf = new Principal_devoluciones_18(new javax.swing.JDialog(), true);
+            pvf.setVisible(true);
+        }
+        if (cod.equals("0000019")) {
+            Principal_devoluciones_19 pvf = new Principal_devoluciones_19(new javax.swing.JDialog(), true);
+            pvf.setVisible(true);
+        }
+        if (cod.equals("0000020")) {
+            Principal_devoluciones_20 pvf = new Principal_devoluciones_20(new javax.swing.JDialog(), true);
             pvf.setVisible(true);
         }
 
+        if (cod.equals("0000021")) {
+            Principal_devoluciones_21 pvf = new Principal_devoluciones_21(new javax.swing.JDialog(), true);
+            pvf.setVisible(true);
+        }
+        if (cod.equals("0000022")) {
+            Principal_devoluciones_22 pvf = new Principal_devoluciones_22(new javax.swing.JDialog(), true);
+            pvf.setVisible(true);
+        }
+        if (cod.equals("0000023")) {
+            Principal_devoluciones_23 pvf = new Principal_devoluciones_23(new javax.swing.JDialog(), true);
+            pvf.setVisible(true);
+        }
         if (cod.equals("0000024")) {
-            Principal_devoluciones_24 pv4 = new Principal_devoluciones_24(new javax.swing.JDialog(), true);
-            pv4.setVisible(true);
+            Principal_devoluciones_24 pvf = new Principal_devoluciones_24(new javax.swing.JDialog(), true);
+            pvf.setVisible(true);
         }
-        
-         if (cod.equals("0000018")) {
-            Principal_devoluciones_18 pv18 = new Principal_devoluciones_18(new javax.swing.JDialog(), true);
-            pv18.setVisible(true);
+        if (cod.equals("0000025")) {
+            Principal_devoluciones_25 pvf = new Principal_devoluciones_25(new javax.swing.JDialog(), true);
+            pvf.setVisible(true);
         }
-
+        if (cod.equals("0000026")) {
+            Principal_devoluciones_26 pvf = new Principal_devoluciones_26(new javax.swing.JDialog(), true);
+            pvf.setVisible(true);
+        }
+        if (cod.equals("0000027")) {
+            Principal_devoluciones_27 pvf = new Principal_devoluciones_27(new javax.swing.JDialog(), true);
+            pvf.setVisible(true);
+        }
+        if (cod.equals("0000028")) {
+            Principal_devoluciones_28 pvf = new Principal_devoluciones_28(new javax.swing.JDialog(), true);
+            pvf.setVisible(true);
+        }
+        if (cod.equals("0000029")) {
+            Principal_devoluciones_29 pvf = new Principal_devoluciones_29(new javax.swing.JDialog(), true);
+            pvf.setVisible(true);
+        }
+        if (cod.equals("0000030")) {
+            Principal_devoluciones_30 pvf = new Principal_devoluciones_30(new javax.swing.JDialog(), true);
+            pvf.setVisible(true);
+        }
+      
 
         this.dispose();
 
@@ -299,7 +428,7 @@ public class Seleccion_devol_surc extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-           String cons = " select u.cod_alma,a.alm_nom from usu_almacen as u inner join almacenes as a on a.alm_cod=u.cod_alma WHERE CONCAT (alm_nom) LIKE '%" + valor + "%' and u.cod_usu='" + id_us + "'";
+            String cons = " select u.cod_alma,a.alm_nom from usu_almacen as u inner join almacenes as a on a.alm_cod=u.cod_alma WHERE CONCAT (alm_nom) LIKE '%" + valor + "%' and u.cod_usu='" + id_us + "'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {

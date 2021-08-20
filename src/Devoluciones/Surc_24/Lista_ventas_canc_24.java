@@ -5,7 +5,6 @@
  */
 package Devoluciones.Surc_24;
 
-import Devoluciones.Surc_franco.*;
 import Clases.ColorearFilas;
 import Clases.ColorearTipoPago;
 import Conexion_DB.conectar;
@@ -127,8 +126,8 @@ public class Lista_ventas_canc_24 extends javax.swing.JDialog {
             } else {
                 String codins = tb_can_dev.getValueAt(fila, 0).toString();
 
-                Devolucion_Devoluciones_franco.txt_cod.setText(codins);
-                // Devolucion_Devoluciones.btncalcular.doClick();
+                Devolucion_Devoluciones_24.txt_cod.setText(codins);
+                Devolucion_Devoluciones_24.btn_buscar_24.doClick();
                 this.dispose();
 
             }
@@ -158,8 +157,8 @@ public class Lista_ventas_canc_24 extends javax.swing.JDialog {
                 } else {
                     String codins = tb_can_dev.getValueAt(fila, 0).toString();
 
-                    Devolucion_Devoluciones_franco.txt_cod.setText(codins);
-                    // Devolucion_Devoluciones.btncalcular.doClick();
+                    Devolucion_Devoluciones_24.txt_cod.setText(codins);
+                    Devolucion_Devoluciones_24.btn_buscar_24.doClick();
                     this.dispose();
 
                 }

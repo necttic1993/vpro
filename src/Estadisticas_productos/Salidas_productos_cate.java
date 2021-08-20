@@ -7,6 +7,7 @@ package Estadisticas_productos;
 
 import Conexion_DB.conectar;
 import static Loggin_Principal.NECTTIC.ingreso;
+import Loggin_Principal.Seleccion_alma_salidas_pro;
 import Productos.items.Departamentos_List_salidas;
 import java.math.BigDecimal;
 import java.net.URL;
@@ -16,7 +17,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -78,6 +78,9 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
         txt_nom_vs = new javax.swing.JTextField();
         txt_cat_vs = new javax.swing.JTextField();
         jButton8 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        txt_alma_salidas = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -194,8 +197,8 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
         jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 40, 60, 30));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel3.setText("Departamentos:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, 30));
+        jLabel3.setText("Sucursal/Almacén:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, -1, 30));
 
         txt_nom_vs.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txt_nom_vs.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -220,6 +223,25 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
         });
         jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 70, 60, 30));
 
+        jLabel8.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel8.setText("Departamentos:");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, 30));
+
+        txt_alma_salidas.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txt_alma_salidas.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txt_alma_salidas.setEnabled(false);
+        jPanel1.add(txt_alma_salidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 70, 100, 30));
+
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 70, 60, 30));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 600));
 
         pack();
@@ -232,41 +254,1149 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
         String depa = txt_id_dep_salidas.getText();
         String cate = txt_cat_vs.getText();
         String var = "0";
+        String almacen = txt_alma_salidas.getText();
 
-        //todos
-        if (depa.equals(var) && cate.equals(var)) {
+        if (almacen.equals("0000001")) {
 
-            String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,p.pro_cod_barra FROM ventas_detalles AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
-            cargarVentas(sql);
-            calcularcantida();
-            calcularTotal();
+            //todos
+            if (depa.equals(var) && cate.equals(var)) {
 
+                String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,p.pro_cod_barra FROM ventas_detalles AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+
+            }
+
+            //solo departamento
+            if (!depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+            //solo categorias
+            if (depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+
+            if (!depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+        }
+        //2
+        if (almacen.equals("0000002")) {
+
+            //todos
+            if (depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,p.pro_cod_barra FROM ventas_detalles_2 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+
+            }
+
+            //solo departamento
+            if (!depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_2 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+            //solo categorias
+            if (depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_2 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+
+            if (!depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_2 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+        }
+        //3
+        if (almacen.equals("0000003")) {
+
+            //todos
+            if (depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,p.pro_cod_barra FROM ventas_detalles_3 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+
+            }
+
+            //solo departamento
+            if (!depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_3 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+            //solo categorias
+            if (depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_3 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+
+            if (!depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_3 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+        }
+        //4
+        if (almacen.equals("0000004")) {
+
+            //todos
+            if (depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,p.pro_cod_barra FROM ventas_detalles_4 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+
+            }
+
+            //solo departamento
+            if (!depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_4 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+            //solo categorias
+            if (depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_4 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+
+            if (!depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_4 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
         }
 
-        //solo departamento
-        if (!depa.equals(var) && cate.equals(var)) {
+        //5
+        if (almacen.equals("0000005")) {
 
-            String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
-            cargarVentas(sql);
-            calcularcantida();
-            calcularTotal();
+            //todos
+            if (depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,p.pro_cod_barra FROM ventas_detalles_5 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+
+            }
+
+            //solo departamento
+            if (!depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_5 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+            //solo categorias
+            if (depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_5 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+
+            if (!depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_5 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
         }
-        //solo categorias
-        if (depa.equals(var) && !cate.equals(var)) {
+        //6
+        if (almacen.equals("0000006")) {
 
-            String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
-            cargarVentas(sql);
-            calcularcantida();
-            calcularTotal();
+            //todos
+            if (depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,p.pro_cod_barra FROM ventas_detalles_6 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+
+            }
+
+            //solo departamento
+            if (!depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_6 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+            //solo categorias
+            if (depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_6 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+
+            if (!depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_6 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+        }
+        //7
+        if (almacen.equals("0000007")) {
+
+            //todos
+            if (depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,p.pro_cod_barra FROM ventas_detalles_7 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+
+            }
+
+            //solo departamento
+            if (!depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_7 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+            //solo categorias
+            if (depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_7 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+
+            if (!depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_7 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+        }
+        //8
+        if (almacen.equals("0000008")) {
+
+            //todos
+            if (depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,p.pro_cod_barra FROM ventas_detalles_8 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+
+            }
+
+            //solo departamento
+            if (!depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_8 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+            //solo categorias
+            if (depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_8 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+
+            if (!depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_8 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+        }
+        //9
+        if (almacen.equals("0000009")) {
+
+            //todos
+            if (depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,p.pro_cod_barra FROM ventas_detalles_9 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+
+            }
+
+            //solo departamento
+            if (!depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_9 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+            //solo categorias
+            if (depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_9 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+
+            if (!depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_9 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+        }
+        //10
+        if (almacen.equals("0000010")) {
+
+            //todos
+            if (depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,p.pro_cod_barra FROM ventas_detalles_10 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+
+            }
+
+            //solo departamento
+            if (!depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_10 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+            //solo categorias
+            if (depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_10 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+
+            if (!depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_10 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+        }
+        //11
+        if (almacen.equals("0000011")) {
+
+            //todos
+            if (depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,p.pro_cod_barra FROM ventas_detalles_11 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+
+            }
+
+            //solo departamento
+            if (!depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_11 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+            //solo categorias
+            if (depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_11 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+
+            if (!depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_11 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+        }
+        //12
+        if (almacen.equals("0000012")) {
+
+            //todos
+            if (depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,p.pro_cod_barra FROM ventas_detalles_12 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+
+            }
+
+            //solo departamento
+            if (!depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_12 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+            //solo categorias
+            if (depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_12 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+
+            if (!depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_12 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+        }
+        //13
+        if (almacen.equals("0000013")) {
+
+            //todos
+            if (depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,p.pro_cod_barra FROM ventas_detalles_13 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+
+            }
+
+            //solo departamento
+            if (!depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_13 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+            //solo categorias
+            if (depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_13 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+
+            if (!depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_13 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+        }
+        //14
+        if (almacen.equals("0000014")) {
+
+            //todos
+            if (depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,p.pro_cod_barra FROM ventas_detalles_14 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+
+            }
+
+            //solo departamento
+            if (!depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_14 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+            //solo categorias
+            if (depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_14 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+
+            if (!depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_14 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+        }
+        //15
+        if (almacen.equals("0000015")) {
+
+            //todos
+            if (depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,p.pro_cod_barra FROM ventas_detalles_15 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+
+            }
+
+            //solo departamento
+            if (!depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_15 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+            //solo categorias
+            if (depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_15 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+
+            if (!depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_15 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+        }
+        //16
+        if (almacen.equals("0000016")) {
+
+            //todos
+            if (depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,p.pro_cod_barra FROM ventas_detalles_16 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+
+            }
+
+            //solo departamento
+            if (!depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_16 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+            //solo categorias
+            if (depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_16 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+
+            if (!depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_16 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+        }
+        //17
+        if (almacen.equals("0000017")) {
+
+            //todos
+            if (depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,p.pro_cod_barra FROM ventas_detalles_17 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+
+            }
+
+            //solo departamento
+            if (!depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_17 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+            //solo categorias
+            if (depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_17 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+
+            if (!depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_17 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+        }
+        //18
+        if (almacen.equals("0000018")) {
+
+            //todos
+            if (depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,p.pro_cod_barra FROM ventas_detalles_18 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+
+            }
+
+            //solo departamento
+            if (!depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_18 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+            //solo categorias
+            if (depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_18 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+
+            if (!depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_18 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+        }
+        //19
+        if (almacen.equals("0000019")) {
+
+            //todos
+            if (depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,p.pro_cod_barra FROM ventas_detalles_19 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+
+            }
+
+            //solo departamento
+            if (!depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_19 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+            //solo categorias
+            if (depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_19 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+
+            if (!depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_19 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+        }
+        //20
+        if (almacen.equals("0000020")) {
+
+            //todos
+            if (depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,p.pro_cod_barra FROM ventas_detalles_20 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+
+            }
+
+            //solo departamento
+            if (!depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_20 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+            //solo categorias
+            if (depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_20 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+
+            if (!depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_20 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+        }
+        //21
+        if (almacen.equals("0000021")) {
+
+            //todos
+            if (depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,p.pro_cod_barra FROM ventas_detalles_21 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+
+            }
+
+            //solo departamento
+            if (!depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_21 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+            //solo categorias
+            if (depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_21 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+
+            if (!depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_21 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+        }
+        //22
+        if (almacen.equals("0000022")) {
+
+            //todos
+            if (depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,p.pro_cod_barra FROM ventas_detalles_22 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+
+            }
+
+            //solo departamento
+            if (!depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_22 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+            //solo categorias
+            if (depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_22 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+
+            if (!depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_22 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+        }
+        //23
+        if (almacen.equals("0000023")) {
+
+            //todos
+            if (depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,p.pro_cod_barra FROM ventas_detalles_23 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+
+            }
+
+            //solo departamento
+            if (!depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_23 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+            //solo categorias
+            if (depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_23 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+
+            if (!depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_23 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+        }
+        //24
+        if (almacen.equals("0000024")) {
+
+            //todos
+            if (depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,p.pro_cod_barra FROM ventas_detalles_24 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+
+            }
+
+            //solo departamento
+            if (!depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_24 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+            //solo categorias
+            if (depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_24 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+
+            if (!depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_24 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+        }
+        //25
+        if (almacen.equals("0000025")) {
+
+            //todos
+            if (depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,p.pro_cod_barra FROM ventas_detalles_25 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+
+            }
+
+            //solo departamento
+            if (!depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_25 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+            //solo categorias
+            if (depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_25 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+
+            if (!depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_25 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+        }
+        ///26
+        if (almacen.equals("0000026")) {
+
+            //todos
+            if (depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,p.pro_cod_barra FROM ventas_detalles_26 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+
+            }
+
+            //solo departamento
+            if (!depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_26 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+            //solo categorias
+            if (depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_26 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+
+            if (!depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_26 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+        }
+        //27
+        if (almacen.equals("0000027")) {
+
+            //todos
+            if (depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,p.pro_cod_barra FROM ventas_detalles_27 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+
+            }
+
+            //solo departamento
+            if (!depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_27 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+            //solo categorias
+            if (depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_27 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+
+            if (!depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_27 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+        }
+        //28
+        if (almacen.equals("0000028")) {
+
+            //todos
+            if (depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,p.pro_cod_barra FROM ventas_detalles_28 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+
+            }
+
+            //solo departamento
+            if (!depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_28 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+            //solo categorias
+            if (depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_28 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+
+            if (!depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_28 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+        }
+        //29
+        if (almacen.equals("0000029")) {
+
+            //todos
+            if (depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,p.pro_cod_barra FROM ventas_detalles_29 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+
+            }
+
+            //solo departamento
+            if (!depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_29 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+            //solo categorias
+            if (depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_29 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+
+            if (!depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_29 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+        }
+        //30
+        if (almacen.equals("0000030")) {
+
+            //todos
+            if (depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,p.pro_cod_barra FROM ventas_detalles_30 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+
+            }
+
+            //solo departamento
+            if (!depa.equals(var) && cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_30 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+            //solo categorias
+            if (depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_30 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
+
+            if (!depa.equals(var) && !cate.equals(var)) {
+
+                String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles_30 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                cargarVentas(sql);
+                calcularcantida();
+                calcularTotal();
+            }
         }
 
-        if (!depa.equals(var) && !cate.equals(var)) {
-
-            String sql = " SELECT v.cod_pro, count(v.num_bol), sum(v.cant_pro),p.pro_cod, p.pro_depa,p.pro_des FROM ventas_detalles AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
-            cargarVentas(sql);
-            calcularcantida();
-            calcularTotal();
-        }
 
     }//GEN-LAST:event_btn_buscarActionPerformed
 
@@ -347,6 +1477,13 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
         cl.setVisible(true);
     }//GEN-LAST:event_jButton8ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        Seleccion_alma_salidas_pro sp;
+        sp = new Seleccion_alma_salidas_pro(new javax.swing.JDialog(), true);
+        sp.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -395,6 +1532,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_buscar;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel2;
@@ -403,11 +1541,13 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane3;
     private org.jdesktop.swingx.JXDatePicker jd_fin;
     private org.jdesktop.swingx.JXDatePicker jd_ini;
     public static javax.swing.JTable tb_control;
+    public static javax.swing.JTextField txt_alma_salidas;
     private javax.swing.JTextField txt_cant_pro;
     public static javax.swing.JTextField txt_cat_vs;
     public static javax.swing.JTextField txt_id_dep_salidas;

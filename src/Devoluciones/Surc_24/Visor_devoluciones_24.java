@@ -8,8 +8,6 @@ package Devoluciones.Surc_24;
 import Conexion_DB.conectar;
 import Devoluciones.Principal_devoluciones;
 import static Devoluciones.Surc_24.Principal_devoluciones_24.cod_devol_surc_24;
-import static Loggin_Principal.Principal.lbl_fecha_hoy;
-import static Loggin_Principal.Principal.lbl_usu_nom;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
@@ -17,8 +15,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -227,7 +223,7 @@ public class Visor_devoluciones_24 extends javax.swing.JDialog {
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_6_esp/close.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/eliminar.png"))); // NOI18N
         jButton1.setText("Anular");
         jButton1.setToolTipText("Anular Ventas");
         jButton1.addActionListener(new java.awt.event.ActionListener() {

@@ -3,9 +3,7 @@ package report;
 import static Administrativo.ventas_anteriores_usuarios.*;
 import static Administrativo.ventas_lucro_total.*;
 import Conexion_DB.conectar;
-import Estadisticas_productos.Pro_con_stock;
 import static Estadisticas_productos.Pro_con_stock.txt_id_dep_fisico;
-import Ventas.Ventas_venta;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -16,7 +14,6 @@ import java.util.logging.Logger;
 import javax.print.PrintService;
 import javax.print.PrintServiceLookup;
 import javax.swing.JOptionPane;
-
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRExporterParameter;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -982,6 +979,7 @@ public class Reportes {
             }
         }
     }
+/////devoluciones comunes///////////////////////////
 
     public void devoluciones(String cod) throws SQLException, JRException {
 
@@ -992,7 +990,7 @@ public class Reportes {
             parametro.clear();
             parametro.put("codigo", cod);
 
-            URL in = this.getClass().getResource("/Impresiones/tickect_devoluciones.jasper");
+            URL in = this.getClass().getResource("/Devoluciones/tickect_devoluciones.jasper");
 
             JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
 
@@ -1016,7 +1014,367 @@ public class Reportes {
             parametro.clear();
             parametro.put("codigo", cod);
 
-            URL in = this.getClass().getResource("/Impresiones/tickect_devoluciones_surc_2.jasper");
+            URL in = this.getClass().getResource("/Devoluciones/Surc_2/tickect_devoluciones_surc_2.jasper");
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+            JasperPrintManager.printPage(print, 0, false);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (JRException ex) {
+
+        }
+
+    }
+
+    public void devoluciones_surc_3(String cod) throws SQLException, JRException {
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("codigo", cod);
+
+            URL in = this.getClass().getResource("/Devoluciones/Surc_3/tickect_devoluciones_surc_3.jasper");
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+            JasperPrintManager.printPage(print, 0, false);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (JRException ex) {
+
+        }
+
+    }
+
+    public void devoluciones_surc_4(String cod) throws SQLException, JRException {
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("codigo", cod);
+
+            URL in = this.getClass().getResource("/Devoluciones/Surc_4/tickect_devoluciones_surc_4.jasper");
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+            JasperPrintManager.printPage(print, 0, false);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (JRException ex) {
+
+        }
+
+    }
+
+    public void devoluciones_surc_5(String cod) throws SQLException, JRException {
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("codigo", cod);
+
+            URL in = this.getClass().getResource("/Devoluciones/Surc_5/tickect_devoluciones_surc_5.jasper");
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+            JasperPrintManager.printPage(print, 0, false);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (JRException ex) {
+
+        }
+
+    }
+
+    public void devoluciones_surc_6(String cod) throws SQLException, JRException {
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("codigo", cod);
+
+            URL in = this.getClass().getResource("/Devoluciones/Surc_6/tickect_devoluciones_surc_6.jasper");
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+            JasperPrintManager.printPage(print, 0, false);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (JRException ex) {
+
+        }
+
+    }
+
+    public void devoluciones_surc_7(String cod) throws SQLException, JRException {
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("codigo", cod);
+
+            URL in = this.getClass().getResource("/Devoluciones/Surc_7/tickect_devoluciones_surc_7.jasper");
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+            JasperPrintManager.printPage(print, 0, false);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (JRException ex) {
+
+        }
+
+    }
+
+    public void devoluciones_surc_8(String cod) throws SQLException, JRException {
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("codigo", cod);
+
+            URL in = this.getClass().getResource("/Devoluciones/Surc_8/tickect_devoluciones_surc_8.jasper");
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+            JasperPrintManager.printPage(print, 0, false);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (JRException ex) {
+
+        }
+
+    }
+
+    public void devoluciones_surc_9(String cod) throws SQLException, JRException {
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("codigo", cod);
+
+            URL in = this.getClass().getResource("/Devoluciones/Surc_9/tickect_devoluciones_surc_9.jasper");
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+            JasperPrintManager.printPage(print, 0, false);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (JRException ex) {
+
+        }
+
+    }
+
+    public void devoluciones_surc_10(String cod) throws SQLException, JRException {
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("codigo", cod);
+
+            URL in = this.getClass().getResource("/Devoluciones/Surc_10/tickect_devoluciones_surc_10.jasper");
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+            JasperPrintManager.printPage(print, 0, false);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (JRException ex) {
+
+        }
+
+    }
+
+    public void devoluciones_surc_11(String cod) throws SQLException, JRException {
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("codigo", cod);
+
+            URL in = this.getClass().getResource("/Devoluciones/Surc_11/tickect_devoluciones_surc_11.jasper");
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+            JasperPrintManager.printPage(print, 0, false);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (JRException ex) {
+
+        }
+
+    }
+
+    public void devoluciones_surc_12(String cod) throws SQLException, JRException {
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("codigo", cod);
+
+            URL in = this.getClass().getResource("/Devoluciones/Surc_12/tickect_devoluciones_surc_12.jasper");
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+            JasperPrintManager.printPage(print, 0, false);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (JRException ex) {
+
+        }
+
+    }
+
+    public void devoluciones_surc_13(String cod) throws SQLException, JRException {
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("codigo", cod);
+
+            URL in = this.getClass().getResource("/Devoluciones/Surc_13/tickect_devoluciones_surc_13.jasper");
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+            JasperPrintManager.printPage(print, 0, false);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (JRException ex) {
+
+        }
+
+    }
+
+    public void devoluciones_surc_14(String cod) throws SQLException, JRException {
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("codigo", cod);
+
+            URL in = this.getClass().getResource("/Devoluciones/Surc_14/tickect_devoluciones_surc_14.jasper");
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+            JasperPrintManager.printPage(print, 0, false);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (JRException ex) {
+
+        }
+
+    }
+
+    public void devoluciones_surc_15(String cod) throws SQLException, JRException {
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("codigo", cod);
+
+            URL in = this.getClass().getResource("/Devoluciones/Surc_15/tickect_devoluciones_surc_15.jasper");
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+            JasperPrintManager.printPage(print, 0, false);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (JRException ex) {
+
+        }
+
+    }
+
+    public void devoluciones_surc_16(String cod) throws SQLException, JRException {
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("codigo", cod);
+
+            URL in = this.getClass().getResource("/Devoluciones/Surc_16/tickect_devoluciones_surc_16.jasper");
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+            JasperPrintManager.printPage(print, 0, false);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (JRException ex) {
+
+        }
+
+    }
+
+    public void devoluciones_surc_17(String cod) throws SQLException, JRException {
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("codigo", cod);
+
+            URL in = this.getClass().getResource("/Devoluciones/Surc_17/tickect_devoluciones_surc_17.jasper");
 
             JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
 
@@ -1055,6 +1413,126 @@ public class Reportes {
 
     }
 
+    public void devoluciones_surc_19(String cod) throws SQLException, JRException {
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("codigo", cod);
+
+            URL in = this.getClass().getResource("/Devoluciones/Surc_19/tickect_devoluciones_surc_19.jasper");
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+            JasperPrintManager.printPage(print, 0, false);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (JRException ex) {
+
+        }
+
+    }
+
+    public void devoluciones_surc_20(String cod) throws SQLException, JRException {
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("codigo", cod);
+
+            URL in = this.getClass().getResource("/Devoluciones/Surc_20/tickect_devoluciones_surc_20.jasper");
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+            JasperPrintManager.printPage(print, 0, false);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (JRException ex) {
+
+        }
+
+    }
+
+    public void devoluciones_surc_21(String cod) throws SQLException, JRException {
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("codigo", cod);
+
+            URL in = this.getClass().getResource("/Devoluciones/Surc_21/tickect_devoluciones_surc_21.jasper");
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+            JasperPrintManager.printPage(print, 0, false);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (JRException ex) {
+
+        }
+
+    }
+
+    public void devoluciones_surc_22(String cod) throws SQLException, JRException {
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("codigo", cod);
+
+            URL in = this.getClass().getResource("/Devoluciones/Surc_22/tickect_devoluciones_surc_22.jasper");
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+            JasperPrintManager.printPage(print, 0, false);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (JRException ex) {
+
+        }
+
+    }
+
+    public void devoluciones_surc_23(String cod) throws SQLException, JRException {
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("codigo", cod);
+
+            URL in = this.getClass().getResource("/Devoluciones/Surc_23/tickect_devoluciones_surc_23.jasper");
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+            JasperPrintManager.printPage(print, 0, false);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (JRException ex) {
+
+        }
+
+    }
+
     public void devoluciones_surc_24(String cod) throws SQLException, JRException {
 
         try {
@@ -1064,7 +1542,151 @@ public class Reportes {
             parametro.clear();
             parametro.put("codigo", cod);
 
-            URL in = this.getClass().getResource("/Impresiones/tickect_devoluciones_surc_24.jasper");
+            URL in = this.getClass().getResource("/Devoluciones/Surc_24/tickect_devoluciones_surc_24.jasper");
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+            JasperPrintManager.printPage(print, 0, false);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (JRException ex) {
+
+        }
+
+    }
+
+    public void devoluciones_surc_25(String cod) throws SQLException, JRException {
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("codigo", cod);
+
+            URL in = this.getClass().getResource("/Devoluciones/Surc_25/tickect_devoluciones_surc_25.jasper");
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+            JasperPrintManager.printPage(print, 0, false);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (JRException ex) {
+
+        }
+
+    }
+
+    public void devoluciones_surc_26(String cod) throws SQLException, JRException {
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("codigo", cod);
+
+            URL in = this.getClass().getResource("/Devoluciones/Surc_26/tickect_devoluciones_surc_26.jasper");
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+            JasperPrintManager.printPage(print, 0, false);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (JRException ex) {
+
+        }
+
+    }
+
+    public void devoluciones_surc_27(String cod) throws SQLException, JRException {
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("codigo", cod);
+
+            URL in = this.getClass().getResource("/Devoluciones/Surc_27/tickect_devoluciones_surc_27.jasper");
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+            JasperPrintManager.printPage(print, 0, false);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (JRException ex) {
+
+        }
+
+    }
+
+    public void devoluciones_surc_28(String cod) throws SQLException, JRException {
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("codigo", cod);
+
+            URL in = this.getClass().getResource("/Devoluciones/Surc_28/tickect_devoluciones_surc_28.jasper");
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+            JasperPrintManager.printPage(print, 0, false);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (JRException ex) {
+
+        }
+
+    }
+
+    public void devoluciones_surc_29(String cod) throws SQLException, JRException {
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("codigo", cod);
+
+            URL in = this.getClass().getResource("/Devoluciones/Surc_29/tickect_devoluciones_surc_29.jasper");
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+            JasperPrintManager.printPage(print, 0, false);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (JRException ex) {
+
+        }
+
+    }
+
+    public void devoluciones_surc_30(String cod) throws SQLException, JRException {
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("codigo", cod);
+
+            URL in = this.getClass().getResource("/Devoluciones/Surc_30/tickect_devoluciones_surc_30.jasper");
 
             JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
 
@@ -5408,7 +6030,6 @@ public class Reportes {
     }
 
     //////////////////////factura minga////////////////////////////
-
     public void fact_surc_23(String cod) throws SQLException, JRException {
         /* Array para almacenar las impresoras del sistema */
         PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);

@@ -585,6 +585,12 @@ public class Compra_panel_precios_sin extends javax.swing.JDialog {
             lbl_pre_mini.setText(pre_ataca);
             txt_stock.setText(stock);
             lbl_pre_d.setText(pre_d);
+            ////
+             txt_pre.setText(pre_compra);
+             txt_pre_venta.setText(pre_a);
+             txt_total_iva.setText(pre_b);
+             txt_pre_minimo.setText(pre_ataca);
+             txt_pre_d.setText(pre_d);
             conectar.getInstance().closeConnection(cn);
 
             dispose();
