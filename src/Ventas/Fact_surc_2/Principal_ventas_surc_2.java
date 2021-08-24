@@ -8,6 +8,7 @@ package Ventas.Fact_surc_2;
 import Clases.staus_factura;
 import Conexion_DB.conectar;
 import Loggin_Principal.Principal;
+import static Loggin_Principal.Principal.lbl_class;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -374,7 +375,20 @@ public class Principal_ventas_surc_2 extends javax.swing.JDialog {
         });
 
         menu_DelPro.addActionListener((ActionEvent e) -> {
-            eliminarProducto();
+
+            String grado = lbl_class.getText();
+            String nivel = ("7");
+
+            int des = Integer.parseInt(grado);
+            int nv = Integer.parseInt(nivel);
+            if (des >= nv) {
+
+                eliminarProducto();
+                btn_cargar_datos.doClick();
+            } else {
+
+                JOptionPane.showMessageDialog(null, "No tiene autorización");
+            }
 
         });
         menu_modPro.addActionListener((ActionEvent e) -> {

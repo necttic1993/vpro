@@ -30,21 +30,21 @@ WHERE
 	<title>
 		<band height="69" splitType="Stretch">
 			<textField>
-				<reportElement x="43" y="48" width="52" height="10" uuid="72f418af-27e4-40c4-bfbd-3beea71f72a4"/>
+				<reportElement x="43" y="46" width="63" height="13" uuid="72f418af-27e4-40c4-bfbd-3beea71f72a4"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial" size="8" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{tienda_productos_pro_cod}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="33" y="13" width="123" height="23" uuid="05d1b3e5-8c18-4683-aba3-431390977bb5"/>
+				<reportElement x="33" y="13" width="123" height="21" uuid="05d1b3e5-8c18-4683-aba3-431390977bb5"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font fontName="Arial" size="7" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{tienda_productos_pro_des}]]></textFieldExpression>
 			</textField>
 			<componentElement>
-				<reportElement x="43" y="36" width="102" height="12" uuid="a90897d0-ae93-4bc0-93ce-bff8e872081b"/>
+				<reportElement x="43" y="34" width="102" height="12" uuid="a90897d0-ae93-4bc0-93ce-bff8e872081b"/>
 				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code128" drawText="false" checksumRequired="false">
 					<jr:codeExpression><![CDATA[$F{tienda_productos_pro_cod}]]></jr:codeExpression>
 				</jr:barbecue>
@@ -61,9 +61,9 @@ WHERE
 				<textFieldExpression><![CDATA[$F{tienda_productos_pro_tama}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="95" y="48" width="50" height="10" uuid="6315b570-a1fe-4471-81df-65c926fad9ec"/>
+				<reportElement x="92" y="46" width="61" height="13" uuid="6315b570-a1fe-4471-81df-65c926fad9ec"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="Arial" size="8" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{tienda_productos_pro_pre_a}]]></textFieldExpression>
 			</textField>

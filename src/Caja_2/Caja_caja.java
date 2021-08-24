@@ -853,7 +853,7 @@ public class Caja_caja extends javax.swing.JDialog {
 
                 } else {
 
-                    if ((can_ventas.equals("CANC. NOTA DE VENTA")) || (pago_compra_cred.equals("PAGO DE COMPRAS A CREDITO")) || (canc_os.equals("CANC. ORDEN DE SERV.")) || (compras.equals("COMPRAS(D)")) || (dev.equals("DEVOLUCIONES")) || (egre.equals("EGRESOS"))) {
+                    if ((can_ventas.equals("CANC. NOTA DE VENTA")) || (pago_compra_cred.equals("PAGO DE COMPRAS A CREDITO")) || (canc_os.equals("CANC. ORDEN DE SERV.")) || (compras.equals("COMPRAS")) || (dev.equals("DEVOLUCIONES")) || (egre.equals("EGRESOS"))) {
 
                         if ((txt_his_caja.getText().contains("CANC. NOTA DE VENTA"))) {
                             cajaDebito();
@@ -862,7 +862,7 @@ public class Caja_caja extends javax.swing.JDialog {
                             eliminarFormaPago();
                             limpiar();
                         }
-                        if ((txt_his_caja.getText().contains("COMPRAS(D)"))) {
+                        if ((txt_his_caja.getText().contains("COMPRAS"))) {
                             cajaDebito();
                             actCuenta();
                             actEstadoCompras();

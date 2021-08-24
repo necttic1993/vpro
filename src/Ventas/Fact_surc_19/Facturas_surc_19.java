@@ -59,7 +59,7 @@ public class Facturas_surc_19 extends javax.swing.JDialog {
         lbl_sub_total.setVisible(false);
         lbl_literal_pro.setVisible(false);
         lbl_literal.setVisible(false);
-
+        btn_buscar_19.setVisible(false);
         ch_contado.doClick();
         txt_cli_nom.setDisabledTextColor(Color.black);
         txt_forma_pago.setDisabledTextColor(Color.black);
@@ -88,7 +88,6 @@ public class Facturas_surc_19 extends javax.swing.JDialog {
         txt_cod = new javax.swing.JTextField();
         txt_forma_pago = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        btn_buscar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         lbl_cod = new javax.swing.JTextField();
         ch_credito = new javax.swing.JCheckBox();
@@ -113,7 +112,6 @@ public class Facturas_surc_19 extends javax.swing.JDialog {
         jLabel24 = new javax.swing.JLabel();
         lbl_iva_10_por = new javax.swing.JLabel();
         lbl_total_monto_iva = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         txt_timbrado = new javax.swing.JTextField();
         lbl_sub_total = new javax.swing.JLabel();
@@ -123,6 +121,10 @@ public class Facturas_surc_19 extends javax.swing.JDialog {
         jPanel4 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         lbl_count_filas = new javax.swing.JLabel();
+        btn_buscar_19 = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
+        txt_sequencia = new javax.swing.JTextField();
+        txt_esta = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Facturas");
@@ -181,6 +183,8 @@ public class Facturas_surc_19 extends javax.swing.JDialog {
         jPanel1.add(txt_cli_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 370, 30));
 
         txt_cod.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txt_cod.setDisabledTextColor(new java.awt.Color(153, 0, 0));
+        txt_cod.setEnabled(false);
         txt_cod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_codActionPerformed(evt);
@@ -200,28 +204,15 @@ public class Facturas_surc_19 extends javax.swing.JDialog {
         jLabel19.setText("Cond. de Vta:");
         jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 70, 90, 30));
 
-        btn_buscar.setBackground(new java.awt.Color(255, 255, 255));
-        btn_buscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btn_buscar.setForeground(new java.awt.Color(255, 255, 255));
-        btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
-        btn_buscar.setToolTipText("");
-        btn_buscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_buscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_buscarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 50, 32));
-
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_5/agregando-boton-cuadrado-negro-simbolo-de-interfaz.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 32, 32));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 50, 32));
 
         lbl_cod.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbl_cod.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -400,13 +391,9 @@ public class Facturas_surc_19 extends javax.swing.JDialog {
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, 330, 70));
 
-        jLabel13.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel13.setText("N°:");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 40, -1, 30));
-
         jLabel14.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel14.setText("Timbrado N°:");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 40, 100, 30));
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 40, 100, 30));
 
         txt_timbrado.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_timbrado.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -418,7 +405,7 @@ public class Facturas_surc_19 extends javax.swing.JDialog {
                 txt_timbradoActionPerformed(evt);
             }
         });
-        jPanel1.add(txt_timbrado, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 40, 100, 30));
+        jPanel1.add(txt_timbrado, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 40, 100, 30));
         jPanel1.add(lbl_sub_total, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 580, 170, 20));
 
         lbl_literal.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -468,48 +455,112 @@ public class Facturas_surc_19 extends javax.swing.JDialog {
         lbl_count_filas.setText("count ");
         jPanel1.add(lbl_count_filas, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 540, -1, 30));
 
+        btn_buscar_19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_buscar_19ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_buscar_19, new org.netbeans.lib.awtextra.AbsoluteConstraints(473, 540, 50, 30));
+
+        jLabel15.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel15.setText("N°:");
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 40, -1, 30));
+
+        txt_sequencia.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txt_sequencia.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_sequencia.setText("002");
+        txt_sequencia.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txt_sequencia.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txt_sequencia.setEnabled(false);
+        txt_sequencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_sequenciaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txt_sequencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 40, 50, 30));
+
+        txt_esta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txt_esta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_esta.setText("001");
+        txt_esta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txt_esta.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txt_esta.setEnabled(false);
+        jPanel1.add(txt_esta, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 40, 50, 30));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 600));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btncalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncalcularActionPerformed
-        calcular();
-        contarFilas();
-        calcularCantidadPro();
-        calcularExentos();
-        calcular10();
-        calcularLucro();
-        literal();
-        calcular_porciento10();
-        calcularTotalIva();
+    private void txt_sequenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_sequenciaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_sequenciaActionPerformed
 
-    }//GEN-LAST:event_btncalcularActionPerformed
+    private void txt_timbradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_timbradoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_timbradoActionPerformed
 
-    private void btneliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliActionPerformed
+    private void ch_creditoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ch_creditoActionPerformed
+        ch_cre = "X";
+        ch_con = "";
+        ch_contado.setSelected(false);
+    }//GEN-LAST:event_ch_creditoActionPerformed
 
-        for (int i = 0; i < tb_factura.getRowCount(); i++) {
-            DefaultTableModel model = (DefaultTableModel) tb_factura.getModel();
-            int fila = tb_factura.getSelectedRow();
-            if (fila >= 0) {
-                model.removeRow(fila);
-                btncalcular.doClick();
+    private void lbl_codActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbl_codActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lbl_codActionPerformed
 
-            }
-            if (fila == 0) {
-                lbl_exentos.setText("0");
-                lbl_10.setText("0");
-                lbl_iva_10_por.setText("0");
-                lbl_total_monto_iva.setText("0");
-                lblcanpro.setText("0");;
-                txttotal.setText("0");
-            }
-            btncalcular.doClick();
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            Lista_ventas_surc_19 lisvf;
+            lisvf = new Lista_ventas_surc_19(new javax.swing.JDialog(), true);
+            lisvf.setVisible(true);
+        } catch (Exception e) {
+
         }
 
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    }//GEN-LAST:event_btneliActionPerformed
+    private void txt_codKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_codKeyPressed
+        char Tecla = evt.getKeyChar();
+
+        if (Tecla == KeyEvent.VK_ESCAPE) {
+            this.dispose();
+            Principal_ventas_surc_19.txt_bus.requestFocus();
+        }
+    }//GEN-LAST:event_txt_codKeyPressed
+
+    private void txt_codActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_codActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_codActionPerformed
+
+    private void txt_cli_nomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cli_nomActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_cli_nomActionPerformed
+
+    private void txt_cod_cliKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_cod_cliKeyPressed
+
+    }//GEN-LAST:event_txt_cod_cliKeyPressed
+
+    private void txt_cod_cliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cod_cliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_cod_cliActionPerformed
+
+    private void tb_facturaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_facturaKeyPressed
+        char Tecla = evt.getKeyChar();
+        if (Tecla == KeyEvent.VK_ENTER) {
+
+            btncalcular.doClick();
+            JOptionPane.showMessageDialog(null, "Recalculando");
+        }
+    }//GEN-LAST:event_tb_facturaKeyPressed
+
+    private void ch_contadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ch_contadoActionPerformed
+        ch_con = "X";
+        ch_cre = "";
+        ch_credito.setSelected(false);
+    }//GEN-LAST:event_ch_contadoActionPerformed
 
     private void btnvenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvenActionPerformed
 
@@ -539,40 +590,42 @@ public class Facturas_surc_19 extends javax.swing.JDialog {
         Principal_ventas_surc_19.btn_cargar_datos.doClick();
     }//GEN-LAST:event_btnvenActionPerformed
 
-    private void txt_cod_cliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cod_cliActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_cod_cliActionPerformed
+    private void btneliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliActionPerformed
 
-    private void txt_cli_nomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cli_nomActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_cli_nomActionPerformed
+        for (int i = 0; i < tb_factura.getRowCount(); i++) {
+            DefaultTableModel model = (DefaultTableModel) tb_factura.getModel();
+            int fila = tb_factura.getSelectedRow();
+            if (fila >= 0) {
+                model.removeRow(fila);
+                btncalcular.doClick();
 
-    private void txt_cod_cliKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_cod_cliKeyPressed
-
-    }//GEN-LAST:event_txt_cod_cliKeyPressed
-
-    private void txt_codKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_codKeyPressed
-        char Tecla = evt.getKeyChar();
-
-        if (Tecla == KeyEvent.VK_ESCAPE) {
-            this.dispose();
-            Principal_ventas_surc_19.txt_bus.requestFocus();
-        }
-    }//GEN-LAST:event_txt_codKeyPressed
-
-    private void tb_facturaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_facturaKeyPressed
-        char Tecla = evt.getKeyChar();
-        if (Tecla == KeyEvent.VK_ENTER) {
-
+            }
+            if (fila == 0) {
+                lbl_exentos.setText("0");
+                lbl_10.setText("0");
+                lbl_iva_10_por.setText("0");
+                lbl_total_monto_iva.setText("0");
+                lblcanpro.setText("0");;
+                txttotal.setText("0");
+            }
             btncalcular.doClick();
-            JOptionPane.showMessageDialog(null, "Recalculando");
         }
+    }//GEN-LAST:event_btneliActionPerformed
 
-    }//GEN-LAST:event_tb_facturaKeyPressed
+    private void btncalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncalcularActionPerformed
+        calcular();
+        contarFilas();
+        calcularCantidadPro();
+        calcularExentos();
+        calcular10();
+        calcularLucro();
+        literal();
+        calcular_porciento10();
+        calcularTotalIva();
+    }//GEN-LAST:event_btncalcularActionPerformed
 
-    private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
-
-        try {
+    private void btn_buscar_19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_19ActionPerformed
+ try {
             cargar(txt_cod.getText());
             cargarTxt(txt_cod.getText());
             btncalcular.doClick();
@@ -590,47 +643,7 @@ public class Facturas_surc_19 extends javax.swing.JDialog {
         } catch (Exception e) {
 
         }
-
-        // ch_contado.doClick();
-        // ch_credito.setSelected(false);
-
-    }//GEN-LAST:event_btn_buscarActionPerformed
-
-    private void txt_codActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_codActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_codActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            Lista_ventas_surc_19 lisvf;
-            lisvf = new Lista_ventas_surc_19(new javax.swing.JDialog(), true);
-            lisvf.setVisible(true);
-        } catch (Exception e) {
-
-        }
-
-
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void ch_contadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ch_contadoActionPerformed
-        ch_con = "X";
-        ch_cre = "";
-        ch_credito.setSelected(false);
-    }//GEN-LAST:event_ch_contadoActionPerformed
-
-    private void lbl_codActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbl_codActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lbl_codActionPerformed
-
-    private void txt_timbradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_timbradoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_timbradoActionPerformed
-
-    private void ch_creditoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ch_creditoActionPerformed
-        ch_cre = "X";
-        ch_con = "";
-        ch_contado.setSelected(false);
-    }//GEN-LAST:event_ch_creditoActionPerformed
+    }//GEN-LAST:event_btn_buscar_19ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -654,72 +667,7 @@ public class Facturas_surc_19 extends javax.swing.JDialog {
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        //</editor-fold>
-        //</editor-fold>
+     
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -734,11 +682,12 @@ public class Facturas_surc_19 extends javax.swing.JDialog {
                 dialog.setVisible(true);
             }
         });
+        
+        
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_buscar;
-    public static javax.swing.JButton btncalcular;
+    public static javax.swing.JButton btn_buscar_19;
+    private javax.swing.JButton btncalcular;
     private javax.swing.JButton btneli;
     private javax.swing.JButton btnven;
     private javax.swing.JCheckBox ch_contado;
@@ -746,8 +695,8 @@ public class Facturas_surc_19 extends javax.swing.JDialog {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -756,7 +705,7 @@ public class Facturas_surc_19 extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel7;
-    public static javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -773,14 +722,16 @@ public class Facturas_surc_19 extends javax.swing.JDialog {
     private javax.swing.JLabel lbl_literal_pro;
     private javax.swing.JLabel lbl_sub_total;
     private javax.swing.JLabel lbl_total_monto_iva;
-    public static javax.swing.JLabel lblcanpro;
+    private javax.swing.JLabel lblcanpro;
     public static javax.swing.JTable tb_factura;
-    public static javax.swing.JTextField txt_cli_nom;
+    private javax.swing.JTextField txt_cli_nom;
     public static javax.swing.JTextField txt_cod;
-    public static javax.swing.JTextField txt_cod_cli;
+    private javax.swing.JTextField txt_cod_cli;
+    private javax.swing.JTextField txt_esta;
     private javax.swing.JTextField txt_forma_pago;
+    private javax.swing.JTextField txt_sequencia;
     private javax.swing.JTextField txt_timbrado;
-    public static javax.swing.JLabel txttotal;
+    private javax.swing.JLabel txttotal;
     // End of variables declaration//GEN-END:variables
 
     public static final BigDecimal ONE_HUNDRED = new BigDecimal(100);
@@ -887,7 +838,7 @@ public class Facturas_surc_19 extends javax.swing.JDialog {
             if (n > 0) {
                 detalle_factura();
                 JOptionPane.showMessageDialog(null, "Factura de venta realizada con éxito");
-                if (JOptionPane.showConfirmDialog(rootPane, "Imprimir Factura de venta" + ": "  + lbl_cod.getText() + ", ¿desea continuar?",
+                if (JOptionPane.showConfirmDialog(rootPane, "Imprimir Factura de venta" + ": " + lbl_cod.getText() + ", ¿desea continuar?",
                         "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 
                     String cod = txt_cod.getText();
@@ -953,7 +904,7 @@ public class Facturas_surc_19 extends javax.swing.JDialog {
     void codigos() {
 
         String c = "";
-        String SQL = "select max(nro_fact_ventas) from ventas_facturacion_surc_19";
+        String SQL = "select max(nro_fact_ventas) from ventas_facturacion_surc_19 where nro_timbra_ventas='" + txt_timbrado.getText() + "'";
 
         try {
             Connection cn = conectar.getInstance().getConnection();
@@ -1125,7 +1076,7 @@ public class Facturas_surc_19 extends javax.swing.JDialog {
     }
 
     void cargarConfig() {
-        String mostrar = "SELECT * FROM empresas";
+        String mostrar = "SELECT * FROM almacenes_facturas";
 
         try {
             Connection cn = conectar.getInstance().getConnection();
@@ -1134,8 +1085,9 @@ public class Facturas_surc_19 extends javax.swing.JDialog {
             ResultSet rs = st.executeQuery(mostrar);
             while (rs.next()) {
 
-                txt_timbrado.setText(rs.getString(51));
-            
+                txt_timbrado.setText(rs.getString("nro_timbra_19"));
+                txt_sequencia.setText(rs.getString("nro_esta_19"));
+                txt_esta.setText(rs.getString("nro_seq_19"));
 
             }
             conectar.getInstance().closeConnection(cn);

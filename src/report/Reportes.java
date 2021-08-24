@@ -794,6 +794,52 @@ public class Reportes {
 
     }
 
+    public void recep_29(String cod, String Moneda) throws SQLException, JRException {
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("codigo", cod);
+            parametro.put("moneda", Moneda);
+
+            URL in = this.getClass().getResource("/Ventas_29/tickect_ventas_29.jasper");
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+            JasperPrintManager.printPage(print, 0, false);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (JRException ex) {
+
+        }
+
+    }
+
+    public void recep_30(String cod, String Moneda) throws SQLException, JRException {
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Map parametro = new HashMap();
+            parametro.clear();
+            parametro.put("codigo", cod);
+            parametro.put("moneda", Moneda);
+
+            URL in = this.getClass().getResource("/Ventas_30/tickect_ventas_30.jasper");
+
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+            JasperPrintManager.printPage(print, 0, false);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (JRException ex) {
+
+        }
+
+    }
+
     public void recep_17(String cod, String Moneda) throws SQLException, JRException {
 
         try {
@@ -5473,178 +5519,6 @@ public class Reportes {
         }
     }
 
-    ////////////////////////factura  mariano//////////////////////////////////
-    public void fact_surc_19(String cod) throws SQLException, JRException {
-        /* Array para almacenar las impresoras del sistema */
-        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-        if (printService.length > 0)//si existen impresoras
-        {
-            //se elige la impresora
-            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-            if (impresora != null) //Si se selecciono una impresora
-            {
-
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    URL in = this.getClass().getResource("/Ventas/Fact_surc_19/19_Fact_prin.jasper");
-                    // String gs = facturacion.txttotal.getText();
-                    //  String rs = facturacion.lbl_cambio_real.getText();
-                    Map parametro = new HashMap();
-                    parametro.clear();
-                    parametro.put("ide", cod);
-                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_19/");
-
-                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                    jrprintServiceExporter.exportReport();
-                    conectar.getInstance().closeConnection(cn);
-
-                } catch (JRException ex) {
-
-                }
-            }
-
-        }
-    }
-
-    ////////////////////////factura 0000010//////////////////////////////////
-    public void fact_surc_10(String cod) throws SQLException, JRException {
-        /* Array para almacenar las impresoras del sistema */
-        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-        if (printService.length > 0)//si existen impresoras
-        {
-            //se elige la impresora
-            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-            if (impresora != null) //Si se selecciono una impresora
-            {
-
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    URL in = this.getClass().getResource("/Ventas/Fact_surc_10/10_Fact_prin.jasper");
-                    // String gs = facturacion.txttotal.getText();
-                    //  String rs = facturacion.lbl_cambio_real.getText();
-                    Map parametro = new HashMap();
-                    parametro.clear();
-                    parametro.put("ide", cod);
-                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_10/");
-
-                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                    jrprintServiceExporter.exportReport();
-                    conectar.getInstance().closeConnection(cn);
-
-                } catch (JRException ex) {
-
-                }
-            }
-
-        }
-    }
-
-    ////////////////////////factura  mariano//////////////////////////////////
-    public void fact_surc_11(String cod) throws SQLException, JRException {
-        /* Array para almacenar las impresoras del sistema */
-        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-        if (printService.length > 0)//si existen impresoras
-        {
-            //se elige la impresora
-            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-            if (impresora != null) //Si se selecciono una impresora
-            {
-
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    URL in = this.getClass().getResource("/Ventas/Fact_surc_11/11_Fact_prin.jasper");
-                    // String gs = facturacion.txttotal.getText();
-                    //  String rs = facturacion.lbl_cambio_real.getText();
-                    Map parametro = new HashMap();
-                    parametro.clear();
-                    parametro.put("ide", cod);
-                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_11/");
-
-                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                    jrprintServiceExporter.exportReport();
-                    conectar.getInstance().closeConnection(cn);
-
-                } catch (JRException ex) {
-
-                }
-            }
-
-        }
-    }
-    ////////////////////////factura  santani//////////////////////////////////
-
-    public void fact_surc_22(String cod) throws SQLException, JRException {
-        /* Array para almacenar las impresoras del sistema */
-        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-        if (printService.length > 0)//si existen impresoras
-        {
-            //se elige la impresora
-            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-            if (impresora != null) //Si se selecciono una impresora
-            {
-
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    URL in = this.getClass().getResource("/Ventas/Fact_surc_22/22_Fact_prin.jasper");
-                    // String gs = facturacion.txttotal.getText();
-                    //  String rs = facturacion.lbl_cambio_real.getText();
-                    Map parametro = new HashMap();
-                    parametro.clear();
-                    parametro.put("ide", cod);
-                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_22/");
-
-                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                    jrprintServiceExporter.exportReport();
-                    conectar.getInstance().closeConnection(cn);
-
-                } catch (JRException ex) {
-
-                }
-            }
-
-        }
-    }
-
     //////////////////////factura all you need////////////////////////////
     public void factAll(String cod) throws SQLException, JRException {
         /* Array para almacenar las impresoras del sistema */
@@ -5987,6 +5861,387 @@ public class Reportes {
         }
     }
 
+    //##################################sucursales#######################################
+    public void fact_surc_4(String cod) throws SQLException, JRException {
+        /* Array para almacenar las impresoras del sistema */
+        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+        if (printService.length > 0)//si existen impresoras
+        {
+            //se elige la impresora
+            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+            if (impresora != null) //Si se selecciono una impresora
+            {
+
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    URL in = this.getClass().getResource("/Ventas/Fact_surc_4/4_Fact_prin.jasper");
+                    // String gs = facturacion.txttotal.getText();
+                    //  String rs = facturacion.lbl_cambio_real.getText();
+                    Map parametro = new HashMap();
+                    parametro.clear();
+                    parametro.put("ide", cod);
+                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_4/");
+
+                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+
+                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                    jrprintServiceExporter.exportReport();
+                    conectar.getInstance().closeConnection(cn);
+
+                } catch (JRException ex) {
+
+                }
+            }
+
+        }
+    }
+
+    public void fact_surc_5(String cod) throws SQLException, JRException {
+        /* Array para almacenar las impresoras del sistema */
+        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+        if (printService.length > 0)//si existen impresoras
+        {
+            //se elige la impresora
+            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+            if (impresora != null) //Si se selecciono una impresora
+            {
+
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    URL in = this.getClass().getResource("/Ventas/Fact_surc_5/5_Fact_prin.jasper");
+                    // String gs = facturacion.txttotal.getText();
+                    //  String rs = facturacion.lbl_cambio_real.getText();
+                    Map parametro = new HashMap();
+                    parametro.clear();
+                    parametro.put("ide", cod);
+                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_5/");
+
+                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+
+                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                    jrprintServiceExporter.exportReport();
+                    conectar.getInstance().closeConnection(cn);
+
+                } catch (JRException ex) {
+
+                }
+            }
+
+        }
+    }
+
+    public void fact_surc_6(String cod) throws SQLException, JRException {
+        /* Array para almacenar las impresoras del sistema */
+        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+        if (printService.length > 0)//si existen impresoras
+        {
+            //se elige la impresora
+            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+            if (impresora != null) //Si se selecciono una impresora
+            {
+
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    URL in = this.getClass().getResource("/Ventas/Fact_surc_6/6_Fact_prin.jasper");
+                    // String gs = facturacion.txttotal.getText();
+                    //  String rs = facturacion.lbl_cambio_real.getText();
+                    Map parametro = new HashMap();
+                    parametro.clear();
+                    parametro.put("ide", cod);
+                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_6/");
+
+                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+
+                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                    jrprintServiceExporter.exportReport();
+                    conectar.getInstance().closeConnection(cn);
+
+                } catch (JRException ex) {
+
+                }
+            }
+
+        }
+    }
+
+    public void fact_surc_7(String cod) throws SQLException, JRException {
+        /* Array para almacenar las impresoras del sistema */
+        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+        if (printService.length > 0)//si existen impresoras
+        {
+            //se elige la impresora
+            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+            if (impresora != null) //Si se selecciono una impresora
+            {
+
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    URL in = this.getClass().getResource("/Ventas/Fact_surc_7/7_Fact_prin.jasper");
+                    // String gs = facturacion.txttotal.getText();
+                    //  String rs = facturacion.lbl_cambio_real.getText();
+                    Map parametro = new HashMap();
+                    parametro.clear();
+                    parametro.put("ide", cod);
+                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_7/");
+
+                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+
+                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                    jrprintServiceExporter.exportReport();
+                    conectar.getInstance().closeConnection(cn);
+
+                } catch (JRException ex) {
+
+                }
+            }
+
+        }
+    }
+
+    public void fact_surc_8(String cod) throws SQLException, JRException {
+        /* Array para almacenar las impresoras del sistema */
+        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+        if (printService.length > 0)//si existen impresoras
+        {
+            //se elige la impresora
+            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+            if (impresora != null) //Si se selecciono una impresora
+            {
+
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    URL in = this.getClass().getResource("/Ventas/Fact_surc_8/8_Fact_prin.jasper");
+                    // String gs = facturacion.txttotal.getText();
+                    //  String rs = facturacion.lbl_cambio_real.getText();
+                    Map parametro = new HashMap();
+                    parametro.clear();
+                    parametro.put("ide", cod);
+                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_8/");
+
+                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+
+                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                    jrprintServiceExporter.exportReport();
+                    conectar.getInstance().closeConnection(cn);
+
+                } catch (JRException ex) {
+
+                }
+            }
+
+        }
+    }
+
+    public void fact_surc_9(String cod) throws SQLException, JRException {
+        /* Array para almacenar las impresoras del sistema */
+        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+        if (printService.length > 0)//si existen impresoras
+        {
+            //se elige la impresora
+            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+            if (impresora != null) //Si se selecciono una impresora
+            {
+
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    URL in = this.getClass().getResource("/Ventas/Fact_surc_9/9_Fact_prin.jasper");
+                    // String gs = facturacion.txttotal.getText();
+                    //  String rs = facturacion.lbl_cambio_real.getText();
+                    Map parametro = new HashMap();
+                    parametro.clear();
+                    parametro.put("ide", cod);
+                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_9/");
+
+                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+
+                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                    jrprintServiceExporter.exportReport();
+                    conectar.getInstance().closeConnection(cn);
+
+                } catch (JRException ex) {
+
+                }
+            }
+
+        }
+    }
+
+    ////////////////////////factura 0000010//////////////////////////////////
+    public void fact_surc_10(String cod) throws SQLException, JRException {
+        /* Array para almacenar las impresoras del sistema */
+        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+        if (printService.length > 0)//si existen impresoras
+        {
+            //se elige la impresora
+            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+            if (impresora != null) //Si se selecciono una impresora
+            {
+
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    URL in = this.getClass().getResource("/Ventas/Fact_surc_10/10_Fact_prin.jasper");
+                    // String gs = facturacion.txttotal.getText();
+                    //  String rs = facturacion.lbl_cambio_real.getText();
+                    Map parametro = new HashMap();
+                    parametro.clear();
+                    parametro.put("ide", cod);
+                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_10/");
+
+                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+
+                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                    jrprintServiceExporter.exportReport();
+                    conectar.getInstance().closeConnection(cn);
+
+                } catch (JRException ex) {
+
+                }
+            }
+
+        }
+    }
+
+    ////////////////////////factura  mariano//////////////////////////////////
+    public void fact_surc_11(String cod) throws SQLException, JRException {
+        /* Array para almacenar las impresoras del sistema */
+        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+        if (printService.length > 0)//si existen impresoras
+        {
+            //se elige la impresora
+            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+            if (impresora != null) //Si se selecciono una impresora
+            {
+
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    URL in = this.getClass().getResource("/Ventas/Fact_surc_11/11_Fact_prin.jasper");
+                    // String gs = facturacion.txttotal.getText();
+                    //  String rs = facturacion.lbl_cambio_real.getText();
+                    Map parametro = new HashMap();
+                    parametro.clear();
+                    parametro.put("ide", cod);
+                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_11/");
+
+                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+
+                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                    jrprintServiceExporter.exportReport();
+                    conectar.getInstance().closeConnection(cn);
+
+                } catch (JRException ex) {
+
+                }
+            }
+
+        }
+    }
+
+    public void fact_surc_12(String cod) throws SQLException, JRException {
+        /* Array para almacenar las impresoras del sistema */
+        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+        if (printService.length > 0)//si existen impresoras
+        {
+            //se elige la impresora
+            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+            if (impresora != null) //Si se selecciono una impresora
+            {
+
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    URL in = this.getClass().getResource("/Ventas/Fact_surc_12/12_Fact_prin.jasper");
+                    // String gs = facturacion.txttotal.getText();
+                    //  String rs = facturacion.lbl_cambio_real.getText();
+                    Map parametro = new HashMap();
+                    parametro.clear();
+                    parametro.put("ide", cod);
+                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_12/");
+
+                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+
+                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                    jrprintServiceExporter.exportReport();
+                    conectar.getInstance().closeConnection(cn);
+
+                } catch (JRException ex) {
+
+                }
+            }
+
+        }
+    }
+
     public void fact_surc_13(String cod) throws SQLException, JRException {
         /* Array para almacenar las impresoras del sistema */
         PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
@@ -6008,6 +6263,386 @@ public class Reportes {
                     parametro.clear();
                     parametro.put("ide", cod);
                     parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_13/");
+
+                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+
+                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                    jrprintServiceExporter.exportReport();
+                    conectar.getInstance().closeConnection(cn);
+
+                } catch (JRException ex) {
+
+                }
+            }
+
+        }
+    }
+
+    public void fact_surc_14(String cod) throws SQLException, JRException {
+        /* Array para almacenar las impresoras del sistema */
+        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+        if (printService.length > 0)//si existen impresoras
+        {
+            //se elige la impresora
+            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+            if (impresora != null) //Si se selecciono una impresora
+            {
+
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    URL in = this.getClass().getResource("/Ventas/Fact_surc_14/14_Fact_prin.jasper");
+                    // String gs = facturacion.txttotal.getText();
+                    //  String rs = facturacion.lbl_cambio_real.getText();
+                    Map parametro = new HashMap();
+                    parametro.clear();
+                    parametro.put("ide", cod);
+                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_14/");
+
+                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+
+                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                    jrprintServiceExporter.exportReport();
+                    conectar.getInstance().closeConnection(cn);
+
+                } catch (JRException ex) {
+
+                }
+            }
+
+        }
+    }
+
+    public void fact_surc_15(String cod) throws SQLException, JRException {
+        /* Array para almacenar las impresoras del sistema */
+        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+        if (printService.length > 0)//si existen impresoras
+        {
+            //se elige la impresora
+            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+            if (impresora != null) //Si se selecciono una impresora
+            {
+
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    URL in = this.getClass().getResource("/Ventas/Fact_surc_15/15_Fact_prin.jasper");
+                    // String gs = facturacion.txttotal.getText();
+                    //  String rs = facturacion.lbl_cambio_real.getText();
+                    Map parametro = new HashMap();
+                    parametro.clear();
+                    parametro.put("ide", cod);
+                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_15/");
+
+                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+
+                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                    jrprintServiceExporter.exportReport();
+                    conectar.getInstance().closeConnection(cn);
+
+                } catch (JRException ex) {
+
+                }
+            }
+
+        }
+    }
+
+    public void fact_surc_16(String cod) throws SQLException, JRException {
+        /* Array para almacenar las impresoras del sistema */
+        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+        if (printService.length > 0)//si existen impresoras
+        {
+            //se elige la impresora
+            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+            if (impresora != null) //Si se selecciono una impresora
+            {
+
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    URL in = this.getClass().getResource("/Ventas/Fact_surc_16/16_Fact_prin.jasper");
+                    // String gs = facturacion.txttotal.getText();
+                    //  String rs = facturacion.lbl_cambio_real.getText();
+                    Map parametro = new HashMap();
+                    parametro.clear();
+                    parametro.put("ide", cod);
+                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_16/");
+
+                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+
+                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                    jrprintServiceExporter.exportReport();
+                    conectar.getInstance().closeConnection(cn);
+
+                } catch (JRException ex) {
+
+                }
+            }
+
+        }
+    }
+
+    public void fact_surc_17(String cod) throws SQLException, JRException {
+        /* Array para almacenar las impresoras del sistema */
+        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+        if (printService.length > 0)//si existen impresoras
+        {
+            //se elige la impresora
+            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+            if (impresora != null) //Si se selecciono una impresora
+            {
+
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    URL in = this.getClass().getResource("/Ventas/Fact_surc_17/17_Fact_prin.jasper");
+                    // String gs = facturacion.txttotal.getText();
+                    //  String rs = facturacion.lbl_cambio_real.getText();
+                    Map parametro = new HashMap();
+                    parametro.clear();
+                    parametro.put("ide", cod);
+                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_17/");
+
+                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+
+                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                    jrprintServiceExporter.exportReport();
+                    conectar.getInstance().closeConnection(cn);
+
+                } catch (JRException ex) {
+
+                }
+            }
+
+        }
+    }
+
+    public void fact_surc_18(String cod) throws SQLException, JRException {
+        /* Array para almacenar las impresoras del sistema */
+        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+        if (printService.length > 0)//si existen impresoras
+        {
+            //se elige la impresora
+            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+            if (impresora != null) //Si se selecciono una impresora
+            {
+
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    URL in = this.getClass().getResource("/Ventas/Fact_surc_18/18_Fact_prin.jasper");
+                    // String gs = facturacion.txttotal.getText();
+                    //  String rs = facturacion.lbl_cambio_real.getText();
+                    Map parametro = new HashMap();
+                    parametro.clear();
+                    parametro.put("ide", cod);
+                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_18/");
+
+                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+
+                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                    jrprintServiceExporter.exportReport();
+                    conectar.getInstance().closeConnection(cn);
+
+                } catch (JRException ex) {
+
+                }
+            }
+
+        }
+    }
+
+    ////////////////////////factura  mariano//////////////////////////////////
+    public void fact_surc_19(String cod) throws SQLException, JRException {
+        /* Array para almacenar las impresoras del sistema */
+        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+        if (printService.length > 0)//si existen impresoras
+        {
+            //se elige la impresora
+            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+            if (impresora != null) //Si se selecciono una impresora
+            {
+
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    URL in = this.getClass().getResource("/Ventas/Fact_surc_19/19_Fact_prin.jasper");
+                    // String gs = facturacion.txttotal.getText();
+                    //  String rs = facturacion.lbl_cambio_real.getText();
+                    Map parametro = new HashMap();
+                    parametro.clear();
+                    parametro.put("ide", cod);
+                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_19/");
+
+                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+
+                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                    jrprintServiceExporter.exportReport();
+                    conectar.getInstance().closeConnection(cn);
+
+                } catch (JRException ex) {
+
+                }
+            }
+
+        }
+    }
+
+    public void fact_surc_20(String cod) throws SQLException, JRException {
+        /* Array para almacenar las impresoras del sistema */
+        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+        if (printService.length > 0)//si existen impresoras
+        {
+            //se elige la impresora
+            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+            if (impresora != null) //Si se selecciono una impresora
+            {
+
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    URL in = this.getClass().getResource("/Ventas/Fact_surc_20/20_Fact_prin.jasper");
+                    // String gs = facturacion.txttotal.getText();
+                    //  String rs = facturacion.lbl_cambio_real.getText();
+                    Map parametro = new HashMap();
+                    parametro.clear();
+                    parametro.put("ide", cod);
+                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_20/");
+
+                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+
+                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                    jrprintServiceExporter.exportReport();
+                    conectar.getInstance().closeConnection(cn);
+
+                } catch (JRException ex) {
+
+                }
+            }
+
+        }
+    }
+
+    public void fact_surc_21(String cod) throws SQLException, JRException {
+        /* Array para almacenar las impresoras del sistema */
+        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+        if (printService.length > 0)//si existen impresoras
+        {
+            //se elige la impresora
+            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+            if (impresora != null) //Si se selecciono una impresora
+            {
+
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    URL in = this.getClass().getResource("/Ventas/Fact_surc_21/21_Fact_prin.jasper");
+                    // String gs = facturacion.txttotal.getText();
+                    //  String rs = facturacion.lbl_cambio_real.getText();
+                    Map parametro = new HashMap();
+                    parametro.clear();
+                    parametro.put("ide", cod);
+                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_21/");
+
+                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+
+                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                    jrprintServiceExporter.exportReport();
+                    conectar.getInstance().closeConnection(cn);
+
+                } catch (JRException ex) {
+
+                }
+            }
+
+        }
+    }
+
+    ////////////////////////factura  santani//////////////////////////////////
+    public void fact_surc_22(String cod) throws SQLException, JRException {
+        /* Array para almacenar las impresoras del sistema */
+        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+        if (printService.length > 0)//si existen impresoras
+        {
+            //se elige la impresora
+            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+            if (impresora != null) //Si se selecciono una impresora
+            {
+
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    URL in = this.getClass().getResource("/Ventas/Fact_surc_22/22_Fact_prin.jasper");
+                    // String gs = facturacion.txttotal.getText();
+                    //  String rs = facturacion.lbl_cambio_real.getText();
+                    Map parametro = new HashMap();
+                    parametro.clear();
+                    parametro.put("ide", cod);
+                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_22/");
 
                     JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
 
@@ -6115,7 +6750,7 @@ public class Reportes {
         }
     }
 
-    public void fact_surc_4(String cod) throws SQLException, JRException {
+    public void fact_surc_25(String cod) throws SQLException, JRException {
         /* Array para almacenar las impresoras del sistema */
         PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
         if (printService.length > 0)//si existen impresoras
@@ -6129,97 +6764,13 @@ public class Reportes {
                 try {
                     Connection cn = conectar.getInstance().getConnection();
 
-                    URL in = this.getClass().getResource("/Ventas/Fact_surc_4/4_Fact_prin.jasper");
+                    URL in = this.getClass().getResource("/Ventas/Fact_surc_25/25_Fact_prin.jasper");
                     // String gs = facturacion.txttotal.getText();
                     //  String rs = facturacion.lbl_cambio_real.getText();
                     Map parametro = new HashMap();
                     parametro.clear();
                     parametro.put("ide", cod);
-                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_4/");
-
-                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                    jrprintServiceExporter.exportReport();
-                    conectar.getInstance().closeConnection(cn);
-
-                } catch (JRException ex) {
-
-                }
-            }
-
-        }
-    }
-
-    public void fact_surc_8(String cod) throws SQLException, JRException {
-        /* Array para almacenar las impresoras del sistema */
-        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-        if (printService.length > 0)//si existen impresoras
-        {
-            //se elige la impresora
-            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-            if (impresora != null) //Si se selecciono una impresora
-            {
-
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    URL in = this.getClass().getResource("/Ventas/Fact_surc_8/8_Fact_prin.jasper");
-                    // String gs = facturacion.txttotal.getText();
-                    //  String rs = facturacion.lbl_cambio_real.getText();
-                    Map parametro = new HashMap();
-                    parametro.clear();
-                    parametro.put("ide", cod);
-                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_8/");
-
-                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                    jrprintServiceExporter.exportReport();
-                    conectar.getInstance().closeConnection(cn);
-
-                } catch (JRException ex) {
-
-                }
-            }
-
-        }
-    }
-
-    public void fact_surc_21(String cod) throws SQLException, JRException {
-        /* Array para almacenar las impresoras del sistema */
-        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-        if (printService.length > 0)//si existen impresoras
-        {
-            //se elige la impresora
-            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-            if (impresora != null) //Si se selecciono una impresora
-            {
-
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    URL in = this.getClass().getResource("/Ventas/Fact_surc_21/21_Fact_prin.jasper");
-                    // String gs = facturacion.txttotal.getText();
-                    //  String rs = facturacion.lbl_cambio_real.getText();
-                    Map parametro = new HashMap();
-                    parametro.clear();
-                    parametro.put("ide", cod);
-                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_21/");
+                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_25/");
 
                     JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
 
@@ -6283,48 +6834,6 @@ public class Reportes {
         }
     }
 
-    public void fact_surc_28(String cod) throws SQLException, JRException {
-        /* Array para almacenar las impresoras del sistema */
-        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-        if (printService.length > 0)//si existen impresoras
-        {
-            //se elige la impresora
-            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-            if (impresora != null) //Si se selecciono una impresora
-            {
-
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    URL in = this.getClass().getResource("/Ventas/Fact_surc_28/28_Fact_prin.jasper");
-                    // String gs = facturacion.txttotal.getText();
-                    //  String rs = facturacion.lbl_cambio_real.getText();
-                    Map parametro = new HashMap();
-                    parametro.clear();
-                    parametro.put("ide", cod);
-                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_28/");
-
-                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                    jrprintServiceExporter.exportReport();
-                    conectar.getInstance().closeConnection(cn);
-
-                } catch (JRException ex) {
-
-                }
-            }
-
-        }
-    }
-
     public void fact_surc_27(String cod) throws SQLException, JRException {
         /* Array para almacenar las impresoras del sistema */
         PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
@@ -6367,7 +6876,7 @@ public class Reportes {
         }
     }
 
-    public void fact_surc_14(String cod) throws SQLException, JRException {
+    public void fact_surc_28(String cod) throws SQLException, JRException {
         /* Array para almacenar las impresoras del sistema */
         PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
         if (printService.length > 0)//si existen impresoras
@@ -6381,13 +6890,13 @@ public class Reportes {
                 try {
                     Connection cn = conectar.getInstance().getConnection();
 
-                    URL in = this.getClass().getResource("/Ventas/Fact_surc_14/14_Fact_prin.jasper");
+                    URL in = this.getClass().getResource("/Ventas/Fact_surc_28/28_Fact_prin.jasper");
                     // String gs = facturacion.txttotal.getText();
                     //  String rs = facturacion.lbl_cambio_real.getText();
                     Map parametro = new HashMap();
                     parametro.clear();
                     parametro.put("ide", cod);
-                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_14/");
+                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_28/");
 
                     JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
 
@@ -6409,7 +6918,7 @@ public class Reportes {
         }
     }
 
-    public void fact_surc_16(String cod) throws SQLException, JRException {
+    public void fact_surc_29(String cod) throws SQLException, JRException {
         /* Array para almacenar las impresoras del sistema */
         PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
         if (printService.length > 0)//si existen impresoras
@@ -6423,13 +6932,13 @@ public class Reportes {
                 try {
                     Connection cn = conectar.getInstance().getConnection();
 
-                    URL in = this.getClass().getResource("/Ventas/Fact_surc_16/16_Fact_prin.jasper");
+                    URL in = this.getClass().getResource("/Ventas/Fact_surc_29/29_Fact_prin.jasper");
                     // String gs = facturacion.txttotal.getText();
                     //  String rs = facturacion.lbl_cambio_real.getText();
                     Map parametro = new HashMap();
                     parametro.clear();
                     parametro.put("ide", cod);
-                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_16/");
+                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_29/");
 
                     JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
 
@@ -6451,7 +6960,7 @@ public class Reportes {
         }
     }
 
-    public void fact_surc_18(String cod) throws SQLException, JRException {
+    public void fact_surc_30(String cod) throws SQLException, JRException {
         /* Array para almacenar las impresoras del sistema */
         PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
         if (printService.length > 0)//si existen impresoras
@@ -6465,13 +6974,13 @@ public class Reportes {
                 try {
                     Connection cn = conectar.getInstance().getConnection();
 
-                    URL in = this.getClass().getResource("/Ventas/Fact_surc_18/18_Fact_prin.jasper");
+                    URL in = this.getClass().getResource("/Ventas/Fact_surc_30/30_Fact_prin.jasper");
                     // String gs = facturacion.txttotal.getText();
                     //  String rs = facturacion.lbl_cambio_real.getText();
                     Map parametro = new HashMap();
                     parametro.clear();
                     parametro.put("ide", cod);
-                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_18/");
+                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_30/");
 
                     JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
 
@@ -6493,87 +7002,4 @@ public class Reportes {
         }
     }
 
-    public void fact_surc_6(String cod) throws SQLException, JRException {
-        /* Array para almacenar las impresoras del sistema */
-        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-        if (printService.length > 0)//si existen impresoras
-        {
-            //se elige la impresora
-            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-            if (impresora != null) //Si se selecciono una impresora
-            {
-
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    URL in = this.getClass().getResource("/Ventas/Fact_surc_6/6_Fact_prin.jasper");
-                    // String gs = facturacion.txttotal.getText();
-                    //  String rs = facturacion.lbl_cambio_real.getText();
-                    Map parametro = new HashMap();
-                    parametro.clear();
-                    parametro.put("ide", cod);
-                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_6/");
-
-                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                    jrprintServiceExporter.exportReport();
-                    conectar.getInstance().closeConnection(cn);
-
-                } catch (JRException ex) {
-
-                }
-            }
-
-        }
-    }
-
-    public void fact_surc_9(String cod) throws SQLException, JRException {
-        /* Array para almacenar las impresoras del sistema */
-        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-        if (printService.length > 0)//si existen impresoras
-        {
-            //se elige la impresora
-            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-            if (impresora != null) //Si se selecciono una impresora
-            {
-
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    URL in = this.getClass().getResource("/Ventas/Fact_surc_9/9_Fact_prin.jasper");
-                    // String gs = facturacion.txttotal.getText();
-                    //  String rs = facturacion.lbl_cambio_real.getText();
-                    Map parametro = new HashMap();
-                    parametro.clear();
-                    parametro.put("ide", cod);
-                    parametro.put("SUBREPORT_DIR", "Ventas/Fact_surc_9/");
-
-                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                    jrprintServiceExporter.exportReport();
-                    conectar.getInstance().closeConnection(cn);
-
-                } catch (JRException ex) {
-
-                }
-            }
-
-        }
-    }
 }

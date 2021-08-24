@@ -5,7 +5,6 @@
  */
 package Ventas.Fact_surc_10;
 
-import Ventas.Fact_surc_10.*;
 import Clases.Clase_Literal;
 import Clases.GenerarNumero;
 import Conexion_DB.conectar;
@@ -51,15 +50,14 @@ public class Facturas_surc_10 extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         codigos();
-
         cargarConfig();
         lbl_count_filas.setVisible(false);
         btncalcular.setVisible(false);
         txt_forma_pago.setVisible(false);
         lbl_sub_total.setVisible(false);
-        lbl_literal_pro.setVisible(false);
         lbl_literal.setVisible(false);
-
+        btn_buscar_10.setVisible(false);
+        lbl_literal_pro.setVisible(false);
         ch_contado.doClick();
         txt_cli_nom.setDisabledTextColor(Color.black);
         txt_forma_pago.setDisabledTextColor(Color.black);
@@ -88,7 +86,7 @@ public class Facturas_surc_10 extends javax.swing.JDialog {
         txt_cod = new javax.swing.JTextField();
         txt_forma_pago = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        btn_buscar = new javax.swing.JButton();
+        btn_buscar_10 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         txt_sequencia = new javax.swing.JTextField();
         lbl_cod = new javax.swing.JTextField();
@@ -152,7 +150,7 @@ public class Facturas_surc_10 extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tb_factura);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 1030, 330));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 1030, 300));
 
         jLabel16.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel16.setText("Nombre del Cliente :");
@@ -183,6 +181,8 @@ public class Facturas_surc_10 extends javax.swing.JDialog {
         jPanel1.add(txt_cli_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 370, 30));
 
         txt_cod.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txt_cod.setDisabledTextColor(new java.awt.Color(153, 0, 0));
+        txt_cod.setEnabled(false);
         txt_cod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_codActionPerformed(evt);
@@ -202,28 +202,27 @@ public class Facturas_surc_10 extends javax.swing.JDialog {
         jLabel19.setText("Cond. de Vta:");
         jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 70, 90, 30));
 
-        btn_buscar.setBackground(new java.awt.Color(255, 255, 255));
-        btn_buscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btn_buscar.setForeground(new java.awt.Color(255, 255, 255));
-        btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
-        btn_buscar.setToolTipText("");
-        btn_buscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_buscar.addActionListener(new java.awt.event.ActionListener() {
+        btn_buscar_10.setBackground(new java.awt.Color(255, 255, 255));
+        btn_buscar_10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_buscar_10.setForeground(new java.awt.Color(255, 255, 255));
+        btn_buscar_10.setToolTipText("");
+        btn_buscar_10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_buscar_10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_buscarActionPerformed(evt);
+                btn_buscar_10ActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 50, 32));
+        jPanel1.add(btn_buscar_10, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 540, 50, 32));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_5/agregando-boton-cuadrado-negro-simbolo-de-interfaz.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 32, 32));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 50, 32));
 
         txt_sequencia.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_sequencia.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -292,13 +291,12 @@ public class Facturas_surc_10 extends javax.swing.JDialog {
                 btncalcularActionPerformed(evt);
             }
         });
-        jPanel1.add(btncalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 550, 40, 20));
+        jPanel1.add(btncalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 540, 40, 20));
 
         btneli.setBackground(new java.awt.Color(255, 255, 255));
         btneli.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btneli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/eliminar.png"))); // NOI18N
         btneli.setMnemonic('e');
-        btneli.setText("Quitar Items");
         btneli.setToolTipText("Remover Productos ALT+E");
         btneli.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btneli.addActionListener(new java.awt.event.ActionListener() {
@@ -306,7 +304,7 @@ public class Facturas_surc_10 extends javax.swing.JDialog {
                 btneliActionPerformed(evt);
             }
         });
-        jPanel1.add(btneli, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 530, 150, 50));
+        jPanel1.add(btneli, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 100, 60, 40));
 
         btnven.setBackground(new java.awt.Color(255, 255, 255));
         btnven.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -384,7 +382,7 @@ public class Facturas_surc_10 extends javax.swing.JDialog {
 
         lbl_literal_pro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbl_literal_pro.setText("Son:");
-        jPanel1.add(lbl_literal_pro, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 550, 40, -1));
+        jPanel1.add(lbl_literal_pro, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 520, 90, -1));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 102)));
@@ -444,7 +442,7 @@ public class Facturas_surc_10 extends javax.swing.JDialog {
 
         lbl_literal.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lbl_literal.setText("gs");
-        jPanel1.add(lbl_literal, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 520, 180, 20));
+        jPanel1.add(lbl_literal, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 520, 30, 20));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -487,7 +485,7 @@ public class Facturas_surc_10 extends javax.swing.JDialog {
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 420, 10));
 
         lbl_count_filas.setText("count ");
-        jPanel1.add(lbl_count_filas, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 540, -1, 30));
+        jPanel1.add(lbl_count_filas, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 550, -1, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 600));
 
@@ -591,7 +589,7 @@ public class Facturas_surc_10 extends javax.swing.JDialog {
 
     }//GEN-LAST:event_tb_facturaKeyPressed
 
-    private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
+    private void btn_buscar_10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_10ActionPerformed
 
         try {
             cargar(txt_cod.getText());
@@ -615,7 +613,7 @@ public class Facturas_surc_10 extends javax.swing.JDialog {
         // ch_contado.doClick();
         // ch_credito.setSelected(false);
 
-    }//GEN-LAST:event_btn_buscarActionPerformed
+    }//GEN-LAST:event_btn_buscar_10ActionPerformed
 
     private void txt_codActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_codActionPerformed
         // TODO add your handling code here:
@@ -762,7 +760,7 @@ public class Facturas_surc_10 extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_buscar;
+    public static javax.swing.JButton btn_buscar_10;
     public static javax.swing.JButton btncalcular;
     private javax.swing.JButton btneli;
     private javax.swing.JButton btnven;
@@ -980,7 +978,7 @@ public class Facturas_surc_10 extends javax.swing.JDialog {
     void codigos() {
 
         String c = "";
-        String SQL = "select max(nro_fact_ventas) from ventas_facturacion_surc_10";
+        String SQL = "select max(nro_fact_ventas) from ventas_facturacion_surc_10 where nro_timbra_ventas='" + txt_timbrado.getText() + "'";
 
         try {
             Connection cn = conectar.getInstance().getConnection();
@@ -1152,7 +1150,7 @@ public class Facturas_surc_10 extends javax.swing.JDialog {
     }
 
     void cargarConfig() {
-        String mostrar = "SELECT * FROM empresas";
+        String mostrar = "SELECT * FROM almacenes_facturas";
 
         try {
             Connection cn = conectar.getInstance().getConnection();
@@ -1161,9 +1159,9 @@ public class Facturas_surc_10 extends javax.swing.JDialog {
             ResultSet rs = st.executeQuery(mostrar);
             while (rs.next()) {
 
-                txt_timbrado.setText(rs.getString(37));
-                txt_sequencia.setText(rs.getString(39));
-                txt_esta.setText(rs.getString(40));
+                txt_timbrado.setText(rs.getString("nro_timbra_10"));
+                txt_sequencia.setText(rs.getString("nro_esta_10"));
+                txt_esta.setText(rs.getString("nro_seq_10"));
 
             }
             conectar.getInstance().closeConnection(cn);

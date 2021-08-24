@@ -150,7 +150,7 @@ public class ventas_lucro_total extends javax.swing.JDialog {
         txt_total_ventas.setEnabled(false);
         tb_lista_tablas.add(txt_total_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 70, 30));
 
-        jPanel3.add(tb_lista_tablas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, 310, 40));
+        jPanel3.add(tb_lista_tablas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, 410, 60));
 
         jLabel19.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel19.setText("Total Lucro Ventas:");

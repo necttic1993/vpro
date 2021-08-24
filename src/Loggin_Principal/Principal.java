@@ -4363,7 +4363,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     }
 
     public void OpcionMenu() {
-        if (Principal.lbl_class.getText().equals("8")) {
+        if (lbl_class.getText().equals("8")) {
 
             JPopupMenu menu_opcion = new JPopupMenu();
 

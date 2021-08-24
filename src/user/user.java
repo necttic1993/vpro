@@ -46,7 +46,7 @@ public class user extends javax.swing.JDialog {
         String[] titulos = {"Id", "Usuario", "Grupo", "Classif.", "Almacén/Surc.", "Cuenta N°", "%", "Precio Bloqueado", "Precio B", "Mínimo", "SS", "CR"};
         String[] registros = new String[12];
         
-        String sql = "SELECT * FROM usuarios where usu LIKE '%" + valor + "%' AND usu_cod >1 ";
+        String sql = "SELECT * FROM usuarios where usu LIKE '%" + valor + "%'  ";
         
         model = new DefaultTableModel(null, titulos);
         

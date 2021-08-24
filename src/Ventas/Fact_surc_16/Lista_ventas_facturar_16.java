@@ -10,6 +10,7 @@ package Ventas.Fact_surc_16;
 import Clases.ColorearFilas;
 import Clases.ColorearTipoPago;
 import Conexion_DB.conectar;
+import static Ventas.Fact_surc_16.Facturas_facturas_16.btn_buscar_16;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
@@ -129,7 +130,7 @@ public class Lista_ventas_facturar_16 extends javax.swing.JDialog {
                 String codins = tb_can_dev.getValueAt(fila, 0).toString();
 
                 Facturas_facturas_16.txt_cod.setText(codins);
-                // Devolucion_Devoluciones.btncalcular.doClick();
+                Facturas_facturas_16.btn_buscar_16.doClick();
                 this.dispose();
 
             }
@@ -160,7 +161,7 @@ public class Lista_ventas_facturar_16 extends javax.swing.JDialog {
                     String codins = tb_can_dev.getValueAt(fila, 0).toString();
 
                     Facturas_facturas_16.txt_cod.setText(codins);
-                    // Devolucion_Devoluciones.btncalcular.doClick();
+                    Facturas_facturas_16.btn_buscar_16.doClick();
                     this.dispose();
 
                 }

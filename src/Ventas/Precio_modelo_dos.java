@@ -2079,7 +2079,7 @@ public class Precio_modelo_dos extends javax.swing.JDialog {
             String stock_separado = "", pre_a = "", codi = "", des = "", pre_b = "", stock = "", pre_ataca = "", desc = "", pre_d = "", pre_o = "";
             Connection cn = conectar.getInstance().getConnection();
 
-            String sql = "select p.pro_cod,p.pro_des,p.pro_pre_a,p.pro_pre_b,p.pro_pre_atacado,p.pro_alma,p.pro_pre_d,,p.pro_pre_o, p.pro_cant, d.descto_dep from tienda_productos as p inner join depar_productos as d on p.pro_depa=d.cod_dep where p.pro_cod='" + cod + "'";
+            String sql = "select p.pro_cod,p.pro_des,p.pro_pre_a,p.pro_pre_b,p.pro_pre_atacado,p.pro_alma,p.pro_pre_d,p.pro_pre_o, p.pro_cant, d.descto_dep from tienda_productos as p inner join depar_productos as d on p.pro_depa=d.cod_dep where p.pro_cod='" + cod + "'";
             //String cons = "select * from tienda_productos WHERE pro_cod='" + cod + "'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);

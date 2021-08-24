@@ -440,7 +440,7 @@ public class Visor_ventas_28 extends javax.swing.JDialog {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(50);
+                cap = rs.getString(51);
             }
             conectar.getInstance().closeConnection(cn);
 

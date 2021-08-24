@@ -48,14 +48,13 @@ public class Facturas_facturas_16 extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         codigos();
-
-    //    cargarConfig();
+        cargarConfig();
         btncalcular.setVisible(false);
         txt_forma_pago.setVisible(false);
         lbl_sub_total.setVisible(false);
         lbl_literal_pro.setVisible(false);
         lbl_literal.setVisible(false);
-
+        btn_buscar_16.setVisible(false);
         ch_contado.doClick();
         txt_cli_nom.setDisabledTextColor(Color.black);
         txt_forma_pago.setDisabledTextColor(Color.black);
@@ -84,7 +83,7 @@ public class Facturas_facturas_16 extends javax.swing.JDialog {
         txt_cod = new javax.swing.JTextField();
         txt_forma_pago = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        btn_buscar = new javax.swing.JButton();
+        btn_buscar_16 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         txt_sequencia = new javax.swing.JTextField();
         lbl_cod = new javax.swing.JTextField();
@@ -147,7 +146,7 @@ public class Facturas_facturas_16 extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tb_factura);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 1030, 330));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 1030, 300));
 
         jLabel16.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel16.setText("Nombre del Cliente :");
@@ -178,6 +177,8 @@ public class Facturas_facturas_16 extends javax.swing.JDialog {
         jPanel1.add(txt_cli_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 370, 30));
 
         txt_cod.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txt_cod.setDisabledTextColor(new java.awt.Color(204, 0, 0));
+        txt_cod.setEnabled(false);
         txt_cod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_codActionPerformed(evt);
@@ -197,28 +198,27 @@ public class Facturas_facturas_16 extends javax.swing.JDialog {
         jLabel19.setText("Cond. de Vta:");
         jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 70, 90, 30));
 
-        btn_buscar.setBackground(new java.awt.Color(255, 255, 255));
-        btn_buscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btn_buscar.setForeground(new java.awt.Color(255, 255, 255));
-        btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
-        btn_buscar.setToolTipText("");
-        btn_buscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_buscar.addActionListener(new java.awt.event.ActionListener() {
+        btn_buscar_16.setBackground(new java.awt.Color(255, 255, 255));
+        btn_buscar_16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_buscar_16.setForeground(new java.awt.Color(255, 255, 255));
+        btn_buscar_16.setToolTipText("");
+        btn_buscar_16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_buscar_16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_buscarActionPerformed(evt);
+                btn_buscar_16ActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 50, 32));
+        jPanel1.add(btn_buscar_16, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 540, 50, 32));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_5/agregando-boton-cuadrado-negro-simbolo-de-interfaz.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 32, 32));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 50, 32));
 
         txt_sequencia.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_sequencia.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -294,7 +294,6 @@ public class Facturas_facturas_16 extends javax.swing.JDialog {
         btneli.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btneli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/eliminar.png"))); // NOI18N
         btneli.setMnemonic('e');
-        btneli.setText("Quitar Items");
         btneli.setToolTipText("Remover Productos ALT+E");
         btneli.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btneli.addActionListener(new java.awt.event.ActionListener() {
@@ -302,7 +301,7 @@ public class Facturas_facturas_16 extends javax.swing.JDialog {
                 btneliActionPerformed(evt);
             }
         });
-        jPanel1.add(btneli, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 530, 150, 50));
+        jPanel1.add(btneli, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 100, 60, 40));
 
         btnven.setBackground(new java.awt.Color(255, 255, 255));
         btnven.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -544,7 +543,7 @@ public class Facturas_facturas_16 extends javax.swing.JDialog {
                 modelo.removeRow(i);
             }
             codigos();
-           // cargarConfig();
+            // cargarConfig();
 
         }
 
@@ -583,7 +582,7 @@ public class Facturas_facturas_16 extends javax.swing.JDialog {
 
     }//GEN-LAST:event_tb_facturaKeyPressed
 
-    private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
+    private void btn_buscar_16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_16ActionPerformed
 
         try {
             cargar(txt_cod.getText());
@@ -604,7 +603,7 @@ public class Facturas_facturas_16 extends javax.swing.JDialog {
 
         }
 
-    }//GEN-LAST:event_btn_buscarActionPerformed
+    }//GEN-LAST:event_btn_buscar_16ActionPerformed
 
     private void txt_codActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_codActionPerformed
         // TODO add your handling code here:
@@ -809,7 +808,7 @@ public class Facturas_facturas_16 extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_buscar;
+    public static javax.swing.JButton btn_buscar_16;
     public static javax.swing.JButton btncalcular;
     private javax.swing.JButton btneli;
     private javax.swing.JButton btnven;
@@ -985,7 +984,7 @@ public class Facturas_facturas_16 extends javax.swing.JDialog {
                      Logger.getLogger(Facturas_facturas_24.class.getName()).log(Level.SEVERE, null, ex);
                      }
 
-                    /*   String cod = lbl_cod.getText();
+                     /*   String cod = lbl_cod.getText();
                      Reportes reporte = new Reportes();
                      try {
                      reporte.factKyrios(cod);
@@ -1001,7 +1000,7 @@ public class Facturas_facturas_16 extends javax.swing.JDialog {
                      Logger.getLogger(Facturas_facturas_24.class.getName()).log(Level.SEVERE, null, ex);
                      }
 
-                    /*   String cod = lbl_cod.getText();
+                     /*   String cod = lbl_cod.getText();
                      Reportes reporte = new Reportes();
                      try {
                      reporte.factKyrios(cod);
@@ -1017,7 +1016,7 @@ public class Facturas_facturas_16 extends javax.swing.JDialog {
                      Logger.getLogger(Facturas_facturas_24.class.getName()).log(Level.SEVERE, null, ex);
                      }
 
-                    /*   String cod = lbl_cod.getText();
+                     /*   String cod = lbl_cod.getText();
                      Reportes reporte = new Reportes();
                      try {
                      reporte.factKyrios(cod);
@@ -1085,7 +1084,7 @@ public class Facturas_facturas_16 extends javax.swing.JDialog {
     void codigos() {
 
         String c = "";
-        String SQL = "select max(nro_fact_ventas) from ventas_facturacion_surc_16";
+        String SQL = "select max(nro_fact_ventas) from ventas_facturacion_surc_16 where nro_timbra_ventas='" + txt_timbrado.getText() + "'";
 
         try {
             Connection cn = conectar.getInstance().getConnection();
@@ -1230,18 +1229,22 @@ public class Facturas_facturas_16 extends javax.swing.JDialog {
     }
 
     void cargarConfig() {
-        String mostrar = "SELECT * FROM empresas";
+        String mostrar = "SELECT * FROM almacenes_facturas";
 
         try {
             Connection cn = conectar.getInstance().getConnection();
+
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(mostrar);
             while (rs.next()) {
 
-                txt_timbrado.setText(rs.getString(52)); //////////modificar
+                txt_timbrado.setText(rs.getString("nro_timbra_16"));
+                txt_sequencia.setText(rs.getString("nro_esta_16"));
+                txt_esta.setText(rs.getString("nro_seq_16"));
 
             }
             conectar.getInstance().closeConnection(cn);
+
         } catch (SQLException ex) {
             Logger.getLogger(Facturas_facturas_16.class.getName()).log(Level.SEVERE, null, ex);
         }

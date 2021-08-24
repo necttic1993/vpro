@@ -11,6 +11,7 @@ import Clases.status_factura_lote;
 import Clases.staus_factura;
 import Conexion_DB.conectar;
 import Loggin_Principal.Principal;
+import static Loggin_Principal.Principal.lbl_class;
 import Ventas.recibos.Recibos_factura_recibos;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
@@ -444,9 +445,20 @@ public class Principal_ventas_facturas extends javax.swing.JDialog {
 
         menu_DelPro.addActionListener((ActionEvent e) -> {
             //  eliminarProducto();
+            String grado = lbl_class.getText();
+            String nivel = ("7");
 
-            cancFactura();
-            btn_cargar_datos.doClick();
+            int des = Integer.parseInt(grado);
+            int nv = Integer.parseInt(nivel);
+            if (des >= nv) {
+
+                cancFactura();
+                btn_cargar_datos.doClick();
+            } else {
+
+                JOptionPane.showMessageDialog(null, "No tiene autorización");
+
+            }
 
         });
 
