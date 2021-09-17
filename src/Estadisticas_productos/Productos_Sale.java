@@ -11,32 +11,15 @@ package Estadisticas_productos;
  */
 public class Productos_Sale {
 
-    String codigo, des, nota, unit, total, venta;
+    String codigo, des, nota, unit, total, valor;
 
-    public Productos_Sale(String codigo, String des, String nota, String unit) {
+    public Productos_Sale(String codigo, String des, String nota, String unit,String valor) {
         this.codigo = codigo;
         this.des = des;
         this.unit = unit;
         this.nota = nota;
-        this.total = total;
-        this.venta = venta;
+        this.valor = valor;
 
-    }
-
-    public String getVenta() {
-        return venta;
-    }
-
-    public void setVenta(String venta) {
-        this.venta = venta;
-    }
-
-    public String getDes() {
-        return des;
-    }
-
-    public void setDes(String des) {
-        this.des = des;
     }
 
     public String getCodigo() {
@@ -45,6 +28,14 @@ public class Productos_Sale {
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
+    }
+
+    public String getDes() {
+        return des;
+    }
+
+    public void setDes(String des) {
+        this.des = des;
     }
 
     public String getNota() {
@@ -70,5 +61,15 @@ public class Productos_Sale {
     public void setTotal(String total) {
         this.total = total;
     }
+
+    public String getValor() {
+        return valor;
+    }
+
+    public void setValor(String valor) {
+        this.valor = valor;
+    }
+
+    
 
 }

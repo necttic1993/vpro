@@ -7,7 +7,7 @@ package Gastos;
 
 import Clases.ColorearGastos;
 import Conexion_DB.conectar;
-import static Loggin_Principal.NECTTIC.cod;
+import Loggin_Principal.Principal;
 import static Loggin_Principal.Principal.lbl_fecha_hoy;
 import static Loggin_Principal.Principal.lbl_usu_nom;
 import java.awt.HeadlessException;
@@ -20,8 +20,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -55,6 +53,10 @@ public class Principapl_gastos extends javax.swing.JDialog {
     public Principapl_gastos(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
+          if (Principal.lbl_mode_dark.getText().equals("oscuro")) {
+            panel_egresos.setBackground(new java.awt.Color(69, 84, 92));
+            
+        }
         cargar("");
         OpcionMenu();
         btn_cargar_datos.setVisible(false);
@@ -217,7 +219,7 @@ public class Principapl_gastos extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        panel_egresos = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_gastos = new javax.swing.JTable();
         txtbuscar = new javax.swing.JTextField();
@@ -232,8 +234,8 @@ public class Principapl_gastos extends javax.swing.JDialog {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panel_egresos.setBackground(new java.awt.Color(255, 255, 255));
+        panel_egresos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tb_gastos = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
@@ -267,7 +269,7 @@ public class Principapl_gastos extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tb_gastos);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 1200, 540));
+        panel_egresos.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 1200, 540));
 
         txtbuscar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txtbuscar.setToolTipText("Buscar Registros");
@@ -280,7 +282,7 @@ public class Principapl_gastos extends javax.swing.JDialog {
                 txtbuscarKeyReleased(evt);
             }
         });
-        jPanel1.add(txtbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 22, 350, 25));
+        panel_egresos.add(txtbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 22, 350, 25));
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -292,7 +294,7 @@ public class Principapl_gastos extends javax.swing.JDialog {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 10, 130, 50));
+        panel_egresos.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 10, 130, 50));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -304,11 +306,11 @@ public class Principapl_gastos extends javax.swing.JDialog {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 10, 160, 50));
+        panel_egresos.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 10, 160, 50));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
         jLabel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 420, 32));
+        panel_egresos.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 420, 32));
 
         btn_cargar_datos.setText("cargar");
         btn_cargar_datos.addActionListener(new java.awt.event.ActionListener() {
@@ -316,9 +318,9 @@ public class Principapl_gastos extends javax.swing.JDialog {
                 btn_cargar_datosActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_cargar_datos, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, -1, 30));
+        panel_egresos.add(btn_cargar_datos, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, -1, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1220, 610));
+        getContentPane().add(panel_egresos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1220, 610));
 
         pack();
         setLocationRelativeTo(null);
@@ -431,8 +433,8 @@ public class Principapl_gastos extends javax.swing.JDialog {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel panel_egresos;
     public static javax.swing.JTable tb_gastos;
     public static javax.swing.JTextField txtbuscar;
     // End of variables declaration//GEN-END:variables

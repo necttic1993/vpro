@@ -47,8 +47,8 @@ public class Facturas_facturas_18 extends javax.swing.JDialog {
     public Facturas_facturas_18(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        codigos();
         cargarConfig();
+        codigos();
         btncalcular.setVisible(false);
         txt_forma_pago.setVisible(false);
         lbl_sub_total.setVisible(false);
@@ -661,7 +661,7 @@ public class Facturas_facturas_18 extends javax.swing.JDialog {
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {

@@ -128,7 +128,7 @@ public class Lista_ventas_surc_3 extends javax.swing.JDialog {
                 String codins = tb_can_dev.getValueAt(fila, 0).toString();
 
                 Facturas_surc_3.txt_cod.setText(codins);
-                // Devolucion_Devoluciones.btncalcular.doClick();
+                Facturas_surc_3.btn_buscar_3.doClick();
                 this.dispose();
 
             }
@@ -159,7 +159,7 @@ public class Lista_ventas_surc_3 extends javax.swing.JDialog {
                     String codins = tb_can_dev.getValueAt(fila, 0).toString();
 
                     Facturas_surc_3.txt_cod.setText(codins);
-                    // Devolucion_Devoluciones.btncalcular.doClick();
+                     Facturas_surc_3.btn_buscar_3.doClick();
                     this.dispose();
 
                 }

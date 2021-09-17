@@ -5,7 +5,7 @@
  */
 package Ventas.Fact_surc_8;
 
-import Ventas.Fact_surc_8.*;
+
 import Clases.ColorearFilas;
 import Clases.ColorearTipoPago;
 import Conexion_DB.conectar;
@@ -128,7 +128,7 @@ public class Lista_ventas_facturar_8 extends javax.swing.JDialog {
                 String codins = tb_can_dev.getValueAt(fila, 0).toString();
 
                 Facturas_facturas_8.txt_cod.setText(codins);
-                // Devolucion_Devoluciones.btncalcular.doClick();
+                Facturas_facturas_8.btn_buscar_8.doClick();
                 this.dispose();
 
             }
@@ -159,7 +159,7 @@ public class Lista_ventas_facturar_8 extends javax.swing.JDialog {
                     String codins = tb_can_dev.getValueAt(fila, 0).toString();
 
                     Facturas_facturas_8.txt_cod.setText(codins);
-                    // Devolucion_Devoluciones.btncalcular.doClick();
+                    Facturas_facturas_8.btn_buscar_8.doClick();
                     this.dispose();
 
                 }

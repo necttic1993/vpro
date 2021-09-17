@@ -202,8 +202,8 @@ public class DetallesPro_gral extends javax.swing.JDialog {
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel8.setText("Peso:");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 60, 30));
+        jLabel8.setText("Costo medio:");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 100, 30));
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(102, 102, 102));
@@ -276,7 +276,7 @@ public class DetallesPro_gral extends javax.swing.JDialog {
         lbl_peso.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lbl_peso.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         lbl_peso.setOpaque(true);
-        jPanel1.add(lbl_peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 100, 30));
+        jPanel1.add(lbl_peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 100, 30));
 
         lbl_color.setBackground(new java.awt.Color(255, 255, 255));
         lbl_color.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -307,7 +307,7 @@ public class DetallesPro_gral extends javax.swing.JDialog {
         jPanel1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 580, 10));
         jPanel1.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 310, 10));
         jPanel1.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 240, 10));
-        jPanel1.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 140, 10));
+        jPanel1.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 190, 10));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 460));
 

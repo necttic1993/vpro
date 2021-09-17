@@ -7,6 +7,7 @@ package Estadisticas_productos;
 
 import Conexion_DB.conectar;
 import static Loggin_Principal.NECTTIC.ingreso;
+import Loggin_Principal.Principal;
 import Loggin_Principal.Seleccion_surc_ajuste;
 import java.awt.event.KeyEvent;
 import java.math.BigDecimal;
@@ -18,6 +19,7 @@ import java.text.DecimalFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -30,6 +32,10 @@ public class control_ventas_stock extends javax.swing.JDialog {
     public control_ventas_stock(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        if (Principal.lbl_mode_dark.getText().equals("oscuro")) {
+            panel_razon_pro.setBackground(new java.awt.Color(69, 84, 92));
+
+        }
         ch_ventas.setSelected(true);
 
     }
@@ -43,7 +49,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        panel_razon_pro = new javax.swing.JPanel();
         txt_cod_pro = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         btn_buscar = new javax.swing.JButton();
@@ -77,11 +83,13 @@ public class control_ventas_stock extends javax.swing.JDialog {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panel_razon_pro.setBackground(new java.awt.Color(255, 255, 255));
+        panel_razon_pro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txt_cod_pro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txt_cod_pro.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txt_cod_pro.setDisabledTextColor(new java.awt.Color(153, 0, 0));
+        txt_cod_pro.setEnabled(false);
         txt_cod_pro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_cod_proActionPerformed(evt);
@@ -92,11 +100,11 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 txt_cod_proKeyPressed(evt);
             }
         });
-        jPanel1.add(txt_cod_pro, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 100, 30));
+        panel_razon_pro.add(txt_cod_pro, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 100, 30));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel2.setText("Descripción:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, 30));
+        panel_razon_pro.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, 30));
 
         btn_buscar.setBackground(new java.awt.Color(255, 255, 255));
         btn_buscar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -107,7 +115,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 btn_buscarActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 60, 60, 40));
+        panel_razon_pro.add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 60, 60, 40));
 
         tb_control.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         tb_control.setModel(new javax.swing.table.DefaultTableModel(
@@ -132,15 +140,15 @@ public class control_ventas_stock extends javax.swing.JDialog {
         });
         jScrollPane3.setViewportView(tb_control);
 
-        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 1120, 430));
+        panel_razon_pro.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 1120, 430));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel4.setText("<--Historial de ajuste de stock");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 560, 250, 30));
+        panel_razon_pro.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 560, 250, 30));
 
         lbl_des_pro.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lbl_des_pro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(lbl_des_pro, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 520, 30));
+        panel_razon_pro.add(lbl_des_pro, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 640, 30));
 
         ch_dev.setBackground(new java.awt.Color(255, 255, 255));
         ch_dev.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -151,7 +159,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 ch_devActionPerformed(evt);
             }
         });
-        jPanel1.add(ch_dev, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 70, 110, 30));
+        panel_razon_pro.add(ch_dev, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 70, 110, 30));
 
         ch_ventas.setBackground(new java.awt.Color(255, 255, 255));
         ch_ventas.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -163,7 +171,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 ch_ventasActionPerformed(evt);
             }
         });
-        jPanel1.add(ch_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, 90, 30));
+        panel_razon_pro.add(ch_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, 90, 30));
 
         ch_compras.setBackground(new java.awt.Color(255, 255, 255));
         ch_compras.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -175,17 +183,17 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 ch_comprasActionPerformed(evt);
             }
         });
-        jPanel1.add(ch_compras, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 70, -1, 30));
+        panel_razon_pro.add(ch_compras, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 70, -1, 30));
 
         jPanel2.setBackground(new java.awt.Color(0, 153, 0));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, 130, 30));
+        panel_razon_pro.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, 130, 30));
 
         jPanel3.setBackground(new java.awt.Color(0, 102, 153));
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 70, 120, 30));
+        panel_razon_pro.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 70, 120, 30));
 
         jPanel4.setBackground(new java.awt.Color(0, 255, 255));
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 70, 120, 30));
+        panel_razon_pro.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 70, 120, 30));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -196,23 +204,23 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 50, 30));
+        panel_razon_pro.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 50, 30));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel5.setText("Fecha Final:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 80, 30));
+        panel_razon_pro.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 80, 30));
 
         txt_cant_pro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_cant_pro.setText("0");
         txt_cant_pro.setDisabledTextColor(new java.awt.Color(204, 0, 0));
         txt_cant_pro.setEnabled(false);
-        jPanel1.add(txt_cant_pro, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 550, 110, 30));
-        jPanel1.add(jd_fin, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 140, 30));
-        jPanel1.add(jd_ini, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 140, 30));
+        panel_razon_pro.add(txt_cant_pro, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 550, 110, 30));
+        panel_razon_pro.add(jd_fin, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 140, 30));
+        panel_razon_pro.add(jd_ini, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 140, 30));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel6.setText("Cantidad:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 550, 70, 30));
+        panel_razon_pro.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 550, 70, 30));
 
         jPanel5.setBackground(new java.awt.Color(0, 102, 102));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -228,7 +236,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
         });
         jPanel5.add(ch_transfe, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, 30));
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 70, 130, 30));
+        panel_razon_pro.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 70, 130, 30));
 
         jPanel6.setBackground(new java.awt.Color(204, 0, 51));
 
@@ -239,7 +247,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
         ch_suma_stock.setContentAreaFilled(false);
         jPanel6.add(ch_suma_stock);
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 550, 220, 30));
+        panel_razon_pro.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 550, 220, 30));
 
         lbl_almacen_stock.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbl_almacen_stock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Caja_2/iconos/dpto.png"))); // NOI18N
@@ -251,7 +259,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 lbl_almacen_stockMouseClicked(evt);
             }
         });
-        jPanel1.add(lbl_almacen_stock, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 10, 110, 50));
+        panel_razon_pro.add(lbl_almacen_stock, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 10, 110, 50));
 
         btn_buscar1.setBackground(new java.awt.Color(255, 255, 255));
         btn_buscar1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -262,17 +270,17 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 btn_buscar1ActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_buscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 60, 40));
+        panel_razon_pro.add(btn_buscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 60, 40));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel7.setText("Fecha Inicio:");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 80, 30));
+        panel_razon_pro.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 80, 30));
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel8.setText("Id Producto:");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 30));
+        panel_razon_pro.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 600));
+        getContentPane().add(panel_razon_pro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 600));
 
         pack();
         setLocationRelativeTo(null);
@@ -282,699 +290,702 @@ public class control_ventas_stock extends javax.swing.JDialog {
         java.sql.Date date1 = new java.sql.Date(jd_ini.getDate().getTime());
         java.sql.Date date2 = new java.sql.Date(jd_fin.getDate().getTime());
         String cod = txt_cod_pro.getText();
+        if (lbl_almacen_stock.getText().equals("0000000")) {
+            JOptionPane.showMessageDialog(null, "Seleccione un Almacén/Sucursal válido");
+        } else {
 
-        if (lbl_almacen_stock.getText().equals("0000001")) {
-            if (ch_ventas.isSelected()) {
-                cargarVentas(date1, date2, cod);
-                calcularcantida();
+            if (lbl_almacen_stock.getText().equals("0000001")) {
+                if (ch_ventas.isSelected()) {
+                    cargarVentas(date1, date2, cod);
+                    calcularcantida();
 
+                }
+                if (ch_compras.isSelected()) {
+                    cargarCompras(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_dev.isSelected()) {
+                    cargarDevol(date1, date2, cod);
+                    calcularcantida();
+
+                }
+
+                if (ch_transfe.isSelected()) {
+                    cargarTrans(date1, date2, cod);
+                    calcularcantida();
+
+                }
             }
-            if (ch_compras.isSelected()) {
-                cargarCompras(date1, date2, cod);
-                calcularcantida();
 
+            if (lbl_almacen_stock.getText().equals("0000002")) {
+                if (ch_ventas.isSelected()) {
+                    cargarVentas_2(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_compras.isSelected()) {
+                    cargarCompras(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_dev.isSelected()) {
+                    cargarDevol_2(date1, date2, cod);
+                    calcularcantida();
+
+                }
+
+                if (ch_transfe.isSelected()) {
+                    cargarTrans(date1, date2, cod);
+                    calcularcantida();
+
+                }
             }
-            if (ch_dev.isSelected()) {
-                cargarDevol(date1, date2, cod);
-                calcularcantida();
+            if (lbl_almacen_stock.getText().equals("0000003")) {
+                if (ch_ventas.isSelected()) {
+                    cargarVentas_3(date1, date2, cod);
+                    calcularcantida();
 
+                }
+                if (ch_compras.isSelected()) {
+                    cargarCompras(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_dev.isSelected()) {
+                    cargarDevol(date1, date2, cod);
+                    calcularcantida();
+
+                }
+
+                if (ch_transfe.isSelected()) {
+                    cargarTrans(date1, date2, cod);
+                    calcularcantida();
+
+                }
             }
+            if (lbl_almacen_stock.getText().equals("0000004")) {
+                if (ch_ventas.isSelected()) {
+                    cargarVentas_4(date1, date2, cod);
+                    calcularcantida();
 
-            if (ch_transfe.isSelected()) {
-                cargarTrans(date1, date2, cod);
-                calcularcantida();
+                }
+                if (ch_compras.isSelected()) {
+                    cargarCompras(date1, date2, cod);
+                    calcularcantida();
 
+                }
+                if (ch_dev.isSelected()) {
+                    cargarDevol(date1, date2, cod);
+                    calcularcantida();
+
+                }
+
+                if (ch_transfe.isSelected()) {
+                    cargarTrans(date1, date2, cod);
+                    calcularcantida();
+
+                }
+            }
+            if (lbl_almacen_stock.getText().equals("0000005")) {
+                if (ch_ventas.isSelected()) {
+                    cargarVentas_5(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_compras.isSelected()) {
+                    cargarCompras(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_dev.isSelected()) {
+                    cargarDevol(date1, date2, cod);
+                    calcularcantida();
+
+                }
+
+                if (ch_transfe.isSelected()) {
+                    cargarTrans(date1, date2, cod);
+                    calcularcantida();
+
+                }
+            }
+            if (lbl_almacen_stock.getText().equals("0000006")) {
+                if (ch_ventas.isSelected()) {
+                    cargarVentas_6(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_compras.isSelected()) {
+                    cargarCompras(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_dev.isSelected()) {
+                    cargarDevol(date1, date2, cod);
+                    calcularcantida();
+
+                }
+
+                if (ch_transfe.isSelected()) {
+                    cargarTrans(date1, date2, cod);
+                    calcularcantida();
+
+                }
+            }
+            if (lbl_almacen_stock.getText().equals("0000007")) {
+                if (ch_ventas.isSelected()) {
+                    cargarVentas_7(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_compras.isSelected()) {
+                    cargarCompras(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_dev.isSelected()) {
+                    cargarDevol(date1, date2, cod);
+                    calcularcantida();
+
+                }
+
+                if (ch_transfe.isSelected()) {
+                    cargarTrans(date1, date2, cod);
+                    calcularcantida();
+
+                }
+            }
+            if (lbl_almacen_stock.getText().equals("0000008")) {
+                if (ch_ventas.isSelected()) {
+                    cargarVentas_8(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_compras.isSelected()) {
+                    cargarCompras(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_dev.isSelected()) {
+                    cargarDevol(date1, date2, cod);
+                    calcularcantida();
+
+                }
+
+                if (ch_transfe.isSelected()) {
+                    cargarTrans(date1, date2, cod);
+                    calcularcantida();
+
+                }
+            }
+            if (lbl_almacen_stock.getText().equals("0000009")) {
+                if (ch_ventas.isSelected()) {
+                    cargarVentas_9(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_compras.isSelected()) {
+                    cargarCompras(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_dev.isSelected()) {
+                    cargarDevol(date1, date2, cod);
+                    calcularcantida();
+
+                }
+
+                if (ch_transfe.isSelected()) {
+                    cargarTrans(date1, date2, cod);
+                    calcularcantida();
+
+                }
+            }
+            if (lbl_almacen_stock.getText().equals("0000010")) {
+                if (ch_ventas.isSelected()) {
+                    cargarVentas_10(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_compras.isSelected()) {
+                    cargarCompras(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_dev.isSelected()) {
+                    cargarDevol(date1, date2, cod);
+                    calcularcantida();
+
+                }
+
+                if (ch_transfe.isSelected()) {
+                    cargarTrans(date1, date2, cod);
+                    calcularcantida();
+
+                }
+            }
+            if (lbl_almacen_stock.getText().equals("0000011")) {
+                if (ch_ventas.isSelected()) {
+                    cargarVentas_11(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_compras.isSelected()) {
+                    cargarCompras(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_dev.isSelected()) {
+                    cargarDevol(date1, date2, cod);
+                    calcularcantida();
+
+                }
+
+                if (ch_transfe.isSelected()) {
+                    cargarTrans(date1, date2, cod);
+                    calcularcantida();
+
+                }
+            }
+            if (lbl_almacen_stock.getText().equals("0000012")) {
+                if (ch_ventas.isSelected()) {
+                    cargarVentas_12(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_compras.isSelected()) {
+                    cargarCompras(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_dev.isSelected()) {
+                    cargarDevol(date1, date2, cod);
+                    calcularcantida();
+
+                }
+
+                if (ch_transfe.isSelected()) {
+                    cargarTrans(date1, date2, cod);
+                    calcularcantida();
+
+                }
+            }
+            if (lbl_almacen_stock.getText().equals("0000013")) {
+                if (ch_ventas.isSelected()) {
+                    cargarVentas_13(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_compras.isSelected()) {
+                    cargarCompras(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_dev.isSelected()) {
+                    cargarDevol(date1, date2, cod);
+                    calcularcantida();
+
+                }
+
+                if (ch_transfe.isSelected()) {
+                    cargarTrans(date1, date2, cod);
+                    calcularcantida();
+
+                }
+            }
+            if (lbl_almacen_stock.getText().equals("0000014")) {
+                if (ch_ventas.isSelected()) {
+                    cargarVentas_14(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_compras.isSelected()) {
+                    cargarCompras(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_dev.isSelected()) {
+                    cargarDevol(date1, date2, cod);
+                    calcularcantida();
+
+                }
+
+                if (ch_transfe.isSelected()) {
+                    cargarTrans(date1, date2, cod);
+                    calcularcantida();
+
+                }
+            }
+            if (lbl_almacen_stock.getText().equals("0000015")) {
+                if (ch_ventas.isSelected()) {
+                    cargarVentas_15(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_compras.isSelected()) {
+                    cargarCompras(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_dev.isSelected()) {
+                    cargarDevol(date1, date2, cod);
+                    calcularcantida();
+
+                }
+
+                if (ch_transfe.isSelected()) {
+                    cargarTrans(date1, date2, cod);
+                    calcularcantida();
+
+                }
+            }
+            if (lbl_almacen_stock.getText().equals("0000016")) {
+                if (ch_ventas.isSelected()) {
+                    cargarVentas_16(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_compras.isSelected()) {
+                    cargarCompras(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_dev.isSelected()) {
+                    cargarDevol(date1, date2, cod);
+                    calcularcantida();
+
+                }
+
+                if (ch_transfe.isSelected()) {
+                    cargarTrans(date1, date2, cod);
+                    calcularcantida();
+
+                }
+            }
+            if (lbl_almacen_stock.getText().equals("0000017")) {
+                if (ch_ventas.isSelected()) {
+                    cargarVentas_17(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_compras.isSelected()) {
+                    cargarCompras(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_dev.isSelected()) {
+                    cargarDevol(date1, date2, cod);
+                    calcularcantida();
+
+                }
+
+                if (ch_transfe.isSelected()) {
+                    cargarTrans(date1, date2, cod);
+                    calcularcantida();
+
+                }
+            }
+            if (lbl_almacen_stock.getText().equals("0000018")) {
+                if (ch_ventas.isSelected()) {
+                    cargarVentas_18(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_compras.isSelected()) {
+                    cargarCompras(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_dev.isSelected()) {
+                    cargarDevol(date1, date2, cod);
+                    calcularcantida();
+
+                }
+
+                if (ch_transfe.isSelected()) {
+                    cargarTrans(date1, date2, cod);
+                    calcularcantida();
+
+                }
+            }
+            if (lbl_almacen_stock.getText().equals("0000019")) {
+                if (ch_ventas.isSelected()) {
+                    cargarVentas_19(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_compras.isSelected()) {
+                    cargarCompras(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_dev.isSelected()) {
+                    cargarDevol(date1, date2, cod);
+                    calcularcantida();
+
+                }
+
+                if (ch_transfe.isSelected()) {
+                    cargarTrans(date1, date2, cod);
+                    calcularcantida();
+
+                }
+            }
+            if (lbl_almacen_stock.getText().equals("0000020")) {
+                if (ch_ventas.isSelected()) {
+                    cargarVentas_20(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_compras.isSelected()) {
+                    cargarCompras(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_dev.isSelected()) {
+                    cargarDevol(date1, date2, cod);
+                    calcularcantida();
+
+                }
+
+                if (ch_transfe.isSelected()) {
+                    cargarTrans(date1, date2, cod);
+                    calcularcantida();
+
+                }
+            }
+            if (lbl_almacen_stock.getText().equals("0000021")) {
+                if (ch_ventas.isSelected()) {
+                    cargarVentas_21(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_compras.isSelected()) {
+                    cargarCompras(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_dev.isSelected()) {
+                    cargarDevol(date1, date2, cod);
+                    calcularcantida();
+
+                }
+
+                if (ch_transfe.isSelected()) {
+                    cargarTrans(date1, date2, cod);
+                    calcularcantida();
+
+                }
+            }
+            if (lbl_almacen_stock.getText().equals("0000022")) {
+                if (ch_ventas.isSelected()) {
+                    cargarVentas_22(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_compras.isSelected()) {
+                    cargarCompras(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_dev.isSelected()) {
+                    cargarDevol(date1, date2, cod);
+                    calcularcantida();
+
+                }
+
+                if (ch_transfe.isSelected()) {
+                    cargarTrans(date1, date2, cod);
+                    calcularcantida();
+
+                }
+            }
+            if (lbl_almacen_stock.getText().equals("0000023")) {
+                if (ch_ventas.isSelected()) {
+                    cargarVentas_23(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_compras.isSelected()) {
+                    cargarCompras(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_dev.isSelected()) {
+                    cargarDevol(date1, date2, cod);
+                    calcularcantida();
+
+                }
+
+                if (ch_transfe.isSelected()) {
+                    cargarTrans(date1, date2, cod);
+                    calcularcantida();
+
+                }
+            }
+            if (lbl_almacen_stock.getText().equals("0000024")) {
+                if (ch_ventas.isSelected()) {
+                    cargarVentas_24(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_compras.isSelected()) {
+                    cargarCompras(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_dev.isSelected()) {
+                    cargarDevol(date1, date2, cod);
+                    calcularcantida();
+
+                }
+
+                if (ch_transfe.isSelected()) {
+                    cargarTrans(date1, date2, cod);
+                    calcularcantida();
+
+                }
+            }
+            if (lbl_almacen_stock.getText().equals("0000025")) {
+                if (ch_ventas.isSelected()) {
+                    cargarVentas_25(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_compras.isSelected()) {
+                    cargarCompras(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_dev.isSelected()) {
+                    cargarDevol(date1, date2, cod);
+                    calcularcantida();
+
+                }
+
+                if (ch_transfe.isSelected()) {
+                    cargarTrans(date1, date2, cod);
+                    calcularcantida();
+
+                }
+            }
+            if (lbl_almacen_stock.getText().equals("0000026")) {
+                if (ch_ventas.isSelected()) {
+                    cargarVentas_26(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_compras.isSelected()) {
+                    cargarCompras(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_dev.isSelected()) {
+                    cargarDevol(date1, date2, cod);
+                    calcularcantida();
+
+                }
+
+                if (ch_transfe.isSelected()) {
+                    cargarTrans(date1, date2, cod);
+                    calcularcantida();
+
+                }
+            }
+            if (lbl_almacen_stock.getText().equals("0000027")) {
+                if (ch_ventas.isSelected()) {
+                    cargarVentas_27(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_compras.isSelected()) {
+                    cargarCompras(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_dev.isSelected()) {
+                    cargarDevol(date1, date2, cod);
+                    calcularcantida();
+
+                }
+
+                if (ch_transfe.isSelected()) {
+                    cargarTrans(date1, date2, cod);
+                    calcularcantida();
+
+                }
+            }
+            if (lbl_almacen_stock.getText().equals("0000028")) {
+                if (ch_ventas.isSelected()) {
+                    cargarVentas_28(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_compras.isSelected()) {
+                    cargarCompras(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_dev.isSelected()) {
+                    cargarDevol(date1, date2, cod);
+                    calcularcantida();
+
+                }
+
+                if (ch_transfe.isSelected()) {
+                    cargarTrans(date1, date2, cod);
+                    calcularcantida();
+
+                }
+            }
+            if (lbl_almacen_stock.getText().equals("0000029")) {
+                if (ch_ventas.isSelected()) {
+                    cargarVentas_29(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_compras.isSelected()) {
+                    cargarCompras(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_dev.isSelected()) {
+                    cargarDevol(date1, date2, cod);
+                    calcularcantida();
+
+                }
+
+                if (ch_transfe.isSelected()) {
+                    cargarTrans(date1, date2, cod);
+                    calcularcantida();
+
+                }
+            }
+            if (lbl_almacen_stock.getText().equals("0000030")) {
+                if (ch_ventas.isSelected()) {
+                    cargarVentas_30(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_compras.isSelected()) {
+                    cargarCompras(date1, date2, cod);
+                    calcularcantida();
+
+                }
+                if (ch_dev.isSelected()) {
+                    cargarDevol(date1, date2, cod);
+                    calcularcantida();
+
+                }
+
+                if (ch_transfe.isSelected()) {
+                    cargarTrans(date1, date2, cod);
+                    calcularcantida();
+
+                }
             }
         }
-
-        if (lbl_almacen_stock.getText().equals("0000002")) {
-            if (ch_ventas.isSelected()) {
-                cargarVentas_2(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_compras.isSelected()) {
-                cargarCompras(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_dev.isSelected()) {
-                cargarDevol_2(date1, date2, cod);
-                calcularcantida();
-
-            }
-
-            if (ch_transfe.isSelected()) {
-                cargarTrans(date1, date2, cod);
-                calcularcantida();
-
-            }
-        }
-        if (lbl_almacen_stock.getText().equals("0000003")) {
-            if (ch_ventas.isSelected()) {
-                cargarVentas_3(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_compras.isSelected()) {
-                cargarCompras(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_dev.isSelected()) {
-                cargarDevol(date1, date2, cod);
-                calcularcantida();
-
-            }
-
-            if (ch_transfe.isSelected()) {
-                cargarTrans(date1, date2, cod);
-                calcularcantida();
-
-            }
-        }
-        if (lbl_almacen_stock.getText().equals("0000004")) {
-            if (ch_ventas.isSelected()) {
-                cargarVentas_4(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_compras.isSelected()) {
-                cargarCompras(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_dev.isSelected()) {
-                cargarDevol(date1, date2, cod);
-                calcularcantida();
-
-            }
-
-            if (ch_transfe.isSelected()) {
-                cargarTrans(date1, date2, cod);
-                calcularcantida();
-
-            }
-        }
-        if (lbl_almacen_stock.getText().equals("0000005")) {
-            if (ch_ventas.isSelected()) {
-                cargarVentas_5(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_compras.isSelected()) {
-                cargarCompras(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_dev.isSelected()) {
-                cargarDevol(date1, date2, cod);
-                calcularcantida();
-
-            }
-
-            if (ch_transfe.isSelected()) {
-                cargarTrans(date1, date2, cod);
-                calcularcantida();
-
-            }
-        }
-        if (lbl_almacen_stock.getText().equals("0000006")) {
-            if (ch_ventas.isSelected()) {
-                cargarVentas_6(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_compras.isSelected()) {
-                cargarCompras(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_dev.isSelected()) {
-                cargarDevol(date1, date2, cod);
-                calcularcantida();
-
-            }
-
-            if (ch_transfe.isSelected()) {
-                cargarTrans(date1, date2, cod);
-                calcularcantida();
-
-            }
-        }
-        if (lbl_almacen_stock.getText().equals("0000007")) {
-            if (ch_ventas.isSelected()) {
-                cargarVentas_7(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_compras.isSelected()) {
-                cargarCompras(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_dev.isSelected()) {
-                cargarDevol(date1, date2, cod);
-                calcularcantida();
-
-            }
-
-            if (ch_transfe.isSelected()) {
-                cargarTrans(date1, date2, cod);
-                calcularcantida();
-
-            }
-        }
-        if (lbl_almacen_stock.getText().equals("0000008")) {
-            if (ch_ventas.isSelected()) {
-                cargarVentas_8(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_compras.isSelected()) {
-                cargarCompras(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_dev.isSelected()) {
-                cargarDevol(date1, date2, cod);
-                calcularcantida();
-
-            }
-
-            if (ch_transfe.isSelected()) {
-                cargarTrans(date1, date2, cod);
-                calcularcantida();
-
-            }
-        }
-        if (lbl_almacen_stock.getText().equals("0000009")) {
-            if (ch_ventas.isSelected()) {
-                cargarVentas_9(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_compras.isSelected()) {
-                cargarCompras(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_dev.isSelected()) {
-                cargarDevol(date1, date2, cod);
-                calcularcantida();
-
-            }
-
-            if (ch_transfe.isSelected()) {
-                cargarTrans(date1, date2, cod);
-                calcularcantida();
-
-            }
-        }
-        if (lbl_almacen_stock.getText().equals("0000010")) {
-            if (ch_ventas.isSelected()) {
-                cargarVentas_10(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_compras.isSelected()) {
-                cargarCompras(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_dev.isSelected()) {
-                cargarDevol(date1, date2, cod);
-                calcularcantida();
-
-            }
-
-            if (ch_transfe.isSelected()) {
-                cargarTrans(date1, date2, cod);
-                calcularcantida();
-
-            }
-        }
-        if (lbl_almacen_stock.getText().equals("0000011")) {
-            if (ch_ventas.isSelected()) {
-                cargarVentas_11(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_compras.isSelected()) {
-                cargarCompras(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_dev.isSelected()) {
-                cargarDevol(date1, date2, cod);
-                calcularcantida();
-
-            }
-
-            if (ch_transfe.isSelected()) {
-                cargarTrans(date1, date2, cod);
-                calcularcantida();
-
-            }
-        }
-        if (lbl_almacen_stock.getText().equals("0000012")) {
-            if (ch_ventas.isSelected()) {
-                cargarVentas_12(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_compras.isSelected()) {
-                cargarCompras(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_dev.isSelected()) {
-                cargarDevol(date1, date2, cod);
-                calcularcantida();
-
-            }
-
-            if (ch_transfe.isSelected()) {
-                cargarTrans(date1, date2, cod);
-                calcularcantida();
-
-            }
-        }
-        if (lbl_almacen_stock.getText().equals("0000013")) {
-            if (ch_ventas.isSelected()) {
-                cargarVentas_13(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_compras.isSelected()) {
-                cargarCompras(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_dev.isSelected()) {
-                cargarDevol(date1, date2, cod);
-                calcularcantida();
-
-            }
-
-            if (ch_transfe.isSelected()) {
-                cargarTrans(date1, date2, cod);
-                calcularcantida();
-
-            }
-        }
-        if (lbl_almacen_stock.getText().equals("0000014")) {
-            if (ch_ventas.isSelected()) {
-                cargarVentas_14(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_compras.isSelected()) {
-                cargarCompras(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_dev.isSelected()) {
-                cargarDevol(date1, date2, cod);
-                calcularcantida();
-
-            }
-
-            if (ch_transfe.isSelected()) {
-                cargarTrans(date1, date2, cod);
-                calcularcantida();
-
-            }
-        }
-        if (lbl_almacen_stock.getText().equals("0000015")) {
-            if (ch_ventas.isSelected()) {
-                cargarVentas_15(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_compras.isSelected()) {
-                cargarCompras(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_dev.isSelected()) {
-                cargarDevol(date1, date2, cod);
-                calcularcantida();
-
-            }
-
-            if (ch_transfe.isSelected()) {
-                cargarTrans(date1, date2, cod);
-                calcularcantida();
-
-            }
-        }
-        if (lbl_almacen_stock.getText().equals("0000016")) {
-            if (ch_ventas.isSelected()) {
-                cargarVentas_16(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_compras.isSelected()) {
-                cargarCompras(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_dev.isSelected()) {
-                cargarDevol(date1, date2, cod);
-                calcularcantida();
-
-            }
-
-            if (ch_transfe.isSelected()) {
-                cargarTrans(date1, date2, cod);
-                calcularcantida();
-
-            }
-        }
-        if (lbl_almacen_stock.getText().equals("0000017")) {
-            if (ch_ventas.isSelected()) {
-                cargarVentas_17(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_compras.isSelected()) {
-                cargarCompras(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_dev.isSelected()) {
-                cargarDevol(date1, date2, cod);
-                calcularcantida();
-
-            }
-
-            if (ch_transfe.isSelected()) {
-                cargarTrans(date1, date2, cod);
-                calcularcantida();
-
-            }
-        }
-        if (lbl_almacen_stock.getText().equals("0000018")) {
-            if (ch_ventas.isSelected()) {
-                cargarVentas_18(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_compras.isSelected()) {
-                cargarCompras(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_dev.isSelected()) {
-                cargarDevol(date1, date2, cod);
-                calcularcantida();
-
-            }
-
-            if (ch_transfe.isSelected()) {
-                cargarTrans(date1, date2, cod);
-                calcularcantida();
-
-            }
-        }
-        if (lbl_almacen_stock.getText().equals("0000019")) {
-            if (ch_ventas.isSelected()) {
-                cargarVentas_19(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_compras.isSelected()) {
-                cargarCompras(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_dev.isSelected()) {
-                cargarDevol(date1, date2, cod);
-                calcularcantida();
-
-            }
-
-            if (ch_transfe.isSelected()) {
-                cargarTrans(date1, date2, cod);
-                calcularcantida();
-
-            }
-        }
-        if (lbl_almacen_stock.getText().equals("0000020")) {
-            if (ch_ventas.isSelected()) {
-                cargarVentas_20(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_compras.isSelected()) {
-                cargarCompras(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_dev.isSelected()) {
-                cargarDevol(date1, date2, cod);
-                calcularcantida();
-
-            }
-
-            if (ch_transfe.isSelected()) {
-                cargarTrans(date1, date2, cod);
-                calcularcantida();
-
-            }
-        }
-        if (lbl_almacen_stock.getText().equals("0000021")) {
-            if (ch_ventas.isSelected()) {
-                cargarVentas_21(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_compras.isSelected()) {
-                cargarCompras(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_dev.isSelected()) {
-                cargarDevol(date1, date2, cod);
-                calcularcantida();
-
-            }
-
-            if (ch_transfe.isSelected()) {
-                cargarTrans(date1, date2, cod);
-                calcularcantida();
-
-            }
-        }
-        if (lbl_almacen_stock.getText().equals("0000022")) {
-            if (ch_ventas.isSelected()) {
-                cargarVentas_22(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_compras.isSelected()) {
-                cargarCompras(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_dev.isSelected()) {
-                cargarDevol(date1, date2, cod);
-                calcularcantida();
-
-            }
-
-            if (ch_transfe.isSelected()) {
-                cargarTrans(date1, date2, cod);
-                calcularcantida();
-
-            }
-        }
-        if (lbl_almacen_stock.getText().equals("0000023")) {
-            if (ch_ventas.isSelected()) {
-                cargarVentas_23(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_compras.isSelected()) {
-                cargarCompras(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_dev.isSelected()) {
-                cargarDevol(date1, date2, cod);
-                calcularcantida();
-
-            }
-
-            if (ch_transfe.isSelected()) {
-                cargarTrans(date1, date2, cod);
-                calcularcantida();
-
-            }
-        }
-        if (lbl_almacen_stock.getText().equals("0000024")) {
-            if (ch_ventas.isSelected()) {
-                cargarVentas_24(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_compras.isSelected()) {
-                cargarCompras(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_dev.isSelected()) {
-                cargarDevol(date1, date2, cod);
-                calcularcantida();
-
-            }
-
-            if (ch_transfe.isSelected()) {
-                cargarTrans(date1, date2, cod);
-                calcularcantida();
-
-            }
-        }
-        if (lbl_almacen_stock.getText().equals("0000025")) {
-            if (ch_ventas.isSelected()) {
-                cargarVentas_25(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_compras.isSelected()) {
-                cargarCompras(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_dev.isSelected()) {
-                cargarDevol(date1, date2, cod);
-                calcularcantida();
-
-            }
-
-            if (ch_transfe.isSelected()) {
-                cargarTrans(date1, date2, cod);
-                calcularcantida();
-
-            }
-        }
-        if (lbl_almacen_stock.getText().equals("0000026")) {
-            if (ch_ventas.isSelected()) {
-                cargarVentas_26(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_compras.isSelected()) {
-                cargarCompras(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_dev.isSelected()) {
-                cargarDevol(date1, date2, cod);
-                calcularcantida();
-
-            }
-
-            if (ch_transfe.isSelected()) {
-                cargarTrans(date1, date2, cod);
-                calcularcantida();
-
-            }
-        }
-        if (lbl_almacen_stock.getText().equals("0000027")) {
-            if (ch_ventas.isSelected()) {
-                cargarVentas_27(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_compras.isSelected()) {
-                cargarCompras(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_dev.isSelected()) {
-                cargarDevol(date1, date2, cod);
-                calcularcantida();
-
-            }
-
-            if (ch_transfe.isSelected()) {
-                cargarTrans(date1, date2, cod);
-                calcularcantida();
-
-            }
-        }
-        if (lbl_almacen_stock.getText().equals("0000028")) {
-            if (ch_ventas.isSelected()) {
-                cargarVentas_28(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_compras.isSelected()) {
-                cargarCompras(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_dev.isSelected()) {
-                cargarDevol(date1, date2, cod);
-                calcularcantida();
-
-            }
-
-            if (ch_transfe.isSelected()) {
-                cargarTrans(date1, date2, cod);
-                calcularcantida();
-
-            }
-        }
-        if (lbl_almacen_stock.getText().equals("0000029")) {
-            if (ch_ventas.isSelected()) {
-                cargarVentas_29(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_compras.isSelected()) {
-                cargarCompras(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_dev.isSelected()) {
-                cargarDevol(date1, date2, cod);
-                calcularcantida();
-
-            }
-
-            if (ch_transfe.isSelected()) {
-                cargarTrans(date1, date2, cod);
-                calcularcantida();
-
-            }
-        }
-        if (lbl_almacen_stock.getText().equals("0000030")) {
-            if (ch_ventas.isSelected()) {
-                cargarVentas_30(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_compras.isSelected()) {
-                cargarCompras(date1, date2, cod);
-                calcularcantida();
-
-            }
-            if (ch_dev.isSelected()) {
-                cargarDevol(date1, date2, cod);
-                calcularcantida();
-
-            }
-
-            if (ch_transfe.isSelected()) {
-                cargarTrans(date1, date2, cod);
-                calcularcantida();
-
-            }
-        }
-
 
     }//GEN-LAST:event_btn_buscarActionPerformed
 
@@ -1105,7 +1116,6 @@ public class control_ventas_stock extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1116,6 +1126,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
     private org.jdesktop.swingx.JXDatePicker jd_ini;
     public static javax.swing.JLabel lbl_almacen_stock;
     public static javax.swing.JLabel lbl_des_pro;
+    private javax.swing.JPanel panel_razon_pro;
     public static javax.swing.JTable tb_control;
     private javax.swing.JTextField txt_cant_pro;
     public static javax.swing.JTextField txt_cod_pro;

@@ -5,6 +5,7 @@
  */
 package Estadisticas_productos;
 
+import CP.Costo;
 import Conexion_DB.conectar;
 import static Loggin_Principal.NECTTIC.ingreso;
 import Loggin_Principal.Principal;
@@ -19,7 +20,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,6 +35,7 @@ import net.sf.jasperreports.engine.JRExporterParameter;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.export.JRPrintServiceExporter;
 import net.sf.jasperreports.engine.export.JRPrintServiceExporterParameter;
 import net.sf.jasperreports.engine.util.JRLoader;
@@ -87,14 +91,14 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_cant > 0";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
                 registros[0] = rs.getString(1);
                 registros[1] = rs.getString(2);
                 registros[2] = rs.getString(3);
-                registros[3] = rs.getString(5); ///stock 25 alma 2
+                registros[3] = rs.getString(5); ///stock 25 alma 2               
                 registros[4] = rs.getString(6);
                 registros[5] = rs.getString(7);
 
@@ -129,7 +133,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_2 > 0";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -137,7 +141,11 @@ public class Productos_CP extends javax.swing.JDialog {
                 registros[1] = rs.getString(2);
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(25);
-                registros[4] = rs.getString(6);
+                if (Principal.modelo_cp.getText().equals("1")) {
+                    registros[4] = rs.getString(6);
+                } else {
+                    registros[4] = rs.getString(8);
+                }
                 registros[5] = rs.getString(7);
 
                 model.addRow(registros);
@@ -170,7 +178,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_3 > 0";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -178,7 +186,11 @@ public class Productos_CP extends javax.swing.JDialog {
                 registros[1] = rs.getString(2);
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(26);
-                registros[4] = rs.getString(6);
+                if (Principal.modelo_cp.getText().equals("1")) {
+                    registros[4] = rs.getString(6);
+                } else {
+                    registros[4] = rs.getString(8);
+                }
                 registros[5] = rs.getString(7);
 
                 model.addRow(registros);
@@ -211,7 +223,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_4 > 0";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -219,7 +231,11 @@ public class Productos_CP extends javax.swing.JDialog {
                 registros[1] = rs.getString(2);
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(27);
-                registros[4] = rs.getString(6);
+                if (Principal.modelo_cp.getText().equals("1")) {
+                    registros[4] = rs.getString(6);
+                } else {
+                    registros[4] = rs.getString(8);
+                }
                 registros[5] = rs.getString(7);
 
                 model.addRow(registros);
@@ -252,7 +268,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_5 > 0";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -260,7 +276,11 @@ public class Productos_CP extends javax.swing.JDialog {
                 registros[1] = rs.getString(2);
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(28);
-                registros[4] = rs.getString(6);
+                if (Principal.modelo_cp.getText().equals("1")) {
+                    registros[4] = rs.getString(6);
+                } else {
+                    registros[4] = rs.getString(8);
+                }
                 registros[5] = rs.getString(7);
 
                 model.addRow(registros);
@@ -293,7 +313,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_6 > 0";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -301,7 +321,11 @@ public class Productos_CP extends javax.swing.JDialog {
                 registros[1] = rs.getString(2);
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(29);
-                registros[4] = rs.getString(6);
+                if (Principal.modelo_cp.getText().equals("1")) {
+                    registros[4] = rs.getString(6);
+                } else {
+                    registros[4] = rs.getString(8);
+                }
                 registros[5] = rs.getString(7);
 
                 model.addRow(registros);
@@ -334,7 +358,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_7 > 0";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -342,7 +366,11 @@ public class Productos_CP extends javax.swing.JDialog {
                 registros[1] = rs.getString(2);
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(30);
-                registros[4] = rs.getString(6);
+                if (Principal.modelo_cp.getText().equals("1")) {
+                    registros[4] = rs.getString(6);
+                } else {
+                    registros[4] = rs.getString(8);
+                }
                 registros[5] = rs.getString(7);
 
                 model.addRow(registros);
@@ -375,7 +403,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_8 > 0";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -383,7 +411,11 @@ public class Productos_CP extends javax.swing.JDialog {
                 registros[1] = rs.getString(2);
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(31);
-                registros[4] = rs.getString(6);
+                if (Principal.modelo_cp.getText().equals("1")) {
+                    registros[4] = rs.getString(6);
+                } else {
+                    registros[4] = rs.getString(8);
+                }
                 registros[5] = rs.getString(7);
 
                 model.addRow(registros);
@@ -416,7 +448,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_9 > 0";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -424,7 +456,11 @@ public class Productos_CP extends javax.swing.JDialog {
                 registros[1] = rs.getString(2);
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(32);
-                registros[4] = rs.getString(6);
+                if (Principal.modelo_cp.getText().equals("1")) {
+                    registros[4] = rs.getString(6);
+                } else {
+                    registros[4] = rs.getString(8);
+                }
                 registros[5] = rs.getString(7);
 
                 model.addRow(registros);
@@ -457,7 +493,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'AND pro_stock_10 > 0";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -465,7 +501,11 @@ public class Productos_CP extends javax.swing.JDialog {
                 registros[1] = rs.getString(2);
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(33);
-                registros[4] = rs.getString(6);
+                if (Principal.modelo_cp.getText().equals("1")) {
+                    registros[4] = rs.getString(6);
+                } else {
+                    registros[4] = rs.getString(8);
+                }
                 registros[5] = rs.getString(7);
 
                 model.addRow(registros);
@@ -498,7 +538,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_11 > 0";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -506,7 +546,11 @@ public class Productos_CP extends javax.swing.JDialog {
                 registros[1] = rs.getString(2);
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(34);
-                registros[4] = rs.getString(6);
+                if (Principal.modelo_cp.getText().equals("1")) {
+                    registros[4] = rs.getString(6);
+                } else {
+                    registros[4] = rs.getString(8);
+                }
                 registros[5] = rs.getString(7);
 
                 model.addRow(registros);
@@ -539,7 +583,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_12 > 0";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -547,7 +591,11 @@ public class Productos_CP extends javax.swing.JDialog {
                 registros[1] = rs.getString(2);
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(35);
-                registros[4] = rs.getString(6);
+                if (Principal.modelo_cp.getText().equals("1")) {
+                    registros[4] = rs.getString(6);
+                } else {
+                    registros[4] = rs.getString(8);
+                }
                 registros[5] = rs.getString(7);
 
                 model.addRow(registros);
@@ -580,7 +628,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_13 > 0";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -588,7 +636,11 @@ public class Productos_CP extends javax.swing.JDialog {
                 registros[1] = rs.getString(2);
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(36);
-                registros[4] = rs.getString(6);
+                if (Principal.modelo_cp.getText().equals("1")) {
+                    registros[4] = rs.getString(6);
+                } else {
+                    registros[4] = rs.getString(8);
+                }
                 registros[5] = rs.getString(7);
 
                 model.addRow(registros);
@@ -621,7 +673,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_14 > 0";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -629,7 +681,11 @@ public class Productos_CP extends javax.swing.JDialog {
                 registros[1] = rs.getString(2);
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(37);
-                registros[4] = rs.getString(6);
+                if (Principal.modelo_cp.getText().equals("1")) {
+                    registros[4] = rs.getString(6);
+                } else {
+                    registros[4] = rs.getString(8);
+                }
                 registros[5] = rs.getString(7);
 
                 model.addRow(registros);
@@ -662,7 +718,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_15 > 0";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -670,7 +726,11 @@ public class Productos_CP extends javax.swing.JDialog {
                 registros[1] = rs.getString(2);
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(38);
-                registros[4] = rs.getString(6);
+                if (Principal.modelo_cp.getText().equals("1")) {
+                    registros[4] = rs.getString(6);
+                } else {
+                    registros[4] = rs.getString(8);
+                }
                 registros[5] = rs.getString(7);
 
                 model.addRow(registros);
@@ -703,7 +763,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_16 > 0";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -711,7 +771,11 @@ public class Productos_CP extends javax.swing.JDialog {
                 registros[1] = rs.getString(2);
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(39);
-                registros[4] = rs.getString(6);
+                if (Principal.modelo_cp.getText().equals("1")) {
+                    registros[4] = rs.getString(6);
+                } else {
+                    registros[4] = rs.getString(8);
+                }
                 registros[5] = rs.getString(7);
 
                 model.addRow(registros);
@@ -744,7 +808,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_17 > 0";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -752,7 +816,11 @@ public class Productos_CP extends javax.swing.JDialog {
                 registros[1] = rs.getString(2);
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(40);
-                registros[4] = rs.getString(6);
+                if (Principal.modelo_cp.getText().equals("1")) {
+                    registros[4] = rs.getString(6);
+                } else {
+                    registros[4] = rs.getString(8);
+                }
                 registros[5] = rs.getString(7);
 
                 model.addRow(registros);
@@ -785,7 +853,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_18 > 0";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -793,7 +861,11 @@ public class Productos_CP extends javax.swing.JDialog {
                 registros[1] = rs.getString(2);
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(41);
-                registros[4] = rs.getString(6);
+                if (Principal.modelo_cp.getText().equals("1")) {
+                    registros[4] = rs.getString(6);
+                } else {
+                    registros[4] = rs.getString(8);
+                }
                 registros[5] = rs.getString(7);
 
                 model.addRow(registros);
@@ -826,7 +898,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_19 > 0";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -834,7 +906,11 @@ public class Productos_CP extends javax.swing.JDialog {
                 registros[1] = rs.getString(2);
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(42);
-                registros[4] = rs.getString(6);
+                if (Principal.modelo_cp.getText().equals("1")) {
+                    registros[4] = rs.getString(6);
+                } else {
+                    registros[4] = rs.getString(8);
+                }
                 registros[5] = rs.getString(7);
 
                 model.addRow(registros);
@@ -867,7 +943,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_20 > 0";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -875,7 +951,11 @@ public class Productos_CP extends javax.swing.JDialog {
                 registros[1] = rs.getString(2);
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(43);
-                registros[4] = rs.getString(6);
+                if (Principal.modelo_cp.getText().equals("1")) {
+                    registros[4] = rs.getString(6);
+                } else {
+                    registros[4] = rs.getString(8);
+                }
                 registros[5] = rs.getString(7);
 
                 model.addRow(registros);
@@ -908,7 +988,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_21 > 0";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -916,7 +996,11 @@ public class Productos_CP extends javax.swing.JDialog {
                 registros[1] = rs.getString(2);
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(44);
-                registros[4] = rs.getString(6);
+                if (Principal.modelo_cp.getText().equals("1")) {
+                    registros[4] = rs.getString(6);
+                } else {
+                    registros[4] = rs.getString(8);
+                }
                 registros[5] = rs.getString(7);
 
                 model.addRow(registros);
@@ -949,7 +1033,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_22 > 0";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -957,7 +1041,11 @@ public class Productos_CP extends javax.swing.JDialog {
                 registros[1] = rs.getString(2);
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(45);
-                registros[4] = rs.getString(6);
+                if (Principal.modelo_cp.getText().equals("1")) {
+                    registros[4] = rs.getString(6);
+                } else {
+                    registros[4] = rs.getString(8);
+                }
                 registros[5] = rs.getString(7);
 
                 model.addRow(registros);
@@ -990,7 +1078,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_23 > 0";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -998,7 +1086,11 @@ public class Productos_CP extends javax.swing.JDialog {
                 registros[1] = rs.getString(2);
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(46);
-                registros[4] = rs.getString(6);
+                if (Principal.modelo_cp.getText().equals("1")) {
+                    registros[4] = rs.getString(6);
+                } else {
+                    registros[4] = rs.getString(8);
+                }
                 registros[5] = rs.getString(7);
 
                 model.addRow(registros);
@@ -1031,7 +1123,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_24 > 0";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1039,7 +1131,11 @@ public class Productos_CP extends javax.swing.JDialog {
                 registros[1] = rs.getString(2);
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(47);
-                registros[4] = rs.getString(6);
+                if (Principal.modelo_cp.getText().equals("1")) {
+                    registros[4] = rs.getString(6);
+                } else {
+                    registros[4] = rs.getString(8);
+                }
                 registros[5] = rs.getString(7);
 
                 model.addRow(registros);
@@ -1072,7 +1168,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_25 > 0";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1080,7 +1176,11 @@ public class Productos_CP extends javax.swing.JDialog {
                 registros[1] = rs.getString(2);
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(48);
-                registros[4] = rs.getString(6);
+                if (Principal.modelo_cp.getText().equals("1")) {
+                    registros[4] = rs.getString(6);
+                } else {
+                    registros[4] = rs.getString(8);
+                }
                 registros[5] = rs.getString(7);
 
                 model.addRow(registros);
@@ -1113,7 +1213,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_26 > 0";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1121,7 +1221,11 @@ public class Productos_CP extends javax.swing.JDialog {
                 registros[1] = rs.getString(2);
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(49);
-                registros[4] = rs.getString(6);
+                if (Principal.modelo_cp.getText().equals("1")) {
+                    registros[4] = rs.getString(6);
+                } else {
+                    registros[4] = rs.getString(8);
+                }
                 registros[5] = rs.getString(7);
 
                 model.addRow(registros);
@@ -1154,7 +1258,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_27 > 0";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1162,7 +1266,11 @@ public class Productos_CP extends javax.swing.JDialog {
                 registros[1] = rs.getString(2);
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(50);
-                registros[4] = rs.getString(6);
+                if (Principal.modelo_cp.getText().equals("1")) {
+                    registros[4] = rs.getString(6);
+                } else {
+                    registros[4] = rs.getString(8);
+                }
                 registros[5] = rs.getString(7);
 
                 model.addRow(registros);
@@ -1195,7 +1303,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_28 > 0";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1203,7 +1311,11 @@ public class Productos_CP extends javax.swing.JDialog {
                 registros[1] = rs.getString(2);
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(51);
-                registros[4] = rs.getString(6);
+                if (Principal.modelo_cp.getText().equals("1")) {
+                    registros[4] = rs.getString(6);
+                } else {
+                    registros[4] = rs.getString(8);
+                }
                 registros[5] = rs.getString(7);
 
                 model.addRow(registros);
@@ -1236,7 +1348,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_29 > 0";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1244,7 +1356,11 @@ public class Productos_CP extends javax.swing.JDialog {
                 registros[1] = rs.getString(2);
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(52);
-                registros[4] = rs.getString(6);
+                if (Principal.modelo_cp.getText().equals("1")) {
+                    registros[4] = rs.getString(6);
+                } else {
+                    registros[4] = rs.getString(8);
+                }
                 registros[5] = rs.getString(7);
 
                 model.addRow(registros);
@@ -1277,7 +1393,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_30 > 0";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1285,7 +1401,11 @@ public class Productos_CP extends javax.swing.JDialog {
                 registros[1] = rs.getString(2);
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(53);
-                registros[4] = rs.getString(6);
+                if (Principal.modelo_cp.getText().equals("1")) {
+                    registros[4] = rs.getString(6);
+                } else {
+                    registros[4] = rs.getString(8);
+                }
                 registros[5] = rs.getString(7);
 
                 model.addRow(registros);
@@ -1527,1597 +1647,53 @@ public class Productos_CP extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        if (lbl_almacen_cp.getText().equals("0000001")) { ///demas all
-
-            PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-            if (printService.length > 0)//si existen impresoras
+        ///
+        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+        if (printService.length > 0)//si existen impresoras
+        {
+            //se elige la impresora
+            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+            if (impresora != null) //Si se selecciono una impresora
             {
-                //se elige la impresora
-                PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                        "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-                if (impresora != null) //Si se selecciono una impresora
-                {
-                    try {
 
-                        String cantStock = lblcanpro.getText();
-                        String valorventas = lbl_total_ventas.getText();
-                        String valorcompras = lbl_valor_compras.getText();
-                        String saldo = lbl_saldo_totales.getText();
-                        Connection cn = conectar.getInstance().getConnection();
+                Costo cl;// Instaciamos la clase empleado
+                List<Costo> lista = new ArrayList<>(); //Creamos una lista de empleados con ArrayList para obtener cada empleado
+                for (int i = 0; i < tb_prod.getRowCount(); i++) { // Iterena cada fila de la tabla
+                    cl = new Costo(tb_prod.getValueAt(i, 0).toString(), tb_prod.getValueAt(i, 2).toString(), //Tomamos de la tabla el valor de cada columna y creamos un objeto empleado
+                            tb_prod.getValueAt(i, 3).toString(), tb_prod.getValueAt(i, 4).toString(), tb_prod.getValueAt(i, 5).toString());
+                    lista.add(cl); //Agregamos el objeto empleado a la lista
+                }
 
-                        Map parametro = new HashMap();
-                        parametro.clear();
-                        parametro.put("cant", cantStock);
-                        parametro.put("ventas", valorventas);
-                        parametro.put("compras", valorcompras);
-                        parametro.put("saldo", saldo);
+                try {
 
-                        URL in = this.getClass().getResource("/Impresiones/stock_gral_CP.jasper");
+                    String cantStock = lblcanpro.getText();
+                    String valorventas = lbl_total_ventas.getText();
+                    String valorcompras = lbl_valor_compras.getText();
+                    String saldo = lbl_saldo_totales.getText();
 
-                        /*  JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                         JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                         JasperViewer ver = new JasperViewer(print, false);
-                         ver.setTitle("Estadísticas CP Productos");
-                         ver.setVisible(true);
+                    Map parametro = new HashMap();
+                    parametro.clear();
+                    parametro.put("cant", cantStock);
+                    parametro.put("ventas", valorventas);
+                    parametro.put("compras", valorcompras);
+                    parametro.put("saldo", saldo);
 
-                         */
-                        JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+                    URL in = this.getClass().getResource("/CP/stock_gral_CP.jasper");
+                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, new JRBeanCollectionDataSource(lista));
 
-                        JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                        JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                        jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                        jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                        // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                        jrprintServiceExporter.exportReport();
-                        conectar.getInstance().closeConnection(cn);
-
-                    } catch (JRException ex) {
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(Productos_CP.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                    //  jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                    jrprintServiceExporter.exportReport();
+                } catch (JRException ex) {
+                    Logger.getLogger(Productos_CP.class
+                            .getName()).log(Level.SEVERE, null, ex);
                 }
             }
-        }
 
-        if (lbl_almacen_cp.getText().equals("0000002")) {
-            PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-            if (printService.length > 0)//si existen impresoras
-            {
-                //se elige la impresora
-                PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                        "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-                if (impresora != null) //Si se selecciono una impresora
-                {
-                    try {
-
-                        String cantStock = lblcanpro.getText();
-                        String valorventas = lbl_total_ventas.getText();
-                        String valorcompras = lbl_valor_compras.getText();
-                        String saldo = lbl_saldo_totales.getText();
-                        Connection cn = conectar.getInstance().getConnection();
-
-                        Map parametro = new HashMap();
-                        parametro.clear();
-                        parametro.put("cant", cantStock);
-                        parametro.put("ventas", valorventas);
-                        parametro.put("compras", valorcompras);
-                        parametro.put("saldo", saldo);
-
-                        URL in = this.getClass().getResource("/Impresiones/stock_gral_CP_2.jasper");
-
-                        /*  JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                         JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                         JasperViewer ver = new JasperViewer(print, false);
-                         ver.setTitle("Estadísticas CP Productos");
-                         ver.setVisible(true);
-
-                         */
-                        JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                        JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                        JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                        jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                        jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                        // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                        jrprintServiceExporter.exportReport();
-                        conectar.getInstance().closeConnection(cn);
-
-                    } catch (JRException ex) {
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(Productos_CP.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-        }
-        if (lbl_almacen_cp.getText().equals("0000003")) {
-            PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-            if (printService.length > 0)//si existen impresoras
-            {
-                //se elige la impresora
-                PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                        "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-                if (impresora != null) //Si se selecciono una impresora
-                {
-                    try {
-
-                        String cantStock = lblcanpro.getText();
-                        String valorventas = lbl_total_ventas.getText();
-                        String valorcompras = lbl_valor_compras.getText();
-                        String saldo = lbl_saldo_totales.getText();
-                        Connection cn = conectar.getInstance().getConnection();
-
-                        Map parametro = new HashMap();
-                        parametro.clear();
-                        parametro.put("cant", cantStock);
-                        parametro.put("ventas", valorventas);
-                        parametro.put("compras", valorcompras);
-                        parametro.put("saldo", saldo);
-
-                        URL in = this.getClass().getResource("/Impresiones/stock_gral_CP_3.jasper");
-
-                        /*  JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                         JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                         JasperViewer ver = new JasperViewer(print, false);
-                         ver.setTitle("Estadísticas CP Productos");
-                         ver.setVisible(true);
-
-                         */
-                        JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                        JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                        JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                        jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                        jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                        // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                        jrprintServiceExporter.exportReport();
-                        conectar.getInstance().closeConnection(cn);
-
-                    } catch (JRException ex) {
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(Productos_CP.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-        }
-        if (lbl_almacen_cp.getText().equals("0000004")) {
-            PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-            if (printService.length > 0)//si existen impresoras
-            {
-                //se elige la impresora
-                PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                        "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-                if (impresora != null) //Si se selecciono una impresora
-                {
-                    try {
-
-                        String cantStock = lblcanpro.getText();
-                        String valorventas = lbl_total_ventas.getText();
-                        String valorcompras = lbl_valor_compras.getText();
-                        String saldo = lbl_saldo_totales.getText();
-                        Connection cn = conectar.getInstance().getConnection();
-
-                        Map parametro = new HashMap();
-                        parametro.clear();
-                        parametro.put("cant", cantStock);
-                        parametro.put("ventas", valorventas);
-                        parametro.put("compras", valorcompras);
-                        parametro.put("saldo", saldo);
-
-                        URL in = this.getClass().getResource("/Impresiones/stock_gral_CP_4.jasper");
-
-                        /*  JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                         JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                         JasperViewer ver = new JasperViewer(print, false);
-                         ver.setTitle("Estadísticas CP Productos");
-                         ver.setVisible(true);
-
-                         */
-                        JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                        JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                        JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                        jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                        jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                        // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                        jrprintServiceExporter.exportReport();
-                        conectar.getInstance().closeConnection(cn);
-
-                    } catch (JRException ex) {
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(Productos_CP.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-        }
-        if (lbl_almacen_cp.getText().equals("0000005")) {
-            PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-            if (printService.length > 0)//si existen impresoras
-            {
-                //se elige la impresora
-                PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                        "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-                if (impresora != null) //Si se selecciono una impresora
-                {
-                    try {
-
-                        String cantStock = lblcanpro.getText();
-                        String valorventas = lbl_total_ventas.getText();
-                        String valorcompras = lbl_valor_compras.getText();
-                        String saldo = lbl_saldo_totales.getText();
-                        Connection cn = conectar.getInstance().getConnection();
-
-                        Map parametro = new HashMap();
-                        parametro.clear();
-                        parametro.put("cant", cantStock);
-                        parametro.put("ventas", valorventas);
-                        parametro.put("compras", valorcompras);
-                        parametro.put("saldo", saldo);
-
-                        URL in = this.getClass().getResource("/Impresiones/stock_gral_CP_5.jasper");
-
-                        /*  JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                         JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                         JasperViewer ver = new JasperViewer(print, false);
-                         ver.setTitle("Estadísticas CP Productos");
-                         ver.setVisible(true);
-
-                         */
-                        JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                        JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                        JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                        jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                        jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                        // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                        jrprintServiceExporter.exportReport();
-                        conectar.getInstance().closeConnection(cn);
-
-                    } catch (JRException ex) {
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(Productos_CP.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-        }
-        if (lbl_almacen_cp.getText().equals("0000006")) {
-            PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-            if (printService.length > 0)//si existen impresoras
-            {
-                //se elige la impresora
-                PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                        "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-                if (impresora != null) //Si se selecciono una impresora
-                {
-                    try {
-
-                        String cantStock = lblcanpro.getText();
-                        String valorventas = lbl_total_ventas.getText();
-                        String valorcompras = lbl_valor_compras.getText();
-                        String saldo = lbl_saldo_totales.getText();
-                        Connection cn = conectar.getInstance().getConnection();
-
-                        Map parametro = new HashMap();
-                        parametro.clear();
-                        parametro.put("cant", cantStock);
-                        parametro.put("ventas", valorventas);
-                        parametro.put("compras", valorcompras);
-                        parametro.put("saldo", saldo);
-
-                        URL in = this.getClass().getResource("/Impresiones/stock_gral_CP_6.jasper");
-
-                        /*  JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                         JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                         JasperViewer ver = new JasperViewer(print, false);
-                         ver.setTitle("Estadísticas CP Productos");
-                         ver.setVisible(true);
-
-                         */
-                        JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                        JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                        JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                        jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                        jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                        // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                        jrprintServiceExporter.exportReport();
-                        conectar.getInstance().closeConnection(cn);
-
-                    } catch (JRException ex) {
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(Productos_CP.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-        }
-        if (lbl_almacen_cp.getText().equals("0000007")) {
-            PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-            if (printService.length > 0)//si existen impresoras
-            {
-                //se elige la impresora
-                PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                        "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-                if (impresora != null) //Si se selecciono una impresora
-                {
-                    try {
-
-                        String cantStock = lblcanpro.getText();
-                        String valorventas = lbl_total_ventas.getText();
-                        String valorcompras = lbl_valor_compras.getText();
-                        String saldo = lbl_saldo_totales.getText();
-                        Connection cn = conectar.getInstance().getConnection();
-
-                        Map parametro = new HashMap();
-                        parametro.clear();
-                        parametro.put("cant", cantStock);
-                        parametro.put("ventas", valorventas);
-                        parametro.put("compras", valorcompras);
-                        parametro.put("saldo", saldo);
-
-                        URL in = this.getClass().getResource("/Impresiones/stock_gral_CP_7.jasper");
-
-                        /*  JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                         JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                         JasperViewer ver = new JasperViewer(print, false);
-                         ver.setTitle("Estadísticas CP Productos");
-                         ver.setVisible(true);
-
-                         */
-                        JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                        JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                        JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                        jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                        jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                        // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                        jrprintServiceExporter.exportReport();
-                        conectar.getInstance().closeConnection(cn);
-
-                    } catch (JRException ex) {
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(Productos_CP.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-        }
-        if (lbl_almacen_cp.getText().equals("0000008")) {
-            PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-            if (printService.length > 0)//si existen impresoras
-            {
-                //se elige la impresora
-                PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                        "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-                if (impresora != null) //Si se selecciono una impresora
-                {
-                    try {
-
-                        String cantStock = lblcanpro.getText();
-                        String valorventas = lbl_total_ventas.getText();
-                        String valorcompras = lbl_valor_compras.getText();
-                        String saldo = lbl_saldo_totales.getText();
-                        Connection cn = conectar.getInstance().getConnection();
-
-                        Map parametro = new HashMap();
-                        parametro.clear();
-                        parametro.put("cant", cantStock);
-                        parametro.put("ventas", valorventas);
-                        parametro.put("compras", valorcompras);
-                        parametro.put("saldo", saldo);
-
-                        URL in = this.getClass().getResource("/Impresiones/stock_gral_CP_8.jasper");
-
-                        /*  JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                         JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                         JasperViewer ver = new JasperViewer(print, false);
-                         ver.setTitle("Estadísticas CP Productos");
-                         ver.setVisible(true);
-
-                         */
-                        JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                        JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                        JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                        jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                        jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                        // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                        jrprintServiceExporter.exportReport();
-                        conectar.getInstance().closeConnection(cn);
-
-                    } catch (JRException ex) {
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(Productos_CP.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-        }
-        if (lbl_almacen_cp.getText().equals("0000009")) {
-            PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-            if (printService.length > 0)//si existen impresoras
-            {
-                //se elige la impresora
-                PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                        "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-                if (impresora != null) //Si se selecciono una impresora
-                {
-                    try {
-
-                        String cantStock = lblcanpro.getText();
-                        String valorventas = lbl_total_ventas.getText();
-                        String valorcompras = lbl_valor_compras.getText();
-                        String saldo = lbl_saldo_totales.getText();
-                        Connection cn = conectar.getInstance().getConnection();
-
-                        Map parametro = new HashMap();
-                        parametro.clear();
-                        parametro.put("cant", cantStock);
-                        parametro.put("ventas", valorventas);
-                        parametro.put("compras", valorcompras);
-                        parametro.put("saldo", saldo);
-
-                        URL in = this.getClass().getResource("/Impresiones/stock_gral_CP_9.jasper");
-
-                        /*  JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                         JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                         JasperViewer ver = new JasperViewer(print, false);
-                         ver.setTitle("Estadísticas CP Productos");
-                         ver.setVisible(true);
-
-                         */
-                        JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                        JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                        JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                        jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                        jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                        // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                        jrprintServiceExporter.exportReport();
-                        conectar.getInstance().closeConnection(cn);
-
-                    } catch (JRException ex) {
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(Productos_CP.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-        }
-        if (lbl_almacen_cp.getText().equals("0000010")) {
-            PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-            if (printService.length > 0)//si existen impresoras
-            {
-                //se elige la impresora
-                PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                        "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-                if (impresora != null) //Si se selecciono una impresora
-                {
-                    try {
-
-                        String cantStock = lblcanpro.getText();
-                        String valorventas = lbl_total_ventas.getText();
-                        String valorcompras = lbl_valor_compras.getText();
-                        String saldo = lbl_saldo_totales.getText();
-                        Connection cn = conectar.getInstance().getConnection();
-
-                        Map parametro = new HashMap();
-                        parametro.clear();
-                        parametro.put("cant", cantStock);
-                        parametro.put("ventas", valorventas);
-                        parametro.put("compras", valorcompras);
-                        parametro.put("saldo", saldo);
-
-                        URL in = this.getClass().getResource("/Impresiones/stock_gral_CP_10.jasper");
-
-                        /*  JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                         JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                         JasperViewer ver = new JasperViewer(print, false);
-                         ver.setTitle("Estadísticas CP Productos");
-                         ver.setVisible(true);
-
-                         */
-                        JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                        JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                        JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                        jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                        jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                        // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                        jrprintServiceExporter.exportReport();
-                        conectar.getInstance().closeConnection(cn);
-
-                    } catch (JRException ex) {
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(Productos_CP.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-        }
-        if (lbl_almacen_cp.getText().equals("0000011")) {
-            PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-            if (printService.length > 0)//si existen impresoras
-            {
-                //se elige la impresora
-                PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                        "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-                if (impresora != null) //Si se selecciono una impresora
-                {
-                    try {
-
-                        String cantStock = lblcanpro.getText();
-                        String valorventas = lbl_total_ventas.getText();
-                        String valorcompras = lbl_valor_compras.getText();
-                        String saldo = lbl_saldo_totales.getText();
-                        Connection cn = conectar.getInstance().getConnection();
-
-                        Map parametro = new HashMap();
-                        parametro.clear();
-                        parametro.put("cant", cantStock);
-                        parametro.put("ventas", valorventas);
-                        parametro.put("compras", valorcompras);
-                        parametro.put("saldo", saldo);
-
-                        URL in = this.getClass().getResource("/Impresiones/stock_gral_CP_11.jasper");
-
-                        /*  JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                         JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                         JasperViewer ver = new JasperViewer(print, false);
-                         ver.setTitle("Estadísticas CP Productos");
-                         ver.setVisible(true);
-
-                         */
-                        JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                        JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                        JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                        jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                        jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                        // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                        jrprintServiceExporter.exportReport();
-                        conectar.getInstance().closeConnection(cn);
-
-                    } catch (JRException ex) {
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(Productos_CP.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-        }
-        if (lbl_almacen_cp.getText().equals("0000012")) {
-            PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-            if (printService.length > 0)//si existen impresoras
-            {
-                //se elige la impresora
-                PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                        "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-                if (impresora != null) //Si se selecciono una impresora
-                {
-                    try {
-
-                        String cantStock = lblcanpro.getText();
-                        String valorventas = lbl_total_ventas.getText();
-                        String valorcompras = lbl_valor_compras.getText();
-                        String saldo = lbl_saldo_totales.getText();
-                        Connection cn = conectar.getInstance().getConnection();
-
-                        Map parametro = new HashMap();
-                        parametro.clear();
-                        parametro.put("cant", cantStock);
-                        parametro.put("ventas", valorventas);
-                        parametro.put("compras", valorcompras);
-                        parametro.put("saldo", saldo);
-
-                        URL in = this.getClass().getResource("/Impresiones/stock_gral_CP_12.jasper");
-
-                        /*  JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                         JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                         JasperViewer ver = new JasperViewer(print, false);
-                         ver.setTitle("Estadísticas CP Productos");
-                         ver.setVisible(true);
-
-                         */
-                        JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                        JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                        JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                        jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                        jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                        // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                        jrprintServiceExporter.exportReport();
-                        conectar.getInstance().closeConnection(cn);
-
-                    } catch (JRException ex) {
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(Productos_CP.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-        }
-        if (lbl_almacen_cp.getText().equals("0000013")) {
-            PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-            if (printService.length > 0)//si existen impresoras
-            {
-                //se elige la impresora
-                PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                        "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-                if (impresora != null) //Si se selecciono una impresora
-                {
-                    try {
-
-                        String cantStock = lblcanpro.getText();
-                        String valorventas = lbl_total_ventas.getText();
-                        String valorcompras = lbl_valor_compras.getText();
-                        String saldo = lbl_saldo_totales.getText();
-                        Connection cn = conectar.getInstance().getConnection();
-
-                        Map parametro = new HashMap();
-                        parametro.clear();
-                        parametro.put("cant", cantStock);
-                        parametro.put("ventas", valorventas);
-                        parametro.put("compras", valorcompras);
-                        parametro.put("saldo", saldo);
-
-                        URL in = this.getClass().getResource("/Impresiones/stock_gral_CP_13.jasper");
-
-                        /*  JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                         JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                         JasperViewer ver = new JasperViewer(print, false);
-                         ver.setTitle("Estadísticas CP Productos");
-                         ver.setVisible(true);
-
-                         */
-                        JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                        JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                        JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                        jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                        jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                        // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                        jrprintServiceExporter.exportReport();
-                        conectar.getInstance().closeConnection(cn);
-
-                    } catch (JRException ex) {
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(Productos_CP.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-        }
-        if (lbl_almacen_cp.getText().equals("0000014")) {
-            PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-            if (printService.length > 0)//si existen impresoras
-            {
-                //se elige la impresora
-                PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                        "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-                if (impresora != null) //Si se selecciono una impresora
-                {
-                    try {
-
-                        String cantStock = lblcanpro.getText();
-                        String valorventas = lbl_total_ventas.getText();
-                        String valorcompras = lbl_valor_compras.getText();
-                        String saldo = lbl_saldo_totales.getText();
-                        Connection cn = conectar.getInstance().getConnection();
-
-                        Map parametro = new HashMap();
-                        parametro.clear();
-                        parametro.put("cant", cantStock);
-                        parametro.put("ventas", valorventas);
-                        parametro.put("compras", valorcompras);
-                        parametro.put("saldo", saldo);
-
-                        URL in = this.getClass().getResource("/Impresiones/stock_gral_CP_14.jasper");
-
-                        /*  JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                         JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                         JasperViewer ver = new JasperViewer(print, false);
-                         ver.setTitle("Estadísticas CP Productos");
-                         ver.setVisible(true);
-
-                         */
-                        JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                        JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                        JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                        jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                        jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                        // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                        jrprintServiceExporter.exportReport();
-                        conectar.getInstance().closeConnection(cn);
-
-                    } catch (JRException ex) {
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(Productos_CP.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-        }
-        if (lbl_almacen_cp.getText().equals("0000015")) {
-            PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-            if (printService.length > 0)//si existen impresoras
-            {
-                //se elige la impresora
-                PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                        "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-                if (impresora != null) //Si se selecciono una impresora
-                {
-                    try {
-
-                        String cantStock = lblcanpro.getText();
-                        String valorventas = lbl_total_ventas.getText();
-                        String valorcompras = lbl_valor_compras.getText();
-                        String saldo = lbl_saldo_totales.getText();
-                        Connection cn = conectar.getInstance().getConnection();
-
-                        Map parametro = new HashMap();
-                        parametro.clear();
-                        parametro.put("cant", cantStock);
-                        parametro.put("ventas", valorventas);
-                        parametro.put("compras", valorcompras);
-                        parametro.put("saldo", saldo);
-
-                        URL in = this.getClass().getResource("/Impresiones/stock_gral_CP_15.jasper");
-
-                        /*  JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                         JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                         JasperViewer ver = new JasperViewer(print, false);
-                         ver.setTitle("Estadísticas CP Productos");
-                         ver.setVisible(true);
-
-                         */
-                        JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                        JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                        JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                        jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                        jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                        // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                        jrprintServiceExporter.exportReport();
-                        conectar.getInstance().closeConnection(cn);
-
-                    } catch (JRException ex) {
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(Productos_CP.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-        }
-        if (lbl_almacen_cp.getText().equals("0000016")) {
-            PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-            if (printService.length > 0)//si existen impresoras
-            {
-                //se elige la impresora
-                PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                        "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-                if (impresora != null) //Si se selecciono una impresora
-                {
-                    try {
-
-                        String cantStock = lblcanpro.getText();
-                        String valorventas = lbl_total_ventas.getText();
-                        String valorcompras = lbl_valor_compras.getText();
-                        String saldo = lbl_saldo_totales.getText();
-                        Connection cn = conectar.getInstance().getConnection();
-
-                        Map parametro = new HashMap();
-                        parametro.clear();
-                        parametro.put("cant", cantStock);
-                        parametro.put("ventas", valorventas);
-                        parametro.put("compras", valorcompras);
-                        parametro.put("saldo", saldo);
-
-                        URL in = this.getClass().getResource("/Impresiones/stock_gral_CP_16.jasper");
-
-                        /*  JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                         JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                         JasperViewer ver = new JasperViewer(print, false);
-                         ver.setTitle("Estadísticas CP Productos");
-                         ver.setVisible(true);
-
-                         */
-                        JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                        JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                        JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                        jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                        jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                        // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                        jrprintServiceExporter.exportReport();
-                        conectar.getInstance().closeConnection(cn);
-
-                    } catch (JRException ex) {
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(Productos_CP.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-        }
-        if (lbl_almacen_cp.getText().equals("0000017")) {
-            PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-            if (printService.length > 0)//si existen impresoras
-            {
-                //se elige la impresora
-                PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                        "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-                if (impresora != null) //Si se selecciono una impresora
-                {
-                    try {
-
-                        String cantStock = lblcanpro.getText();
-                        String valorventas = lbl_total_ventas.getText();
-                        String valorcompras = lbl_valor_compras.getText();
-                        String saldo = lbl_saldo_totales.getText();
-                        Connection cn = conectar.getInstance().getConnection();
-
-                        Map parametro = new HashMap();
-                        parametro.clear();
-                        parametro.put("cant", cantStock);
-                        parametro.put("ventas", valorventas);
-                        parametro.put("compras", valorcompras);
-                        parametro.put("saldo", saldo);
-
-                        URL in = this.getClass().getResource("/Impresiones/stock_gral_CP_17.jasper");
-
-                        /*  JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                         JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                         JasperViewer ver = new JasperViewer(print, false);
-                         ver.setTitle("Estadísticas CP Productos");
-                         ver.setVisible(true);
-
-                         */
-                        JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                        JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                        JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                        jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                        jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                        // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                        jrprintServiceExporter.exportReport();
-                        conectar.getInstance().closeConnection(cn);
-
-                    } catch (JRException ex) {
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(Productos_CP.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-        }
-        if (lbl_almacen_cp.getText().equals("0000018")) {
-            PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-            if (printService.length > 0)//si existen impresoras
-            {
-                //se elige la impresora
-                PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                        "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-                if (impresora != null) //Si se selecciono una impresora
-                {
-                    try {
-
-                        String cantStock = lblcanpro.getText();
-                        String valorventas = lbl_total_ventas.getText();
-                        String valorcompras = lbl_valor_compras.getText();
-                        String saldo = lbl_saldo_totales.getText();
-                        Connection cn = conectar.getInstance().getConnection();
-
-                        Map parametro = new HashMap();
-                        parametro.clear();
-                        parametro.put("cant", cantStock);
-                        parametro.put("ventas", valorventas);
-                        parametro.put("compras", valorcompras);
-                        parametro.put("saldo", saldo);
-
-                        URL in = this.getClass().getResource("/Impresiones/stock_gral_CP_18.jasper");
-
-                        /*  JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                         JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                         JasperViewer ver = new JasperViewer(print, false);
-                         ver.setTitle("Estadísticas CP Productos");
-                         ver.setVisible(true);
-
-                         */
-                        JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                        JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                        JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                        jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                        jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                        // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                        jrprintServiceExporter.exportReport();
-                        conectar.getInstance().closeConnection(cn);
-
-                    } catch (JRException ex) {
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(Productos_CP.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-        }
-        if (lbl_almacen_cp.getText().equals("0000019")) {
-            PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-            if (printService.length > 0)//si existen impresoras
-            {
-                //se elige la impresora
-                PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                        "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-                if (impresora != null) //Si se selecciono una impresora
-                {
-                    try {
-
-                        String cantStock = lblcanpro.getText();
-                        String valorventas = lbl_total_ventas.getText();
-                        String valorcompras = lbl_valor_compras.getText();
-                        String saldo = lbl_saldo_totales.getText();
-                        Connection cn = conectar.getInstance().getConnection();
-
-                        Map parametro = new HashMap();
-                        parametro.clear();
-                        parametro.put("cant", cantStock);
-                        parametro.put("ventas", valorventas);
-                        parametro.put("compras", valorcompras);
-                        parametro.put("saldo", saldo);
-
-                        URL in = this.getClass().getResource("/Impresiones/stock_gral_CP_19.jasper");
-
-                        /*  JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                         JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                         JasperViewer ver = new JasperViewer(print, false);
-                         ver.setTitle("Estadísticas CP Productos");
-                         ver.setVisible(true);
-
-                         */
-                        JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                        JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                        JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                        jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                        jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                        // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                        jrprintServiceExporter.exportReport();
-                        conectar.getInstance().closeConnection(cn);
-
-                    } catch (JRException ex) {
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(Productos_CP.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-        }
-        if (lbl_almacen_cp.getText().equals("0000020")) {
-            PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-            if (printService.length > 0)//si existen impresoras
-            {
-                //se elige la impresora
-                PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                        "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-                if (impresora != null) //Si se selecciono una impresora
-                {
-                    try {
-
-                        String cantStock = lblcanpro.getText();
-                        String valorventas = lbl_total_ventas.getText();
-                        String valorcompras = lbl_valor_compras.getText();
-                        String saldo = lbl_saldo_totales.getText();
-                        Connection cn = conectar.getInstance().getConnection();
-
-                        Map parametro = new HashMap();
-                        parametro.clear();
-                        parametro.put("cant", cantStock);
-                        parametro.put("ventas", valorventas);
-                        parametro.put("compras", valorcompras);
-                        parametro.put("saldo", saldo);
-
-                        URL in = this.getClass().getResource("/Impresiones/stock_gral_CP_20.jasper");
-
-                        /*  JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                         JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                         JasperViewer ver = new JasperViewer(print, false);
-                         ver.setTitle("Estadísticas CP Productos");
-                         ver.setVisible(true);
-
-                         */
-                        JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                        JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                        JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                        jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                        jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                        // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                        jrprintServiceExporter.exportReport();
-                        conectar.getInstance().closeConnection(cn);
-
-                    } catch (JRException ex) {
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(Productos_CP.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-        }
-        if (lbl_almacen_cp.getText().equals("0000021")) {
-            PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-            if (printService.length > 0)//si existen impresoras
-            {
-                //se elige la impresora
-                PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                        "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-                if (impresora != null) //Si se selecciono una impresora
-                {
-                    try {
-
-                        String cantStock = lblcanpro.getText();
-                        String valorventas = lbl_total_ventas.getText();
-                        String valorcompras = lbl_valor_compras.getText();
-                        String saldo = lbl_saldo_totales.getText();
-                        Connection cn = conectar.getInstance().getConnection();
-
-                        Map parametro = new HashMap();
-                        parametro.clear();
-                        parametro.put("cant", cantStock);
-                        parametro.put("ventas", valorventas);
-                        parametro.put("compras", valorcompras);
-                        parametro.put("saldo", saldo);
-
-                        URL in = this.getClass().getResource("/Impresiones/stock_gral_CP_21.jasper");
-
-                        /*  JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                         JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                         JasperViewer ver = new JasperViewer(print, false);
-                         ver.setTitle("Estadísticas CP Productos");
-                         ver.setVisible(true);
-
-                         */
-                        JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                        JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                        JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                        jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                        jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                        // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                        jrprintServiceExporter.exportReport();
-                        conectar.getInstance().closeConnection(cn);
-
-                    } catch (JRException ex) {
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(Productos_CP.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-        }
-        if (lbl_almacen_cp.getText().equals("0000022")) {
-            PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-            if (printService.length > 0)//si existen impresoras
-            {
-                //se elige la impresora
-                PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                        "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-                if (impresora != null) //Si se selecciono una impresora
-                {
-                    try {
-
-                        String cantStock = lblcanpro.getText();
-                        String valorventas = lbl_total_ventas.getText();
-                        String valorcompras = lbl_valor_compras.getText();
-                        String saldo = lbl_saldo_totales.getText();
-                        Connection cn = conectar.getInstance().getConnection();
-
-                        Map parametro = new HashMap();
-                        parametro.clear();
-                        parametro.put("cant", cantStock);
-                        parametro.put("ventas", valorventas);
-                        parametro.put("compras", valorcompras);
-                        parametro.put("saldo", saldo);
-
-                        URL in = this.getClass().getResource("/Impresiones/stock_gral_CP_22.jasper");
-
-                        /*  JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                         JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                         JasperViewer ver = new JasperViewer(print, false);
-                         ver.setTitle("Estadísticas CP Productos");
-                         ver.setVisible(true);
-
-                         */
-                        JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                        JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                        JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                        jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                        jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                        // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                        jrprintServiceExporter.exportReport();
-                        conectar.getInstance().closeConnection(cn);
-
-                    } catch (JRException ex) {
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(Productos_CP.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-        }
-        if (lbl_almacen_cp.getText().equals("0000023")) {
-            PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-            if (printService.length > 0)//si existen impresoras
-            {
-                //se elige la impresora
-                PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                        "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-                if (impresora != null) //Si se selecciono una impresora
-                {
-                    try {
-
-                        String cantStock = lblcanpro.getText();
-                        String valorventas = lbl_total_ventas.getText();
-                        String valorcompras = lbl_valor_compras.getText();
-                        String saldo = lbl_saldo_totales.getText();
-                        Connection cn = conectar.getInstance().getConnection();
-
-                        Map parametro = new HashMap();
-                        parametro.clear();
-                        parametro.put("cant", cantStock);
-                        parametro.put("ventas", valorventas);
-                        parametro.put("compras", valorcompras);
-                        parametro.put("saldo", saldo);
-
-                        URL in = this.getClass().getResource("/Impresiones/stock_gral_CP_23.jasper");
-
-                        /*  JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                         JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                         JasperViewer ver = new JasperViewer(print, false);
-                         ver.setTitle("Estadísticas CP Productos");
-                         ver.setVisible(true);
-
-                         */
-                        JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                        JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                        JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                        jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                        jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                        // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                        jrprintServiceExporter.exportReport();
-                        conectar.getInstance().closeConnection(cn);
-
-                    } catch (JRException ex) {
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(Productos_CP.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-        }
-        if (lbl_almacen_cp.getText().equals("0000024")) {
-            PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-            if (printService.length > 0)//si existen impresoras
-            {
-                //se elige la impresora
-                PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                        "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-                if (impresora != null) //Si se selecciono una impresora
-                {
-                    try {
-
-                        String cantStock = lblcanpro.getText();
-                        String valorventas = lbl_total_ventas.getText();
-                        String valorcompras = lbl_valor_compras.getText();
-                        String saldo = lbl_saldo_totales.getText();
-                        Connection cn = conectar.getInstance().getConnection();
-
-                        Map parametro = new HashMap();
-                        parametro.clear();
-                        parametro.put("cant", cantStock);
-                        parametro.put("ventas", valorventas);
-                        parametro.put("compras", valorcompras);
-                        parametro.put("saldo", saldo);
-
-                        URL in = this.getClass().getResource("/Impresiones/stock_gral_CP_24.jasper");
-
-                        /*  JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                         JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                         JasperViewer ver = new JasperViewer(print, false);
-                         ver.setTitle("Estadísticas CP Productos");
-                         ver.setVisible(true);
-
-                         */
-                        JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                        JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                        JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                        jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                        jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                        // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                        jrprintServiceExporter.exportReport();
-                        conectar.getInstance().closeConnection(cn);
-
-                    } catch (JRException ex) {
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(Productos_CP.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-        }
-        if (lbl_almacen_cp.getText().equals("0000025")) {
-            PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-            if (printService.length > 0)//si existen impresoras
-            {
-                //se elige la impresora
-                PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                        "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-                if (impresora != null) //Si se selecciono una impresora
-                {
-                    try {
-
-                        String cantStock = lblcanpro.getText();
-                        String valorventas = lbl_total_ventas.getText();
-                        String valorcompras = lbl_valor_compras.getText();
-                        String saldo = lbl_saldo_totales.getText();
-                        Connection cn = conectar.getInstance().getConnection();
-
-                        Map parametro = new HashMap();
-                        parametro.clear();
-                        parametro.put("cant", cantStock);
-                        parametro.put("ventas", valorventas);
-                        parametro.put("compras", valorcompras);
-                        parametro.put("saldo", saldo);
-
-                        URL in = this.getClass().getResource("/Impresiones/stock_gral_CP_25.jasper");
-
-                        /*  JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                         JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                         JasperViewer ver = new JasperViewer(print, false);
-                         ver.setTitle("Estadísticas CP Productos");
-                         ver.setVisible(true);
-
-                         */
-                        JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                        JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                        JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                        jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                        jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                        // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                        jrprintServiceExporter.exportReport();
-                        conectar.getInstance().closeConnection(cn);
-
-                    } catch (JRException ex) {
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(Productos_CP.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-        }
-        if (lbl_almacen_cp.getText().equals("0000026")) {
-            PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-            if (printService.length > 0)//si existen impresoras
-            {
-                //se elige la impresora
-                PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                        "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-                if (impresora != null) //Si se selecciono una impresora
-                {
-                    try {
-
-                        String cantStock = lblcanpro.getText();
-                        String valorventas = lbl_total_ventas.getText();
-                        String valorcompras = lbl_valor_compras.getText();
-                        String saldo = lbl_saldo_totales.getText();
-                        Connection cn = conectar.getInstance().getConnection();
-
-                        Map parametro = new HashMap();
-                        parametro.clear();
-                        parametro.put("cant", cantStock);
-                        parametro.put("ventas", valorventas);
-                        parametro.put("compras", valorcompras);
-                        parametro.put("saldo", saldo);
-
-                        URL in = this.getClass().getResource("/Impresiones/stock_gral_CP_26.jasper");
-
-                        /*  JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                         JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                         JasperViewer ver = new JasperViewer(print, false);
-                         ver.setTitle("Estadísticas CP Productos");
-                         ver.setVisible(true);
-
-                         */
-                        JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                        JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                        JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                        jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                        jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                        // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                        jrprintServiceExporter.exportReport();
-                        conectar.getInstance().closeConnection(cn);
-
-                    } catch (JRException ex) {
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(Productos_CP.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-        }
-        if (lbl_almacen_cp.getText().equals("0000027")) {
-            PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-            if (printService.length > 0)//si existen impresoras
-            {
-                //se elige la impresora
-                PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                        "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-                if (impresora != null) //Si se selecciono una impresora
-                {
-                    try {
-
-                        String cantStock = lblcanpro.getText();
-                        String valorventas = lbl_total_ventas.getText();
-                        String valorcompras = lbl_valor_compras.getText();
-                        String saldo = lbl_saldo_totales.getText();
-                        Connection cn = conectar.getInstance().getConnection();
-
-                        Map parametro = new HashMap();
-                        parametro.clear();
-                        parametro.put("cant", cantStock);
-                        parametro.put("ventas", valorventas);
-                        parametro.put("compras", valorcompras);
-                        parametro.put("saldo", saldo);
-
-                        URL in = this.getClass().getResource("/Impresiones/stock_gral_CP_27.jasper");
-
-                        /*  JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                         JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                         JasperViewer ver = new JasperViewer(print, false);
-                         ver.setTitle("Estadísticas CP Productos");
-                         ver.setVisible(true);
-
-                         */
-                        JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                        JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                        JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                        jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                        jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                        // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                        jrprintServiceExporter.exportReport();
-                        conectar.getInstance().closeConnection(cn);
-
-                    } catch (JRException ex) {
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(Productos_CP.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-        }
-        if (lbl_almacen_cp.getText().equals("0000028")) {
-            PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-            if (printService.length > 0)//si existen impresoras
-            {
-                //se elige la impresora
-                PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                        "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-                if (impresora != null) //Si se selecciono una impresora
-                {
-                    try {
-
-                        String cantStock = lblcanpro.getText();
-                        String valorventas = lbl_total_ventas.getText();
-                        String valorcompras = lbl_valor_compras.getText();
-                        String saldo = lbl_saldo_totales.getText();
-                        Connection cn = conectar.getInstance().getConnection();
-
-                        Map parametro = new HashMap();
-                        parametro.clear();
-                        parametro.put("cant", cantStock);
-                        parametro.put("ventas", valorventas);
-                        parametro.put("compras", valorcompras);
-                        parametro.put("saldo", saldo);
-
-                        URL in = this.getClass().getResource("/Impresiones/stock_gral_CP_28.jasper");
-
-                        /*  JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                         JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                         JasperViewer ver = new JasperViewer(print, false);
-                         ver.setTitle("Estadísticas CP Productos");
-                         ver.setVisible(true);
-
-                         */
-                        JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                        JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                        JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                        jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                        jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                        // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                        jrprintServiceExporter.exportReport();
-                        conectar.getInstance().closeConnection(cn);
-
-                    } catch (JRException ex) {
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(Productos_CP.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-        }
-        if (lbl_almacen_cp.getText().equals("0000029")) {
-            PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-            if (printService.length > 0)//si existen impresoras
-            {
-                //se elige la impresora
-                PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                        "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-                if (impresora != null) //Si se selecciono una impresora
-                {
-                    try {
-
-                        String cantStock = lblcanpro.getText();
-                        String valorventas = lbl_total_ventas.getText();
-                        String valorcompras = lbl_valor_compras.getText();
-                        String saldo = lbl_saldo_totales.getText();
-                        Connection cn = conectar.getInstance().getConnection();
-
-                        Map parametro = new HashMap();
-                        parametro.clear();
-                        parametro.put("cant", cantStock);
-                        parametro.put("ventas", valorventas);
-                        parametro.put("compras", valorcompras);
-                        parametro.put("saldo", saldo);
-
-                        URL in = this.getClass().getResource("/Impresiones/stock_gral_CP_29.jasper");
-
-                        /*  JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                         JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                         JasperViewer ver = new JasperViewer(print, false);
-                         ver.setTitle("Estadísticas CP Productos");
-                         ver.setVisible(true);
-
-                         */
-                        JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                        JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                        JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                        jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                        jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                        // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                        jrprintServiceExporter.exportReport();
-                        conectar.getInstance().closeConnection(cn);
-
-                    } catch (JRException ex) {
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(Productos_CP.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-        }
-        if (lbl_almacen_cp.getText().equals("0000030")) {
-            PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-            if (printService.length > 0)//si existen impresoras
-            {
-                //se elige la impresora
-                PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                        "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-                if (impresora != null) //Si se selecciono una impresora
-                {
-                    try {
-
-                        String cantStock = lblcanpro.getText();
-                        String valorventas = lbl_total_ventas.getText();
-                        String valorcompras = lbl_valor_compras.getText();
-                        String saldo = lbl_saldo_totales.getText();
-                        Connection cn = conectar.getInstance().getConnection();
-
-                        Map parametro = new HashMap();
-                        parametro.clear();
-                        parametro.put("cant", cantStock);
-                        parametro.put("ventas", valorventas);
-                        parametro.put("compras", valorcompras);
-                        parametro.put("saldo", saldo);
-
-                        URL in = this.getClass().getResource("/Impresiones/stock_gral_CP_30.jasper");
-
-                        /*  JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                         JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                         JasperViewer ver = new JasperViewer(print, false);
-                         ver.setTitle("Estadísticas CP Productos");
-                         ver.setVisible(true);
-
-                         */
-                        JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                        JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                        JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                        jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                        jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                        // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                        jrprintServiceExporter.exportReport();
-                        conectar.getInstance().closeConnection(cn);
-
-                    } catch (JRException ex) {
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(Productos_CP.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
         }
 
 

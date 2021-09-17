@@ -154,7 +154,7 @@ public class Lista_ventas_facturar extends javax.swing.JDialog {
                 String codins = tb_can_dev.getValueAt(fila, 0).toString();
                 
                 Facturas_facturas.txt_cod.setText(codins);
-                // Devolucion_Devoluciones.btncalcular.doClick();
+                 Facturas_facturas.btn_buscar.doClick();
                 this.dispose();
                 
             }
@@ -185,7 +185,7 @@ public class Lista_ventas_facturar extends javax.swing.JDialog {
                     String codins = tb_can_dev.getValueAt(fila, 0).toString();
                     
                     Facturas_facturas.txt_cod.setText(codins);
-                    // Devolucion_Devoluciones.btncalcular.doClick();
+                    Facturas_facturas.btn_buscar.doClick();
                     this.dispose();
                     
                 }

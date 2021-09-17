@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="65710097-cc29-4517-87c6-a3519ba8922c">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="cant" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ventas" class="java.lang.String"/>
+	<parameter name="compras" class="java.lang.String"/>
+	<parameter name="saldo" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="cod" class="java.lang.String"/>
+	<field name="des" class="java.lang.String"/>
+	<field name="cant" class="java.lang.String"/>
+	<field name="costo" class="java.lang.String"/>
+	<field name="venta" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="119" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="38" y="39" width="187" height="20" uuid="45efddd2-7282-4488-b6a3-379ebaeb7344"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="172" y="0" width="169" height="20" uuid="0992c764-fc17-4f23-bce1-6105d1eaa522"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Listado  de saldo de stock]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="371" y="59" width="113" height="20" forecolor="#000000" backcolor="#006699" uuid="c6a0ee30-e3fd-4371-b0a7-6a89a9e6e7db"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Stock total disponible:]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="484" y="59" width="62" height="19" forecolor="#FFFFFF" backcolor="#006699" uuid="7606a650-4c6d-4272-9827-b17059f5355a"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cant}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="109" width="555" height="1" uuid="2ec435c0-555f-4458-b725-0400c6f639fb"/>
+			</line>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="59" width="113" height="20" forecolor="#000000" backcolor="#006699" uuid="db9a458d-0a7c-4759-85be-79fa0526fb70"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total valor costo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="79" width="113" height="20" forecolor="#000000" backcolor="#006699" uuid="5b17a06f-063a-4293-bce3-37333d53995a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total estimado ventas:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="371" y="79" width="64" height="20" forecolor="#000000" backcolor="#006699" uuid="c5d6d72d-dcd9-4786-bb26-ad55004cab3b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Saldo  Total:]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="113" y="79" width="126" height="19" forecolor="#FFFFFF" backcolor="#006699" uuid="ce605dbc-0eb2-453c-996e-8e46c0931bdb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ventas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="113" y="59" width="126" height="19" forecolor="#FFFFFF" backcolor="#006699" uuid="1d160579-270f-4451-b479-b096e522b666"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{compras}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="435" y="79" width="111" height="19" forecolor="#FFFFFF" backcolor="#006699" uuid="d81430d8-5ba9-440d-89ee-282a651e2c8a"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{saldo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="39" width="34" height="20" forecolor="#000000" backcolor="#006699" uuid="4e590814-8324-4084-987b-742579c370b4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="17" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="1" width="555" height="15" uuid="31d00092-840c-435a-886d-1f0a448d10a0"/>
+			</rectangle>
+			<textField>
+				<reportElement x="11" y="0" width="69" height="16" uuid="f83fe1d9-f64c-4a1c-8a4f-9462a981d5a2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cod}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="1" width="238" height="15" uuid="f4914f7d-fabf-425e-8521-23720e45bc46"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{des}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="318" y="1" width="53" height="15" uuid="55bad36b-9ae1-4362-84ca-3ddfbdb8149d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cant}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="371" y="1" width="84" height="15" uuid="63f1c5bf-b460-47a1-be82-9a375c5163eb"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{costo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="1" width="91" height="15" uuid="f5125278-24e7-4199-b4f2-c0f55abce8d7"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{venta}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement x="521" y="1" width="25" height="20" uuid="a4f16ffe-b0a2-4536-87d0-6565880a077e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="469" y="1" width="52" height="20" uuid="6de1d2a1-84bb-481f-b8a5-ea29cffcfa89"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Página:]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

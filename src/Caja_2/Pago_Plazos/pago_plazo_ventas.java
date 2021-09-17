@@ -272,7 +272,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
         ActivatedYourLife_efect(txt_monto_pago, evt);
         calcular_monto_efect();
         int sig = 1;
-        lbl_serie_pago.setText(lbl_fecha_hoy.getText() + "-" + txt_hora_act.getText() + "-" + txt_nro_venta.getText() + "-" + sig);
+        lbl_serie_pago.setText(lbl_fecha_hoy.getText() + "-" + txt_almacen.getText() + "-" + txt_nro_venta.getText() + "-" + sig);
 
     }//GEN-LAST:event_txt_monto_pagoKeyReleased
 
@@ -1176,6 +1176,98 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
             } catch (Exception e) {
             }
         }
+
+        if (txt_almacen.getText().equals("0000027")) {
+            try {
+                String monto = txt_venta_cre_saldo.getText();
+                String nro = txt_nro_venta.getText();
+
+                String sql = "UPDATE ventas_27 SET monto_cred = '" + monto
+                        + "' WHERE num_bol = '" + nro + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (Exception e) {
+            }
+        }
+
+        if (txt_almacen.getText().equals("0000028")) {
+            try {
+                String monto = txt_venta_cre_saldo.getText();
+                String nro = txt_nro_venta.getText();
+
+                String sql = "UPDATE ventas_28 SET monto_cred = '" + monto
+                        + "' WHERE num_bol = '" + nro + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (Exception e) {
+            }
+        }
+
+        if (txt_almacen.getText().equals("0000029")) {
+            try {
+                String monto = txt_venta_cre_saldo.getText();
+                String nro = txt_nro_venta.getText();
+
+                String sql = "UPDATE ventas_29 SET monto_cred = '" + monto
+                        + "' WHERE num_bol = '" + nro + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (Exception e) {
+            }
+        }
+
+        if (txt_almacen.getText().equals("0000030")) {
+            try {
+                String monto = txt_venta_cre_saldo.getText();
+                String nro = txt_nro_venta.getText();
+
+                String sql = "UPDATE ventas_30 SET monto_cred = '" + monto
+                        + "' WHERE num_bol = '" + nro + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (Exception e) {
+            }
+        }
     }
 
     void actpagos() {
@@ -1742,6 +1834,98 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
                     String nro = txt_nro_venta.getText();
 
                     String sql = "UPDATE ventas_26 SET estado_ventas = '" + es
+                            + "' WHERE num_bol = '" + nro + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        //  JOptionPane.showMessageDialog(null, "Actualizado");
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+            }
+
+            if (txt_almacen.getText().equals("0000027")) {
+                try {
+                    String es = ("CONFIRMADA");
+                    String nro = txt_nro_venta.getText();
+
+                    String sql = "UPDATE ventas_27 SET estado_ventas = '" + es
+                            + "' WHERE num_bol = '" + nro + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        //  JOptionPane.showMessageDialog(null, "Actualizado");
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+            }
+
+            if (txt_almacen.getText().equals("0000028")) {
+                try {
+                    String es = ("CONFIRMADA");
+                    String nro = txt_nro_venta.getText();
+
+                    String sql = "UPDATE ventas_28 SET estado_ventas = '" + es
+                            + "' WHERE num_bol = '" + nro + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        //  JOptionPane.showMessageDialog(null, "Actualizado");
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+            }
+
+            if (txt_almacen.getText().equals("0000029")) {
+                try {
+                    String es = ("CONFIRMADA");
+                    String nro = txt_nro_venta.getText();
+
+                    String sql = "UPDATE ventas_29 SET estado_ventas = '" + es
+                            + "' WHERE num_bol = '" + nro + "'";
+                    try {
+                        Connection cn = conectar.getInstance().getConnection();
+
+                        PreparedStatement pst = cn.prepareStatement(sql);
+                        pst.executeUpdate();
+                        conectar.getInstance().closeConnection(cn);
+
+                        //  JOptionPane.showMessageDialog(null, "Actualizado");
+                    } catch (SQLException | HeadlessException e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+
+                } catch (Exception e) {
+                }
+            }
+
+            if (txt_almacen.getText().equals("0000030")) {
+                try {
+                    String es = ("CONFIRMADA");
+                    String nro = txt_nro_venta.getText();
+
+                    String sql = "UPDATE ventas_30 SET estado_ventas = '" + es
                             + "' WHERE num_bol = '" + nro + "'";
                     try {
                         Connection cn = conectar.getInstance().getConnection();

@@ -48,10 +48,12 @@ public class Principal_transferencia extends javax.swing.JDialog {
     public Principal_transferencia(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        if (Principal.lbl_mode_dark.getText().equals("oscuro")) {
+            panel_transferencia.setBackground(new java.awt.Color(69, 84, 92));
 
+        }
         cargarUsu();
         control_permisos();
-
         txt_bus.requestFocus();
         btn_cargar_trans.setVisible(false);
         OpcionMenu();
@@ -65,7 +67,7 @@ public class Principal_transferencia extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        panel_transferencia = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tb_trans = new javax.swing.JTable();
         btn_transfe = new javax.swing.JButton();
@@ -81,8 +83,8 @@ public class Principal_transferencia extends javax.swing.JDialog {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panel_transferencia.setBackground(new java.awt.Color(255, 255, 255));
+        panel_transferencia.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tb_trans = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
@@ -118,7 +120,7 @@ public class Principal_transferencia extends javax.swing.JDialog {
         });
         jScrollPane4.setViewportView(tb_trans);
 
-        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 1240, 510));
+        panel_transferencia.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 1240, 510));
 
         btn_transfe.setBackground(new java.awt.Color(255, 255, 255));
         btn_transfe.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -131,7 +133,7 @@ public class Principal_transferencia extends javax.swing.JDialog {
                 btn_transfeActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_transfe, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 10, 140, 50));
+        panel_transferencia.add(btn_transfe, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 10, 140, 50));
 
         txt_bus.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txt_bus.setToolTipText("Buscar Registros");
@@ -144,7 +146,7 @@ public class Principal_transferencia extends javax.swing.JDialog {
                 txt_busKeyReleased(evt);
             }
         });
-        jPanel1.add(txt_bus, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 22, 380, 25));
+        panel_transferencia.add(txt_bus, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 22, 380, 25));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -152,7 +154,7 @@ public class Principal_transferencia extends javax.swing.JDialog {
         jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         jLabel1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 430, 32));
+        panel_transferencia.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 430, 32));
 
         btn_cargar_trans.setText("cargar");
         btn_cargar_trans.addActionListener(new java.awt.event.ActionListener() {
@@ -160,7 +162,7 @@ public class Principal_transferencia extends javax.swing.JDialog {
                 btn_cargar_transActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_cargar_trans, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 10, -1, 30));
+        panel_transferencia.add(btn_cargar_trans, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 10, -1, 30));
 
         lbl_almacen_transferencia.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lbl_almacen_transferencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Caja_2/iconos/dpto.png"))); // NOI18N
@@ -172,16 +174,16 @@ public class Principal_transferencia extends javax.swing.JDialog {
                 lbl_almacen_transferenciaMouseClicked(evt);
             }
         });
-        jPanel1.add(lbl_almacen_transferencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 130, 40));
+        panel_transferencia.add(lbl_almacen_transferencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 130, 40));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("Ambiente:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, 80, 30));
+        panel_transferencia.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, 80, 30));
 
         lbl_ambiente_transfer.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jPanel1.add(lbl_ambiente_transfer, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 20, 80, 30));
+        panel_transferencia.add(lbl_ambiente_transfer, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 20, 80, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1260, 580));
+        getContentPane().add(panel_transferencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1260, 580));
 
         pack();
         setLocationRelativeTo(null);
@@ -213,9 +215,15 @@ public class Principal_transferencia extends javax.swing.JDialog {
     }//GEN-LAST:event_tb_transKeyPressed
 
     private void btn_transfeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_transfeActionPerformed
-        trans_dep_pro trans;
-        trans = new trans_dep_pro(new javax.swing.JDialog(), true);
-        trans.setVisible(true);
+        if (lbl_ambiente_transfer.getText().equals("0")) {
+            trans_dep_pro trans;
+            trans = new trans_dep_pro(new javax.swing.JDialog(), true);
+            trans.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "No tiene opción de transferencia");
+        }
+
+
     }//GEN-LAST:event_btn_transfeActionPerformed
 
     private void txt_busKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_busKeyPressed
@@ -247,7 +255,7 @@ public class Principal_transferencia extends javax.swing.JDialog {
             Seleccion_alma_transferencia tped;
             tped = new Seleccion_alma_transferencia(new javax.swing.JDialog(), true);
             tped.setVisible(true);
-        } 
+        }
     }//GEN-LAST:event_lbl_almacen_transferenciaMouseClicked
 
     /**
@@ -312,10 +320,10 @@ public class Principal_transferencia extends javax.swing.JDialog {
     private javax.swing.JButton btn_transfe;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane4;
     public static javax.swing.JLabel lbl_almacen_transferencia;
-    private javax.swing.JLabel lbl_ambiente_transfer;
+    public static javax.swing.JLabel lbl_ambiente_transfer;
+    private javax.swing.JPanel panel_transferencia;
     public static javax.swing.JTable tb_trans;
     public static javax.swing.JTextField txt_bus;
     // End of variables declaration//GEN-END:variables
@@ -323,7 +331,7 @@ public class Principal_transferencia extends javax.swing.JDialog {
     void cargar(String valor) {
         try {
 
-            String[] titulos = {"Nro Transf.", "Almacén Origen", "Almacém Destino", "Descripción", "Items", "Valor Total", "Fecha", "Situación"};
+            String[] titulos = {"Nro Transf.", "Almacén Origen", "Almacém Destino", "Descripción", "Items", "Valor Total", "Fecha", "Situación", "V/T"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -340,6 +348,7 @@ public class Principal_transferencia extends javax.swing.JDialog {
                 registros[5] = rs.getString(8);
                 registros[6] = rs.getString(9);
                 registros[7] = rs.getString(12);
+                registros[8] = rs.getString(13);
 
                 model.addRow(registros);
             }
@@ -357,6 +366,7 @@ public class Principal_transferencia extends javax.swing.JDialog {
             tb_trans.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_trans.getColumnModel().getColumn(6).setPreferredWidth(120);
             tb_trans.getColumnModel().getColumn(7).setPreferredWidth(120);
+            tb_trans.getColumnModel().getColumn(8).setPreferredWidth(50);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -368,7 +378,7 @@ public class Principal_transferencia extends javax.swing.JDialog {
     void cargar_espe(String valor) {
         try {
             String almacen = lbl_almacen_transferencia.getText();
-            String[] titulos = {"Nro Transf.", "Almacén Origen", "Almacém Destino", "Descripción", "Items", "Valor Total", "Fecha", "Situación"};
+            String[] titulos = {"Nro Transf.", "Almacén Origen", "Almacém Destino", "Descripción", "Items", "Valor Total", "Fecha", "Situación", "V/T"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -385,6 +395,7 @@ public class Principal_transferencia extends javax.swing.JDialog {
                 registros[5] = rs.getString(8);
                 registros[6] = rs.getString(9);
                 registros[7] = rs.getString(12);
+                registros[8] = rs.getString(13);
 
                 model.addRow(registros);
             }
@@ -402,6 +413,7 @@ public class Principal_transferencia extends javax.swing.JDialog {
             tb_trans.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_trans.getColumnModel().getColumn(6).setPreferredWidth(120);
             tb_trans.getColumnModel().getColumn(7).setPreferredWidth(120);
+            tb_trans.getColumnModel().getColumn(8).setPreferredWidth(50);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {

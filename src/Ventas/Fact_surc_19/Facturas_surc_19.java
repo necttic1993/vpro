@@ -50,9 +50,9 @@ public class Facturas_surc_19 extends javax.swing.JDialog {
     public Facturas_surc_19(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        codigos();
 
         cargarConfig();
+        codigos();
         lbl_count_filas.setVisible(false);
         btncalcular.setVisible(false);
         txt_forma_pago.setVisible(false);
@@ -152,7 +152,7 @@ public class Facturas_surc_19 extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tb_factura);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 1030, 330));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 1030, 300));
 
         jLabel16.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel16.setText("Nombre del Cliente :");
@@ -275,7 +275,6 @@ public class Facturas_surc_19 extends javax.swing.JDialog {
         btneli.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btneli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/eliminar.png"))); // NOI18N
         btneli.setMnemonic('e');
-        btneli.setText("Quitar Items");
         btneli.setToolTipText("Remover Productos ALT+E");
         btneli.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btneli.addActionListener(new java.awt.event.ActionListener() {
@@ -283,7 +282,7 @@ public class Facturas_surc_19 extends javax.swing.JDialog {
                 btneliActionPerformed(evt);
             }
         });
-        jPanel1.add(btneli, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 530, 150, 50));
+        jPanel1.add(btneli, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 100, 60, 40));
 
         btnven.setBackground(new java.awt.Color(255, 255, 255));
         btnven.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -625,7 +624,7 @@ public class Facturas_surc_19 extends javax.swing.JDialog {
     }//GEN-LAST:event_btncalcularActionPerformed
 
     private void btn_buscar_19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_19ActionPerformed
- try {
+        try {
             cargar(txt_cod.getText());
             cargarTxt(txt_cod.getText());
             btncalcular.doClick();
@@ -667,7 +666,7 @@ public class Facturas_surc_19 extends javax.swing.JDialog {
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-     
+
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -682,12 +681,11 @@ public class Facturas_surc_19 extends javax.swing.JDialog {
                 dialog.setVisible(true);
             }
         });
-        
-        
+
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton btn_buscar_19;
-    private javax.swing.JButton btncalcular;
+    public static javax.swing.JButton btncalcular;
     private javax.swing.JButton btneli;
     private javax.swing.JButton btnven;
     private javax.swing.JCheckBox ch_contado;
@@ -705,7 +703,7 @@ public class Facturas_surc_19 extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
+    public static javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -722,16 +720,16 @@ public class Facturas_surc_19 extends javax.swing.JDialog {
     private javax.swing.JLabel lbl_literal_pro;
     private javax.swing.JLabel lbl_sub_total;
     private javax.swing.JLabel lbl_total_monto_iva;
-    private javax.swing.JLabel lblcanpro;
+    public static javax.swing.JLabel lblcanpro;
     public static javax.swing.JTable tb_factura;
-    private javax.swing.JTextField txt_cli_nom;
+    public static javax.swing.JTextField txt_cli_nom;
     public static javax.swing.JTextField txt_cod;
-    private javax.swing.JTextField txt_cod_cli;
+    public static javax.swing.JTextField txt_cod_cli;
     private javax.swing.JTextField txt_esta;
     private javax.swing.JTextField txt_forma_pago;
     private javax.swing.JTextField txt_sequencia;
     private javax.swing.JTextField txt_timbrado;
-    private javax.swing.JLabel txttotal;
+    public static javax.swing.JLabel txttotal;
     // End of variables declaration//GEN-END:variables
 
     public static final BigDecimal ONE_HUNDRED = new BigDecimal(100);

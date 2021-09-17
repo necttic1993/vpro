@@ -434,44 +434,6 @@ public class Compras_compras extends javax.swing.JDialog {
 
                     compras();
 
-                    PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-                    if (printService.length > 0)//si existen impresoras
-                    {
-                        //se elige la impresora
-                        PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-                                "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-                        if (impresora != null) //Si se selecciono una impresora
-                        {
-                            try {
-
-                                String cod = lbl_cod.getText();
-                                Map parametro = new HashMap();
-                                parametro.clear();
-                                parametro.put("codigo", cod);
-                                Connection cn = conectar.getInstance().getConnection();
-
-                                URL in = this.getClass().getResource("/Compras/impresiones/Nota_compras.jasper");
-
-                                JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
-                                JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
-                                JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
-                                jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                                jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                                // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                                jrprintServiceExporter.exportReport();
-                                conectar.getInstance().closeConnection(cn);
-
-                            } catch (JRException ex) {
-
-                            } catch (SQLException ex) {
-                                Logger.getLogger(Compras_compras.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                        }
-
-                    }
                     DefaultTableModel modelo = (DefaultTableModel) tb_compras.getModel();
                     int a = tb_compras.getRowCount() - 1;
                     int i;
@@ -910,7 +872,7 @@ public class Compras_compras extends javax.swing.JDialog {
                     }
                 }
                 JOptionPane.showMessageDialog(null, "Compra realizada con éxito");
-
+                imprimir();
             }
 
         } catch (SQLException ex) {
@@ -918,6 +880,48 @@ public class Compras_compras extends javax.swing.JDialog {
                     .getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+
+    void imprimir() {
+
+        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+        if (printService.length > 0)//si existen impresoras
+        {
+            //se elige la impresora
+            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+            if (impresora != null) //Si se selecciono una impresora
+            {
+                try {
+
+                    String cod = lbl_cod.getText();
+                    Map parametro = new HashMap();
+                    parametro.clear();
+                    parametro.put("codigo", cod);
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    URL in = this.getClass().getResource("/Compras/impresiones/Nota_compras.jasper");
+
+                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+
+                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+
+                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                    jrprintServiceExporter.exportReport();
+                    conectar.getInstance().closeConnection(cn);
+
+                } catch (JRException ex) {
+
+                } catch (SQLException ex) {
+                    Logger.getLogger(Compras_compras.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+        }
     }
 
     void compra_plazo() {
@@ -986,7 +990,7 @@ public class Compras_compras extends javax.swing.JDialog {
                     }
                 }
                 JOptionPane.showMessageDialog(null, "Compra realizada con éxito");
-
+                imprimir();
             }
 
         } catch (SQLException ex) {

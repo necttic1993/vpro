@@ -5,6 +5,7 @@ package Gastos;
 
 import Conexion_DB.conectar;
 import static Loggin_Principal.NECTTIC.ingreso;
+import Loggin_Principal.Principal;
 import java.awt.Color;
 import java.io.FileInputStream;
 import java.math.BigDecimal;
@@ -50,6 +51,10 @@ public class Egresoos_consulta extends javax.swing.JDialog {
     public Egresoos_consulta(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        if (Principal.lbl_mode_dark.getText().equals("oscuro")) {
+            panel_con_egresos.setBackground(new java.awt.Color(69, 84, 92));
+
+        }
         txt_total_gs.setDisabledTextColor(Color.black);
 
     }// FIN CONSTRUCTOR
@@ -60,7 +65,7 @@ public class Egresoos_consulta extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel3 = new javax.swing.JPanel();
+        panel_con_egresos = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_consulta = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
@@ -85,8 +90,8 @@ public class Egresoos_consulta extends javax.swing.JDialog {
         setTitle("Consultar Egresos");
         setResizable(false);
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panel_con_egresos.setBackground(new java.awt.Color(255, 255, 255));
+        panel_con_egresos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tb_consulta.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         tb_consulta.setModel(new javax.swing.table.DefaultTableModel(
@@ -112,7 +117,7 @@ public class Egresoos_consulta extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tb_consulta);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 970, 370));
+        panel_con_egresos.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 970, 370));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/graphic.png"))); // NOI18N
@@ -123,15 +128,15 @@ public class Egresoos_consulta extends javax.swing.JDialog {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 40, 70, 50));
+        panel_con_egresos.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 40, 70, 50));
 
         jLabel16.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel16.setText("Fecha Final:");
-        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 80, 30));
+        panel_con_egresos.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 80, 30));
 
         jLabel18.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel18.setText("Valor Total:");
-        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 490, 90, 30));
+        panel_con_egresos.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 490, 90, 30));
 
         txt_total_gs.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         txt_total_gs.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -143,17 +148,17 @@ public class Egresoos_consulta extends javax.swing.JDialog {
                 txt_total_gsActionPerformed(evt);
             }
         });
-        jPanel3.add(txt_total_gs, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 490, 180, 30));
+        panel_con_egresos.add(txt_total_gs, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 490, 180, 30));
 
         jLabel15.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel15.setText("Fecha Inicio:");
-        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 90, 30));
+        panel_con_egresos.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 90, 30));
 
         jLabel17.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel17.setText("Clasificación:");
-        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 90, 30));
-        jPanel3.add(jd_fin_lucro, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 140, 30));
-        jPanel3.add(jd_ini_lucro, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 140, 30));
+        panel_con_egresos.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 90, 30));
+        panel_con_egresos.add(jd_fin_lucro, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 140, 30));
+        panel_con_egresos.add(jd_ini_lucro, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 140, 30));
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -165,15 +170,15 @@ public class Egresoos_consulta extends javax.swing.JDialog {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 40, 70, 50));
+        panel_con_egresos.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 40, 70, 50));
 
-        txt_id_prov_lista.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txt_id_prov_lista.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         txt_id_prov_lista.setText("0");
         txt_id_prov_lista.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_id_prov_lista.setEnabled(false);
-        jPanel3.add(txt_id_prov_lista, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 90, 30));
+        panel_con_egresos.add(txt_id_prov_lista, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 90, 30));
 
-        txt_provee_lista.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txt_provee_lista.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         txt_provee_lista.setText("TODOS");
         txt_provee_lista.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_provee_lista.setEnabled(false);
@@ -182,9 +187,9 @@ public class Egresoos_consulta extends javax.swing.JDialog {
                 txt_provee_listaKeyTyped(evt);
             }
         });
-        jPanel3.add(txt_provee_lista, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 310, 30));
+        panel_con_egresos.add(txt_provee_lista, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 310, 30));
 
-        txt_hist_lista.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txt_hist_lista.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         txt_hist_lista.setText("TODOS");
         txt_hist_lista.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_hist_lista.setEnabled(false);
@@ -193,17 +198,17 @@ public class Egresoos_consulta extends javax.swing.JDialog {
                 txt_hist_listaKeyTyped(evt);
             }
         });
-        jPanel3.add(txt_hist_lista, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 310, 30));
+        panel_con_egresos.add(txt_hist_lista, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 310, 30));
 
-        txt_id_class_lista.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txt_id_class_lista.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         txt_id_class_lista.setText("0");
         txt_id_class_lista.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_id_class_lista.setEnabled(false);
-        jPanel3.add(txt_id_class_lista, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 90, 30));
+        panel_con_egresos.add(txt_id_class_lista, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 90, 30));
 
         jLabel19.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel19.setText("Proveedor:");
-        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 90, 30));
+        panel_con_egresos.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 90, 30));
 
         btn_buscar.setBackground(new java.awt.Color(255, 255, 255));
         btn_buscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -216,7 +221,7 @@ public class Egresoos_consulta extends javax.swing.JDialog {
                 btn_buscarActionPerformed(evt);
             }
         });
-        jPanel3.add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, 50, 32));
+        panel_con_egresos.add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, 50, 32));
 
         jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_4/rehacer.png"))); // NOI18N
@@ -225,7 +230,7 @@ public class Egresoos_consulta extends javax.swing.JDialog {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 50, 32));
+        panel_con_egresos.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 50, 32));
 
         btn_buscar1.setBackground(new java.awt.Color(255, 255, 255));
         btn_buscar1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -238,17 +243,17 @@ public class Egresoos_consulta extends javax.swing.JDialog {
                 btn_buscar1ActionPerformed(evt);
             }
         });
-        jPanel3.add(btn_buscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 40, 50, 32));
+        panel_con_egresos.add(btn_buscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 40, 50, 32));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 993, Short.MAX_VALUE)
+            .addComponent(panel_con_egresos, javax.swing.GroupLayout.DEFAULT_SIZE, 993, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 535, Short.MAX_VALUE)
+            .addComponent(panel_con_egresos, javax.swing.GroupLayout.DEFAULT_SIZE, 535, Short.MAX_VALUE)
         );
 
         pack();
@@ -561,10 +566,10 @@ public class Egresoos_consulta extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private org.jdesktop.swingx.JXDatePicker jd_fin_lucro;
     private org.jdesktop.swingx.JXDatePicker jd_ini_lucro;
+    private javax.swing.JPanel panel_con_egresos;
     public static javax.swing.JTable tb_consulta;
     public static javax.swing.JTextField txt_hist_lista;
     public static javax.swing.JTextField txt_id_class_lista;

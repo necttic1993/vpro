@@ -48,9 +48,9 @@ public class Facturas_surc_2 extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         btn_buscar_2.setVisible(false);
-        codigos();
 
         cargarConfig();
+        codigos();
         lbl_count_filas.setVisible(false);
         btncalcular.setVisible(false);
         txt_forma_pago.setVisible(false);
@@ -313,7 +313,6 @@ public class Facturas_surc_2 extends javax.swing.JDialog {
         btneli.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btneli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/eliminar.png"))); // NOI18N
         btneli.setMnemonic('e');
-        btneli.setText("Quitar Items");
         btneli.setToolTipText("Remover Productos ALT+E");
         btneli.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btneli.addActionListener(new java.awt.event.ActionListener() {
@@ -321,7 +320,7 @@ public class Facturas_surc_2 extends javax.swing.JDialog {
                 btneliActionPerformed(evt);
             }
         });
-        jPanel1.add(btneli, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 530, 150, 50));
+        jPanel1.add(btneli, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 100, 60, 40));
 
         btnven.setBackground(new java.awt.Color(255, 255, 255));
         btnven.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N

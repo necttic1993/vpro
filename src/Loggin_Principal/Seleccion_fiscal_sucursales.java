@@ -19,6 +19,7 @@ import Ventas.Fact_surc_21.Principal_ventas_facturas_21;
 import Ventas.Fact_surc_22.Principal_ventas_surc_22;
 import Ventas.Fact_surc_23.Principal_ventas_facturas_23;
 import Ventas.Fact_surc_24.Principal_ventas_facturas_24;
+import Ventas.Fact_surc_25.Principal_ventas_facturas_25;
 import Ventas.Fact_surc_26.Principal_ventas_facturas_26;
 import Ventas.Fact_surc_27.Principal_ventas_facturas_27;
 import Ventas.Fact_surc_28.Principal_ventas_facturas_28;
@@ -200,15 +201,15 @@ public class Seleccion_fiscal_sucursales extends javax.swing.JDialog {
             vf9.setVisible(true);
             this.dispose();
         }
-        
-         if (cod.equals("0000010")) {
+
+        if (cod.equals("0000010")) {
             Principal_ventas_surc_10 vf10;
             vf10 = new Principal_ventas_surc_10(new javax.swing.JDialog(), true);
             vf10.setVisible(true);
             this.dispose();
         }
-         
-            if (cod.equals("0000013")) {
+
+        if (cod.equals("0000013")) {
             Principal_ventas_facturas_13 vf13;
             vf13 = new Principal_ventas_facturas_13(new javax.swing.JDialog(), true);
             vf13.setVisible(true);
@@ -284,6 +285,13 @@ public class Seleccion_fiscal_sucursales extends javax.swing.JDialog {
             vf24.setVisible(true);
             this.dispose();
         }
+
+        if (cod.equals("0000025")) {
+            Principal_ventas_facturas_25 vf25;
+            vf25 = new Principal_ventas_facturas_25(new javax.swing.JDialog(), true);
+            vf25.setVisible(true);
+            this.dispose();
+        }
         //15
         if (cod.equals("0000019")) {
             Principal_ventas_surc_19 vf19;
@@ -298,8 +306,8 @@ public class Seleccion_fiscal_sucursales extends javax.swing.JDialog {
             vf27.setVisible(true);
             this.dispose();
         }
-        
-         if (cod.equals("0000028")) {
+
+        if (cod.equals("0000028")) {
             Principal_ventas_facturas_28 vf28;
             vf28 = new Principal_ventas_facturas_28(new javax.swing.JDialog(), true);
             vf28.setVisible(true);

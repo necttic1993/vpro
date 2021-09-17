@@ -146,6 +146,7 @@ public class Reportes {
             conectar.getInstance().closeConnection(cn);
 
         } catch (JRException ex) {
+           JOptionPane.showMessageDialog(null, ex);
 
         }
 

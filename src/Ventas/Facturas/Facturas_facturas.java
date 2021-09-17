@@ -67,7 +67,7 @@ public class Facturas_facturas extends javax.swing.JDialog {
         lbl_sub_total.setVisible(false);
         lbl_literal_pro.setVisible(false);
         lbl_literal.setVisible(false);
-
+        btn_buscar.setVisible(false);
         ch_contado.doClick();
         txt_cli_nom.setDisabledTextColor(Color.black);
         txt_forma_pago.setDisabledTextColor(Color.black);
@@ -177,7 +177,7 @@ public class Facturas_facturas extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tb_factura);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 1030, 280));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 1030, 290));
 
         lbl_lote_factura.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         lbl_lote_factura.setForeground(new java.awt.Color(153, 0, 0));
@@ -233,7 +233,6 @@ public class Facturas_facturas extends javax.swing.JDialog {
         btn_buscar.setBackground(new java.awt.Color(255, 255, 255));
         btn_buscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btn_buscar.setForeground(new java.awt.Color(255, 255, 255));
-        btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
         btn_buscar.setToolTipText("");
         btn_buscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_buscar.addActionListener(new java.awt.event.ActionListener() {
@@ -241,17 +240,17 @@ public class Facturas_facturas extends javax.swing.JDialog {
                 btn_buscarActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 50, 32));
+        jPanel1.add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 540, 50, 32));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_5/agregando-boton-cuadrado-negro-simbolo-de-interfaz.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 32, 32));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 50, 32));
 
         txt_sequencia.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_sequencia.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -333,7 +332,7 @@ public class Facturas_facturas extends javax.swing.JDialog {
                 btneliActionPerformed(evt);
             }
         });
-        jPanel1.add(btneli, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 110, 80, 50));
+        jPanel1.add(btneli, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 110, 60, 40));
 
         btnven.setBackground(new java.awt.Color(255, 255, 255));
         btnven.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -762,7 +761,7 @@ public class Facturas_facturas extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_buscar;
+    public static javax.swing.JButton btn_buscar;
     public static javax.swing.JButton btncalcular;
     private javax.swing.JButton btneli;
     private javax.swing.JButton btnven;
@@ -1040,8 +1039,8 @@ public class Facturas_facturas extends javax.swing.JDialog {
                     .getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Nota de venta ya fue facturado");
         }
-      //  actEstadoVentas();
-         StatusVentas();
+        //  actEstadoVentas();
+        StatusVentas();
 
     }
 
@@ -1280,8 +1279,8 @@ public class Facturas_facturas extends javax.swing.JDialog {
         }
 
     }
-    
-       void StatusVentas() {//analizar mañana cargar datos de nro de factura
+
+    void StatusVentas() {//analizar mañana cargar datos de nro de factura
 
         try {
 
@@ -1289,7 +1288,7 @@ public class Facturas_facturas extends javax.swing.JDialog {
             String nro = txt_cod.getText();
 
             String sql = "UPDATE ventas SET nro_fact_ventas = '" + es
-                     + "' WHERE num_bol = '" + nro + "'";
+                    + "' WHERE num_bol = '" + nro + "'";
             try {
                 Connection cn = conectar.getInstance().getConnection();
                 PreparedStatement pst = cn.prepareStatement(sql);
@@ -1304,7 +1303,6 @@ public class Facturas_facturas extends javax.swing.JDialog {
         }
 
     }
-
 
     void cargarConfig() {
         String mostrar = "SELECT * FROM empresas";

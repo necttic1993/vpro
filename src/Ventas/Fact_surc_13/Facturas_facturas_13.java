@@ -47,8 +47,9 @@ public class Facturas_facturas_13 extends javax.swing.JDialog {
     public Facturas_facturas_13(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        codigos();
+
         cargarConfig();
+        codigos();
         btn_buscar_13.setVisible(false);
         //    cargarConfig();
         btncalcular.setVisible(false);
@@ -1866,7 +1867,6 @@ public class Facturas_facturas_13 extends javax.swing.JDialog {
                         Logger.getLogger(Facturas_facturas_13.class.getName()).log(Level.SEVERE, null, ex);
                     }
 
-                    
                 }
 
             }
@@ -2063,7 +2063,7 @@ public class Facturas_facturas_13 extends javax.swing.JDialog {
 
     }
 
-        void cargarConfig() {
+    void cargarConfig() {
         String mostrar = "SELECT * FROM almacenes_facturas";
 
         try {

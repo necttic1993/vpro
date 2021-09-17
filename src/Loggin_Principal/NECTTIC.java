@@ -141,7 +141,7 @@ public class NECTTIC extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/password.png"))); // NOI18N
-        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 300, 40, 30));
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, 40, 40));
 
         txt_usu.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         txt_usu.setHorizontalAlignment(javax.swing.JTextField.CENTER);

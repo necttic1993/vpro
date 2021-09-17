@@ -8,24 +8,17 @@ package Gastos;
 import Clases.machusculas;
 import Conexion_DB.conectar;
 import static Gastos.Principapl_gastos.cod_gastos_actu;
-import static Loggin_Principal.NECTTIC.ingreso;
+import Loggin_Principal.Principal;
 import java.awt.Color;
-import java.awt.HeadlessException;
-import java.awt.event.KeyEvent;
-import java.math.BigDecimal;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -45,7 +38,10 @@ public class Gastos_ver extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setSize(807, 260);
+        if (Principal.lbl_mode_dark.getText().equals("oscuro")) {
+            panel_ver_egresos.setBackground(new java.awt.Color(69, 84, 92));
 
+        }
         txt_provee.setDisabledTextColor(Color.black);
         txt_hist.setDisabledTextColor(Color.black);
         txtnom.setDocument(new machusculas());
@@ -72,7 +68,7 @@ public class Gastos_ver extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel3 = new javax.swing.JPanel();
+        panel_ver_egresos = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtnom = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -102,13 +98,13 @@ public class Gastos_ver extends javax.swing.JDialog {
         setTitle("Egresos");
         setResizable(false);
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setPreferredSize(new java.awt.Dimension(798, 529));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panel_ver_egresos.setBackground(new java.awt.Color(255, 255, 255));
+        panel_ver_egresos.setPreferredSize(new java.awt.Dimension(798, 529));
+        panel_ver_egresos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel2.setText("Concepto:");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, 70, 30));
+        panel_ver_egresos.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, 70, 30));
 
         txtnom.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtnom.setDisabledTextColor(new java.awt.Color(0, 0, 0));
@@ -118,15 +114,15 @@ public class Gastos_ver extends javax.swing.JDialog {
                 txtnomKeyTyped(evt);
             }
         });
-        jPanel3.add(txtnom, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 400, 30));
+        panel_ver_egresos.add(txtnom, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 400, 30));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel3.setText("Proveedor:");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, 30));
+        panel_ver_egresos.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, 30));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel4.setText(" N° de Nota:");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 80, 30));
+        panel_ver_egresos.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 80, 30));
 
         txtcod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtcod.setDisabledTextColor(new java.awt.Color(0, 0, 0));
@@ -141,23 +137,23 @@ public class Gastos_ver extends javax.swing.JDialog {
                 txtcodKeyTyped(evt);
             }
         });
-        jPanel3.add(txtcod, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 180, 30));
+        panel_ver_egresos.add(txtcod, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 180, 30));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel5.setText("Clasificación:");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 90, 30));
+        panel_ver_egresos.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 90, 30));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel7.setText("Fecha Emisión:");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 30));
+        panel_ver_egresos.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 30));
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel8.setText("Fecha Entrada:");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, 90, 30));
+        panel_ver_egresos.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, 90, 30));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel6.setText("Monto:");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 130, 50, 30));
+        panel_ver_egresos.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 130, 50, 30));
 
         txt_monto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_monto.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -171,11 +167,11 @@ public class Gastos_ver extends javax.swing.JDialog {
                 txt_montoKeyTyped(evt);
             }
         });
-        jPanel3.add(txt_monto, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, 180, 30));
+        panel_ver_egresos.add(txt_monto, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, 180, 30));
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel9.setText("Timbrado N°:");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 90, 30));
+        panel_ver_egresos.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 90, 30));
 
         txt_timbrado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txt_timbrado.setDisabledTextColor(new java.awt.Color(0, 0, 0));
@@ -190,22 +186,22 @@ public class Gastos_ver extends javax.swing.JDialog {
                 txt_timbradoKeyTyped(evt);
             }
         });
-        jPanel3.add(txt_timbrado, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 140, 30));
+        panel_ver_egresos.add(txt_timbrado, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 140, 30));
 
         txt_id_gas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txt_id_gas.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_id_gas.setEnabled(false);
-        jPanel3.add(txt_id_gas, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 120, 30));
+        panel_ver_egresos.add(txt_id_gas, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 120, 30));
 
         jLabel10.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel10.setText(" Egreso N°:");
-        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 80, 30));
+        panel_ver_egresos.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 80, 30));
 
         jd_entrada.setEnabled(false);
-        jPanel3.add(jd_entrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 100, 140, 30));
+        panel_ver_egresos.add(jd_entrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 100, 140, 30));
 
         jd_emision.setEnabled(false);
-        jPanel3.add(jd_emision, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 180, 30));
+        panel_ver_egresos.add(jd_emision, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 180, 30));
 
         jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -217,7 +213,7 @@ public class Gastos_ver extends javax.swing.JDialog {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 170, 130, 40));
+        panel_ver_egresos.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 170, 130, 40));
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -228,7 +224,7 @@ public class Gastos_ver extends javax.swing.JDialog {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 470, 70, 40));
+        panel_ver_egresos.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 470, 70, 40));
 
         tb_detalles.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         tb_detalles.setModel(new javax.swing.table.DefaultTableModel(
@@ -256,17 +252,17 @@ public class Gastos_ver extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tb_detalles);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 760, 210));
+        panel_ver_egresos.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 760, 210));
 
         txt_id_class_actu.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt_id_class_actu.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_id_class_actu.setEnabled(false);
-        jPanel3.add(txt_id_class_actu, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 90, 30));
+        panel_ver_egresos.add(txt_id_class_actu, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 90, 30));
 
         txt_id_prov_actu.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt_id_prov_actu.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_id_prov_actu.setEnabled(false);
-        jPanel3.add(txt_id_prov_actu, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 90, 30));
+        panel_ver_egresos.add(txt_id_prov_actu, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 90, 30));
 
         txt_provee.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txt_provee.setEnabled(false);
@@ -275,7 +271,7 @@ public class Gastos_ver extends javax.swing.JDialog {
                 txt_proveeKeyTyped(evt);
             }
         });
-        jPanel3.add(txt_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 330, 30));
+        panel_ver_egresos.add(txt_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 330, 30));
 
         txt_hist.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txt_hist.setEnabled(false);
@@ -284,17 +280,17 @@ public class Gastos_ver extends javax.swing.JDialog {
                 txt_histKeyTyped(evt);
             }
         });
-        jPanel3.add(txt_hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 330, 30));
+        panel_ver_egresos.add(txt_hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 330, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel_ver_egresos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel_ver_egresos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -419,10 +415,10 @@ public class Gastos_ver extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private org.jdesktop.swingx.JXDatePicker jd_emision;
     private org.jdesktop.swingx.JXDatePicker jd_entrada;
+    private javax.swing.JPanel panel_ver_egresos;
     public static javax.swing.JTable tb_detalles;
     public static javax.swing.JTextField txt_hist;
     public static javax.swing.JTextField txt_id_class_actu;
@@ -519,8 +515,8 @@ public class Gastos_ver extends javax.swing.JDialog {
         }
 
     }
-    
-     void BuscarProvee(String cod) {
+
+    void BuscarProvee(String cod) {
 
         try {
 

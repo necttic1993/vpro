@@ -97,6 +97,7 @@ public class Ventas_venta_2_mod extends javax.swing.JDialog {
     public static String id_doc_nro_ventas_2 = "";
     public static String id_nro_cuenta_ventas_2 = "";
     public static String total_doc_ventas_2 = "";
+    public static String id_doc_nro_ventas_2_mod = "";
 
     void cargar() {
         String mostrar = "SELECT * FROM cotizaciones ORDER BY cot_fecha ASC";
@@ -264,6 +265,8 @@ public class Ventas_venta_2_mod extends javax.swing.JDialog {
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 100, 30));
 
         txt_cod_cli.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txt_cod_cli.setDisabledTextColor(new java.awt.Color(153, 0, 0));
+        txt_cod_cli.setEnabled(false);
         txt_cod_cli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_cod_cliActionPerformed(evt);
@@ -670,18 +673,10 @@ public class Ventas_venta_2_mod extends javax.swing.JDialog {
                 if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
                         "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 
-                    Reportes reporte = new Reportes();
-                    String moneda = Principal.txt_simbolo.getText();
-                    try {
-                        try {
-                            reporte.recep_2(Ventas_venta_2_mod.lbl_cod.getText(), moneda);
-                        } catch (SQLException ex) {
-                            Logger.getLogger(Ventas_venta_2_mod.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-
-                    } catch (JRException ex) {
-                        Logger.getLogger(Ventas_venta_2_mod.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    id_doc_nro_ventas_2_mod = Ventas_venta_2_mod.lbl_cod.getText();
+                    Printers_ventas_2_mod est;
+                    est = new Printers_ventas_2_mod(new javax.swing.JDialog(), true);
+                    est.setVisible(true);
                 }
 
                 this.dispose();
@@ -696,18 +691,10 @@ public class Ventas_venta_2_mod extends javax.swing.JDialog {
                 if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
                         "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 
-                    Reportes reporte = new Reportes();
-                    String moneda = Principal.txt_simbolo.getText();
-                    try {
-                        try {
-                            reporte.recep_2(Ventas_venta_2_mod.lbl_cod.getText(), moneda);
-                        } catch (SQLException ex) {
-                            Logger.getLogger(Ventas_venta_2_mod.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-
-                    } catch (JRException ex) {
-                        Logger.getLogger(Ventas_venta_2_mod.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    id_doc_nro_ventas_2_mod = Ventas_venta_2_mod.lbl_cod.getText();
+                    Printers_ventas_2_mod est;
+                    est = new Printers_ventas_2_mod(new javax.swing.JDialog(), true);
+                    est.setVisible(true);
                 }
                 this.dispose();
             }
@@ -721,18 +708,10 @@ public class Ventas_venta_2_mod extends javax.swing.JDialog {
                 if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
                         "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 
-                    Reportes reporte = new Reportes();
-                    String moneda = Principal.txt_simbolo.getText();
-                    try {
-                        try {
-                            reporte.recep_2(Ventas_venta_2_mod.lbl_cod.getText(), moneda);
-                        } catch (SQLException ex) {
-                            Logger.getLogger(Ventas_venta_2_mod.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-
-                    } catch (JRException ex) {
-                        Logger.getLogger(Ventas_venta_2.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    id_doc_nro_ventas_2_mod = Ventas_venta_2_mod.lbl_cod.getText();
+                    Printers_ventas_2_mod est;
+                    est = new Printers_ventas_2_mod(new javax.swing.JDialog(), true);
+                    est.setVisible(true);
                 }
                 this.dispose();
             }

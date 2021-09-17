@@ -51,6 +51,10 @@ public class trans_dep_pro extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         codigos();
+        if (Principal.lbl_mode_dark.getText().equals("oscuro")) {
+            panel_add_transfere.setBackground(new java.awt.Color(69, 84, 92));
+
+        }
         nro_alma_ori.setDisabledTextColor(Color.red);
         nro_alma_des.setDisabledTextColor(Color.black);
         nombre_cuneta_ori.setDisabledTextColor(Color.red);
@@ -67,7 +71,7 @@ public class trans_dep_pro extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        panel_add_transfere = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         nombre_cuneta_ori = new javax.swing.JTextField();
         nom_cuenta_des = new javax.swing.JTextField();
@@ -84,6 +88,7 @@ public class trans_dep_pro extends javax.swing.JDialog {
         btn_buscar = new javax.swing.JButton();
         txt_cod_ventas = new javax.swing.JTextField();
         lbl_status_trans = new javax.swing.JLabel();
+        lbl_tipo_trans = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -103,16 +108,16 @@ public class trans_dep_pro extends javax.swing.JDialog {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panel_add_transfere.setBackground(new java.awt.Color(255, 255, 255));
+        panel_add_transfere.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel1.setText("Cantidad:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 470, 64, 32));
+        panel_add_transfere.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 470, 64, 32));
 
         nombre_cuneta_ori.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         nombre_cuneta_ori.setEnabled(false);
-        jPanel1.add(nombre_cuneta_ori, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 490, 32));
+        panel_add_transfere.add(nombre_cuneta_ori, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 490, 32));
 
         nom_cuenta_des.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         nom_cuenta_des.setEnabled(false);
@@ -121,21 +126,21 @@ public class trans_dep_pro extends javax.swing.JDialog {
                 nom_cuenta_desActionPerformed(evt);
             }
         });
-        jPanel1.add(nom_cuenta_des, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 74, 490, 32));
+        panel_add_transfere.add(nom_cuenta_des, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 74, 490, 32));
 
         nro_alma_des.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         nro_alma_des.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         nro_alma_des.setEnabled(false);
-        jPanel1.add(nro_alma_des, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 74, 110, 32));
+        panel_add_transfere.add(nro_alma_des, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 74, 110, 32));
 
         jLabel3.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel3.setText("Nro Transferencia:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, -1, 32));
+        panel_add_transfere.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, -1, 32));
 
         nro_alma_ori.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         nro_alma_ori.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         nro_alma_ori.setEnabled(false);
-        jPanel1.add(nro_alma_ori, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 110, 32));
+        panel_add_transfere.add(nro_alma_ori, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 110, 32));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
@@ -147,7 +152,7 @@ public class trans_dep_pro extends javax.swing.JDialog {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 75, 50, 32));
+        panel_add_transfere.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 75, 50, 32));
 
         txt_stock_nro.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         txt_stock_nro.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -158,7 +163,7 @@ public class trans_dep_pro extends javax.swing.JDialog {
                 txt_stock_nroKeyReleased(evt);
             }
         });
-        jPanel1.add(txt_stock_nro, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 470, 100, 32));
+        panel_add_transfere.add(txt_stock_nro, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 470, 100, 32));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -171,7 +176,7 @@ public class trans_dep_pro extends javax.swing.JDialog {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 510, 100, 45));
+        panel_add_transfere.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 510, 100, 45));
 
         panel_calculo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -208,7 +213,6 @@ public class trans_dep_pro extends javax.swing.JDialog {
         btn_buscar.setBackground(new java.awt.Color(255, 255, 255));
         btn_buscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btn_buscar.setForeground(new java.awt.Color(255, 255, 255));
-        btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
         btn_buscar.setToolTipText("");
         btn_buscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_buscar.addActionListener(new java.awt.event.ActionListener() {
@@ -234,7 +238,10 @@ public class trans_dep_pro extends javax.swing.JDialog {
         lbl_status_trans.setText("status");
         panel_calculo.add(lbl_status_trans, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 50, 20));
 
-        jPanel1.add(panel_calculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 270, 80));
+        lbl_tipo_trans.setText("0");
+        panel_calculo.add(lbl_tipo_trans, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 20, -1));
+
+        panel_add_transfere.add(panel_calculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 270, 80));
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
@@ -246,11 +253,11 @@ public class trans_dep_pro extends javax.swing.JDialog {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 40, 50, 32));
+        panel_add_transfere.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 40, 50, 32));
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel5.setText("Almacén Destino:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 74, -1, 32));
+        panel_add_transfere.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 74, -1, 32));
 
         tb_trans_stock = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
@@ -275,7 +282,7 @@ public class trans_dep_pro extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tb_trans_stock);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 780, 300));
+        panel_add_transfere.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 780, 300));
 
         btn_buscaar_items.setBackground(new java.awt.Color(255, 255, 255));
         btn_buscaar_items.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -296,7 +303,7 @@ public class trans_dep_pro extends javax.swing.JDialog {
                 btn_buscaar_itemsKeyPressed(evt);
             }
         });
-        jPanel1.add(btn_buscaar_items, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 110, 100, 45));
+        panel_add_transfere.add(btn_buscaar_items, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 110, 100, 45));
 
         txt_descrip.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         txt_descrip.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -305,15 +312,15 @@ public class trans_dep_pro extends javax.swing.JDialog {
                 txt_descripKeyReleased(evt);
             }
         });
-        jPanel1.add(txt_descrip, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 460, 32));
+        panel_add_transfere.add(txt_descrip, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 460, 32));
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel2.setText("Descripción:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 90, 32));
+        panel_add_transfere.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 90, 32));
 
         jLabel4.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel4.setText("Total :");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 470, 50, 32));
+        panel_add_transfere.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 470, 50, 32));
 
         txt_monto_trans_gs.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         txt_monto_trans_gs.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -324,17 +331,17 @@ public class trans_dep_pro extends javax.swing.JDialog {
                 txt_monto_trans_gsKeyReleased(evt);
             }
         });
-        jPanel1.add(txt_monto_trans_gs, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 470, 200, 32));
+        panel_add_transfere.add(txt_monto_trans_gs, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 470, 200, 32));
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel6.setText("Almacén Origen:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, 32));
+        panel_add_transfere.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, 32));
 
         txt_cod_trans.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         txt_cod_trans.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txt_cod_trans.setDisabledTextColor(new java.awt.Color(204, 0, 0));
         txt_cod_trans.setEnabled(false);
-        jPanel1.add(txt_cod_trans, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 140, 32));
+        panel_add_transfere.add(txt_cod_trans, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 140, 32));
 
         bnt_busca_ventas.setBackground(new java.awt.Color(255, 255, 255));
         bnt_busca_ventas.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -346,9 +353,9 @@ public class trans_dep_pro extends javax.swing.JDialog {
                 bnt_busca_ventasActionPerformed(evt);
             }
         });
-        jPanel1.add(bnt_busca_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 100, 45));
+        panel_add_transfere.add(bnt_busca_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 100, 45));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 560));
+        getContentPane().add(panel_add_transfere, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 560));
 
         pack();
         setLocationRelativeTo(null);
@@ -443,6 +450,7 @@ public class trans_dep_pro extends javax.swing.JDialog {
 
     private void btn_buscaar_itemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscaar_itemsActionPerformed
         lbl_status_trans.setText("stock");
+        lbl_tipo_trans.setText("T");
         bnt_busca_ventas.setEnabled(false);
         if (nro_alma_des.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Agregue ID de destino");
@@ -540,7 +548,7 @@ public class trans_dep_pro extends javax.swing.JDialog {
                 }
 
                 if (lbl_status_trans.getText().equals("ventas")) {
-                   // descontarStock(capcod, capcan);
+                    // descontarStock(capcod, capcan);
                     //devolverSeparacion(capcod, capcan);
                 }
             }
@@ -813,6 +821,7 @@ public class trans_dep_pro extends javax.swing.JDialog {
 
     private void bnt_busca_ventasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnt_busca_ventasActionPerformed
         lbl_status_trans.setText("ventas");
+        lbl_tipo_trans.setText("V");
         btn_buscaar_items.setEnabled(false);
 
         if (nro_alma_des.getText().equals("")) {
@@ -925,13 +934,14 @@ public class trans_dep_pro extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_status_trans;
+    private javax.swing.JLabel lbl_tipo_trans;
     public static javax.swing.JTextField nom_cuenta_des;
     public static javax.swing.JTextField nombre_cuneta_ori;
     public static javax.swing.JTextField nro_alma_des;
     public static javax.swing.JTextField nro_alma_ori;
+    private javax.swing.JPanel panel_add_transfere;
     private javax.swing.JPanel panel_calculo;
     public static javax.swing.JTable tb_trans_stock;
     private javax.swing.JTextField txt_cod_trans;
@@ -2114,7 +2124,7 @@ public class trans_dep_pro extends javax.swing.JDialog {
 
     void transfe() {
         codigos();
-        String InsertarSQL = "INSERT INTO transf_stock (cod_tran,id_alma_ori,nom_alma_ori,id_alma_des,nom_alma_des,des_tran,cant_pro,total_costo_tran,fecha_dia_tran,fecha_entrada,user_comp,estado_tran) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+        String InsertarSQL = "INSERT INTO transf_stock (cod_tran,id_alma_ori,nom_alma_ori,id_alma_des,nom_alma_des,des_tran,cant_pro,total_costo_tran,fecha_dia_tran,fecha_entrada,user_comp,estado_tran,tipo_transf) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
         String numtran = txt_cod_trans.getText();
         String id_alma_ori = nro_alma_ori.getText();
         String des_alma_ori = nombre_cuneta_ori.getText();//cambiar en db
@@ -2127,6 +2137,7 @@ public class trans_dep_pro extends javax.swing.JDialog {
         String fecha = Principal.lbl_fecha_hoy.getText();
         String user = lbl_usu_nom.getText();
         String estado = ("PENDIENTE");//cambiar en db
+        String tipo = lbl_tipo_trans.getText();
 
         try {
             Connection cn = conectar.getInstance().getConnection();
@@ -2144,6 +2155,7 @@ public class trans_dep_pro extends javax.swing.JDialog {
             pst.setString(10, fecha);
             pst.setString(11, user);
             pst.setString(12, estado);
+            pst.setString(13, tipo);
             int n = pst.executeUpdate();
             if (n > 0) {
                 conectar.getInstance().closeConnection(cn);

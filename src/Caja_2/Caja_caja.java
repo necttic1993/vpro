@@ -47,7 +47,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import net.sf.jasperreports.engine.JRException;
-import notifications.caja_proceso;
 import report.Reportes;
 
 /**
@@ -62,7 +61,12 @@ public class Caja_caja extends javax.swing.JDialog {
     public Caja_caja(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
         this.setSize(999, 500);
+          if (Principal.lbl_mode_dark.getText().equals("oscuro")) {
+            panel_caja.setBackground(new java.awt.Color(69, 84, 92));
+            
+        }
         txt_nom_cuenta.setDisabledTextColor(Color.blue);
         txt_his_caja.setDisabledTextColor(Color.blue);
         txt_his_tipo.setDisabledTextColor(Color.blue);
@@ -96,7 +100,7 @@ public class Caja_caja extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        panel_caja = new javax.swing.JPanel();
         txt_id_his = new javax.swing.JTextField();
         txt_his_caja = new javax.swing.JTextField();
         txt_his_tipo = new javax.swing.JTextField();
@@ -184,8 +188,8 @@ public class Caja_caja extends javax.swing.JDialog {
         setLocation(new java.awt.Point(250, 10));
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panel_caja.setBackground(new java.awt.Color(255, 255, 255));
+        panel_caja.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txt_id_his.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_id_his.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -204,19 +208,19 @@ public class Caja_caja extends javax.swing.JDialog {
                 txt_id_hisKeyReleased(evt);
             }
         });
-        jPanel1.add(txt_id_his, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 145, 70, 32));
+        panel_caja.add(txt_id_his, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 145, 70, 32));
 
         txt_his_caja.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_his_caja.setEnabled(false);
-        jPanel1.add(txt_his_caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 145, 320, 32));
+        panel_caja.add(txt_his_caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 145, 320, 32));
 
         txt_his_tipo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_his_tipo.setEnabled(false);
-        jPanel1.add(txt_his_tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 145, 70, 32));
+        panel_caja.add(txt_his_tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 145, 70, 32));
 
         txt_nom_cuenta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_nom_cuenta.setEnabled(false);
-        jPanel1.add(txt_nom_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 440, 32));
+        panel_caja.add(txt_nom_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 440, 32));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -232,7 +236,7 @@ public class Caja_caja extends javax.swing.JDialog {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 400, 150, 50));
+        panel_caja.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 400, 150, 50));
 
         txt_nro_his.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_nro_his.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -249,7 +253,7 @@ public class Caja_caja extends javax.swing.JDialog {
                 txt_nro_hisKeyPressed(evt);
             }
         });
-        jPanel1.add(txt_nro_his, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 70, 32));
+        panel_caja.add(txt_nro_his, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 70, 32));
 
         btn_confirmar.setBackground(new java.awt.Color(255, 255, 255));
         btn_confirmar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -265,7 +269,7 @@ public class Caja_caja extends javax.swing.JDialog {
                 btn_confirmarActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_confirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 400, 150, 50));
+        panel_caja.add(btn_confirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 400, 150, 50));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 153)));
@@ -280,7 +284,7 @@ public class Caja_caja extends javax.swing.JDialog {
         lbl_total_gs.setText("0");
         jPanel3.add(lbl_total_gs, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 190, 30));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, 300, 50));
+        panel_caja.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, 300, 50));
 
         txt_des_caja.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_des_caja.setDisabledTextColor(new java.awt.Color(0, 0, 0));
@@ -294,7 +298,7 @@ public class Caja_caja extends javax.swing.JDialog {
                 txt_des_cajaKeyPressed(evt);
             }
         });
-        jPanel1.add(txt_des_caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 530, 30));
+        panel_caja.add(txt_des_caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 530, 30));
 
         txt_nro_docu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_nro_docu.setDisabledTextColor(new java.awt.Color(0, 0, 0));
@@ -303,12 +307,12 @@ public class Caja_caja extends javax.swing.JDialog {
                 txt_nro_docuKeyPressed(evt);
             }
         });
-        jPanel1.add(txt_nro_docu, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 160, 30));
+        panel_caja.add(txt_nro_docu, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 160, 30));
 
         jLabel14.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notifications/sensor.gif"))); // NOI18N
         jLabel14.setText("Procesando...");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, 340, 90));
+        panel_caja.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, 340, 90));
 
         txtl_monto_caja.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txtl_monto_caja.addActionListener(new java.awt.event.ActionListener() {
@@ -324,11 +328,11 @@ public class Caja_caja extends javax.swing.JDialog {
                 txtl_monto_cajaKeyReleased(evt);
             }
         });
-        jPanel1.add(txtl_monto_caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 260, 190, 30));
+        panel_caja.add(txtl_monto_caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 260, 190, 30));
 
         jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel12.setText("Descripción:");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 90, 30));
+        panel_caja.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 90, 30));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 204)));
@@ -342,11 +346,11 @@ public class Caja_caja extends javax.swing.JDialog {
         jLabel26.setText("Saldo :");
         jPanel4.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 110, 30));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 320, 50));
+        panel_caja.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 320, 50));
 
         jPanel8.setBackground(new java.awt.Color(0, 102, 204));
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 420, -1, 30));
+        panel_caja.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 420, -1, 30));
 
         lbl_info_devol.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         lbl_info_devol.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -354,7 +358,7 @@ public class Caja_caja extends javax.swing.JDialog {
         lbl_info_devol.setText("0");
         lbl_info_devol.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 153)));
         lbl_info_devol.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        jPanel1.add(lbl_info_devol, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 380, 140, 70));
+        panel_caja.add(lbl_info_devol, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 380, 140, 70));
 
         lbl_info_ventas.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         lbl_info_ventas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -362,7 +366,7 @@ public class Caja_caja extends javax.swing.JDialog {
         lbl_info_ventas.setText("0");
         lbl_info_ventas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 153)));
         lbl_info_ventas.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        jPanel1.add(lbl_info_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 305, 140, 70));
+        panel_caja.add(lbl_info_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 305, 140, 70));
 
         lbl_info_compras.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         lbl_info_compras.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -370,7 +374,7 @@ public class Caja_caja extends javax.swing.JDialog {
         lbl_info_compras.setText("0");
         lbl_info_compras.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 153)));
         lbl_info_compras.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        jPanel1.add(lbl_info_compras, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 305, 140, 70));
+        panel_caja.add(lbl_info_compras, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 305, 140, 70));
 
         lbl_info_egresos.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         lbl_info_egresos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -378,27 +382,27 @@ public class Caja_caja extends javax.swing.JDialog {
         lbl_info_egresos.setText("0");
         lbl_info_egresos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 153)));
         lbl_info_egresos.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        jPanel1.add(lbl_info_egresos, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 380, 140, 70));
+        panel_caja.add(lbl_info_egresos, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 380, 140, 70));
 
         jSeparator2.setForeground(new java.awt.Color(0, 102, 204));
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 10, 440));
+        panel_caja.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 10, 440));
 
         jLabel19.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel19.setText("CLICK PARA AGREGAR FORMA DE PAGO");
-        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 170, 290, 20));
+        panel_caja.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 170, 290, 20));
 
         lbl_monto.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lbl_monto.setText("Monto :");
-        jPanel1.add(lbl_monto, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, 60, 30));
+        panel_caja.add(lbl_monto, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, 60, 30));
 
         lbl_empresa.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lbl_empresa.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jPanel1.add(lbl_empresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 510, 30));
+        panel_caja.add(lbl_empresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 510, 30));
 
         jLabel20.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel20.setText("Tipo:");
-        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 145, -1, 32));
+        panel_caja.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 145, -1, 32));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -412,7 +416,7 @@ public class Caja_caja extends javax.swing.JDialog {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 180, 120, 48));
+        panel_caja.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 180, 120, 48));
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -426,7 +430,7 @@ public class Caja_caja extends javax.swing.JDialog {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 145, 32, 32));
+        panel_caja.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 145, 32, 32));
 
         btn_cuentas.setBackground(new java.awt.Color(255, 255, 255));
         btn_cuentas.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -440,35 +444,35 @@ public class Caja_caja extends javax.swing.JDialog {
                 btn_cuentasActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_cuentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 110, 32, 32));
+        panel_caja.add(btn_cuentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 110, 32, 32));
 
         jSeparator3.setForeground(new java.awt.Color(0, 102, 204));
         jSeparator3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 300, 320, 10));
+        panel_caja.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 300, 320, 10));
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("Compras");
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 350, 140, 30));
+        panel_caja.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 350, 140, 30));
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("Ventas ");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 350, 140, 30));
+        panel_caja.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 350, 140, 30));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Egresos ");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 420, 140, 30));
+        panel_caja.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 420, 140, 30));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel17.setText("Devoluciones");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 420, 140, 30));
+        panel_caja.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 420, 140, 30));
 
         jSeparator4.setForeground(new java.awt.Color(0, 102, 204));
         jSeparator4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 630, 10));
+        panel_caja.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 630, 10));
 
         panel_calculo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -487,7 +491,7 @@ public class Caja_caja extends javax.swing.JDialog {
         lbl_calc_info.setText("0");
         panel_calculo.add(lbl_calc_info, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 60, -1));
 
-        jPanel1.add(panel_calculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 100, 70));
+        panel_caja.add(panel_calculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 100, 70));
 
         panel_tablas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -602,7 +606,7 @@ public class Caja_caja extends javax.swing.JDialog {
         lbl_calculo.setText("0");
         panel_tablas.add(lbl_calculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 50, 20));
 
-        jPanel1.add(panel_tablas, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, 170, 70));
+        panel_caja.add(panel_tablas, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, 170, 70));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/undra.png"))); // NOI18N
@@ -614,18 +618,18 @@ public class Caja_caja extends javax.swing.JDialog {
                 jLabel1MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 40, 300, 160));
+        panel_caja.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 40, 300, 160));
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(102, 0, 0));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_5/banco.png"))); // NOI18N
         jLabel11.setText("Las operaciones son por default en efectivo");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 200, 340, 40));
+        panel_caja.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 200, 340, 40));
 
         jLabel15.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel15.setText("Pendientes:");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 280, -1, 20));
+        panel_caja.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 280, -1, 20));
 
         jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/diner.png"))); // NOI18N
@@ -636,11 +640,11 @@ public class Caja_caja extends javax.swing.JDialog {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 250, 90, 45));
+        panel_caja.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 250, 90, 45));
 
         jLabel21.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel21.setText("Cuenta N°:");
-        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 80, 32));
+        panel_caja.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 80, 32));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 51)));
@@ -668,19 +672,19 @@ public class Caja_caja extends javax.swing.JDialog {
         });
         jPanel2.add(btn_sucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 6, 40, 40));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 270, 50));
+        panel_caja.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 270, 50));
 
         jLabel25.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel25.setText("EMPRESA:");
-        jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 100, 30));
+        panel_caja.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 100, 30));
 
         jLabel22.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         jLabel22.setText("Sucursal:");
-        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 80, 32));
+        panel_caja.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 80, 32));
 
         jLabel24.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         jLabel24.setText("Forma de Pago:");
-        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, -1, 30));
+        panel_caja.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, -1, 30));
 
         panel_forma_pago.setBackground(new java.awt.Color(153, 0, 0));
         panel_forma_pago.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -691,17 +695,17 @@ public class Caja_caja extends javax.swing.JDialog {
         jLabel10.setText("Forma de pago agregado a la nota !!!");
         panel_forma_pago.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, 290, 40));
 
-        jPanel1.add(panel_forma_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 300, 40));
+        panel_caja.add(panel_forma_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 300, 40));
 
         jLabel27.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel27.setText("Nota Nro.:");
-        jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 80, 30));
+        panel_caja.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 80, 30));
 
         jLabel28.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel28.setText("Históricos:");
-        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 145, 80, 32));
+        panel_caja.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 145, 80, 32));
 
-        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
+        getContentPane().add(panel_caja, java.awt.BorderLayout.CENTER);
 
         pack();
         setLocationRelativeTo(null);
@@ -1339,7 +1343,6 @@ public class Caja_caja extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1365,6 +1368,7 @@ public class Caja_caja extends javax.swing.JDialog {
     public static javax.swing.JLabel lbl_total_gs;
     private javax.swing.JLabel lbl_valor_cre;
     private javax.swing.JLabel lbl_valor_deb;
+    private javax.swing.JPanel panel_caja;
     private javax.swing.JPanel panel_calculo;
     private javax.swing.JPanel panel_forma_pago;
     private javax.swing.JPanel panel_tablas;

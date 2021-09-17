@@ -191,12 +191,12 @@ WHERE
 				</textElement>
 				<text><![CDATA[.---------]]></text>
 			</staticText>
-			<image hAlign="Center" vAlign="Middle">
-				<reportElement x="47" y="253" width="100" height="67" uuid="4e315071-9e0d-4fd6-82aa-5516f057a65b"/>
-				<imageExpression><![CDATA[com.google.zxing.client.j2se.MatrixToImageWriter.toBufferedImage(
-    new com.google.zxing.qrcode.QRCodeWriter().encode(
-$F{pago_credito_comun_seire}  , com.google.zxing.BarcodeFormat.QR_CODE, 200, 200))]]></imageExpression>
-			</image>
+			<componentElement>
+				<reportElement x="4" y="258" width="194" height="29" uuid="0d643884-da90-4a65-a0c6-e8f46f206330"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code128" drawText="true" checksumRequired="false">
+					<jr:codeExpression><![CDATA[$F{pago_credito_comun_id_pago}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
 		</band>
 	</title>
 	<pageHeader>

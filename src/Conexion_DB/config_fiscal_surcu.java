@@ -33,12 +33,12 @@ import javax.swing.table.DefaultTableModel;
  * @author user
  */
 public class config_fiscal_surcu extends javax.swing.JDialog {
-
+    
     FileInputStream fis;
     int longitudBytes;
-
+    
     DefaultTableModel model;
-
+    
     public config_fiscal_surcu(javax.swing.JDialog parent, boolean modal) throws IOException {
         super(parent, modal);
         initComponents();
@@ -51,16 +51,16 @@ public class config_fiscal_surcu extends javax.swing.JDialog {
         txt_panel_pre_usu.setDocument(new machusculas());
         cargar();
         guardar();
-
+        
     }
-
+    
     public static String cod_cuenta_actu = "";
-
+    
     void cargar() throws IOException {
         String mostrar = "SELECT * FROM empresas";
         ImageIcon foto;
         InputStream is;
-
+        
         try {
             Connection cn = conectar.getInstance().getConnection();
             Statement st = cn.createStatement();
@@ -84,7 +84,7 @@ public class config_fiscal_surcu extends javax.swing.JDialog {
                 txt_serie.setText(rs.getString(16));
                 txt_venta_min.setText(rs.getString(17));
                 cb_tipo_ventas.setSelectedItem(rs.getString(18));
-
+                
                 txt_dir_empre.setText(rs.getString(19));
                 cb_id_codigo.setSelectedItem(rs.getString(20));
                 txt_fecha_inicial.setText(rs.getString(21));
@@ -102,7 +102,8 @@ public class config_fiscal_surcu extends javax.swing.JDialog {
                 txt_seq_surc_2.setText(rs.getString(32));
                 txt_lote_surc_2.setText(rs.getString(33));
                 txt_timbra_devol.setText(rs.getString(50));
-
+                //cp
+                cb_modelo_cp.setSelectedItem(rs.getString(52));
                 //expo
                 txt_nro_fact_expo.setText(rs.getString(53));
                 txt_nro_timbrado_expo.setText(rs.getString(54));
@@ -121,23 +122,23 @@ public class config_fiscal_surcu extends javax.swing.JDialog {
                 }
             }
             conectar.getInstance().closeConnection(cn);
-
+            
         } catch (SQLException ex) {
             Logger.getLogger(config_fiscal_surcu.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        
     }
-
+    
     void guardar() {
         if (txtdes.getText().length() != 0) {
-
+            
             btnguardar.setEnabled(false);
         } else {
             btnguardar.setEnabled(true);
             // txtcod.setEnabled(true);
         }
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -215,6 +216,8 @@ public class config_fiscal_surcu extends javax.swing.JDialog {
         jLabel169 = new javax.swing.JLabel();
         txt_hab_lote_fact = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
+        jLabel51 = new javax.swing.JLabel();
+        cb_modelo_cp = new javax.swing.JComboBox();
         jPanel2 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
@@ -379,12 +382,12 @@ public class config_fiscal_surcu extends javax.swing.JDialog {
         jPanel1.add(cb_tipo_simbolo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, 80, 30));
 
         jLabel25.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        jLabel25.setText("Modelo de Factura:");
-        jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 380, 130, 30));
+        jLabel25.setText("Modelo CP:");
+        jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, 90, 30));
 
         cb_model_caja.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
         cb_model_caja.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jPanel1.add(cb_model_caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 380, 80, -1));
+        jPanel1.add(cb_model_caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 370, 80, -1));
 
         jLabel26.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel26.setText("Simbolo:");
@@ -600,6 +603,14 @@ public class config_fiscal_surcu extends javax.swing.JDialog {
         });
         jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 550, 160, 50));
 
+        jLabel51.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jLabel51.setText("Modelo de Factura:");
+        jPanel1.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, 130, 30));
+
+        cb_modelo_cp.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        cb_modelo_cp.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2" }));
+        jPanel1.add(cb_modelo_cp, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, 80, 30));
+
         jTabbedPane1.addTab("Surc. 1", new javax.swing.ImageIcon(getClass().getResource("/icon_4/ubicacion.png")), jPanel1); // NOI18N
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -686,13 +697,13 @@ public class config_fiscal_surcu extends javax.swing.JDialog {
 
     private void txt_nro_cuentasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nro_cuentasKeyPressed
         char Tecla = evt.getKeyChar();
-
+        
         if (Tecla == KeyEvent.VK_ENTER) {
-
+            
             Cuentas_config ccc;
             ccc = new Cuentas_config(new javax.swing.JDialog(), true);
             ccc.setVisible(true);
-
+            
         }
     }//GEN-LAST:event_txt_nro_cuentasKeyPressed
 
@@ -720,7 +731,7 @@ public class config_fiscal_surcu extends javax.swing.JDialog {
                     Image icono = ImageIO.read(j.getSelectedFile()).getScaledInstance(lbl_ima1.getWidth(), lbl_ima1.getHeight(), Image.SCALE_DEFAULT);
                     lbl_ima1.setIcon(new ImageIcon(icono));
                     lbl_ima1.updateUI();
-
+                    
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(rootPane, "imagen: " + ex);
                 }
@@ -730,15 +741,15 @@ public class config_fiscal_surcu extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
-
+        
         try {
             Connection cn = conectar.getInstance().getConnection();
-
+            
             PreparedStatement pst = cn.prepareStatement("DELETE FROM empresas  WHERE id_empre='" + txtcod.getText() + "'");
-
+            
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
-
+            
             lbl_ima1.setIcon(null);
             JOptionPane.showMessageDialog(null, "Reseteado");
         } catch (SQLException | HeadlessException e) {
@@ -753,20 +764,20 @@ public class config_fiscal_surcu extends javax.swing.JDialog {
             String sql = "";
             nom = txtnom.getText();
             des = txtdes.getText();
-
+            
             sql = "INSERT INTO empresas (emp_nom,emp_des,emp_imag) VALUES (?,?,?)";
             try {
                 Connection cn = conectar.getInstance().getConnection();
-
+                
                 PreparedStatement pst = cn.prepareStatement(sql);
-
+                
                 pst.setString(1, nom);
                 pst.setString(2, des);
                 pst.setBinaryStream(3, fis, longitudBytes);
-
+                
                 int n = pst.executeUpdate();
                 conectar.getInstance().closeConnection(cn);
-
+                
                 if (n > 0) {
                     JOptionPane.showMessageDialog(null, "Registro Guardado con Exito");
                     txtcod.setText("");
@@ -774,7 +785,7 @@ public class config_fiscal_surcu extends javax.swing.JDialog {
                     txtdes.setText("");
                     lbl_ima1.setIcon(null);
                 }
-
+                
             } catch (SQLException ex) {
                 Logger.getLogger(config_fiscal_surcu.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -866,6 +877,7 @@ public class config_fiscal_surcu extends javax.swing.JDialog {
     private javax.swing.JComboBox cb_id_codigo;
     private javax.swing.JComboBox cb_mod_ticket;
     private jcomboper.SComboBox cb_model_caja;
+    private javax.swing.JComboBox cb_modelo_cp;
     private javax.swing.JComboBox cb_moneda;
     private javax.swing.JComboBox cb_tipo_lucro;
     private javax.swing.JComboBox cb_tipo_simbolo;
@@ -908,6 +920,7 @@ public class config_fiscal_surcu extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel70;
@@ -953,9 +966,9 @@ public class config_fiscal_surcu extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     void update_empre() {
-
+        
         try {
-
+            
             String id = txtcod.getText();
             String empre = txtnom.getText();
             String des = txtdes.getText();
@@ -989,15 +1002,16 @@ public class config_fiscal_surcu extends javax.swing.JDialog {
             String seq_surc_2 = txt_seq_surc_2.getText();
             String lote_surc_2 = txt_lote_surc_2.getText();
             String timbra_devol_central = txt_timbra_devol.getText();
-          
-
+            
             String nro_fact_expo = txt_nro_fact_expo.getText();
             String nro_timbra_expo = txt_nro_timbrado_expo.getText();
             String nro_seq_expo = txt_nro_seq_expo.getText();
             String nro_estable_expo = txt_nro_estable_expo.getText();
             ///lote
             String hab_lote = txt_hab_lote_fact.getText();
-
+            //cp
+            String modelo_cp = cb_modelo_cp.getSelectedItem().toString();
+            
             String sql = "UPDATE empresas SET emp_nom = '" + empre
                     + "',emp_des ='" + des
                     + "',caja_ra ='" + model_fact
@@ -1028,29 +1042,30 @@ public class config_fiscal_surcu extends javax.swing.JDialog {
                     + "',timbra_surc_2 ='" + timbra_surc_2
                     + "',nro_fact_surc_2 ='" + nro_fact_surc_2
                     + "',seq_surc_2 ='" + seq_surc_2
-                    + "',lote_surc_2 ='" + lote_surc_2              
+                    + "',lote_surc_2 ='" + lote_surc_2
                     + "',timbra_devol_central ='" + timbra_devol_central
                     + "',nro_fact_expo ='" + nro_fact_expo
                     + "',nro_timbrado_expo ='" + nro_timbra_expo
                     + "',nro_seq_expo ='" + nro_seq_expo
                     + "',nro_estable_expo ='" + nro_estable_expo
                     + "',activa_lote ='" + hab_lote
+                    + "',timbra_24 ='" + modelo_cp
                     + "' WHERE id_empre = '" + id + "'";
             try {
                 Connection cn = conectar.getInstance().getConnection();
-
+                
                 PreparedStatement pst = cn.prepareStatement(sql);
                 pst.executeUpdate();
                 conectar.getInstance().closeConnection(cn);
-
+                
                 JOptionPane.showMessageDialog(null, "Actualizado nuevos parámetros");
-
+                
             } catch (SQLException | HeadlessException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
-
+            
         } catch (Exception e) {
         }
-
+        
     }
 }

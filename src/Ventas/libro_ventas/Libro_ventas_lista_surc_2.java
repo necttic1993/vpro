@@ -900,19 +900,6 @@ public class Libro_ventas_lista_surc_2 extends javax.swing.JDialog {
 
     }
 
-    public void actualiza() {
-
-        Timer timer = new Timer();
-        TimerTask tesk = new TimerTask() {
-            int Cont = 0;
-
-            @Override
-            public void run() {
-                Clientes_libro_ventas.lbl_sequencia_cliente.setText("2");
-
-            }
-        };
-        timer.schedule(tesk, 200, 500);
-    }
+   
 
 }//FIN CLASE

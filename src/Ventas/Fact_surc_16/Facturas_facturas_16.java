@@ -47,8 +47,9 @@ public class Facturas_facturas_16 extends javax.swing.JDialog {
     public Facturas_facturas_16(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        codigos();
+
         cargarConfig();
+        codigos();
         btncalcular.setVisible(false);
         txt_forma_pago.setVisible(false);
         lbl_sub_total.setVisible(false);

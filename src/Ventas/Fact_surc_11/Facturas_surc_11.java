@@ -49,9 +49,9 @@ public class Facturas_surc_11 extends javax.swing.JDialog {
     public Facturas_surc_11(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        codigos();
 
         cargarConfig();
+        codigos();
         lbl_count_filas.setVisible(false);
         btncalcular.setVisible(false);
         txt_forma_pago.setVisible(false);

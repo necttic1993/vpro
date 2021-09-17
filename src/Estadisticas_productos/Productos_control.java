@@ -7,6 +7,7 @@ package Estadisticas_productos;
 
 import Clases.machusculas;
 import Conexion_DB.conectar;
+import Loggin_Principal.Principal;
 import java.awt.event.KeyEvent;
 import java.io.FileInputStream;
 import java.sql.Connection;
@@ -31,8 +32,10 @@ public class Productos_control extends javax.swing.JDialog {
     public Productos_control(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        //Shape forma = new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 15, 15);
-        //AWTUtilities.setWindowShape(this, forma);
+          if (Principal.lbl_mode_dark.getText().equals("oscuro")) {
+            buscar_pro_razon.setBackground(new java.awt.Color(69, 84, 92));
+            
+        }
         cargarlistaproductos("");
         txtprod.setDocument(new machusculas());
         txtprod.requestFocus();
@@ -94,7 +97,7 @@ public class Productos_control extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        buscar_pro_razon = new javax.swing.JPanel();
         txtprod = new javax.swing.JTextField();
         bus = new javax.swing.JButton();
         btnsalir = new javax.swing.JButton();
@@ -109,8 +112,8 @@ public class Productos_control extends javax.swing.JDialog {
         setTitle("Buscar Productos");
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        buscar_pro_razon.setBackground(new java.awt.Color(255, 255, 255));
+        buscar_pro_razon.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtprod.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txtprod.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -119,7 +122,7 @@ public class Productos_control extends javax.swing.JDialog {
                 txtprodKeyReleased(evt);
             }
         });
-        jPanel1.add(txtprod, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 350, 32));
+        buscar_pro_razon.add(txtprod, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 350, 32));
 
         bus.setMnemonic('w');
         bus.setText("...");
@@ -128,7 +131,7 @@ public class Productos_control extends javax.swing.JDialog {
                 busActionPerformed(evt);
             }
         });
-        jPanel1.add(bus, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, 0, 30));
+        buscar_pro_razon.add(bus, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, 0, 30));
 
         btnsalir.setMnemonic('s');
         btnsalir.setText("..");
@@ -137,7 +140,7 @@ public class Productos_control extends javax.swing.JDialog {
                 btnsalirActionPerformed(evt);
             }
         });
-        jPanel1.add(btnsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 210, 0, -1));
+        buscar_pro_razon.add(btnsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 210, 0, -1));
 
         tbprod.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tbprod.setModel(new javax.swing.table.DefaultTableModel(
@@ -170,7 +173,7 @@ public class Productos_control extends javax.swing.JDialog {
         });
         jScrollPane2.setViewportView(tbprod);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 810, 420));
+        buscar_pro_razon.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 810, 420));
 
         btncan.setMnemonic('c');
         btncan.setContentAreaFilled(false);
@@ -179,7 +182,7 @@ public class Productos_control extends javax.swing.JDialog {
                 btncanActionPerformed(evt);
             }
         });
-        jPanel1.add(btncan, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 370, 110, 10));
+        buscar_pro_razon.add(btncan, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 370, 110, 10));
 
         btncan1.setMnemonic('a');
         btncan1.setContentAreaFilled(false);
@@ -188,25 +191,25 @@ public class Productos_control extends javax.swing.JDialog {
                 btncan1ActionPerformed(evt);
             }
         });
-        jPanel1.add(btncan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, 110, 10));
+        buscar_pro_razon.add(btncan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, 110, 10));
 
         jPanel3.setBackground(new java.awt.Color(0, 102, 204));
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, -1, 30));
+        buscar_pro_razon.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, -1, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 30));
+        buscar_pro_razon.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 832, Short.MAX_VALUE)
+            .addComponent(buscar_pro_razon, javax.swing.GroupLayout.DEFAULT_SIZE, 832, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
+            .addComponent(buscar_pro_razon, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
         );
 
         pack();
@@ -404,8 +407,8 @@ public class Productos_control extends javax.swing.JDialog {
     private javax.swing.JButton btncan1;
     private javax.swing.JButton btnsalir;
     private javax.swing.JButton bus;
+    private javax.swing.JPanel buscar_pro_razon;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tbprod;

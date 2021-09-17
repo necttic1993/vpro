@@ -149,6 +149,7 @@ public class Clientes_libro_ventas extends javax.swing.JDialog {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 30));
 
         lbl_sequencia_cliente.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbl_sequencia_cliente.setText("1");
         jPanel1.add(lbl_sequencia_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 70, 30));
 
         jLabel19.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -196,7 +197,7 @@ public class Clientes_libro_ventas extends javax.swing.JDialog {
                     Libro_ventas_lista.txt_nom_cli_fact.setText(nom);
 
                 } else if (lbl_sequencia_cliente.getText().equals("2")) {
-JOptionPane.showMessageDialog(null, "Dos");
+                    JOptionPane.showMessageDialog(null, "Dos");
 
                 }
 
@@ -279,7 +280,7 @@ JOptionPane.showMessageDialog(null, "Dos");
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    public static javax.swing.JLabel lbl_sequencia_cliente;
+    private javax.swing.JLabel lbl_sequencia_cliente;
     private javax.swing.JTable tbclientes;
     private javax.swing.JTextField txtbus;
     // End of variables declaration//GEN-END:variables

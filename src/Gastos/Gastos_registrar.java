@@ -45,6 +45,10 @@ public class Gastos_registrar extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setSize(807, 260);
+          if (Principal.lbl_mode_dark.getText().equals("oscuro")) {
+            panel_add_egresos.setBackground(new java.awt.Color(69, 84, 92));
+            
+        }
         txtcod.requestFocus();
         txt_provee.setDisabledTextColor(Color.black);
         txt_hist.setDisabledTextColor(Color.black);
@@ -81,7 +85,7 @@ public class Gastos_registrar extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel3 = new javax.swing.JPanel();
+        panel_add_egresos = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtnom = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -121,12 +125,12 @@ public class Gastos_registrar extends javax.swing.JDialog {
         setTitle("Egresos");
         setResizable(false);
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panel_add_egresos.setBackground(new java.awt.Color(255, 255, 255));
+        panel_add_egresos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel2.setText("Concepto:");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, 70, 30));
+        panel_add_egresos.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, 70, 30));
 
         txtnom.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txtnom.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -134,11 +138,11 @@ public class Gastos_registrar extends javax.swing.JDialog {
                 txtnomKeyTyped(evt);
             }
         });
-        jPanel3.add(txtnom, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, 410, 30));
+        panel_add_egresos.add(txtnom, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, 410, 30));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel3.setText("Proveedor:");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, 30));
+        panel_add_egresos.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, 30));
 
         txt_provee.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt_provee.setDisabledTextColor(new java.awt.Color(0, 0, 0));
@@ -148,11 +152,11 @@ public class Gastos_registrar extends javax.swing.JDialog {
                 txt_proveeKeyTyped(evt);
             }
         });
-        jPanel3.add(txt_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 360, 30));
+        panel_add_egresos.add(txt_provee, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 360, 30));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel4.setText(" Egreso N°:");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 80, 30));
+        panel_add_egresos.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 80, 30));
 
         txtcod.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txtcod.addActionListener(new java.awt.event.ActionListener() {
@@ -165,7 +169,7 @@ public class Gastos_registrar extends javax.swing.JDialog {
                 txtcodKeyTyped(evt);
             }
         });
-        jPanel3.add(txtcod, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 260, 30));
+        panel_add_egresos.add(txtcod, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 260, 30));
 
         txt_hist.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt_hist.setDisabledTextColor(new java.awt.Color(0, 0, 0));
@@ -175,11 +179,11 @@ public class Gastos_registrar extends javax.swing.JDialog {
                 txt_histKeyTyped(evt);
             }
         });
-        jPanel3.add(txt_hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 280, 30));
+        panel_add_egresos.add(txt_hist, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 280, 30));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel7.setText("Fecha Emisión:");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 30));
+        panel_add_egresos.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 30));
 
         btnguardar.setBackground(new java.awt.Color(255, 255, 255));
         btnguardar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -192,11 +196,11 @@ public class Gastos_registrar extends javax.swing.JDialog {
                 btnguardarActionPerformed(evt);
             }
         });
-        jPanel3.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 170, 130, 40));
+        panel_add_egresos.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 170, 130, 40));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel6.setText("Monto:");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 130, 50, 30));
+        panel_add_egresos.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 130, 50, 30));
 
         txt_monto.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt_monto.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -208,7 +212,7 @@ public class Gastos_registrar extends javax.swing.JDialog {
                 txt_montoKeyTyped(evt);
             }
         });
-        jPanel3.add(txt_monto, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, 180, 30));
+        panel_add_egresos.add(txt_monto, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, 180, 30));
 
         jButton1.setBackground(new java.awt.Color(0, 102, 153));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -220,7 +224,7 @@ public class Gastos_registrar extends javax.swing.JDialog {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 130, -1, 30));
+        panel_add_egresos.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 130, -1, 30));
 
         jButton2.setBackground(new java.awt.Color(0, 102, 153));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -232,11 +236,11 @@ public class Gastos_registrar extends javax.swing.JDialog {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 100, -1, 30));
+        panel_add_egresos.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 100, -1, 30));
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel9.setText("Timbrado N°:");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 90, 30));
+        panel_add_egresos.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 90, 30));
 
         txt_timbrado.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt_timbrado.addActionListener(new java.awt.event.ActionListener() {
@@ -249,16 +253,16 @@ public class Gastos_registrar extends javax.swing.JDialog {
                 txt_timbradoKeyTyped(evt);
             }
         });
-        jPanel3.add(txt_timbrado, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 40, 190, 30));
+        panel_add_egresos.add(txt_timbrado, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 40, 190, 30));
 
         jLabel10.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel10.setText(" N° de Nota:");
-        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 80, 30));
+        panel_add_egresos.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 80, 30));
 
         txt_id_gas.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt_id_gas.setEnabled(false);
-        jPanel3.add(txt_id_gas, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 180, 30));
-        jPanel3.add(jd_emision, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 180, 30));
+        panel_add_egresos.add(txt_id_gas, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 180, 30));
+        panel_add_egresos.add(jd_emision, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 180, 30));
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -269,7 +273,7 @@ public class Gastos_registrar extends javax.swing.JDialog {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 470, 70, 40));
+        panel_add_egresos.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 470, 70, 40));
 
         jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -281,7 +285,7 @@ public class Gastos_registrar extends javax.swing.JDialog {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 170, 130, 40));
+        panel_add_egresos.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 170, 130, 40));
 
         txt_cantidad_pro.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt_cantidad_pro.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -295,7 +299,7 @@ public class Gastos_registrar extends javax.swing.JDialog {
                 txt_cantidad_proKeyPressed(evt);
             }
         });
-        jPanel3.add(txt_cantidad_pro, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 270, 50, 32));
+        panel_add_egresos.add(txt_cantidad_pro, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 270, 50, 32));
 
         txt_precio.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt_precio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -305,35 +309,35 @@ public class Gastos_registrar extends javax.swing.JDialog {
                 txt_precioKeyReleased(evt);
             }
         });
-        jPanel3.add(txt_precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, 140, 32));
+        panel_add_egresos.add(txt_precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, 140, 32));
 
         txt_des_pro.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt_des_pro.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        jPanel3.add(txt_des_pro, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 390, 32));
+        panel_add_egresos.add(txt_des_pro, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 390, 32));
 
         jLabel24.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel24.setText("Descripción:");
         jLabel24.setFocusable(false);
-        jPanel3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 80, 20));
+        panel_add_egresos.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 80, 20));
 
         jLabel25.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel25.setText("Precio:");
         jLabel25.setFocusable(false);
-        jPanel3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 250, 50, 20));
+        panel_add_egresos.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 250, 50, 20));
 
         jLabel18.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel18.setText("Cant.");
         jLabel18.setFocusable(false);
-        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 250, 50, 20));
+        panel_add_egresos.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 250, 50, 20));
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel8.setText("Clasificación:");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 90, 30));
+        panel_add_egresos.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 90, 30));
 
         jLabel22.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel22.setText("Items:");
         jLabel22.setFocusable(false);
-        jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 90, 32));
+        panel_add_egresos.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 90, 32));
 
         tb_detalles.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         tb_detalles.setModel(new javax.swing.table.DefaultTableModel(
@@ -361,7 +365,7 @@ public class Gastos_registrar extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tb_detalles);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 660, 200));
+        panel_add_egresos.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 660, 200));
 
         btncalcular.setBackground(new java.awt.Color(255, 255, 255));
         btncalcular.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -375,7 +379,7 @@ public class Gastos_registrar extends javax.swing.JDialog {
                 btncalcularActionPerformed(evt);
             }
         });
-        jPanel3.add(btncalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 430, 40, 20));
+        panel_add_egresos.add(btncalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 430, 40, 20));
 
         jButton5.setBackground(new java.awt.Color(255, 255, 255));
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/sumar.png"))); // NOI18N
@@ -388,27 +392,27 @@ public class Gastos_registrar extends javax.swing.JDialog {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 270, 40, -1));
+        panel_add_egresos.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 270, 40, -1));
 
         txt_id_class.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt_id_class.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_id_class.setEnabled(false);
-        jPanel3.add(txt_id_class, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 90, 30));
+        panel_add_egresos.add(txt_id_class, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 90, 30));
 
         txt_id_prov.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt_id_prov.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_id_prov.setEnabled(false);
-        jPanel3.add(txt_id_prov, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 90, 30));
+        panel_add_egresos.add(txt_id_prov, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 90, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 798, Short.MAX_VALUE)
+            .addComponent(panel_add_egresos, javax.swing.GroupLayout.DEFAULT_SIZE, 798, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE)
+            .addComponent(panel_add_egresos, javax.swing.GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE)
         );
 
         pack();
@@ -653,9 +657,9 @@ public class Gastos_registrar extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private org.jdesktop.swingx.JXDatePicker jd_emision;
+    private javax.swing.JPanel panel_add_egresos;
     public static javax.swing.JTable tb_detalles;
     private javax.swing.JTextField txt_cantidad_pro;
     private javax.swing.JTextField txt_des_pro;
