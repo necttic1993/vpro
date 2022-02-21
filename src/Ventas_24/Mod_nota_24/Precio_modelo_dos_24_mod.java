@@ -5,7 +5,6 @@
  */
 package Ventas_24.Mod_nota_24;
 
-
 import Conexion_DB.conectar;
 import static Loggin_Principal.NECTTIC.ingreso;
 import static Loggin_Principal.Principal.lbl_class;
@@ -16,7 +15,6 @@ import static Loggin_Principal.Principal.lbl_pre_c;
 import Productos.costos_monedas;
 import static Ventas_24.Mod_nota_24.Productos_ventas_24_mod.cod_pro_ventas_24;
 import static Ventas_24.Mod_nota_24.Productos_ventas_24_mod.lbl_surcusal_id;
-
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
@@ -253,7 +251,7 @@ public class Precio_modelo_dos_24_mod extends javax.swing.JDialog {
 
     private void btn_agregar_itemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregar_itemActionPerformed
         if (lbl_surcusal_id.getText().equals("0000024") || lbl_surcusal_id.getText().equals("TODOS")) {
-
+            int existe = 0;
             String id = txt_cod.getText();
             String cant = txt_cant.getText();
             int canting = Integer.parseInt(cant);
@@ -267,13 +265,19 @@ public class Precio_modelo_dos_24_mod extends javax.swing.JDialog {
                     Object com = Ventas_venta_24_mod.tb_factura.getValueAt(i, 0);
                     if (id.equals(com)) {
                         JOptionPane.showMessageDialog(this, "Item ya agregado");
-                        txt_cant.requestFocus();
+                        existe = 1;
                     }
                 }
-                detalle_ticket();
-                descontarstock_24(id, cant);
-                Ventas_venta_24_mod.btncalcular.doClick();
-                this.dispose();
+
+                if (existe == 0) {
+                    detalle_ticket();
+                    descontarstock_24(id, cant);
+                    Ventas_venta_24_mod.btncalcular.doClick();
+                    this.dispose();
+                } else {
+                    txt_cant.requestFocus();
+
+                }
 
             }
 

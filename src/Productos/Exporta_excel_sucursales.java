@@ -16,6 +16,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -45,7 +46,7 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
     public Exporta_excel_sucursales(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
-
+        cargarUsu();
     }
 
     /**
@@ -527,7 +528,7 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
             sheet.setZoom(120);
 
             if (ch_impresion.isSelected()) {
-                try (FileOutputStream fileOut = new FileOutputStream("\\tsclient\\c\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
+                try (FileOutputStream fileOut = new FileOutputStream("\\tsclient\\C:\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
                     book.write(fileOut);
                 }
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
@@ -540,9 +541,6 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
                 conectar.getInstance().closeConnection(cn);
             }
-
-            JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
-            conectar.getInstance().closeConnection(cn);
 
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Productos.class
@@ -666,8 +664,6 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
                 conectar.getInstance().closeConnection(cn);
             }
 
-     
-
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Productos.class
                     .getName()).log(Level.SEVERE, null, ex);
@@ -788,8 +784,6 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
                 conectar.getInstance().closeConnection(cn);
             }
-
-      
 
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Productos.class
@@ -912,7 +906,6 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
                 conectar.getInstance().closeConnection(cn);
             }
 
-
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Productos.class
                     .getName()).log(Level.SEVERE, null, ex);
@@ -1033,8 +1026,6 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
                 conectar.getInstance().closeConnection(cn);
             }
-
-            
 
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Productos.class
@@ -1157,7 +1148,6 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
                 conectar.getInstance().closeConnection(cn);
             }
 
-
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Productos.class
                     .getName()).log(Level.SEVERE, null, ex);
@@ -1279,8 +1269,6 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
                 conectar.getInstance().closeConnection(cn);
             }
 
-
-
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Productos.class
                     .getName()).log(Level.SEVERE, null, ex);
@@ -1401,8 +1389,6 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
                 conectar.getInstance().closeConnection(cn);
             }
-
-  
 
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Productos.class
@@ -1646,8 +1632,6 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
                 conectar.getInstance().closeConnection(cn);
             }
 
-         
-
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Productos.class
                     .getName()).log(Level.SEVERE, null, ex);
@@ -1768,8 +1752,6 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
                 conectar.getInstance().closeConnection(cn);
             }
-
-
 
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Productos.class
@@ -1892,7 +1874,6 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
                 conectar.getInstance().closeConnection(cn);
             }
 
-        
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Productos.class
                     .getName()).log(Level.SEVERE, null, ex);
@@ -2013,8 +1994,6 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
                 conectar.getInstance().closeConnection(cn);
             }
-
-        
 
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Productos.class
@@ -2137,8 +2116,6 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
                 conectar.getInstance().closeConnection(cn);
             }
 
-   
-
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Productos.class
                     .getName()).log(Level.SEVERE, null, ex);
@@ -2259,7 +2236,6 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
                 conectar.getInstance().closeConnection(cn);
             }
-
 
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Productos.class
@@ -2382,7 +2358,6 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
                 conectar.getInstance().closeConnection(cn);
             }
 
-
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Productos.class
                     .getName()).log(Level.SEVERE, null, ex);
@@ -2503,8 +2478,6 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
                 conectar.getInstance().closeConnection(cn);
             }
-
-         
 
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Productos.class
@@ -2627,8 +2600,6 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
                 conectar.getInstance().closeConnection(cn);
             }
 
-    
-
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Productos.class
                     .getName()).log(Level.SEVERE, null, ex);
@@ -2749,8 +2720,6 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
                 conectar.getInstance().closeConnection(cn);
             }
-
-          
 
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Productos.class
@@ -2873,8 +2842,6 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
                 conectar.getInstance().closeConnection(cn);
             }
 
-           
-
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Productos.class
                     .getName()).log(Level.SEVERE, null, ex);
@@ -2995,7 +2962,6 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
                 conectar.getInstance().closeConnection(cn);
             }
-
 
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Productos.class
@@ -3118,8 +3084,6 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
                 conectar.getInstance().closeConnection(cn);
             }
 
-          
-
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Productos.class
                     .getName()).log(Level.SEVERE, null, ex);
@@ -3240,7 +3204,6 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
                 conectar.getInstance().closeConnection(cn);
             }
-
 
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Productos.class
@@ -3363,8 +3326,6 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
                 conectar.getInstance().closeConnection(cn);
             }
 
-         
-
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Productos.class
                     .getName()).log(Level.SEVERE, null, ex);
@@ -3485,7 +3446,6 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
                 conectar.getInstance().closeConnection(cn);
             }
-
 
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Productos.class
@@ -3608,8 +3568,6 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
                 conectar.getInstance().closeConnection(cn);
             }
 
-        
-
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Productos.class
                     .getName()).log(Level.SEVERE, null, ex);
@@ -3730,8 +3688,6 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
                 conectar.getInstance().closeConnection(cn);
             }
-
-          
 
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Productos.class
@@ -3854,8 +3810,6 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
                 conectar.getInstance().closeConnection(cn);
             }
 
-          
-
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Productos.class
                     .getName()).log(Level.SEVERE, null, ex);
@@ -3977,8 +3931,6 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
                 conectar.getInstance().closeConnection(cn);
             }
 
-          
-
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Productos.class
                     .getName()).log(Level.SEVERE, null, ex);
@@ -4099,8 +4051,6 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
                 conectar.getInstance().closeConnection(cn);
             }
-
-          
 
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Productos.class
@@ -4335,6 +4285,30 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
                     .getName()).log(Level.SEVERE, null, ex);
         } catch (IOException | SQLException ex) {
             Logger.getLogger(Productos.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    void cargarUsu() {
+
+        String user = Principal.lbl_id_user.getText();
+        String mostrar = "select * from usuarios where usu_cod='" + user + "' ";
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(mostrar);
+            while (rs.next()) {
+
+                lbl_almacen_excell.setText(rs.getString(6));
+
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Exporta_excel_sucursales.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
 

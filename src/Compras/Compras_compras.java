@@ -850,27 +850,28 @@ public class Compras_compras extends javax.swing.JDialog {
 
             if (n > 0) {
                 detalle_compra();
-                String cod_pro = "", pre_venta = "", pre_iva = "", porce_iva = "", pre_minimo = "", pre_compra = "", cantidad = "", pre_d = "";
-                for (int i = 0; i < Compras_compras.tb_compras.getRowCount(); i++) {
+                try {
 
-                    cod_pro = Compras_compras.tb_compras.getValueAt(i, 0).toString();
-                    pre_venta = Compras_compras.tb_compras.getValueAt(i, 2).toString();
-                    pre_iva = Compras_compras.tb_compras.getValueAt(i, 3).toString();
-                    porce_iva = Compras_compras.tb_compras.getValueAt(i, 4).toString();
-                    pre_minimo = Compras_compras.tb_compras.getValueAt(i, 5).toString();
-                    pre_d = Compras_compras.tb_compras.getValueAt(i, 6).toString();
-                    pre_compra = Compras_compras.tb_compras.getValueAt(i, 7).toString();
-                    cantidad = Compras_compras.tb_compras.getValueAt(i, 8).toString();
+                    String cod_pro = "", pre_venta = "", pre_iva = "", porce_iva = "", pre_minimo = "", pre_compra = "", cantidad = "", pre_d = "";
+                    for (int i = 0; i < Compras_compras.tb_compras.getRowCount(); i++) {
 
-                    try {
+                        cod_pro = Compras_compras.tb_compras.getValueAt(i, 0).toString();
+                        pre_venta = Compras_compras.tb_compras.getValueAt(i, 2).toString();
+                        pre_iva = Compras_compras.tb_compras.getValueAt(i, 3).toString();
+                        porce_iva = Compras_compras.tb_compras.getValueAt(i, 4).toString();
+                        pre_minimo = Compras_compras.tb_compras.getValueAt(i, 5).toString();
+                        pre_d = Compras_compras.tb_compras.getValueAt(i, 6).toString();
+                        pre_compra = Compras_compras.tb_compras.getValueAt(i, 7).toString();
+                        cantidad = Compras_compras.tb_compras.getValueAt(i, 8).toString();
 
                         ajustarstock(cod_pro, pre_venta, pre_iva, porce_iva, pre_minimo, pre_d, pre_compra, cantidad);
                         CostoMedio(cod_pro, pre_compra);
 
-                    } catch (SQLException ex) {
-                        Logger.getLogger(Compras_compras.class.getName()).log(Level.SEVERE, null, ex);
                     }
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "Error al guardar");
                 }
+
                 JOptionPane.showMessageDialog(null, "Compra realizada con éxito");
                 imprimir();
             }

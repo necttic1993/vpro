@@ -12,9 +12,11 @@ import Ventas.Fact_surc_11.Principal_ventas_surc_11;
 import Ventas.Fact_surc_13.Principal_ventas_facturas_13;
 import Ventas.Fact_surc_14.Principal_ventas_facturas_14;
 import Ventas.Fact_surc_16.Principal_ventas_facturas_16;
+import Ventas.Fact_surc_17.Principal_ventas_facturas_17;
 import Ventas.Fact_surc_18.Principal_ventas_facturas_18;
 import Ventas.Fact_surc_19.Principal_ventas_surc_19;
 import Ventas.Fact_surc_2.Principal_ventas_surc_2;
+import Ventas.Fact_surc_20.Principal_ventas_facturas_20;
 import Ventas.Fact_surc_21.Principal_ventas_facturas_21;
 import Ventas.Fact_surc_22.Principal_ventas_surc_22;
 import Ventas.Fact_surc_23.Principal_ventas_facturas_23;
@@ -26,6 +28,7 @@ import Ventas.Fact_surc_28.Principal_ventas_facturas_28;
 import Ventas.Fact_surc_3.Principal_ventas_surc_3;
 import Ventas.Fact_surc_4.Principal_ventas_facturas_4;
 import Ventas.Fact_surc_6.Principal_ventas_facturas_6;
+import Ventas.Fact_surc_7.Principal_ventas_facturas_7;
 import Ventas.Fact_surc_8.Principal_ventas_facturas_8;
 import Ventas.Fact_surc_9.Principal_ventas_facturas_9;
 import Ventas.Facturas.Principal_ventas_facturas;
@@ -187,6 +190,13 @@ public class Seleccion_fiscal_sucursales extends javax.swing.JDialog {
             vf6.setVisible(true);
             this.dispose();
         }
+        
+         if (cod.equals("0000007")) {
+            Principal_ventas_facturas_7 vf7;
+            vf7 = new Principal_ventas_facturas_7(new javax.swing.JDialog(), true);
+            vf7.setVisible(true);
+            this.dispose();
+        }
         //18
         if (cod.equals("0000008")) {
             Principal_ventas_facturas_8 vf8;
@@ -216,8 +226,11 @@ public class Seleccion_fiscal_sucursales extends javax.swing.JDialog {
             this.dispose();
         }
         //20
-        if (cod.equals("0000020")) {
-
+        if (cod.equals("0000017")) {
+            Principal_ventas_facturas_17 vf17;
+            vf17 = new Principal_ventas_facturas_17(new javax.swing.JDialog(), true);
+            vf17.setVisible(true);
+            this.dispose();
         }
         //11
         if (cod.equals("0000011")) {
@@ -246,6 +259,14 @@ public class Seleccion_fiscal_sucursales extends javax.swing.JDialog {
             Principal_ventas_facturas_18 vf18;
             vf18 = new Principal_ventas_facturas_18(new javax.swing.JDialog(), true);
             vf18.setVisible(true);
+            this.dispose();
+        }
+        
+          if (cod.equals("0000020")) {
+
+            Principal_ventas_facturas_20 vf20;
+            vf20 = new Principal_ventas_facturas_20(new javax.swing.JDialog(), true);
+            vf20.setVisible(true);
             this.dispose();
         }
 

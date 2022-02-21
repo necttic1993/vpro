@@ -231,7 +231,7 @@ public class Productos_ventas extends javax.swing.JDialog {
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock='A' ";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock <> 'I' LIMIT 500";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 
@@ -1865,60 +1865,7 @@ public class Productos_ventas extends javax.swing.JDialog {
     }//GEN-LAST:event_btnsalirActionPerformed
 
     private void tbprodMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbprodMouseClicked
-        /*  try {
-         DefaultTableModel tabladet = (DefaultTableModel) Ventas_venta.tb_factura.getModel();
-         String[] dato = new String[5];
-
-         int fila = tbprod.getSelectedRow();
-
-         if (fila == -1) {
-         JOptionPane.showMessageDialog(null, "No  ha seleccionado ningun registro");
-         } else {
-         String codins = tbprod.getValueAt(fila, 0).toString();
-         String desins = tbprod.getValueAt(fila, 2).toString();
-         String preins = tbprod.getValueAt(fila, 5).toString();
-         int c = 0;
-         int j = 0;
-         String cant = JOptionPane.showInputDialog("ingrese cantidad");
-         if ((cant.equals("")) || (cant.equals("0"))) {
-         JOptionPane.showMessageDialog(this, "Debe ingresar algun valor mayor que 0");
-         } else {
-         int canting = Integer.parseInt(cant);
-         int comp = Integer.parseInt(comparar(codins));
-         if (canting > comp) {
-         JOptionPane.showMessageDialog(this, "Ud. no cuenta con el stock apropiado");
-         } else {
-         for (int i = 0; i < Ventas_venta.tb_factura.getRowCount(); i++) {
-         Object com = Ventas_venta.tb_factura.getValueAt(i, 0);
-         if (codins.equals(com)) {
-         j = i;
-         Ventas_venta.tb_factura.setValueAt(cant, i, 3);
-         c = c + 1;
-
-         }
-
-         }
-         if (c == 0) {
-
-         dato[0] = codins;
-         dato[1] = desins;
-         dato[2] = preins;
-         dato[3] = cant;
-
-         tabladet.addRow(dato);
-
-         Ventas_venta.tb_factura.setModel(tabladet);
-         this.txtprod.requestFocus();
-
-         }
-         Ventas_venta.btncalcular.doClick();
-         }
-
-         }
-
-         }
-         } catch (HeadlessException | NumberFormatException e) {
-         }        */
+       
 
         if (lbl_cant_produ.getText().equals("11")) {
             JOptionPane.showMessageDialog(null, "Cantidad de producto excedido");
@@ -1945,60 +1892,7 @@ public class Productos_ventas extends javax.swing.JDialog {
         char Tecla = evt.getKeyChar();
 
         if (Tecla == KeyEvent.VK_ENTER) {
-            /*  try {
-             DefaultTableModel tabladet = (DefaultTableModel) Ventas_venta.tb_factura.getModel();
-             String[] dato = new String[5];
-
-             int fila = tbprod.getSelectedRow();
-
-             if (fila == -1) {
-             JOptionPane.showMessageDialog(null, "No  ha seleccionado ningun registro");
-             } else {
-             String codins = tbprod.getValueAt(fila, 0).toString();
-             String desins = tbprod.getValueAt(fila, 2).toString();
-             String preins = tbprod.getValueAt(fila, 5).toString();
-             int c = 0;
-             int j = 0;
-             String cant = JOptionPane.showInputDialog("ingrese cantidad");
-             if ((cant.equals("")) || (cant.equals("0"))) {
-             JOptionPane.showMessageDialog(this, "Debe ingresar algun valor mayor que 0");
-             } else {
-             int canting = Integer.parseInt(cant);
-             int comp = Integer.parseInt(comparar(codins));
-             if (canting > comp) {
-             JOptionPane.showMessageDialog(this, "Ud. no cuenta con el stock apropiado");
-             } else {
-             for (int i = 0; i < Ventas_venta.tb_factura.getRowCount(); i++) {
-             Object com = Ventas_venta.tb_factura.getValueAt(i, 0);
-             if (codins.equals(com)) {
-             j = i;
-             Ventas_venta.tb_factura.setValueAt(cant, i, 3);
-             c = c + 1;
-
-             }
-
-             }
-             if (c == 0) {
-
-             dato[0] = codins;
-             dato[1] = desins;
-             dato[2] = preins;
-             dato[3] = cant;
-
-             tabladet.addRow(dato);
-
-             Ventas_venta.tb_factura.setModel(tabladet);
-             this.txtprod.requestFocus();
-
-             }
-             Ventas_venta.btncalcular.doClick();
-             }
-
-             }
-
-             }
-             } catch (HeadlessException | NumberFormatException e) {
-             }     */    // TODO add your handling code here:
+           
             if (lbl_cant_produ.getText().equals("11")) {
                 JOptionPane.showMessageDialog(null, "Cantidad de producto excedido");
             } else {

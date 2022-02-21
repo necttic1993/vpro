@@ -9,7 +9,9 @@ import java.applet.AudioClip;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
@@ -20,6 +22,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import notifications.noti_backup;
 import notifications.noti_login;
@@ -31,9 +35,10 @@ public class NECTTIC extends javax.swing.JFrame {
     public static Principal ingreso;
 
     //</editor-fold>
-    public NECTTIC() throws SocketException {
+    public NECTTIC() throws SocketException, IOException {
 
         initComponents();
+        cargarConfig();
         //  Shape forma = new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 20, 20);
         //AWTUtilities.setWindowShape(this, forma);
         txt_usu.requestFocus();
@@ -65,25 +70,16 @@ public class NECTTIC extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         btn_salir = new javax.swing.JButton();
         LBL_IP_COMPU = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         txt_usu = new javax.swing.JTextField();
-        jSeparator2 = new javax.swing.JSeparator();
         txt_pass = new javax.swing.JPasswordField();
-        jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         lbl_mac_compu = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lbl_nom_empre = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         chk_dark = new javax.swing.JCheckBox();
         btn_acceder = new javax.swing.JButton();
+        lbl_img_empre = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         jLabel10.setText("jLabel10");
 
@@ -126,26 +122,16 @@ public class NECTTIC extends javax.swing.JFrame {
                 btn_salirKeyReleased(evt);
             }
         });
-        jPanel4.add(btn_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 0, 30, 30));
+        jPanel4.add(btn_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 30, 30));
 
         LBL_IP_COMPU.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         LBL_IP_COMPU.setForeground(new java.awt.Color(102, 102, 102));
         LBL_IP_COMPU.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel4.add(LBL_IP_COMPU, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 440, 120, 20));
 
-        jLabel9.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/shield.png"))); // NOI18N
-        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 230, 40, 30));
-
-        jLabel7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/password.png"))); // NOI18N
-        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, 40, 40));
-
-        txt_usu.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txt_usu.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
         txt_usu.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt_usu.setBorder(null);
+        txt_usu.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ingrese ID", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto Medium", 0, 12))); // NOI18N
         txt_usu.setOpaque(false);
         txt_usu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -165,18 +151,13 @@ public class NECTTIC extends javax.swing.JFrame {
                 txt_usuKeyReleased(evt);
             }
         });
-        jPanel4.add(txt_usu, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, 230, 40));
-
-        jSeparator2.setBackground(new java.awt.Color(204, 204, 204));
-        jSeparator2.setForeground(new java.awt.Color(153, 153, 153));
-        jSeparator2.setToolTipText("");
-        jSeparator2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jPanel4.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, 230, 10));
+        jPanel4.add(txt_usu, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 290, 60));
 
         txt_pass.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         txt_pass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt_pass.setBorder(null);
+        txt_pass.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ingrese Contraseña", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto Medium", 0, 12))); // NOI18N
         txt_pass.setOpaque(false);
+        txt_pass.setSelectionStart(20);
         txt_pass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_passActionPerformed(evt);
@@ -187,60 +168,24 @@ public class NECTTIC extends javax.swing.JFrame {
                 txt_passKeyReleased(evt);
             }
         });
-        jPanel4.add(txt_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, 230, 40));
-
-        jSeparator1.setBackground(new java.awt.Color(204, 204, 204));
-        jSeparator1.setForeground(new java.awt.Color(153, 153, 153));
-        jSeparator1.setToolTipText("");
-        jSeparator1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jPanel4.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 330, 230, 10));
+        jPanel4.add(txt_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 290, 60));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_1/necttic_ico.jpg"))); // NOI18N
-        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 250, 210));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_1/necttic.jpg"))); // NOI18N
+        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, -1, 60));
 
         lbl_mac_compu.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         lbl_mac_compu.setForeground(new java.awt.Color(102, 102, 102));
         lbl_mac_compu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel4.add(lbl_mac_compu, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, 230, 20));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/informacion.png"))); // NOI18N
-        jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, -1, 40));
-
-        jPanel2.setBackground(new java.awt.Color(0, 1, 78));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel6.setBackground(new java.awt.Color(0, 1, 78));
-        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel7.setBackground(new java.awt.Color(0, 1, 78));
-        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel6.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 730, 7));
-
-        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 730, 7));
-
-        jPanel4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 720, 3));
-
-        jPanel3.setBackground(new java.awt.Color(0, 1, 78));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel4.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 1, 380));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/person.png"))); // NOI18N
-        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 320, 170));
-
-        jLabel6.setFont(new java.awt.Font("Constantia", 1, 18)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Iniciar Sesión");
-        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 170, 230, 40));
-
-        jLabel3.setFont(new java.awt.Font("Constantia", 1, 18)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Necttic Software");
-        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 160, 40));
+        lbl_nom_empre.setFont(new java.awt.Font("Roboto Medium", 0, 20)); // NOI18N
+        lbl_nom_empre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_nom_empre.setText("Iniciar Sesión");
+        jPanel4.add(lbl_nom_empre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 330, 40));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/noche.png"))); // NOI18N
-        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 420, 40, 40));
+        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 450, 40, 40));
 
         chk_dark.setBackground(new java.awt.Color(255, 255, 255));
         chk_dark.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -252,10 +197,10 @@ public class NECTTIC extends javax.swing.JFrame {
                 chk_darkActionPerformed(evt);
             }
         });
-        jPanel4.add(chk_dark, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 420, 70, 40));
+        jPanel4.add(chk_dark, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 450, 70, 40));
 
         btn_acceder.setBackground(new java.awt.Color(255, 255, 255));
-        btn_acceder.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btn_acceder.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         btn_acceder.setText("Ingresar");
         btn_acceder.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_acceder.addActionListener(new java.awt.event.ActionListener() {
@@ -263,9 +208,17 @@ public class NECTTIC extends javax.swing.JFrame {
                 btn_accederActionPerformed(evt);
             }
         });
-        jPanel4.add(btn_acceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 360, 210, 50));
+        jPanel4.add(btn_acceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 290, 50));
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 470));
+        lbl_img_empre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel4.add(lbl_img_empre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 210, 180));
+        lbl_img_empre.getAccessibleContext().setAccessibleDescription("");
+
+        jLabel3.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        jLabel3.setText("Necttic");
+        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, -1, 40));
+
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 500));
 
         pack();
         setLocationRelativeTo(null);
@@ -400,6 +353,8 @@ public class NECTTIC extends javax.swing.JFrame {
                     new NECTTIC().setVisible(true);
                 } catch (SocketException ex) {
                     Logger.getLogger(NECTTIC.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(NECTTIC.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
             }
@@ -415,20 +370,11 @@ public class NECTTIC extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel lbl_img_empre;
     private javax.swing.JLabel lbl_mac_compu;
+    private javax.swing.JLabel lbl_nom_empre;
     private javax.swing.JPasswordField txt_pass;
     private javax.swing.JTextField txt_usu;
     // End of variables declaration//GEN-END:variables
@@ -529,4 +475,42 @@ public class NECTTIC extends javax.swing.JFrame {
     }
 
     private String dark;
+    
+    
+    
+    void cargarConfig() throws IOException {
+        String mostrar = "SELECT emp_imag,emp_nom FROM empresas";
+        ImageIcon foto;
+        InputStream is;
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(mostrar);
+            while (rs.next()) {
+               
+                is = rs.getBinaryStream(1);
+                lbl_nom_empre.setText(rs.getString(2));
+                if (is == null) {
+                    System.out.println("imagen vacia");
+                } else {
+
+                    BufferedImage bi = ImageIO.read(is);
+                    foto = new ImageIcon(bi);
+                    Image img = foto.getImage();
+                    Image newimg = img.getScaledInstance(150, 120, java.awt.Image.SCALE_SMOOTH);
+                    ImageIcon newicon = new ImageIcon(newimg);
+                    lbl_img_empre.setIcon(newicon);
+
+                }
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(NECTTIC.class
+                    .getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
+        }
+
+    }
 }

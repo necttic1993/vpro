@@ -61,11 +61,11 @@ public class Caja_caja extends javax.swing.JDialog {
     public Caja_caja(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        
+
         this.setSize(999, 500);
-          if (Principal.lbl_mode_dark.getText().equals("oscuro")) {
+        if (Principal.lbl_mode_dark.getText().equals("oscuro")) {
             panel_caja.setBackground(new java.awt.Color(69, 84, 92));
-            
+
         }
         txt_nom_cuenta.setDisabledTextColor(Color.blue);
         txt_his_caja.setDisabledTextColor(Color.blue);
@@ -1226,7 +1226,7 @@ public class Caja_caja extends javax.swing.JDialog {
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
 
-        if (lbl_total_gs.getText().equals("0") || txt_alma_caja.getText().equals("TODOS") || txt_nro_his.getText().equals("") || txt_id_his.getText().equals("") ) {
+        if (lbl_total_gs.getText().equals("0") || txt_alma_caja.getText().equals("TODOS") || txt_nro_his.getText().equals("") || txt_id_his.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Realice primero una operación válida");
         } else {
             id_doc_nro = txt_nro_docu.getText();
@@ -1242,15 +1242,12 @@ public class Caja_caja extends javax.swing.JDialog {
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        if (txt_nro_his.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Debe seleccionar una cuenta válida");
-        } else {
-            id_nro_cuenta = txt_nro_his.getText();
-            sucursal=txt_alma_caja.getText();
-            List_forma_pago_caja LFP;
-            LFP = new List_forma_pago_caja(new javax.swing.JDialog(), true);
-            LFP.setVisible(true);
-        }
+
+         //   id_nro_cuenta = txt_nro_his.getText();
+        //  sucursal = txt_alma_caja.getText();
+        List_forma_pago_caja LFP;
+        LFP = new List_forma_pago_caja(new javax.swing.JDialog(), true);
+        LFP.setVisible(true);
 
 
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -4798,8 +4795,8 @@ public class Caja_caja extends javax.swing.JDialog {
 
     void cargarUsu() {
 
-        String user = lbl_usu_nom.getText();
-        String mostrar = "select * from usuarios where usu='" + user + "' ";
+        String user = Principal.lbl_id_user.getText();
+        String mostrar = "select * from usuarios where usu_cod='" + user + "' ";
 
         try {
             Connection cn = conectar.getInstance().getConnection();

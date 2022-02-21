@@ -339,7 +339,7 @@ public class Principal_ventas_facturas extends javax.swing.JDialog {
     void codigos() {
 
         String c = "";
-        String SQL = "select max(id_nulos) from ventas_facturacion";
+        String SQL = "select max(id_nulos) from ventas_facturacion ";
 
         try {
             Connection cn = conectar.getInstance().getConnection();

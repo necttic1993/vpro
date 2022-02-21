@@ -53,6 +53,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
             panel_razon_pro.setBackground(new java.awt.Color(69, 84, 92));
 
         }
+         cargarUsu();
 
     }
 
@@ -267,212 +268,217 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Seleccione un Almacén/Sucursal válido");
         } else {
 
-            if (lbl_almacen_stock_vta.getText().equals("0000001")) {
-                cargarVentas(date1, date2, cod);
-                calcularcantida();
-                calcularMonto();
-            }
+            if (txt_cod_cli_stock.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Seleccione un cliente válido");
+            } else {
 
-            if (lbl_almacen_stock_vta.getText().equals("0000002")) {
+                if (lbl_almacen_stock_vta.getText().equals("0000001")) {
+                    cargarVentas(date1, date2, cod);
+                    calcularcantida();
+                    calcularMonto();
+                }
 
-                cargarVentas_2(date1, date2, cod);
-                calcularcantida();
-                calcularMonto();
+                if (lbl_almacen_stock_vta.getText().equals("0000002")) {
 
-            }
-            if (lbl_almacen_stock_vta.getText().equals("0000003")) {
+                    cargarVentas_2(date1, date2, cod);
+                    calcularcantida();
+                    calcularMonto();
 
-                cargarVentas_3(date1, date2, cod);
-                calcularcantida();
-                calcularMonto();
+                }
+                if (lbl_almacen_stock_vta.getText().equals("0000003")) {
 
-            }
-            if (lbl_almacen_stock_vta.getText().equals("0000004")) {
+                    cargarVentas_3(date1, date2, cod);
+                    calcularcantida();
+                    calcularMonto();
 
-                cargarVentas_4(date1, date2, cod);
-                calcularcantida();
-                calcularMonto();
+                }
+                if (lbl_almacen_stock_vta.getText().equals("0000004")) {
 
-            }
-            if (lbl_almacen_stock_vta.getText().equals("0000005")) {
+                    cargarVentas_4(date1, date2, cod);
+                    calcularcantida();
+                    calcularMonto();
 
-                cargarVentas_5(date1, date2, cod);
-                calcularcantida();
-                calcularMonto();
+                }
+                if (lbl_almacen_stock_vta.getText().equals("0000005")) {
 
-            }
-            if (lbl_almacen_stock_vta.getText().equals("0000006")) {
+                    cargarVentas_5(date1, date2, cod);
+                    calcularcantida();
+                    calcularMonto();
 
-                cargarVentas_6(date1, date2, cod);
-                calcularcantida();
-                calcularMonto();
+                }
+                if (lbl_almacen_stock_vta.getText().equals("0000006")) {
 
-            }
-            if (lbl_almacen_stock_vta.getText().equals("0000007")) {
+                    cargarVentas_6(date1, date2, cod);
+                    calcularcantida();
+                    calcularMonto();
 
-                cargarVentas_7(date1, date2, cod);
-                calcularcantida();
-                calcularMonto();
+                }
+                if (lbl_almacen_stock_vta.getText().equals("0000007")) {
 
-            }
-            if (lbl_almacen_stock_vta.getText().equals("0000008")) {
+                    cargarVentas_7(date1, date2, cod);
+                    calcularcantida();
+                    calcularMonto();
 
-                cargarVentas_8(date1, date2, cod);
-                calcularcantida();
-                calcularMonto();
+                }
+                if (lbl_almacen_stock_vta.getText().equals("0000008")) {
 
-            }
-            if (lbl_almacen_stock_vta.getText().equals("0000009")) {
+                    cargarVentas_8(date1, date2, cod);
+                    calcularcantida();
+                    calcularMonto();
 
-                cargarVentas_9(date1, date2, cod);
-                calcularcantida();
-                calcularMonto();
+                }
+                if (lbl_almacen_stock_vta.getText().equals("0000009")) {
 
-            }
-            if (lbl_almacen_stock_vta.getText().equals("0000010")) {
+                    cargarVentas_9(date1, date2, cod);
+                    calcularcantida();
+                    calcularMonto();
 
-                cargarVentas_10(date1, date2, cod);
-                calcularcantida();
-                calcularMonto();
+                }
+                if (lbl_almacen_stock_vta.getText().equals("0000010")) {
 
-            }
-            if (lbl_almacen_stock_vta.getText().equals("0000011")) {
+                    cargarVentas_10(date1, date2, cod);
+                    calcularcantida();
+                    calcularMonto();
 
-                cargarVentas_11(date1, date2, cod);
-                calcularcantida();
-                calcularMonto();
+                }
+                if (lbl_almacen_stock_vta.getText().equals("0000011")) {
 
-            }
-            if (lbl_almacen_stock_vta.getText().equals("0000012")) {
+                    cargarVentas_11(date1, date2, cod);
+                    calcularcantida();
+                    calcularMonto();
 
-                cargarVentas_12(date1, date2, cod);
-                calcularcantida();
-                calcularMonto();
+                }
+                if (lbl_almacen_stock_vta.getText().equals("0000012")) {
 
-            }
-            if (lbl_almacen_stock_vta.getText().equals("0000013")) {
+                    cargarVentas_12(date1, date2, cod);
+                    calcularcantida();
+                    calcularMonto();
 
-                cargarVentas_13(date1, date2, cod);
-                calcularcantida();
-                calcularMonto();
+                }
+                if (lbl_almacen_stock_vta.getText().equals("0000013")) {
 
-            }
-            if (lbl_almacen_stock_vta.getText().equals("0000014")) {
+                    cargarVentas_13(date1, date2, cod);
+                    calcularcantida();
+                    calcularMonto();
 
-                cargarVentas_14(date1, date2, cod);
-                calcularcantida();
-                calcularMonto();
-            }
-            if (lbl_almacen_stock_vta.getText().equals("0000015")) {
+                }
+                if (lbl_almacen_stock_vta.getText().equals("0000014")) {
 
-                cargarVentas_15(date1, date2, cod);
-                calcularcantida();
-                calcularMonto();
+                    cargarVentas_14(date1, date2, cod);
+                    calcularcantida();
+                    calcularMonto();
+                }
+                if (lbl_almacen_stock_vta.getText().equals("0000015")) {
 
-            }
-            if (lbl_almacen_stock_vta.getText().equals("0000016")) {
+                    cargarVentas_15(date1, date2, cod);
+                    calcularcantida();
+                    calcularMonto();
 
-                cargarVentas_16(date1, date2, cod);
-                calcularcantida();
+                }
+                if (lbl_almacen_stock_vta.getText().equals("0000016")) {
 
-            }
-            if (lbl_almacen_stock_vta.getText().equals("0000017")) {
+                    cargarVentas_16(date1, date2, cod);
+                    calcularcantida();
 
-                cargarVentas_17(date1, date2, cod);
-                calcularcantida();
-                calcularMonto();
+                }
+                if (lbl_almacen_stock_vta.getText().equals("0000017")) {
 
-            }
-            if (lbl_almacen_stock_vta.getText().equals("0000018")) {
+                    cargarVentas_17(date1, date2, cod);
+                    calcularcantida();
+                    calcularMonto();
 
-                cargarVentas_18(date1, date2, cod);
-                calcularcantida();
-                calcularMonto();
+                }
+                if (lbl_almacen_stock_vta.getText().equals("0000018")) {
 
-            }
-            if (lbl_almacen_stock_vta.getText().equals("0000019")) {
+                    cargarVentas_18(date1, date2, cod);
+                    calcularcantida();
+                    calcularMonto();
 
-                cargarVentas_19(date1, date2, cod);
-                calcularcantida();
-                calcularMonto();
+                }
+                if (lbl_almacen_stock_vta.getText().equals("0000019")) {
 
-            }
-            if (lbl_almacen_stock_vta.getText().equals("0000020")) {
+                    cargarVentas_19(date1, date2, cod);
+                    calcularcantida();
+                    calcularMonto();
 
-                cargarVentas_20(date1, date2, cod);
-                calcularcantida();
-                calcularMonto();
+                }
+                if (lbl_almacen_stock_vta.getText().equals("0000020")) {
 
-            }
-            if (lbl_almacen_stock_vta.getText().equals("0000021")) {
+                    cargarVentas_20(date1, date2, cod);
+                    calcularcantida();
+                    calcularMonto();
 
-                cargarVentas_21(date1, date2, cod);
-                calcularcantida();
-                calcularMonto();
+                }
+                if (lbl_almacen_stock_vta.getText().equals("0000021")) {
 
-            }
-            if (lbl_almacen_stock_vta.getText().equals("0000022")) {
+                    cargarVentas_21(date1, date2, cod);
+                    calcularcantida();
+                    calcularMonto();
 
-                cargarVentas_22(date1, date2, cod);
-                calcularcantida();
-                calcularMonto();
+                }
+                if (lbl_almacen_stock_vta.getText().equals("0000022")) {
 
-            }
-            if (lbl_almacen_stock_vta.getText().equals("0000023")) {
+                    cargarVentas_22(date1, date2, cod);
+                    calcularcantida();
+                    calcularMonto();
 
-                cargarVentas_23(date1, date2, cod);
-                calcularcantida();
-                calcularMonto();
+                }
+                if (lbl_almacen_stock_vta.getText().equals("0000023")) {
 
-            }
-            if (lbl_almacen_stock_vta.getText().equals("0000024")) {
+                    cargarVentas_23(date1, date2, cod);
+                    calcularcantida();
+                    calcularMonto();
 
-                cargarVentas_24(date1, date2, cod);
-                calcularcantida();
-                calcularMonto();
+                }
+                if (lbl_almacen_stock_vta.getText().equals("0000024")) {
 
-            }
-            if (lbl_almacen_stock_vta.getText().equals("0000025")) {
+                    cargarVentas_24(date1, date2, cod);
+                    calcularcantida();
+                    calcularMonto();
 
-                cargarVentas_25(date1, date2, cod);
-                calcularcantida();
-                calcularMonto();
+                }
+                if (lbl_almacen_stock_vta.getText().equals("0000025")) {
 
-            }
-            if (lbl_almacen_stock_vta.getText().equals("0000026")) {
+                    cargarVentas_25(date1, date2, cod);
+                    calcularcantida();
+                    calcularMonto();
 
-                cargarVentas_26(date1, date2, cod);
-                calcularcantida();
-                calcularMonto();
+                }
+                if (lbl_almacen_stock_vta.getText().equals("0000026")) {
 
-            }
-            if (lbl_almacen_stock_vta.getText().equals("0000027")) {
+                    cargarVentas_26(date1, date2, cod);
+                    calcularcantida();
+                    calcularMonto();
 
-                cargarVentas_27(date1, date2, cod);
-                calcularcantida();
-                calcularMonto();
+                }
+                if (lbl_almacen_stock_vta.getText().equals("0000027")) {
 
-            }
-            if (lbl_almacen_stock_vta.getText().equals("0000028")) {
+                    cargarVentas_27(date1, date2, cod);
+                    calcularcantida();
+                    calcularMonto();
 
-                cargarVentas_28(date1, date2, cod);
-                calcularcantida();
-                calcularMonto();
+                }
+                if (lbl_almacen_stock_vta.getText().equals("0000028")) {
 
-            }
-            if (lbl_almacen_stock_vta.getText().equals("0000029")) {
+                    cargarVentas_28(date1, date2, cod);
+                    calcularcantida();
+                    calcularMonto();
 
-                cargarVentas_29(date1, date2, cod);
-                calcularcantida();
-                calcularMonto();
+                }
+                if (lbl_almacen_stock_vta.getText().equals("0000029")) {
 
-            }
-            if (lbl_almacen_stock_vta.getText().equals("0000030")) {
+                    cargarVentas_29(date1, date2, cod);
+                    calcularcantida();
+                    calcularMonto();
 
-                cargarVentas_30(date1, date2, cod);
-                calcularcantida();
-                calcularMonto();
+                }
+                if (lbl_almacen_stock_vta.getText().equals("0000030")) {
 
+                    cargarVentas_30(date1, date2, cod);
+                    calcularcantida();
+                    calcularMonto();
+
+                }
             }
         }
     }//GEN-LAST:event_btn_buscarActionPerformed
@@ -490,10 +496,12 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
     }//GEN-LAST:event_txt_cod_cli_stockActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if (Principal.lbl_usu_almacen.getText().equals("TODOS")) {
+            Seleccion_surc_vta_stock slrf;
+            slrf = new Seleccion_surc_vta_stock(new javax.swing.JDialog(), true);
+            slrf.setVisible(true);
+        }
 
-        Seleccion_surc_vta_stock slrf;
-        slrf = new Seleccion_surc_vta_stock(new javax.swing.JDialog(), true);
-        slrf.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -626,7 +634,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
     void cargarVentas(Date fecha_ini, Date fecha_fin, String cod) {
 
         if (ch_suma_stock.isSelected()) {
-            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,s.nom_cli_ventas,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
+            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
 
             String[] titulos = {"Id Producto", "N° Ventas", "Cantidad", "Descripción", "Total Ventas", "Fecha"};
             String[] Registros = new String[13];
@@ -642,7 +650,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(6));
+                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(5));
                     Registros[5] = "00/00/0000";
 
                     model.addRow(Registros);
@@ -691,7 +699,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
     void cargarVentas_2(Date fecha_ini, Date fecha_fin, String cod) {
 
         if (ch_suma_stock.isSelected()) {
-            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,s.nom_cli_ventas,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_2 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_2 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
+            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_2 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_2 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
 
             String[] titulos = {"Id Producto", "N° Ventas", "Cantidad", "Descripción", "Total Ventas", "Fecha"};
             String[] Registros = new String[13];
@@ -707,7 +715,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(6));
+                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(5));
                     Registros[5] = "00/00/0000";
 
                     model.addRow(Registros);
@@ -756,7 +764,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
     void cargarVentas_3(Date fecha_ini, Date fecha_fin, String cod) {
 
         if (ch_suma_stock.isSelected()) {
-            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,s.nom_cli_ventas,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_3 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_3 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
+            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_3 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_3 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
 
             String[] titulos = {"Id Producto", "N° Ventas", "Cantidad", "Descripción", "Total Ventas", "Fecha"};
             String[] Registros = new String[13];
@@ -772,7 +780,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(6));
+                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(5));
                     Registros[5] = "00/00/0000";
 
                     model.addRow(Registros);
@@ -820,8 +828,8 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
 
     void cargarVentas_4(Date fecha_ini, Date fecha_fin, String cod) {
 
-         if (ch_suma_stock.isSelected()) {
-            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,s.nom_cli_ventas,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_4 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_4 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
+        if (ch_suma_stock.isSelected()) {
+            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_4 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_4 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
 
             String[] titulos = {"Id Producto", "N° Ventas", "Cantidad", "Descripción", "Total Ventas", "Fecha"};
             String[] Registros = new String[13];
@@ -837,7 +845,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(6));
+                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(5));
                     Registros[5] = "00/00/0000";
 
                     model.addRow(Registros);
@@ -885,8 +893,8 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
 
     void cargarVentas_5(Date fecha_ini, Date fecha_fin, String cod) {
 
-         if (ch_suma_stock.isSelected()) {
-            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,s.nom_cli_ventas,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_5 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_5 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
+        if (ch_suma_stock.isSelected()) {
+            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_5 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_5 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
 
             String[] titulos = {"Id Producto", "N° Ventas", "Cantidad", "Descripción", "Total Ventas", "Fecha"};
             String[] Registros = new String[13];
@@ -902,7 +910,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(6));
+                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(5));
                     Registros[5] = "00/00/0000";
 
                     model.addRow(Registros);
@@ -951,7 +959,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
     void cargarVentas_6(Date fecha_ini, Date fecha_fin, String cod) {
 
         if (ch_suma_stock.isSelected()) {
-            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,s.nom_cli_ventas,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_6 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_6 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
+            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_6 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_6 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
 
             String[] titulos = {"Id Producto", "N° Ventas", "Cantidad", "Descripción", "Total Ventas", "Fecha"};
             String[] Registros = new String[13];
@@ -967,7 +975,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(6));
+                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(5));
                     Registros[5] = "00/00/0000";
 
                     model.addRow(Registros);
@@ -1015,8 +1023,8 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
 
     void cargarVentas_7(Date fecha_ini, Date fecha_fin, String cod) {
 
-       if (ch_suma_stock.isSelected()) {
-            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,s.nom_cli_ventas,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_7 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_7 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
+        if (ch_suma_stock.isSelected()) {
+            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_7 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_7 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
 
             String[] titulos = {"Id Producto", "N° Ventas", "Cantidad", "Descripción", "Total Ventas", "Fecha"};
             String[] Registros = new String[13];
@@ -1032,7 +1040,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(6));
+                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(5));
                     Registros[5] = "00/00/0000";
 
                     model.addRow(Registros);
@@ -1081,7 +1089,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
     void cargarVentas_8(Date fecha_ini, Date fecha_fin, String cod) {
 
         if (ch_suma_stock.isSelected()) {
-            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,s.nom_cli_ventas,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_8 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_8 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
+            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_8 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_8 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
 
             String[] titulos = {"Id Producto", "N° Ventas", "Cantidad", "Descripción", "Total Ventas", "Fecha"};
             String[] Registros = new String[13];
@@ -1097,7 +1105,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(6));
+                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(5));
                     Registros[5] = "00/00/0000";
 
                     model.addRow(Registros);
@@ -1146,7 +1154,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
     void cargarVentas_9(Date fecha_ini, Date fecha_fin, String cod) {
 
         if (ch_suma_stock.isSelected()) {
-            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,s.nom_cli_ventas,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_9 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_9 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
+            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_9 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_9 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
 
             String[] titulos = {"Id Producto", "N° Ventas", "Cantidad", "Descripción", "Total Ventas", "Fecha"};
             String[] Registros = new String[13];
@@ -1162,7 +1170,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(6));
+                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(5));
                     Registros[5] = "00/00/0000";
 
                     model.addRow(Registros);
@@ -1210,8 +1218,8 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
 
     void cargarVentas_10(Date fecha_ini, Date fecha_fin, String cod) {
 
-         if (ch_suma_stock.isSelected()) {
-            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,s.nom_cli_ventas,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_10 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_10 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
+        if (ch_suma_stock.isSelected()) {
+            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_10 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_10 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
 
             String[] titulos = {"Id Producto", "N° Ventas", "Cantidad", "Descripción", "Total Ventas", "Fecha"};
             String[] Registros = new String[13];
@@ -1227,7 +1235,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(6));
+                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(5));
                     Registros[5] = "00/00/0000";
 
                     model.addRow(Registros);
@@ -1276,7 +1284,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
     void cargarVentas_11(Date fecha_ini, Date fecha_fin, String cod) {
 
         if (ch_suma_stock.isSelected()) {
-            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,s.nom_cli_ventas,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_11 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_11 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
+            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_11 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_11 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
 
             String[] titulos = {"Id Producto", "N° Ventas", "Cantidad", "Descripción", "Total Ventas", "Fecha"};
             String[] Registros = new String[13];
@@ -1292,7 +1300,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(6));
+                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(5));
                     Registros[5] = "00/00/0000";
 
                     model.addRow(Registros);
@@ -1339,8 +1347,8 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
     }
 
     void cargarVentas_12(Date fecha_ini, Date fecha_fin, String cod) {
- if (ch_suma_stock.isSelected()) {
-            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,s.nom_cli_ventas,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_12 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_12 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
+        if (ch_suma_stock.isSelected()) {
+            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_12 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_12 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
 
             String[] titulos = {"Id Producto", "N° Ventas", "Cantidad", "Descripción", "Total Ventas", "Fecha"};
             String[] Registros = new String[13];
@@ -1356,7 +1364,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(6));
+                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(5));
                     Registros[5] = "00/00/0000";
 
                     model.addRow(Registros);
@@ -1405,7 +1413,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
     void cargarVentas_13(Date fecha_ini, Date fecha_fin, String cod) {
 
         if (ch_suma_stock.isSelected()) {
-            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,s.nom_cli_ventas,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_13 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_13 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
+            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_13 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_13 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
 
             String[] titulos = {"Id Producto", "N° Ventas", "Cantidad", "Descripción", "Total Ventas", "Fecha"};
             String[] Registros = new String[13];
@@ -1421,7 +1429,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(6));
+                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(5));
                     Registros[5] = "00/00/0000";
 
                     model.addRow(Registros);
@@ -1469,8 +1477,8 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
 
     void cargarVentas_14(Date fecha_ini, Date fecha_fin, String cod) {
 
-       if (ch_suma_stock.isSelected()) {
-            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,s.nom_cli_ventas,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_14 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_14 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
+        if (ch_suma_stock.isSelected()) {
+            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_14 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_14 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
 
             String[] titulos = {"Id Producto", "N° Ventas", "Cantidad", "Descripción", "Total Ventas", "Fecha"};
             String[] Registros = new String[13];
@@ -1486,7 +1494,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(6));
+                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(5));
                     Registros[5] = "00/00/0000";
 
                     model.addRow(Registros);
@@ -1534,8 +1542,8 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
 
     void cargarVentas_15(Date fecha_ini, Date fecha_fin, String cod) {
 
-         if (ch_suma_stock.isSelected()) {
-            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,s.nom_cli_ventas,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_15 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_15 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
+        if (ch_suma_stock.isSelected()) {
+            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_15 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_15 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
 
             String[] titulos = {"Id Producto", "N° Ventas", "Cantidad", "Descripción", "Total Ventas", "Fecha"};
             String[] Registros = new String[13];
@@ -1551,7 +1559,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(6));
+                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(5));
                     Registros[5] = "00/00/0000";
 
                     model.addRow(Registros);
@@ -1599,8 +1607,8 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
 
     void cargarVentas_16(Date fecha_ini, Date fecha_fin, String cod) {
 
-         if (ch_suma_stock.isSelected()) {
-            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,s.nom_cli_ventas,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_16 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_16 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
+        if (ch_suma_stock.isSelected()) {
+            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_16 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_16 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
 
             String[] titulos = {"Id Producto", "N° Ventas", "Cantidad", "Descripción", "Total Ventas", "Fecha"};
             String[] Registros = new String[13];
@@ -1616,7 +1624,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(6));
+                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(5));
                     Registros[5] = "00/00/0000";
 
                     model.addRow(Registros);
@@ -1665,7 +1673,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
     void cargarVentas_17(Date fecha_ini, Date fecha_fin, String cod) {
 
         if (ch_suma_stock.isSelected()) {
-            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,s.nom_cli_ventas,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_17 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_17 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
+            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_17 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_17 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
 
             String[] titulos = {"Id Producto", "N° Ventas", "Cantidad", "Descripción", "Total Ventas", "Fecha"};
             String[] Registros = new String[13];
@@ -1681,7 +1689,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(6));
+                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(5));
                     Registros[5] = "00/00/0000";
 
                     model.addRow(Registros);
@@ -1729,8 +1737,8 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
 
     void cargarVentas_18(Date fecha_ini, Date fecha_fin, String cod) {
 
-       if (ch_suma_stock.isSelected()) {
-            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,s.nom_cli_ventas,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_18 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_18 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
+        if (ch_suma_stock.isSelected()) {
+            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_18 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_18 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
 
             String[] titulos = {"Id Producto", "N° Ventas", "Cantidad", "Descripción", "Total Ventas", "Fecha"};
             String[] Registros = new String[13];
@@ -1746,7 +1754,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(6));
+                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(5));
                     Registros[5] = "00/00/0000";
 
                     model.addRow(Registros);
@@ -1794,8 +1802,8 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
 
     void cargarVentas_19(Date fecha_ini, Date fecha_fin, String cod) {
 
-       if (ch_suma_stock.isSelected()) {
-            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,s.nom_cli_ventas,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_19 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_19 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
+        if (ch_suma_stock.isSelected()) {
+            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_19 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_19 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
 
             String[] titulos = {"Id Producto", "N° Ventas", "Cantidad", "Descripción", "Total Ventas", "Fecha"};
             String[] Registros = new String[13];
@@ -1811,7 +1819,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(6));
+                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(5));
                     Registros[5] = "00/00/0000";
 
                     model.addRow(Registros);
@@ -1859,8 +1867,8 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
 
     void cargarVentas_20(Date fecha_ini, Date fecha_fin, String cod) {
 
-         if (ch_suma_stock.isSelected()) {
-            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,s.nom_cli_ventas,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_20 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_20 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
+        if (ch_suma_stock.isSelected()) {
+            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_20 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_20 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
 
             String[] titulos = {"Id Producto", "N° Ventas", "Cantidad", "Descripción", "Total Ventas", "Fecha"};
             String[] Registros = new String[13];
@@ -1876,7 +1884,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(6));
+                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(5));
                     Registros[5] = "00/00/0000";
 
                     model.addRow(Registros);
@@ -1924,8 +1932,8 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
 
     void cargarVentas_21(Date fecha_ini, Date fecha_fin, String cod) {
 
-       if (ch_suma_stock.isSelected()) {
-            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,s.nom_cli_ventas,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_21 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_21 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
+        if (ch_suma_stock.isSelected()) {
+            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_21 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_21 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
 
             String[] titulos = {"Id Producto", "N° Ventas", "Cantidad", "Descripción", "Total Ventas", "Fecha"};
             String[] Registros = new String[13];
@@ -1941,7 +1949,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(6));
+                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(5));
                     Registros[5] = "00/00/0000";
 
                     model.addRow(Registros);
@@ -1989,8 +1997,8 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
 
     void cargarVentas_22(Date fecha_ini, Date fecha_fin, String cod) {
 
-       if (ch_suma_stock.isSelected()) {
-            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,s.nom_cli_ventas,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_22 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_22 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
+        if (ch_suma_stock.isSelected()) {
+            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_22 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_22 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
 
             String[] titulos = {"Id Producto", "N° Ventas", "Cantidad", "Descripción", "Total Ventas", "Fecha"};
             String[] Registros = new String[13];
@@ -2006,7 +2014,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(6));
+                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(5));
                     Registros[5] = "00/00/0000";
 
                     model.addRow(Registros);
@@ -2053,8 +2061,8 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
     }
 
     void cargarVentas_23(Date fecha_ini, Date fecha_fin, String cod) {
- if (ch_suma_stock.isSelected()) {
-            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,s.nom_cli_ventas,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_23 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_23 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
+        if (ch_suma_stock.isSelected()) {
+            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_23 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_23 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
 
             String[] titulos = {"Id Producto", "N° Ventas", "Cantidad", "Descripción", "Total Ventas", "Fecha"};
             String[] Registros = new String[13];
@@ -2070,7 +2078,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(6));
+                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(5));
                     Registros[5] = "00/00/0000";
 
                     model.addRow(Registros);
@@ -2119,7 +2127,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
     void cargarVentas_24(Date fecha_ini, Date fecha_fin, String cod) {
 
         if (ch_suma_stock.isSelected()) {
-            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,s.nom_cli_ventas,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_24 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_24 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
+            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_24 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_24 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
 
             String[] titulos = {"Id Producto", "N° Ventas", "Cantidad", "Descripción", "Total Ventas", "Fecha"};
             String[] Registros = new String[13];
@@ -2135,7 +2143,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(6));
+                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(5));
                     Registros[5] = "00/00/0000";
 
                     model.addRow(Registros);
@@ -2183,8 +2191,8 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
 
     void cargarVentas_25(Date fecha_ini, Date fecha_fin, String cod) {
 
-       if (ch_suma_stock.isSelected()) {
-            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,s.nom_cli_ventas,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_25 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_25 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
+        if (ch_suma_stock.isSelected()) {
+            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_25 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_25 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
 
             String[] titulos = {"Id Producto", "N° Ventas", "Cantidad", "Descripción", "Total Ventas", "Fecha"};
             String[] Registros = new String[13];
@@ -2200,7 +2208,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(6));
+                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(5));
                     Registros[5] = "00/00/0000";
 
                     model.addRow(Registros);
@@ -2248,8 +2256,8 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
 
     void cargarVentas_26(Date fecha_ini, Date fecha_fin, String cod) {
 
-         if (ch_suma_stock.isSelected()) {
-            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,s.nom_cli_ventas,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_26 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_26 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
+        if (ch_suma_stock.isSelected()) {
+            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_26 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_26 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
 
             String[] titulos = {"Id Producto", "N° Ventas", "Cantidad", "Descripción", "Total Ventas", "Fecha"};
             String[] Registros = new String[13];
@@ -2265,7 +2273,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(6));
+                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(5));
                     Registros[5] = "00/00/0000";
 
                     model.addRow(Registros);
@@ -2314,7 +2322,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
     void cargarVentas_27(Date fecha_ini, Date fecha_fin, String cod) {
 
         if (ch_suma_stock.isSelected()) {
-            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,s.nom_cli_ventas,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_27 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_27 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
+            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_27 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_27 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
 
             String[] titulos = {"Id Producto", "N° Ventas", "Cantidad", "Descripción", "Total Ventas", "Fecha"};
             String[] Registros = new String[13];
@@ -2330,7 +2338,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(6));
+                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(5));
                     Registros[5] = "00/00/0000";
 
                     model.addRow(Registros);
@@ -2378,8 +2386,8 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
 
     void cargarVentas_28(Date fecha_ini, Date fecha_fin, String cod) {
 
-         if (ch_suma_stock.isSelected()) {
-            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,s.nom_cli_ventas,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_28 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_28 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
+        if (ch_suma_stock.isSelected()) {
+            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_28 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_28 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
 
             String[] titulos = {"Id Producto", "N° Ventas", "Cantidad", "Descripción", "Total Ventas", "Fecha"};
             String[] Registros = new String[13];
@@ -2395,7 +2403,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(6));
+                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(5));
                     Registros[5] = "00/00/0000";
 
                     model.addRow(Registros);
@@ -2443,8 +2451,8 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
 
     void cargarVentas_29(Date fecha_ini, Date fecha_fin, String cod) {
 
-       if (ch_suma_stock.isSelected()) {
-            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,s.nom_cli_ventas,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_29 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_29 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
+        if (ch_suma_stock.isSelected()) {
+            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_29 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_29 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
 
             String[] titulos = {"Id Producto", "N° Ventas", "Cantidad", "Descripción", "Total Ventas", "Fecha"};
             String[] Registros = new String[13];
@@ -2460,7 +2468,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(6));
+                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(5));
                     Registros[5] = "00/00/0000";
 
                     model.addRow(Registros);
@@ -2509,7 +2517,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
     void cargarVentas_30(Date fecha_ini, Date fecha_fin, String cod) {
 
         if (ch_suma_stock.isSelected()) {
-            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,s.nom_cli_ventas,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_30 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_30 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
+            String mostrar = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_30 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod inner join ventas_30 as  s on v.num_bol=s.num_bol WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' AND s.cod_cli_ventas='" + cod + "' group by v.cod_pro ";
 
             String[] titulos = {"Id Producto", "N° Ventas", "Cantidad", "Descripción", "Total Ventas", "Fecha"};
             String[] Registros = new String[13];
@@ -2525,7 +2533,7 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(6));
+                    Registros[4] = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rs.getString(5));
                     Registros[5] = "00/00/0000";
 
                     model.addRow(Registros);
@@ -2624,5 +2632,29 @@ public class control_ventas_stock_clientes extends javax.swing.JDialog {
         NroFormatado = format.format(NumeroIntacto);
         String LuzParaMisOjos = NroFormatado;
         return LuzParaMisOjos;
+    }
+
+    void cargarUsu() {
+
+        String user = Principal.lbl_id_user.getText();
+        String mostrar = "select * from usuarios where usu_cod='" + user + "' ";
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(mostrar);
+            while (rs.next()) {
+
+                lbl_almacen_stock_vta.setText(rs.getString(6));
+
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(control_ventas_stock_clientes.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 }

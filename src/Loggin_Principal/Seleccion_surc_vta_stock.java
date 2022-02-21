@@ -7,7 +7,6 @@ package Loggin_Principal;
 
 import Clases.machusculas;
 import Conexion_DB.conectar;
-import Estadisticas_productos.control_ventas_stock;
 import Estadisticas_productos.control_ventas_stock_clientes;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;

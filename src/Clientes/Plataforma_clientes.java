@@ -160,7 +160,7 @@ public class Plataforma_clientes extends javax.swing.JDialog {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 10, 150, 50));
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 10, 130, 50));
 
         txt_bus.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txt_bus.setToolTipText("Buscar Registros");

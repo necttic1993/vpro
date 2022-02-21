@@ -59,6 +59,7 @@ import Devoluciones.Surc_6.Principal_devoluciones_6;
 import Devoluciones.Surc_7.Principal_devoluciones_7;
 import Devoluciones.Surc_8.Principal_devoluciones_8;
 import Devoluciones.Surc_9.Principal_devoluciones_9;
+import Estadisticas_productos.Listado_de_transferencias;
 import Estadisticas_productos.Listado_marcas_pro;
 import Estadisticas_productos.Pro_con_stock;
 import Estadisticas_productos.Productos_CP;
@@ -81,6 +82,8 @@ import Productos.Almaccen_Principal;
 import Productos.Categorias_Espec_Principal;
 import Productos.Categorias_Principal;
 import Productos.Colores_Principal;
+import Productos.Consultas.Consulta_stock;
+import Productos.Consultas.Productos_consulta_stock;
 import Productos.Departamentos_Principal;
 import Productos.Exporta_excel_sucursales;
 import Productos.Exporta_excell;
@@ -98,9 +101,11 @@ import Ventas.Fact_surc_11.Principal_ventas_surc_11;
 import Ventas.Fact_surc_13.Principal_ventas_facturas_13;
 import Ventas.Fact_surc_14.Principal_ventas_facturas_14;
 import Ventas.Fact_surc_16.Principal_ventas_facturas_16;
+import Ventas.Fact_surc_17.Principal_ventas_facturas_17;
 import Ventas.Fact_surc_18.Principal_ventas_facturas_18;
 import Ventas.Fact_surc_19.Principal_ventas_surc_19;
 import Ventas.Fact_surc_2.Principal_ventas_surc_2;
+import Ventas.Fact_surc_20.Principal_ventas_facturas_20;
 import Ventas.Fact_surc_21.Principal_ventas_facturas_21;
 import Ventas.Fact_surc_22.Principal_ventas_surc_22;
 import Ventas.Fact_surc_23.Principal_ventas_facturas_23;
@@ -112,14 +117,41 @@ import Ventas.Fact_surc_28.Principal_ventas_facturas_28;
 import Ventas.Fact_surc_3.Principal_ventas_surc_3;
 import Ventas.Fact_surc_4.Principal_ventas_facturas_4;
 import Ventas.Fact_surc_6.Principal_ventas_facturas_6;
+import Ventas.Fact_surc_7.Principal_ventas_facturas_7;
 import Ventas.Fact_surc_8.Principal_ventas_facturas_8;
 import Ventas.Fact_surc_9.Principal_ventas_facturas_9;
 import Ventas.Facturas.Principal_ventas_facturas;
 import Ventas.Listado_lucro_porcenta.ventas_lucro_departamento;
 import Ventas.Principal_ventas;
 import Ventas.libro_ventas.Libro_ventas_lista;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_10;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_11;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_12;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_13;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_14;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_15;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_16;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_17;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_18;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_19;
 import Ventas.libro_ventas.Libro_ventas_lista_surc_2;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_20;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_21;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_22;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_24;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_25;
 import Ventas.libro_ventas.Libro_ventas_lista_surc_26;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_27;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_28;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_29;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_3;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_30;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_4;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_5;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_6;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_7;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_8;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_9;
 import Ventas_10.Principal_ventas_10;
 import Ventas_11.Principal_ventas_11;
 import Ventas_12.Principal_ventas_12;
@@ -203,8 +235,8 @@ public class Principal extends javax.swing.JFrame {
             panel_principal.setBackground(new java.awt.Color(8, 52, 74));
 
         }
+       
 
-        menu_serv.setVisible(false);
         lbl_notifi_pedidos.setVisible(false);
         menu_licencia.setVisible(false);
         lbl_mode_dark.setText(mode);
@@ -231,6 +263,11 @@ public class Principal extends javax.swing.JFrame {
         System.out.println("Versiones OK");
         HORA_SERVIDOR();
         System.out.println("Hora del servidor OK");
+         if (lbl_id_user.getText().equals("1")) {
+            menu_serv.setVisible(true);
+        } else {
+            menu_serv.setVisible(false);
+        }
 
     }
 
@@ -395,9 +432,11 @@ public class Principal extends javax.swing.JFrame {
         menu_list_dto = new javax.swing.JMenuItem();
         menu_list_fisico = new javax.swing.JMenuItem();
         menu_list_cp = new javax.swing.JMenuItem();
+        menu_lista_trans = new javax.swing.JMenuItem();
+        menu_stock_sucursales = new javax.swing.JMenuItem();
         menu_esta_ventas = new javax.swing.JMenu();
         menu_list_venta = new javax.swing.JMenuItem();
-        jMenuItem13 = new javax.swing.JMenuItem();
+        menu_ventas_gral = new javax.swing.JMenuItem();
         menu_lucro = new javax.swing.JMenuItem();
         menu_venta_usu = new javax.swing.JMenuItem();
         menu_lucro_user = new javax.swing.JMenuItem();
@@ -436,7 +475,7 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem31 = new javax.swing.JMenuItem();
         jMenuItem32 = new javax.swing.JMenuItem();
         jMenuItem26 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        menu_fact_expo = new javax.swing.JMenu();
         jMenuItem19 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -786,7 +825,7 @@ public class Principal extends javax.swing.JFrame {
 
         lbl_version.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         lbl_version.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_version.setText("4.4.0");
+        lbl_version.setText("4.4.5");
         panel_principal.add(lbl_version, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 206, 50, 40));
 
         version_alerta.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
@@ -1421,6 +1460,28 @@ public class Principal extends javax.swing.JFrame {
         });
         menu_esta_stock.add(menu_list_cp);
 
+        menu_lista_trans.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        menu_lista_trans.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/report.png"))); // NOI18N
+        menu_lista_trans.setText("-Listado de Transferencias");
+        menu_lista_trans.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        menu_lista_trans.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_lista_transActionPerformed(evt);
+            }
+        });
+        menu_esta_stock.add(menu_lista_trans);
+
+        menu_stock_sucursales.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        menu_stock_sucursales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/localizar.png"))); // NOI18N
+        menu_stock_sucursales.setText("-Stock Sucursales");
+        menu_stock_sucursales.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        menu_stock_sucursales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_stock_sucursalesActionPerformed(evt);
+            }
+        });
+        menu_esta_stock.add(menu_stock_sucursales);
+
         jMenu9.add(menu_esta_stock);
 
         menu_esta_ventas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/graphic.png"))); // NOI18N
@@ -1439,16 +1500,16 @@ public class Principal extends javax.swing.JFrame {
         });
         menu_esta_ventas.add(menu_list_venta);
 
-        jMenuItem13.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jMenuItem13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/report.png"))); // NOI18N
-        jMenuItem13.setText("-Extracto de ventas Gral");
-        jMenuItem13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
+        menu_ventas_gral.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        menu_ventas_gral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/report.png"))); // NOI18N
+        menu_ventas_gral.setText("-Extracto de ventas Gral");
+        menu_ventas_gral.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        menu_ventas_gral.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem13ActionPerformed(evt);
+                menu_ventas_gralActionPerformed(evt);
             }
         });
-        menu_esta_ventas.add(jMenuItem13);
+        menu_esta_ventas.add(menu_ventas_gral);
 
         menu_lucro.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         menu_lucro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/movimineto.png"))); // NOI18N
@@ -1833,9 +1894,9 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(menu_surcusales);
 
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/barco-de-carga.png"))); // NOI18N
-        jMenu2.setText("MIE                       ");
-        jMenu2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        menu_fact_expo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/barco-de-carga.png"))); // NOI18N
+        menu_fact_expo.setText("MIE                       ");
+        menu_fact_expo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
         jMenuItem19.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jMenuItem19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/ventas.png"))); // NOI18N
@@ -1846,9 +1907,9 @@ public class Principal extends javax.swing.JFrame {
                 jMenuItem19ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem19);
+        menu_fact_expo.add(jMenuItem19);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(menu_fact_expo);
 
         setJMenuBar(jMenuBar1);
 
@@ -1866,6 +1927,8 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     try {
         principal = new NECTTIC();
     } catch (SocketException ex) {
+        Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (IOException ex) {
         Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
     }
     principal.setVisible(true);
@@ -2117,10 +2180,174 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 li_venta_2.setVisible(true);
 
             }
+            if (Principal.lbl_usu_almacen.getText().equals("0000003")) {
+                Libro_ventas_lista_surc_3 li_venta_3;
+                li_venta_3 = new Libro_ventas_lista_surc_3(new javax.swing.JDialog(), true);
+                li_venta_3.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000004")) {
+                Libro_ventas_lista_surc_4 li_venta_4;
+                li_venta_4 = new Libro_ventas_lista_surc_4(new javax.swing.JDialog(), true);
+                li_venta_4.setVisible(true);
+
+            }
+
+            if (Principal.lbl_usu_almacen.getText().equals("0000005")) {
+                Libro_ventas_lista_surc_5 li_venta_5;
+                li_venta_5 = new Libro_ventas_lista_surc_5(new javax.swing.JDialog(), true);
+                li_venta_5.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000006")) {
+                Libro_ventas_lista_surc_6 li_venta_6;
+                li_venta_6 = new Libro_ventas_lista_surc_6(new javax.swing.JDialog(), true);
+                li_venta_6.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000007")) {
+                Libro_ventas_lista_surc_7 li_venta_7;
+                li_venta_7 = new Libro_ventas_lista_surc_7(new javax.swing.JDialog(), true);
+                li_venta_7.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000008")) {
+                Libro_ventas_lista_surc_8 li_venta_8;
+                li_venta_8 = new Libro_ventas_lista_surc_8(new javax.swing.JDialog(), true);
+                li_venta_8.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000009")) {
+                Libro_ventas_lista_surc_9 li_venta_9;
+                li_venta_9 = new Libro_ventas_lista_surc_9(new javax.swing.JDialog(), true);
+                li_venta_9.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000010")) {
+                Libro_ventas_lista_surc_10 li_venta_10;
+                li_venta_10 = new Libro_ventas_lista_surc_10(new javax.swing.JDialog(), true);
+                li_venta_10.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000011")) {
+                Libro_ventas_lista_surc_11 li_venta_11;
+                li_venta_11 = new Libro_ventas_lista_surc_11(new javax.swing.JDialog(), true);
+                li_venta_11.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000012")) {
+                Libro_ventas_lista_surc_12 li_venta_12;
+                li_venta_12 = new Libro_ventas_lista_surc_12(new javax.swing.JDialog(), true);
+                li_venta_12.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000013")) {
+                Libro_ventas_lista_surc_13 li_venta_13;
+                li_venta_13 = new Libro_ventas_lista_surc_13(new javax.swing.JDialog(), true);
+                li_venta_13.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000014")) {
+                Libro_ventas_lista_surc_14 li_venta_14;
+                li_venta_14 = new Libro_ventas_lista_surc_14(new javax.swing.JDialog(), true);
+                li_venta_14.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000015")) {
+                Libro_ventas_lista_surc_15 li_venta_15;
+                li_venta_15 = new Libro_ventas_lista_surc_15(new javax.swing.JDialog(), true);
+                li_venta_15.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000016")) {
+                Libro_ventas_lista_surc_16 li_venta_16;
+                li_venta_16 = new Libro_ventas_lista_surc_16(new javax.swing.JDialog(), true);
+                li_venta_16.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000017")) {
+                Libro_ventas_lista_surc_17 li_venta_17;
+                li_venta_17 = new Libro_ventas_lista_surc_17(new javax.swing.JDialog(), true);
+                li_venta_17.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000018")) {
+                Libro_ventas_lista_surc_18 li_venta_18;
+                li_venta_18 = new Libro_ventas_lista_surc_18(new javax.swing.JDialog(), true);
+                li_venta_18.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000019")) {
+                Libro_ventas_lista_surc_19 li_venta_19;
+                li_venta_19 = new Libro_ventas_lista_surc_19(new javax.swing.JDialog(), true);
+                li_venta_19.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000021")) {
+                Libro_ventas_lista_surc_21 li_venta_21;
+                li_venta_21 = new Libro_ventas_lista_surc_21(new javax.swing.JDialog(), true);
+                li_venta_21.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000022")) {
+                Libro_ventas_lista_surc_22 li_venta_22;
+                li_venta_22 = new Libro_ventas_lista_surc_22(new javax.swing.JDialog(), true);
+                li_venta_22.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000023")) {
+                Libro_ventas_lista_surc_2 li_venta_2;
+                li_venta_2 = new Libro_ventas_lista_surc_2(new javax.swing.JDialog(), true);
+                li_venta_2.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000024")) {
+                Libro_ventas_lista_surc_24 li_venta_24;
+                li_venta_24 = new Libro_ventas_lista_surc_24(new javax.swing.JDialog(), true);
+                li_venta_24.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000025")) {
+                Libro_ventas_lista_surc_25 li_venta_25;
+                li_venta_25 = new Libro_ventas_lista_surc_25(new javax.swing.JDialog(), true);
+                li_venta_25.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000020")) {
+                Libro_ventas_lista_surc_20 li_venta_20;
+                li_venta_20 = new Libro_ventas_lista_surc_20(new javax.swing.JDialog(), true);
+                li_venta_20.setVisible(true);
+
+            }
             if (Principal.lbl_usu_almacen.getText().equals("0000026")) {
                 Libro_ventas_lista_surc_26 li_venta_26;
                 li_venta_26 = new Libro_ventas_lista_surc_26(new javax.swing.JDialog(), true);
                 li_venta_26.setVisible(true);
+
+            }
+
+            if (Principal.lbl_usu_almacen.getText().equals("0000027")) {
+                Libro_ventas_lista_surc_27 li_venta_27;
+                li_venta_27 = new Libro_ventas_lista_surc_27(new javax.swing.JDialog(), true);
+                li_venta_27.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000028")) {
+                Libro_ventas_lista_surc_28 li_venta_28;
+                li_venta_28 = new Libro_ventas_lista_surc_28(new javax.swing.JDialog(), true);
+                li_venta_28.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000029")) {
+                Libro_ventas_lista_surc_29 li_venta_29;
+                li_venta_29 = new Libro_ventas_lista_surc_29(new javax.swing.JDialog(), true);
+                li_venta_29.setVisible(true);
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000030")) {
+                Libro_ventas_lista_surc_30 li_venta_30;
+                li_venta_30 = new Libro_ventas_lista_surc_30(new javax.swing.JDialog(), true);
+                li_venta_30.setVisible(true);
 
             }
         }
@@ -2217,6 +2444,14 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
 
             }
 
+            if (Principal.lbl_usu_almacen.getText().equals("0000007")) {
+
+                Principal_ventas_facturas_7 vf7;
+                vf7 = new Principal_ventas_facturas_7(new javax.swing.JDialog(), true);
+                vf7.setVisible(true);
+
+            }
+
             if (Principal.lbl_usu_almacen.getText().equals("0000008")) {
 
                 Principal_ventas_facturas_8 vf8;
@@ -2274,6 +2509,14 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 vf16.setVisible(true);
 
             }
+
+            if (Principal.lbl_usu_almacen.getText().equals("0000017")) {
+
+                Principal_ventas_facturas_17 vf17;
+                vf17 = new Principal_ventas_facturas_17(new javax.swing.JDialog(), true);
+                vf17.setVisible(true);
+
+            }
             if (Principal.lbl_usu_almacen.getText().equals("0000018")) {
 
                 Principal_ventas_facturas_18 vf18;
@@ -2282,6 +2525,14 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
 
             }
             //11
+
+            if (Principal.lbl_usu_almacen.getText().equals("0000020")) {
+
+                Principal_ventas_facturas_20 vf20;
+                vf20 = new Principal_ventas_facturas_20(new javax.swing.JDialog(), true);
+                vf20.setVisible(true);
+
+            }
 
             if (Principal.lbl_usu_almacen.getText().equals("0000021")) {
 
@@ -3372,12 +3623,12 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         va.setVisible(true);
     }//GEN-LAST:event_jMenuItem28ActionPerformed
 
-    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
+    private void menu_ventas_gralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_ventas_gralActionPerformed
         ventas_anteriores_tarjeta evs;
         evs = new ventas_anteriores_tarjeta(new javax.swing.JDialog(), true);
         evs.setVisible(true);
 
-    }//GEN-LAST:event_jMenuItem13ActionPerformed
+    }//GEN-LAST:event_menu_ventas_gralActionPerformed
 
     private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
         Caja_Class_historicos cch;
@@ -3408,6 +3659,25 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         ex = new Exporta_excel_sucursales(new javax.swing.JDialog(), true);
         ex.setVisible(true);
     }//GEN-LAST:event_jMenuItem32ActionPerformed
+
+    private void menu_lista_transActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_lista_transActionPerformed
+        Listado_de_transferencias lt;
+        lt = new Listado_de_transferencias(new javax.swing.JDialog(), true);
+        lt.setVisible(true);
+    }//GEN-LAST:event_menu_lista_transActionPerformed
+
+    private void menu_stock_sucursalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_stock_sucursalesActionPerformed
+
+        if (lbl_serie_empre.getText().equals("KYR")) {
+            Productos_consulta_stock cs;
+
+            cs = new Productos_consulta_stock(new javax.swing.JDialog(), true);
+            cs.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Habilite con el adm del sistema");
+        }
+
+    }//GEN-LAST:event_menu_stock_sucursalesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -3493,7 +3763,6 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
@@ -3506,7 +3775,6 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem16;
@@ -3586,6 +3854,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     public static javax.swing.JMenu menu_esta_devoluciones;
     public static javax.swing.JMenu menu_esta_stock;
     public static javax.swing.JMenu menu_esta_ventas;
+    private javax.swing.JMenu menu_fact_expo;
     private javax.swing.JMenuItem menu_facturas;
     private javax.swing.JMenu menu_facturas_prin;
     public static javax.swing.JMenuItem menu_historicos;
@@ -3600,6 +3869,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JMenuItem menu_list_dto;
     private javax.swing.JMenuItem menu_list_fisico;
     private javax.swing.JMenuItem menu_list_venta;
+    private javax.swing.JMenuItem menu_lista_trans;
     public static javax.swing.JMenu menu_listado_mov;
     public static javax.swing.JMenu menu_logistica;
     private javax.swing.JMenuItem menu_lucro;
@@ -3619,6 +3889,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JMenu menu_reporte_fiscal;
     private javax.swing.JMenuItem menu_salida_stock;
     private javax.swing.JMenu menu_serv;
+    private javax.swing.JMenuItem menu_stock_sucursales;
     private javax.swing.JMenuItem menu_sub_cat;
     private javax.swing.JMenu menu_surcusales;
     public static javax.swing.JMenuItem menu_transferencia;
@@ -3627,6 +3898,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JMenuItem menu_venta_lucro;
     private javax.swing.JMenuItem menu_venta_usu;
     public static javax.swing.JMenuItem menu_ventas;
+    private javax.swing.JMenuItem menu_ventas_gral;
     public static javax.swing.JLabel modelo_cp;
     public static javax.swing.JPanel panel_config_gral;
     private javax.swing.JPanel panel_principal;
@@ -4350,8 +4622,10 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         ///////////////////////////////////////////////
         if (m20.equals("S")) {
             menu_razon_pro.setEnabled(true);
+            menu_lista_trans.setEnabled(true);
         } else {
             menu_razon_pro.setEnabled(false);
+            menu_lista_trans.setEnabled(false);
         }
         if (m21.equals("S")) {
             menu_list_dto.setEnabled(true);
@@ -4360,8 +4634,10 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         }
         if (m22.equals("S")) {
             menu_list_fisico.setEnabled(true);
+            menu_stock_sucursales.setEnabled(true);
         } else {
             menu_list_fisico.setEnabled(false);
+            menu_stock_sucursales.setEnabled(false);
         }
         if (m23.equals("S")) {
             menu_list_cp.setEnabled(true);
@@ -4370,8 +4646,10 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         }
         if (m24.equals("S")) {
             menu_list_venta.setEnabled(true);
+            menu_ventas_gral.setEnabled(true);
         } else {
             menu_list_venta.setEnabled(false);
+            menu_ventas_gral.setEnabled(false);
         }
         if (m25.equals("S")) {
             menu_salida_stock.setEnabled(true);
@@ -4415,8 +4693,10 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         }
         if (m33.equals("S")) {
             menu_facturas.setEnabled(true);
+            menu_fact_expo.setEnabled(true);
         } else {
             menu_facturas.setEnabled(false);
+            menu_fact_expo.setEnabled(false);
         }
         if (m34.equals("S")) {
             menu_bancos.setEnabled(true);
@@ -4474,14 +4754,16 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 NECTTIC principal = null;
                 try {
                     principal = new NECTTIC();
-
+                    principal.setVisible(true);
+                    principal.pack();
+                    this.setVisible(false);
                 } catch (SocketException ex) {
                     Logger.getLogger(Principal.class
                             .getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                principal.setVisible(true);
-                principal.pack();
-                this.setVisible(false);
+
             });
 
             //  menu_opcion.add(menu_modPro);
@@ -4742,10 +5024,12 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 SimpleDateFormat mmmm = new SimpleDateFormat("MMMM");
                 lbl_mes_actual.setText(mmmm.format(vista));
 
-                SimpleDateFormat yy = new SimpleDateFormat("YY");
+                SimpleDateFormat yy = new SimpleDateFormat("yy");
                 lbl_año_actual.setText(yy.format(vista));
+
                 SimpleDateFormat yyyy = new SimpleDateFormat("yyyy");
                 lbl_periodo_fiscal.setText(yyyy.format(vista));
+
                 conectar.getInstance().closeConnection(cn);
 
             } catch (SQLException ex) {

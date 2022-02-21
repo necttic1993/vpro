@@ -221,7 +221,7 @@ public class Productos_buscar extends javax.swing.JDialog {
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock='A'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock <> 'I'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 
@@ -264,7 +264,7 @@ public class Productos_buscar extends javax.swing.JDialog {
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'   ";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock <> 'I'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 
@@ -307,7 +307,7 @@ public class Productos_buscar extends javax.swing.JDialog {
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock='A'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'   AND pro_stock <> 'I'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 
@@ -350,7 +350,7 @@ public class Productos_buscar extends javax.swing.JDialog {
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock='A'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'   AND pro_stock <> 'I'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 
@@ -393,7 +393,7 @@ public class Productos_buscar extends javax.swing.JDialog {
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock='A'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock <> 'I'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 
@@ -436,7 +436,7 @@ public class Productos_buscar extends javax.swing.JDialog {
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock='A' ";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock <> 'I' ";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 
@@ -479,7 +479,7 @@ public class Productos_buscar extends javax.swing.JDialog {
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock='A'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock <> 'I'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 
@@ -522,7 +522,7 @@ public class Productos_buscar extends javax.swing.JDialog {
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock='A'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock <> 'I'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 
@@ -565,7 +565,7 @@ public class Productos_buscar extends javax.swing.JDialog {
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock='A'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock <> 'I'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 
@@ -608,7 +608,7 @@ public class Productos_buscar extends javax.swing.JDialog {
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock='A'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock <> 'I'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 
@@ -651,7 +651,7 @@ public class Productos_buscar extends javax.swing.JDialog {
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock='A'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock <> 'I'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 
@@ -694,7 +694,7 @@ public class Productos_buscar extends javax.swing.JDialog {
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock='A'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock <> 'I'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 
@@ -737,7 +737,7 @@ public class Productos_buscar extends javax.swing.JDialog {
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock='A'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock <> 'I'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 
@@ -780,7 +780,7 @@ public class Productos_buscar extends javax.swing.JDialog {
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock='A'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock <> 'I'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 
@@ -823,7 +823,7 @@ public class Productos_buscar extends javax.swing.JDialog {
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock='A'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock <> 'I'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 
@@ -866,7 +866,7 @@ public class Productos_buscar extends javax.swing.JDialog {
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock='A'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock <> 'I'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 
@@ -909,7 +909,7 @@ public class Productos_buscar extends javax.swing.JDialog {
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock='A'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock <> 'I'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 
@@ -952,7 +952,7 @@ public class Productos_buscar extends javax.swing.JDialog {
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock='A'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock <> 'I'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 
@@ -995,7 +995,7 @@ public class Productos_buscar extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock='A'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock <> 'I'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 
@@ -1038,7 +1038,7 @@ public class Productos_buscar extends javax.swing.JDialog {
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock='A'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock <> 'I'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 
@@ -1081,7 +1081,7 @@ public class Productos_buscar extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock='A'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock <> 'I'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 
@@ -1124,7 +1124,7 @@ public class Productos_buscar extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock='A'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock <> 'I'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 
@@ -1167,7 +1167,7 @@ public class Productos_buscar extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock='A'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock <> 'I'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 
@@ -1210,7 +1210,7 @@ public class Productos_buscar extends javax.swing.JDialog {
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock='A'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock <> 'I'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 
@@ -1253,7 +1253,7 @@ public class Productos_buscar extends javax.swing.JDialog {
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock='A'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock <> 'I'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 
@@ -1296,7 +1296,7 @@ public class Productos_buscar extends javax.swing.JDialog {
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock='A'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock <> 'I'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 
@@ -1339,7 +1339,7 @@ public class Productos_buscar extends javax.swing.JDialog {
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock='A'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock <> 'I'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 
@@ -1382,7 +1382,7 @@ public class Productos_buscar extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock='A'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock <> 'I'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 
@@ -1425,7 +1425,7 @@ public class Productos_buscar extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock='A'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock <> 'I'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 
@@ -1468,7 +1468,7 @@ public class Productos_buscar extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock='A'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock <> 'I'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 

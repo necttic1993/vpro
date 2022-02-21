@@ -54,7 +54,7 @@ public class Ajuste_stock_manual extends javax.swing.JDialog {
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         txt_id = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        txt_saldo_pro = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txt_nom = new javax.swing.JTextField();
         btnbuscar = new javax.swing.JButton();
@@ -63,6 +63,8 @@ public class Ajuste_stock_manual extends javax.swing.JDialog {
         jLabel6 = new javax.swing.JLabel();
         txt_alma_aju = new javax.swing.JTextField();
         btn_sucursal = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Ajuste de Stock");
@@ -73,6 +75,11 @@ public class Ajuste_stock_manual extends javax.swing.JDialog {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtdes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtdes.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtdesKeyReleased(evt);
+            }
+        });
         jPanel1.add(txtdes, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 80, 30));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
@@ -95,9 +102,9 @@ public class Ajuste_stock_manual extends javax.swing.JDialog {
         txt_id.setEnabled(false);
         jPanel1.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 120, 30));
 
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel3.setText("Cantidad existente:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, -1, 30));
+        txt_saldo_pro.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txt_saldo_pro.setText("0");
+        jPanel1.add(txt_saldo_pro, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 50, 30));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel4.setText("Descripción:");
@@ -147,6 +154,14 @@ public class Ajuste_stock_manual extends javax.swing.JDialog {
         });
         jPanel1.add(btn_sucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, 40, 30));
 
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel7.setText("Cantidad existente:");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, -1, 30));
+
+        jLabel8.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel8.setText("Ref=");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, 50, 30));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 190));
 
         pack();
@@ -155,8 +170,10 @@ public class Ajuste_stock_manual extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         cagada();
+        int minimo = 0;
+        int stock = Integer.parseInt(txtdes.getText());
 
-        if (txtdes.getText().equals("0") || txtdes.getText() == null) {
+        if (stock < minimo || txtdes.getText() == null) {
 
             JOptionPane.showMessageDialog(null, "Ingrese un valor válido");
         } else {
@@ -898,6 +915,27 @@ public class Ajuste_stock_manual extends javax.swing.JDialog {
 
     }//GEN-LAST:event_btn_sucursalActionPerformed
 
+    private void txtdesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtdesKeyReleased
+        int stock = Integer.parseInt(txtstock.getText());
+
+        if (stock < 0) {
+            JOptionPane.showMessageDialog(null, "Ingrese una nro válido o mayor que o igual 0");
+        } else {
+            try {
+                int ajuste = Integer.parseInt(txtdes.getText());
+                int suma = stock + ajuste;
+                String saldo = String.valueOf(suma);
+                txt_saldo_pro.setText(saldo);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Ingrese una nro válido o mayor que o igual 0");
+                txtdes.setText("");
+                txt_saldo_pro.setText("0");
+            }
+
+        }
+
+    }//GEN-LAST:event_txtdesKeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -952,14 +990,16 @@ public class Ajuste_stock_manual extends javax.swing.JDialog {
     private javax.swing.JButton btnbuscar;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     public static javax.swing.JTextField txt_alma_aju;
     public static javax.swing.JTextField txt_id;
     public static javax.swing.JTextField txt_nom;
+    private javax.swing.JLabel txt_saldo_pro;
     private javax.swing.JTextField txtdes;
     public static javax.swing.JTextField txtstock;
     // End of variables declaration//GEN-END:variables
@@ -970,7 +1010,7 @@ public class Ajuste_stock_manual extends javax.swing.JDialog {
         txt_nom.setText("");
         txtdes.setText("0");
         txtstock.setText("0");
-
+        txt_saldo_pro.setText("");
     }
 
     void cagada() {
@@ -978,7 +1018,7 @@ public class Ajuste_stock_manual extends javax.swing.JDialog {
 
         String user = lbl_usu_nom.getText();
         String modulo = ("Ajuste de stock de Nro= " + txt_alma_aju.getText());
-        String operacion = ("ID-" + txt_id.getText() + "=" + "CANT=" + txtdes.getText());
+        String operacion = ("ID-" + txt_id.getText() + "=" + "CANT=" + txtdes.getText() + " CANT ANT=" + txtstock.getText() + " REF=" + txt_saldo_pro.getText());
         String fecha_caja = lbl_fecha_hoy.getText();
         try {
             Connection cn = conectar.getInstance().getConnection();

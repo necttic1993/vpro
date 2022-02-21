@@ -10,11 +10,8 @@ import Clases.Generar_Num_Pro;
 import Clases.machusculas;
 import Conexion_DB.conectar;
 import Loggin_Principal.Principal;
-import static Loggin_Principal.Principal.lbl_mone_def;
-import java.awt.event.KeyEvent;
 import java.math.BigDecimal;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,7 +20,6 @@ import java.text.DecimalFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -100,6 +96,10 @@ public class Add_clientes extends javax.swing.JDialog {
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        txt_id_ciudad = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registrar Clientes");
@@ -153,8 +153,8 @@ public class Add_clientes extends javax.swing.JDialog {
         jPanel3.add(txtruc, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 40, 180, 28));
 
         jLabel9.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel9.setText("Sucursal:");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, 70, 30));
+        jLabel9.setText("Ciudad:");
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 70, 30));
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel7.setText("Tipos de Clientes:");
@@ -190,6 +190,7 @@ public class Add_clientes extends javax.swing.JDialog {
         btnguardar.setMnemonic('g');
         btnguardar.setText("Agregar");
         btnguardar.setBorder(null);
+        btnguardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnguardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnguardarActionPerformed(evt);
@@ -225,7 +226,7 @@ public class Add_clientes extends javax.swing.JDialog {
         cb_status.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ACTIVO", "INACTIVO" }));
         cb_status.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jPanel3.add(cb_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 160, 120, 30));
-        jPanel3.add(lbl_ruc, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 100, 30));
+        jPanel3.add(lbl_ruc, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, 100, 30));
 
         jLabel14.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel14.setText("Nro Registro:");
@@ -263,7 +264,7 @@ public class Add_clientes extends javax.swing.JDialog {
         jLabel17.setForeground(new java.awt.Color(204, 0, 0));
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel17.setText("*");
-        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 139, 20, 20));
+        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 20, 20));
 
         jLabel18.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(204, 0, 0));
@@ -276,6 +277,31 @@ public class Add_clientes extends javax.swing.JDialog {
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel19.setText("*");
         jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 20, 20));
+
+        jLabel20.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel20.setText("Sucursal:");
+        jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, 70, 30));
+
+        jLabel21.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel21.setText("*");
+        jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 139, 20, 20));
+
+        txt_id_ciudad.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txt_id_ciudad.setDisabledTextColor(new java.awt.Color(153, 0, 0));
+        txt_id_ciudad.setEnabled(false);
+        jPanel3.add(txt_id_ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 90, 30));
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/busqueda.png"))); // NOI18N
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, -1, 30));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 270));
 
@@ -308,7 +334,7 @@ public class Add_clientes extends javax.swing.JDialog {
         if (txtruc.getText() == null ? lbl_ruc.getText() == null : txtruc.getText().equals(lbl_ruc.getText())) {
             JOptionPane.showMessageDialog(null, "Nro de RUC/CI  ya existe");
         } else {
-            if (txtdir.getText().length() != 0 && txtnom.getText().length() != 0 && txt_contacto.getText().length() != 0) {
+            if (txtdir.getText().length() != 0 && txtnom.getText().length() != 0 && txt_contacto.getText().length() != 0 && txt_id_ciudad.getText().length() != 0) {
                 // byte[] imagen = cam.getBytes();
                 codigos();
                 String sql = "";
@@ -326,8 +352,9 @@ public class Add_clientes extends javax.swing.JDialog {
                 String registro = txt_cli_registro.getText();
                 String pais = cb_cli_pais.getSelectedItem().toString();
                 String surc = cb_contro_surc.getSelectedItem().toString();
+                String ciudad = txt_id_ciudad.getText();
 
-                sql = "INSERT INTO tienda_clientes (cli_cod,cli_nombre,cli_ruc,cli_razon,cli_contacto,cli_email,cli_dir,cli_tipo,cli_lim_cre,cli_dias_cre,cli_status,nro_registro,cli_pais,cli_surc) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                sql = "INSERT INTO tienda_clientes (cli_cod,cli_nombre,cli_ruc,cli_razon,cli_contacto,cli_email,cli_dir,cli_tipo,cli_lim_cre,cli_dias_cre,cli_status,nro_registro,cli_pais,cli_surc,cli_ciudad) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
                 try {
                     Connection cn = conectar.getInstance().getConnection();
 
@@ -346,6 +373,7 @@ public class Add_clientes extends javax.swing.JDialog {
                     pst.setString(12, registro);
                     pst.setString(13, pais);
                     pst.setString(14, surc);
+                    pst.setString(15, ciudad);
                     int n = pst.executeUpdate();
                     conectar.getInstance().closeConnection(cn);
 
@@ -377,6 +405,12 @@ public class Add_clientes extends javax.swing.JDialog {
     private void txtrucKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtrucKeyReleased
         conRuc(txtruc.getText());
     }//GEN-LAST:event_txtrucKeyReleased
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ciudad_clientes ac;
+        ac = new ciudad_clientes(new javax.swing.JDialog(), true);
+        ac.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -425,6 +459,7 @@ public class Add_clientes extends javax.swing.JDialog {
     private javax.swing.JComboBox<String> cb_contro_surc;
     private org.jdesktop.swingx.JXComboBox cb_status;
     private org.jdesktop.swingx.JXComboBox cb_tipo;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -437,6 +472,8 @@ public class Add_clientes extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -447,6 +484,7 @@ public class Add_clientes extends javax.swing.JDialog {
     private javax.swing.JTextField txt_cli_registro;
     private javax.swing.JTextField txt_contacto;
     private javax.swing.JTextField txt_dias_cre;
+    public static javax.swing.JTextField txt_id_ciudad;
     private javax.swing.JTextField txt_razon_social;
     private javax.swing.JTextField txtcod;
     private javax.swing.JTextField txtdir;

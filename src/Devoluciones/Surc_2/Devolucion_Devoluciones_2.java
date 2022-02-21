@@ -151,7 +151,7 @@ public class Devolucion_Devoluciones_2 extends javax.swing.JDialog {
                 txt_daActionPerformed(evt);
             }
         });
-        jPanel1.add(txt_da, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, 130, 30));
+        jPanel1.add(txt_da, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, 210, 30));
 
         txt_dias_plazo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt_dias_plazo.setEnabled(false);
@@ -224,7 +224,7 @@ public class Devolucion_Devoluciones_2 extends javax.swing.JDialog {
                 txt_cli_nomActionPerformed(evt);
             }
         });
-        jPanel1.add(txt_cli_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 390, 30));
+        jPanel1.add(txt_cli_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 470, 30));
 
         txt_cod.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt_cod.setDisabledTextColor(new java.awt.Color(153, 0, 0));
@@ -258,7 +258,7 @@ public class Devolucion_Devoluciones_2 extends javax.swing.JDialog {
         jLabel19.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel19.setText("Condición de pago :");
         jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 130, 30));
-        jPanel1.add(txt_des, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 100, 480, 30));
+        jPanel1.add(txt_des, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 100, 560, 30));
 
         btn_buscar_2.setBackground(new java.awt.Color(255, 255, 255));
         btn_buscar_2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -331,7 +331,7 @@ public class Devolucion_Devoluciones_2 extends javax.swing.JDialog {
         jPanel1.add(btnven, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 540, 130, 50));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Total", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 51, 153))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 51, 153))); // NOI18N
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txttotal.setBackground(new java.awt.Color(102, 102, 102));

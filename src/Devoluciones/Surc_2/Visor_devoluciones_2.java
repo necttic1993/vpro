@@ -6,11 +6,8 @@
 package Devoluciones.Surc_2;
 
 import Conexion_DB.conectar;
-import Devoluciones.Principal_devoluciones;
 import static Devoluciones.Surc_2.Principal_devoluciones_2.cod_devol_surc_2;
 
-import static Loggin_Principal.Principal.lbl_fecha_hoy;
-import static Loggin_Principal.Principal.lbl_usu_nom;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
@@ -18,8 +15,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -41,6 +36,7 @@ public class Visor_devoluciones_2 extends javax.swing.JDialog {
 
         cargar(cod_devol_surc_2);
         cargarTxt(cod_devol_surc_2);
+       //  consultar();
 
     }
 
@@ -109,6 +105,8 @@ public class Visor_devoluciones_2 extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel22 = new javax.swing.JLabel();
+        lbl_nro_ventas = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
@@ -133,6 +131,14 @@ public class Visor_devoluciones_2 extends javax.swing.JDialog {
         setTitle("Consulta Devoluciones");
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel22.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel22.setText(" Nº de venta:");
+        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 80, 30));
+
+        lbl_nro_ventas.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lbl_nro_ventas.setForeground(new java.awt.Color(0, 153, 51));
+        getContentPane().add(lbl_nro_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 100, 30));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -280,9 +286,10 @@ public class Visor_devoluciones_2 extends javax.swing.JDialog {
             if (JOptionPane.showConfirmDialog(rootPane, "Se eliminará el registro, ¿desea continuar?",
                     "Eliminar Registro", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                 eliminarDev();
+                actEstadoVentas();
                 limpiar();
 
-                Principal_devoluciones.btn_cargar_datos.doClick();
+                Principal_devoluciones_2.btn_cargar_datos.doClick();
                 this.dispose();
             }
         }
@@ -354,12 +361,14 @@ public class Visor_devoluciones_2 extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lbl_nro_ventas;
     public static javax.swing.JTable tb_visor_recep;
     private javax.swing.JLabel txt_des;
     private javax.swing.JLabel txt_fecha;
@@ -379,6 +388,12 @@ public class Visor_devoluciones_2 extends javax.swing.JDialog {
             PreparedStatement pst = cn.prepareStatement(eliminarSQL);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
+            String capcod = "", capcan = "";
+            for (int i = 0; i < tb_visor_recep.getRowCount(); i++) {
+                capcod = tb_visor_recep.getValueAt(i, 1).toString();
+                capcan = tb_visor_recep.getValueAt(i, 4).toString();
+                devolverstock(capcod, capcan);
+            }
 
             JOptionPane.showMessageDialog(null, "Borrado");
 
@@ -404,5 +419,62 @@ public class Visor_devoluciones_2 extends javax.swing.JDialog {
         }
 
     }
+
+    void devolverstock(String codi, String can) {
+        int des = Integer.parseInt(can);
+        String cap = "";
+        int desfinal;
+        String consul = "SELECT pro_stock_2 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(consul);
+            while (rs.next()) {
+                cap = rs.getString(1);
+            }
+          //  System.out.println(cap);
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (Exception e) {
+        }
+        desfinal = Integer.parseInt(cap) - des;
+        String modi = "UPDATE tienda_productos SET pro_stock_2='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+            PreparedStatement pst = cn.prepareStatement(modi);
+            pst.executeUpdate();
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (Exception e) {
+        }
+    }
+    
+       void actEstadoVentas() {
+
+        try {
+            String es = ("CONFIRMADA");
+            String nro = lbl_nro_ventas.getText();
+
+            String sql = "UPDATE ventas_2 SET estado_ventas = '" + es
+                    + "' WHERE num_bol = '" + nro + "'";
+            try {
+                Connection cn = conectar.getInstance().getConnection();
+                PreparedStatement pst = cn.prepareStatement(sql);
+                pst.executeUpdate();
+                conectar.getInstance().closeConnection(cn);
+
+                //  JOptionPane.showMessageDialog(null, "Actualizado");
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+
+        } catch (Exception e) {
+        }
+
+    }
+    
+    
+    
 
 }

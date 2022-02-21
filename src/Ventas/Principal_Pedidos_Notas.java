@@ -142,6 +142,7 @@ public class Principal_Pedidos_Notas extends javax.swing.JDialog {
                 String codins = tbProductos_pedido.getValueAt(fila, 0).toString();
 
                 Ventas_venta.lbl_cod_pedidos.setText(codins);
+                Ventas_venta.lbl_control_tipo.setText("PEDIDOS");
                 Ventas_venta.btn_busca_pedidos.doClick();
                 this.dispose();
 
@@ -172,6 +173,7 @@ public class Principal_Pedidos_Notas extends javax.swing.JDialog {
                     String codins = tbProductos_pedido.getValueAt(fila, 0).toString();
 
                     Ventas_venta.lbl_cod_pedidos.setText(codins);
+                    Ventas_venta.lbl_control_tipo.setText("PEDIDOS");
                     Ventas_venta.btn_busca_pedidos.doClick();
                     this.dispose();
 
@@ -238,69 +240,7 @@ public class Principal_Pedidos_Notas extends javax.swing.JDialog {
         }
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
+    
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

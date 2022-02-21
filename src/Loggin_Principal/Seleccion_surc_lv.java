@@ -8,8 +8,34 @@ package Loggin_Principal;
 import Clases.machusculas;
 import Conexion_DB.conectar;
 import Ventas.libro_ventas.Libro_ventas_lista;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_10;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_11;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_12;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_13;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_14;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_15;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_16;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_17;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_18;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_19;
 import Ventas.libro_ventas.Libro_ventas_lista_surc_2;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_21;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_22;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_23;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_24;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_25;
 import Ventas.libro_ventas.Libro_ventas_lista_surc_26;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_27;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_28;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_29;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_3;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_30;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_4;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_5;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_6;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_7;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_8;
+import Ventas.libro_ventas.Libro_ventas_lista_surc_9;
 
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
@@ -148,14 +174,170 @@ public class Seleccion_surc_lv extends javax.swing.JDialog {
             this.dispose();
 
         }
+        if (cod.equals("0000003")) {
+            Libro_ventas_lista_surc_3 li_venta_3;
+            li_venta_3 = new Libro_ventas_lista_surc_3(new javax.swing.JDialog(), true);
+            li_venta_3.setVisible(true);
+            this.dispose();
+        }
+        if (cod.equals("0000004")) {
+            Libro_ventas_lista_surc_4 li_venta_4;
+            li_venta_4 = new Libro_ventas_lista_surc_4(new javax.swing.JDialog(), true);
+            li_venta_4.setVisible(true);
+            this.dispose();
+        }
 
+        if (cod.equals("0000005")) {
+            Libro_ventas_lista_surc_5 li_venta_5;
+            li_venta_5 = new Libro_ventas_lista_surc_5(new javax.swing.JDialog(), true);
+            li_venta_5.setVisible(true);
+            this.dispose();
+        }
+        if (cod.equals("0000006")) {
+            Libro_ventas_lista_surc_6 li_venta_6;
+            li_venta_6 = new Libro_ventas_lista_surc_6(new javax.swing.JDialog(), true);
+            li_venta_6.setVisible(true);
+            this.dispose();
+        }
+        if (cod.equals("0000007")) {
+            Libro_ventas_lista_surc_7 li_venta_7;
+            li_venta_7 = new Libro_ventas_lista_surc_7(new javax.swing.JDialog(), true);
+            li_venta_7.setVisible(true);
+            this.dispose();
+        }
+        if (cod.equals("0000008")) {
+            Libro_ventas_lista_surc_8 li_venta_8;
+            li_venta_8 = new Libro_ventas_lista_surc_8(new javax.swing.JDialog(), true);
+            li_venta_8.setVisible(true);
+            this.dispose();
+        }
+        if (cod.equals("0000009")) {
+            Libro_ventas_lista_surc_9 li_venta_9;
+            li_venta_9 = new Libro_ventas_lista_surc_9(new javax.swing.JDialog(), true);
+            li_venta_9.setVisible(true);
+            this.dispose();
+        }
+        if (cod.equals("0000010")) {
+            Libro_ventas_lista_surc_10 li_venta_10;
+            li_venta_10 = new Libro_ventas_lista_surc_10(new javax.swing.JDialog(), true);
+            li_venta_10.setVisible(true);
+            this.dispose();
+        }
+        if (cod.equals("0000011")) {
+            Libro_ventas_lista_surc_11 li_venta_11;
+            li_venta_11 = new Libro_ventas_lista_surc_11(new javax.swing.JDialog(), true);
+            li_venta_11.setVisible(true);
+            this.dispose();
+        }
+        if (cod.equals("0000012")) {
+            Libro_ventas_lista_surc_12 li_venta_12;
+            li_venta_12 = new Libro_ventas_lista_surc_12(new javax.swing.JDialog(), true);
+            li_venta_12.setVisible(true);
+            this.dispose();
+        }
+        if (cod.equals("0000013")) {
+            Libro_ventas_lista_surc_13 li_venta_13;
+            li_venta_13 = new Libro_ventas_lista_surc_13(new javax.swing.JDialog(), true);
+            li_venta_13.setVisible(true);
+            this.dispose();
+        }
+        if (cod.equals("0000014")) {
+            Libro_ventas_lista_surc_14 li_venta_14;
+            li_venta_14 = new Libro_ventas_lista_surc_14(new javax.swing.JDialog(), true);
+            li_venta_14.setVisible(true);
+            this.dispose();
+        }
+        if (cod.equals("0000015")) {
+            Libro_ventas_lista_surc_15 li_venta_15;
+            li_venta_15 = new Libro_ventas_lista_surc_15(new javax.swing.JDialog(), true);
+            li_venta_15.setVisible(true);
+            this.dispose();
+        }
+        if (cod.equals("0000016")) {
+            Libro_ventas_lista_surc_16 li_venta_16;
+            li_venta_16 = new Libro_ventas_lista_surc_16(new javax.swing.JDialog(), true);
+            li_venta_16.setVisible(true);
+            this.dispose();
+        }
+        if (cod.equals("0000017")) {
+            Libro_ventas_lista_surc_17 li_venta_17;
+            li_venta_17 = new Libro_ventas_lista_surc_17(new javax.swing.JDialog(), true);
+            li_venta_17.setVisible(true);
+            this.dispose();
+        }
+        if (cod.equals("0000018")) {
+            Libro_ventas_lista_surc_18 li_venta_18;
+            li_venta_18 = new Libro_ventas_lista_surc_18(new javax.swing.JDialog(), true);
+            li_venta_18.setVisible(true);
+            this.dispose();
+        }
+        if (cod.equals("0000019")) {
+            Libro_ventas_lista_surc_19 li_venta_19;
+            li_venta_19 = new Libro_ventas_lista_surc_19(new javax.swing.JDialog(), true);
+            li_venta_19.setVisible(true);
+            this.dispose();
+        }
+        if (cod.equals("0000021")) {
+            Libro_ventas_lista_surc_21 li_venta_21;
+            li_venta_21 = new Libro_ventas_lista_surc_21(new javax.swing.JDialog(), true);
+            li_venta_21.setVisible(true);
+            this.dispose();
+        }
+        if (cod.equals("0000022")) {
+            Libro_ventas_lista_surc_22 li_venta_22;
+            li_venta_22 = new Libro_ventas_lista_surc_22(new javax.swing.JDialog(), true);
+            li_venta_22.setVisible(true);
+            this.dispose();
+        }
+        if (cod.equals("0000023")) {
+            Libro_ventas_lista_surc_23 li_venta_23;
+            li_venta_23 = new Libro_ventas_lista_surc_23(new javax.swing.JDialog(), true);
+            li_venta_23.setVisible(true);
+            this.dispose();
+        }
+
+        if (cod.equals("0000024")) {
+            Libro_ventas_lista_surc_24 li_venta_24;
+            li_venta_24 = new Libro_ventas_lista_surc_24(new javax.swing.JDialog(), true);
+            li_venta_24.setVisible(true);
+            this.dispose();
+        }
+        if (cod.equals("0000025")) {
+            Libro_ventas_lista_surc_25 li_venta_25;
+            li_venta_25 = new Libro_ventas_lista_surc_25(new javax.swing.JDialog(), true);
+            li_venta_25.setVisible(true);
+            this.dispose();
+        }
         if (cod.equals("0000026")) {
             Libro_ventas_lista_surc_26 li_venta_26;
             li_venta_26 = new Libro_ventas_lista_surc_26(new javax.swing.JDialog(), true);
             li_venta_26.setVisible(true);
             this.dispose();
         }
-
+        if (cod.equals("0000027")) {
+            Libro_ventas_lista_surc_27 li_venta_27;
+            li_venta_27 = new Libro_ventas_lista_surc_27(new javax.swing.JDialog(), true);
+            li_venta_27.setVisible(true);
+            this.dispose();
+        }
+        if (cod.equals("0000028")) {
+            Libro_ventas_lista_surc_28 li_venta_28;
+            li_venta_28 = new Libro_ventas_lista_surc_28(new javax.swing.JDialog(), true);
+            li_venta_28.setVisible(true);
+            this.dispose();
+        }
+        if (cod.equals("0000029")) {
+            Libro_ventas_lista_surc_29 li_venta_29;
+            li_venta_29 = new Libro_ventas_lista_surc_29(new javax.swing.JDialog(), true);
+            li_venta_29.setVisible(true);
+            this.dispose();
+        }
+        if (cod.equals("0000030")) {
+            Libro_ventas_lista_surc_30 li_venta_30;
+            li_venta_30 = new Libro_ventas_lista_surc_30(new javax.swing.JDialog(), true);
+            li_venta_30.setVisible(true);
+            this.dispose();
+        }
 
     }//GEN-LAST:event_tb_almacen_origenMouseClicked
 
@@ -300,7 +482,7 @@ public class Seleccion_surc_lv extends javax.swing.JDialog {
             String[] registros = new String[4];
             model = new DefaultTableModel(null, titulos);
 
-             String cons = " select u.cod_alma,a.alm_nom from usu_almacen as u inner join almacenes as a on a.alm_cod=u.cod_alma WHERE CONCAT (alm_nom) LIKE '%" + valor + "%' and u.cod_usu='" + id_us + "'";
+            String cons = " select u.cod_alma,a.alm_nom from usu_almacen as u inner join almacenes as a on a.alm_cod=u.cod_alma WHERE CONCAT (alm_nom) LIKE '%" + valor + "%' and u.cod_usu='" + id_us + "'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {

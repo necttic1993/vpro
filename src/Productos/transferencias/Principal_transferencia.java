@@ -336,7 +336,7 @@ public class Principal_transferencia extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from transf_stock WHERE CONCAT (cod_tran) LIKE '%" + valor + "%' ORDER BY cod_tran DESC";
+            String cons = "select * from transf_stock WHERE CONCAT (cod_tran,id_alma_des,nom_alma_des) LIKE '%" + valor + "%' ORDER BY cod_tran DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {

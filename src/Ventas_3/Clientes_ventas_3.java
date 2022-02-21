@@ -5,9 +5,6 @@
  */
 package Ventas_3;
 
-
-
-
 import Clientes.Add_clientes;
 import Conexion_DB.conectar;
 import java.awt.event.KeyEvent;
@@ -38,14 +35,13 @@ public class Clientes_ventas_3 extends javax.swing.JDialog {
     }
 
     void cargar(String valor) {
-        String mostrar = "SELECT * FROM tienda_clientes WHERE CONCAT(cli_nombre,cli_ruc) LIKE '%" + valor + "%'";
-        String[] titulos = {"Código", "Nombre", "Razón Social", "RUC", "Contacto", "Dirección", "Status."};
+        String mostrar = "SELECT cli_cod,cli_nombre,cli_razon,cli_ruc,cli_contacto,cli_tipo,cli_pais,nro_registro FROM tienda_clientes WHERE CONCAT(cli_nombre,cli_ruc) LIKE '%" + valor + "%'";
+        String[] titulos = {"Código", "Nombre", "Razón Social", "RUC", "Contacto", "Tipo", "Sucursal", "RT"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
 
         try {
-            Connection cn =  conectar.getInstance().getConnection();
-
+            Connection cn = conectar.getInstance().getConnection();
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(mostrar);
             while (rs.next()) {
@@ -54,8 +50,9 @@ public class Clientes_ventas_3 extends javax.swing.JDialog {
                 Registros[2] = rs.getString("cli_razon");
                 Registros[3] = rs.getString("cli_ruc");
                 Registros[4] = rs.getString("cli_contacto");
-                Registros[5] = rs.getString("cli_dir");
-                Registros[6] = rs.getString("cli_status");
+                Registros[5] = rs.getString("cli_tipo");
+                Registros[6] = rs.getString("cli_pais");
+                Registros[7] = rs.getString("nro_registro");
                 model.addRow(Registros);
             }
             tbclientes.setModel(model);
@@ -64,8 +61,9 @@ public class Clientes_ventas_3 extends javax.swing.JDialog {
             tbclientes.getColumnModel().getColumn(2).setPreferredWidth(200);
             tbclientes.getColumnModel().getColumn(3).setPreferredWidth(100);
             tbclientes.getColumnModel().getColumn(4).setPreferredWidth(100);
-            tbclientes.getColumnModel().getColumn(5).setPreferredWidth(250);
+            tbclientes.getColumnModel().getColumn(5).setPreferredWidth(150);
             tbclientes.getColumnModel().getColumn(6).setPreferredWidth(100);
+            tbclientes.getColumnModel().getColumn(7).setPreferredWidth(200);
             conectar.getInstance().closeConnection(cn);
 
         } catch (SQLException ex) {
@@ -139,7 +137,7 @@ public class Clientes_ventas_3 extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tbclientes);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 900, 460));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 880, 450));
 
         btn_agregarcli.setBackground(new java.awt.Color(255, 255, 255));
         btn_agregarcli.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -193,7 +191,7 @@ public class Clientes_ventas_3 extends javax.swing.JDialog {
     }//GEN-LAST:event_txtbusKeyReleased
 
     private void tbclientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbclientesMouseClicked
-        String nom = "", dp = "", dir = "", cod = "", nac = "";
+        String nom = "", rt = "", surc = "", cod = "", tipo = "";
         int fila = tbclientes.getSelectedRow();
         try {
             if (fila == -1) {
@@ -202,11 +200,15 @@ public class Clientes_ventas_3 extends javax.swing.JDialog {
             } else {
                 cod = (String) tbclientes.getValueAt(fila, 0);
                 nom = (String) tbclientes.getValueAt(fila, 1);
-                dp = (String) tbclientes.getValueAt(fila, 3);
+                tipo = (String) tbclientes.getValueAt(fila, 5);
+                surc = (String) tbclientes.getValueAt(fila, 6);
+                rt = (String) tbclientes.getValueAt(fila, 7);
 
                 Ventas_venta_3.txt_cod_cli.setText(cod);
                 Ventas_venta_3.txt_cli_nom.setText(nom);
-                // Ventas_venta.txt_dias_plazo.setText(dp);
+                Ventas_venta_3.txt_class_cli_ventas_2.setText(tipo);
+                Ventas_venta_3.txt_tipo_clientes.setText(surc);
+                Ventas_venta_3.txt_rt_cli.setText(rt);
 
                 this.dispose();
                 Ventas_venta_3.btn_buscaar_items.doClick();
@@ -220,7 +222,7 @@ public class Clientes_ventas_3 extends javax.swing.JDialog {
         char Tecla = evt.getKeyChar();
 
         if (Tecla == KeyEvent.VK_ENTER) {
-            String nom = "", dp = "", dir = "", cod = "", nac = "";
+         String nom = "", rt = "", surc = "", cod = "", tipo = "";
             int fila = tbclientes.getSelectedRow();
             try {
                 if (fila == -1) {
@@ -229,11 +231,15 @@ public class Clientes_ventas_3 extends javax.swing.JDialog {
                 } else {
                     cod = (String) tbclientes.getValueAt(fila, 0);
                     nom = (String) tbclientes.getValueAt(fila, 1);
-                    dp = (String) tbclientes.getValueAt(fila, 3);
+                    tipo = (String) tbclientes.getValueAt(fila, 5);
+                    surc = (String) tbclientes.getValueAt(fila, 6);
+                    rt = (String) tbclientes.getValueAt(fila, 7);
 
                     Ventas_venta_3.txt_cod_cli.setText(cod);
                     Ventas_venta_3.txt_cli_nom.setText(nom);
-                    // Ventas_venta.txt_dias_plazo.setText(dp);
+                    Ventas_venta_3.txt_class_cli_ventas_2.setText(tipo);
+                    Ventas_venta_3.txt_tipo_clientes.setText(surc);
+                    Ventas_venta_3.txt_rt_cli.setText(rt);
 
                     this.dispose();
                     Ventas_venta_3.btn_buscaar_items.doClick();
@@ -290,8 +296,6 @@ public class Clientes_ventas_3 extends javax.swing.JDialog {
             java.util.logging.Logger.getLogger(Clientes_ventas_3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-      
-   
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -317,5 +321,5 @@ public class Clientes_ventas_3 extends javax.swing.JDialog {
     private javax.swing.JTable tbclientes;
     private javax.swing.JTextField txtbus;
     // End of variables declaration//GEN-END:variables
- 
+
 }

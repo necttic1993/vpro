@@ -292,7 +292,7 @@ public class DetallesPro_gral extends javax.swing.JDialog {
         lbl_des_pro.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         lbl_des_pro.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         lbl_des_pro.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-        jPanel1.add(lbl_des_pro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 580, 70));
+        jPanel1.add(lbl_des_pro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 580, 80));
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(102, 102, 102));

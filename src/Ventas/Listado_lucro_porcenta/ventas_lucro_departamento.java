@@ -53,7 +53,7 @@ public class ventas_lucro_departamento extends javax.swing.JDialog {
 
         }
         
-        lbl_almacen_pedidos.setText(Principal.lbl_usu_almacen.getText());
+      //  lbl_almacen_pedidos.setText(Principal.lbl_usu_almacen.getText());
         txt_lucro_ventas.setDisabledTextColor(Color.black);
 
     }// FIN CONSTRUCTOR
@@ -1036,7 +1036,7 @@ public class ventas_lucro_departamento extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane8;
     public static org.jdesktop.swingx.JXDatePicker jd_fin_lucro_ventas;
     public static org.jdesktop.swingx.JXDatePicker jd_ini_lucro_ventas;
-    public static javax.swing.JLabel lbl_almacen_pedidos;
+    private javax.swing.JLabel lbl_almacen_pedidos;
     public static javax.swing.JLabel lbl_almacen_pedidos1;
     public static javax.swing.JLabel lbl_almacen_pedidos2;
     public static javax.swing.JLabel lbl_almacen_pedidos3;

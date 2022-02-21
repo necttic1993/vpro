@@ -124,6 +124,8 @@ public class Visor_devoluciones_3 extends javax.swing.JDialog {
         txt_salir = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        lbl_nro_ventas = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Consulta Devoluciones");
@@ -236,6 +238,14 @@ public class Visor_devoluciones_3 extends javax.swing.JDialog {
 
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 153)));
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 10, 880, 120));
+
+        jLabel22.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel22.setText(" Nº de venta:");
+        jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 80, 30));
+
+        lbl_nro_ventas.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lbl_nro_ventas.setForeground(new java.awt.Color(0, 153, 51));
+        jPanel2.add(lbl_nro_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 100, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 500));
 
@@ -366,12 +376,14 @@ public class Visor_devoluciones_3 extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lbl_nro_ventas;
     public static javax.swing.JTable tb_visor_recep;
     private javax.swing.JLabel txt_des;
     private javax.swing.JLabel txt_fecha;

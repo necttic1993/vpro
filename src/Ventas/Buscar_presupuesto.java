@@ -142,6 +142,7 @@ public class Buscar_presupuesto extends javax.swing.JDialog {
                 String codins = tbProductos_presupuesto.getValueAt(fila, 0).toString();
 
                 Ventas_venta.lbl_cod_pre.setText(codins);
+                Ventas_venta.lbl_control_tipo.setText("PRESUPUESTOS");
                 Ventas_venta.btn_busca_pre.doClick();
                 this.dispose();
 
@@ -173,6 +174,7 @@ public class Buscar_presupuesto extends javax.swing.JDialog {
                     String codins = tbProductos_presupuesto.getValueAt(fila, 0).toString();
 
                     Ventas_venta.lbl_cod_pre.setText(codins);
+                    Ventas_venta.lbl_control_tipo.setText("PEDIDOS");
                     Ventas_venta.btn_busca_pre.doClick();
                     this.dispose();
 

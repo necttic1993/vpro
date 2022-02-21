@@ -16,6 +16,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -287,14 +288,24 @@ public class control_ventas_stock extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
+
+        DefaultTableModel modelo = (DefaultTableModel) tb_control.getModel();
+        int a = tb_control.getRowCount() - 1;
+        int i;
+        for (i = a; i >= 0; i--) {
+            modelo.removeRow(i);
+        }
+        txt_cant_pro.setText("0");
+
         java.sql.Date date1 = new java.sql.Date(jd_ini.getDate().getTime());
         java.sql.Date date2 = new java.sql.Date(jd_fin.getDate().getTime());
+        String almacen = lbl_almacen_stock.getText();
         String cod = txt_cod_pro.getText();
-        if (lbl_almacen_stock.getText().equals("0000000")) {
+        if (almacen.equals("0000000")) {
             JOptionPane.showMessageDialog(null, "Seleccione un Almacén/Sucursal válido");
         } else {
 
-            if (lbl_almacen_stock.getText().equals("0000001")) {
+            if (almacen.equals("0000001")) {
                 if (ch_ventas.isSelected()) {
                     cargarVentas(date1, date2, cod);
                     calcularcantida();
@@ -312,21 +323,20 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 }
 
                 if (ch_transfe.isSelected()) {
-                    cargarTrans(date1, date2, cod);
+                    cargarTransCentral(date1, date2, cod);
                     calcularcantida();
 
                 }
             }
 
-            if (lbl_almacen_stock.getText().equals("0000002")) {
+            if (almacen.equals("0000002")) {
                 if (ch_ventas.isSelected()) {
                     cargarVentas_2(date1, date2, cod);
                     calcularcantida();
 
                 }
                 if (ch_compras.isSelected()) {
-                    cargarCompras(date1, date2, cod);
-                    calcularcantida();
+                    JOptionPane.showMessageDialog(null, "Compras es de uso exclusivo de la  Central");
 
                 }
                 if (ch_dev.isSelected()) {
@@ -336,20 +346,19 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 }
 
                 if (ch_transfe.isSelected()) {
-                    cargarTrans(date1, date2, cod);
+                    cargarTrans(date1, date2, cod, almacen);
                     calcularcantida();
 
                 }
             }
-            if (lbl_almacen_stock.getText().equals("0000003")) {
+            if (almacen.equals("0000003")) {
                 if (ch_ventas.isSelected()) {
                     cargarVentas_3(date1, date2, cod);
                     calcularcantida();
 
                 }
                 if (ch_compras.isSelected()) {
-                    cargarCompras(date1, date2, cod);
-                    calcularcantida();
+                    JOptionPane.showMessageDialog(null, "Compras es de uso exclusivo de la  Central");
 
                 }
                 if (ch_dev.isSelected()) {
@@ -359,20 +368,19 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 }
 
                 if (ch_transfe.isSelected()) {
-                    cargarTrans(date1, date2, cod);
+                    cargarTrans(date1, date2, cod, almacen);
                     calcularcantida();
 
                 }
             }
-            if (lbl_almacen_stock.getText().equals("0000004")) {
+            if (almacen.equals("0000004")) {
                 if (ch_ventas.isSelected()) {
                     cargarVentas_4(date1, date2, cod);
                     calcularcantida();
 
                 }
                 if (ch_compras.isSelected()) {
-                    cargarCompras(date1, date2, cod);
-                    calcularcantida();
+                    JOptionPane.showMessageDialog(null, "Compras es de uso exclusivo de la  Central");
 
                 }
                 if (ch_dev.isSelected()) {
@@ -382,20 +390,19 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 }
 
                 if (ch_transfe.isSelected()) {
-                    cargarTrans(date1, date2, cod);
+                    cargarTrans(date1, date2, cod, almacen);
                     calcularcantida();
 
                 }
             }
-            if (lbl_almacen_stock.getText().equals("0000005")) {
+            if (almacen.equals("0000005")) {
                 if (ch_ventas.isSelected()) {
                     cargarVentas_5(date1, date2, cod);
                     calcularcantida();
 
                 }
                 if (ch_compras.isSelected()) {
-                    cargarCompras(date1, date2, cod);
-                    calcularcantida();
+                    JOptionPane.showMessageDialog(null, "Compras es de uso exclusivo de la  Central");
 
                 }
                 if (ch_dev.isSelected()) {
@@ -405,20 +412,19 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 }
 
                 if (ch_transfe.isSelected()) {
-                    cargarTrans(date1, date2, cod);
+                    cargarTrans(date1, date2, cod, almacen);
                     calcularcantida();
 
                 }
             }
-            if (lbl_almacen_stock.getText().equals("0000006")) {
+            if (almacen.equals("0000006")) {
                 if (ch_ventas.isSelected()) {
                     cargarVentas_6(date1, date2, cod);
                     calcularcantida();
 
                 }
                 if (ch_compras.isSelected()) {
-                    cargarCompras(date1, date2, cod);
-                    calcularcantida();
+                    JOptionPane.showMessageDialog(null, "Compras es de uso exclusivo de la  Central");
 
                 }
                 if (ch_dev.isSelected()) {
@@ -428,20 +434,19 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 }
 
                 if (ch_transfe.isSelected()) {
-                    cargarTrans(date1, date2, cod);
+                    cargarTrans(date1, date2, cod, almacen);
                     calcularcantida();
 
                 }
             }
-            if (lbl_almacen_stock.getText().equals("0000007")) {
+            if (almacen.equals("0000007")) {
                 if (ch_ventas.isSelected()) {
                     cargarVentas_7(date1, date2, cod);
                     calcularcantida();
 
                 }
                 if (ch_compras.isSelected()) {
-                    cargarCompras(date1, date2, cod);
-                    calcularcantida();
+                    JOptionPane.showMessageDialog(null, "Compras es de uso exclusivo de la  Central");
 
                 }
                 if (ch_dev.isSelected()) {
@@ -451,20 +456,19 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 }
 
                 if (ch_transfe.isSelected()) {
-                    cargarTrans(date1, date2, cod);
+                    cargarTrans(date1, date2, cod, almacen);
                     calcularcantida();
 
                 }
             }
-            if (lbl_almacen_stock.getText().equals("0000008")) {
+            if (almacen.equals("0000008")) {
                 if (ch_ventas.isSelected()) {
                     cargarVentas_8(date1, date2, cod);
                     calcularcantida();
 
                 }
                 if (ch_compras.isSelected()) {
-                    cargarCompras(date1, date2, cod);
-                    calcularcantida();
+                    JOptionPane.showMessageDialog(null, "Compras es de uso exclusivo de la  Central");
 
                 }
                 if (ch_dev.isSelected()) {
@@ -474,20 +478,19 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 }
 
                 if (ch_transfe.isSelected()) {
-                    cargarTrans(date1, date2, cod);
+                    cargarTrans(date1, date2, cod, almacen);
                     calcularcantida();
 
                 }
             }
-            if (lbl_almacen_stock.getText().equals("0000009")) {
+            if (almacen.equals("0000009")) {
                 if (ch_ventas.isSelected()) {
                     cargarVentas_9(date1, date2, cod);
                     calcularcantida();
 
                 }
                 if (ch_compras.isSelected()) {
-                    cargarCompras(date1, date2, cod);
-                    calcularcantida();
+                    JOptionPane.showMessageDialog(null, "Compras es de uso exclusivo de la  Central");
 
                 }
                 if (ch_dev.isSelected()) {
@@ -497,20 +500,19 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 }
 
                 if (ch_transfe.isSelected()) {
-                    cargarTrans(date1, date2, cod);
+                    cargarTrans(date1, date2, cod, almacen);
                     calcularcantida();
 
                 }
             }
-            if (lbl_almacen_stock.getText().equals("0000010")) {
+            if (almacen.equals("0000010")) {
                 if (ch_ventas.isSelected()) {
                     cargarVentas_10(date1, date2, cod);
                     calcularcantida();
 
                 }
                 if (ch_compras.isSelected()) {
-                    cargarCompras(date1, date2, cod);
-                    calcularcantida();
+                    JOptionPane.showMessageDialog(null, "Compras es de uso exclusivo de la  Central");
 
                 }
                 if (ch_dev.isSelected()) {
@@ -520,20 +522,19 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 }
 
                 if (ch_transfe.isSelected()) {
-                    cargarTrans(date1, date2, cod);
+                    cargarTrans(date1, date2, cod, almacen);
                     calcularcantida();
 
                 }
             }
-            if (lbl_almacen_stock.getText().equals("0000011")) {
+            if (almacen.equals("0000011")) {
                 if (ch_ventas.isSelected()) {
                     cargarVentas_11(date1, date2, cod);
                     calcularcantida();
 
                 }
                 if (ch_compras.isSelected()) {
-                    cargarCompras(date1, date2, cod);
-                    calcularcantida();
+                    JOptionPane.showMessageDialog(null, "Compras es de uso exclusivo de la  Central");
 
                 }
                 if (ch_dev.isSelected()) {
@@ -543,20 +544,19 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 }
 
                 if (ch_transfe.isSelected()) {
-                    cargarTrans(date1, date2, cod);
+                    cargarTrans(date1, date2, cod, almacen);
                     calcularcantida();
 
                 }
             }
-            if (lbl_almacen_stock.getText().equals("0000012")) {
+            if (almacen.equals("0000012")) {
                 if (ch_ventas.isSelected()) {
                     cargarVentas_12(date1, date2, cod);
                     calcularcantida();
 
                 }
                 if (ch_compras.isSelected()) {
-                    cargarCompras(date1, date2, cod);
-                    calcularcantida();
+                    JOptionPane.showMessageDialog(null, "Compras es de uso exclusivo de la  Central");
 
                 }
                 if (ch_dev.isSelected()) {
@@ -566,20 +566,19 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 }
 
                 if (ch_transfe.isSelected()) {
-                    cargarTrans(date1, date2, cod);
+                    cargarTrans(date1, date2, cod, almacen);
                     calcularcantida();
 
                 }
             }
-            if (lbl_almacen_stock.getText().equals("0000013")) {
+            if (almacen.equals("0000013")) {
                 if (ch_ventas.isSelected()) {
                     cargarVentas_13(date1, date2, cod);
                     calcularcantida();
 
                 }
                 if (ch_compras.isSelected()) {
-                    cargarCompras(date1, date2, cod);
-                    calcularcantida();
+                    JOptionPane.showMessageDialog(null, "Compras es de uso exclusivo de la  Central");
 
                 }
                 if (ch_dev.isSelected()) {
@@ -589,20 +588,19 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 }
 
                 if (ch_transfe.isSelected()) {
-                    cargarTrans(date1, date2, cod);
+                    cargarTrans(date1, date2, cod, almacen);
                     calcularcantida();
 
                 }
             }
-            if (lbl_almacen_stock.getText().equals("0000014")) {
+            if (almacen.equals("0000014")) {
                 if (ch_ventas.isSelected()) {
                     cargarVentas_14(date1, date2, cod);
                     calcularcantida();
 
                 }
                 if (ch_compras.isSelected()) {
-                    cargarCompras(date1, date2, cod);
-                    calcularcantida();
+                    JOptionPane.showMessageDialog(null, "Compras es de uso exclusivo de la  Central");
 
                 }
                 if (ch_dev.isSelected()) {
@@ -612,20 +610,19 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 }
 
                 if (ch_transfe.isSelected()) {
-                    cargarTrans(date1, date2, cod);
+                    cargarTrans(date1, date2, cod, almacen);
                     calcularcantida();
 
                 }
             }
-            if (lbl_almacen_stock.getText().equals("0000015")) {
+            if (almacen.equals("0000015")) {
                 if (ch_ventas.isSelected()) {
                     cargarVentas_15(date1, date2, cod);
                     calcularcantida();
 
                 }
                 if (ch_compras.isSelected()) {
-                    cargarCompras(date1, date2, cod);
-                    calcularcantida();
+                    JOptionPane.showMessageDialog(null, "Compras es de uso exclusivo de la  Central");
 
                 }
                 if (ch_dev.isSelected()) {
@@ -635,20 +632,19 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 }
 
                 if (ch_transfe.isSelected()) {
-                    cargarTrans(date1, date2, cod);
+                    cargarTrans(date1, date2, cod, almacen);
                     calcularcantida();
 
                 }
             }
-            if (lbl_almacen_stock.getText().equals("0000016")) {
+            if (almacen.equals("0000016")) {
                 if (ch_ventas.isSelected()) {
                     cargarVentas_16(date1, date2, cod);
                     calcularcantida();
 
                 }
                 if (ch_compras.isSelected()) {
-                    cargarCompras(date1, date2, cod);
-                    calcularcantida();
+                    JOptionPane.showMessageDialog(null, "Compras es de uso exclusivo de la  Central");
 
                 }
                 if (ch_dev.isSelected()) {
@@ -658,20 +654,19 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 }
 
                 if (ch_transfe.isSelected()) {
-                    cargarTrans(date1, date2, cod);
+                    cargarTrans(date1, date2, cod, almacen);
                     calcularcantida();
 
                 }
             }
-            if (lbl_almacen_stock.getText().equals("0000017")) {
+            if (almacen.equals("0000017")) {
                 if (ch_ventas.isSelected()) {
                     cargarVentas_17(date1, date2, cod);
                     calcularcantida();
 
                 }
                 if (ch_compras.isSelected()) {
-                    cargarCompras(date1, date2, cod);
-                    calcularcantida();
+                    JOptionPane.showMessageDialog(null, "Compras es de uso exclusivo de la  Central");
 
                 }
                 if (ch_dev.isSelected()) {
@@ -681,20 +676,19 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 }
 
                 if (ch_transfe.isSelected()) {
-                    cargarTrans(date1, date2, cod);
+                    cargarTrans(date1, date2, cod, almacen);
                     calcularcantida();
 
                 }
             }
-            if (lbl_almacen_stock.getText().equals("0000018")) {
+            if (almacen.equals("0000018")) {
                 if (ch_ventas.isSelected()) {
                     cargarVentas_18(date1, date2, cod);
                     calcularcantida();
 
                 }
                 if (ch_compras.isSelected()) {
-                    cargarCompras(date1, date2, cod);
-                    calcularcantida();
+                    JOptionPane.showMessageDialog(null, "Compras es de uso exclusivo de la  Central");
 
                 }
                 if (ch_dev.isSelected()) {
@@ -704,20 +698,19 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 }
 
                 if (ch_transfe.isSelected()) {
-                    cargarTrans(date1, date2, cod);
+                    cargarTrans(date1, date2, cod, almacen);
                     calcularcantida();
 
                 }
             }
-            if (lbl_almacen_stock.getText().equals("0000019")) {
+            if (almacen.equals("0000019")) {
                 if (ch_ventas.isSelected()) {
                     cargarVentas_19(date1, date2, cod);
                     calcularcantida();
 
                 }
                 if (ch_compras.isSelected()) {
-                    cargarCompras(date1, date2, cod);
-                    calcularcantida();
+                    JOptionPane.showMessageDialog(null, "Compras es de uso exclusivo de la  Central");
 
                 }
                 if (ch_dev.isSelected()) {
@@ -727,20 +720,19 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 }
 
                 if (ch_transfe.isSelected()) {
-                    cargarTrans(date1, date2, cod);
+                    cargarTrans(date1, date2, cod, almacen);
                     calcularcantida();
 
                 }
             }
-            if (lbl_almacen_stock.getText().equals("0000020")) {
+            if (almacen.equals("0000020")) {
                 if (ch_ventas.isSelected()) {
                     cargarVentas_20(date1, date2, cod);
                     calcularcantida();
 
                 }
                 if (ch_compras.isSelected()) {
-                    cargarCompras(date1, date2, cod);
-                    calcularcantida();
+                    JOptionPane.showMessageDialog(null, "Compras es de uso exclusivo de la  Central");
 
                 }
                 if (ch_dev.isSelected()) {
@@ -750,20 +742,19 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 }
 
                 if (ch_transfe.isSelected()) {
-                    cargarTrans(date1, date2, cod);
+                    cargarTrans(date1, date2, cod, almacen);
                     calcularcantida();
 
                 }
             }
-            if (lbl_almacen_stock.getText().equals("0000021")) {
+            if (almacen.equals("0000021")) {
                 if (ch_ventas.isSelected()) {
                     cargarVentas_21(date1, date2, cod);
                     calcularcantida();
 
                 }
                 if (ch_compras.isSelected()) {
-                    cargarCompras(date1, date2, cod);
-                    calcularcantida();
+                    JOptionPane.showMessageDialog(null, "Compras es de uso exclusivo de la  Central");
 
                 }
                 if (ch_dev.isSelected()) {
@@ -773,20 +764,19 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 }
 
                 if (ch_transfe.isSelected()) {
-                    cargarTrans(date1, date2, cod);
+                    cargarTrans(date1, date2, cod, almacen);
                     calcularcantida();
 
                 }
             }
-            if (lbl_almacen_stock.getText().equals("0000022")) {
+            if (almacen.equals("0000022")) {
                 if (ch_ventas.isSelected()) {
                     cargarVentas_22(date1, date2, cod);
                     calcularcantida();
 
                 }
                 if (ch_compras.isSelected()) {
-                    cargarCompras(date1, date2, cod);
-                    calcularcantida();
+                    JOptionPane.showMessageDialog(null, "Compras es de uso exclusivo de la  Central");
 
                 }
                 if (ch_dev.isSelected()) {
@@ -796,20 +786,19 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 }
 
                 if (ch_transfe.isSelected()) {
-                    cargarTrans(date1, date2, cod);
+                    cargarTrans(date1, date2, cod, almacen);
                     calcularcantida();
 
                 }
             }
-            if (lbl_almacen_stock.getText().equals("0000023")) {
+            if (almacen.equals("0000023")) {
                 if (ch_ventas.isSelected()) {
                     cargarVentas_23(date1, date2, cod);
                     calcularcantida();
 
                 }
                 if (ch_compras.isSelected()) {
-                    cargarCompras(date1, date2, cod);
-                    calcularcantida();
+                    JOptionPane.showMessageDialog(null, "Compras es de uso exclusivo de la  Central");
 
                 }
                 if (ch_dev.isSelected()) {
@@ -819,20 +808,19 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 }
 
                 if (ch_transfe.isSelected()) {
-                    cargarTrans(date1, date2, cod);
+                    cargarTrans(date1, date2, cod, almacen);
                     calcularcantida();
 
                 }
             }
-            if (lbl_almacen_stock.getText().equals("0000024")) {
+            if (almacen.equals("0000024")) {
                 if (ch_ventas.isSelected()) {
                     cargarVentas_24(date1, date2, cod);
                     calcularcantida();
 
                 }
                 if (ch_compras.isSelected()) {
-                    cargarCompras(date1, date2, cod);
-                    calcularcantida();
+                    JOptionPane.showMessageDialog(null, "Compras es de uso exclusivo de la  Central");
 
                 }
                 if (ch_dev.isSelected()) {
@@ -842,20 +830,19 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 }
 
                 if (ch_transfe.isSelected()) {
-                    cargarTrans(date1, date2, cod);
+                    cargarTrans(date1, date2, cod, almacen);
                     calcularcantida();
 
                 }
             }
-            if (lbl_almacen_stock.getText().equals("0000025")) {
+            if (almacen.equals("0000025")) {
                 if (ch_ventas.isSelected()) {
                     cargarVentas_25(date1, date2, cod);
                     calcularcantida();
 
                 }
                 if (ch_compras.isSelected()) {
-                    cargarCompras(date1, date2, cod);
-                    calcularcantida();
+                    JOptionPane.showMessageDialog(null, "Compras es de uso exclusivo de la  Central");
 
                 }
                 if (ch_dev.isSelected()) {
@@ -865,20 +852,19 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 }
 
                 if (ch_transfe.isSelected()) {
-                    cargarTrans(date1, date2, cod);
+                    cargarTrans(date1, date2, cod, almacen);
                     calcularcantida();
 
                 }
             }
-            if (lbl_almacen_stock.getText().equals("0000026")) {
+            if (almacen.equals("0000026")) {
                 if (ch_ventas.isSelected()) {
                     cargarVentas_26(date1, date2, cod);
                     calcularcantida();
 
                 }
                 if (ch_compras.isSelected()) {
-                    cargarCompras(date1, date2, cod);
-                    calcularcantida();
+                    JOptionPane.showMessageDialog(null, "Compras es de uso exclusivo de la  Central");
 
                 }
                 if (ch_dev.isSelected()) {
@@ -888,20 +874,19 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 }
 
                 if (ch_transfe.isSelected()) {
-                    cargarTrans(date1, date2, cod);
+                    cargarTrans(date1, date2, cod, almacen);
                     calcularcantida();
 
                 }
             }
-            if (lbl_almacen_stock.getText().equals("0000027")) {
+            if (almacen.equals("0000027")) {
                 if (ch_ventas.isSelected()) {
                     cargarVentas_27(date1, date2, cod);
                     calcularcantida();
 
                 }
                 if (ch_compras.isSelected()) {
-                    cargarCompras(date1, date2, cod);
-                    calcularcantida();
+                    JOptionPane.showMessageDialog(null, "Compras es de uso exclusivo de la  Central");
 
                 }
                 if (ch_dev.isSelected()) {
@@ -911,20 +896,19 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 }
 
                 if (ch_transfe.isSelected()) {
-                    cargarTrans(date1, date2, cod);
+                    cargarTrans(date1, date2, cod, almacen);
                     calcularcantida();
 
                 }
             }
-            if (lbl_almacen_stock.getText().equals("0000028")) {
+            if (almacen.equals("0000028")) {
                 if (ch_ventas.isSelected()) {
                     cargarVentas_28(date1, date2, cod);
                     calcularcantida();
 
                 }
                 if (ch_compras.isSelected()) {
-                    cargarCompras(date1, date2, cod);
-                    calcularcantida();
+                    JOptionPane.showMessageDialog(null, "Compras es de uso exclusivo de la  Central");
 
                 }
                 if (ch_dev.isSelected()) {
@@ -934,20 +918,19 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 }
 
                 if (ch_transfe.isSelected()) {
-                    cargarTrans(date1, date2, cod);
+                    cargarTrans(date1, date2, cod, almacen);
                     calcularcantida();
 
                 }
             }
-            if (lbl_almacen_stock.getText().equals("0000029")) {
+            if (almacen.equals("0000029")) {
                 if (ch_ventas.isSelected()) {
                     cargarVentas_29(date1, date2, cod);
                     calcularcantida();
 
                 }
                 if (ch_compras.isSelected()) {
-                    cargarCompras(date1, date2, cod);
-                    calcularcantida();
+                    JOptionPane.showMessageDialog(null, "Compras es de uso exclusivo de la  Central");
 
                 }
                 if (ch_dev.isSelected()) {
@@ -957,20 +940,19 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 }
 
                 if (ch_transfe.isSelected()) {
-                    cargarTrans(date1, date2, cod);
+                    cargarTrans(date1, date2, cod, almacen);
                     calcularcantida();
 
                 }
             }
-            if (lbl_almacen_stock.getText().equals("0000030")) {
+            if (almacen.equals("0000030")) {
                 if (ch_ventas.isSelected()) {
                     cargarVentas_30(date1, date2, cod);
                     calcularcantida();
 
                 }
                 if (ch_compras.isSelected()) {
-                    cargarCompras(date1, date2, cod);
-                    calcularcantida();
+                    JOptionPane.showMessageDialog(null, "Compras es de uso exclusivo de la  Central");
 
                 }
                 if (ch_dev.isSelected()) {
@@ -980,7 +962,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                 }
 
                 if (ch_transfe.isSelected()) {
-                    cargarTrans(date1, date2, cod);
+                    cargarTrans(date1, date2, cod, almacen);
                     calcularcantida();
 
                 }
@@ -1151,7 +1133,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -1180,7 +1162,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -1214,7 +1196,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -1243,7 +1225,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] =new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -1277,7 +1259,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -1306,7 +1288,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -1340,7 +1322,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -1369,7 +1351,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -1403,7 +1385,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] =new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -1432,7 +1414,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -1466,7 +1448,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -1495,7 +1477,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -1529,7 +1511,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -1558,7 +1540,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -1592,7 +1574,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -1621,7 +1603,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -1655,7 +1637,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -1684,7 +1666,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -1718,7 +1700,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -1747,7 +1729,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -1781,7 +1763,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -1810,7 +1792,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -1844,7 +1826,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -1873,7 +1855,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -1907,7 +1889,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -1936,7 +1918,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -1970,7 +1952,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -1999,7 +1981,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -2033,7 +2015,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -2062,7 +2044,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -2096,7 +2078,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -2125,7 +2107,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -2159,7 +2141,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -2188,7 +2170,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -2222,7 +2204,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -2251,7 +2233,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -2285,7 +2267,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -2314,7 +2296,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -2348,7 +2330,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -2377,7 +2359,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -2411,7 +2393,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -2440,7 +2422,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -2474,7 +2456,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -2503,7 +2485,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -2537,7 +2519,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -2566,7 +2548,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -2600,7 +2582,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -2629,7 +2611,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -2663,7 +2645,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -2692,7 +2674,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -2726,7 +2708,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -2755,7 +2737,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -2789,7 +2771,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -2818,7 +2800,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -2852,7 +2834,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -2881,7 +2863,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -2915,7 +2897,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -2944,7 +2926,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -2978,7 +2960,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -3007,7 +2989,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
 
                     model.addRow(Registros);
                 }
@@ -3101,7 +3083,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
                     model.addRow(Registros);
                 }
                 tcr = new DefaultTableCellRenderer();
@@ -3128,7 +3110,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
                     model.addRow(Registros);
                 }
                 tcr = new DefaultTableCellRenderer();
@@ -3160,7 +3142,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
                     model.addRow(Registros);
                 }
                 tcr = new DefaultTableCellRenderer();
@@ -3187,7 +3169,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
                     model.addRow(Registros);
                 }
                 tcr = new DefaultTableCellRenderer();
@@ -3201,7 +3183,66 @@ public class control_ventas_stock extends javax.swing.JDialog {
         }
     }
 
-    void cargarTrans(Date fecha_ini, Date fecha_fin, String cod) {
+    void cargarTrans(Date fecha_ini, Date fecha_fin, String cod, String alma) {
+
+        if (ch_suma_stock.isSelected()) {
+            String mostrar = "SELECT d.cod_pro, d.num_transf, sum(d.cant_pro), d.pre_unit, d.data FROM transf_detalles as d INNER JOIN transf_stock as t ON d.num_transf=t.cod_tran  WHERE  t.id_alma_des='" + alma + "' AND d.cod_pro ='" + cod + "' AND d.data  BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'   order by d.cod_pro";
+            String[] titulos = {"Id Producto", "N° Transferencia.", "Cantidad", "Precio", "Fecha Salida."};
+            String[] Registros = new String[13];
+            model = new DefaultTableModel(null, titulos);
+
+            try {
+                Connection cn = conectar.getInstance().getConnection();
+
+                Statement st = cn.createStatement();
+                ResultSet rs = st.executeQuery(mostrar);
+                while (rs.next()) {
+                    Registros[0] = rs.getString(1);
+                    Registros[1] = rs.getString(2);
+                    Registros[2] = rs.getString(3);
+                    Registros[3] = rs.getString(4);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
+                    model.addRow(Registros);
+                }
+                tcr = new DefaultTableCellRenderer();
+                tcr.setHorizontalAlignment(SwingConstants.CENTER);
+                tb_control.setModel(model);
+                conectar.getInstance().closeConnection(cn);
+
+            } catch (SQLException ex) {
+                Logger.getLogger(control_ventas_stock.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            String mostrar = "SELECT d.cod_pro, d.num_transf, d.cant_pro, d.pre_unit, d.data FROM transf_detalles as d INNER JOIN transf_stock as t ON d.num_transf=t.cod_tran  WHERE  t.id_alma_des='" + alma + "' AND d.cod_pro ='" + cod + "' AND d.data  BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'    ORDER BY d.cod_pro ASC";
+            String[] titulos = {"Id Producto", "N° Transferencia.", "Cantidad", "Precio", "Fecha Salida."};
+            String[] Registros = new String[13];
+            model = new DefaultTableModel(null, titulos);
+
+            try {
+                Connection cn = conectar.getInstance().getConnection();
+
+                Statement st = cn.createStatement();
+                ResultSet rs = st.executeQuery(mostrar);
+                while (rs.next()) {
+                    Registros[0] = rs.getString(1);
+                    Registros[1] = rs.getString(2);
+                    Registros[2] = rs.getString(3);
+                    Registros[3] = rs.getString(4);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
+                    model.addRow(Registros);
+                }
+                tcr = new DefaultTableCellRenderer();
+                tcr.setHorizontalAlignment(SwingConstants.CENTER);
+                tb_control.setModel(model);
+                conectar.getInstance().closeConnection(cn);
+
+            } catch (SQLException ex) {
+                Logger.getLogger(control_ventas_stock.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
+    void cargarTransCentral(Date fecha_ini, Date fecha_fin, String cod) {
 
         if (ch_suma_stock.isSelected()) {
             String mostrar = "SELECT d.cod_pro, d.num_transf, sum(d.cant_pro), d.pre_unit, d.data FROM transf_detalles AS d WHERE d.cod_pro ='" + cod + "' AND d.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  order by d.cod_pro";
@@ -3219,7 +3260,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
                     model.addRow(Registros);
                 }
                 tcr = new DefaultTableCellRenderer();
@@ -3246,7 +3287,7 @@ public class control_ventas_stock extends javax.swing.JDialog {
                     Registros[1] = rs.getString(2);
                     Registros[2] = rs.getString(3);
                     Registros[3] = rs.getString(4);
-                    Registros[4] = rs.getString(5);
+                    Registros[4] = new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(5));
                     model.addRow(Registros);
                 }
                 tcr = new DefaultTableCellRenderer();

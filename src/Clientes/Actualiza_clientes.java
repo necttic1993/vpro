@@ -59,6 +59,7 @@ public class Actualiza_clientes extends javax.swing.JDialog {
         txttel.setText("");
         txt_dias_plazos.setText("");
         txt_cli_registro.setText("");
+        txt_id_ciudad.setText("");
 
     }
 
@@ -99,6 +100,10 @@ public class Actualiza_clientes extends javax.swing.JDialog {
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        txt_id_ciudad = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registrar Clientes");
@@ -205,6 +210,7 @@ public class Actualiza_clientes extends javax.swing.JDialog {
         btnguardar.setMnemonic('g');
         btnguardar.setText("Actualizar");
         btnguardar.setBorder(null);
+        btnguardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnguardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnguardarActionPerformed(evt);
@@ -273,6 +279,31 @@ public class Actualiza_clientes extends javax.swing.JDialog {
         jLabel20.setText("*");
         jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 20, 20));
 
+        jLabel21.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel21.setText("Ciudad:");
+        jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 70, 30));
+
+        jLabel22.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel22.setText("*");
+        jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 20, 20));
+
+        txt_id_ciudad.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txt_id_ciudad.setDisabledTextColor(new java.awt.Color(153, 0, 0));
+        txt_id_ciudad.setEnabled(false);
+        jPanel3.add(txt_id_ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 90, 30));
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/busqueda.png"))); // NOI18N
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, -1, 30));
+
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 270));
 
         pack();
@@ -301,7 +332,7 @@ public class Actualiza_clientes extends javax.swing.JDialog {
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
 
-        if (txtdir.getText().length() != 0 && txtnom.getText().length() != 0 && txttel.getText().length() != 0) {
+        if (txtdir.getText().length() != 0 && txtnom.getText().length() != 0 && txttel.getText().length() != 0 && txt_id_ciudad.getText().length() != 0) {
 
             String sql = "UPDATE tienda_clientes SET cli_nombre = '" + txtnom.getText()
                     + "',cli_ruc ='" + txtruc.getText()
@@ -315,6 +346,7 @@ public class Actualiza_clientes extends javax.swing.JDialog {
                     + "',nro_registro ='" + txt_cli_registro.getText()
                     + "',cli_pais ='" + cb_cli_pais.getSelectedItem().toString()
                     + "',cli_surc ='" + cb_contro_surc.getSelectedItem().toString()
+                    + "',cli_ciudad ='" + txt_id_ciudad.getText()
                     + "' WHERE cli_cod = '" + txtcod.getText() + "'";
             try {
                 Connection cn = conectar.getInstance().getConnection();
@@ -340,6 +372,12 @@ public class Actualiza_clientes extends javax.swing.JDialog {
         String Razon = txtnom.getText();
         txt_razon.setText(Razon);
     }//GEN-LAST:event_txtnomKeyReleased
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ciudad_clientes_update ac;
+        ac = new ciudad_clientes_update(new javax.swing.JDialog(), true);
+        ac.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -390,6 +428,7 @@ public class Actualiza_clientes extends javax.swing.JDialog {
     private javax.swing.JComboBox<String> cb_contro_surc;
     private org.jdesktop.swingx.JXComboBox cb_status;
     private org.jdesktop.swingx.JXComboBox cb_tipo;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -403,6 +442,8 @@ public class Actualiza_clientes extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -411,6 +452,7 @@ public class Actualiza_clientes extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField txt_cli_registro;
     private javax.swing.JTextField txt_dias_plazos;
+    public static javax.swing.JTextField txt_id_ciudad;
     private javax.swing.JTextField txt_razon;
     private javax.swing.JTextField txtcod;
     private javax.swing.JTextField txtdir;
@@ -424,7 +466,7 @@ public class Actualiza_clientes extends javax.swing.JDialog {
 
         try {
 
-            String codi = "", nom = "", ruc = "", razon = "", contacto = "", email = "", dir = "", tipo = "";
+            String codi = "", nom = "", ruc = "", razon = "", contacto = "", email = "", dir = "", tipo = "", ciudad = "";
             String registro = "", dias_cre = "", cli_status = "", cli_pais = "", surc = "";
             Connection cn = conectar.getInstance().getConnection();
 
@@ -446,6 +488,7 @@ public class Actualiza_clientes extends javax.swing.JDialog {
                 registro = rs.getString(13);
                 cli_pais = rs.getString(14);
                 surc = rs.getString(15);
+                ciudad = rs.getString(16);
 
             }
 
@@ -462,6 +505,7 @@ public class Actualiza_clientes extends javax.swing.JDialog {
             txt_cli_registro.setText(registro);
             cb_cli_pais.setSelectedItem(cli_pais);
             cb_contro_surc.setSelectedItem(surc);
+            txt_id_ciudad.setText(ciudad);
             conectar.getInstance().closeConnection(cn);
 
         } catch (SQLException e) {

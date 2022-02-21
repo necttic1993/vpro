@@ -277,7 +277,7 @@ public class Cuentas_recibir extends javax.swing.JDialog {
 
             if (lbl_almacen_cr.getText().equals("0000001")) {
                 if (cliente.equals(var)) {
-                    String mostrar = "SELECT * FROM ventas_facturacion where   fecha_ventas BETWEEN '" + date1 + "' AND '" + date2 + "'  AND form_pag_lit='CRÉDITO' AND estado_fact='ACTIVO' AND  saldo_cred <> 0 ORDER BY fecha_ventas DESC";
+                    String mostrar = "SELECT * FROM ventas_facturacion where   fecha_ventas BETWEEN '" + date1 + "' AND '" + date2 + "'  AND form_pag_lit='CRÉDITO' AND estado_fact='PENDIENTE' AND  saldo_cred <> 0 ORDER BY fecha_ventas DESC";
                     limpiar_texto();
                     report(mostrar);
                     calcularPendientes();
@@ -285,7 +285,7 @@ public class Cuentas_recibir extends javax.swing.JDialog {
                     calcularSaldo();
 
                 } else {
-                    String mostrar = "SELECT * FROM ventas_facturacion where   fecha_ventas BETWEEN '" + date1 + "' AND '" + date2 + "' AND cod_cli_ventas='" + cliente + "' AND form_pag_lit='CRÉDITO' AND estado_fact='ACTIVO' AND  saldo_cred <> 0 ORDER BY fecha_ventas DESC";
+                    String mostrar = "SELECT * FROM ventas_facturacion where   fecha_ventas BETWEEN '" + date1 + "' AND '" + date2 + "' AND cod_cli_ventas='" + cliente + "' AND form_pag_lit='CRÉDITO' AND estado_fact='PENDIENTE' AND  saldo_cred <> 0 ORDER BY fecha_ventas DESC";
                     limpiar_texto();
                     report_cli(mostrar);
                     calcularPendientes();

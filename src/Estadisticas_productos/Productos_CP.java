@@ -39,7 +39,6 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.export.JRPrintServiceExporter;
 import net.sf.jasperreports.engine.export.JRPrintServiceExporterParameter;
 import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -91,7 +90,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_cant > 0";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_cant > 0 AND pro_stock <> 'P'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -133,7 +132,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_2 > 0";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_2 > 0 AND pro_stock <> 'P'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -178,7 +177,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_3 > 0";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_3 > 0 AND pro_stock <> 'P'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -223,7 +222,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_4 > 0";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_4 > 0 AND pro_stock <> 'P'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -268,7 +267,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_5 > 0";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_5 > 0 AND pro_stock <> 'P'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -313,7 +312,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_6 > 0";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_6 > 0 AND pro_stock <> 'P'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -358,7 +357,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_7 > 0";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_7 > 0 AND pro_stock <> 'P'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -403,7 +402,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_8 > 0";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_8 > 0 AND pro_stock <> 'P'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -448,7 +447,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_9 > 0";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_9 > 0 AND pro_stock <> 'P'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -493,7 +492,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'AND pro_stock_10 > 0";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'AND pro_stock_10 > 0 AND pro_stock <> 'P'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -538,7 +537,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_11 > 0";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_11 > 0 AND pro_stock <> 'P'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -583,7 +582,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_12 > 0";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_12 > 0 AND pro_stock <> 'P'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -628,7 +627,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_13 > 0";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_13 > 0 AND pro_stock <> 'P'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -673,7 +672,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_14 > 0";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_14 > 0 AND pro_stock <> 'P'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -718,7 +717,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_15 > 0";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_15 > 0 AND pro_stock <> 'P'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -763,7 +762,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_16 > 0";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_16 > 0 AND pro_stock <> 'P'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -808,7 +807,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_17 > 0";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_17 > 0 AND pro_stock <> 'P'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -853,7 +852,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_18 > 0";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_18 > 0 AND pro_stock <> 'P'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -898,7 +897,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_19 > 0";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_19 > 0 AND pro_stock <> 'P'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -943,7 +942,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_20 > 0";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_20 > 0 AND pro_stock <> 'P'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -988,7 +987,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_21 > 0";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_21 > 0 AND pro_stock <> 'P'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1033,7 +1032,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_22 > 0";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_22 > 0 AND pro_stock <> 'P'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1078,7 +1077,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_23 > 0";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_23 > 0 AND pro_stock <> 'P'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1123,7 +1122,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_24 > 0";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_24 > 0 AND pro_stock <> 'P'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1168,7 +1167,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_25 > 0";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_25 > 0 AND pro_stock <> 'P'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1213,7 +1212,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_26 > 0";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_26 > 0 AND pro_stock <> 'P'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1258,7 +1257,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_27 > 0";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_27 > 0 AND pro_stock <> 'P'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1303,7 +1302,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_28 > 0";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_28 > 0 AND pro_stock <> 'P'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1348,7 +1347,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_29 > 0";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_29 > 0 AND pro_stock <> 'P'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1393,7 +1392,7 @@ public class Productos_CP extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_30 > 0";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock_30 > 0 AND pro_stock <> 'P'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1449,9 +1448,11 @@ public class Productos_CP extends javax.swing.JDialog {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jLabel13 = new javax.swing.JLabel();
+        lbl_cant_productos = new javax.swing.JLabel();
         lbl_almacen_cp = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -1570,9 +1571,10 @@ public class Productos_CP extends javax.swing.JDialog {
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 570, 230, 10));
 
-        jLabel13.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel13.setText("Total Stock:");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 500, 80, 30));
+        lbl_cant_productos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbl_cant_productos.setForeground(new java.awt.Color(0, 102, 51));
+        lbl_cant_productos.setText("0");
+        jPanel1.add(lbl_cant_productos, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 500, 100, 30));
 
         lbl_almacen_cp.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbl_almacen_cp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Caja_2/iconos/dpto.png"))); // NOI18N
@@ -1595,6 +1597,14 @@ public class Productos_CP extends javax.swing.JDialog {
             }
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 10, 80, 50));
+
+        jLabel14.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel14.setText("Total Stock:");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 500, 80, 30));
+
+        jLabel15.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel15.setText("Total de Producto:");
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 500, 110, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1716,6 +1726,7 @@ public class Productos_CP extends javax.swing.JDialog {
         } else {
 
             if (lbl_almacen_cp.getText().equals("0000001")) {
+                limpiar();
                 cargar("");
                 calcularCantidadPro();
                 lista_ventas_totales();
@@ -1723,6 +1734,7 @@ public class Productos_CP extends javax.swing.JDialog {
                 lista_neto_generales();
             }
             if (lbl_almacen_cp.getText().equals("0000002")) {
+                limpiar();
                 cargar_2("");
                 calcularCantidadPro();
                 lista_ventas_totales();
@@ -1730,6 +1742,7 @@ public class Productos_CP extends javax.swing.JDialog {
                 lista_neto_generales();
             }
             if (lbl_almacen_cp.getText().equals("0000003")) {
+                limpiar();
                 cargar_3("");
                 calcularCantidadPro();
                 lista_ventas_totales();
@@ -1737,6 +1750,7 @@ public class Productos_CP extends javax.swing.JDialog {
                 lista_neto_generales();
             }
             if (lbl_almacen_cp.getText().equals("0000004")) {
+                limpiar();
                 cargar_4("");
                 calcularCantidadPro();
                 lista_ventas_totales();
@@ -1744,6 +1758,7 @@ public class Productos_CP extends javax.swing.JDialog {
                 lista_neto_generales();
             }
             if (lbl_almacen_cp.getText().equals("0000005")) {
+                limpiar();
                 cargar_5("");
                 calcularCantidadPro();
                 lista_ventas_totales();
@@ -1751,6 +1766,7 @@ public class Productos_CP extends javax.swing.JDialog {
                 lista_neto_generales();
             }
             if (lbl_almacen_cp.getText().equals("0000006")) {
+                limpiar();
                 cargar_6("");
                 calcularCantidadPro();
                 lista_ventas_totales();
@@ -1758,6 +1774,7 @@ public class Productos_CP extends javax.swing.JDialog {
                 lista_neto_generales();
             }
             if (lbl_almacen_cp.getText().equals("0000007")) {
+                limpiar();
                 cargar_7("");
                 calcularCantidadPro();
                 lista_ventas_totales();
@@ -1765,6 +1782,7 @@ public class Productos_CP extends javax.swing.JDialog {
                 lista_neto_generales();
             }
             if (lbl_almacen_cp.getText().equals("0000008")) {
+                limpiar();
                 cargar_8("");
                 calcularCantidadPro();
                 lista_ventas_totales();
@@ -1772,6 +1790,7 @@ public class Productos_CP extends javax.swing.JDialog {
                 lista_neto_generales();
             }
             if (lbl_almacen_cp.getText().equals("0000009")) {
+                limpiar();
                 cargar_9("");
                 calcularCantidadPro();
                 lista_ventas_totales();
@@ -1779,6 +1798,7 @@ public class Productos_CP extends javax.swing.JDialog {
                 lista_neto_generales();
             }
             if (lbl_almacen_cp.getText().equals("0000010")) {
+                limpiar();
                 cargar_10("");
                 calcularCantidadPro();
                 lista_ventas_totales();
@@ -1786,6 +1806,7 @@ public class Productos_CP extends javax.swing.JDialog {
                 lista_neto_generales();
             }
             if (lbl_almacen_cp.getText().equals("0000011")) {
+                limpiar();
                 cargar_11("");
                 calcularCantidadPro();
                 lista_ventas_totales();
@@ -1793,6 +1814,7 @@ public class Productos_CP extends javax.swing.JDialog {
                 lista_neto_generales();
             }
             if (lbl_almacen_cp.getText().equals("0000012")) {
+                limpiar();
                 cargar_12("");
                 calcularCantidadPro();
                 lista_ventas_totales();
@@ -1800,6 +1822,7 @@ public class Productos_CP extends javax.swing.JDialog {
                 lista_neto_generales();
             }
             if (lbl_almacen_cp.getText().equals("0000013")) {
+                limpiar();
                 cargar_13("");
                 calcularCantidadPro();
                 lista_ventas_totales();
@@ -1807,6 +1830,7 @@ public class Productos_CP extends javax.swing.JDialog {
                 lista_neto_generales();
             }
             if (lbl_almacen_cp.getText().equals("0000014")) {
+                limpiar();
                 cargar_14("");
                 calcularCantidadPro();
                 lista_ventas_totales();
@@ -1814,6 +1838,7 @@ public class Productos_CP extends javax.swing.JDialog {
                 lista_neto_generales();
             }
             if (lbl_almacen_cp.getText().equals("0000015")) {
+                limpiar();
                 cargar_15("");
                 calcularCantidadPro();
                 lista_ventas_totales();
@@ -1821,6 +1846,7 @@ public class Productos_CP extends javax.swing.JDialog {
                 lista_neto_generales();
             }
             if (lbl_almacen_cp.getText().equals("0000016")) {
+                limpiar();
                 cargar_16("");
                 calcularCantidadPro();
                 lista_ventas_totales();
@@ -1828,6 +1854,7 @@ public class Productos_CP extends javax.swing.JDialog {
                 lista_neto_generales();
             }
             if (lbl_almacen_cp.getText().equals("0000017")) {
+                limpiar();
                 cargar_17("");
                 calcularCantidadPro();
                 lista_ventas_totales();
@@ -1835,6 +1862,7 @@ public class Productos_CP extends javax.swing.JDialog {
                 lista_neto_generales();
             }
             if (lbl_almacen_cp.getText().equals("0000018")) {
+                limpiar();
                 cargar_18("");
                 calcularCantidadPro();
                 lista_ventas_totales();
@@ -1842,6 +1870,7 @@ public class Productos_CP extends javax.swing.JDialog {
                 lista_neto_generales();
             }
             if (lbl_almacen_cp.getText().equals("0000019")) {
+                limpiar();
                 cargar_19("");
                 calcularCantidadPro();
                 lista_ventas_totales();
@@ -1849,6 +1878,7 @@ public class Productos_CP extends javax.swing.JDialog {
                 lista_neto_generales();
             }
             if (lbl_almacen_cp.getText().equals("0000020")) {
+                limpiar();
                 cargar_20("");
                 calcularCantidadPro();
                 lista_ventas_totales();
@@ -1856,6 +1886,7 @@ public class Productos_CP extends javax.swing.JDialog {
                 lista_neto_generales();
             }
             if (lbl_almacen_cp.getText().equals("0000021")) {
+                limpiar();
                 cargar_21("");
                 calcularCantidadPro();
                 lista_ventas_totales();
@@ -1863,6 +1894,7 @@ public class Productos_CP extends javax.swing.JDialog {
                 lista_neto_generales();
             }
             if (lbl_almacen_cp.getText().equals("0000022")) {
+                limpiar();
                 cargar_22("");
                 calcularCantidadPro();
                 lista_ventas_totales();
@@ -1870,6 +1902,7 @@ public class Productos_CP extends javax.swing.JDialog {
                 lista_neto_generales();
             }
             if (lbl_almacen_cp.getText().equals("0000023")) {
+                limpiar();
                 cargar_23("");
                 calcularCantidadPro();
                 lista_ventas_totales();
@@ -1877,6 +1910,7 @@ public class Productos_CP extends javax.swing.JDialog {
                 lista_neto_generales();
             }
             if (lbl_almacen_cp.getText().equals("0000024")) {
+                limpiar();
                 cargar_24("");
                 calcularCantidadPro();
                 lista_ventas_totales();
@@ -1884,6 +1918,7 @@ public class Productos_CP extends javax.swing.JDialog {
                 lista_neto_generales();
             }
             if (lbl_almacen_cp.getText().equals("0000025")) {
+                limpiar();
                 cargar_25("");
                 calcularCantidadPro();
                 lista_ventas_totales();
@@ -1891,6 +1926,7 @@ public class Productos_CP extends javax.swing.JDialog {
                 lista_neto_generales();
             }
             if (lbl_almacen_cp.getText().equals("0000026")) {
+                limpiar();
                 cargar_26("");
                 calcularCantidadPro();
                 lista_ventas_totales();
@@ -1898,6 +1934,7 @@ public class Productos_CP extends javax.swing.JDialog {
                 lista_neto_generales();
             }
             if (lbl_almacen_cp.getText().equals("0000027")) {
+                limpiar();
                 cargar_27("");
                 calcularCantidadPro();
                 lista_ventas_totales();
@@ -1905,6 +1942,7 @@ public class Productos_CP extends javax.swing.JDialog {
                 lista_neto_generales();
             }
             if (lbl_almacen_cp.getText().equals("0000028")) {
+            limpiar();
                 cargar_28("");
                 calcularCantidadPro();
                 lista_ventas_totales();
@@ -1912,6 +1950,7 @@ public class Productos_CP extends javax.swing.JDialog {
                 lista_neto_generales();
             }
             if (lbl_almacen_cp.getText().equals("0000029")) {
+                limpiar();
                 cargar_29("");
                 calcularCantidadPro();
                 lista_ventas_totales();
@@ -1919,6 +1958,7 @@ public class Productos_CP extends javax.swing.JDialog {
                 lista_neto_generales();
             }
             if (lbl_almacen_cp.getText().equals("0000030")) {
+                limpiar();
                 cargar_30("");
                 calcularCantidadPro();
                 lista_ventas_totales();
@@ -1983,12 +2023,14 @@ public class Productos_CP extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     public static javax.swing.JLabel lbl_almacen_cp;
+    private javax.swing.JLabel lbl_cant_productos;
     private javax.swing.JLabel lbl_saldo_totales;
     private javax.swing.JLabel lbl_total_ventas;
     private javax.swing.JLabel lbl_valor_compras;
@@ -2000,12 +2042,14 @@ public class Productos_CP extends javax.swing.JDialog {
 
         int Acumulador = 0;
         int TF = tb_prod.getRowCount();
+
         for (int i = 0; i < TF; i++) {
             int CantidadPro = Integer.valueOf(tb_prod.getValueAt(i, 3).toString().replaceAll("\\s", "").replaceAll("[^0-9]", ""));
             Acumulador = Acumulador + CantidadPro;
         }
         //</editor-fold>
         lblcanpro.setText(MaskaraPrecioUnitarioEnteros(String.valueOf(Acumulador)));
+        lbl_cant_productos.setText(String.valueOf(TF));
 
     }
 
@@ -2066,6 +2110,14 @@ public class Productos_CP extends javax.swing.JDialog {
         BigDecimal valor_ultimo = ingreso.TransformReales(lbl_valor_compras.getText());
         net = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(valor_total.subtract(valor_ultimo).toString());
         lbl_saldo_totales.setText(net);
+
+    }
+
+    public void limpiar() {
+        lbl_valor_compras.setText("0");
+        lbl_saldo_totales.setText("0");
+        lbl_total_ventas.setText("0");
+        lblcanpro.setText("0");
 
     }
 

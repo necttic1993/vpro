@@ -7,6 +7,7 @@ package Ventas_2.Mod_nota;
 
 import Conexion_DB.conectar;
 import static Loggin_Principal.NECTTIC.ingreso;
+import Loggin_Principal.Principal;
 import static Loggin_Principal.Principal.lbl_class;
 import static Loggin_Principal.Principal.lbl_fecha_hoy;
 import static Loggin_Principal.Principal.lbl_mone_def;
@@ -15,10 +16,12 @@ import static Loggin_Principal.Principal.lbl_pre_c;
 import Productos.costos_monedas;
 import static Ventas_2.Mod_nota.Productos_ventas_2_mod.cod_pro_ventas_2;
 import static Ventas_2.Mod_nota.Productos_ventas_2_mod.lbl_surcusal_id;
+import Ventas_2.Ventas_venta_2;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -252,7 +255,7 @@ public class Precio_modelo_dos_2_mod extends javax.swing.JDialog {
 
     private void btn_agregar_itemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregar_itemActionPerformed
         if (lbl_surcusal_id.getText().equals("0000002") || lbl_surcusal_id.getText().equals("TODOS")) {
-
+            int existe = 0;
             String id = txt_cod.getText();
             String cant = txt_cant.getText();
             int canting = Integer.parseInt(cant);
@@ -266,13 +269,19 @@ public class Precio_modelo_dos_2_mod extends javax.swing.JDialog {
                     Object com = Ventas_venta_2_mod.tb_factura.getValueAt(i, 0);
                     if (id.equals(com)) {
                         JOptionPane.showMessageDialog(this, "Item ya agregado");
-                        txt_cant.requestFocus();
+                        existe = 1;
                     }
                 }
-                detalle_ticket();
-                descontarstock_2(id, cant);
-                Ventas_venta_2_mod.btncalcular.doClick();
-                this.dispose();
+
+                if (existe == 0) {
+                    detalle_ticket();
+                    descontarstock_2(id, cant);
+                    Ventas_venta_2_mod.btncalcular.doClick();
+                    this.dispose();
+                } else {
+                    txt_cant.requestFocus();
+
+                }
 
             }
 
@@ -385,17 +394,120 @@ public class Precio_modelo_dos_2_mod extends javax.swing.JDialog {
             Connection cn = conectar.getInstance().getConnection();
 
             String pre_compra = "", pre_a = "", codi = "", des = "", pre_b = "", stock = "", pre_ataca = "";
+            String pre_a_calc = "", pre_b_calc = "", pre_c_calc = "", pre_d_calc = "", pre_o_calc = "";
+            BigDecimal iva = ingreso.TransformReales("11");
             String cons = "select * from tienda_productos WHERE pro_cod='" + cod + "'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
-                des = rs.getString(3);
-                codi = rs.getString(1);
-                stock = rs.getString(25);
-                pre_compra = rs.getString(6);
-                pre_a = rs.getString(7);
-                pre_b = rs.getString(8);
-                pre_ataca = rs.getString(9);
+                if (Principal.txt_act_vuelto.getText().equals("N")) {
+                    des = rs.getString(3);
+                    codi = rs.getString(1);
+                    stock = rs.getString(25);
+                    pre_compra = rs.getString(6);
+                    pre_a = rs.getString(7);
+                    pre_b = rs.getString(8);
+                    pre_ataca = rs.getString(9);
+
+                    System.out.println("sin control rt");
+                } else {
+                    /////////////////////////////////////////////////
+                    if (Ventas_venta_2_mod.txt_tipo_clientes.getText().equals("PY") && Ventas_venta_2_mod.txt_rt_cli.getText().equals("0")) {
+                        ///diferente
+                        des = rs.getString(3);
+                        codi = rs.getString(1);
+                        stock = rs.getString(25);
+                        pre_compra = rs.getString(6);
+                        pre_a = rs.getString(7);
+                        pre_b = rs.getString(8);
+                        pre_ataca = rs.getString(9);
+
+                    } else if (Ventas_venta_2_mod.txt_tipo_clientes.getText().equals("EX") && Ventas_venta_2_mod.txt_rt_cli.getText().equals("0")) {
+
+                        des = rs.getString(3);
+                        codi = rs.getString(1);
+                        stock = rs.getString(25);
+                        BigDecimal Precio_a = ingreso.TransformReales(rs.getString(7));
+                        BigDecimal Precio_b = ingreso.TransformReales(rs.getString(8));
+                        BigDecimal Precio_c = ingreso.TransformReales(rs.getString(9));
+                        BigDecimal Precio_d = ingreso.TransformReales(rs.getString(60));
+
+                        if (Principal.txt_simbolo.getText().equals("Gs")) {
+                            pre_a_calc = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(Precio_a.divide(iva, 0, RoundingMode.HALF_UP).toString());
+                            pre_b_calc = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(Precio_b.divide(iva, 0, RoundingMode.HALF_UP).toString());
+                            pre_c_calc = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(Precio_c.divide(iva, 0, RoundingMode.HALF_UP).toString());
+                            pre_d_calc = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(Precio_d.divide(iva, 0, RoundingMode.HALF_UP).toString());
+
+                            BigDecimal Precio_a_iva = ingreso.TransformReales(pre_a_calc);
+                            BigDecimal Precio_b_iva = ingreso.TransformReales(pre_b_calc);
+                            BigDecimal Precio_c_iva = ingreso.TransformReales(pre_c_calc);
+                            BigDecimal Precio_d_iva = ingreso.TransformReales(pre_d_calc);
+
+                            pre_a = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(Precio_a.subtract(Precio_a_iva).toString());
+                            pre_b = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(Precio_b.subtract(Precio_b_iva).toString());
+                            pre_ataca = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(Precio_c.subtract(Precio_c_iva).toString());
+
+                        } else {
+                            pre_a_calc = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(Precio_a.divide(iva, 2, RoundingMode.HALF_UP).toString());
+                            pre_b_calc = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(Precio_b.divide(iva, 2, RoundingMode.HALF_UP).toString());
+                            pre_c_calc = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(Precio_c.divide(iva, 2, RoundingMode.HALF_UP).toString());
+                            pre_d_calc = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(Precio_d.divide(iva, 2, RoundingMode.HALF_UP).toString());
+
+                            BigDecimal Precio_a_iva = ingreso.TransformReales(pre_a_calc);
+                            BigDecimal Precio_b_iva = ingreso.TransformReales(pre_b_calc);
+                            BigDecimal Precio_c_iva = ingreso.TransformReales(pre_c_calc);
+                            BigDecimal Precio_d_iva = ingreso.TransformReales(pre_d_calc);
+
+                            pre_a = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(Precio_a.subtract(Precio_a_iva).toString());
+                            pre_b = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(Precio_b.subtract(Precio_b_iva).toString());
+                            pre_ataca = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(Precio_c.subtract(Precio_c_iva).toString());
+
+                        }
+                    } else {
+
+                        des = rs.getString(3);
+                        codi = rs.getString(1);
+                        stock = rs.getString(25);
+                        BigDecimal Precio_a = ingreso.TransformReales(rs.getString(7));
+                        BigDecimal Precio_b = ingreso.TransformReales(rs.getString(8));
+                        BigDecimal Precio_c = ingreso.TransformReales(rs.getString(9));
+                        BigDecimal Precio_d = ingreso.TransformReales(rs.getString(60));
+
+                        if (Principal.txt_simbolo.getText().equals("Gs")) {
+                            pre_a_calc = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(Precio_a.divide(iva, 0, RoundingMode.HALF_UP).toString());
+                            pre_b_calc = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(Precio_b.divide(iva, 0, RoundingMode.HALF_UP).toString());
+                            pre_c_calc = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(Precio_c.divide(iva, 0, RoundingMode.HALF_UP).toString());
+                            pre_d_calc = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(Precio_d.divide(iva, 0, RoundingMode.HALF_UP).toString());
+
+                            BigDecimal Precio_a_iva = ingreso.TransformReales(pre_a_calc);
+                            BigDecimal Precio_b_iva = ingreso.TransformReales(pre_b_calc);
+                            BigDecimal Precio_c_iva = ingreso.TransformReales(pre_c_calc);
+                            BigDecimal Precio_d_iva = ingreso.TransformReales(pre_d_calc);
+                            BigDecimal Precio_o_iva = ingreso.TransformReales(pre_o_calc);
+                            pre_a = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(Precio_a.subtract(Precio_a_iva).toString());
+                            pre_b = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(Precio_b.subtract(Precio_b_iva).toString());
+                            pre_ataca = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(Precio_c.subtract(Precio_c_iva).toString());
+
+                        } else {
+                            pre_a_calc = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(Precio_a.divide(iva, 2, RoundingMode.HALF_UP).toString());
+                            pre_b_calc = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(Precio_b.divide(iva, 2, RoundingMode.HALF_UP).toString());
+                            pre_c_calc = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(Precio_c.divide(iva, 2, RoundingMode.HALF_UP).toString());
+                            pre_d_calc = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(Precio_d.divide(iva, 2, RoundingMode.HALF_UP).toString());
+
+                            BigDecimal Precio_a_iva = ingreso.TransformReales(pre_a_calc);
+                            BigDecimal Precio_b_iva = ingreso.TransformReales(pre_b_calc);
+                            BigDecimal Precio_c_iva = ingreso.TransformReales(pre_c_calc);
+                            BigDecimal Precio_d_iva = ingreso.TransformReales(pre_d_calc);
+
+                            pre_a = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(Precio_a.subtract(Precio_a_iva).toString());
+                            pre_b = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(Precio_b.subtract(Precio_b_iva).toString());
+                            pre_ataca = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(Precio_c.subtract(Precio_c_iva).toString());
+
+                        }
+                    }
+                    /////////////////////////
+
+                }
 
             }
             txt_cod.setText(codi);

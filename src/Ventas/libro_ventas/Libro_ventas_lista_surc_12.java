@@ -449,7 +449,7 @@ public class Libro_ventas_lista_surc_12 extends javax.swing.JDialog {
     //<editor-fold defaultstate="collapsed" desc="ZONA DE METODOS GENERICOS DE LA CLASE">
 
     void cargar(Date fecha_ini, Date fecha_fin, String user, String seq) {
-        String mostrar = "SELECT v.`cod_cli_ventas` ,v.`data_vista` ,c.`cli_cod` ,c.`cli_ruc` ,c.`cli_razon`,v.`nro_estable_ventas` ,v.`nro_seq_ventas`,v.`nro_fact_ventas` ,v.`total_ventas` ,v.`fact_sub_exe`,v.`total_iva_5`,v.`total_iva_10`,v.`total_iva` ,v.`form_pag_lit` FROM ventas_facturacion_surc_12 as v INNER JOIN   tienda_clientes as c ON  v.`cod_cli_ventas`=c.`cli_cod` WHERE v.fecha_ventas between '" + fecha_ini + "' AND '" + fecha_fin + "' and c.`cli_cod` = '" + user + "' AND v.nro_estable_ventas='" + seq + "' AND estado_fact <> 'ANULADA'";
+        String mostrar = "SELECT v.`cod_cli_ventas` ,v.`data_vista` ,c.`cli_cod` ,c.`cli_ruc` ,c.`cli_razon`,v.`nro_estable_ventas` ,v.`nro_seq_ventas`,v.`nro_fact_ventas` ,v.`total_ventas` ,v.`fact_sub_exe`,v.`total_iva_5`,v.`total_iva_10`,v.`total_iva` ,v.`form_pag_lit` FROM ventas_facturacion_surc_12 as v INNER JOIN   tienda_clientes as c ON  v.`cod_cli_ventas`=c.`cli_cod` WHERE v.fecha_ventas between '" + fecha_ini + "' AND '" + fecha_fin + "' and c.`cli_cod` = '" + user + "' AND v.nro_estable_ventas='" + seq + "' AND estado_fact <> 'ANULADA' order by fecha_ventas asc";
         String[] titulos = {"Fecha Emisión", "Documento", "Contado/ Crédito", "Razón Social/Nombres", "RUC", "Totales", "IVA 5%", "IVA 10%", "Excentas", "Total IVA"};
         String[] registros = new String[30];
         model = new DefaultTableModel(null, titulos);
@@ -494,7 +494,7 @@ public class Libro_ventas_lista_surc_12 extends javax.swing.JDialog {
     }
 
     void cargarC(Date fecha_ini, Date fecha_fin, String seq) {
-        String mostrar = "SELECT v.`cod_cli_ventas` ,v.`data_vista` ,c.`cli_cod` ,c.`cli_ruc` ,c.`cli_razon`,v.`nro_estable_ventas` ,v.`nro_seq_ventas`,v.`nro_fact_ventas` ,v.`total_ventas` ,v.`fact_sub_exe`,v.`total_iva_5`,v.`total_iva_10`,v.`total_iva` ,v.`form_pag_lit` FROM ventas_facturacion_surc_12 as v INNER JOIN   tienda_clientes as c ON  v.`cod_cli_ventas`=c.`cli_cod` WHERE v.fecha_ventas between '" + fecha_ini + "' AND '" + fecha_fin + "' AND v.nro_estable_ventas='" + seq + "' AND estado_fact <> 'ANULADA'";
+        String mostrar = "SELECT v.`cod_cli_ventas` ,v.`data_vista` ,c.`cli_cod` ,c.`cli_ruc` ,c.`cli_razon`,v.`nro_estable_ventas` ,v.`nro_seq_ventas`,v.`nro_fact_ventas` ,v.`total_ventas` ,v.`fact_sub_exe`,v.`total_iva_5`,v.`total_iva_10`,v.`total_iva` ,v.`form_pag_lit` FROM ventas_facturacion_surc_12 as v INNER JOIN   tienda_clientes as c ON  v.`cod_cli_ventas`=c.`cli_cod` WHERE v.fecha_ventas between '" + fecha_ini + "' AND '" + fecha_fin + "' AND v.nro_estable_ventas='" + seq + "' AND estado_fact <> 'ANULADA' order by fecha_ventas asc";
         String[] titulos = {"Fecha Emisión", "Documento", "Contado/ Crédito", "Razón Social/Nombres", "RUC", "Totales", "IVA 5%", "IVA 10%", "Excentas", "Total IVA"};
         String[] registros = new String[30];
         model = new DefaultTableModel(null, titulos);
@@ -682,7 +682,7 @@ public class Libro_ventas_lista_surc_12 extends javax.swing.JDialog {
             datosEstilo.setBorderBottom(BorderStyle.THIN);
             Connection cn = conectar.getInstance().getConnection();
 
-            ps = cn.prepareStatement("SELECT v.`data_vista`,v.`nro_fact_ventas` ,v.`form_pag_lit`  ,c.`cli_razon`,c.`cli_ruc`  ,v.`total_ventas` ,v.`total_iva_5`,v.`total_iva_10`,v.`fact_sub_exe`,v.`total_iva`  FROM ventas_facturacion_surc_12 as v INNER JOIN   tienda_clientes as c ON  v.`cod_cli_ventas`=c.`cli_cod` WHERE v.fecha_ventas between '" + fecha_ini + "' AND '" + fecha_fin + "' AND v.nro_estable_ventas='" + seq + "' AND estado_fact <> 'ANULADA'");
+            ps = cn.prepareStatement("SELECT v.`data_vista`,v.`nro_fact_ventas` ,v.`form_pag_lit`  ,c.`cli_razon`,c.`cli_ruc`  ,v.`total_ventas` ,v.`total_iva_5`,v.`total_iva_10`,v.`fact_sub_exe`,v.`total_iva`  FROM ventas_facturacion_surc_12 as v INNER JOIN   tienda_clientes as c ON  v.`cod_cli_ventas`=c.`cli_cod` WHERE v.fecha_ventas between '" + fecha_ini + "' AND '" + fecha_fin + "' AND v.nro_estable_ventas='" + seq + "' AND estado_fact <> 'ANULADA' order by fecha_ventas asc");
             rs = ps.executeQuery();
 
             int numCol = rs.getMetaData().getColumnCount();
@@ -842,7 +842,7 @@ public class Libro_ventas_lista_surc_12 extends javax.swing.JDialog {
             datosEstilo.setBorderBottom(BorderStyle.THIN);
             Connection cn = conectar.getInstance().getConnection();
 
-            ps = cn.prepareStatement("SELECT v.`data_vista`,v.`nro_fact_ventas` ,v.`form_pag_lit`  ,c.`cli_razon`,c.`cli_ruc`  ,v.`total_ventas` ,v.`total_iva_5`,v.`total_iva_10`,v.`fact_sub_exe`,v.`total_iva` FROM ventas_facturacion_surc_12 as v INNER JOIN   tienda_clientes as c ON  v.`cod_cli_ventas`=c.`cli_cod` WHERE v.fecha_ventas between '" + fecha_ini + "' AND '" + fecha_fin + "' and c.`cli_cod` = '" + cli + "' AND v.nro_estable_ventas='" + seq + "' AND estado_fact <> 'ANULADA'");
+            ps = cn.prepareStatement("SELECT v.`data_vista`,v.`nro_fact_ventas` ,v.`form_pag_lit`  ,c.`cli_razon`,c.`cli_ruc`  ,v.`total_ventas` ,v.`total_iva_5`,v.`total_iva_10`,v.`fact_sub_exe`,v.`total_iva` FROM ventas_facturacion_surc_12 as v INNER JOIN   tienda_clientes as c ON  v.`cod_cli_ventas`=c.`cli_cod` WHERE v.fecha_ventas between '" + fecha_ini + "' AND '" + fecha_fin + "' and c.`cli_cod` = '" + cli + "' AND v.nro_estable_ventas='" + seq + "' AND estado_fact <> 'ANULADA' order by fecha_ventas asc");
             rs = ps.executeQuery();
 
             int numCol = rs.getMetaData().getColumnCount();

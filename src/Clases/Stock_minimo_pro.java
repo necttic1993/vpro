@@ -25,13 +25,13 @@ public class Stock_minimo_pro extends DefaultTableCellRenderer {
         int existe = Integer.parseInt(minimo);
         int cont = 1;
 
-        if (stock <= existe && stock >= cont) {
+        if (stock < existe && stock >= cont) {
             setBackground(Color.ORANGE);
             setForeground(Color.black);
             setFont(font);
         } else if (stock < cont) {
-            setBackground(Color.white);
-            setForeground(Color.red);
+            setBackground(Color.red);
+            setForeground(Color.white);
             setFont(font);
         } else {
             setBackground(Color.white);

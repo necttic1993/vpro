@@ -146,7 +146,7 @@ public class Reportes {
             conectar.getInstance().closeConnection(cn);
 
         } catch (JRException ex) {
-           JOptionPane.showMessageDialog(null, ex);
+            JOptionPane.showMessageDialog(null, ex);
 
         }
 
@@ -5465,7 +5465,8 @@ public class Reportes {
 
                     jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
                     jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                  //  jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PAGE_DIALOG, Boolean.TRUE);//
                     jrprintServiceExporter.exportReport();
                     conectar.getInstance().closeConnection(cn);
 

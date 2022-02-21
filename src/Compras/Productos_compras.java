@@ -7,7 +7,6 @@ package Compras;
 
 import Clases.Stock_minimo;
 import Clases.machusculas;
-import static Compras.Compras_compras.lbl_compra_fis;
 import Conexion_DB.conectar;
 import Productos.DetallesProductos;
 import Productos.RegistrarProductos;
@@ -75,7 +74,7 @@ public class Productos_compras extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock='A'";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' AND pro_stock <> 'I'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {

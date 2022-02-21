@@ -237,6 +237,7 @@ public class Presupuesto_presupuesto extends javax.swing.JDialog {
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, 90, 30));
 
         txt_cod_cli.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txt_cod_cli.setEnabled(false);
         txt_cod_cli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_cod_cliActionPerformed(evt);
@@ -774,14 +775,7 @@ public class Presupuesto_presupuesto extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(this, "Ingrese cliente, producto o realice operacion");
             } else {
 
-                String capcod = "", capcan = "";
-                for (int i = 0; i < Presupuesto_presupuesto.tb_factura.getRowCount(); i++) {
-                    capcod = Presupuesto_presupuesto.tb_factura.getValueAt(i, 0).toString();
-                    capcan = Presupuesto_presupuesto.tb_factura.getValueAt(i, 3).toString();
-
-                }
                 ticket_plazo();
-                detalle_ticket();
 
                 if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
                         "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
@@ -1044,8 +1038,9 @@ public class Presupuesto_presupuesto extends javax.swing.JDialog {
             conectar.getInstance().closeConnection(cn);
 
             if (n > 0) {
-                JOptionPane.showMessageDialog(null, "Nota realizada con éxito");
                 detalle_ticket();
+                JOptionPane.showMessageDialog(null, "Nota realizada con éxito");
+
             }
 
         } catch (SQLException ex) {
@@ -1098,6 +1093,7 @@ public class Presupuesto_presupuesto extends javax.swing.JDialog {
             conectar.getInstance().closeConnection(cn);
 
             if (n > 0) {
+                detalle_ticket();
                 JOptionPane.showMessageDialog(null, "Nota realizada con éxito");
 
             }

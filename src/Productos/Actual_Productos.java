@@ -665,11 +665,11 @@ public class Actual_Productos extends javax.swing.JDialog {
         jPanel1.add(cb_color, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 180, 30));
 
         cb_status.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        cb_status.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A", "I", "S" }));
+        cb_status.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A", "I", "S", "P" }));
         jPanel1.add(cb_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 50, 30));
 
         jLabel24.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel24.setText("Activo/Inactivo:");
+        jLabel24.setText("Tipo:");
         jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 100, 30));
 
         txt_vol.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N

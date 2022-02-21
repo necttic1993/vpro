@@ -7,6 +7,7 @@ package Ventas_2;
 
 import Clases.Clase_Literal;
 import Clases.GenerarNumero;
+import Clases.Stock_minimo_pro;
 import Conexion_DB.conectar;
 import static Loggin_Principal.NECTTIC.ingreso;
 import Loggin_Principal.Principal;
@@ -159,8 +160,6 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
         panel_info_all_2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_factura = new javax.swing.JTable();
-        lbl_cod = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         chk_contado = new javax.swing.JCheckBox();
         jLabel16 = new javax.swing.JLabel();
         txt_cod_cli = new javax.swing.JTextField();
@@ -188,6 +187,10 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
         txt_des_ventas = new javax.swing.JTextField();
         lbl_plazos_dias1 = new javax.swing.JLabel();
         txt_class_cli_ventas_2 = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        txt_rt_cli = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
+        txt_tipo_clientes = new javax.swing.JTextField();
         panel_info_2 = new javax.swing.JPanel();
         btn_cajaR = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
@@ -228,6 +231,9 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
         jLabel20 = new javax.swing.JLabel();
         pn_tipo_venta = new javax.swing.JPanel();
         lbl_tipo_venta = new javax.swing.JLabel();
+        btn_busqueda11 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        lbl_cod = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("VENTAS");
@@ -259,7 +265,7 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Código", "Descripción", "Precio Unitario", "Unidad", "Kg", "Precio Total"
+                "Código", "Descripción", "Precio Unitario", "Unidad", "Stock Ref.", "Precio Total"
             }
         ));
         tb_factura.setGridColor(new java.awt.Color(255, 255, 255));
@@ -267,17 +273,6 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
         jScrollPane1.setViewportView(tb_factura);
 
         panel_info_all_2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 800, 320));
-
-        lbl_cod.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        lbl_cod.setForeground(new java.awt.Color(255, 0, 0));
-        lbl_cod.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_cod.setText("0000001");
-        lbl_cod.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panel_info_all_2.add(lbl_cod, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 10, 110, 30));
-
-        jLabel11.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel11.setText("Nro de Venta:");
-        panel_info_all_2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(613, 10, 90, 30));
 
         chk_contado.setBackground(new java.awt.Color(255, 255, 255));
         chk_contado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -292,7 +287,7 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
         jLabel16.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel16.setText("Fecha Emisión:");
         jLabel16.setFocusable(false);
-        panel_info_all_2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 100, 30));
+        panel_info_all_2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 10, 100, 30));
 
         txt_cod_cli.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt_cod_cli.setDisabledTextColor(new java.awt.Color(0, 0, 0));
@@ -342,7 +337,7 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
                 btn_buscaar_itemsKeyPressed(evt);
             }
         });
-        panel_info_all_2.add(btn_buscaar_items, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 80, 70, 45));
+        panel_info_all_2.add(btn_buscaar_items, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 90, 70, 45));
 
         btn_excluir.setBackground(new java.awt.Color(255, 255, 255));
         btn_excluir.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -357,7 +352,7 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
                 btn_excluirActionPerformed(evt);
             }
         });
-        panel_info_all_2.add(btn_excluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 70, 45));
+        panel_info_all_2.add(btn_excluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 90, 70, 45));
 
         jLabel17.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel17.setText("Nombre del Cliente :");
@@ -367,7 +362,7 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
         txt_usu_ventas.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_usu_ventas.setEnabled(false);
         txt_usu_ventas.setFocusable(false);
-        panel_info_all_2.add(txt_usu_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 260, 30));
+        panel_info_all_2.add(txt_usu_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 240, 30));
 
         jLabel18.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel18.setText("Usuario Ventas:");
@@ -378,7 +373,7 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
         lbl_fecha_VISOR.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         lbl_fecha_VISOR.setEnabled(false);
         lbl_fecha_VISOR.setFocusable(false);
-        panel_info_all_2.add(lbl_fecha_VISOR, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 40, 100, 30));
+        panel_info_all_2.add(lbl_fecha_VISOR, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 10, 100, 30));
 
         chk_plazo.setBackground(new java.awt.Color(255, 255, 255));
         chk_plazo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -485,7 +480,7 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
                 btn_buscaar_presupuestoKeyPressed(evt);
             }
         });
-        panel_info_all_2.add(btn_buscaar_presupuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 80, 70, 45));
+        panel_info_all_2.add(btn_buscaar_presupuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 90, 70, 45));
 
         jLabel21.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel21.setText("Descripción:");
@@ -508,6 +503,26 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
         txt_class_cli_ventas_2.setEnabled(false);
         panel_info_all_2.add(txt_class_cli_ventas_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 40, 150, 30));
 
+        jLabel24.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel24.setText("RT:");
+        jLabel24.setFocusable(false);
+        panel_info_all_2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, 30, 30));
+
+        txt_rt_cli.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txt_rt_cli.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txt_rt_cli.setEnabled(false);
+        panel_info_all_2.add(txt_rt_cli, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, 180, 30));
+
+        jLabel23.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel23.setText("Nac.:");
+        jLabel23.setFocusable(false);
+        panel_info_all_2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, 40, 30));
+
+        txt_tipo_clientes.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txt_tipo_clientes.setDisabledTextColor(new java.awt.Color(204, 0, 51));
+        txt_tipo_clientes.setEnabled(false);
+        panel_info_all_2.add(txt_tipo_clientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, 50, 30));
+
         getContentPane().add(panel_info_all_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 550));
 
         panel_info_2.setBackground(new java.awt.Color(255, 255, 255));
@@ -525,7 +540,7 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
                 btn_cajaRActionPerformed(evt);
             }
         });
-        panel_info_2.add(btn_cajaR, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, 130, 50));
+        panel_info_2.add(btn_cajaR, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 430, 150, 50));
 
         jPanel5.setBackground(new java.awt.Color(0, 153, 204));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -689,7 +704,7 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
                 btn_salirKeyReleased(evt);
             }
         });
-        panel_info_2.add(btn_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 480, 130, 50));
+        panel_info_2.add(btn_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 480, 150, 50));
 
         lbl_plazos_dias.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lbl_plazos_dias.setText("N° Cuotas:");
@@ -718,38 +733,37 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
                 btnvenActionPerformed(evt);
             }
         });
-        panel_info_2.add(btnven, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 120, 50));
+        panel_info_2.add(btnven, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 150, 50));
 
         lbl_cambio_mon_1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lbl_cambio_mon_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_1/brasil (1).png"))); // NOI18N
         lbl_cambio_mon_1.setText("=");
-        panel_info_2.add(lbl_cambio_mon_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, 30));
+        panel_info_2.add(lbl_cambio_mon_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, 30));
 
         lbl_r.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbl_r.setText("1,365");
-        panel_info_2.add(lbl_r, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 70, 30));
+        panel_info_2.add(lbl_r, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 70, 30));
 
         lbl_cambio_mon_2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lbl_cambio_mon_2.setForeground(new java.awt.Color(0, 0, 102));
         lbl_cambio_mon_2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_1/estados-unidos.png"))); // NOI18N
         lbl_cambio_mon_2.setText("=");
-        panel_info_2.add(lbl_cambio_mon_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, -1, 30));
+        panel_info_2.add(lbl_cambio_mon_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, -1, 30));
 
         lbl_dolar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbl_dolar.setForeground(new java.awt.Color(0, 0, 102));
         lbl_dolar.setText("5,780");
-        panel_info_2.add(lbl_dolar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 60, 30));
+        panel_info_2.add(lbl_dolar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 60, 30));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/dollar.png"))); // NOI18N
         jLabel2.setText("   Cotización:");
-        panel_info_2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 160, 40));
+        panel_info_2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 160, 40));
 
         jLabel20.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel20.setText("Informaciones:");
-        jLabel20.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jLabel20.setFocusable(false);
-        panel_info_2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 130, 30));
+        panel_info_2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 30));
 
         pn_tipo_venta.setBackground(new java.awt.Color(0, 102, 255));
         pn_tipo_venta.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -761,6 +775,38 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
         pn_tipo_venta.add(lbl_tipo_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 250, 30));
 
         panel_info_2.add(pn_tipo_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 310, -1));
+
+        btn_busqueda11.setBackground(new java.awt.Color(255, 255, 255));
+        btn_busqueda11.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        btn_busqueda11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/lector-de-codigo-de-barras.png"))); // NOI18N
+        btn_busqueda11.setMnemonic('L');
+        btn_busqueda11.setText("Lector");
+        btn_busqueda11.setToolTipText("Codigo de barras");
+        btn_busqueda11.setBorder(null);
+        btn_busqueda11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_busqueda11.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btn_busqueda11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_busqueda11ActionPerformed(evt);
+            }
+        });
+        btn_busqueda11.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                btn_busqueda11KeyReleased(evt);
+            }
+        });
+        panel_info_2.add(btn_busqueda11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 150, 50));
+
+        jLabel11.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel11.setText("Nro de Venta:");
+        panel_info_2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 90, 30));
+
+        lbl_cod.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lbl_cod.setForeground(new java.awt.Color(255, 0, 0));
+        lbl_cod.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_cod.setText("0000001");
+        lbl_cod.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panel_info_2.add(lbl_cod, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 110, 30));
 
         getContentPane().add(panel_info_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 0, 340, 550));
 
@@ -912,25 +958,8 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
                  cv = new calculo_vuelto(new javax.swing.JDialog(), true);
                  cv.setVisible(true);*/
 
-                codigos();
                 ticket();
-                detalle_ticket();
-                // caja();
-                String capcod = "", capcan = "";
-                for (int i = 0; i < Ventas_venta_2.tb_factura.getRowCount(); i++) {
-                    capcod = Ventas_venta_2.tb_factura.getValueAt(i, 0).toString();
-                    capcan = Ventas_venta_2.tb_factura.getValueAt(i, 3).toString();
-                    descontarstock_2(capcod, capcan);
 
-                }
-                if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
-                        "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-                    id_doc_ventas_2 = Ventas_venta_2.lbl_cod.getText();
-                    Printers_ventas_modulo_2 est;
-                    est = new Printers_ventas_modulo_2(new javax.swing.JDialog(), true);
-                    est.setVisible(true);
-
-                }
                 lbl_cambio_dolar.setText("");
                 lbl_cambio_real.setText("");
                 txttotal.setText("");
@@ -965,24 +994,8 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(this, "Ingrese cliente, producto o realice operacion");
             } else {
 
-                codigos();
                 ticket_plazo();
-                detalle_ticket();
-                String capcod = "", capcan = "";
-                for (int i = 0; i < Ventas_venta_2.tb_factura.getRowCount(); i++) {
-                    capcod = Ventas_venta_2.tb_factura.getValueAt(i, 0).toString();
-                    capcan = Ventas_venta_2.tb_factura.getValueAt(i, 3).toString();
-                    descontarstock_2(capcod, capcan);
 
-                }
-
-                if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
-                        "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-                    id_doc_ventas_2 = Ventas_venta_2.lbl_cod.getText();
-                    Printers_ventas_modulo_2 est;
-                    est = new Printers_ventas_modulo_2(new javax.swing.JDialog(), true);
-                    est.setVisible(true);
-                }
                 lbl_cambio_real.setText("");
                 txttotal.setText("");
 
@@ -1015,17 +1028,9 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
             if ((lbl_cod.getText().equals("")) || (txttotal.getText().equals("")) || (txt_cli_nom.getText().equals(""))) {
                 JOptionPane.showMessageDialog(this, "Ingrese cliente, producto o realice operacion");
             } else {
-                codigos();
-                ticket_ecommerce();
-                detalle_ticket();
 
-                if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
-                        "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-                    id_doc_ventas_2 = Ventas_venta_2.lbl_cod.getText();
-                    Printers_ventas_modulo_2 est;
-                    est = new Printers_ventas_modulo_2(new javax.swing.JDialog(), true);
-                    est.setVisible(true);
-                }
+                ticket_ecommerce();
+
                 lbl_cambio_real.setText("");
                 txttotal.setText("");
 
@@ -1114,7 +1119,7 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
             }
 
             //  System.out.println("x pro");
-            tb_factura.setValueAt(ingreso.MaskareaRealesDado_String_ExclusiveMonedas(String.valueOf(cap)), i, 6);
+            tb_factura.setValueAt(ingreso.MaskareaRealesDado_String_ExclusiveMonedas(String.valueOf(cap)), i, 4);
 
         }
     }//GEN-LAST:event_btn_calc_preActionPerformed
@@ -1351,6 +1356,16 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_des_ventasActionPerformed
 
+    private void btn_busqueda11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_busqueda11ActionPerformed
+        Busqueda_barras_2 bas;
+        bas = new Busqueda_barras_2(new javax.swing.JDialog(), true);
+        bas.setVisible(true);
+    }//GEN-LAST:event_btn_busqueda11ActionPerformed
+
+    private void btn_busqueda11KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_busqueda11KeyReleased
+
+    }//GEN-LAST:event_btn_busqueda11KeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -1421,6 +1436,7 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
     public static javax.swing.JButton btn_busca_pre;
     public static javax.swing.JButton btn_buscaar_items;
     public static javax.swing.JButton btn_buscaar_presupuesto;
+    private javax.swing.JButton btn_busqueda11;
     private javax.swing.JButton btn_cajaR;
     public static javax.swing.JButton btn_calc_amortizacion;
     public static javax.swing.JButton btn_calc_pre;
@@ -1441,6 +1457,8 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
@@ -1488,6 +1506,8 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
     public static javax.swing.JTextField txt_cod_cli;
     private javax.swing.JTextField txt_des_ventas;
     public static javax.swing.JTextField txt_dias_plazo;
+    public static javax.swing.JTextField txt_rt_cli;
+    public static javax.swing.JTextField txt_tipo_clientes;
     private javax.swing.JTextField txt_usu_ventas;
     public static javax.swing.JLabel txttotal;
     // End of variables declaration//GEN-END:variables
@@ -1578,7 +1598,7 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
     }
 
     void ticket() {
-
+        codigos();
         String InsertarSQL = "INSERT INTO ventas_2 (num_bol,cod_cli_ventas,nom_cli_ventas,forma_pag_ventas,dias_plazo_ventas,total_ventas,total_real,total_dolar,estado_ventas,fecha_ventas,user_ventas,almacen_ventas,cant_ventas,letras_ventas,vac_ventas,ventas_des) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         String numbol = lbl_cod.getText();
         String cod_cli = txt_cod_cli.getText();
@@ -1622,8 +1642,24 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
             conectar.getInstance().closeConnection(cn);
 
             if (n > 0) {
-                JOptionPane.showMessageDialog(null, "Venta realizada con éxito");
+                detalle_ticket();
+                // caja();
+                String capcod = "", capcan = "";
+                for (int i = 0; i < Ventas_venta_2.tb_factura.getRowCount(); i++) {
+                    capcod = Ventas_venta_2.tb_factura.getValueAt(i, 0).toString();
+                    capcan = Ventas_venta_2.tb_factura.getValueAt(i, 3).toString();
+                    descontarstock_2(capcod, capcan);
 
+                }
+                JOptionPane.showMessageDialog(null, "Venta realizada con éxito");
+                if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
+                        "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                    id_doc_ventas_2 = Ventas_venta_2.lbl_cod.getText();
+                    Printers_ventas_modulo_2 est;
+                    est = new Printers_ventas_modulo_2(new javax.swing.JDialog(), true);
+                    est.setVisible(true);
+
+                }
             }
 
         } catch (SQLException ex) {
@@ -1680,8 +1716,22 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
             conectar.getInstance().closeConnection(cn);
 
             if (n > 0) {
-                JOptionPane.showMessageDialog(null, "Venta realizada con éxito");
+                detalle_ticket();
+                String capcod = "", capcan = "";
+                for (int i = 0; i < Ventas_venta_2.tb_factura.getRowCount(); i++) {
+                    capcod = Ventas_venta_2.tb_factura.getValueAt(i, 0).toString();
+                    capcan = Ventas_venta_2.tb_factura.getValueAt(i, 3).toString();
+                    descontarstock_2(capcod, capcan);
 
+                }
+                JOptionPane.showMessageDialog(null, "Venta realizada con éxito");
+                if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
+                        "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                    id_doc_ventas_2 = Ventas_venta_2.lbl_cod.getText();
+                    Printers_ventas_modulo_2 est;
+                    est = new Printers_ventas_modulo_2(new javax.swing.JDialog(), true);
+                    est.setVisible(true);
+                }
             }
 
         } catch (SQLException ex) {
@@ -1728,7 +1778,7 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
             String codpro = tb_factura.getValueAt(i, 0).toString();
             String despro = tb_factura.getValueAt(i, 1).toString();
             String cantpro = tb_factura.getValueAt(i, 3).toString();
-            String cantkg = tb_factura.getValueAt(i, 4).toString();
+            String cantkg = ("0");
             String preunit = tb_factura.getValueAt(i, 2).toString();
             String importe = tb_factura.getValueAt(i, 5).toString();
             String fecha_det_con = lbl_fecha_hoy.getText();
@@ -2111,7 +2161,7 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
     ////////////buscar presupuesto///////////////////////////////
     public void cargarPre(String valor) {
         String mostrar = "SELECT * FROM presupuesto_detalles_surc_2 WHERE CONCAT(num_bol) LIKE '%" + valor + "%'";
-        String[] titulos = {"Id Producto", "Descripción", "Precio Unitario", "Unidad", "Kg", "Precio Venta", "Stock"};
+        String[] titulos = {"Id Producto", "Descripción", "Precio Unitario", "Unidad", "Stock Ref.", "Precio Venta"};
         String[] Registros = new String[9];
         DefaultTableModel model = new DefaultTableModel(null, titulos);
 
@@ -2132,7 +2182,11 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
                 model.addRow(Registros);
             }
             tb_factura.setModel(model);
+            Stock_minimo_pro color = new Stock_minimo_pro(4, 3);
 
+            tb_factura.getColumnModel().getColumn(0).setCellRenderer(color);
+            tb_factura.getColumnModel().getColumn(4).setCellRenderer(color);
+            tb_factura.getColumnModel().getColumn(3).setCellRenderer(color);
             tb_factura.getColumnModel().getColumn(0).setPreferredWidth(90);
             tb_factura.getColumnModel().getColumn(1).setPreferredWidth(330);
             tb_factura.getColumnModel().getColumn(2).setPreferredWidth(130);
@@ -2148,7 +2202,7 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
     }
 
     public void cargarPres(String valor) {
-        String mostrar = "SELECT * FROM presupuesto_surc_2 WHERE CONCAT(num_bol) LIKE '%" + valor + "%'";
+        String mostrar = "select c.cli_cod,c.cli_nombre,p.dias_plazo_ventas,p.almacen_ventas,c.nro_registro,c.cli_tipo,cli_pais from presupuesto_surc_2 as p inner join tienda_clientes as c on p.cod_cli_ventas=c.cli_cod  WHERE CONCAT(num_bol) LIKE '%" + valor + "%'";
 
         try {
             Connection cn = conectar.getInstance().getConnection();
@@ -2156,11 +2210,13 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(mostrar);
             while (rs.next()) {
-                txt_cod_cli.setText(rs.getString(2));
-                txt_cli_nom.setText(rs.getString(3));
-                txt_dias_plazo.setText(rs.getString(5));
-                lbl_default_id.setText(rs.getString(13));
-
+                txt_cod_cli.setText(rs.getString(1));
+                txt_cli_nom.setText(rs.getString(2));
+                txt_dias_plazo.setText(rs.getString(3));
+                lbl_default_id.setText(rs.getString(4));
+                txt_rt_cli.setText(rs.getString(5));
+                txt_class_cli_ventas_2.setText(rs.getString(6));
+                txt_tipo_clientes.setText(rs.getString(7));
             }
             conectar.getInstance().closeConnection(cn);
 
@@ -2173,7 +2229,7 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
     ///////buscar pedidos
     public void cargarPedidos(String valor) {
         String mostrar = "SELECT * FROM pedidos_detalles WHERE CONCAT(num_pedi) LIKE '%" + valor + "%'";
-        String[] titulos = {"Id Producto", "Descripción", "Precio Unitario", "Unidad", "Kg", "Precio Venta"};
+        String[] titulos = {"Id Producto", "Descripción", "Precio Unitario", "Unidad", "Stock Ref.", "Precio Venta"};
         String[] Registros = new String[9];
         DefaultTableModel model = new DefaultTableModel(null, titulos);
 
@@ -2194,7 +2250,11 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
                 model.addRow(Registros);
             }
             tb_factura.setModel(model);
+            Stock_minimo_pro color = new Stock_minimo_pro(4, 3);
 
+            tb_factura.getColumnModel().getColumn(0).setCellRenderer(color);
+            tb_factura.getColumnModel().getColumn(4).setCellRenderer(color);
+            tb_factura.getColumnModel().getColumn(3).setCellRenderer(color);
             tb_factura.getColumnModel().getColumn(0).setPreferredWidth(90);
             tb_factura.getColumnModel().getColumn(1).setPreferredWidth(330);
             tb_factura.getColumnModel().getColumn(2).setPreferredWidth(130);
@@ -2251,7 +2311,7 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
     }
 
     void ticket_ecommerce() {
-
+        codigos();
         String InsertarSQL = "INSERT INTO ventas_2 (num_bol,cod_cli_ventas,nom_cli_ventas,forma_pag_ventas,dias_plazo_ventas,total_ventas,total_real,total_dolar,estado_ventas,fecha_ventas,user_ventas,almacen_ventas,cant_ventas,letras_ventas) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         String numbol = lbl_cod.getText();
         String cod_cli = txt_cod_cli.getText();
@@ -2294,7 +2354,22 @@ public class Ventas_venta_2 extends javax.swing.JDialog {
 
             if (n > 0) {
 
+                detalle_ticket();
+                String capcod = "", capcan = "";
+                for (int i = 0; i < Ventas_venta_2.tb_factura.getRowCount(); i++) {
+                    capcod = Ventas_venta_2.tb_factura.getValueAt(i, 0).toString();
+                    capcan = Ventas_venta_2.tb_factura.getValueAt(i, 3).toString();
+                    descontarstock_2(capcod, capcan);
+
+                }
                 JOptionPane.showMessageDialog(null, "Venta realizada con éxito");
+                if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
+                        "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                    id_doc_ventas_2 = Ventas_venta_2.lbl_cod.getText();
+                    Printers_ventas_modulo_2 est;
+                    est = new Printers_ventas_modulo_2(new javax.swing.JDialog(), true);
+                    est.setVisible(true);
+                }
 
             }
 

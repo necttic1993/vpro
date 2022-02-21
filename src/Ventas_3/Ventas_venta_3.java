@@ -143,8 +143,6 @@ public class Ventas_venta_3 extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_factura = new javax.swing.JTable();
-        lbl_cod = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         chk_contado = new javax.swing.JCheckBox();
         jLabel16 = new javax.swing.JLabel();
         txt_cod_cli = new javax.swing.JTextField();
@@ -169,6 +167,12 @@ public class Ventas_venta_3 extends javax.swing.JDialog {
         lbl_cambio_conver_3 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         txt_des_ventas = new javax.swing.JTextField();
+        txt_tipo_clientes = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        txt_rt_cli = new javax.swing.JTextField();
+        txt_class_cli_ventas_2 = new javax.swing.JTextField();
+        lbl_plazos_dias1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         lbl_caja_rap = new javax.swing.JLabel();
@@ -211,6 +215,8 @@ public class Ventas_venta_3 extends javax.swing.JDialog {
         lbl_dolar = new javax.swing.JLabel();
         pn_tipo_venta = new javax.swing.JPanel();
         lbl_tipo_venta = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        lbl_cod = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("VENTAS");
@@ -251,17 +257,6 @@ public class Ventas_venta_3 extends javax.swing.JDialog {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 800, 320));
 
-        lbl_cod.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        lbl_cod.setForeground(new java.awt.Color(255, 0, 0));
-        lbl_cod.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_cod.setText("0000001");
-        lbl_cod.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(lbl_cod, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 10, 110, 30));
-
-        jLabel11.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel11.setText("Nro de Venta:");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(613, 10, 90, 30));
-
         chk_contado.setBackground(new java.awt.Color(255, 255, 255));
         chk_contado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         chk_contado.setText("CONTADO");
@@ -275,7 +270,7 @@ public class Ventas_venta_3 extends javax.swing.JDialog {
         jLabel16.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel16.setText("Fecha Emisión:");
         jLabel16.setFocusable(false);
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 100, 30));
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 10, 100, 30));
 
         txt_cod_cli.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt_cod_cli.setDisabledTextColor(new java.awt.Color(0, 0, 0));
@@ -335,7 +330,7 @@ public class Ventas_venta_3 extends javax.swing.JDialog {
         txt_usu_ventas.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_usu_ventas.setEnabled(false);
         txt_usu_ventas.setFocusable(false);
-        jPanel1.add(txt_usu_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 260, 30));
+        jPanel1.add(txt_usu_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 240, 30));
 
         jLabel18.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel18.setText("Usuario Ventas:");
@@ -346,7 +341,7 @@ public class Ventas_venta_3 extends javax.swing.JDialog {
         lbl_fecha_VISOR.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         lbl_fecha_VISOR.setEnabled(false);
         lbl_fecha_VISOR.setFocusable(false);
-        jPanel1.add(lbl_fecha_VISOR, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 40, 100, 30));
+        jPanel1.add(lbl_fecha_VISOR, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 10, 100, 30));
 
         chk_plazo.setBackground(new java.awt.Color(255, 255, 255));
         chk_plazo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -460,6 +455,35 @@ public class Ventas_venta_3 extends javax.swing.JDialog {
         });
         jPanel1.add(txt_des_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 460, 30));
 
+        txt_tipo_clientes.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txt_tipo_clientes.setDisabledTextColor(new java.awt.Color(204, 0, 51));
+        txt_tipo_clientes.setEnabled(false);
+        jPanel1.add(txt_tipo_clientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, 50, 30));
+
+        jLabel23.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel23.setText("Nac.:");
+        jLabel23.setFocusable(false);
+        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, 40, 30));
+
+        jLabel24.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel24.setText("RT:");
+        jLabel24.setFocusable(false);
+        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, 30, 30));
+
+        txt_rt_cli.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txt_rt_cli.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txt_rt_cli.setEnabled(false);
+        jPanel1.add(txt_rt_cli, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, 180, 30));
+
+        txt_class_cli_ventas_2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txt_class_cli_ventas_2.setDisabledTextColor(new java.awt.Color(0, 0, 51));
+        txt_class_cli_ventas_2.setEnabled(false);
+        jPanel1.add(txt_class_cli_ventas_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 40, 150, 30));
+
+        lbl_plazos_dias1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lbl_plazos_dias1.setText("Clasif.");
+        jPanel1.add(lbl_plazos_dias1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 40, 40, 30));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 550));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -477,7 +501,7 @@ public class Ventas_venta_3 extends javax.swing.JDialog {
         jLabel6.setText("Caja Rápida:");
         jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, 28));
 
-        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 160, -1));
+        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 160, -1));
 
         jPanel4.setBackground(new java.awt.Color(0, 153, 204));
 
@@ -509,7 +533,7 @@ public class Ventas_venta_3 extends javax.swing.JDialog {
                 .addGap(0, 2, Short.MAX_VALUE))
         );
 
-        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 130, 30));
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 130, 30));
 
         panel_calculo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -625,7 +649,7 @@ public class Ventas_venta_3 extends javax.swing.JDialog {
         jLabel8.setText(" Amortización:");
         pn_amortizacion.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, 28));
 
-        jPanel3.add(pn_amortizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, 30));
+        jPanel3.add(pn_amortizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, 30));
 
         btn_salir.setBackground(new java.awt.Color(255, 255, 255));
         btn_salir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -646,11 +670,11 @@ public class Ventas_venta_3 extends javax.swing.JDialog {
                 btn_salirKeyReleased(evt);
             }
         });
-        jPanel3.add(btn_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 480, 130, 45));
+        jPanel3.add(btn_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 480, 130, 50));
 
         lbl_plazos_dias.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lbl_plazos_dias.setText("N° Cuotas:");
-        jPanel3.add(lbl_plazos_dias, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 70, 30));
+        jPanel3.add(lbl_plazos_dias, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 70, 30));
 
         txt_dias_plazo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txt_dias_plazo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -660,7 +684,7 @@ public class Ventas_venta_3 extends javax.swing.JDialog {
                 txt_dias_plazoActionPerformed(evt);
             }
         });
-        jPanel3.add(txt_dias_plazo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, 50, 30));
+        jPanel3.add(txt_dias_plazo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 50, 30));
 
         btnven.setBackground(new java.awt.Color(255, 255, 255));
         btnven.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -675,36 +699,36 @@ public class Ventas_venta_3 extends javax.swing.JDialog {
                 btnvenActionPerformed(evt);
             }
         });
-        jPanel3.add(btnven, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 480, 120, 45));
+        jPanel3.add(btnven, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 480, 120, 50));
 
         jLabel20.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel20.setText("Informaciones:");
-        jLabel20.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jLabel20.setToolTipText("");
         jLabel20.setFocusable(false);
-        jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 130, 30));
+        jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 130, 30));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/dollar.png"))); // NOI18N
         jLabel2.setText("   Cotización:");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 160, 40));
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 160, 40));
 
         lbl_cambio_mon_1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lbl_cambio_mon_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_1/brasil (1).png"))); // NOI18N
         lbl_cambio_mon_1.setText("=");
-        jPanel3.add(lbl_cambio_mon_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, 30));
+        jPanel3.add(lbl_cambio_mon_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, 30));
 
         lbl_r.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbl_r.setText("1,365");
-        jPanel3.add(lbl_r, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 70, 30));
+        jPanel3.add(lbl_r, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 70, 30));
 
         lbl_cambio_mon_2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lbl_cambio_mon_2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_1/estados-unidos.png"))); // NOI18N
         lbl_cambio_mon_2.setText("=");
-        jPanel3.add(lbl_cambio_mon_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, -1, 30));
+        jPanel3.add(lbl_cambio_mon_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, -1, 30));
 
         lbl_dolar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbl_dolar.setText("5,780");
-        jPanel3.add(lbl_dolar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 60, 30));
+        jPanel3.add(lbl_dolar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 60, 30));
 
         pn_tipo_venta.setBackground(new java.awt.Color(0, 153, 204));
         pn_tipo_venta.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -715,7 +739,18 @@ public class Ventas_venta_3 extends javax.swing.JDialog {
         lbl_tipo_venta.setText("CONTADO");
         pn_tipo_venta.add(lbl_tipo_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 220, 30));
 
-        jPanel3.add(pn_tipo_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 300, -1));
+        jPanel3.add(pn_tipo_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 300, -1));
+
+        jLabel11.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel11.setText("Nro de Venta:");
+        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 90, 30));
+
+        lbl_cod.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lbl_cod.setForeground(new java.awt.Color(255, 0, 0));
+        lbl_cod.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_cod.setText("0000001");
+        lbl_cod.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.add(lbl_cod, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 110, 30));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 0, 340, 550));
 
@@ -762,13 +797,6 @@ public class Ventas_venta_3 extends javax.swing.JDialog {
                 ticket();
 
                 // caja();
-                if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
-                        "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-                    id_doc_ventas_3 = Ventas_venta_3.lbl_cod.getText();
-                    Printers_ventas_modulo_3 est;
-                    est = new Printers_ventas_modulo_3(new javax.swing.JDialog(), true);
-                    est.setVisible(true);
-                }
                 lbl_cambio_dolar.setText("");
                 lbl_cambio_real.setText("");
                 txttotal.setText("");
@@ -805,13 +833,6 @@ public class Ventas_venta_3 extends javax.swing.JDialog {
 
                 ticket_plazo();
 
-                if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
-                        "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-                    id_doc_ventas_3 = Ventas_venta_3.lbl_cod.getText();
-                    Printers_ventas_modulo_3 est;
-                    est = new Printers_ventas_modulo_3(new javax.swing.JDialog(), true);
-                    est.setVisible(true);
-                }
                 lbl_cambio_real.setText("");
                 txttotal.setText("");
 
@@ -844,17 +865,9 @@ public class Ventas_venta_3 extends javax.swing.JDialog {
             if ((lbl_cod.getText().equals("")) || (txttotal.getText().equals("")) || (txt_cli_nom.getText().equals(""))) {
                 JOptionPane.showMessageDialog(this, "Ingrese cliente, producto o realice operacion");
             } else {
-                codigos();
-                ticket_ecommerce();
-                detalle_ticket();
 
-                if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
-                        "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-                    id_doc_ventas_3 = Ventas_venta_3.lbl_cod.getText();
-                    Printers_ventas_modulo_3 est;
-                    est = new Printers_ventas_modulo_3(new javax.swing.JDialog(), true);
-                    est.setVisible(true);
-                }
+                ticket_ecommerce();
+
                 lbl_cambio_real.setText("");
                 txttotal.setText("");
 
@@ -1151,6 +1164,8 @@ public class Ventas_venta_3 extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
@@ -1181,6 +1196,7 @@ public class Ventas_venta_3 extends javax.swing.JDialog {
     private javax.swing.JLabel lbl_nom_cuenta;
     private javax.swing.JLabel lbl_nro_cuenta;
     private javax.swing.JLabel lbl_plazos_dias;
+    private javax.swing.JLabel lbl_plazos_dias1;
     private javax.swing.JLabel lbl_r;
     private javax.swing.JLabel lbl_saldo_actual;
     private javax.swing.JLabel lbl_saldo_cuenta;
@@ -1193,10 +1209,13 @@ public class Ventas_venta_3 extends javax.swing.JDialog {
     private javax.swing.JPanel pn_amortizacion;
     private javax.swing.JPanel pn_tipo_venta;
     public static javax.swing.JTable tb_factura;
+    public static javax.swing.JTextField txt_class_cli_ventas_2;
     public static javax.swing.JTextField txt_cli_nom;
     public static javax.swing.JTextField txt_cod_cli;
     private javax.swing.JTextField txt_des_ventas;
     public static javax.swing.JTextField txt_dias_plazo;
+    public static javax.swing.JTextField txt_rt_cli;
+    public static javax.swing.JTextField txt_tipo_clientes;
     private javax.swing.JTextField txt_usu_ventas;
     public static javax.swing.JLabel txttotal;
     // End of variables declaration//GEN-END:variables
@@ -1341,7 +1360,13 @@ public class Ventas_venta_3 extends javax.swing.JDialog {
 
                 }
                 JOptionPane.showMessageDialog(null, "Venta realizada con éxito");
-
+                if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
+                        "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                    id_doc_ventas_3 = Ventas_venta_3.lbl_cod.getText();
+                    Printers_ventas_modulo_3 est;
+                    est = new Printers_ventas_modulo_3(new javax.swing.JDialog(), true);
+                    est.setVisible(true);
+                }
             }
 
         } catch (SQLException ex) {
@@ -1408,7 +1433,13 @@ public class Ventas_venta_3 extends javax.swing.JDialog {
 
                 }
                 JOptionPane.showMessageDialog(null, "Venta realizada con éxito");
-
+                if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
+                        "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                    id_doc_ventas_3 = Ventas_venta_3.lbl_cod.getText();
+                    Printers_ventas_modulo_3 est;
+                    est = new Printers_ventas_modulo_3(new javax.swing.JDialog(), true);
+                    est.setVisible(true);
+                }
             }
 
         } catch (SQLException ex) {
@@ -1978,7 +2009,7 @@ public class Ventas_venta_3 extends javax.swing.JDialog {
     }
 
     void ticket_ecommerce() {
-
+        codigos();
         String InsertarSQL = "INSERT INTO ventas_3(num_bol,cod_cli_ventas,nom_cli_ventas,forma_pag_ventas,dias_plazo_ventas,total_ventas,total_real,total_dolar,estado_ventas,fecha_ventas,user_ventas,almacen_ventas,cant_ventas,letras_ventas) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         String numbol = lbl_cod.getText();
         String cod_cli = txt_cod_cli.getText();
@@ -2019,9 +2050,22 @@ public class Ventas_venta_3 extends javax.swing.JDialog {
 
             int n = pst.executeUpdate();
             if (n > 0) {
+                detalle_ticket();
+                String capcod = "", capcan = "";
+                for (int i = 0; i < Ventas_venta_3.tb_factura.getRowCount(); i++) {
+                    capcod = Ventas_venta_3.tb_factura.getValueAt(i, 0).toString();
+                    capcan = Ventas_venta_3.tb_factura.getValueAt(i, 3).toString();
+                    descontarstock_2(capcod, capcan);
 
+                }
                 JOptionPane.showMessageDialog(null, "Venta realizada con éxito");
-
+                if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
+                        "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                    id_doc_ventas_3 = Ventas_venta_3.lbl_cod.getText();
+                    Printers_ventas_modulo_3 est;
+                    est = new Printers_ventas_modulo_3(new javax.swing.JDialog(), true);
+                    est.setVisible(true);
+                }
             }
 
         } catch (SQLException ex) {

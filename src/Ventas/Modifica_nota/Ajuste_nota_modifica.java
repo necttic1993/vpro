@@ -150,13 +150,9 @@ public class Ajuste_nota_modifica extends javax.swing.JDialog {
         String cod = txt_id.getText();
         String Cant = txtdes.getText();
         String id = lbl_ide_deta.getText();
-        if (tipo_cli.getText().equals("NO")) {
-            aumentarstock(cod, Cant);
-        } else {
-            DescontarstockPedido(cod, Cant);
-        }
 
         try {
+            aumentarstock(cod, Cant);
             Connection cn = conectar.getInstance().getConnection();
             String eliminarSQL = "DELETE FROM ventas_detalles WHERE id_ven_deta = '" + id + "'";
             PreparedStatement pst = cn.prepareStatement(eliminarSQL);

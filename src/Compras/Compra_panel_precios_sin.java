@@ -107,6 +107,7 @@ public class Compra_panel_precios_sin extends javax.swing.JDialog {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 90, 30));
 
         txt_pre.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txt_pre.setText("0");
         txt_pre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txt_preKeyPressed(evt);
@@ -179,6 +180,7 @@ public class Compra_panel_precios_sin extends javax.swing.JDialog {
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 70, 30));
 
         txt_pre_venta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txt_pre_venta.setText("0");
         txt_pre_venta.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txt_pre_ventaKeyPressed(evt);
@@ -300,6 +302,11 @@ public class Compra_panel_precios_sin extends javax.swing.JDialog {
 
         txt_pre_d.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txt_pre_d.setText("0");
+        txt_pre_d.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_pre_dActionPerformed(evt);
+            }
+        });
         txt_pre_d.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txt_pre_dKeyReleased(evt);
@@ -384,7 +391,7 @@ public class Compra_panel_precios_sin extends javax.swing.JDialog {
         String cantidad = txt_cant.getText();
         String pre_d = txt_pre_d.getText();
 
-        if ((txt_cant.getText().equals("")) || (txt_pre_venta.getText().equals(""))) {
+        if ((txt_cant.getText().isEmpty()) && (txt_pre.getText().isEmpty()) && (txt_pre_venta.getText().isEmpty()) && (txt_total_iva.getText().isEmpty()) && (txt_pre_minimo.getText().isEmpty()) && (txt_pre_d.getText().isEmpty())) {
             JOptionPane.showMessageDialog(this, "Complete los campos obligatorios");
         } else {
             for (int i = 0; i < Compras_compras.tb_compras.getRowCount(); i++) {
@@ -469,6 +476,10 @@ public class Compra_panel_precios_sin extends javax.swing.JDialog {
     private void txt_pre_dKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_pre_dKeyReleased
         ActivatedYourLife5(txt_pre_d, evt);
     }//GEN-LAST:event_txt_pre_dKeyReleased
+
+    private void txt_pre_dActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_pre_dActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_pre_dActionPerformed
 
     /**
      * @param args the command line arguments
@@ -586,11 +597,11 @@ public class Compra_panel_precios_sin extends javax.swing.JDialog {
             txt_stock.setText(stock);
             lbl_pre_d.setText(pre_d);
             ////
-             txt_pre.setText(pre_compra);
-             txt_pre_venta.setText(pre_a);
-             txt_total_iva.setText(pre_b);
-             txt_pre_minimo.setText(pre_ataca);
-             txt_pre_d.setText(pre_d);
+            txt_pre.setText(pre_compra);
+            txt_pre_venta.setText(pre_a);
+            txt_total_iva.setText(pre_b);
+            txt_pre_minimo.setText(pre_ataca);
+            txt_pre_d.setText(pre_d);
             conectar.getInstance().closeConnection(cn);
 
             dispose();

@@ -35,8 +35,8 @@ public class Clientes_ventas_modifica extends javax.swing.JDialog {
     }
 
     void cargar(String valor) {
-        String mostrar = "SELECT cli_cod,cli_nombre,cli_razon,cli_ruc,cli_contacto,cli_tipo,cli_surc FROM tienda_clientes WHERE CONCAT(cli_nombre,cli_ruc) LIKE '%" + valor + "%'";
-        String[] titulos = {"Código", "Nombre", "Razón Social", "RUC", "Contacto", "Tipo", "Sucursal"};
+        String mostrar = "SELECT cli_cod,cli_nombre,cli_razon,cli_ruc,cli_contacto,cli_tipo,cli_pais,nro_registro FROM tienda_clientes WHERE CONCAT(cli_nombre,cli_ruc) LIKE '%" + valor + "%'";
+        String[] titulos = {"Código", "Nombre", "Razón Social", "RUC", "Contacto", "Tipo", "Sucursal", "RT"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
 
@@ -51,7 +51,8 @@ public class Clientes_ventas_modifica extends javax.swing.JDialog {
                 Registros[3] = rs.getString("cli_ruc");
                 Registros[4] = rs.getString("cli_contacto");
                 Registros[5] = rs.getString("cli_tipo");
-                Registros[6] = rs.getString("cli_surc");
+                Registros[6] = rs.getString("cli_pais");
+                Registros[7] = rs.getString("nro_registro");
                 model.addRow(Registros);
             }
             tbclientes.setModel(model);
@@ -60,9 +61,11 @@ public class Clientes_ventas_modifica extends javax.swing.JDialog {
             tbclientes.getColumnModel().getColumn(2).setPreferredWidth(200);
             tbclientes.getColumnModel().getColumn(3).setPreferredWidth(100);
             tbclientes.getColumnModel().getColumn(4).setPreferredWidth(100);
-            tbclientes.getColumnModel().getColumn(5).setPreferredWidth(250);
+            tbclientes.getColumnModel().getColumn(5).setPreferredWidth(150);
             tbclientes.getColumnModel().getColumn(6).setPreferredWidth(100);
+            tbclientes.getColumnModel().getColumn(7).setPreferredWidth(200);
             conectar.getInstance().closeConnection(cn);
+
 
         } catch (SQLException ex) {
             Logger.getLogger(Clientes_ventas_modifica.class.getName()).log(Level.SEVERE, null, ex);
@@ -189,7 +192,7 @@ public class Clientes_ventas_modifica extends javax.swing.JDialog {
     }//GEN-LAST:event_txtbusKeyReleased
 
     private void tbclientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbclientesMouseClicked
-        String nom = "", dp = "", surc = "", cod = "", tipo = "";
+        String nom = "", dp = "", surc = "", cod = "", tipo = "",rt="";
         int fila = tbclientes.getSelectedRow();
         try {
             if (fila == -1) {
@@ -201,11 +204,13 @@ public class Clientes_ventas_modifica extends javax.swing.JDialog {
                 dp = (String) tbclientes.getValueAt(fila, 3);
                 tipo = (String) tbclientes.getValueAt(fila, 5);
                 surc = (String) tbclientes.getValueAt(fila, 6);
+                rt = (String) tbclientes.getValueAt(fila, 7);
 
                 Ventas_venta_modifica.txt_cod_cli.setText(cod);
                 Ventas_venta_modifica.txt_cli_nom.setText(nom);
                 Ventas_venta_modifica.txt_class_cli_ventas.setText(tipo);
-                Ventas_venta_modifica.txt_tipo_surc_modi.setText(surc);
+                Ventas_venta_modifica.txt_tipo_clientes.setText(surc);
+                Ventas_venta_modifica.txt_rt_cli.setText(rt);
 
                 this.dispose();
                 Ventas_venta_modifica.btn_buscaar_items.doClick();
@@ -219,23 +224,25 @@ public class Clientes_ventas_modifica extends javax.swing.JDialog {
         char Tecla = evt.getKeyChar();
 
         if (Tecla == KeyEvent.VK_ENTER) {
-            String nom = "", surc = "", dp = "", cod = "", tipo = "";
+            String nom = "", surc = "", dp = "", cod = "", tipo = "",rt="";
             int fila = tbclientes.getSelectedRow();
             try {
                 if (fila == -1) {
                     JOptionPane.showMessageDialog(null, "No ha seleccionado ningun dato");
 
                 } else {
-                    cod = (String) tbclientes.getValueAt(fila, 0);
+                 cod = (String) tbclientes.getValueAt(fila, 0);
                 nom = (String) tbclientes.getValueAt(fila, 1);
                 dp = (String) tbclientes.getValueAt(fila, 3);
                 tipo = (String) tbclientes.getValueAt(fila, 5);
                 surc = (String) tbclientes.getValueAt(fila, 6);
+                rt = (String) tbclientes.getValueAt(fila, 7);
 
                 Ventas_venta_modifica.txt_cod_cli.setText(cod);
                 Ventas_venta_modifica.txt_cli_nom.setText(nom);
                 Ventas_venta_modifica.txt_class_cli_ventas.setText(tipo);
-                Ventas_venta_modifica.txt_tipo_surc_modi.setText(surc);
+                Ventas_venta_modifica.txt_tipo_clientes.setText(surc);
+                Ventas_venta_modifica.txt_rt_cli.setText(rt);
 
                     this.dispose();
                     Ventas_venta_modifica.btn_buscaar_items.doClick();

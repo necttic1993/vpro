@@ -90,11 +90,11 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
         lblcanpro = new javax.swing.JLabel();
         btneli = new javax.swing.JButton();
         btncalcular = new javax.swing.JButton();
+        btnven = new javax.swing.JButton();
+        btn_salir = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         txttotal = new javax.swing.JLabel();
         lbl_plazos_dias2 = new javax.swing.JLabel();
-        btnven = new javax.swing.JButton();
-        btn_salir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Devolución de Ventas");
@@ -139,7 +139,7 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
                 txt_daActionPerformed(evt);
             }
         });
-        jPanel1.add(txt_da, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, 130, 30));
+        jPanel1.add(txt_da, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, 250, 30));
 
         txt_dias_plazo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt_dias_plazo.setEnabled(false);
@@ -183,7 +183,7 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
                 txt_cli_nomActionPerformed(evt);
             }
         });
-        jPanel1.add(txt_cli_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 390, 30));
+        jPanel1.add(txt_cli_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 510, 30));
 
         txt_cod.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt_cod.setDisabledTextColor(new java.awt.Color(204, 0, 0));
@@ -212,12 +212,12 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
         lbl_cod.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_cod.setText("0000001");
         lbl_cod.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(lbl_cod, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 10, 120, 30));
+        jPanel1.add(lbl_cod, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 10, 120, 30));
 
         jLabel19.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel19.setText("Condición de pago :");
         jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 130, 30));
-        jPanel1.add(txt_des, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 100, 480, 30));
+        jPanel1.add(txt_des, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 100, 600, 30));
 
         btn_buscar.setBackground(new java.awt.Color(255, 255, 255));
         btn_buscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -296,25 +296,6 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
         });
         jPanel1.add(btncalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 440, 40, 20));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Total", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 51, 153))); // NOI18N
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        txttotal.setBackground(new java.awt.Color(102, 102, 102));
-        txttotal.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        txttotal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        txttotal.setText("0");
-        txttotal.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        txttotal.setVerifyInputWhenFocusTarget(false);
-        txttotal.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-        jPanel2.add(txttotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 180, 30));
-
-        lbl_plazos_dias2.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        lbl_plazos_dias2.setText("Valor Total:");
-        jPanel2.add(lbl_plazos_dias2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 110, 30));
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 440, 300, 70));
-
         btnven.setBackground(new java.awt.Color(255, 255, 255));
         btnven.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnven.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/agrega.png"))); // NOI18N
@@ -349,6 +330,25 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
             }
         });
         jPanel1.add(btn_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 520, 130, 50));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 51, 153))); // NOI18N
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txttotal.setBackground(new java.awt.Color(102, 102, 102));
+        txttotal.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        txttotal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        txttotal.setText("0");
+        txttotal.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        txttotal.setVerifyInputWhenFocusTarget(false);
+        txttotal.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+        jPanel2.add(txttotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 180, 30));
+
+        lbl_plazos_dias2.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        lbl_plazos_dias2.setText("Valor Total:");
+        jPanel2.add(lbl_plazos_dias2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 110, 30));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 440, 300, 70));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 580));
 
