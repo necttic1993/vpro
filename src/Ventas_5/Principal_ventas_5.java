@@ -12,6 +12,7 @@ import Conexion_DB.conectar;
 import Loggin_Principal.Principal;
 import static Loggin_Principal.Principal.lbl_usu_nom;
 import static Loggin_Principal.Principal.txt_modelo_ventas;
+import Ventas_5.Mod_nota_5.Ventas_venta_5_mod;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -65,7 +66,7 @@ public class Principal_ventas_5 extends javax.swing.JDialog {
     public static String cod_ver_ventas_cli_5 = "";
     public static String cod_ver_ventas_cli_factura_5 = "";
     public static String cod_ver_alma_5 = "";
-    public static String cod_id_venta = "";
+    public static String cod_id_venta_5 = "";
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -365,7 +366,7 @@ public class Principal_ventas_5 extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
             
-            String cons = "select * from ventas_5 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' ORDER BY num_bol DESC";
+            String cons = "select * from ventas_5 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' ORDER BY num_bol DESC LIMIT 100";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -477,17 +478,22 @@ public class Principal_ventas_5 extends javax.swing.JDialog {
                 if (verificar.equals(status)) {
                     JOptionPane.showMessageDialog(null, "La nota ya fue confirmada en caja");
                 } else {
-                    cod_id_venta = (String) tbProductos_5.getValueAt(filaMod, 0);
-                    /*   Ventas_venta_11_mod visorBusca;
-                     visorBusca = new Ventas_venta_11_mod(new javax.swing.JDialog(), true);
-                     visorBusca.setVisible(true);*/
+                  
+                    try {
+                        cod_id_venta_5 = (String) tbProductos_5.getValueAt(filaMod, 0);
+                        Ventas_venta_5_mod  modifica = new Ventas_venta_5_mod(new javax.swing.JDialog(), true);
+                        modifica.setVisible(true);
+                    } catch (IOException ex) {
+                        Logger.getLogger(Principal_ventas_5.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    
                 }
             }
             
         });
         
         menu_opcion.add(menu_modPro);
-        // menu_opcion.add(menu_eliminar_Pro);
+        menu_opcion.add(menu_eliminar_Pro);
 
         tbProductos_5.setComponentPopupMenu(menu_opcion);
         

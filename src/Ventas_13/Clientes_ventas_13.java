@@ -5,7 +5,6 @@
  */
 package Ventas_13;
 
-import Ventas_13.*;
 import Clientes.Add_clientes;
 import Conexion_DB.conectar;
 import java.awt.event.KeyEvent;
@@ -36,7 +35,7 @@ public class Clientes_ventas_13 extends javax.swing.JDialog {
     }
 
     void cargar(String valor) {
-        String mostrar = "SELECT * FROM tienda_clientes WHERE CONCAT(cli_nombre,cli_ruc) LIKE '%" + valor + "%'";
+        String mostrar = "SELECT * FROM tienda_clientes WHERE CONCAT(cli_nombre,cli_ruc) LIKE '%" + valor + "%' ORDER BY cli_cod DESC LIMIT 100";
         String[] titulos = {"Código", "Nombre", "Razón Social", "RUC", "Contacto", "Dirección", "Status."};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -137,7 +136,7 @@ public class Clientes_ventas_13 extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tbclientes);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 900, 460));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 880, 450));
 
         btn_agregarcli.setBackground(new java.awt.Color(255, 255, 255));
         btn_agregarcli.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N

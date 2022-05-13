@@ -555,6 +555,7 @@ public class RegistrarProductos extends javax.swing.JDialog {
 
         txt_id_dep.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_id_dep.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txt_id_dep.setText("1");
         txt_id_dep.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_id_dep.setEnabled(false);
         jPanel1.add(txt_id_dep, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 90, 30));
@@ -573,6 +574,7 @@ public class RegistrarProductos extends javax.swing.JDialog {
 
         txt_id_cate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_id_cate.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txt_id_cate.setText("1");
         txt_id_cate.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_id_cate.setEnabled(false);
         jPanel1.add(txt_id_cate, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 400, 90, 30));
@@ -616,20 +618,33 @@ public class RegistrarProductos extends javax.swing.JDialog {
 
         txt_id_subcate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_id_subcate.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txt_id_subcate.setText("1");
         txt_id_subcate.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_id_subcate.setEnabled(false);
+        txt_id_subcate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_id_subcateActionPerformed(evt);
+            }
+        });
         jPanel1.add(txt_id_subcate, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, 90, 30));
 
         txt_id_especate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_id_especate.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txt_id_especate.setText("1");
         txt_id_especate.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_id_especate.setEnabled(false);
         jPanel1.add(txt_id_especate, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 460, 90, 30));
 
         txt_idmarca.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_idmarca.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txt_idmarca.setText("1");
         txt_idmarca.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_idmarca.setEnabled(false);
+        txt_idmarca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_idmarcaActionPerformed(evt);
+            }
+        });
         jPanel1.add(txt_idmarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 490, 90, 30));
 
         txt_des_subcate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -1087,6 +1102,14 @@ public class RegistrarProductos extends javax.swing.JDialog {
     private void txt_pre_outletKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_pre_outletKeyReleased
          ActivatedYourLifeO(txt_pre_outlet, evt);
     }//GEN-LAST:event_txt_pre_outletKeyReleased
+
+    private void txt_id_subcateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_id_subcateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_id_subcateActionPerformed
+
+    private void txt_idmarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_idmarcaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_idmarcaActionPerformed
     //<editor-fold defaultstate="collapsed" desc="METODOS PRINCIPAL">
 
     /**
@@ -1263,7 +1286,7 @@ public class RegistrarProductos extends javax.swing.JDialog {
                 c = rs.getString(1);
             }
             if (c == null) {
-                txtcod.setText("0000001");
+                txtcod.setText("00000001");
             } else {
                 int j = Integer.parseInt(c);
                 if (Principal.txt_dir_backup.getText().equals("1")) {

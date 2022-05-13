@@ -288,7 +288,7 @@ public class Lista_ventas_surc_11 extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_11 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND estado_ventas = 'CONFIRMADA' or forma_pag_ventas='CRÉDITO' ORDER BY num_bol DESC ";
+            String cons = "select * from ventas_11 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND estado_ventas = 'CONFIRMADA' or forma_pag_ventas='CRÉDITO' ORDER BY num_bol DESC LIMIT 100 ";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {

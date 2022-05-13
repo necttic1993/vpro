@@ -76,14 +76,11 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
         chk_contado.setSelected(true);
         lbl_plazos_dias.setVisible(false);
         txt_dias_plazo.setVisible(false);
-        lbl_literal_pro.setVisible(false);
-        lbl_literal.setVisible(false);
         btn_mone.setVisible(false);
         // lbl_nro_cuenta.setVisible(false);
         // lbl_nom_cuenta.setVisible(false);
         panel_calculo.setVisible(false);
         pn_amortizacion.setVisible(false);
-        btn_calc_amortizacion.setVisible(false);
         lbl_total_amort.setVisible(false);
         lbl_sur_nombre.setVisible(false);
         lbl_default_id.setVisible(false);
@@ -104,6 +101,8 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
     public static String id_doc_nro_ventas = "";
     public static String id_nro_cuenta_ventas = "";
     public static String total_doc_ventas = "";
+
+    String nro_cuentas_user;
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -141,8 +140,8 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
         txt_tipo_surc = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
         txt_cod_barras = new javax.swing.JTextField();
-        lbl_nro_caja = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        lbl_nro_cuenta = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         lbl_caja_rap = new javax.swing.JLabel();
@@ -154,16 +153,10 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
         lbl_saldo_cuenta = new javax.swing.JLabel();
         lbl_saldo_actual = new javax.swing.JLabel();
         lbl_default_id = new javax.swing.JLabel();
-        lbl_nro_cuenta = new javax.swing.JLabel();
-        lbl_nom_cuenta = new javax.swing.JLabel();
         lbl_sur_nombre = new javax.swing.JLabel();
         lbl_total_amort = new javax.swing.JLabel();
-        lbl_literal_pro = new javax.swing.JLabel();
-        lbl_literal = new javax.swing.JLabel();
         btn_mone = new javax.swing.JButton();
         btncalcular = new javax.swing.JButton();
-        btn_calc_amortizacion = new javax.swing.JButton();
-        lbl_cant_produ = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         txt_id_pro = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
@@ -174,8 +167,8 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
         jLabel28 = new javax.swing.JLabel();
         txt_stock_actual = new javax.swing.JTextField();
         txt_cantidad_pro = new javax.swing.JTextField();
+        lbl_nom_cuenta = new javax.swing.JLabel();
         pn_amortizacion = new javax.swing.JPanel();
-        lbl_valor_amortz = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         btn_salir = new javax.swing.JButton();
         txt_dias_plazo = new javax.swing.JTextField();
@@ -225,7 +218,7 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Código", "Descripción", "Precio Unitario", "Unidad", "Kg", "Precio Total"
+                "Código", "Descripción", "Precio Unitario", "Unidad", "SR", "Precio Total"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -471,16 +464,16 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
         });
         jPanel1.add(txt_cod_barras, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 230, 35));
 
-        lbl_nro_caja.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        lbl_nro_caja.setForeground(new java.awt.Color(204, 0, 51));
-        lbl_nro_caja.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_nro_caja.setText("0");
-        jPanel1.add(lbl_nro_caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, 70, 40));
-
         jLabel5.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/caja.png"))); // NOI18N
         jLabel5.setText("Caja Nro:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, 110, 40));
+
+        lbl_nro_cuenta.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        lbl_nro_cuenta.setForeground(new java.awt.Color(153, 0, 0));
+        lbl_nro_cuenta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_nro_cuenta.setText("0");
+        jPanel1.add(lbl_nro_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 110, 60, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 620));
 
@@ -544,25 +537,11 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
         lbl_default_id.setText("lbl_default");
         panel_calculo.add(lbl_default_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
-        lbl_nro_cuenta.setText("nro cuenta");
-        panel_calculo.add(lbl_nro_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 60, 30));
-
-        lbl_nom_cuenta.setText("cuenta");
-        panel_calculo.add(lbl_nom_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, 30));
-
         lbl_sur_nombre.setText("alma");
         panel_calculo.add(lbl_sur_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 30, 20));
 
         lbl_total_amort.setText("amort_total");
         panel_calculo.add(lbl_total_amort, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, 20));
-
-        lbl_literal_pro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lbl_literal_pro.setText("Son:");
-        panel_calculo.add(lbl_literal_pro, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 20, -1));
-
-        lbl_literal.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lbl_literal.setText("gs");
-        panel_calculo.add(lbl_literal, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 30, 20));
 
         btn_mone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -583,16 +562,6 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
             }
         });
         panel_calculo.add(btncalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 40, 20));
-
-        btn_calc_amortizacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_calc_amortizacionActionPerformed(evt);
-            }
-        });
-        panel_calculo.add(btn_calc_amortizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 50, 20));
-
-        lbl_cant_produ.setText("count");
-        panel_calculo.add(lbl_cant_produ, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, -1, -1));
 
         jLabel27.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel27.setText("Código");
@@ -645,6 +614,11 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
         txt_cantidad_pro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_cantidad_pro.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_cantidad_pro.setText("1");
+        txt_cantidad_pro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_cantidad_proActionPerformed(evt);
+            }
+        });
         txt_cantidad_pro.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txt_cantidad_proKeyPressed(evt);
@@ -653,17 +627,15 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
                 txt_cantidad_proKeyReleased(evt);
             }
         });
-        panel_calculo.add(txt_cantidad_pro, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 20, 30));
+        panel_calculo.add(txt_cantidad_pro, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 20, 30));
+
+        lbl_nom_cuenta.setText("cuenta");
+        panel_calculo.add(lbl_nom_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, 30));
 
         jPanel3.add(panel_calculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 320, 160));
 
         pn_amortizacion.setBackground(new java.awt.Color(0, 102, 0));
         pn_amortizacion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lbl_valor_amortz.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lbl_valor_amortz.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_valor_amortz.setText("0");
-        pn_amortizacion.add(lbl_valor_amortz, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 100, 28));
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -882,7 +854,6 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
                 lbl_tipo_venta.setText("CONTADO");
                 pn_tipo_venta.setBackground(Color.blue);
                 pn_amortizacion.setVisible(false);
-                lbl_valor_amortz.setText("0");
                 txt_tipo_surc.setText("");
                 txt_class_cli_ventas.setText("");
                 btnven.setEnabled(true);
@@ -933,7 +904,6 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
                 lbl_tipo_venta.setText("CONTADO");
                 pn_tipo_venta.setBackground(Color.blue);
                 pn_amortizacion.setVisible(false);
-                lbl_valor_amortz.setText("0");
                 txt_tipo_surc.setText("");
                 txt_class_cli_ventas.setText("");
                 btnven.setEnabled(true);
@@ -972,7 +942,6 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
         lbl_tipo_venta.setText("CRÉDITO");
         pn_tipo_venta.setBackground(Color.red);
         pn_amortizacion.setVisible(true);
-        lbl_valor_amortz.setText("0");
     }//GEN-LAST:event_chk_plazoActionPerformed
 
     private void chk_contadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chk_contadoActionPerformed
@@ -984,7 +953,6 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
         lbl_tipo_venta.setText("CONTADO");
         pn_tipo_venta.setBackground(Color.blue);
         pn_amortizacion.setVisible(false);
-        lbl_valor_amortz.setText("0");
 
     }//GEN-LAST:event_chk_contadoActionPerformed
 
@@ -994,13 +962,10 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
 
     private void btncalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncalcularActionPerformed
 
-        contarFilas();
         calcular();
         calcularMoneda();
         calcularCantidadPro();
         calcularCaja();
-        literal();
-
 
     }//GEN-LAST:event_btncalcularActionPerformed
 
@@ -1026,7 +991,7 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
         calcularSubtotal();
         calcularMoneda();
         calcularCantidadPro();
-        literal();
+
     }//GEN-LAST:event_btn_moneActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -1034,13 +999,6 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
         cv = new Clientes_ventas_bar(new javax.swing.JDialog(), true);
         cv.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void btn_calc_amortizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_calc_amortizacionActionPerformed
-        calcular_amorti();
-        calcularMoneda();
-        calcularCaja();
-        literal();
-    }//GEN-LAST:event_btn_calc_amortizacionActionPerformed
 
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
 
@@ -1127,6 +1085,10 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_cantidad_proKeyReleased
 
+    private void txt_cantidad_proActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cantidad_proActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_cantidad_proActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1176,7 +1138,6 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton btn_buscaar_items;
-    public static javax.swing.JButton btn_calc_amortizacion;
     public static javax.swing.JButton btn_mone;
     private javax.swing.JButton btn_salir;
     public static javax.swing.JButton btncalcular;
@@ -1223,15 +1184,11 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
     private javax.swing.JLabel lbl_cambio_mon_1;
     private javax.swing.JLabel lbl_cambio_mon_2;
     public static javax.swing.JLabel lbl_cambio_real;
-    public static javax.swing.JLabel lbl_cant_produ;
     public static javax.swing.JLabel lbl_cod;
     public static javax.swing.JLabel lbl_default_id;
     private javax.swing.JLabel lbl_dolar;
     private javax.swing.JTextField lbl_fecha_VISOR;
-    private javax.swing.JLabel lbl_literal;
-    private javax.swing.JLabel lbl_literal_pro;
     private javax.swing.JLabel lbl_nom_cuenta;
-    private javax.swing.JLabel lbl_nro_caja;
     private javax.swing.JLabel lbl_nro_cuenta;
     private javax.swing.JLabel lbl_plazos_dias;
     private javax.swing.JLabel lbl_plazos_dias1;
@@ -1241,7 +1198,6 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
     private javax.swing.JLabel lbl_sur_nombre;
     private javax.swing.JLabel lbl_tipo_venta;
     private javax.swing.JLabel lbl_total_amort;
-    public static javax.swing.JLabel lbl_valor_amortz;
     public static javax.swing.JLabel lblcanpro;
     private javax.swing.JPanel panel_calculo;
     private javax.swing.JPanel pn_amortizacion;
@@ -1395,7 +1351,7 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
         String user = lbl_usu_nom.getText();
         String cantidad = lblcanpro.getText();//cambiar en db
         String almacen = Principal_ventas.lbl_almacen_ventas.getText();
-        String literal = lbl_literal.getText();
+        String literal = ("");
         String id_user = Principal.lbl_id_user.getText();
         String describe = ("");
         try {
@@ -1459,7 +1415,7 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
         String user = lbl_usu_nom.getText();
         String cantidad = lblcanpro.getText();//cambiar en db
         String almacen = Principal_ventas.lbl_almacen_ventas.getText();
-        String literal = lbl_literal.getText();
+        String literal = "";
         String id_user = Principal.lbl_id_user.getText();
         String monto_cred = txttotal.getText();
         String describe = ("");
@@ -1559,7 +1515,7 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
         String user = lbl_usu_nom.getText();
         String cantidad = lblcanpro.getText();//cambiar en db
         String almacen = Principal_ventas.lbl_almacen_ventas.getText();
-        String literal = lbl_literal.getText();
+        String literal = "";
         String id_user = Principal.lbl_id_user.getText();
         String describe = ("");
 
@@ -1615,7 +1571,7 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
         String user = lbl_usu_nom.getText();
         String cantidad = lblcanpro.getText();//cambiar en db
         String almacen = Principal_ventas.lbl_almacen_ventas.getText();
-        String literal = lbl_literal.getText();
+        String literal = "";
         String id_user = Principal.lbl_id_user.getText();
         String describe = ("");
         try {
@@ -1797,22 +1753,6 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
         }
     }
 
-    void literal() {
-
-        String emi = txttotal.getText();
-        String emi1 = emi.replaceAll(",", "");
-        lbl_literal_pro.setText(emi1);
-        try {
-            Clase_Literal NumLetra = new Clase_Literal();
-            String numero = lbl_literal_pro.getText();
-            lbl_literal.setText(NumLetra.Convertir(numero, true));
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-
-    }
-
     void cargarConfig() {
         String mostrar = "SELECT * FROM empresas";
 
@@ -1848,7 +1788,6 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
             while (rs.next()) {
 
                 lbl_nro_cuenta.setText(rs.getString(7));
-                lbl_nro_caja.setText(rs.getString(7));
 
             }
             conectar.getInstance().closeConnection(cn);
@@ -1860,23 +1799,44 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
     }
 
     void cargarCuenta() {
-        String nro = lbl_nro_cuenta.getText();
-        String mostrar = "SELECT * FROM cuentas where  nro_cuentas='" + nro + "' ";
+        if (lbl_nro_cuenta.getText().equals("TODOS")) {
+            nro_cuentas_user = "1";
+            lbl_nro_cuenta.setText("1");
+            String mostrar = "SELECT * FROM cuentas where  nro_cuentas='" + nro_cuentas_user + "' ";
+            try {
+                Connection cn = conectar.getInstance().getConnection();
 
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+                Statement st = cn.createStatement();
+                ResultSet rs = st.executeQuery(mostrar);
+                while (rs.next()) {
+                    lbl_saldo_cuenta.setText(rs.getString(4));
+                    lbl_nom_cuenta.setText(rs.getString(2));
 
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(mostrar);
-            while (rs.next()) {
-                lbl_saldo_cuenta.setText(rs.getString(4));
-                lbl_nom_cuenta.setText(rs.getString(2));
+                }
+                conectar.getInstance().closeConnection(cn);
 
+            } catch (SQLException ex) {
+                Logger.getLogger(Ventas_venta_bar.class.getName()).log(Level.SEVERE, null, ex);
             }
-            conectar.getInstance().closeConnection(cn);
+        } else {
 
-        } catch (SQLException ex) {
-            Logger.getLogger(Ventas_venta_bar.class.getName()).log(Level.SEVERE, null, ex);
+            nro_cuentas_user = lbl_nro_cuenta.getText();
+            String mostrar = "SELECT * FROM cuentas where  nro_cuentas='" + nro_cuentas_user + "' ";
+            try {
+                Connection cn = conectar.getInstance().getConnection();
+
+                Statement st = cn.createStatement();
+                ResultSet rs = st.executeQuery(mostrar);
+                while (rs.next()) {
+                    lbl_saldo_cuenta.setText(rs.getString(4));
+                    lbl_nom_cuenta.setText(rs.getString(2));
+
+                }
+                conectar.getInstance().closeConnection(cn);
+
+            } catch (SQLException ex) {
+                Logger.getLogger(Ventas_venta_bar.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
     }
@@ -1891,15 +1851,7 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
 
     }
 
-    public void calcular_amorti() {
 
-        String totalCuenta = "0";
-        BigDecimal ValorTotal = ingreso.TransformReales(lbl_total_amort.getText().replaceAll("\\s", ""));
-        BigDecimal ValorCuenta = ingreso.TransformReales(lbl_valor_amortz.getText().replaceAll("\\s", ""));
-        totalCuenta = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(ValorTotal.add(ValorCuenta).toString());
-        txttotal.setText(totalCuenta);
-
-    }
 
     void actCuenta() {
 
@@ -2193,13 +2145,6 @@ public class Ventas_venta_bar extends javax.swing.JDialog {
          Forma_pago_gral_rap fvv = null;
          fvv = new Forma_pago_gral_rap(new javax.swing.JDialog(), true);
          fvv.setVisible(true);*/
-
-    }
-
-    void contarFilas() {
-        for (int i = 0; i < tb_factura.getRowCount(); i++) {
-            lbl_cant_produ.setText(i + "");
-        }
 
     }
 

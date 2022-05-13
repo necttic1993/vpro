@@ -202,12 +202,11 @@ public class Principal_recibo_fisc extends javax.swing.JDialog {
             this.dispose();
         }
 
-      
 
     }//GEN-LAST:event_txt_busKeyPressed
 
     private void txt_busKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_busKeyReleased
-  if (lbl_almacen_pedidos.getText().equals("TODOS")) {
+        if (lbl_almacen_pedidos.getText().equals("TODOS")) {
             cargar(txt_bus.getText());
         } else {
             cargar_espe(txt_bus.getText());
@@ -523,6 +522,1211 @@ public class Principal_recibo_fisc extends javax.swing.JDialog {
                             }
                         }
                     }
+                    //ALL ALMACENES
+                    if (Principal_recibo_fisc.lbl_almacen_pedidos.getText().equals("0000003")) {
+
+                        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+                        if (printService.length > 0)//si existen impresoras
+                        {
+                            //se elige la impresora
+                            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+                            if (impresora != null) //Si se selecciono una impresora
+                            {
+
+                                try {
+
+                                    int filaMod = tbProductos_pedido.getSelectedRow();
+                                    String nro = (String) tbProductos_pedido.getValueAt(filaMod, 0);
+                                    Connection cn = conectar.getInstance().getConnection();
+
+                                    URL in = this.getClass().getResource("/Caja_2/Pago_Plazos/Recibo_principal_factura.jasper");
+
+                                    System.out.println(in);
+                                    Map parametro = new HashMap();
+                                    parametro.clear();
+                                    parametro.put("serienro", nro);
+                                    parametro.put("SUBREPORT_DIR", "Caja_2/Pago_Plazos/");
+                                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+                                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+                                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                                    jrprintServiceExporter.exportReport();
+                                    conectar.getInstance().closeConnection(cn);
+
+                                } catch (JRException ex) {
+
+                                } catch (SQLException ex) {
+                                    Logger.getLogger(Principal_recibo_fisc.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        }
+                    }
+//
+                    if (Principal_recibo_fisc.lbl_almacen_pedidos.getText().equals("0000004")) {
+
+                        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+                        if (printService.length > 0)//si existen impresoras
+                        {
+                            //se elige la impresora
+                            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+                            if (impresora != null) //Si se selecciono una impresora
+                            {
+
+                                try {
+
+                                    int filaMod = tbProductos_pedido.getSelectedRow();
+                                    String nro = (String) tbProductos_pedido.getValueAt(filaMod, 0);
+                                    Connection cn = conectar.getInstance().getConnection();
+
+                                    URL in = this.getClass().getResource("/Caja_2/Pago_Plazos/Recibo_principal_factura.jasper");
+
+                                    System.out.println(in);
+                                    Map parametro = new HashMap();
+                                    parametro.clear();
+                                    parametro.put("serienro", nro);
+                                    parametro.put("SUBREPORT_DIR", "Caja_2/Pago_Plazos/");
+                                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+                                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+                                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                                    jrprintServiceExporter.exportReport();
+                                    conectar.getInstance().closeConnection(cn);
+
+                                } catch (JRException ex) {
+
+                                } catch (SQLException ex) {
+                                    Logger.getLogger(Principal_recibo_fisc.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        }
+                    }
+
+                    if (Principal_recibo_fisc.lbl_almacen_pedidos.getText().equals("0000005")) {
+
+                        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+                        if (printService.length > 0)//si existen impresoras
+                        {
+                            //se elige la impresora
+                            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+                            if (impresora != null) //Si se selecciono una impresora
+                            {
+
+                                try {
+
+                                    int filaMod = tbProductos_pedido.getSelectedRow();
+                                    String nro = (String) tbProductos_pedido.getValueAt(filaMod, 0);
+                                    Connection cn = conectar.getInstance().getConnection();
+
+                                    URL in = this.getClass().getResource("/Caja_2/Pago_Plazos/Recibo_principal_factura.jasper");
+
+                                    System.out.println(in);
+                                    Map parametro = new HashMap();
+                                    parametro.clear();
+                                    parametro.put("serienro", nro);
+                                    parametro.put("SUBREPORT_DIR", "Caja_2/Pago_Plazos/");
+                                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+                                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+                                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                                    jrprintServiceExporter.exportReport();
+                                    conectar.getInstance().closeConnection(cn);
+
+                                } catch (JRException ex) {
+
+                                } catch (SQLException ex) {
+                                    Logger.getLogger(Principal_recibo_fisc.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        }
+                    }
+
+                    if (Principal_recibo_fisc.lbl_almacen_pedidos.getText().equals("0000006")) {
+
+                        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+                        if (printService.length > 0)//si existen impresoras
+                        {
+                            //se elige la impresora
+                            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+                            if (impresora != null) //Si se selecciono una impresora
+                            {
+
+                                try {
+
+                                    int filaMod = tbProductos_pedido.getSelectedRow();
+                                    String nro = (String) tbProductos_pedido.getValueAt(filaMod, 0);
+                                    Connection cn = conectar.getInstance().getConnection();
+
+                                    URL in = this.getClass().getResource("/Caja_2/Pago_Plazos/Recibo_principal_factura.jasper");
+
+                                    System.out.println(in);
+                                    Map parametro = new HashMap();
+                                    parametro.clear();
+                                    parametro.put("serienro", nro);
+                                    parametro.put("SUBREPORT_DIR", "Caja_2/Pago_Plazos/");
+                                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+                                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+                                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                                    jrprintServiceExporter.exportReport();
+                                    conectar.getInstance().closeConnection(cn);
+
+                                } catch (JRException ex) {
+
+                                } catch (SQLException ex) {
+                                    Logger.getLogger(Principal_recibo_fisc.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        }
+                    }
+
+                    if (Principal_recibo_fisc.lbl_almacen_pedidos.getText().equals("0000007")) {
+
+                        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+                        if (printService.length > 0)//si existen impresoras
+                        {
+                            //se elige la impresora
+                            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+                            if (impresora != null) //Si se selecciono una impresora
+                            {
+
+                                try {
+
+                                    int filaMod = tbProductos_pedido.getSelectedRow();
+                                    String nro = (String) tbProductos_pedido.getValueAt(filaMod, 0);
+                                    Connection cn = conectar.getInstance().getConnection();
+
+                                    URL in = this.getClass().getResource("/Caja_2/Pago_Plazos/Recibo_principal_factura.jasper");
+
+                                    System.out.println(in);
+                                    Map parametro = new HashMap();
+                                    parametro.clear();
+                                    parametro.put("serienro", nro);
+                                    parametro.put("SUBREPORT_DIR", "Caja_2/Pago_Plazos/");
+                                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+                                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+                                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                                    jrprintServiceExporter.exportReport();
+                                    conectar.getInstance().closeConnection(cn);
+
+                                } catch (JRException ex) {
+
+                                } catch (SQLException ex) {
+                                    Logger.getLogger(Principal_recibo_fisc.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        }
+                    }
+
+                    if (Principal_recibo_fisc.lbl_almacen_pedidos.getText().equals("0000008")) {
+
+                        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+                        if (printService.length > 0)//si existen impresoras
+                        {
+                            //se elige la impresora
+                            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+                            if (impresora != null) //Si se selecciono una impresora
+                            {
+
+                                try {
+
+                                    int filaMod = tbProductos_pedido.getSelectedRow();
+                                    String nro = (String) tbProductos_pedido.getValueAt(filaMod, 0);
+                                    Connection cn = conectar.getInstance().getConnection();
+
+                                    URL in = this.getClass().getResource("/Caja_2/Pago_Plazos/Recibo_principal_factura.jasper");
+
+                                    System.out.println(in);
+                                    Map parametro = new HashMap();
+                                    parametro.clear();
+                                    parametro.put("serienro", nro);
+                                    parametro.put("SUBREPORT_DIR", "Caja_2/Pago_Plazos/");
+                                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+                                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+                                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                                    jrprintServiceExporter.exportReport();
+                                    conectar.getInstance().closeConnection(cn);
+
+                                } catch (JRException ex) {
+
+                                } catch (SQLException ex) {
+                                    Logger.getLogger(Principal_recibo_fisc.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        }
+                    }
+
+                    if (Principal_recibo_fisc.lbl_almacen_pedidos.getText().equals("0000009")) {
+
+                        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+                        if (printService.length > 0)//si existen impresoras
+                        {
+                            //se elige la impresora
+                            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+                            if (impresora != null) //Si se selecciono una impresora
+                            {
+
+                                try {
+
+                                    int filaMod = tbProductos_pedido.getSelectedRow();
+                                    String nro = (String) tbProductos_pedido.getValueAt(filaMod, 0);
+                                    Connection cn = conectar.getInstance().getConnection();
+
+                                    URL in = this.getClass().getResource("/Caja_2/Pago_Plazos/Recibo_principal_factura.jasper");
+
+                                    System.out.println(in);
+                                    Map parametro = new HashMap();
+                                    parametro.clear();
+                                    parametro.put("serienro", nro);
+                                    parametro.put("SUBREPORT_DIR", "Caja_2/Pago_Plazos/");
+                                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+                                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+                                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                                    jrprintServiceExporter.exportReport();
+                                    conectar.getInstance().closeConnection(cn);
+
+                                } catch (JRException ex) {
+
+                                } catch (SQLException ex) {
+                                    Logger.getLogger(Principal_recibo_fisc.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        }
+                    }
+
+                    if (Principal_recibo_fisc.lbl_almacen_pedidos.getText().equals("0000010")) {
+
+                        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+                        if (printService.length > 0)//si existen impresoras
+                        {
+                            //se elige la impresora
+                            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+                            if (impresora != null) //Si se selecciono una impresora
+                            {
+
+                                try {
+
+                                    int filaMod = tbProductos_pedido.getSelectedRow();
+                                    String nro = (String) tbProductos_pedido.getValueAt(filaMod, 0);
+                                    Connection cn = conectar.getInstance().getConnection();
+
+                                    URL in = this.getClass().getResource("/Caja_2/Pago_Plazos/Recibo_principal_factura.jasper");
+
+                                    System.out.println(in);
+                                    Map parametro = new HashMap();
+                                    parametro.clear();
+                                    parametro.put("serienro", nro);
+                                    parametro.put("SUBREPORT_DIR", "Caja_2/Pago_Plazos/");
+                                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+                                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+                                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                                    jrprintServiceExporter.exportReport();
+                                    conectar.getInstance().closeConnection(cn);
+
+                                } catch (JRException ex) {
+
+                                } catch (SQLException ex) {
+                                    Logger.getLogger(Principal_recibo_fisc.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        }
+                    }
+
+                    if (Principal_recibo_fisc.lbl_almacen_pedidos.getText().equals("0000011")) {
+
+                        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+                        if (printService.length > 0)//si existen impresoras
+                        {
+                            //se elige la impresora
+                            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+                            if (impresora != null) //Si se selecciono una impresora
+                            {
+
+                                try {
+
+                                    int filaMod = tbProductos_pedido.getSelectedRow();
+                                    String nro = (String) tbProductos_pedido.getValueAt(filaMod, 0);
+                                    Connection cn = conectar.getInstance().getConnection();
+
+                                    URL in = this.getClass().getResource("/Caja_2/Pago_Plazos/Recibo_principal_factura.jasper");
+
+                                    System.out.println(in);
+                                    Map parametro = new HashMap();
+                                    parametro.clear();
+                                    parametro.put("serienro", nro);
+                                    parametro.put("SUBREPORT_DIR", "Caja_2/Pago_Plazos/");
+                                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+                                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+                                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                                    jrprintServiceExporter.exportReport();
+                                    conectar.getInstance().closeConnection(cn);
+
+                                } catch (JRException ex) {
+
+                                } catch (SQLException ex) {
+                                    Logger.getLogger(Principal_recibo_fisc.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        }
+                    }
+
+                    if (Principal_recibo_fisc.lbl_almacen_pedidos.getText().equals("0000012")) {
+
+                        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+                        if (printService.length > 0)//si existen impresoras
+                        {
+                            //se elige la impresora
+                            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+                            if (impresora != null) //Si se selecciono una impresora
+                            {
+
+                                try {
+
+                                    int filaMod = tbProductos_pedido.getSelectedRow();
+                                    String nro = (String) tbProductos_pedido.getValueAt(filaMod, 0);
+                                    Connection cn = conectar.getInstance().getConnection();
+
+                                    URL in = this.getClass().getResource("/Caja_2/Pago_Plazos/Recibo_principal_factura.jasper");
+
+                                    System.out.println(in);
+                                    Map parametro = new HashMap();
+                                    parametro.clear();
+                                    parametro.put("serienro", nro);
+                                    parametro.put("SUBREPORT_DIR", "Caja_2/Pago_Plazos/");
+                                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+                                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+                                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                                    jrprintServiceExporter.exportReport();
+                                    conectar.getInstance().closeConnection(cn);
+
+                                } catch (JRException ex) {
+
+                                } catch (SQLException ex) {
+                                    Logger.getLogger(Principal_recibo_fisc.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        }
+                    }
+
+                    if (Principal_recibo_fisc.lbl_almacen_pedidos.getText().equals("0000013")) {
+
+                        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+                        if (printService.length > 0)//si existen impresoras
+                        {
+                            //se elige la impresora
+                            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+                            if (impresora != null) //Si se selecciono una impresora
+                            {
+
+                                try {
+
+                                    int filaMod = tbProductos_pedido.getSelectedRow();
+                                    String nro = (String) tbProductos_pedido.getValueAt(filaMod, 0);
+                                    Connection cn = conectar.getInstance().getConnection();
+
+                                    URL in = this.getClass().getResource("/Caja_2/Pago_Plazos/Recibo_principal_factura.jasper");
+
+                                    System.out.println(in);
+                                    Map parametro = new HashMap();
+                                    parametro.clear();
+                                    parametro.put("serienro", nro);
+                                    parametro.put("SUBREPORT_DIR", "Caja_2/Pago_Plazos/");
+                                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+                                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+                                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                                    jrprintServiceExporter.exportReport();
+                                    conectar.getInstance().closeConnection(cn);
+
+                                } catch (JRException ex) {
+
+                                } catch (SQLException ex) {
+                                    Logger.getLogger(Principal_recibo_fisc.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        }
+                    }
+
+                    if (Principal_recibo_fisc.lbl_almacen_pedidos.getText().equals("0000014")) {
+
+                        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+                        if (printService.length > 0)//si existen impresoras
+                        {
+                            //se elige la impresora
+                            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+                            if (impresora != null) //Si se selecciono una impresora
+                            {
+
+                                try {
+
+                                    int filaMod = tbProductos_pedido.getSelectedRow();
+                                    String nro = (String) tbProductos_pedido.getValueAt(filaMod, 0);
+                                    Connection cn = conectar.getInstance().getConnection();
+
+                                    URL in = this.getClass().getResource("/Caja_2/Pago_Plazos/Recibo_principal_factura.jasper");
+
+                                    System.out.println(in);
+                                    Map parametro = new HashMap();
+                                    parametro.clear();
+                                    parametro.put("serienro", nro);
+                                    parametro.put("SUBREPORT_DIR", "Caja_2/Pago_Plazos/");
+                                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+                                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+                                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                                    jrprintServiceExporter.exportReport();
+                                    conectar.getInstance().closeConnection(cn);
+
+                                } catch (JRException ex) {
+
+                                } catch (SQLException ex) {
+                                    Logger.getLogger(Principal_recibo_fisc.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        }
+                    }
+
+                    if (Principal_recibo_fisc.lbl_almacen_pedidos.getText().equals("0000015")) {
+
+                        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+                        if (printService.length > 0)//si existen impresoras
+                        {
+                            //se elige la impresora
+                            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+                            if (impresora != null) //Si se selecciono una impresora
+                            {
+
+                                try {
+
+                                    int filaMod = tbProductos_pedido.getSelectedRow();
+                                    String nro = (String) tbProductos_pedido.getValueAt(filaMod, 0);
+                                    Connection cn = conectar.getInstance().getConnection();
+
+                                    URL in = this.getClass().getResource("/Caja_2/Pago_Plazos/Recibo_principal_factura.jasper");
+
+                                    System.out.println(in);
+                                    Map parametro = new HashMap();
+                                    parametro.clear();
+                                    parametro.put("serienro", nro);
+                                    parametro.put("SUBREPORT_DIR", "Caja_2/Pago_Plazos/");
+                                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+                                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+                                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                                    jrprintServiceExporter.exportReport();
+                                    conectar.getInstance().closeConnection(cn);
+
+                                } catch (JRException ex) {
+
+                                } catch (SQLException ex) {
+                                    Logger.getLogger(Principal_recibo_fisc.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        }
+                    }
+
+                    if (Principal_recibo_fisc.lbl_almacen_pedidos.getText().equals("0000016")) {
+
+                        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+                        if (printService.length > 0)//si existen impresoras
+                        {
+                            //se elige la impresora
+                            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+                            if (impresora != null) //Si se selecciono una impresora
+                            {
+
+                                try {
+
+                                    int filaMod = tbProductos_pedido.getSelectedRow();
+                                    String nro = (String) tbProductos_pedido.getValueAt(filaMod, 0);
+                                    Connection cn = conectar.getInstance().getConnection();
+
+                                    URL in = this.getClass().getResource("/Caja_2/Pago_Plazos/Recibo_principal_factura.jasper");
+
+                                    System.out.println(in);
+                                    Map parametro = new HashMap();
+                                    parametro.clear();
+                                    parametro.put("serienro", nro);
+                                    parametro.put("SUBREPORT_DIR", "Caja_2/Pago_Plazos/");
+                                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+                                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+                                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                                    jrprintServiceExporter.exportReport();
+                                    conectar.getInstance().closeConnection(cn);
+
+                                } catch (JRException ex) {
+
+                                } catch (SQLException ex) {
+                                    Logger.getLogger(Principal_recibo_fisc.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        }
+                    }
+
+                    if (Principal_recibo_fisc.lbl_almacen_pedidos.getText().equals("0000017")) {
+
+                        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+                        if (printService.length > 0)//si existen impresoras
+                        {
+                            //se elige la impresora
+                            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+                            if (impresora != null) //Si se selecciono una impresora
+                            {
+
+                                try {
+
+                                    int filaMod = tbProductos_pedido.getSelectedRow();
+                                    String nro = (String) tbProductos_pedido.getValueAt(filaMod, 0);
+                                    Connection cn = conectar.getInstance().getConnection();
+
+                                    URL in = this.getClass().getResource("/Caja_2/Pago_Plazos/Recibo_principal_factura.jasper");
+
+                                    System.out.println(in);
+                                    Map parametro = new HashMap();
+                                    parametro.clear();
+                                    parametro.put("serienro", nro);
+                                    parametro.put("SUBREPORT_DIR", "Caja_2/Pago_Plazos/");
+                                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+                                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+                                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                                    jrprintServiceExporter.exportReport();
+                                    conectar.getInstance().closeConnection(cn);
+
+                                } catch (JRException ex) {
+
+                                } catch (SQLException ex) {
+                                    Logger.getLogger(Principal_recibo_fisc.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        }
+                    }
+
+                    if (Principal_recibo_fisc.lbl_almacen_pedidos.getText().equals("0000018")) {
+
+                        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+                        if (printService.length > 0)//si existen impresoras
+                        {
+                            //se elige la impresora
+                            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+                            if (impresora != null) //Si se selecciono una impresora
+                            {
+
+                                try {
+
+                                    int filaMod = tbProductos_pedido.getSelectedRow();
+                                    String nro = (String) tbProductos_pedido.getValueAt(filaMod, 0);
+                                    Connection cn = conectar.getInstance().getConnection();
+
+                                    URL in = this.getClass().getResource("/Caja_2/Pago_Plazos/Recibo_principal_factura.jasper");
+
+                                    System.out.println(in);
+                                    Map parametro = new HashMap();
+                                    parametro.clear();
+                                    parametro.put("serienro", nro);
+                                    parametro.put("SUBREPORT_DIR", "Caja_2/Pago_Plazos/");
+                                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+                                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+                                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                                    jrprintServiceExporter.exportReport();
+                                    conectar.getInstance().closeConnection(cn);
+
+                                } catch (JRException ex) {
+
+                                } catch (SQLException ex) {
+                                    Logger.getLogger(Principal_recibo_fisc.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        }
+                    }
+
+                    if (Principal_recibo_fisc.lbl_almacen_pedidos.getText().equals("0000019")) {
+
+                        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+                        if (printService.length > 0)//si existen impresoras
+                        {
+                            //se elige la impresora
+                            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+                            if (impresora != null) //Si se selecciono una impresora
+                            {
+
+                                try {
+
+                                    int filaMod = tbProductos_pedido.getSelectedRow();
+                                    String nro = (String) tbProductos_pedido.getValueAt(filaMod, 0);
+                                    Connection cn = conectar.getInstance().getConnection();
+
+                                    URL in = this.getClass().getResource("/Caja_2/Pago_Plazos/Recibo_principal_factura.jasper");
+
+                                    System.out.println(in);
+                                    Map parametro = new HashMap();
+                                    parametro.clear();
+                                    parametro.put("serienro", nro);
+                                    parametro.put("SUBREPORT_DIR", "Caja_2/Pago_Plazos/");
+                                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+                                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+                                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                                    jrprintServiceExporter.exportReport();
+                                    conectar.getInstance().closeConnection(cn);
+
+                                } catch (JRException ex) {
+
+                                } catch (SQLException ex) {
+                                    Logger.getLogger(Principal_recibo_fisc.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        }
+                    }
+
+                    if (Principal_recibo_fisc.lbl_almacen_pedidos.getText().equals("0000020")) {
+
+                        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+                        if (printService.length > 0)//si existen impresoras
+                        {
+                            //se elige la impresora
+                            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+                            if (impresora != null) //Si se selecciono una impresora
+                            {
+
+                                try {
+
+                                    int filaMod = tbProductos_pedido.getSelectedRow();
+                                    String nro = (String) tbProductos_pedido.getValueAt(filaMod, 0);
+                                    Connection cn = conectar.getInstance().getConnection();
+
+                                    URL in = this.getClass().getResource("/Caja_2/Pago_Plazos/Recibo_principal_factura.jasper");
+
+                                    System.out.println(in);
+                                    Map parametro = new HashMap();
+                                    parametro.clear();
+                                    parametro.put("serienro", nro);
+                                    parametro.put("SUBREPORT_DIR", "Caja_2/Pago_Plazos/");
+                                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+                                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+                                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                                    jrprintServiceExporter.exportReport();
+                                    conectar.getInstance().closeConnection(cn);
+
+                                } catch (JRException ex) {
+
+                                } catch (SQLException ex) {
+                                    Logger.getLogger(Principal_recibo_fisc.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        }
+                    }
+
+                    if (Principal_recibo_fisc.lbl_almacen_pedidos.getText().equals("0000021")) {
+
+                        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+                        if (printService.length > 0)//si existen impresoras
+                        {
+                            //se elige la impresora
+                            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+                            if (impresora != null) //Si se selecciono una impresora
+                            {
+
+                                try {
+
+                                    int filaMod = tbProductos_pedido.getSelectedRow();
+                                    String nro = (String) tbProductos_pedido.getValueAt(filaMod, 0);
+                                    Connection cn = conectar.getInstance().getConnection();
+
+                                    URL in = this.getClass().getResource("/Caja_2/Pago_Plazos/Recibo_principal_factura.jasper");
+
+                                    System.out.println(in);
+                                    Map parametro = new HashMap();
+                                    parametro.clear();
+                                    parametro.put("serienro", nro);
+                                    parametro.put("SUBREPORT_DIR", "Caja_2/Pago_Plazos/");
+                                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+                                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+                                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                                    jrprintServiceExporter.exportReport();
+                                    conectar.getInstance().closeConnection(cn);
+
+                                } catch (JRException ex) {
+
+                                } catch (SQLException ex) {
+                                    Logger.getLogger(Principal_recibo_fisc.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        }
+                    }
+
+                    if (Principal_recibo_fisc.lbl_almacen_pedidos.getText().equals("0000022")) {
+
+                        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+                        if (printService.length > 0)//si existen impresoras
+                        {
+                            //se elige la impresora
+                            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+                            if (impresora != null) //Si se selecciono una impresora
+                            {
+
+                                try {
+
+                                    int filaMod = tbProductos_pedido.getSelectedRow();
+                                    String nro = (String) tbProductos_pedido.getValueAt(filaMod, 0);
+                                    Connection cn = conectar.getInstance().getConnection();
+
+                                    URL in = this.getClass().getResource("/Caja_2/Pago_Plazos/Recibo_principal_factura.jasper");
+
+                                    System.out.println(in);
+                                    Map parametro = new HashMap();
+                                    parametro.clear();
+                                    parametro.put("serienro", nro);
+                                    parametro.put("SUBREPORT_DIR", "Caja_2/Pago_Plazos/");
+                                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+                                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+                                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                                    jrprintServiceExporter.exportReport();
+                                    conectar.getInstance().closeConnection(cn);
+
+                                } catch (JRException ex) {
+
+                                } catch (SQLException ex) {
+                                    Logger.getLogger(Principal_recibo_fisc.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        }
+                    }
+
+                    if (Principal_recibo_fisc.lbl_almacen_pedidos.getText().equals("0000023")) {
+
+                        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+                        if (printService.length > 0)//si existen impresoras
+                        {
+                            //se elige la impresora
+                            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+                            if (impresora != null) //Si se selecciono una impresora
+                            {
+
+                                try {
+
+                                    int filaMod = tbProductos_pedido.getSelectedRow();
+                                    String nro = (String) tbProductos_pedido.getValueAt(filaMod, 0);
+                                    Connection cn = conectar.getInstance().getConnection();
+
+                                    URL in = this.getClass().getResource("/Caja_2/Pago_Plazos/Recibo_principal_factura.jasper");
+
+                                    System.out.println(in);
+                                    Map parametro = new HashMap();
+                                    parametro.clear();
+                                    parametro.put("serienro", nro);
+                                    parametro.put("SUBREPORT_DIR", "Caja_2/Pago_Plazos/");
+                                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+                                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+                                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                                    jrprintServiceExporter.exportReport();
+                                    conectar.getInstance().closeConnection(cn);
+
+                                } catch (JRException ex) {
+
+                                } catch (SQLException ex) {
+                                    Logger.getLogger(Principal_recibo_fisc.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        }
+                    }
+
+                    if (Principal_recibo_fisc.lbl_almacen_pedidos.getText().equals("0000024")) {
+
+                        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+                        if (printService.length > 0)//si existen impresoras
+                        {
+                            //se elige la impresora
+                            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+                            if (impresora != null) //Si se selecciono una impresora
+                            {
+
+                                try {
+
+                                    int filaMod = tbProductos_pedido.getSelectedRow();
+                                    String nro = (String) tbProductos_pedido.getValueAt(filaMod, 0);
+                                    Connection cn = conectar.getInstance().getConnection();
+
+                                    URL in = this.getClass().getResource("/Caja_2/Pago_Plazos/Recibo_principal_factura.jasper");
+
+                                    System.out.println(in);
+                                    Map parametro = new HashMap();
+                                    parametro.clear();
+                                    parametro.put("serienro", nro);
+                                    parametro.put("SUBREPORT_DIR", "Caja_2/Pago_Plazos/");
+                                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+                                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+                                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                                    jrprintServiceExporter.exportReport();
+                                    conectar.getInstance().closeConnection(cn);
+
+                                } catch (JRException ex) {
+
+                                } catch (SQLException ex) {
+                                    Logger.getLogger(Principal_recibo_fisc.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        }
+                    }
+
+                    if (Principal_recibo_fisc.lbl_almacen_pedidos.getText().equals("0000025")) {
+
+                        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+                        if (printService.length > 0)//si existen impresoras
+                        {
+                            //se elige la impresora
+                            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+                            if (impresora != null) //Si se selecciono una impresora
+                            {
+
+                                try {
+
+                                    int filaMod = tbProductos_pedido.getSelectedRow();
+                                    String nro = (String) tbProductos_pedido.getValueAt(filaMod, 0);
+                                    Connection cn = conectar.getInstance().getConnection();
+
+                                    URL in = this.getClass().getResource("/Caja_2/Pago_Plazos/Recibo_principal_factura.jasper");
+
+                                    System.out.println(in);
+                                    Map parametro = new HashMap();
+                                    parametro.clear();
+                                    parametro.put("serienro", nro);
+                                    parametro.put("SUBREPORT_DIR", "Caja_2/Pago_Plazos/");
+                                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+                                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+                                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                                    jrprintServiceExporter.exportReport();
+                                    conectar.getInstance().closeConnection(cn);
+
+                                } catch (JRException ex) {
+
+                                } catch (SQLException ex) {
+                                    Logger.getLogger(Principal_recibo_fisc.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        }
+                    }
+
+                    if (Principal_recibo_fisc.lbl_almacen_pedidos.getText().equals("0000026")) {
+
+                        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+                        if (printService.length > 0)//si existen impresoras
+                        {
+                            //se elige la impresora
+                            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+                            if (impresora != null) //Si se selecciono una impresora
+                            {
+
+                                try {
+
+                                    int filaMod = tbProductos_pedido.getSelectedRow();
+                                    String nro = (String) tbProductos_pedido.getValueAt(filaMod, 0);
+                                    Connection cn = conectar.getInstance().getConnection();
+
+                                    URL in = this.getClass().getResource("/Caja_2/Pago_Plazos/Recibo_principal_factura.jasper");
+
+                                    System.out.println(in);
+                                    Map parametro = new HashMap();
+                                    parametro.clear();
+                                    parametro.put("serienro", nro);
+                                    parametro.put("SUBREPORT_DIR", "Caja_2/Pago_Plazos/");
+                                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+                                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+                                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                                    jrprintServiceExporter.exportReport();
+                                    conectar.getInstance().closeConnection(cn);
+
+                                } catch (JRException ex) {
+
+                                } catch (SQLException ex) {
+                                    Logger.getLogger(Principal_recibo_fisc.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        }
+                    }
+
+                    if (Principal_recibo_fisc.lbl_almacen_pedidos.getText().equals("0000027")) {
+
+                        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+                        if (printService.length > 0)//si existen impresoras
+                        {
+                            //se elige la impresora
+                            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+                            if (impresora != null) //Si se selecciono una impresora
+                            {
+
+                                try {
+
+                                    int filaMod = tbProductos_pedido.getSelectedRow();
+                                    String nro = (String) tbProductos_pedido.getValueAt(filaMod, 0);
+                                    Connection cn = conectar.getInstance().getConnection();
+
+                                    URL in = this.getClass().getResource("/Caja_2/Pago_Plazos/Recibo_principal_factura.jasper");
+
+                                    System.out.println(in);
+                                    Map parametro = new HashMap();
+                                    parametro.clear();
+                                    parametro.put("serienro", nro);
+                                    parametro.put("SUBREPORT_DIR", "Caja_2/Pago_Plazos/");
+                                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+                                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+                                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                                    jrprintServiceExporter.exportReport();
+                                    conectar.getInstance().closeConnection(cn);
+
+                                } catch (JRException ex) {
+
+                                } catch (SQLException ex) {
+                                    Logger.getLogger(Principal_recibo_fisc.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        }
+                    }
+
+                    if (Principal_recibo_fisc.lbl_almacen_pedidos.getText().equals("0000028")) {
+
+                        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+                        if (printService.length > 0)//si existen impresoras
+                        {
+                            //se elige la impresora
+                            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+                            if (impresora != null) //Si se selecciono una impresora
+                            {
+
+                                try {
+
+                                    int filaMod = tbProductos_pedido.getSelectedRow();
+                                    String nro = (String) tbProductos_pedido.getValueAt(filaMod, 0);
+                                    Connection cn = conectar.getInstance().getConnection();
+
+                                    URL in = this.getClass().getResource("/Caja_2/Pago_Plazos/Recibo_principal_factura.jasper");
+
+                                    System.out.println(in);
+                                    Map parametro = new HashMap();
+                                    parametro.clear();
+                                    parametro.put("serienro", nro);
+                                    parametro.put("SUBREPORT_DIR", "Caja_2/Pago_Plazos/");
+                                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+                                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+                                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                                    jrprintServiceExporter.exportReport();
+                                    conectar.getInstance().closeConnection(cn);
+
+                                } catch (JRException ex) {
+
+                                } catch (SQLException ex) {
+                                    Logger.getLogger(Principal_recibo_fisc.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        }
+                    }
+
+                    if (Principal_recibo_fisc.lbl_almacen_pedidos.getText().equals("0000029")) {
+
+                        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+                        if (printService.length > 0)//si existen impresoras
+                        {
+                            //se elige la impresora
+                            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+                            if (impresora != null) //Si se selecciono una impresora
+                            {
+
+                                try {
+
+                                    int filaMod = tbProductos_pedido.getSelectedRow();
+                                    String nro = (String) tbProductos_pedido.getValueAt(filaMod, 0);
+                                    Connection cn = conectar.getInstance().getConnection();
+
+                                    URL in = this.getClass().getResource("/Caja_2/Pago_Plazos/Recibo_principal_factura.jasper");
+
+                                    System.out.println(in);
+                                    Map parametro = new HashMap();
+                                    parametro.clear();
+                                    parametro.put("serienro", nro);
+                                    parametro.put("SUBREPORT_DIR", "Caja_2/Pago_Plazos/");
+                                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+                                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+                                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                                    jrprintServiceExporter.exportReport();
+                                    conectar.getInstance().closeConnection(cn);
+
+                                } catch (JRException ex) {
+
+                                } catch (SQLException ex) {
+                                    Logger.getLogger(Principal_recibo_fisc.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        }
+                    }
+
+                    if (Principal_recibo_fisc.lbl_almacen_pedidos.getText().equals("0000030")) {
+
+                        PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
+                        if (printService.length > 0)//si existen impresoras
+                        {
+                            //se elige la impresora
+                            PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
+                                    "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
+                            if (impresora != null) //Si se selecciono una impresora
+                            {
+
+                                try {
+
+                                    int filaMod = tbProductos_pedido.getSelectedRow();
+                                    String nro = (String) tbProductos_pedido.getValueAt(filaMod, 0);
+                                    Connection cn = conectar.getInstance().getConnection();
+
+                                    URL in = this.getClass().getResource("/Caja_2/Pago_Plazos/Recibo_principal_factura.jasper");
+
+                                    System.out.println(in);
+                                    Map parametro = new HashMap();
+                                    parametro.clear();
+                                    parametro.put("serienro", nro);
+                                    parametro.put("SUBREPORT_DIR", "Caja_2/Pago_Plazos/");
+                                    JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+                                    JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+                                    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+                                    jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+                                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
+                                    // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
+                                    jrprintServiceExporter.exportReport();
+                                    conectar.getInstance().closeConnection(cn);
+
+                                } catch (JRException ex) {
+
+                                } catch (SQLException ex) {
+                                    Logger.getLogger(Principal_recibo_fisc.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        }
+                    }
+
                 }
             }
 

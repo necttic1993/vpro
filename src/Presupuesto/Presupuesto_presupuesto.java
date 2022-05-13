@@ -727,7 +727,7 @@ public class Presupuesto_presupuesto extends javax.swing.JDialog {
 
         if (chk_contado.isSelected()) {
 
-            if ((lbl_cod.getText().equals("")) || (txttotal.getText().equals(""))) {
+            if ((lbl_cod.getText().equals("")) || (txttotal.getText().equals("")) || (txt_cod_cli.getText().equals(""))) {
                 JOptionPane.showMessageDialog(this, "Ingrese cliente, producto o realice operacion");
             } else {
 

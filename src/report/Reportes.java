@@ -4,24 +4,36 @@ import static Administrativo.ventas_anteriores_usuarios.*;
 import static Administrativo.ventas_lucro_total.*;
 import Conexion_DB.conectar;
 import static Estadisticas_productos.Pro_con_stock.txt_id_dep_fisico;
+import groovy.io.FileType;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.prefs.Preferences;
+import javafx.stage.FileChooser;
 import javax.print.PrintService;
 import javax.print.PrintServiceLookup;
 import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRExporterParameter;
+import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperPrintManager;
 import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.engine.export.JRPrintServiceExporter;
 import net.sf.jasperreports.engine.export.JRPrintServiceExporterParameter;
+import net.sf.jasperreports.engine.export.JRXlsExporter;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
@@ -201,7 +213,7 @@ public class Reportes {
 
         try {
             Connection cn = conectar.getInstance().getConnection();
-
+            System.out.println("Abre conexion");
             Map parametro = new HashMap();
             parametro.clear();
             parametro.put("codigo", cod);
@@ -213,6 +225,7 @@ public class Reportes {
             JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
             JasperPrintManager.printPage(print, 0, false);
             conectar.getInstance().closeConnection(cn);
+            System.out.println("cierra conexion");
 
         } catch (JRException ex) {
 
@@ -445,6 +458,7 @@ public class Reportes {
             JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
             JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
             JasperPrintManager.printPage(print, 0, false);
+
             conectar.getInstance().closeConnection(cn);
 
         } catch (JRException ex) {
@@ -879,12 +893,13 @@ public class Reportes {
             JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
 
             JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+            //imprime en la impresora default
             JasperPrintManager.printPage(print, 0, false);
 //////////////////////////////////visualizar reporte////////////////////////////
             /*  JasperViewer ver = new JasperViewer(print, false);
              ver.setTitle("Listado de Proveedores");
              ver.setVisible(true);*/
-//////////////////////////////////////////////imprime en la impresora default/////////////////////////////////////
+//////////////////////////////////////////////imprime en la impresora listas/////////////////////////////////////
             /*    JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();       
              jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
              jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, printService);
@@ -5337,6 +5352,7 @@ public class Reportes {
                     jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
                     // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
                     jrprintServiceExporter.exportReport();
+
                     conectar.getInstance().closeConnection(cn);
 
                 } catch (JRException ex) {
@@ -5465,8 +5481,6 @@ public class Reportes {
 
                     jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
                     jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-                    jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-                  //  jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PAGE_DIALOG, Boolean.TRUE);//
                     jrprintServiceExporter.exportReport();
                     conectar.getInstance().closeConnection(cn);
 
@@ -5889,6 +5903,8 @@ public class Reportes {
                     JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
 
                     JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
+                     //guardar en pdf en el disco
+                    // JasperExportManager.exportReportToPdfFile(print, "D:/" + cod + "reporte.pdf");
 
                     JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
 
@@ -5896,6 +5912,13 @@ public class Reportes {
                     jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
                     // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
                     jrprintServiceExporter.exportReport();
+
+                    //impresion y vista en pdf
+                    // JasperExportManager.exportReportToPdf(print);
+                    // JasperViewer jv = new JasperViewer(print, false);
+                    // jv.setTitle("Challan");
+                    //  jv.setVisible(true);
+                    //exportar a excell
                     conectar.getInstance().closeConnection(cn);
 
                 } catch (JRException ex) {
@@ -6144,6 +6167,7 @@ public class Reportes {
                     JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
 
                     JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
+                    ///teste
 
                     jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
                     jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);

@@ -35,7 +35,7 @@ public class Clientes_ventas_modifica extends javax.swing.JDialog {
     }
 
     void cargar(String valor) {
-        String mostrar = "SELECT cli_cod,cli_nombre,cli_razon,cli_ruc,cli_contacto,cli_tipo,cli_pais,nro_registro FROM tienda_clientes WHERE CONCAT(cli_nombre,cli_ruc) LIKE '%" + valor + "%'";
+        String mostrar = "SELECT cli_cod,cli_nombre,cli_razon,cli_ruc,cli_contacto,cli_tipo,cli_pais,nro_registro FROM tienda_clientes WHERE CONCAT(cli_nombre,cli_ruc) LIKE '%" + valor + "%' ORDER BY cli_cod DESC LIMIT 100";
         String[] titulos = {"Código", "Nombre", "Razón Social", "RUC", "Contacto", "Tipo", "Sucursal", "RT"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);

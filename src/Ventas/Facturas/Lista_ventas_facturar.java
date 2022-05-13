@@ -307,7 +307,7 @@ public class Lista_ventas_facturar extends javax.swing.JDialog {
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             
-            String cons = "select * from ventas WHERE CONCAT (num_bol) LIKE '%" + valor + "%' AND forma_pag_ventas='CRÉDITO' AND nro_fact_ventas='0' AND estado_ventas='FINALIZADA'  ORDER BY num_bol DESC ";
+            String cons = "select * from ventas WHERE CONCAT (num_bol) LIKE '%" + valor + "%' AND forma_pag_ventas='CRÉDITO' AND nro_fact_ventas='0' AND estado_ventas='FINALIZADA'  ORDER BY num_bol DESC  LIMIT 100";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -352,7 +352,7 @@ public class Lista_ventas_facturar extends javax.swing.JDialog {
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             
-            String cons = "select * from ventas WHERE CONCAT (num_bol) LIKE '%" + valor + "%'  AND forma_pag_ventas='CONTADO' AND nro_fact_ventas='0' AND  estado_ventas='CONFIRMADA' ORDER BY num_bol DESC ";
+            String cons = "select * from ventas WHERE CONCAT (num_bol) LIKE '%" + valor + "%'  AND forma_pag_ventas='CONTADO' AND nro_fact_ventas='0' AND  estado_ventas='CONFIRMADA' ORDER BY num_bol DESC  LIMIT 100";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {

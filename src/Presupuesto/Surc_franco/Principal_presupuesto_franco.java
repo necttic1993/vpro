@@ -58,6 +58,7 @@ public class Principal_presupuesto_franco extends javax.swing.JDialog {
     public static String cod_ver_ventas_plazo_fra = "";
     public static String cod_ver_ventas_cli_fra = "";
     public static String cod_ver_ventas_cli_factura_fra = "";
+    public static String cod_print_presupuesto_2= "";
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -414,14 +415,11 @@ public class Principal_presupuesto_franco extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(null, "Seleccione algun dato");
             } else {
                 int filaMod = Principal_presupuesto_franco.tbProductos_presupuesto.getSelectedRow();
-                String cod_venta = (String) Principal_presupuesto_franco.tbProductos_presupuesto.getValueAt(filaMod, 0);
-                Reportes reporte = new Reportes();
-                try {
-                    reporte.presupuesto_surc_2(cod_venta);
-                    this.dispose();
-                } catch (SQLException | JRException ex) {
-                    Logger.getLogger(printers_pres_franco.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                
+                cod_print_presupuesto_2 = (String) tbProductos_presupuesto.getValueAt(filaMod, 0);
+                printers_pres_re_franco est;
+                est = new printers_pres_re_franco(new javax.swing.JDialog(), true);
+                est.setVisible(true);
             }
 
         });

@@ -51,6 +51,7 @@ public class NECTTIC extends javax.swing.JFrame {
 
     public static String cod = "";
     public static String mode = "";
+    public static String config = "";
 
     @Override
     public Image getIconImage() {
@@ -172,6 +173,11 @@ public class NECTTIC extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_1/necttic.jpg"))); // NOI18N
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
         jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, -1, 60));
 
         lbl_mac_compu.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
@@ -311,6 +317,10 @@ public class NECTTIC extends javax.swing.JFrame {
 
     }//GEN-LAST:event_chk_darkActionPerformed
 
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        config = "NO";
+    }//GEN-LAST:event_jLabel1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -401,10 +411,10 @@ public class NECTTIC extends javax.swing.JFrame {
                     ingreso = new Principal();
                     ingreso.setVisible(true);
                     ingreso.pack();
-             
+
                     noti_backup logi = new noti_backup();
                     logi.setVisible(true);
-                    
+
                 }
 
             } else {
@@ -475,9 +485,7 @@ public class NECTTIC extends javax.swing.JFrame {
     }
 
     private String dark;
-    
-    
-    
+
     void cargarConfig() throws IOException {
         String mostrar = "SELECT emp_imag,emp_nom FROM empresas";
         ImageIcon foto;
@@ -488,11 +496,12 @@ public class NECTTIC extends javax.swing.JFrame {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(mostrar);
             while (rs.next()) {
-               
+
                 is = rs.getBinaryStream(1);
                 lbl_nom_empre.setText(rs.getString(2));
                 if (is == null) {
                     System.out.println("imagen vacia");
+
                 } else {
 
                     BufferedImage bi = ImageIO.read(is);

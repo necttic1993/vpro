@@ -27,6 +27,7 @@ import Ventas.Fact_surc_27.Principal_ventas_facturas_27;
 import Ventas.Fact_surc_28.Principal_ventas_facturas_28;
 import Ventas.Fact_surc_3.Principal_ventas_surc_3;
 import Ventas.Fact_surc_4.Principal_ventas_facturas_4;
+import Ventas.Fact_surc_5.Principal_ventas_facturas_5;
 import Ventas.Fact_surc_6.Principal_ventas_facturas_6;
 import Ventas.Fact_surc_7.Principal_ventas_facturas_7;
 import Ventas.Fact_surc_8.Principal_ventas_facturas_8;
@@ -180,6 +181,14 @@ public class Seleccion_fiscal_sucursales extends javax.swing.JDialog {
             Principal_ventas_facturas_4 vf4;
             vf4 = new Principal_ventas_facturas_4(new javax.swing.JDialog(), true);
             vf4.setVisible(true);
+            this.dispose();
+
+        }
+        
+          if (cod.equals("0000005")) {
+            Principal_ventas_facturas_5 vf5;
+            vf5 = new Principal_ventas_facturas_5(new javax.swing.JDialog(), true);
+            vf5.setVisible(true);
             this.dispose();
 
         }

@@ -1,5 +1,6 @@
 package Clases;
 
+import Ventas.Ventas_venta;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
@@ -29,10 +30,12 @@ public class Stock_minimo_pro extends DefaultTableCellRenderer {
             setBackground(Color.ORANGE);
             setForeground(Color.black);
             setFont(font);
+            Ventas_venta.pro_bloq = "1";
         } else if (stock < cont) {
             setBackground(Color.red);
             setForeground(Color.white);
             setFont(font);
+            Ventas_venta.pro_bloq = "1";
         } else {
             setBackground(Color.white);
             setForeground(Color.BLACK);

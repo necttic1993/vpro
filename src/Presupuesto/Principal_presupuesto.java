@@ -320,7 +320,7 @@ public class Principal_presupuesto extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from presupuesto WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' ORDER BY num_bol DESC";
+            String cons = "select * from presupuesto WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' ORDER BY num_bol DESC limit 100";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -365,7 +365,7 @@ public class Principal_presupuesto extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from presupuesto WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND almacen_ventas='" + almacen + "' ORDER BY num_bol DESC";
+            String cons = "select * from presupuesto WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND almacen_ventas='" + almacen + "' ORDER BY num_bol DESC limit 100";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {

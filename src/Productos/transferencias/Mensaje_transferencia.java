@@ -45,9 +45,8 @@ public class Mensaje_transferencia extends javax.swing.JDialog {
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/ok.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/check.png"))); // NOI18N
         jButton1.setToolTipText("ok");
-        jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -55,7 +54,7 @@ public class Mensaje_transferencia extends javax.swing.JDialog {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, 90, 70));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 90, 90, 50));
 
         jLabel1.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

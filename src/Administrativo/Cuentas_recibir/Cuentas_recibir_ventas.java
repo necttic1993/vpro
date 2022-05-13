@@ -879,7 +879,7 @@ public class Cuentas_recibir_ventas extends javax.swing.JDialog {
                         parametro.put("img", "icon_4/kyrios.png");
                     }
                     if (Principal.lbl_serie_empre.getText().equals("GAB")) {
-                        parametro.put("img", "icon_4/gabaon.png");
+                        parametro.put("img", "icon_4/gabaon.jpg");
                     }
                     if (Principal.lbl_serie_empre.getText().equals("ALL")) {
                         parametro.put("img", "icon_4/allyouneed.jpg");

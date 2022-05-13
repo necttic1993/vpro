@@ -106,6 +106,7 @@ public class Ventas_venta extends javax.swing.JDialog {
     }
     
     public static String cod_alamacen_user = "";
+     public static String pro_bloq = "0";
     
     void CajaR() {
         
@@ -883,7 +884,10 @@ public class Ventas_venta extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(this, "Ingrese cliente, producto o realice operacion");
             } else {
                 btnven.setEnabled(false);
-                
+                System.out.println(pro_bloq);
+                if (pro_bloq.equals("1")) {
+                    JOptionPane.showMessageDialog(this, "Verifique si no hay productos con stock bajo o sin stock");
+                }
                 ticket();
 
                 // caja();

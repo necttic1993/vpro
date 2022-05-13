@@ -63,6 +63,7 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
         lbl_almacen_excell = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         ch_impresion = new javax.swing.JCheckBox();
+        txt_impresion = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -109,6 +110,11 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 190, 40));
 
+        txt_impresion.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        txt_impresion.setForeground(new java.awt.Color(153, 0, 0));
+        txt_impresion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(txt_impresion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 210, 30));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 219));
 
         pack();
@@ -119,6 +125,7 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
         if (lbl_almacen_excell.getText().equals("TODOS")) {
             JOptionPane.showMessageDialog(this, "Seleccione un Surcusal/Almacen válido");
         } else {
+             txt_impresion.setText("Generando Informe...Espere...");  
 
             if (lbl_almacen_excell.getText().equals("0000001")) {
                 try {
@@ -428,6 +435,7 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel5;
     public static javax.swing.JLabel lbl_almacen_excell;
+    public static javax.swing.JLabel txt_impresion;
     // End of variables declaration//GEN-END:variables
 
     /////precio a
@@ -528,10 +536,12 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
             sheet.setZoom(120);
 
             if (ch_impresion.isSelected()) {
-                try (FileOutputStream fileOut = new FileOutputStream("\\tsclient\\C:\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
+                txt_impresion.setText("Generando Informe...Espere...");  
+                try (FileOutputStream fileOut = new FileOutputStream("\\\\tsclient\\C\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
                     book.write(fileOut);
                 }
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
+                txt_impresion.setText("");  
                 conectar.getInstance().closeConnection(cn);
             } else {
 
@@ -650,10 +660,12 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
             sheet.setZoom(120);
 
             if (ch_impresion.isSelected()) {
-                try (FileOutputStream fileOut = new FileOutputStream("\\tsclient\\c\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
+                  txt_impresion.setText("Generando Informe...Espere...");  
+                try (FileOutputStream fileOut = new FileOutputStream("\\\\tsclient\\C\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
                     book.write(fileOut);
                 }
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
+                txt_impresion.setText("");  
                 conectar.getInstance().closeConnection(cn);
             } else {
 
@@ -771,10 +783,12 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
             sheet.setZoom(120);
 
             if (ch_impresion.isSelected()) {
-                try (FileOutputStream fileOut = new FileOutputStream("\\tsclient\\c\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
+                txt_impresion.setText("Generando Informe...Espere...");  
+                try (FileOutputStream fileOut = new FileOutputStream("\\\\tsclient\\C\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
                     book.write(fileOut);
                 }
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
+                txt_impresion.setText("");  
                 conectar.getInstance().closeConnection(cn);
             } else {
 
@@ -1013,10 +1027,12 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
             sheet.setZoom(120);
 
             if (ch_impresion.isSelected()) {
-                try (FileOutputStream fileOut = new FileOutputStream("\\tsclient\\c\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
+                  txt_impresion.setText("Generando Informe...Espere...");  
+                try (FileOutputStream fileOut = new FileOutputStream("\\\\tsclient\\C\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
                     book.write(fileOut);
                 }
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
+                txt_impresion.setText("");  
                 conectar.getInstance().closeConnection(cn);
             } else {
 
@@ -1134,10 +1150,12 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
             sheet.setZoom(120);
 
             if (ch_impresion.isSelected()) {
-                try (FileOutputStream fileOut = new FileOutputStream("\\tsclient\\c\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
+                 txt_impresion.setText("Generando Informe...Espere...");  
+                try (FileOutputStream fileOut = new FileOutputStream("\\\\tsclient\\C\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
                     book.write(fileOut);
                 }
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
+                txt_impresion.setText("");  
                 conectar.getInstance().closeConnection(cn);
             } else {
 
@@ -1255,10 +1273,12 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
             sheet.setZoom(120);
 
             if (ch_impresion.isSelected()) {
-                try (FileOutputStream fileOut = new FileOutputStream("\\tsclient\\c\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
+                 txt_impresion.setText("Generando Informe...Espere...");  
+                try (FileOutputStream fileOut = new FileOutputStream("\\\\tsclient\\C\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
                     book.write(fileOut);
                 }
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
+                txt_impresion.setText("");  
                 conectar.getInstance().closeConnection(cn);
             } else {
 
@@ -1376,10 +1396,12 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
             sheet.setZoom(120);
 
             if (ch_impresion.isSelected()) {
-                try (FileOutputStream fileOut = new FileOutputStream("\\tsclient\\c\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
+                 txt_impresion.setText("Generando Informe...Espere...");  
+                try (FileOutputStream fileOut = new FileOutputStream("\\\\tsclient\\C\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
                     book.write(fileOut);
                 }
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
+                txt_impresion.setText("");  
                 conectar.getInstance().closeConnection(cn);
             } else {
 
@@ -1497,10 +1519,12 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
             sheet.setZoom(120);
 
             if (ch_impresion.isSelected()) {
-                try (FileOutputStream fileOut = new FileOutputStream("\\tsclient\\c\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
+                  txt_impresion.setText("Generando Informe...Espere...");  
+                try (FileOutputStream fileOut = new FileOutputStream("\\\\tsclient\\C\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
                     book.write(fileOut);
                 }
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
+                txt_impresion.setText("");  
                 conectar.getInstance().closeConnection(cn);
             } else {
 
@@ -1618,10 +1642,12 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
             sheet.setZoom(120);
 
             if (ch_impresion.isSelected()) {
-                try (FileOutputStream fileOut = new FileOutputStream("\\tsclient\\c\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
+                 txt_impresion.setText("Generando Informe...Espere...");  
+                try (FileOutputStream fileOut = new FileOutputStream("\\\\tsclient\\C\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
                     book.write(fileOut);
                 }
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
+                txt_impresion.setText("");  
                 conectar.getInstance().closeConnection(cn);
             } else {
 
@@ -1739,10 +1765,12 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
             sheet.setZoom(120);
 
             if (ch_impresion.isSelected()) {
-                try (FileOutputStream fileOut = new FileOutputStream("\\tsclient\\c\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
+                 txt_impresion.setText("Generando Informe...Espere...");  
+                try (FileOutputStream fileOut = new FileOutputStream("\\\\tsclient\\C\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
                     book.write(fileOut);
                 }
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
+                txt_impresion.setText("");  
                 conectar.getInstance().closeConnection(cn);
             } else {
 
@@ -1860,10 +1888,12 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
             sheet.setZoom(120);
 
             if (ch_impresion.isSelected()) {
-                try (FileOutputStream fileOut = new FileOutputStream("\\tsclient\\c\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
+                 txt_impresion.setText("Generando Informe...Espere...");  
+                try (FileOutputStream fileOut = new FileOutputStream("\\\\tsclient\\C\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
                     book.write(fileOut);
                 }
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
+                txt_impresion.setText("");  
                 conectar.getInstance().closeConnection(cn);
             } else {
 
@@ -1981,10 +2011,12 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
             sheet.setZoom(120);
 
             if (ch_impresion.isSelected()) {
-                try (FileOutputStream fileOut = new FileOutputStream("\\tsclient\\c\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
+                  txt_impresion.setText("Generando Informe...Espere...");  
+                try (FileOutputStream fileOut = new FileOutputStream("\\\\tsclient\\C\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
                     book.write(fileOut);
                 }
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
+                txt_impresion.setText("");  
                 conectar.getInstance().closeConnection(cn);
             } else {
 
@@ -2102,10 +2134,12 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
             sheet.setZoom(120);
 
             if (ch_impresion.isSelected()) {
-                try (FileOutputStream fileOut = new FileOutputStream("\\tsclient\\c\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
+                 txt_impresion.setText("Generando Informe...Espere...");  
+                try (FileOutputStream fileOut = new FileOutputStream("\\\\tsclient\\C\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
                     book.write(fileOut);
                 }
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
+                txt_impresion.setText("");  
                 conectar.getInstance().closeConnection(cn);
             } else {
 
@@ -2223,10 +2257,12 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
             sheet.setZoom(120);
 
             if (ch_impresion.isSelected()) {
-                try (FileOutputStream fileOut = new FileOutputStream("\\tsclient\\c\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
+               txt_impresion.setText("Generando Informe...Espere...");  
+                try (FileOutputStream fileOut = new FileOutputStream("\\\\tsclient\\C\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
                     book.write(fileOut);
                 }
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
+                txt_impresion.setText("");  
                 conectar.getInstance().closeConnection(cn);
             } else {
 
@@ -2344,10 +2380,12 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
             sheet.setZoom(120);
 
             if (ch_impresion.isSelected()) {
-                try (FileOutputStream fileOut = new FileOutputStream("\\tsclient\\c\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
+                 txt_impresion.setText("Generando Informe...Espere...");  
+                try (FileOutputStream fileOut = new FileOutputStream("\\\\tsclient\\C\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
                     book.write(fileOut);
                 }
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
+                txt_impresion.setText("");  
                 conectar.getInstance().closeConnection(cn);
             } else {
 
@@ -2465,10 +2503,12 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
             sheet.setZoom(120);
 
             if (ch_impresion.isSelected()) {
-                try (FileOutputStream fileOut = new FileOutputStream("\\tsclient\\c\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
+                 txt_impresion.setText("Generando Informe...Espere...");  
+                try (FileOutputStream fileOut = new FileOutputStream("\\\\tsclient\\C\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
                     book.write(fileOut);
                 }
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
+                txt_impresion.setText("");  
                 conectar.getInstance().closeConnection(cn);
             } else {
 
@@ -2586,10 +2626,12 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
             sheet.setZoom(120);
 
             if (ch_impresion.isSelected()) {
-                try (FileOutputStream fileOut = new FileOutputStream("\\tsclient\\c\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
+                 txt_impresion.setText("Generando Informe...Espere...");  
+                try (FileOutputStream fileOut = new FileOutputStream("\\\\tsclient\\C\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
                     book.write(fileOut);
                 }
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
+                txt_impresion.setText("");  
                 conectar.getInstance().closeConnection(cn);
             } else {
 
@@ -2707,10 +2749,12 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
             sheet.setZoom(120);
 
             if (ch_impresion.isSelected()) {
-                try (FileOutputStream fileOut = new FileOutputStream("\\tsclient\\c\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
+                  txt_impresion.setText("Generando Informe...Espere...");  
+                try (FileOutputStream fileOut = new FileOutputStream("\\\\tsclient\\C\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
                     book.write(fileOut);
                 }
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
+                txt_impresion.setText("");  
                 conectar.getInstance().closeConnection(cn);
             } else {
 
@@ -2828,10 +2872,12 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
             sheet.setZoom(120);
 
             if (ch_impresion.isSelected()) {
-                try (FileOutputStream fileOut = new FileOutputStream("\\tsclient\\c\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
+                  txt_impresion.setText("Generando Informe...Espere...");  
+                try (FileOutputStream fileOut = new FileOutputStream("\\\\tsclient\\C\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
                     book.write(fileOut);
                 }
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
+                txt_impresion.setText("");  
                 conectar.getInstance().closeConnection(cn);
             } else {
 
@@ -2949,10 +2995,12 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
             sheet.setZoom(120);
 
             if (ch_impresion.isSelected()) {
-                try (FileOutputStream fileOut = new FileOutputStream("\\tsclient\\c\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
+                 txt_impresion.setText("Generando Informe...Espere...");  
+                try (FileOutputStream fileOut = new FileOutputStream("\\\\tsclient\\C\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
                     book.write(fileOut);
                 }
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
+                txt_impresion.setText("");  
                 conectar.getInstance().closeConnection(cn);
             } else {
 
@@ -3070,10 +3118,12 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
             sheet.setZoom(120);
 
             if (ch_impresion.isSelected()) {
-                try (FileOutputStream fileOut = new FileOutputStream("\\tsclient\\c\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
+                 txt_impresion.setText("Generando Informe...Espere...");  
+                try (FileOutputStream fileOut = new FileOutputStream("\\\\tsclient\\C\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
                     book.write(fileOut);
                 }
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
+                txt_impresion.setText("");  
                 conectar.getInstance().closeConnection(cn);
             } else {
 
@@ -3191,10 +3241,12 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
             sheet.setZoom(120);
 
             if (ch_impresion.isSelected()) {
-                try (FileOutputStream fileOut = new FileOutputStream("\\tsclient\\c\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
+                  txt_impresion.setText("Generando Informe...Espere...");  
+                try (FileOutputStream fileOut = new FileOutputStream("\\\\tsclient\\C\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
                     book.write(fileOut);
                 }
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
+                txt_impresion.setText("");  
                 conectar.getInstance().closeConnection(cn);
             } else {
 
@@ -3312,10 +3364,12 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
             sheet.setZoom(120);
 
             if (ch_impresion.isSelected()) {
-                try (FileOutputStream fileOut = new FileOutputStream("\\tsclient\\c\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
+                 txt_impresion.setText("Generando Informe...Espere...");  
+                try (FileOutputStream fileOut = new FileOutputStream("\\\\tsclient\\C\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
                     book.write(fileOut);
                 }
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
+                txt_impresion.setText("");  
                 conectar.getInstance().closeConnection(cn);
             } else {
 
@@ -3433,10 +3487,12 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
             sheet.setZoom(120);
 
             if (ch_impresion.isSelected()) {
-                try (FileOutputStream fileOut = new FileOutputStream("\\tsclient\\c\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
+                  txt_impresion.setText("Generando Informe...Espere...");  
+                try (FileOutputStream fileOut = new FileOutputStream("\\\\tsclient\\C\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
                     book.write(fileOut);
                 }
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
+                txt_impresion.setText("");  
                 conectar.getInstance().closeConnection(cn);
             } else {
 
@@ -3554,10 +3610,12 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
             sheet.setZoom(120);
 
             if (ch_impresion.isSelected()) {
-                try (FileOutputStream fileOut = new FileOutputStream("\\tsclient\\c\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
+                 txt_impresion.setText("Generando Informe...Espere...");  
+                try (FileOutputStream fileOut = new FileOutputStream("\\\\tsclient\\C\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
                     book.write(fileOut);
                 }
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
+                txt_impresion.setText("");  
                 conectar.getInstance().closeConnection(cn);
             } else {
 
@@ -3675,10 +3733,12 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
             sheet.setZoom(120);
 
             if (ch_impresion.isSelected()) {
-                try (FileOutputStream fileOut = new FileOutputStream("\\tsclient\\c\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
+                 txt_impresion.setText("Generando Informe...Espere...");  
+                try (FileOutputStream fileOut = new FileOutputStream("\\\\tsclient\\C\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
                     book.write(fileOut);
                 }
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
+                txt_impresion.setText("");  
                 conectar.getInstance().closeConnection(cn);
             } else {
 
@@ -3796,10 +3856,12 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
             sheet.setZoom(120);
 
             if (ch_impresion.isSelected()) {
-                try (FileOutputStream fileOut = new FileOutputStream("\\tsclient\\c\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
+              txt_impresion.setText("Generando Informe...Espere...");  
+                try (FileOutputStream fileOut = new FileOutputStream("\\\\tsclient\\C\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
                     book.write(fileOut);
                 }
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
+                txt_impresion.setText("");  
                 conectar.getInstance().closeConnection(cn);
             } else {
 
@@ -3917,10 +3979,12 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
             sheet.setZoom(120);
 
             if (ch_impresion.isSelected()) {
-                try (FileOutputStream fileOut = new FileOutputStream("\\tsclient\\c\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
+                 
+                try (FileOutputStream fileOut = new FileOutputStream("\\\\tsclient\\C\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
                     book.write(fileOut);
                 }
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
+                txt_impresion.setText("");  
                 conectar.getInstance().closeConnection(cn);
             } else {
 
@@ -4038,10 +4102,12 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
             sheet.setZoom(120);
 
             if (ch_impresion.isSelected()) {
-                try (FileOutputStream fileOut = new FileOutputStream("\\tsclient\\c\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
+                  txt_impresion.setText("Generando Informe...Espere...");  
+                try (FileOutputStream fileOut = new FileOutputStream("\\\\tsclient\\C\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
                     book.write(fileOut);
                 }
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
+                txt_impresion.setText("");  
                 conectar.getInstance().closeConnection(cn);
             } else {
 

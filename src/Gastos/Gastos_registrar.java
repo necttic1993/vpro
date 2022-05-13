@@ -214,9 +214,8 @@ public class Gastos_registrar extends javax.swing.JDialog {
         });
         panel_add_egresos.add(txt_monto, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, 180, 30));
 
-        jButton1.setBackground(new java.awt.Color(0, 102, 153));
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("...");
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -226,9 +225,8 @@ public class Gastos_registrar extends javax.swing.JDialog {
         });
         panel_add_egresos.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 130, -1, 30));
 
-        jButton2.setBackground(new java.awt.Color(0, 102, 153));
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("...");
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {

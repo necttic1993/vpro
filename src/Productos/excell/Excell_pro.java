@@ -41,29 +41,10 @@ public class Excell_pro extends javax.swing.JDialog {
         txt_bus.requestFocus();
 
         lbl_stock_minimo.setVisible(false);
-        //lbl_select_alma.setVisible(false);
-
-        if (lbl_select_alma.getText().equals("0000001")) {
+ 
             cargar("");
 
-        }
-
-        if (lbl_select_alma.getText().equals("0000002")) {
-            cargar_2("");
-
-        }
-        if (lbl_select_alma.getText().equals("0000003")) {
-            cargar_3("");
-
-        }
-        if (lbl_select_alma.getText().equals("0000004")) {
-            cargar_4("");
-
-        }
-        if (lbl_select_alma.getText().equals("0000005")) {
-            cargar_5("");
-
-        }
+     
 
     }
 
@@ -302,22 +283,7 @@ public class Excell_pro extends javax.swing.JDialog {
 
         }
 
-        if (lbl_select_alma.getText().equals("0000002")) {
-            cargar_2(txt_bus.getText());
-
-        }
-        if (lbl_select_alma.getText().equals("0000003")) {
-            cargar_3(txt_bus.getText());
-
-        }
-        if (lbl_select_alma.getText().equals("0000004")) {
-            cargar_4(txt_bus.getText());
-
-        }
-        if (lbl_select_alma.getText().equals("0000005")) {
-            cargar_5(txt_bus.getText());
-
-        }
+    
     }//GEN-LAST:event_txt_busKeyReleased
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -463,173 +429,7 @@ public class Excell_pro extends javax.swing.JDialog {
 
     }
 
-    void cargar_2(String valor) {
-
-        try {
-            // ct = pc.dataSource.getConnection();
-            String[] titulos = {"Código", "Cód. Barra", "Descripción", "Especificiones", "Cantidad"};
-            String[] registros = new String[6];
-            model = new DefaultTableModel(null, titulos);
-            Connection cn = conectar.getInstance().getConnection();
-
-            String cons = "select * from tienda_productos WHERE CONCAT (pro_cod,pro_des,pro_cod_barra) LIKE '%" + valor + "%' ORDER BY pro_cod DESC";
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(cons);
-            while (rs.next()) {
-                registros[0] = rs.getString(1);
-                registros[1] = rs.getString(2);
-                registros[2] = rs.getString(3);
-                registros[3] = rs.getString(4);
-                registros[4] = rs.getString(25);
-
-                model.addRow(registros);
-            }
-            tbProductos.setModel(model);
-
-            Stock_minimo color = new Stock_minimo(4);
-            // tbProductos.getColumnModel().getColumn(0).setCellRenderer(color);
-            tbProductos.getColumnModel().getColumn(2).setCellRenderer(color);
-            tbProductos.getColumnModel().getColumn(4).setCellRenderer(color);
-
-            tbProductos.getColumnModel().getColumn(0).setPreferredWidth(83);
-            tbProductos.getColumnModel().getColumn(1).setPreferredWidth(180);
-            tbProductos.getColumnModel().getColumn(2).setPreferredWidth(370);
-            tbProductos.getColumnModel().getColumn(3).setPreferredWidth(370);
-            tbProductos.getColumnModel().getColumn(4).setPreferredWidth(85);
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (HeadlessException | NumberFormatException | SQLException e) {
-            System.out.println(e.getMessage());
-
-        }
-
-    }
-
-    void cargar_3(String valor) {
-
-        try {
-            // ct = pc.dataSource.getConnection();
-            String[] titulos = {"Código", "Cód. Barra", "Descripción", "Especificiones", "Cantidad"};
-            String[] registros = new String[6];
-            model = new DefaultTableModel(null, titulos);
-            Connection cn = conectar.getInstance().getConnection();
-
-            String cons = "select * from tienda_productos WHERE CONCAT (pro_cod,pro_des,pro_cod_barra) LIKE '%" + valor + "%' ORDER BY pro_cod DESC";
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(cons);
-            while (rs.next()) {
-                registros[0] = rs.getString(1);
-                registros[1] = rs.getString(2);
-                registros[2] = rs.getString(3);
-                registros[3] = rs.getString(4);
-                registros[4] = rs.getString(26);
-
-                model.addRow(registros);
-            }
-            tbProductos.setModel(model);
-
-            Stock_minimo color = new Stock_minimo(4);
-            // tbProductos.getColumnModel().getColumn(0).setCellRenderer(color);
-            tbProductos.getColumnModel().getColumn(2).setCellRenderer(color);
-            tbProductos.getColumnModel().getColumn(4).setCellRenderer(color);
-
-            tbProductos.getColumnModel().getColumn(0).setPreferredWidth(83);
-            tbProductos.getColumnModel().getColumn(1).setPreferredWidth(180);
-            tbProductos.getColumnModel().getColumn(2).setPreferredWidth(370);
-            tbProductos.getColumnModel().getColumn(3).setPreferredWidth(370);
-            tbProductos.getColumnModel().getColumn(4).setPreferredWidth(85);
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (HeadlessException | NumberFormatException | SQLException e) {
-            System.out.println(e.getMessage());
-
-        }
-
-    }
-
-    void cargar_4(String valor) {
-
-        try {
-            // ct = pc.dataSource.getConnection();
-            String[] titulos = {"Código", "Cód. Barra", "Descripción", "Especificiones", "Cantidad"};
-            String[] registros = new String[6];
-            model = new DefaultTableModel(null, titulos);
-            Connection cn = conectar.getInstance().getConnection();
-
-            String cons = "select * from tienda_productos WHERE CONCAT (pro_cod,pro_des,pro_cod_barra) LIKE '%" + valor + "%' ORDER BY pro_cod DESC";
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(cons);
-            while (rs.next()) {
-                registros[0] = rs.getString(1);
-                registros[1] = rs.getString(2);
-                registros[2] = rs.getString(3);
-                registros[3] = rs.getString(4);
-                registros[4] = rs.getString(27);
-
-                model.addRow(registros);
-            }
-            tbProductos.setModel(model);
-
-            Stock_minimo color = new Stock_minimo(4);
-            // tbProductos.getColumnModel().getColumn(0).setCellRenderer(color);
-            tbProductos.getColumnModel().getColumn(2).setCellRenderer(color);
-            tbProductos.getColumnModel().getColumn(4).setCellRenderer(color);
-
-            tbProductos.getColumnModel().getColumn(0).setPreferredWidth(83);
-            tbProductos.getColumnModel().getColumn(1).setPreferredWidth(180);
-            tbProductos.getColumnModel().getColumn(2).setPreferredWidth(370);
-            tbProductos.getColumnModel().getColumn(3).setPreferredWidth(370);
-            tbProductos.getColumnModel().getColumn(4).setPreferredWidth(85);
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (HeadlessException | NumberFormatException | SQLException e) {
-            System.out.println(e.getMessage());
-
-        }
-
-    }
-
-    void cargar_5(String valor) {
-
-        try {
-            // ct = pc.dataSource.getConnection();
-            String[] titulos = {"Código", "Cód. Barra", "Descripción", "Especificiones", "Cantidad"};
-            String[] registros = new String[6];
-            model = new DefaultTableModel(null, titulos);
-            Connection cn = conectar.getInstance().getConnection();
-
-            String cons = "select * from tienda_productos WHERE CONCAT (pro_cod,pro_des,pro_cod_barra) LIKE '%" + valor + "%' ORDER BY pro_cod DESC";
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(cons);
-            while (rs.next()) {
-                registros[0] = rs.getString(1);
-                registros[1] = rs.getString(2);
-                registros[2] = rs.getString(3);
-                registros[3] = rs.getString(4);
-                registros[4] = rs.getString(28);
-
-                model.addRow(registros);
-            }
-            tbProductos.setModel(model);
-
-            Stock_minimo color = new Stock_minimo(4);
-            // tbProductos.getColumnModel().getColumn(0).setCellRenderer(color);
-            tbProductos.getColumnModel().getColumn(2).setCellRenderer(color);
-            tbProductos.getColumnModel().getColumn(4).setCellRenderer(color);
-
-            tbProductos.getColumnModel().getColumn(0).setPreferredWidth(83);
-            tbProductos.getColumnModel().getColumn(1).setPreferredWidth(180);
-            tbProductos.getColumnModel().getColumn(2).setPreferredWidth(370);
-            tbProductos.getColumnModel().getColumn(3).setPreferredWidth(370);
-            tbProductos.getColumnModel().getColumn(4).setPreferredWidth(85);
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (HeadlessException | NumberFormatException | SQLException e) {
-            System.out.println(e.getMessage());
-
-        }
-
-    }
+   
 
     void cargarUsu() {
 

@@ -34,7 +34,7 @@ public class Proveedor_pedidos extends javax.swing.JDialog {
     }
 
     void cargar(String valor) {
-        String mostrar = "SELECT * FROM tienda_proveedores WHERE CONCAT(prov_cod,prov_nom,prov_ruc) LIKE '%" + valor + "%'";
+        String mostrar = "SELECT * FROM tienda_proveedores WHERE CONCAT(prov_cod,prov_nom,prov_ruc) LIKE '%" + valor + "%' ORDER BY prov_cod DESC LIMIT 100";
         String[] titulos = {"Código", "Nombre", "Razón Social", "RUC", "Contacto", "Dirección", "Teléfono"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -134,7 +134,7 @@ public class Proveedor_pedidos extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tbclientes);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 900, 460));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 880, 450));
 
         jPanel3.setBackground(new java.awt.Color(0, 102, 204));
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));

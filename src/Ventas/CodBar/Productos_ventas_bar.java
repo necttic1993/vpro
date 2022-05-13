@@ -54,7 +54,6 @@ public class Productos_ventas_bar extends javax.swing.JDialog {
             cargarCod("");
 
         }
-       
 
     }
 
@@ -1735,64 +1734,30 @@ public class Productos_ventas_bar extends javax.swing.JDialog {
     }//GEN-LAST:event_btnsalirActionPerformed
 
     private void tbprodMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbprodMouseClicked
-        /*  try {
-         DefaultTableModel tabladet = (DefaultTableModel) Ventas_venta.tb_factura.getModel();
-         String[] dato = new String[5];
 
-         int fila = tbprod.getSelectedRow();
-
-         if (fila == -1) {
-         JOptionPane.showMessageDialog(null, "No  ha seleccionado ningun registro");
-         } else {
-         String codins = tbprod.getValueAt(fila, 0).toString();
-         String desins = tbprod.getValueAt(fila, 2).toString();
-         String preins = tbprod.getValueAt(fila, 5).toString();
-         int c = 0;
-         int j = 0;
-         String cant = JOptionPane.showInputDialog("ingrese cantidad");
-         if ((cant.equals("")) || (cant.equals("0"))) {
-         JOptionPane.showMessageDialog(this, "Debe ingresar algun valor mayor que 0");
-         } else {
-         int canting = Integer.parseInt(cant);
-         int comp = Integer.parseInt(comparar(codins));
-         if (canting > comp) {
-         JOptionPane.showMessageDialog(this, "Ud. no cuenta con el stock apropiado");
-         } else {
-         for (int i = 0; i < Ventas_venta.tb_factura.getRowCount(); i++) {
-         Object com = Ventas_venta.tb_factura.getValueAt(i, 0);
-         if (codins.equals(com)) {
-         j = i;
-         Ventas_venta.tb_factura.setValueAt(cant, i, 3);
-         c = c + 1;
-
-         }
-
-         }
-         if (c == 0) {
-
-         dato[0] = codins;
-         dato[1] = desins;
-         dato[2] = preins;
-         dato[3] = cant;
-
-         tabladet.addRow(dato);
-
-         Ventas_venta.tb_factura.setModel(tabladet);
-         this.txtprod.requestFocus();
-
-         }
-         Ventas_venta.btncalcular.doClick();
-         }
-
-         }
-
-         }
-         } catch (HeadlessException | NumberFormatException e) {
-         }        */
-
-        if (Ventas_venta_bar.lbl_cant_produ.getText().equals("11")) {
-            JOptionPane.showMessageDialog(null, "Cantidad de producto excedido");
+        if (lbl_panel_pre_usu.getText().equals("N")) {
+            int filaModi = Productos_ventas_bar.tbprod.getSelectedRow();
+            cod_pro_ventas_bar = (String) Productos_ventas_bar.tbprod.getValueAt(filaModi, 0);
+            Panel_precios_ventas_bar pp;
+            pp = new Panel_precios_ventas_bar(new javax.swing.JDialog(), true);
+            pp.setVisible(true);
         } else {
+            int filaModi = Productos_ventas_bar.tbprod.getSelectedRow();
+            cod_pro_ventas_bar = (String) Productos_ventas_bar.tbprod.getValueAt(filaModi, 0);
+            Precio_modelo_dos_bar ppd;
+            ppd = new Precio_modelo_dos_bar(new javax.swing.JDialog(), true);
+            ppd.setVisible(true);
+
+        }
+
+
+    }//GEN-LAST:event_tbprodMouseClicked
+
+    private void tbprodKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbprodKeyPressed
+        char Tecla = evt.getKeyChar();
+
+        if (Tecla == KeyEvent.VK_ENTER) {
+
             if (lbl_panel_pre_usu.getText().equals("N")) {
                 int filaModi = Productos_ventas_bar.tbprod.getSelectedRow();
                 cod_pro_ventas_bar = (String) Productos_ventas_bar.tbprod.getValueAt(filaModi, 0);
@@ -1806,86 +1771,6 @@ public class Productos_ventas_bar extends javax.swing.JDialog {
                 ppd = new Precio_modelo_dos_bar(new javax.swing.JDialog(), true);
                 ppd.setVisible(true);
 
-            }
-
-        }
-    }//GEN-LAST:event_tbprodMouseClicked
-
-    private void tbprodKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbprodKeyPressed
-        char Tecla = evt.getKeyChar();
-
-        if (Tecla == KeyEvent.VK_ENTER) {
-            /*  try {
-             DefaultTableModel tabladet = (DefaultTableModel) Ventas_venta.tb_factura.getModel();
-             String[] dato = new String[5];
-
-             int fila = tbprod.getSelectedRow();
-
-             if (fila == -1) {
-             JOptionPane.showMessageDialog(null, "No  ha seleccionado ningun registro");
-             } else {
-             String codins = tbprod.getValueAt(fila, 0).toString();
-             String desins = tbprod.getValueAt(fila, 2).toString();
-             String preins = tbprod.getValueAt(fila, 5).toString();
-             int c = 0;
-             int j = 0;
-             String cant = JOptionPane.showInputDialog("ingrese cantidad");
-             if ((cant.equals("")) || (cant.equals("0"))) {
-             JOptionPane.showMessageDialog(this, "Debe ingresar algun valor mayor que 0");
-             } else {
-             int canting = Integer.parseInt(cant);
-             int comp = Integer.parseInt(comparar(codins));
-             if (canting > comp) {
-             JOptionPane.showMessageDialog(this, "Ud. no cuenta con el stock apropiado");
-             } else {
-             for (int i = 0; i < Ventas_venta.tb_factura.getRowCount(); i++) {
-             Object com = Ventas_venta.tb_factura.getValueAt(i, 0);
-             if (codins.equals(com)) {
-             j = i;
-             Ventas_venta.tb_factura.setValueAt(cant, i, 3);
-             c = c + 1;
-
-             }
-
-             }
-             if (c == 0) {
-
-             dato[0] = codins;
-             dato[1] = desins;
-             dato[2] = preins;
-             dato[3] = cant;
-
-             tabladet.addRow(dato);
-
-             Ventas_venta.tb_factura.setModel(tabladet);
-             this.txtprod.requestFocus();
-
-             }
-             Ventas_venta.btncalcular.doClick();
-             }
-
-             }
-
-             }
-             } catch (HeadlessException | NumberFormatException e) {
-             }     */    // TODO add your handling code here:
-            if (Ventas_venta_bar.lbl_cant_produ.getText().equals("11")) {
-                JOptionPane.showMessageDialog(null, "Cantidad de producto excedido");
-            } else {
-                if (lbl_panel_pre_usu.getText().equals("N")) {
-                    int filaModi = Productos_ventas_bar.tbprod.getSelectedRow();
-                    cod_pro_ventas_bar = (String) Productos_ventas_bar.tbprod.getValueAt(filaModi, 0);
-                    Panel_precios_ventas_bar pp;
-                    pp = new Panel_precios_ventas_bar(new javax.swing.JDialog(), true);
-                    pp.setVisible(true);
-                } else {
-                    int filaModi = Productos_ventas_bar.tbprod.getSelectedRow();
-                    cod_pro_ventas_bar = (String) Productos_ventas_bar.tbprod.getValueAt(filaModi, 0);
-                    Precio_modelo_dos_bar ppd;
-                    ppd = new Precio_modelo_dos_bar(new javax.swing.JDialog(), true);
-                    ppd.setVisible(true);
-
-                }
             }
         }
 

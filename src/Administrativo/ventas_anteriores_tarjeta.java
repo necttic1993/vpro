@@ -6,6 +6,7 @@ package Administrativo;
 import Conexion_DB.conectar;
 
 import static Loggin_Principal.NECTTIC.ingreso;
+import Loggin_Principal.Principal;
 import static Loggin_Principal.Principal.lbl_usu_almacen;
 import static Loggin_Principal.Principal.lbl_usu_nom;
 import Loggin_Principal.Seleccion_surcusal_free;
@@ -56,13 +57,7 @@ public class ventas_anteriores_tarjeta extends javax.swing.JDialog {
         ch_todos.setSelected(true);
         cb_situ_ventas.setEnabled(false);
 
-        if (lbl_usu_almacen.getText().equals("TODOS")) {
-            Seleccion_surcusal_free evs;
-            evs = new Seleccion_surcusal_free(new javax.swing.JDialog(), true);
-            evs.setVisible(true);
-        } else {
-            cargarUsu();
-        }
+        cargarUsu();
 
     }// FIN CONSTRUCTOR
     //</editor-fold>
@@ -241,7 +236,13 @@ public class ventas_anteriores_tarjeta extends javax.swing.JDialog {
         lbl_almacen_ventas.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lbl_almacen_ventas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Caja_2/iconos/dpto.png"))); // NOI18N
         lbl_almacen_ventas.setText("0000000");
+        lbl_almacen_ventas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lbl_almacen_ventas.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        lbl_almacen_ventas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_almacen_ventasMouseClicked(evt);
+            }
+        });
         jPanel3.add(lbl_almacen_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 43, 130, 40));
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
@@ -3489,6 +3490,16 @@ public class ventas_anteriores_tarjeta extends javax.swing.JDialog {
 
         //</editor-fold>
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void lbl_almacen_ventasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_almacen_ventasMouseClicked
+        if (Principal.lbl_usu_almacen.getText().equals("TODOS")) {
+            Seleccion_surcusal_free evs;
+            evs = new Seleccion_surcusal_free(new javax.swing.JDialog(), true);
+            evs.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "No cuenta con premiso para otras sucursales/Almacenes");
+        }
+    }//GEN-LAST:event_lbl_almacen_ventasMouseClicked
 //<editor-fold defaultstate="collapsed" desc="METODOS PRINCIPAL">
 
     /**
@@ -5941,8 +5952,8 @@ public class ventas_anteriores_tarjeta extends javax.swing.JDialog {
 
     void cargarUsu() {
 
-        String user = lbl_usu_nom.getText();
-        String mostrar = "select * from usuarios where usu='" + user + "' ";
+        String user = Principal.lbl_id_user.getText();
+        String mostrar = "select * from usuarios where usu_cod='" + user + "' ";
 
         try {
             Connection cn = conectar.getInstance().getConnection();

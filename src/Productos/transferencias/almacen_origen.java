@@ -7,18 +7,14 @@ package Productos.transferencias;
 
 import Clases.machusculas;
 import Conexion_DB.conectar;
-import Productos.updateComp.actualizar_almacen;
+import Loggin_Principal.Principal;
 import java.awt.HeadlessException;
-import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javax.swing.ImageIcon;
-import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-import javax.swing.JPopupMenu;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -276,29 +272,27 @@ public class almacen_origen extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     void cargar(String valor) {
+
         try {
 
-            String[] titulos = {"Código", "Almacén", "Descripción", "Capacidad M²"};
+            String[] titulos = {"Código", "Almacén"};
             String[] registros = new String[4];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from almacenes WHERE CONCAT (alm_nom) LIKE '%" + valor + "%'";
+            String id_us = Principal.lbl_id_user.getText();
+            String cons = " select u.cod_alma,a.alm_nom from usu_almacen as u inner join almacenes as a on a.alm_cod=u.cod_alma WHERE CONCAT (alm_nom) LIKE '%" + valor + "%' and u.cod_usu='" + id_us + "'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
                 registros[0] = rs.getString(1);
                 registros[1] = rs.getString(2);
-                registros[2] = rs.getString(3);
-                registros[3] = rs.getString(4);
 
                 model.addRow(registros);
             }
             tb_almacen_origen.setModel(model);
             tb_almacen_origen.getColumnModel().getColumn(0).setPreferredWidth(92);
             tb_almacen_origen.getColumnModel().getColumn(1).setPreferredWidth(250);
-            tb_almacen_origen.getColumnModel().getColumn(2).setPreferredWidth(350);
-            tb_almacen_origen.getColumnModel().getColumn(3).setPreferredWidth(120);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {

@@ -289,6 +289,7 @@ public class Add_clientes extends javax.swing.JDialog {
         jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 139, 20, 20));
 
         txt_id_ciudad.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txt_id_ciudad.setText("0");
         txt_id_ciudad.setDisabledTextColor(new java.awt.Color(153, 0, 0));
         txt_id_ciudad.setEnabled(false);
         jPanel3.add(txt_id_ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 90, 30));

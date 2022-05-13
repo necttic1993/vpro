@@ -826,6 +826,144 @@ public class trans_dep_pro extends javax.swing.JDialog {
             }
 
         }
+
+        //news
+        if ((nro_alma_ori.getText().equals("0000031"))) {
+            String capcod = "", capcan = "";
+            for (int i = 0; i < tb_trans_stock.getRowCount(); i++) {
+                capcod = tb_trans_stock.getValueAt(i, 0).toString();
+                capcan = tb_trans_stock.getValueAt(i, 3).toString();
+                descontarStock_31(capcod, capcan);
+            }
+
+        }
+        if ((nro_alma_ori.getText().equals("0000032"))) {
+            String capcod = "", capcan = "";
+            for (int i = 0; i < tb_trans_stock.getRowCount(); i++) {
+                capcod = tb_trans_stock.getValueAt(i, 0).toString();
+                capcan = tb_trans_stock.getValueAt(i, 3).toString();
+                descontarStock_32(capcod, capcan);
+            }
+
+        }
+        if ((nro_alma_ori.getText().equals("0000033"))) {
+            String capcod = "", capcan = "";
+            for (int i = 0; i < tb_trans_stock.getRowCount(); i++) {
+                capcod = tb_trans_stock.getValueAt(i, 0).toString();
+                capcan = tb_trans_stock.getValueAt(i, 3).toString();
+                descontarStock_33(capcod, capcan);
+            }
+
+        }
+        if ((nro_alma_ori.getText().equals("0000034"))) {
+            String capcod = "", capcan = "";
+            for (int i = 0; i < tb_trans_stock.getRowCount(); i++) {
+                capcod = tb_trans_stock.getValueAt(i, 0).toString();
+                capcan = tb_trans_stock.getValueAt(i, 3).toString();
+                descontarStock_34(capcod, capcan);
+            }
+
+        }
+        if ((nro_alma_ori.getText().equals("0000035"))) {
+            String capcod = "", capcan = "";
+            for (int i = 0; i < tb_trans_stock.getRowCount(); i++) {
+                capcod = tb_trans_stock.getValueAt(i, 0).toString();
+                capcan = tb_trans_stock.getValueAt(i, 3).toString();
+                descontarStock_35(capcod, capcan);
+            }
+
+        }
+        if ((nro_alma_ori.getText().equals("0000036"))) {
+            String capcod = "", capcan = "";
+            for (int i = 0; i < tb_trans_stock.getRowCount(); i++) {
+                capcod = tb_trans_stock.getValueAt(i, 0).toString();
+                capcan = tb_trans_stock.getValueAt(i, 3).toString();
+                descontarStock_36(capcod, capcan);
+            }
+
+        }
+        if ((nro_alma_ori.getText().equals("0000037"))) {
+            String capcod = "", capcan = "";
+            for (int i = 0; i < tb_trans_stock.getRowCount(); i++) {
+                capcod = tb_trans_stock.getValueAt(i, 0).toString();
+                capcan = tb_trans_stock.getValueAt(i, 3).toString();
+                descontarStock_37(capcod, capcan);
+            }
+
+        }
+        if ((nro_alma_ori.getText().equals("0000038"))) {
+            String capcod = "", capcan = "";
+            for (int i = 0; i < tb_trans_stock.getRowCount(); i++) {
+                capcod = tb_trans_stock.getValueAt(i, 0).toString();
+                capcan = tb_trans_stock.getValueAt(i, 3).toString();
+                descontarStock_38(capcod, capcan);
+            }
+
+        }
+        if ((nro_alma_ori.getText().equals("0000039"))) {
+            String capcod = "", capcan = "";
+            for (int i = 0; i < tb_trans_stock.getRowCount(); i++) {
+                capcod = tb_trans_stock.getValueAt(i, 0).toString();
+                capcan = tb_trans_stock.getValueAt(i, 3).toString();
+                descontarStock_39(capcod, capcan);
+            }
+
+        }
+        if ((nro_alma_ori.getText().equals("0000040"))) {
+            String capcod = "", capcan = "";
+            for (int i = 0; i < tb_trans_stock.getRowCount(); i++) {
+                capcod = tb_trans_stock.getValueAt(i, 0).toString();
+                capcan = tb_trans_stock.getValueAt(i, 3).toString();
+                descontarStock_40(capcod, capcan);
+            }
+
+        }
+        if ((nro_alma_ori.getText().equals("0000041"))) {
+            String capcod = "", capcan = "";
+            for (int i = 0; i < tb_trans_stock.getRowCount(); i++) {
+                capcod = tb_trans_stock.getValueAt(i, 0).toString();
+                capcan = tb_trans_stock.getValueAt(i, 3).toString();
+                descontarStock_41(capcod, capcan);
+            }
+
+        }
+        if ((nro_alma_ori.getText().equals("0000042"))) {
+            String capcod = "", capcan = "";
+            for (int i = 0; i < tb_trans_stock.getRowCount(); i++) {
+                capcod = tb_trans_stock.getValueAt(i, 0).toString();
+                capcan = tb_trans_stock.getValueAt(i, 3).toString();
+                descontarStock_42(capcod, capcan);
+            }
+
+        }
+        if ((nro_alma_ori.getText().equals("0000043"))) {
+            String capcod = "", capcan = "";
+            for (int i = 0; i < tb_trans_stock.getRowCount(); i++) {
+                capcod = tb_trans_stock.getValueAt(i, 0).toString();
+                capcan = tb_trans_stock.getValueAt(i, 3).toString();
+                descontarStock_43(capcod, capcan);
+            }
+
+        }
+        if ((nro_alma_ori.getText().equals("0000044"))) {
+            String capcod = "", capcan = "";
+            for (int i = 0; i < tb_trans_stock.getRowCount(); i++) {
+                capcod = tb_trans_stock.getValueAt(i, 0).toString();
+                capcan = tb_trans_stock.getValueAt(i, 3).toString();
+                descontarStock_44(capcod, capcan);
+            }
+
+        }
+        if ((nro_alma_ori.getText().equals("0000045"))) {
+            String capcod = "", capcan = "";
+            for (int i = 0; i < tb_trans_stock.getRowCount(); i++) {
+                capcod = tb_trans_stock.getValueAt(i, 0).toString();
+                capcan = tb_trans_stock.getValueAt(i, 3).toString();
+                descontarStock_45(capcod, capcan);
+            }
+
+        }
+
     }//GEN-LAST:event_btn_origenActionPerformed
 
     private void bnt_busca_ventasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnt_busca_ventasActionPerformed
@@ -963,933 +1101,1114 @@ public class trans_dep_pro extends javax.swing.JDialog {
 
 //////////almacen origen
     void descontarStock(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
         int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_cant FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(5);//pendiente a modificacion
+                cap = rs.getString(1);//pendiente a modificacion
             }
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_cant='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
+
+            PreparedStatement pst = cn.prepareStatement(modi);
+            pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
         } catch (Exception e) {
+            System.out.println("error" + e);
         }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_cant='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
 
-            PreparedStatement pst = cn.prepareStatement(modi);
-            pst.executeUpdate();
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (SQLException e) {
-        }
     }
 
-    void devolverSeparacion(String codi, String can) {
-        int des = Integer.parseInt(can);
-        String cap = "";
-        int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+    /*   void devolverSeparacion(String codi, String can) {
+     int des = Integer.parseInt(can);
+     String cap = "";
+     int desfinal;
+     String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+     try {
+     Connection cn = conectar.getInstance().getConnection();
 
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(consul);
-            while (rs.next()) {
-                cap = rs.getString(23);
-            }
-            conectar.getInstance().closeConnection(cn);
+     Statement st = cn.createStatement();
+     ResultSet rs = st.executeQuery(consul);
+     while (rs.next()) {
+     cap = rs.getString(23);
+     }
+     conectar.getInstance().closeConnection(cn);
 
-        } catch (SQLException e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_alma='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+     } catch (SQLException e) {
+     }
+     desfinal = Integer.parseInt(cap) - des;
+     String modi = "UPDATE tienda_productos SET pro_alma='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
+     try {
+     Connection cn = conectar.getInstance().getConnection();
 
-            PreparedStatement pst = cn.prepareStatement(modi);
-            pst.executeUpdate();
-            conectar.getInstance().closeConnection(cn);
+     PreparedStatement pst = cn.prepareStatement(modi);
+     pst.executeUpdate();
+     conectar.getInstance().closeConnection(cn);
 
-        } catch (SQLException e) {
-        }
-    }
-
+     } catch (SQLException e) {
+     }
+     }*/
     void descontarStock_2(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
         int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_stock_2 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(25);//pendiente a modificacion
+                cap = rs.getString(1);//pendiente a modificacion
             }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_stock_2='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_2='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
 
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
 
     void descontarStock_3(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
         int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_stock_3 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(26);//pendiente a modificacion
+                cap = rs.getString(1);//pendiente a modificacion
             }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_stock_3='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_3='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
 
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
 
     void descontarStock_4(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
         int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_stock_4 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(27);//pendiente a modificacion
+                cap = rs.getString(1);//pendiente a modificacion
             }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_stock_4='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_4='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
 
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
 
     void descontarStock_5(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
         int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_stock_5 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(28);//pendiente a modificacion
+                cap = rs.getString(1);//pendiente a modificacion
             }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_stock_5='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_5='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
 
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
 
     ///new deposito
     void descontarStock_6(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
         int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_stock_6 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(29);//pendiente a modificacion
+                cap = rs.getString(1);//pendiente a modificacion
             }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_stock_6='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_6='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
 
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
 
     void descontarStock_7(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
         int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_stock_7 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(30);//pendiente a modificacion
+                cap = rs.getString(1);//pendiente a modificacion
             }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_stock_7='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_7='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
 
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
 
     void descontarStock_8(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
         int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_stock_8 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(31);//pendiente a modificacion
+                cap = rs.getString(1);//pendiente a modificacion
             }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_stock_8='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_8='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
 
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
 
     void descontarStock_9(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
         int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_stock_9 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(32);//pendiente a modificacion
+                cap = rs.getString(1);//pendiente a modificacion
             }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_stock_9='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_9='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
 
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
 
     void descontarStock_10(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
         int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_stock_10 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(33);//pendiente a modificacion
+                cap = rs.getString(1);//pendiente a modificacion
             }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_stock_10='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_10='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
 
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
 
     void descontarStock_11(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
         int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_stock_11 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(34);//pendiente a modificacion
+                cap = rs.getString(1);//pendiente a modificacion
             }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_stock_11='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_11='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
 
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
 
     void descontarStock_12(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
         int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_stock_12 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(35);//pendiente a modificacion
+                cap = rs.getString(1);//pendiente a modificacion
             }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_stock_12='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_12='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
 
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
 
     void descontarStock_13(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
         int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_stock_13 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(36);//pendiente a modificacion
+                cap = rs.getString(1);//pendiente a modificacion
             }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_stock_13='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_13='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
 
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
 
     void descontarStock_14(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
         int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_stock_14 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(37);//pendiente a modificacion
+                cap = rs.getString(1);//pendiente a modificacion
             }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_stock_14='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_14='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
 
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
 
     void descontarStock_15(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
         int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_stock_15 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(38);//pendiente a modificacion
+                cap = rs.getString(1);//pendiente a modificacion
             }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_stock_15='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_15='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
 
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
 
     void descontarStock_16(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
         int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_stock_16 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(39);//pendiente a modificacion
+                cap = rs.getString(1);//pendiente a modificacion
             }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_stock_16='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_16='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
 
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
 
     void descontarStock_17(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
         int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_stock_17 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(40);//pendiente a modificacion
+                cap = rs.getString(1);//pendiente a modificacion
             }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_stock_17='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_17='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
 
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
 
     void descontarStock_18(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
         int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_stock_18 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(41);//pendiente a modificacion
+                cap = rs.getString(1);//pendiente a modificacion
             }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_stock_18='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_18='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
 
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
 
     void descontarStock_19(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
         int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_stock_19 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(42);//pendiente a modificacion
+                cap = rs.getString(1);//pendiente a modificacion
             }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_stock_19='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_19='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
 
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
 
     void descontarStock_20(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
         int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_stock_20 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(43);//pendiente a modificacion
+                cap = rs.getString(1);//pendiente a modificacion
             }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_stock_20='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_20='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
 
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
 
     void descontarStock_21(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
         int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_stock_21 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(44);//pendiente a modificacion
+                cap = rs.getString(1);//pendiente a modificacion
             }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_stock_21='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_21='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
 
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
 
     void descontarStock_22(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
         int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_stock_22 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(45);//pendiente a modificacion
+                cap = rs.getString(1);//pendiente a modificacion
             }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_stock_22='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_22='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
 
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
 
     void descontarStock_23(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
         int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_stock_23 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(46);//pendiente a modificacion
+                cap = rs.getString(1);//pendiente a modificacion
             }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_stock_23='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_23='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
 
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
 
     void descontarStock_24(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
         int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_stock_24 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(47);//pendiente a modificacion
+                cap = rs.getString(1);//pendiente a modificacion
             }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_stock_24='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_24='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
 
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
 
     void descontarStock_25(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
         int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_stock_25 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(48);//pendiente a modificacion
+                cap = rs.getString(1);//pendiente a modificacion
             }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_stock_25='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_25='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
 
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
 
     void descontarStock_26(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
         int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_stock_26 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(49);//pendiente a modificacion
+                cap = rs.getString(1);//pendiente a modificacion
             }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_stock_26='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_26='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
 
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
 
     void descontarStock_27(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
         int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_stock_27 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(50);//pendiente a modificacion
+                cap = rs.getString(1);//pendiente a modificacion
             }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_stock_27='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_27='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
 
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
 
     void descontarStock_28(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
         int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_stock_28 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(51);//pendiente a modificacion
+                cap = rs.getString(1);//pendiente a modificacion
             }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_stock_28='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_28='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
 
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
 
     void descontarStock_29(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
         int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_stock_29 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(52);//pendiente a modificacion
+                cap = rs.getString(1);//pendiente a modificacion
             }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_stock_29='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_29='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
 
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
 
     void descontarStock_30(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
         int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_stock_30 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(53);//pendiente a modificacion
+                cap = rs.getString(1);//pendiente a modificacion
             }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_stock_30='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_30='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
 
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
+        }
+    }
+
+    //news
+    void descontarStock_31(String codi, String can) {
+        String cap = "";
+        int desfinal;
+        String consul = "SELECT pro_stock_31 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(consul);
+            while (rs.next()) {
+                cap = rs.getString(1);//pendiente a modificacion
+            }
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_31='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
+
+            PreparedStatement pst = cn.prepareStatement(modi);
+            pst.executeUpdate();
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
+        }
+    }
+
+    void descontarStock_32(String codi, String can) {
+        String cap = "";
+        int desfinal;
+        String consul = "SELECT pro_stock_32 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(consul);
+            while (rs.next()) {
+                cap = rs.getString(1);//pendiente a modificacion
+            }
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_32='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
+
+            PreparedStatement pst = cn.prepareStatement(modi);
+            pst.executeUpdate();
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
+        }
+    }
+
+    void descontarStock_33(String codi, String can) {
+        String cap = "";
+        int desfinal;
+        String consul = "SELECT pro_stock_33 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(consul);
+            while (rs.next()) {
+                cap = rs.getString(1);//pendiente a modificacion
+            }
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_33='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
+
+            PreparedStatement pst = cn.prepareStatement(modi);
+            pst.executeUpdate();
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
+        }
+    }
+
+    void descontarStock_34(String codi, String can) {
+        String cap = "";
+        int desfinal;
+        String consul = "SELECT pro_stock_34 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(consul);
+            while (rs.next()) {
+                cap = rs.getString(1);//pendiente a modificacion
+            }
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_34='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
+
+            PreparedStatement pst = cn.prepareStatement(modi);
+            pst.executeUpdate();
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
+        }
+    }
+
+    void descontarStock_35(String codi, String can) {
+        String cap = "";
+        int desfinal;
+        String consul = "SELECT pro_stock_35 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(consul);
+            while (rs.next()) {
+                cap = rs.getString(1);//pendiente a modificacion
+            }
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_35='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
+
+            PreparedStatement pst = cn.prepareStatement(modi);
+            pst.executeUpdate();
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
+        }
+    }
+
+    void descontarStock_36(String codi, String can) {
+        String cap = "";
+        int desfinal;
+        String consul = "SELECT pro_stock_36 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(consul);
+            while (rs.next()) {
+                cap = rs.getString(1);//pendiente a modificacion
+            }
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_36='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
+
+            PreparedStatement pst = cn.prepareStatement(modi);
+            pst.executeUpdate();
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
+        }
+    }
+
+    void descontarStock_37(String codi, String can) {
+        String cap = "";
+        int desfinal;
+        String consul = "SELECT pro_stock_37 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(consul);
+            while (rs.next()) {
+                cap = rs.getString(1);//pendiente a modificacion
+            }
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_37='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
+
+            PreparedStatement pst = cn.prepareStatement(modi);
+            pst.executeUpdate();
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
+        }
+    }
+
+    void descontarStock_38(String codi, String can) {
+        String cap = "";
+        int desfinal;
+        String consul = "SELECT pro_stock_38 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(consul);
+            while (rs.next()) {
+                cap = rs.getString(1);//pendiente a modificacion
+            }
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_38='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
+
+            PreparedStatement pst = cn.prepareStatement(modi);
+            pst.executeUpdate();
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
+        }
+    }
+
+    void descontarStock_39(String codi, String can) {
+        String cap = "";
+        int desfinal;
+        String consul = "SELECT pro_stock_39 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(consul);
+            while (rs.next()) {
+                cap = rs.getString(1);//pendiente a modificacion
+            }
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_39='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
+
+            PreparedStatement pst = cn.prepareStatement(modi);
+            pst.executeUpdate();
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
+        }
+    }
+
+    void descontarStock_40(String codi, String can) {
+        String cap = "";
+        int desfinal;
+        String consul = "SELECT pro_stock_40 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(consul);
+            while (rs.next()) {
+                cap = rs.getString(1);//pendiente a modificacion
+            }
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_40='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
+
+            PreparedStatement pst = cn.prepareStatement(modi);
+            pst.executeUpdate();
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
+        }
+    }
+
+    void descontarStock_41(String codi, String can) {
+        String cap = "";
+        int desfinal;
+        String consul = "SELECT pro_stock_41 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(consul);
+            while (rs.next()) {
+                cap = rs.getString(1);//pendiente a modificacion
+            }
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_41='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
+
+            PreparedStatement pst = cn.prepareStatement(modi);
+            pst.executeUpdate();
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
+        }
+    }
+
+    void descontarStock_42(String codi, String can) {
+        String cap = "";
+        int desfinal;
+        String consul = "SELECT pro_stock_42 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(consul);
+            while (rs.next()) {
+                cap = rs.getString(1);//pendiente a modificacion
+            }
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_42='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
+
+            PreparedStatement pst = cn.prepareStatement(modi);
+            pst.executeUpdate();
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
+        }
+    }
+
+    void descontarStock_43(String codi, String can) {
+        String cap = "";
+        int desfinal;
+        String consul = "SELECT pro_stock_43 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(consul);
+            while (rs.next()) {
+                cap = rs.getString(1);//pendiente a modificacion
+            }
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_43='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
+
+            PreparedStatement pst = cn.prepareStatement(modi);
+            pst.executeUpdate();
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
+        }
+    }
+
+    void descontarStock_44(String codi, String can) {
+        String cap = "";
+        int desfinal;
+        String consul = "SELECT pro_stock_44 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(consul);
+            while (rs.next()) {
+                cap = rs.getString(1);//pendiente a modificacion
+            }
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_44='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
+
+            PreparedStatement pst = cn.prepareStatement(modi);
+            pst.executeUpdate();
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
+        }
+    }
+
+    void descontarStock_45(String codi, String can) {
+        String cap = "";
+        int desfinal;
+        String consul = "SELECT pro_stock_45 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(consul);
+            while (rs.next()) {
+                cap = rs.getString(1);//pendiente a modificacion
+            }
+            ///suma el stock
+            desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_45='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
+
+            PreparedStatement pst = cn.prepareStatement(modi);
+            pst.executeUpdate();
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
 

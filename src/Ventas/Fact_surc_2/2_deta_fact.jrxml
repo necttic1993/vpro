@@ -475,7 +475,7 @@ WHERE
 				</jr:table>
 			</componentElement>
 			<textField>
-				<reportElement x="101" y="210" width="26" height="10" uuid="f6c7330d-c5b9-42c3-adf0-9f21cdd83ab3"/>
+				<reportElement x="101" y="217" width="26" height="10" uuid="f6c7330d-c5b9-42c3-adf0-9f21cdd83ab3"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>

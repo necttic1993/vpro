@@ -312,7 +312,7 @@ public class Principal_compras extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
 Connection cn =  conectar.getInstance().getConnection();
 
-            String cons = "select * from compras WHERE CONCAT (nom_prov_comp) LIKE '%" + valor + "%' order by cod_comp desc";
+            String cons = "select * from compras WHERE CONCAT (nom_prov_comp) LIKE '%" + valor + "%' order by cod_comp desc LIMIT 100";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {

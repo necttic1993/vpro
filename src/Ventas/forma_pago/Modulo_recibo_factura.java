@@ -23,6 +23,7 @@ public class Modulo_recibo_factura extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         //txt_entra_efect.requestFocus();
+        txt_fecha_entra.setText(Principal.lbl_fecha_principal.getText());
 
     }
 
@@ -45,6 +46,8 @@ public class Modulo_recibo_factura extends javax.swing.JDialog {
         jLabel30 = new javax.swing.JLabel();
         btn_add_banco = new javax.swing.JButton();
         jLabel27 = new javax.swing.JLabel();
+        txt_fecha_entra = new javax.swing.JFormattedTextField();
+        jLabel28 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Pagos");
@@ -86,7 +89,7 @@ public class Modulo_recibo_factura extends javax.swing.JDialog {
                 btn_addActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 90, 60, 50));
+        jPanel1.add(btn_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, 60, 50));
 
         jLabel29.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel29.setText("Banco:");
@@ -127,8 +130,20 @@ public class Modulo_recibo_factura extends javax.swing.JDialog {
         jPanel1.add(btn_add_banco, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 5, 50, 40));
 
         jLabel27.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel27.setText("Monto:");
-        jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 90, 30));
+        jLabel27.setText("Fecha Entrada:");
+        jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 90, 30));
+
+        try {
+            txt_fecha_entra.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txt_fecha_entra.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jPanel1.add(txt_fecha_entra, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 100, 30));
+
+        jLabel28.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel28.setText("Monto:");
+        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 90, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 160));
 
@@ -142,7 +157,7 @@ public class Modulo_recibo_factura extends javax.swing.JDialog {
 
         String pago_contexto = txt_des_banco.getText();
         String nro = txt_nro_linea.getText();
-        String fecha = Principal.lbl_fecha_principal.getText();
+        String fecha = txt_fecha_entra.getText();  
         String efec = txt_entra_efect.getText();
         String id_banco = txt_nro_banco.getText();
 
@@ -297,11 +312,13 @@ public class Modulo_recibo_factura extends javax.swing.JDialog {
     private javax.swing.JButton btn_add;
     private javax.swing.JButton btn_add_banco;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JPanel jPanel1;
     public static javax.swing.JTextField txt_des_banco;
     private javax.swing.JTextField txt_entra_efect;
+    private javax.swing.JFormattedTextField txt_fecha_entra;
     public static javax.swing.JTextField txt_nro_banco;
     private javax.swing.JTextField txt_nro_linea;
     // End of variables declaration//GEN-END:variables

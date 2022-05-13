@@ -82,6 +82,7 @@ public class Presupuesto_presupuesto_franco extends javax.swing.JDialog {
     public static String id_venta_pago_ventas_normal = "";
     public static String id_nro_cuentas = "";
     public static String total_ventas_normal = "";
+    public static String cod_print_presupuesto_modulo_2= "";
 
     void cargar() {
         String mostrar = "SELECT * FROM cotizaciones ORDER BY cot_fecha ASC";
@@ -323,6 +324,7 @@ public class Presupuesto_presupuesto_franco extends javax.swing.JDialog {
         });
         jPanel1.add(txt_dias_plazo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 80, 30));
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -569,7 +571,7 @@ public class Presupuesto_presupuesto_franco extends javax.swing.JDialog {
 
         if (chk_contado.isSelected()) {
 
-            if ((lbl_cod.getText().equals("")) || (txttotal.getText().equals(""))) {
+            if ((lbl_cod.getText().equals("")) || (txttotal.getText().equals(""))|| (txt_cod_cli.getText().equals(""))) {
                 JOptionPane.showMessageDialog(this, "Ingrese cliente, producto o realice operacion");
             } else {
 
@@ -578,13 +580,10 @@ public class Presupuesto_presupuesto_franco extends javax.swing.JDialog {
                 // caja();
                 if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
                         "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-                    Reportes reporte = new Reportes();
-                    try {
-                        reporte.presupuesto_surc_2(Presupuesto_presupuesto_franco.lbl_cod.getText());
-                        this.dispose();
-                    } catch (SQLException | JRException ex) {
-                        Logger.getLogger(printers_pres_franco.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                   cod_print_presupuesto_modulo_2 = lbl_cod.getText();
+                    printers_pres_franco est;
+                    est = new printers_pres_franco(new javax.swing.JDialog(), true);
+                    est.setVisible(true);
 
                 }
                 lbl_cambio_dolar.setText("");

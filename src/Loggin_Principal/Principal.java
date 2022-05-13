@@ -66,12 +66,15 @@ import Estadisticas_productos.Productos_CP;
 import Estadisticas_productos.Salidas_productos_cate;
 import Estadisticas_productos.Seleccion_relatorio_stockvta;
 import Estadisticas_productos.control_ventas_stock;
+import Estadisticas_productos.extracto_compras_productos;
+import Estadisticas_productos.extracto_fasct_surc_1_pro;
 import Estadisticas_productos.stock_minimo;
 import Gastos.Principapl_gastos;
 import Listado_fiscales.Libro_nota_cre_lista;
 import Listado_fiscales.Libro_nota_cre_lista_surc_2;
 import Listado_fiscales.Libro_recibo_fisc;
 import static Loggin_Principal.NECTTIC.cod;
+import static Loggin_Principal.NECTTIC.config;
 import static Loggin_Principal.NECTTIC.mode;
 import OS.Principapl_OS;
 import Pedidos.Principal_Pedidos;
@@ -82,17 +85,15 @@ import Productos.Almaccen_Principal;
 import Productos.Categorias_Espec_Principal;
 import Productos.Categorias_Principal;
 import Productos.Colores_Principal;
-import Productos.Consultas.Consulta_stock;
 import Productos.Consultas.Productos_consulta_stock;
 import Productos.Departamentos_Principal;
 import Productos.Exporta_excel_sucursales;
-import Productos.Exporta_excell;
 import Productos.Marcas_Principal;
+import Productos.Produccion.Principal_produccion;
 import Productos.Productos;
 import Productos.Sub_Categorias_Principal;
 import Productos.Tama_Principal;
 import Productos.barcod.pro_codbar;
-import Productos.fabrica.Principal_fabrica;
 import Productos.transferencias.Principal_transferencia;
 import Proveedores.Plataforma_proveedor;
 import Ventas.Exportacion.Principal_factura_expo;
@@ -116,6 +117,7 @@ import Ventas.Fact_surc_27.Principal_ventas_facturas_27;
 import Ventas.Fact_surc_28.Principal_ventas_facturas_28;
 import Ventas.Fact_surc_3.Principal_ventas_surc_3;
 import Ventas.Fact_surc_4.Principal_ventas_facturas_4;
+import Ventas.Fact_surc_5.Principal_ventas_facturas_5;
 import Ventas.Fact_surc_6.Principal_ventas_facturas_6;
 import Ventas.Fact_surc_7.Principal_ventas_facturas_7;
 import Ventas.Fact_surc_8.Principal_ventas_facturas_8;
@@ -186,7 +188,6 @@ import java.awt.HeadlessException;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
-import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileWriter;
@@ -211,7 +212,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
@@ -235,35 +235,36 @@ public class Principal extends javax.swing.JFrame {
             panel_principal.setBackground(new java.awt.Color(8, 52, 74));
 
         }
-       
 
         lbl_notifi_pedidos.setVisible(false);
         menu_licencia.setVisible(false);
         lbl_mode_dark.setText(mode);
+        String verConfig = config;
         actualiza();
-        //  fecha();
+
         panel_config_gral.setVisible(false);
-        //  cargar();
         cargarUsu(cod);
         System.out.println("Usuario OK");
         controlFecha();
         System.out.println("Fecha OK");
-        //licencia();
-        cargarConfig();
-        System.out.println("Config OK");
+        if (verConfig.equals("NO")) {
+            System.out.println("Falta Config");
+        } else {
+            cargarConfig();
+            System.out.println("Config OK");
+            control_version();
+            System.out.println("Versiones OK");
+        }
+
         permisos_users(lbl_tipo.getText());
         System.out.println("permisos OK");
         OpcionMenu();
         System.out.println("Opcion menu OK");
-        //cargar_Agenda();
         configuracion();
         System.out.println("Configuraciones empresas OK");
-        //nooo serial();
-        control_version();
-        System.out.println("Versiones OK");
         HORA_SERVIDOR();
         System.out.println("Hora del servidor OK");
-         if (lbl_id_user.getText().equals("1")) {
+        if (lbl_id_user.getText().equals("1")) {
             menu_serv.setVisible(true);
         } else {
             menu_serv.setVisible(false);
@@ -290,7 +291,6 @@ public class Principal extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         lbl_tipo = new javax.swing.JLabel();
         lbl_empresa = new javax.swing.JLabel();
-        lbl_img_empre = new javax.swing.JLabel();
         panel_config_gral = new javax.swing.JPanel();
         txt_simbolo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -434,6 +434,7 @@ public class Principal extends javax.swing.JFrame {
         menu_list_cp = new javax.swing.JMenuItem();
         menu_lista_trans = new javax.swing.JMenuItem();
         menu_stock_sucursales = new javax.swing.JMenuItem();
+        jMenuItem13 = new javax.swing.JMenuItem();
         menu_esta_ventas = new javax.swing.JMenu();
         menu_list_venta = new javax.swing.JMenuItem();
         menu_ventas_gral = new javax.swing.JMenuItem();
@@ -444,6 +445,7 @@ public class Principal extends javax.swing.JFrame {
         menu_lucro_pro = new javax.swing.JMenuItem();
         menu_esta_compras = new javax.swing.JMenu();
         menu_list_compras = new javax.swing.JMenuItem();
+        menu_list_compras_pro = new javax.swing.JMenuItem();
         menu_esta_devoluciones = new javax.swing.JMenu();
         menu_list_devol = new javax.swing.JMenuItem();
         menu_serv = new javax.swing.JMenu();
@@ -520,8 +522,7 @@ public class Principal extends javax.swing.JFrame {
 
         lbl_empresa.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lbl_empresa.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        panel_principal.add(lbl_empresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 490, 40));
-        panel_principal.add(lbl_img_empre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 80, 60));
+        panel_principal.add(lbl_empresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 470, 40));
 
         panel_config_gral.setBackground(new java.awt.Color(255, 255, 255));
         panel_config_gral.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 204)));
@@ -825,7 +826,7 @@ public class Principal extends javax.swing.JFrame {
 
         lbl_version.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         lbl_version.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_version.setText("4.4.5");
+        lbl_version.setText("4.4.6");
         panel_principal.add(lbl_version, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 206, 50, 40));
 
         version_alerta.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
@@ -1482,6 +1483,17 @@ public class Principal extends javax.swing.JFrame {
         });
         menu_esta_stock.add(menu_stock_sucursales);
 
+        jMenuItem13.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jMenuItem13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/report.png"))); // NOI18N
+        jMenuItem13.setText("-Productos en Facturas");
+        jMenuItem13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem13ActionPerformed(evt);
+            }
+        });
+        menu_esta_stock.add(jMenuItem13);
+
         jMenu9.add(menu_esta_stock);
 
         menu_esta_ventas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/graphic.png"))); // NOI18N
@@ -1583,6 +1595,17 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         menu_esta_compras.add(menu_list_compras);
+
+        menu_list_compras_pro.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        menu_list_compras_pro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/report.png"))); // NOI18N
+        menu_list_compras_pro.setText("-Detalles  de Compras");
+        menu_list_compras_pro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        menu_list_compras_pro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_list_compras_proActionPerformed(evt);
+            }
+        });
+        menu_esta_compras.add(menu_list_compras_pro);
 
         jMenu9.add(menu_esta_compras);
 
@@ -2350,6 +2373,66 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 li_venta_30.setVisible(true);
 
             }
+            if (Principal.lbl_usu_almacen.getText().equals("0000031")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000032")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000033")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000034")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000035")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000036")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000037")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000038")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000039")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000040")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000041")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000042")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000043")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000044")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000045")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
         }
 
 
@@ -2441,6 +2524,14 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 Principal_ventas_facturas_4 vf4;
                 vf4 = new Principal_ventas_facturas_4(new javax.swing.JDialog(), true);
                 vf4.setVisible(true);
+
+            }
+
+            if (Principal.lbl_usu_almacen.getText().equals("0000005")) {
+
+                Principal_ventas_facturas_5 vf5;
+                vf5 = new Principal_ventas_facturas_5(new javax.swing.JDialog(), true);
+                vf5.setVisible(true);
 
             }
 
@@ -2610,6 +2701,75 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 vf28.setVisible(true);
 
             }
+            ///news
+            if (Principal.lbl_usu_almacen.getText().equals("0000029")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000030")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000031")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000032")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000033")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000034")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000035")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000036")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000037")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000038")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000039")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000040")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000041")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000042")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000043")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000044")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000045")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
 
         }
 
@@ -2746,14 +2906,177 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
 
             }
 
-            if (Principal.lbl_usu_almacen.getText().equals("0000016")) {
+            if (Principal.lbl_usu_almacen.getText().equals("0000003")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000004")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000005")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000006")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000007")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000008")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000009")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000010")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000011")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000012")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000013")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000014")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
 
             }
 
+            if (Principal.lbl_usu_almacen.getText().equals("0000015")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000016")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000017")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
             if (Principal.lbl_usu_almacen.getText().equals("0000018")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000019")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
 
             }
             if (Principal.lbl_usu_almacen.getText().equals("0000020")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000021")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000022")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000023")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000024")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000025")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000026")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000027")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000028")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000029")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000030")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000031")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000032")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000033")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000034")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000035")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000036")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000037")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000038")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000039")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000040")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000041")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000042")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000043")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000044")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000045")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
 
             }
 
@@ -2982,6 +3305,68 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 Principal_devoluciones_30 pvf30;
                 pvf30 = new Principal_devoluciones_30(new javax.swing.JDialog(), true);
                 pvf30.setVisible(true);
+
+            }
+
+            if (Principal.lbl_usu_almacen.getText().equals("0000031")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+
+            if (Principal.lbl_usu_almacen.getText().equals("0000032")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000033")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000034")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000035")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000036")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000037")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000038")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000039")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000040")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000041")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000042")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000043")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000044")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000045")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
 
             }
         }
@@ -3373,6 +3758,76 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 }
 
             }
+
+            if (Principal.lbl_usu_almacen.getText().equals("0000029")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000030")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000031")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000032")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000033")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000034")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000035")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000036")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000037")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000038")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000039")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000040")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000041")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000042")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000043")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000044")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000045")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+
         }
     }//GEN-LAST:event_menu_ventasActionPerformed
 
@@ -3420,17 +3875,88 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 df.setVisible(true);// TODO add your handling code here:
             }
 
-            //11
+            if (Principal.lbl_usu_almacen.getText().equals("0000003")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000004")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000005")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000006")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000007")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000008")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000009")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000010")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
             if (Principal.lbl_usu_almacen.getText().equals("0000011")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
 
             }
+            if (Principal.lbl_usu_almacen.getText().equals("0000012")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
 
-            //11
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000013")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000014")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000015")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000016")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000017")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000018")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000019")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000020")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000021")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
             if (Principal.lbl_usu_almacen.getText().equals("0000022")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
 
             }
-
             if (Principal.lbl_usu_almacen.getText().equals("0000023")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
 
             }
 
@@ -3441,14 +3967,107 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 vf24.setVisible(true);
 
             }
+            if (Principal.lbl_usu_almacen.getText().equals("0000025")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000026")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000027")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000028")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000029")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000030")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000031")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000032")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000033")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000034")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000035")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000036")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000037")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000038")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000039")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000040")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000041")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000042")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000043")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000044")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000045")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
         }
 
     }//GEN-LAST:event_menu_nota_creActionPerformed
 
     private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
-        Principal_fabrica dfi;
-        dfi = new Principal_fabrica(new javax.swing.JDialog(), true);
-        dfi.setVisible(true);
+        try {
+            /*   Principal_fabrica dfi;
+             dfi = new Principal_fabrica(new javax.swing.JDialog(), true);
+             dfi.setVisible(true);*/
+
+            Principal_produccion dfi;
+            dfi = new Principal_produccion(new javax.swing.JDialog(), true);
+            dfi.setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_jMenuItem16ActionPerformed
 
     private void menu_salida_stockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_salida_stockActionPerformed
@@ -3563,21 +4182,176 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 lnc2.setVisible(true);// TODO add your handling code here:
             }
 
-            //11
+            if (Principal.lbl_usu_almacen.getText().equals("0000003")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000004")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000005")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000006")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000007")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000008")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000009")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000010")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
             if (Principal.lbl_usu_almacen.getText().equals("0000011")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
 
             }
+            if (Principal.lbl_usu_almacen.getText().equals("0000012")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
 
-            //11
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000013")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000014")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000015")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000016")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000017")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000018")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000019")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000020")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000021")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
             if (Principal.lbl_usu_almacen.getText().equals("0000022")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
 
             }
-
             if (Principal.lbl_usu_almacen.getText().equals("0000023")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
 
             }
-
             if (Principal.lbl_usu_almacen.getText().equals("0000024")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000025")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000026")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000027")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000028")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000029")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000030")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000031")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000032")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000033")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000034")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000035")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000036")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000037")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000038")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000039")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000040")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000041")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000042")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000043")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000044")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+
+            }
+            if (Principal.lbl_usu_almacen.getText().equals("0000045")) {
+                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
 
             }
         }
@@ -3679,6 +4453,20 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
 
     }//GEN-LAST:event_menu_stock_sucursalesActionPerformed
 
+    private void menu_list_compras_proActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_list_compras_proActionPerformed
+
+        extracto_compras_productos ec;
+        ec = new extracto_compras_productos(new javax.swing.JDialog(), true);
+        ec.setVisible(true);
+    }//GEN-LAST:event_menu_list_compras_proActionPerformed
+
+    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
+
+        extracto_fasct_surc_1_pro fd;
+        fd = new extracto_fasct_surc_1_pro(new javax.swing.JDialog(), true);
+        fd.setVisible(true);
+    }//GEN-LAST:event_jMenuItem13ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -3775,6 +4563,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem16;
@@ -3816,7 +4605,6 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JLabel lbl_hora_server;
     public static javax.swing.JLabel lbl_id_empre;
     public static javax.swing.JLabel lbl_id_user;
-    private javax.swing.JLabel lbl_img_empre;
     private javax.swing.JLabel lbl_licencia;
     public static javax.swing.JLabel lbl_lote_activa;
     public static javax.swing.JLabel lbl_mes_actual;
@@ -3864,6 +4652,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JMenuItem menu_libro_compras2;
     public static javax.swing.JMenuItem menu_licencia;
     private javax.swing.JMenuItem menu_list_compras;
+    private javax.swing.JMenuItem menu_list_compras_pro;
     private javax.swing.JMenuItem menu_list_cp;
     private javax.swing.JMenuItem menu_list_devol;
     private javax.swing.JMenuItem menu_list_dto;
@@ -4443,19 +5232,19 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 lbl_id_empre.setText(rs.getString(1));
                 lbl_lote_activa.setText(rs.getString(57));
                 modelo_cp.setText(rs.getString(52));
-                is = rs.getBinaryStream(4);
-                if (is == null) {
-                    System.out.println("imagen vacia");
-                } else {
+                /*  is = rs.getBinaryStream(4);
+                 if (is == null) {
+                 System.out.println("imagen vacia");
+                 } else {
 
-                    BufferedImage bi = ImageIO.read(is);
-                    foto = new ImageIcon(bi);
-                    Image img = foto.getImage();
-                    Image newimg = img.getScaledInstance(80, 60, java.awt.Image.SCALE_SMOOTH);
-                    ImageIcon newicon = new ImageIcon(newimg);
-                    lbl_img_empre.setIcon(newicon);
+                 BufferedImage bi = ImageIO.read(is);
+                 foto = new ImageIcon(bi);
+                 Image img = foto.getImage();
+                 Image newimg = img.getScaledInstance(80, 60, java.awt.Image.SCALE_SMOOTH);
+                 ImageIcon newicon = new ImageIcon(newimg);
+                 lbl_img_empre.setIcon(newicon);
 
-                }
+                 }*/
             }
             conectar.getInstance().closeConnection(cn);
 
@@ -4525,203 +5314,203 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                     .getName()).log(Level.SEVERE, null, ex);
         }
         if (m1.equals("S")) {
-            menu_config.setEnabled(true);
+            menu_config.setVisible(true);
         } else {
-            menu_config.setEnabled(false);
+            menu_config.setVisible(false);
         }
         if (m2.equals("S")) {
-            menu_reporte_fiscal.setEnabled(true);
+            menu_reporte_fiscal.setVisible(true);
         } else {
-            menu_reporte_fiscal.setEnabled(false);
+            menu_reporte_fiscal.setVisible(false);
         }
         if (m3.equals("S")) {
-            menu_copia.setEnabled(true);
+            menu_copia.setVisible(true);
         } else {
-            menu_copia.setEnabled(false);
+            menu_copia.setVisible(false);
         }
         if (m4.equals("S")) {
-            menu_producto.setEnabled(true);
+            menu_producto.setVisible(true);
         } else {
-            menu_producto.setEnabled(false);
+            menu_producto.setVisible(false);
         }
         if (m5.equals("S")) {
-            menu_logistica.setEnabled(true);
+            menu_logistica.setVisible(true);
         } else {
-            menu_logistica.setEnabled(false);
+            menu_logistica.setVisible(false);
         }
         if (m6.equals("S")) {
-            menu_clientes.setEnabled(true);
+            menu_clientes.setVisible(true);
         } else {
-            menu_clientes.setEnabled(false);
+            menu_clientes.setVisible(false);
         }
         if (m7.equals("S")) {
-            menu_proveedor.setEnabled(true);
+            menu_proveedor.setVisible(true);
         } else {
-            menu_proveedor.setEnabled(false);
+            menu_proveedor.setVisible(false);
         }
         if (m8.equals("S")) {
-            menu_usuario.setEnabled(true);
+            menu_usuario.setVisible(true);
         } else {
-            menu_usuario.setEnabled(false);
+            menu_usuario.setVisible(false);
         }
         if (m9.equals("S")) {
-            menu_ventas.setEnabled(true);
+            menu_ventas.setVisible(true);
         } else {
-            menu_ventas.setEnabled(false);
+            menu_ventas.setVisible(false);
         }
         if (m10.equals("S")) {
-            menu_compras.setEnabled(true);
+            menu_compras.setVisible(true);
         } else {
-            menu_compras.setEnabled(false);
+            menu_compras.setVisible(false);
         }
         if (m11.equals("S")) {
-            menu_devolucion.setEnabled(true);
+            menu_devolucion.setVisible(true);
         } else {
-            menu_devolucion.setEnabled(false);
+            menu_devolucion.setVisible(false);
         }
         if (m12.equals("S")) {
-            menu_presupuesto.setEnabled(true);
+            menu_presupuesto.setVisible(true);
         } else {
-            menu_presupuesto.setEnabled(false);
+            menu_presupuesto.setVisible(false);
         }
         if (m13.equals("S")) {
-            menu_egreso.setEnabled(true);
+            menu_egreso.setVisible(true);
         } else {
-            menu_egreso.setEnabled(false);
+            menu_egreso.setVisible(false);
         }
         if (m14.equals("S")) {
-            menu_caja.setEnabled(true);
+            menu_caja.setVisible(true);
         } else {
-            menu_caja.setEnabled(false);
+            menu_caja.setVisible(false);
         }
         if (m15.equals("S")) {
-            menu_listado_mov.setEnabled(true);
+            menu_listado_mov.setVisible(true);
         } else {
-            menu_listado_mov.setEnabled(false);
+            menu_listado_mov.setVisible(false);
         }
         if (m16.equals("S")) {
-            menu_historicos.setEnabled(true);
+            menu_historicos.setVisible(true);
         } else {
-            menu_historicos.setEnabled(false);
+            menu_historicos.setVisible(false);
         }
         if (m17.equals("S")) {
-            menu_cuentas.setEnabled(true);
+            menu_cuentas.setVisible(true);
         } else {
-            menu_cuentas.setEnabled(false);
+            menu_cuentas.setVisible(false);
         }
         if (m18.equals("S")) {
-            menu_cambios.setEnabled(true);
+            menu_cambios.setVisible(true);
         } else {
-            menu_cambios.setEnabled(false);
+            menu_cambios.setVisible(false);
         }
         if (m19.equals("S")) {
-            menu_transferencia.setEnabled(true);
+            menu_transferencia.setVisible(true);
         } else {
-            menu_transferencia.setEnabled(false);
+            menu_transferencia.setVisible(false);
         }
         ///////////////////////////////////////////////
         if (m20.equals("S")) {
-            menu_razon_pro.setEnabled(true);
-            menu_lista_trans.setEnabled(true);
+            menu_razon_pro.setVisible(true);
+            menu_lista_trans.setVisible(true);
         } else {
-            menu_razon_pro.setEnabled(false);
-            menu_lista_trans.setEnabled(false);
+            menu_razon_pro.setVisible(false);
+            menu_lista_trans.setVisible(false);
         }
         if (m21.equals("S")) {
-            menu_list_dto.setEnabled(true);
+            menu_list_dto.setVisible(true);
         } else {
-            menu_list_dto.setEnabled(false);
+            menu_list_dto.setVisible(false);
         }
         if (m22.equals("S")) {
-            menu_list_fisico.setEnabled(true);
-            menu_stock_sucursales.setEnabled(true);
+            menu_list_fisico.setVisible(true);
+            menu_stock_sucursales.setVisible(true);
         } else {
-            menu_list_fisico.setEnabled(false);
-            menu_stock_sucursales.setEnabled(false);
+            menu_list_fisico.setVisible(false);
+            menu_stock_sucursales.setVisible(false);
         }
         if (m23.equals("S")) {
-            menu_list_cp.setEnabled(true);
+            menu_list_cp.setVisible(true);
         } else {
-            menu_list_cp.setEnabled(false);
+            menu_list_cp.setVisible(false);
         }
         if (m24.equals("S")) {
-            menu_list_venta.setEnabled(true);
-            menu_ventas_gral.setEnabled(true);
+            menu_list_venta.setVisible(true);
+            menu_ventas_gral.setVisible(true);
         } else {
-            menu_list_venta.setEnabled(false);
-            menu_ventas_gral.setEnabled(false);
+            menu_list_venta.setVisible(false);
+            menu_ventas_gral.setVisible(false);
         }
         if (m25.equals("S")) {
-            menu_salida_stock.setEnabled(true);
+            menu_salida_stock.setVisible(true);
         } else {
-            menu_salida_stock.setEnabled(false);
+            menu_salida_stock.setVisible(false);
         }
         if (m26.equals("S")) {
-            menu_lucro_pro.setEnabled(true);
+            menu_lucro_pro.setVisible(true);
         } else {
-            menu_lucro_pro.setEnabled(false);
+            menu_lucro_pro.setVisible(false);
         }
         if (m27.equals("S")) {
-            menu_venta_usu.setEnabled(true);
+            menu_venta_usu.setVisible(true);
         } else {
-            menu_venta_usu.setEnabled(false);
+            menu_venta_usu.setVisible(false);
         }
         if (m28.equals("S")) {
-            menu_lucro_user.setEnabled(true);
+            menu_lucro_user.setVisible(true);
         } else {
-            menu_lucro_user.setEnabled(false);
+            menu_lucro_user.setVisible(false);
         }
         if (m29.equals("S")) {
-            menu_recibo_fisc.setEnabled(true);
+            menu_recibo_fisc.setVisible(true);
         } else {
-            menu_recibo_fisc.setEnabled(false);
+            menu_recibo_fisc.setVisible(false);
         }
         if (m30.equals("S")) {
-            menu_list_compras.setEnabled(true);
+            menu_list_compras.setVisible(true);
         } else {
-            menu_list_compras.setEnabled(false);
+            menu_list_compras.setVisible(false);
         }
         if (m31.equals("S")) {
-            menu_list_devol.setEnabled(true);
+            menu_list_devol.setVisible(true);
         } else {
-            menu_list_devol.setEnabled(false);
+            menu_list_devol.setVisible(false);
         }
         if (m32.equals("S")) {
-            menu_lucro.setEnabled(true);
+            menu_lucro.setVisible(true);
         } else {
-            menu_lucro.setEnabled(false);
+            menu_lucro.setVisible(false);
         }
         if (m33.equals("S")) {
-            menu_facturas.setEnabled(true);
-            menu_fact_expo.setEnabled(true);
+            menu_facturas.setVisible(true);
+            menu_fact_expo.setVisible(true);
         } else {
-            menu_facturas.setEnabled(false);
-            menu_fact_expo.setEnabled(false);
+            menu_facturas.setVisible(false);
+            menu_fact_expo.setVisible(false);
         }
         if (m34.equals("S")) {
-            menu_bancos.setEnabled(true);
+            menu_bancos.setVisible(true);
         } else {
-            menu_bancos.setEnabled(false);
+            menu_bancos.setVisible(false);
         }
         if (m35.equals("S")) {
-            menu_recibos.setEnabled(true);
+            menu_recibos.setVisible(true);
         } else {
-            menu_recibos.setEnabled(false);
+            menu_recibos.setVisible(false);
         }
         if (m36.equals("S")) {
-            menu_pedidos.setEnabled(true);
+            menu_pedidos.setVisible(true);
         } else {
-            menu_pedidos.setEnabled(false);
+            menu_pedidos.setVisible(false);
         }
         if (m37.equals("S")) {
-            menu_nota_cre.setEnabled(true);
+            menu_nota_cre.setVisible(true);
         } else {
-            menu_nota_cre.setEnabled(false);
+            menu_nota_cre.setVisible(false);
         }
         if (m38.equals("S")) {
-            menu_surcusales.setEnabled(true);
+            menu_surcusales.setVisible(true);
         } else {
-            menu_surcusales.setEnabled(false);
+            menu_surcusales.setVisible(false);
         }
     }
 
@@ -5076,14 +5865,14 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         String actual = lbl_version.getText();
         String ver = "";
 
-        String consul = "SELECT * FROM empresas ";
+        String consul = "SELECT control_version FROM empresas ";
         try {
             Connection cn = conectar.getInstance().getConnection();
 
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                ver = rs.getString(27);//pendiente a modificacion
+                ver = rs.getString(1);//pendiente a modificacion
             }
             if (actual.equals(ver)) {
                 version_alerta.setText("Versión Actualizada");

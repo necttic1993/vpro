@@ -224,7 +224,7 @@ public class Productos_ventas_modifica extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock='A' ";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%'  AND pro_stock='A' ORDER BY pro_cod DESC LIMIT 100";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 

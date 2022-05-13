@@ -46,7 +46,7 @@ public class Agregar_factura_recibo extends javax.swing.JDialog {
         jLabel6 = new javax.swing.JLabel();
         txt_venta_cre_saldo = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        lbl_fecha_factura = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         txt_monto_factura = new javax.swing.JTextField();
@@ -54,6 +54,8 @@ public class Agregar_factura_recibo extends javax.swing.JDialog {
         txt_nro_venta_rec = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         txt_lote_fact = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Recibos");
@@ -68,7 +70,7 @@ public class Agregar_factura_recibo extends javax.swing.JDialog {
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 110, 30));
 
         lbl_cli_factura.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jPanel1.add(lbl_cli_factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 160, 30));
+        jPanel1.add(lbl_cli_factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 150, 30));
 
         txt_nro_venta.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txt_nro_venta.setDisabledTextColor(new java.awt.Color(255, 0, 0));
@@ -142,9 +144,9 @@ public class Agregar_factura_recibo extends javax.swing.JDialog {
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 160, 150, 50));
 
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel4.setText("Lote Factura:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 100, 30));
+        lbl_fecha_factura.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbl_fecha_factura.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(lbl_fecha_factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 100, 30));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel7.setText("Id Cliente:");
@@ -178,7 +180,15 @@ public class Agregar_factura_recibo extends javax.swing.JDialog {
         txt_lote_fact.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         txt_lote_fact.setDisabledTextColor(new java.awt.Color(153, 0, 0));
         txt_lote_fact.setEnabled(false);
-        jPanel1.add(txt_lote_fact, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 60, 30));
+        jPanel1.add(txt_lote_fact, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 60, 30));
+
+        jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel12.setText("Lote Factura:");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 100, 30));
+
+        jLabel13.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel13.setText("Fecha Fact.:");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 100, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 220));
 
@@ -234,7 +244,7 @@ public class Agregar_factura_recibo extends javax.swing.JDialog {
             String[] dato = new String[11];
 
             String nro_factura = txt_nro_venta.getText();
-            String fecha = Principal.lbl_fecha_principal.getText();
+            String fecha =lbl_fecha_factura.getText();// Principal.lbl_fecha_principal.getText();//
             String importe = txt_monto_pago.getText();
             String saldo = txt_venta_cre_saldo.getText();
             String venta_nro = txt_nro_venta_rec.getText();
@@ -307,7 +317,8 @@ public class Agregar_factura_recibo extends javax.swing.JDialog {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -315,6 +326,7 @@ public class Agregar_factura_recibo extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbl_cli_factura;
+    public static javax.swing.JLabel lbl_fecha_factura;
     public static javax.swing.JTextField txt_lote_fact;
     public static javax.swing.JTextField txt_monto_factura;
     private javax.swing.JTextField txt_monto_pago;

@@ -158,7 +158,7 @@ public class cambios extends javax.swing.JDialog {
         lbl_primero.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         lbl_primero.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_primero.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
-        jPanel3.add(lbl_primero, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 40, 30));
+        jPanel3.add(lbl_primero, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 40, 40));
 
         txt_guarani.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         txt_guarani.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -167,12 +167,12 @@ public class cambios extends javax.swing.JDialog {
                 txt_guaraniActionPerformed(evt);
             }
         });
-        jPanel3.add(txt_guarani, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 130, 30));
+        jPanel3.add(txt_guarani, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 130, 40));
 
         lbl_segundo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         lbl_segundo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_segundo.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
-        jPanel3.add(lbl_segundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 40, 30));
+        jPanel3.add(lbl_segundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, 40, 40));
 
         txt_real.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         txt_real.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -186,7 +186,7 @@ public class cambios extends javax.swing.JDialog {
                 txt_realKeyReleased(evt);
             }
         });
-        jPanel3.add(txt_real, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 130, 30));
+        jPanel3.add(txt_real, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 130, 40));
 
         txt_dolar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         txt_dolar.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -200,12 +200,12 @@ public class cambios extends javax.swing.JDialog {
                 txt_dolarKeyReleased(evt);
             }
         });
-        jPanel3.add(txt_dolar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 50, 130, 30));
+        jPanel3.add(txt_dolar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, 130, 40));
 
         lbl_tercero.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         lbl_tercero.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_tercero.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
-        jPanel3.add(lbl_tercero, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 50, 40, 30));
+        jPanel3.add(lbl_tercero, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, 40, 40));
 
         txtcod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtcod.addActionListener(new java.awt.event.ActionListener() {

@@ -225,7 +225,7 @@ public class Productos_presupuesto extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' ";
+            String cons = " select * from tienda_productos WHERE CONCAT (pro_cod,pro_cod_barra,pro_des) LIKE '%" + valor + "%' ORDER BY pro_cod DESC LIMIT 100 ";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
 
@@ -1608,7 +1608,7 @@ public class Productos_presupuesto extends javax.swing.JDialog {
         });
         jScrollPane2.setViewportView(tbprod);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 1080, 470));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 1070, 470));
 
         jPanel3.setBackground(new java.awt.Color(0, 102, 204));
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));

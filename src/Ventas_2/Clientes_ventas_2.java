@@ -41,7 +41,7 @@ public class Clientes_ventas_2 extends javax.swing.JDialog {
     }
 
     void cargar(String valor) {
-        String mostrar = "SELECT cli_cod,cli_nombre,cli_razon,cli_ruc,cli_contacto,cli_tipo,cli_pais,nro_registro FROM tienda_clientes WHERE CONCAT(cli_nombre,cli_ruc) LIKE '%" + valor + "%'";
+        String mostrar = "SELECT cli_cod,cli_nombre,cli_razon,cli_ruc,cli_contacto,cli_tipo,cli_pais,nro_registro FROM tienda_clientes WHERE CONCAT(cli_nombre,cli_ruc) LIKE '%" + valor + "%' ORDER BY cli_cod DESC LIMIT 100";
         String[] titulos = {"Código", "Nombre", "Razón Social", "RUC", "Contacto", "Tipo", "Sucursal", "RT"};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);
@@ -143,7 +143,7 @@ public class Clientes_ventas_2 extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tbclientes);
 
-        cp_2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 880, 450));
+        cp_2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 880, 440));
 
         btn_agregarcli.setBackground(new java.awt.Color(255, 255, 255));
         btn_agregarcli.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -176,7 +176,7 @@ public class Clientes_ventas_2 extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(cp_2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(cp_2, javax.swing.GroupLayout.DEFAULT_SIZE, 901, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

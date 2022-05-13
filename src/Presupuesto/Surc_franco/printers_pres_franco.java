@@ -6,6 +6,7 @@
 package Presupuesto.Surc_franco;
 
 import Conexion_DB.conectar;
+import static Presupuesto.Surc_franco.Presupuesto_presupuesto_franco.cod_print_presupuesto_modulo_2;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -38,6 +39,7 @@ public class printers_pres_franco extends javax.swing.JDialog {
     public printers_pres_franco(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        txt_nro_presupuesto_modulo.setText(cod_print_presupuesto_modulo_2);
     }
 
     /**
@@ -52,12 +54,15 @@ public class printers_pres_franco extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel21 = new javax.swing.JLabel();
+        txt_nro_presupuesto_modulo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Modelos de Impresión");
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -76,6 +81,7 @@ public class printers_pres_franco extends javax.swing.JDialog {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 52, 127, 60));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -89,37 +95,28 @@ public class printers_pres_franco extends javax.swing.JDialog {
                 jButton2ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 52, 127, 60));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(45, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(59, Short.MAX_VALUE))
-        );
+        jLabel21.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        jLabel21.setText("Nro de Presupuesto:");
+        jLabel21.setFocusable(false);
+        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 170, 30));
+
+        txt_nro_presupuesto_modulo.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        txt_nro_presupuesto_modulo.setForeground(new java.awt.Color(204, 0, 0));
+        txt_nro_presupuesto_modulo.setText("0000000");
+        txt_nro_presupuesto_modulo.setFocusable(false);
+        jPanel1.add(txt_nro_presupuesto_modulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 110, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
         );
 
         pack();
@@ -241,7 +238,9 @@ public class printers_pres_franco extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel txt_nro_presupuesto_modulo;
     // End of variables declaration//GEN-END:variables
 
 

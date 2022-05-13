@@ -263,6 +263,8 @@ public class Ventas_venta_24_mod extends javax.swing.JDialog {
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 100, 30));
 
         txt_cod_cli.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txt_cod_cli.setDisabledTextColor(new java.awt.Color(153, 0, 51));
+        txt_cod_cli.setEnabled(false);
         txt_cod_cli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_cod_cliActionPerformed(evt);
@@ -341,6 +343,7 @@ public class Ventas_venta_24_mod extends javax.swing.JDialog {
         });
         jPanel1.add(chk_plazo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 90, 30));
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
         jButton1.setBorderPainted(false);

@@ -77,72 +77,103 @@ WHERE
 	<field name="presupuesto_detalles_surc_2_data" class="java.sql.Date"/>
 	<field name="presupuesto_detalles_surc_2_id_pre_det" class="java.lang.Integer"/>
 	<title>
-		<band height="130" splitType="Stretch">
+		<band height="141" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="56" width="175" height="27" uuid="bc120586-b34b-4823-a1b8-7dd347f92792"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="81" y="22" width="222" height="27" uuid="bc120586-b34b-4823-a1b8-7dd347f92792"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{empresas_emp_nom}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="383" y="31" width="72" height="15" uuid="7881c4c1-a18a-455c-81f1-f274bec2b825"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
+				<reportElement x="417" y="69" width="113" height="15" uuid="7881c4c1-a18a-455c-81f1-f274bec2b825"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="9" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Presupuesto N°:]]></text>
+				<text><![CDATA[Nota de resupuesto N°:]]></text>
 			</staticText>
 			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement x="383" y="8" width="147" height="20" uuid="07f067af-92ea-4d0e-b26b-228ebfeab926"/>
+				<reportElement x="383" y="8" width="147" height="15" uuid="07f067af-92ea-4d0e-b26b-228ebfeab926"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="9" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="103" width="63" height="27" uuid="ab7cef6d-322e-4d02-86af-27849f9bab81"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
+				<reportElement x="349" y="8" width="34" height="15" uuid="562b6520-7464-4253-836f-002e9ce17a59"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font fontName="Arial" size="9" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Señor/a:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="383" y="49" width="72" height="15" uuid="562b6520-7464-4253-836f-002e9ce17a59"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="Arial" size="9" isBold="true"/>
-				</textElement>
-				<text><![CDATA[En fecha:]]></text>
+				<text><![CDATA[Fecha:]]></text>
 			</staticText>
 			<componentElement>
-				<reportElement x="351" y="97" width="198" height="33" uuid="5499c86e-9785-4ffe-a2ba-da8e2568a31c"/>
+				<reportElement x="375" y="101" width="178" height="33" uuid="5499c86e-9785-4ffe-a2ba-da8e2568a31c"/>
 				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code128" drawText="false" checksumRequired="false">
 					<jr:codeExpression><![CDATA[$P{codigo}]]></jr:codeExpression>
 				</jr:barbecue>
 			</componentElement>
 			<image hAlign="Center" vAlign="Middle">
-				<reportElement x="0" y="0" width="175" height="56" uuid="eae0742d-579a-41c9-9223-f135ac884d8b"/>
+				<reportElement x="21" y="8" width="60" height="56" uuid="eae0742d-579a-41c9-9223-f135ac884d8b"/>
 				<imageExpression><![CDATA[$F{empresas_emp_imag}]]></imageExpression>
 			</image>
 			<textField>
-				<reportElement x="63" y="103" width="267" height="27" uuid="7368d69d-eff1-4b0f-81ae-c1c8626bd7d6"/>
+				<reportElement x="63" y="120" width="267" height="16" uuid="7368d69d-eff1-4b0f-81ae-c1c8626bd7d6"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="9" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{presupuesto_surc_2_nom_cli_ventas}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="455" y="31" width="100" height="15" uuid="aa1bf72a-9ab3-46ea-b680-a5e54253a0c9"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Arial" size="9"/>
+				<reportElement x="417" y="84" width="113" height="15" uuid="aa1bf72a-9ab3-46ea-b680-a5e54253a0c9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{presupuesto_surc_2_num_bol}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="455" y="49" width="49" height="15" uuid="b251459a-2690-4cef-a676-c414315db523"/>
+				<reportElement x="99" y="90" width="49" height="15" uuid="b251459a-2690-4cef-a676-c414315db523"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial" size="9"/>
+					<font fontName="Arial" size="9" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{presupuesto_surc_2_fecha_ventas}]]></textFieldExpression>
+			</textField>
+			<rectangle radius="10">
+				<reportElement x="189" y="70" width="186" height="24" backcolor="#000000" uuid="4f72cd13-acb7-40d0-ad63-83ac74bd99ed"/>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Opaque" x="212" y="73" width="140" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="1655982d-33c0-4413-a9ff-098480cc61e1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRESUPUESTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="90" width="88" height="15" uuid="c61a7f06-c5ae-4940-a536-8d210344fb61"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de emisión:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="120" width="63" height="16" uuid="e9de2095-636c-464b-a4e6-1d90020333cc"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Señor(es):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="105" width="63" height="15" uuid="cead7b80-6489-4348-98bd-69afed02dacd"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Emitido por:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="74" y="105" width="255" height="15" uuid="ad710d51-2f8b-4bac-97b4-aed10ca1691f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{presupuesto_surc_2_user_ventas}]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>
@@ -150,9 +181,9 @@ WHERE
 		<band splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="18" splitType="Stretch">
-			<rectangle>
-				<reportElement x="0" y="0" width="555" height="18" uuid="4aff8f7c-6c6d-458b-9a98-099ee73f6de6"/>
+		<band height="19" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="1" y="1" width="554" height="17" uuid="6e05d5d1-67d1-4931-9347-0134927a486d"/>
 			</rectangle>
 			<staticText>
 				<reportElement x="0" y="0" width="74" height="18" uuid="ee2862db-8ed8-4b58-8a38-adc689dc90d8"/>
@@ -189,18 +220,6 @@ WHERE
 				</textElement>
 				<text><![CDATA[Valor Venta]]></text>
 			</staticText>
-			<line>
-				<reportElement x="472" y="0" width="1" height="18" uuid="5dc22524-8af5-4c4e-98c3-f2828fe32c1f"/>
-			</line>
-			<line>
-				<reportElement x="411" y="0" width="1" height="18" uuid="1b56038c-130e-4c7a-818f-ea499e299e7a"/>
-			</line>
-			<line>
-				<reportElement x="329" y="0" width="1" height="18" uuid="0ba24835-2c4f-410a-9549-20b49a1838c6"/>
-			</line>
-			<line>
-				<reportElement x="74" y="0" width="1" height="18" uuid="5b8655df-a38d-408b-86ce-0d390829cc13"/>
-			</line>
 		</band>
 	</columnHeader>
 	<detail>
@@ -264,27 +283,36 @@ WHERE
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="5" splitType="Stretch">
-			<line>
-				<reportElement x="397" y="0" width="158" height="1" uuid="7162d5ab-b6d6-4368-9547-73cdf60b47df"/>
-			</line>
-		</band>
+		<band splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
 		<band height="54" splitType="Stretch">
-			<staticText>
-				<reportElement x="397" y="3" width="69" height="17" uuid="1b0f0f98-769e-4294-87cf-ed516ec23fea"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="Arial" size="10" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Total :]]></text>
-			</staticText>
+			<line>
+				<reportElement x="1" y="3" width="553" height="1" uuid="7162d5ab-b6d6-4368-9547-73cdf60b47df"/>
+			</line>
+			<rectangle radius="10">
+				<reportElement x="410" y="7" width="143" height="24" backcolor="#000000" uuid="179bc810-84b3-4371-b482-bb9320380bce"/>
+			</rectangle>
 			<textField>
-				<reportElement x="466" y="3" width="83" height="17" uuid="421dee0a-a29a-4da8-ae2f-382d78f4e9fb"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
+				<reportElement mode="Opaque" x="427" y="11" width="118" height="17" forecolor="#FFFFFF" backcolor="#000000" uuid="421dee0a-a29a-4da8-ae2f-382d78f4e9fb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{presupuesto_surc_2_total_ventas}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="18" y="7" width="81" height="21" uuid="14d765a3-2b11-4323-ac02-1c08b7d8640e"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL ITEMS:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="99" y="7" width="100" height="20" uuid="cbc30676-a11b-444d-8666-b3f1009c86bd"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{presupuesto_surc_2_cant_ventas}]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageFooter>

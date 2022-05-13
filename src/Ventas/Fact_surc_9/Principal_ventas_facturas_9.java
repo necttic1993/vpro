@@ -764,7 +764,7 @@ public class Principal_ventas_facturas_9 extends javax.swing.JDialog {
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
 
-            String cons = "select * from ventas_facturacion_surc_9  WHERE CONCAT (num_bol,cod_cli_ventas,nom_cli_ventas) LIKE '%" + valor + "%' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion_surc_9  WHERE CONCAT (num_bol,cod_cli_ventas,nom_cli_ventas) LIKE '%" + valor + "%' ORDER BY nro_fact_ventas DESC LIMIT 100";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {

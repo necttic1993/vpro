@@ -737,7 +737,7 @@ public class List_forma_pago_caja extends javax.swing.JDialog {
         ch_todos.setSelected(false);
         ch_descrip.setSelected(true);
         ch_situacion.setSelected(false);
-        cb_forma_pago.setEnabled(false);
+        cb_forma_pago.setEnabled(true);
         ch_cuentas.setSelected(false);
         ch_clientes.setSelected(false);
         ////

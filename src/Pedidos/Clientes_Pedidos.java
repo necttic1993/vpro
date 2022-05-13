@@ -35,7 +35,7 @@ public class Clientes_Pedidos extends javax.swing.JDialog {
     }
 
     void cargar(String valor) {
-        String mostrar = "SELECT * FROM tienda_clientes WHERE CONCAT(cli_nombre,cli_ruc) LIKE '%" + valor + "%'";
+        String mostrar = "SELECT * FROM tienda_clientes WHERE CONCAT(cli_nombre,cli_ruc) LIKE '%" + valor + "%' ORDER BY cli_cod DESC LIMIT 100";
         String[] titulos = {"Código", "Nombre", "Razón Social", "RUC", "Contacto", "Dirección", "Status."};
         String[] Registros = new String[9];
         model = new DefaultTableModel(null, titulos);

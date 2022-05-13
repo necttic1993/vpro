@@ -7,6 +7,7 @@ package Caja_2.Pago_Plazos;
 
 import static Caja_2.Caja_caja.txt_alma_caja;
 import static Caja_2.Pago_Plazos.Agregar_factura_recibo.cod_cli;
+import static Caja_2.Pago_Plazos.Agregar_factura_recibo.lbl_fecha_factura;
 import Conexion_DB.conectar;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
@@ -241,12 +242,15 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 String monto_total = tb_pago_cred.getValueAt(fila, 5).toString();
                 String lote = tb_pago_cred.getValueAt(fila, 6).toString();
                 String surcu = txt_alma_caja.getText();
+                //fecha fact
+                String fecha_fact = tb_pago_cred.getValueAt(fila, 7).toString();
 
                 Agregar_factura_recibo.txt_nro_venta.setText(nro_fact);
                 Agregar_factura_recibo.txt_plazo_saldo.setText(saldo);
                 Agregar_factura_recibo.txt_monto_factura.setText(monto_total);
                 Agregar_factura_recibo.txt_nro_venta_rec.setText(nro_venta);
                 Agregar_factura_recibo.txt_lote_fact.setText(lote);
+                Agregar_factura_recibo.lbl_fecha_factura.setText(fecha_fact);
 
                 ////////////////////////////////cargar tabla detalles///////////////////////////////////
                 this.dispose();
@@ -285,12 +289,14 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                     String monto_total = tb_pago_cred.getValueAt(fila, 5).toString();
                     String lote = tb_pago_cred.getValueAt(fila, 6).toString();
                     String surcu = txt_alma_caja.getText();
+                     String fecha_fact = tb_pago_cred.getValueAt(fila, 7).toString();
 
                     Agregar_factura_recibo.txt_nro_venta.setText(nro_fact);
                     Agregar_factura_recibo.txt_plazo_saldo.setText(saldo);
                     Agregar_factura_recibo.txt_monto_factura.setText(monto_total);
                     Agregar_factura_recibo.txt_nro_venta_rec.setText(nro_venta);
                     Agregar_factura_recibo.txt_lote_fact.setText(lote);
+                    Agregar_factura_recibo.lbl_fecha_factura.setText(fecha_fact);
 
                     this.dispose();
 
@@ -328,88 +334,88 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
         }
 
         if (txt_alma_caja.getText().equals("0000003")) {
-            cargar_2(txt_bus.getText());
+            cargar_3(txt_bus.getText());
         }
         if (txt_alma_caja.getText().equals("0000004")) {
-            cargar_2(txt_bus.getText());
+            cargar_4(txt_bus.getText());
         }
         if (txt_alma_caja.getText().equals("0000005")) {
-            cargar_2(txt_bus.getText());
+            cargar_5(txt_bus.getText());
         }
         if (txt_alma_caja.getText().equals("0000006")) {
-            cargar_2(txt_bus.getText());
+            cargar_6(txt_bus.getText());
         }
         if (txt_alma_caja.getText().equals("0000007")) {
-            cargar_2(txt_bus.getText());
+            cargar_7(txt_bus.getText());
         }
         if (txt_alma_caja.getText().equals("0000008")) {
-            cargar_2(txt_bus.getText());
+            cargar_8(txt_bus.getText());
         }
         if (txt_alma_caja.getText().equals("0000009")) {
-            cargar_2(txt_bus.getText());
+            cargar_9(txt_bus.getText());
         }
         if (txt_alma_caja.getText().equals("0000010")) {
-            cargar_2(txt_bus.getText());
+            cargar_10(txt_bus.getText());
         }
         if (txt_alma_caja.getText().equals("0000011")) {
-            cargar_2(txt_bus.getText());
+            cargar_11(txt_bus.getText());
         }
         if (txt_alma_caja.getText().equals("0000012")) {
-            cargar_2(txt_bus.getText());
+            cargar_12(txt_bus.getText());
         }
         if (txt_alma_caja.getText().equals("0000013")) {
-            cargar_2(txt_bus.getText());
+            cargar_13(txt_bus.getText());
         }
         if (txt_alma_caja.getText().equals("0000014")) {
-            cargar_2(txt_bus.getText());
+            cargar_14(txt_bus.getText());
         }
         if (txt_alma_caja.getText().equals("0000015")) {
-            cargar_2(txt_bus.getText());
+            cargar_15(txt_bus.getText());
         }
         if (txt_alma_caja.getText().equals("0000016")) {
-            cargar_2(txt_bus.getText());
+            cargar_16(txt_bus.getText());
         }
         if (txt_alma_caja.getText().equals("0000017")) {
-            cargar_2(txt_bus.getText());
+            cargar_17(txt_bus.getText());
         }
         if (txt_alma_caja.getText().equals("0000018")) {
-            cargar_2(txt_bus.getText());
+            cargar_18(txt_bus.getText());
         }
         if (txt_alma_caja.getText().equals("0000019")) {
-            cargar_2(txt_bus.getText());
+            cargar_19(txt_bus.getText());
         }
         if (txt_alma_caja.getText().equals("0000020")) {
-            cargar_2(txt_bus.getText());
+            cargar_20(txt_bus.getText());
         }
         if (txt_alma_caja.getText().equals("0000021")) {
-            cargar_2(txt_bus.getText());
+            cargar_21(txt_bus.getText());
         }
         if (txt_alma_caja.getText().equals("0000022")) {
-            cargar_2(txt_bus.getText());
+            cargar_22(txt_bus.getText());
         }
         if (txt_alma_caja.getText().equals("0000023")) {
-            cargar_2(txt_bus.getText());
+            cargar_23(txt_bus.getText());
         }
         if (txt_alma_caja.getText().equals("0000024")) {
-            cargar_2(txt_bus.getText());
+            cargar_24(txt_bus.getText());
         }
         if (txt_alma_caja.getText().equals("0000025")) {
-            cargar_2(txt_bus.getText());
+            cargar_25(txt_bus.getText());
         }
         if (txt_alma_caja.getText().equals("0000026")) {
-            cargar_2(txt_bus.getText());
+            cargar_26(txt_bus.getText());
         }
         if (txt_alma_caja.getText().equals("0000027")) {
-            cargar_2(txt_bus.getText());
+            cargar_27(txt_bus.getText());
         }
         if (txt_alma_caja.getText().equals("0000028")) {
-            cargar_2(txt_bus.getText());
+            cargar_28(txt_bus.getText());
         }
         if (txt_alma_caja.getText().equals("0000029")) {
-            cargar_2(txt_bus.getText());
+            cargar_29(txt_bus.getText());
         }
         if (txt_alma_caja.getText().equals("0000030")) {
-            cargar_2(txt_bus.getText());
+            cargar_30(txt_bus.getText());
         }
 
 
@@ -445,7 +451,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        
+
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -481,7 +487,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote", "Fecha"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -497,6 +503,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
                 registros[6] = rs.getString(35);
+                registros[7] = rs.getString(22);
 
                 model.addRow(registros);
             }
@@ -509,6 +516,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
+            tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(80);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -520,12 +528,12 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_2(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote", "Fecha"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion_surc_2 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion_surc_2 WHERE CONCAT (nro_fact_ventas,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -536,6 +544,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
                 registros[6] = rs.getString(35);
+                registros[7] = rs.getString(22);
 
                 model.addRow(registros);
             }
@@ -548,6 +557,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
+            tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(80);
             conectar.getInstance().closeConnection(cn);
             System.out.println("etron en lista");
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -564,7 +574,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion_surc_3 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion_surc_3 WHERE CONCAT (nro_fact_ventas,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -603,7 +613,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion_surc_4 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion_surc_4 WHERE CONCAT (nro_fact_ventas,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -642,7 +652,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion_surc_5 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion_surc_5 WHERE CONCAT (nro_fact_ventas,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -681,7 +691,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion_surc_6 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion_surc_6 WHERE CONCAT (nro_fact_ventas,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -720,7 +730,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion_surc_7 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion_surc_7 WHERE CONCAT (nro_fact_ventas,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -759,7 +769,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion_surc_8 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion_surc_8 WHERE CONCAT (nro_fact_ventas,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -798,7 +808,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion_surc_9 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion_surc_9 WHERE CONCAT (nro_fact_ventas,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -837,7 +847,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion_surc_10 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion_surc_10 WHERE CONCAT (nro_fact_ventas,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -876,7 +886,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion_surc_11 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion_surc_11 WHERE CONCAT (nro_fact_ventas,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -915,7 +925,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion_surc_12 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion_surc_12 WHERE CONCAT (nro_fact_ventas,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -954,7 +964,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion_surc_13 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion_surc_13 WHERE CONCAT (nro_fact_ventas,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -993,7 +1003,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion_surc_14 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion_surc_14 WHERE CONCAT (nro_fact_ventas,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1032,7 +1042,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion_surc_15 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion_surc_15 WHERE CONCAT (nro_fact_ventas,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1071,7 +1081,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND forma_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion WHERE CONCAT (nro_fact_ventas,nom_cli_ventas) LIKE '%" + valor + "%' AND forma_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1111,7 +1121,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion_surc_17 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion_surc_17 WHERE CONCAT (nro_fact_ventas,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1150,7 +1160,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND forma_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion WHERE CONCAT (nro_fact_ventas,nom_cli_ventas) LIKE '%" + valor + "%' AND forma_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1189,7 +1199,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion_surc_19 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion_surc_19 WHERE CONCAT (nro_fact_ventas,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1228,7 +1238,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND forma_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion WHERE CONCAT (nro_fact_ventas,nom_cli_ventas) LIKE '%" + valor + "%' AND forma_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1267,7 +1277,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion_surc_21 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion_surc_21 WHERE CONCAT (nro_fact_ventas,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1306,7 +1316,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion_surc_22 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion_surc_22 WHERE CONCAT (nro_fact_ventas,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1345,7 +1355,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion_surc_23 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion_surc_23 WHERE CONCAT (nro_fact_ventas,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1384,7 +1394,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion_surc_24 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion_surc_24 WHERE CONCAT (nro_fact_ventas,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1423,7 +1433,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion_surc_25 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion_surc_25 WHERE CONCAT (nro_fact_ventas,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1462,7 +1472,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion_surc_26 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion_surc_26 WHERE CONCAT (nro_fact_ventas,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1501,7 +1511,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion_surc_27 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion_surc_27 WHERE CONCAT (nro_fact_ventas,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1540,7 +1550,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion_surc_28 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion_surc_28 WHERE CONCAT (nro_fact_ventas,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1579,7 +1589,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion_surc_29 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion_surc_29 WHERE CONCAT (nro_fact_ventas,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -1618,7 +1628,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from ventas_facturacion_surc_30 WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
+            String cons = "select * from ventas_facturacion_surc_30 WHERE CONCAT (nro_fact_ventas,nom_cli_ventas) LIKE '%" + valor + "%' AND form_pag_lit='CRÉDITO' AND cod_cli_ventas='" + lbl_id_cli.getText() + "' AND saldo_cred <> 0 AND estado_fact <> 'ANULADA' ORDER BY nro_fact_ventas DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {

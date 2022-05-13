@@ -3,6 +3,7 @@ package Administrativo;
 //</editor-fold>
 //<editor-fold defaultstate="collapsed" desc="ZONA DE IMPORTACIONES">
 
+import Caja_2.Cuentas_listar_class_historicos;
 import Conexion_DB.conectar;
 import static Loggin_Principal.NECTTIC.ingreso;
 import Loggin_Principal.Principal;
@@ -50,16 +51,7 @@ public class Caja_Class_historicos extends javax.swing.JDialog {
         //cargarIN();
         txt_total_gs_ingreso.setDisabledTextColor(Color.black);
 
-        if (lbl_usu_almacen.getText().equals("TODOS")) {
-            cb_cuenta.setEnabled(true);
-            cargarCuenta();
-
-        } else {
-            cb_cuenta.setEnabled(false);
-            String cuenta = lbl_cuenta_user.getText();
-            cb_cuenta.addItem(cuenta);
-
-        }
+     
 
     }// FIN CONSTRUCTOR
     //</editor-fold>
@@ -81,7 +73,6 @@ public class Caja_Class_historicos extends javax.swing.JDialog {
         jd_ini_lucro = new org.jdesktop.swingx.JXDatePicker();
         jd_fin_lucro = new org.jdesktop.swingx.JXDatePicker();
         cb_his = new org.jdesktop.swingx.JXComboBox();
-        cb_cuenta = new org.jdesktop.swingx.JXComboBox();
         txt_total_gs_ingreso = new javax.swing.JTextField();
         txt_total_gs_egreso = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
@@ -89,6 +80,8 @@ public class Caja_Class_historicos extends javax.swing.JDialog {
         jLabel26 = new javax.swing.JLabel();
         valor_gs = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        txt_nro_cuenta = new javax.swing.JTextField();
+        btn_cuentas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Listado de Movimiento por Clasificacion");
@@ -131,7 +124,7 @@ public class Caja_Class_historicos extends javax.swing.JDialog {
 
         jLabel16.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel16.setText("Cuenta:");
-        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 10, 60, 30));
+        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 10, 60, 30));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/graphic.png"))); // NOI18N
@@ -157,22 +150,17 @@ public class Caja_Class_historicos extends javax.swing.JDialog {
 
         jLabel17.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel17.setText("Fecha Final:");
-        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 80, 30));
+        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 80, 30));
 
         jLabel19.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel19.setText("Clasificación de Históricos:");
-        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 160, 30));
-        jPanel3.add(jd_ini_lucro, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 140, 30));
-        jPanel3.add(jd_fin_lucro, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 140, 30));
+        jLabel19.setText("Clas. de Históricos:");
+        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 120, 30));
+        jPanel3.add(jd_ini_lucro, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 110, 30));
+        jPanel3.add(jd_fin_lucro, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 110, 30));
 
         cb_his.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TODOS", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }));
         cb_his.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jPanel3.add(cb_his, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 100, 30));
-
-        cb_cuenta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TODOS" }));
-        cb_cuenta.setToolTipText("");
-        cb_cuenta.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jPanel3.add(cb_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, 80, 30));
+        jPanel3.add(cb_his, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 100, 30));
 
         txt_total_gs_ingreso.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_total_gs_ingreso.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -216,6 +204,37 @@ public class Caja_Class_historicos extends javax.swing.JDialog {
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
         jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 530, 240, 10));
 
+        txt_nro_cuenta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txt_nro_cuenta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_nro_cuenta.setToolTipText("Buscar Cuentas");
+        txt_nro_cuenta.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txt_nro_cuenta.setEnabled(false);
+        txt_nro_cuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_nro_cuentaActionPerformed(evt);
+            }
+        });
+        txt_nro_cuenta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_nro_cuentaKeyPressed(evt);
+            }
+        });
+        jPanel3.add(txt_nro_cuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 10, 70, 32));
+
+        btn_cuentas.setBackground(new java.awt.Color(255, 255, 255));
+        btn_cuentas.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btn_cuentas.setForeground(new java.awt.Color(255, 255, 255));
+        btn_cuentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
+        btn_cuentas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_cuentas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_cuentas.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btn_cuentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cuentasActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btn_cuentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 10, 50, 32));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -242,7 +261,7 @@ public class Caja_Class_historicos extends javax.swing.JDialog {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         java.sql.Date fecha_ini = new java.sql.Date(jd_ini_lucro.getDate().getTime());
         java.sql.Date fecha_fin = new java.sql.Date(jd_fin_lucro.getDate().getTime());
-        String cont = (String) cb_cuenta.getSelectedItem();
+        String cont = txt_nro_cuenta.getText();
         String his = (String) cb_his.getSelectedItem();
         String var = "TODOS";
         //todos
@@ -290,7 +309,7 @@ public class Caja_Class_historicos extends javax.swing.JDialog {
                         String ingre_gs = txt_total_gs_ingreso.getText();
                         String user = Principal.lbl_usu_nom.getText();
                        String his = (String) cb_his.getSelectedItem();
-                        String cta = (String) cb_cuenta.getSelectedItem();
+                        String cta = txt_nro_cuenta.getText();
 
                         Map parametro = new HashMap();
                         parametro.clear();
@@ -339,7 +358,7 @@ public class Caja_Class_historicos extends javax.swing.JDialog {
 
                         String user = Principal.lbl_usu_nom.getText();
                         String his = (String) cb_his.getSelectedItem();
-                        String cta = (String) cb_cuenta.getSelectedItem();
+                        String cta = txt_nro_cuenta.getText();
 
                         Map parametro = new HashMap();
                         parametro.clear();
@@ -383,6 +402,20 @@ public class Caja_Class_historicos extends javax.swing.JDialog {
     private void txt_total_gs_egresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_total_gs_egresoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_total_gs_egresoActionPerformed
+
+    private void txt_nro_cuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nro_cuentaActionPerformed
+
+    }//GEN-LAST:event_txt_nro_cuentaActionPerformed
+
+    private void txt_nro_cuentaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nro_cuentaKeyPressed
+
+    }//GEN-LAST:event_txt_nro_cuentaKeyPressed
+
+    private void btn_cuentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cuentasActionPerformed
+        Cuentas_listar_class_historicos clcaja;
+        clcaja = new Cuentas_listar_class_historicos(new javax.swing.JDialog(), true);
+        clcaja.setVisible(true);
+    }//GEN-LAST:event_btn_cuentasActionPerformed
     //<editor-fold defaultstate="collapsed" desc="METODOS PRINCIPAL">
 
     /**
@@ -433,7 +466,7 @@ public class Caja_Class_historicos extends javax.swing.JDialog {
     }// FIN METODO PRINCIPAL
     //</editor-fold>   
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private org.jdesktop.swingx.JXComboBox cb_cuenta;
+    private javax.swing.JButton btn_cuentas;
     private org.jdesktop.swingx.JXComboBox cb_his;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -450,6 +483,7 @@ public class Caja_Class_historicos extends javax.swing.JDialog {
     private org.jdesktop.swingx.JXDatePicker jd_fin_lucro;
     private org.jdesktop.swingx.JXDatePicker jd_ini_lucro;
     public static javax.swing.JTable tb_ventas;
+    public static javax.swing.JTextField txt_nro_cuenta;
     public static javax.swing.JTextField txt_total_gs_egreso;
     public static javax.swing.JTextField txt_total_gs_ingreso;
     private javax.swing.JLabel valor_gs;
@@ -500,26 +534,6 @@ public class Caja_Class_historicos extends javax.swing.JDialog {
 
   
 
-    void cargarCuenta() {
-
-        String mostrar = "SELECT * FROM cuentas  ";
-
-        try {
-            Connection cn = conectar.getInstance().getConnection();
-
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(mostrar);
-            while (rs.next()) {
-                cb_cuenta.addItem(rs.getString(1));
-
-            }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (SQLException ex) {
-            Logger.getLogger(extracto_plazos.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
 
     public void calcularGS() {
 
