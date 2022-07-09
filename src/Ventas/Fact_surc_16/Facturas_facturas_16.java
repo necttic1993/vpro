@@ -17,6 +17,7 @@ import static Loggin_Principal.Principal.lbl_mes_actual;
 import static Loggin_Principal.Principal.lbl_usu_nom;
 import static Loggin_Principal.Principal.txt_simbolo;
 import java.awt.Color;
+import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -664,7 +665,7 @@ public class Facturas_facturas_16 extends javax.swing.JDialog {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-    
+
         //</editor-fold>
 
         /* Create and display the dialog */
@@ -831,6 +832,7 @@ public class Facturas_facturas_16 extends javax.swing.JDialog {
             conectar.getInstance().closeConnection(cn);
             if (n > 0) {
                 detalle_factura();
+                actEstadoVentas();
                 JOptionPane.showMessageDialog(null, "Factura de venta realizada con éxito");
                 if (JOptionPane.showConfirmDialog(rootPane, "Imprimir Factura de venta" + ": " + txt_sequencia.getText() + "-" + txt_esta.getText() + "-" + lbl_cod.getText() + ", ¿desea continuar?",
                         "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
@@ -1104,7 +1106,7 @@ public class Facturas_facturas_16 extends javax.swing.JDialog {
     }
 
     void cargarConfig() {
-        String mostrar = "SELECT * FROM almacenes_facturas";
+        String mostrar = "SELECT nro_timbra_16,nro_esta_16,nro_seq_16 FROM almacenes_facturas";
 
         try {
             Connection cn = conectar.getInstance().getConnection();
@@ -1113,9 +1115,9 @@ public class Facturas_facturas_16 extends javax.swing.JDialog {
             ResultSet rs = st.executeQuery(mostrar);
             while (rs.next()) {
 
-                txt_timbrado.setText(rs.getString("nro_timbra_16"));
-                txt_sequencia.setText(rs.getString("nro_esta_16"));
-                txt_esta.setText(rs.getString("nro_seq_16"));
+                txt_timbrado.setText(rs.getString(1));
+                txt_sequencia.setText(rs.getString(2));
+                txt_esta.setText(rs.getString(3));
 
             }
             conectar.getInstance().closeConnection(cn);
@@ -1138,6 +1140,29 @@ public class Facturas_facturas_16 extends javax.swing.JDialog {
         net = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(valor_ultimo.add(valor_total).toString());
         txttotal.setText(net);
 
+    }
+
+    public void actEstadoVentas() {
+        try {
+            String es = "1";
+            String nro = txt_cod.getText();
+
+            String sql = "UPDATE ventas_16 SET bool_fact = '" + es
+                    + "' WHERE num_bol = '" + nro + "'";
+            try {
+                Connection cn = conectar.getInstance().getConnection();
+
+                PreparedStatement pst = cn.prepareStatement(sql);
+                pst.executeUpdate();
+                //  JOptionPane.showMessageDialog(null, "Actualizado");
+                conectar.getInstance().closeConnection(cn);
+
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+
+        } catch (Exception e) {
+        }
     }
 
     void literal() {

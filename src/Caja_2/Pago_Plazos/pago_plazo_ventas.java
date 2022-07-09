@@ -36,11 +36,13 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
 
     DefaultTableModel model;
     DefaultTableModel model_deta;
+    String bool_ventas = "1";
+    public static String cod_cliente_cred_vent = "";
 
     public pago_plazo_ventas(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
-
+        btncalcular.setVisible(false);
         txt_plazo_saldo.setDisabledTextColor(Color.red);
 
     }
@@ -54,7 +56,6 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         txt_nro_venta = new javax.swing.JTextField();
         txt_plazo_saldo = new javax.swing.JTextField();
@@ -74,13 +75,23 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tb_nota_cred_ventas = new javax.swing.JTable();
+        txt_monto_credito = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        lbl_import_total = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
+        jLabel22 = new javax.swing.JLabel();
+        txt_cred_entrada_caja = new javax.swing.JTextField();
+        btncalcular = new javax.swing.JButton();
+        btneli = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -124,11 +135,11 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 210, 120, 40));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 490, 120, 40));
 
         btn_busar.setBackground(new java.awt.Color(255, 255, 255));
         btn_busar.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btn_busar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Caja_2/iconos/filtros.png"))); // NOI18N
+        btn_busar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/buscar.png"))); // NOI18N
         btn_busar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_busar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,7 +149,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
         jPanel2.add(btn_busar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, 50, 32));
 
         jSeparator2.setForeground(new java.awt.Color(0, 102, 153));
-        jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 680, 10));
+        jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 680, 10));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("Venta N°:");
@@ -149,17 +160,17 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
         txt_nom_cli_cred.setEnabled(false);
         jPanel2.add(txt_nom_cli_cred, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 500, 32));
 
-        txt_venta_cre_saldo.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        txt_venta_cre_saldo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_venta_cre_saldo.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        txt_venta_cre_saldo.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txt_venta_cre_saldo.setText("0");
         txt_venta_cre_saldo.setDisabledTextColor(new java.awt.Color(153, 0, 51));
         txt_venta_cre_saldo.setEnabled(false);
-        jPanel2.add(txt_venta_cre_saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 100, 160, 32));
+        jPanel2.add(txt_venta_cre_saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 320, 170, 32));
 
         lbl_serie_pago.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lbl_serie_pago.setForeground(new java.awt.Color(0, 102, 0));
         lbl_serie_pago.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jPanel2.add(lbl_serie_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, 250, 30));
+        jPanel2.add(lbl_serie_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 440, 250, 30));
 
         id_cliente_cre.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         id_cliente_cre.setDisabledTextColor(new java.awt.Color(0, 0, 0));
@@ -181,12 +192,12 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setText("Saldo pendiente:");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, 120, 30));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, 150, 30));
 
         txt_almacen.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_almacen.setDisabledTextColor(new java.awt.Color(0, 102, 0));
         txt_almacen.setEnabled(false);
-        jPanel2.add(txt_almacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 150, 30));
+        jPanel2.add(txt_almacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 440, 150, 30));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel7.setText("Cliente:");
@@ -194,15 +205,116 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel9.setText("Serie N°:");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 70, 30));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 440, 70, 30));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("Surcusal:");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 80, 30));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 80, 30));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 270));
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel10.setText("Seleccionar Nota de Crédito");
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 210, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, -1));
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/buscar.png"))); // NOI18N
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 110, 50, 40));
+
+        tb_nota_cred_ventas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nro NC", "Monto", "Saldo"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tb_nota_cred_ventas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tb_nota_cred_ventasMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tb_nota_cred_ventas);
+
+        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 680, 160));
+
+        txt_monto_credito.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txt_monto_credito.setForeground(new java.awt.Color(204, 0, 51));
+        txt_monto_credito.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        txt_monto_credito.setText("0");
+        jPanel2.add(txt_monto_credito, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, 140, 30));
+
+        jLabel18.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        jLabel18.setText("Total NC:");
+        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 120, 30));
+
+        jLabel17.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        jLabel17.setText("Importe Total:");
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 90, 30));
+
+        lbl_import_total.setBackground(new java.awt.Color(153, 0, 51));
+        lbl_import_total.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbl_import_total.setForeground(new java.awt.Color(204, 0, 51));
+        lbl_import_total.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbl_import_total.setText("0");
+        jPanel2.add(lbl_import_total, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 360, 140, 30));
+
+        jSeparator3.setBackground(new java.awt.Color(0, 153, 51));
+        jSeparator3.setForeground(new java.awt.Color(0, 102, 153));
+        jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 250, 10));
+
+        jLabel22.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(204, 0, 51));
+        jLabel22.setText("Entrada en caja >>>");
+        jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 360, 150, 30));
+
+        txt_cred_entrada_caja.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        txt_cred_entrada_caja.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txt_cred_entrada_caja.setText("0");
+        txt_cred_entrada_caja.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txt_cred_entrada_caja.setEnabled(false);
+        jPanel2.add(txt_cred_entrada_caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, 170, 30));
+
+        btncalcular.setBackground(new java.awt.Color(255, 255, 255));
+        btncalcular.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        btncalcular.setMnemonic('c');
+        btncalcular.setToolTipText("Calcular ALT+C");
+        btncalcular.setBorder(new javax.swing.border.MatteBorder(null));
+        btncalcular.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btncalcular.setFocusable(false);
+        btncalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncalcularActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btncalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 30, 20));
+
+        btneli.setBackground(new java.awt.Color(255, 255, 255));
+        btneli.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btneli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/eliminar.png"))); // NOI18N
+        btneli.setMnemonic('e');
+        btneli.setToolTipText("Remover Productos ALT+E");
+        btneli.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btneli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneliActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btneli, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 50, 40));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 550));
 
         pack();
         setLocationRelativeTo(null);
@@ -221,22 +333,6 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
 
         } else {
             pago_credito();
-            actEstadoVentas();
-            actpagos();
-            cargar_Caja();
-            JOptionPane.showMessageDialog(null, "Operación exitosa!");
-
-            if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
-                    "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-
-                Reportes reporte = new Reportes();
-                try {
-                    reporte.receb(lbl_serie_pago.getText());
-
-                } catch (SQLException | JRException ex) {
-                    Logger.getLogger(pago_plazo_ventas.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
 
             limpiar();
             this.dispose();
@@ -270,11 +366,48 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
 
     private void txt_monto_pagoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_monto_pagoKeyReleased
         ActivatedYourLife_efect(txt_monto_pago, evt);
+        lbl_import_total.setText(txt_monto_pago.getText());
         calcular_monto_efect();
+        calcular_entrada_caja();
         int sig = 1;
-        lbl_serie_pago.setText(lbl_fecha_hoy.getText() + "-" + txt_almacen.getText() + "-" + txt_nro_venta.getText() + "-" + sig);
+        lbl_serie_pago.setText(lbl_fecha_hoy.getText() + "-" + txt_almacen.getText() + "-" + txt_hora_act.getText() + "-" + sig);
 
     }//GEN-LAST:event_txt_monto_pagoKeyReleased
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        cod_cliente_cred_vent = id_cliente_cre.getText();
+        Agregar_nota_cred_ventas acf;
+        acf = new Agregar_nota_cred_ventas(new javax.swing.JDialog(), true);
+        acf.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void tb_nota_cred_ventasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_nota_cred_ventasMouseClicked
+
+    }//GEN-LAST:event_tb_nota_cred_ventasMouseClicked
+
+    private void btncalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncalcularActionPerformed
+
+        calcularCreditos();
+        calcular_entrada_caja();
+    }//GEN-LAST:event_btncalcularActionPerformed
+
+    private void btneliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliActionPerformed
+        if (JOptionPane.showConfirmDialog(rootPane, "Excluir, ¿desea continuar?",
+                "Items", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            DefaultTableModel model = (DefaultTableModel) tb_nota_cred_ventas.getModel();
+            int fila = tb_nota_cred_ventas.getSelectedRow();
+            if (fila >= 0) {
+                model.removeRow(fila);
+
+                if (fila == 0) {
+
+                    txt_monto_credito.setText("0");
+                }
+                btncalcular.doClick();
+            }
+
+        }
+    }//GEN-LAST:event_btneliActionPerformed
 
     /**
      * @param args the command line arguments
@@ -320,8 +453,15 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_busar;
+    public static javax.swing.JButton btncalcular;
+    private javax.swing.JButton btneli;
     public static javax.swing.JTextField id_cliente_cre;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -329,11 +469,16 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JLabel lbl_import_total;
     public static javax.swing.JLabel lbl_serie_pago;
+    public static javax.swing.JTable tb_nota_cred_ventas;
     public static javax.swing.JTextField txt_almacen;
+    private javax.swing.JTextField txt_cred_entrada_caja;
+    private javax.swing.JLabel txt_monto_credito;
     private javax.swing.JTextField txt_monto_pago;
     public static javax.swing.JTextField txt_nom_cli_cred;
     public static javax.swing.JTextField txt_nro_venta;
@@ -353,7 +498,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
     void cargar_Caja() {
 
         String nro_venta = txt_nro_venta.getText();
-        String valor = txt_monto_pago.getText();
+        String valor = txt_cred_entrada_caja.getText();
 
         txt_nro_docu.setText(nro_venta);
         txt_des_caja.setText("PAGO PARCIAL DE LA NOTA N°:" + nro_venta);
@@ -600,6 +745,29 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
 
     }
 
+    public void calcularCreditos() {
+
+        ///
+        String imp = "0", subtotal = "0", total = "0";
+
+        for (int i = 0; i < tb_nota_cred_ventas.getRowCount(); i++) {
+            BigDecimal PulidoPrec = ingreso.TransformReales(tb_nota_cred_ventas.getValueAt(i, 1).toString().replaceAll("\\s", ""));
+            imp = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(PulidoPrec.toString());
+            subtotal = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(ingreso.TransformReales(subtotal).add(ingreso.TransformReales(imp)).toString());
+            txt_monto_credito.setText(subtotal);
+        }
+    }
+
+    public void calcular_entrada_caja() {
+
+        String totalpor = "0";
+        BigDecimal Precio_efec = ingreso.TransformReales(lbl_import_total.getText());
+        BigDecimal precio_cheque = ingreso.TransformReales(txt_monto_credito.getText());
+        totalpor = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(Precio_efec.subtract(precio_cheque).toString());
+        txt_cred_entrada_caja.setText(totalpor);
+
+    }
+
     void actEstadoVentas() {
         if (txt_almacen.getText().equals("0000001")) {
             try {
@@ -607,6 +775,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
                 String nro = txt_nro_venta.getText();
 
                 String sql = "UPDATE ventas SET monto_cred = '" + monto
+                        + "',bool_recibo ='" + bool_ventas
                         + "' WHERE num_bol = '" + nro + "'";
                 try {
                     Connection cn = conectar.getInstance().getConnection();
@@ -631,6 +800,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
                 String nro = txt_nro_venta.getText();
 
                 String sql = "UPDATE ventas_2 SET monto_cred = '" + monto
+                        + "',bool_recibo ='" + bool_ventas
                         + "' WHERE num_bol = '" + nro + "'";
                 try {
                     Connection cn = conectar.getInstance().getConnection();
@@ -653,6 +823,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
                 String nro = txt_nro_venta.getText();
 
                 String sql = "UPDATE ventas_3 SET monto_cred = '" + monto
+                        + "',bool_recibo ='" + bool_ventas
                         + "' WHERE num_bol = '" + nro + "'";
                 try {
                     Connection cn = conectar.getInstance().getConnection();
@@ -675,6 +846,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
                 String nro = txt_nro_venta.getText();
 
                 String sql = "UPDATE ventas_4 SET monto_cred = '" + monto
+                        + "',bool_recibo ='" + bool_ventas
                         + "' WHERE num_bol = '" + nro + "'";
                 try {
                     Connection cn = conectar.getInstance().getConnection();
@@ -697,6 +869,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
                 String nro = txt_nro_venta.getText();
 
                 String sql = "UPDATE ventas_5 SET monto_cred = '" + monto
+                        + "',bool_recibo ='" + bool_ventas
                         + "' WHERE num_bol = '" + nro + "'";
                 try {
                     Connection cn = conectar.getInstance().getConnection();
@@ -719,6 +892,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
                 String nro = txt_nro_venta.getText();
 
                 String sql = "UPDATE ventas_6 SET monto_cred = '" + monto
+                        + "',bool_recibo ='" + bool_ventas
                         + "' WHERE num_bol = '" + nro + "'";
                 try {
                     Connection cn = conectar.getInstance().getConnection();
@@ -741,6 +915,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
                 String nro = txt_nro_venta.getText();
 
                 String sql = "UPDATE ventas_7 SET monto_cred = '" + monto
+                        + "',bool_recibo ='" + bool_ventas
                         + "' WHERE num_bol = '" + nro + "'";
                 try {
                     Connection cn = conectar.getInstance().getConnection();
@@ -763,6 +938,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
                 String nro = txt_nro_venta.getText();
 
                 String sql = "UPDATE ventas_8 SET monto_cred = '" + monto
+                        + "',bool_recibo ='" + bool_ventas
                         + "' WHERE num_bol = '" + nro + "'";
                 try {
                     Connection cn = conectar.getInstance().getConnection();
@@ -785,6 +961,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
                 String nro = txt_nro_venta.getText();
 
                 String sql = "UPDATE ventas_9 SET monto_cred = '" + monto
+                        + "',bool_recibo ='" + bool_ventas
                         + "' WHERE num_bol = '" + nro + "'";
                 try {
                     Connection cn = conectar.getInstance().getConnection();
@@ -807,6 +984,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
                 String nro = txt_nro_venta.getText();
 
                 String sql = "UPDATE ventas_10 SET monto_cred = '" + monto
+                        + "',bool_recibo ='" + bool_ventas
                         + "' WHERE num_bol = '" + nro + "'";
                 try {
                     Connection cn = conectar.getInstance().getConnection();
@@ -829,6 +1007,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
                 String nro = txt_nro_venta.getText();
 
                 String sql = "UPDATE ventas_11 SET monto_cred = '" + monto
+                        + "',bool_recibo ='" + bool_ventas
                         + "' WHERE num_bol = '" + nro + "'";
                 try {
                     Connection cn = conectar.getInstance().getConnection();
@@ -851,6 +1030,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
                 String nro = txt_nro_venta.getText();
 
                 String sql = "UPDATE ventas_12 SET monto_cred = '" + monto
+                        + "',bool_recibo ='" + bool_ventas
                         + "' WHERE num_bol = '" + nro + "'";
                 try {
                     Connection cn = conectar.getInstance().getConnection();
@@ -873,6 +1053,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
                 String nro = txt_nro_venta.getText();
 
                 String sql = "UPDATE ventas_13 SET monto_cred = '" + monto
+                        + "',bool_recibo ='" + bool_ventas
                         + "' WHERE num_bol = '" + nro + "'";
                 try {
                     Connection cn = conectar.getInstance().getConnection();
@@ -895,6 +1076,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
                 String nro = txt_nro_venta.getText();
 
                 String sql = "UPDATE ventas_14 SET monto_cred = '" + monto
+                        + "',bool_recibo ='" + bool_ventas
                         + "' WHERE num_bol = '" + nro + "'";
                 try {
                     Connection cn = conectar.getInstance().getConnection();
@@ -917,6 +1099,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
                 String nro = txt_nro_venta.getText();
 
                 String sql = "UPDATE ventas_15 SET monto_cred = '" + monto
+                        + "',bool_recibo ='" + bool_ventas
                         + "' WHERE num_bol = '" + nro + "'";
                 try {
                     Connection cn = conectar.getInstance().getConnection();
@@ -940,6 +1123,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
                 String nro = txt_nro_venta.getText();
 
                 String sql = "UPDATE ventas_16 SET monto_cred = '" + monto
+                        + "',bool_recibo ='" + bool_ventas
                         + "' WHERE num_bol = '" + nro + "'";
                 try {
                     Connection cn = conectar.getInstance().getConnection();
@@ -962,6 +1146,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
                 String nro = txt_nro_venta.getText();
 
                 String sql = "UPDATE ventas_17 SET monto_cred = '" + monto
+                        + "',bool_recibo ='" + bool_ventas
                         + "' WHERE num_bol = '" + nro + "'";
                 try {
                     Connection cn = conectar.getInstance().getConnection();
@@ -984,6 +1169,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
                 String nro = txt_nro_venta.getText();
 
                 String sql = "UPDATE ventas_18 SET monto_cred = '" + monto
+                        + "',bool_recibo ='" + bool_ventas
                         + "' WHERE num_bol = '" + nro + "'";
                 try {
                     Connection cn = conectar.getInstance().getConnection();
@@ -1006,6 +1192,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
                 String nro = txt_nro_venta.getText();
 
                 String sql = "UPDATE ventas_19 SET monto_cred = '" + monto
+                        + "',bool_recibo ='" + bool_ventas
                         + "' WHERE num_bol = '" + nro + "'";
                 try {
                     Connection cn = conectar.getInstance().getConnection();
@@ -1028,6 +1215,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
                 String nro = txt_nro_venta.getText();
 
                 String sql = "UPDATE ventas_20 SET monto_cred = '" + monto
+                        + "',bool_recibo ='" + bool_ventas
                         + "' WHERE num_bol = '" + nro + "'";
                 try {
                     Connection cn = conectar.getInstance().getConnection();
@@ -1050,6 +1238,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
                 String nro = txt_nro_venta.getText();
 
                 String sql = "UPDATE ventas_21 SET monto_cred = '" + monto
+                        + "',bool_recibo ='" + bool_ventas
                         + "' WHERE num_bol = '" + nro + "'";
                 try {
                     Connection cn = conectar.getInstance().getConnection();
@@ -1072,6 +1261,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
                 String nro = txt_nro_venta.getText();
 
                 String sql = "UPDATE ventas_22 SET monto_cred = '" + monto
+                        + "',bool_recibo ='" + bool_ventas
                         + "' WHERE num_bol = '" + nro + "'";
                 try {
                     Connection cn = conectar.getInstance().getConnection();
@@ -1094,6 +1284,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
                 String nro = txt_nro_venta.getText();
 
                 String sql = "UPDATE ventas_23 SET monto_cred = '" + monto
+                        + "',bool_recibo ='" + bool_ventas
                         + "' WHERE num_bol = '" + nro + "'";
                 try {
                     Connection cn = conectar.getInstance().getConnection();
@@ -1116,6 +1307,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
                 String nro = txt_nro_venta.getText();
 
                 String sql = "UPDATE ventas_24 SET monto_cred = '" + monto
+                        + "',bool_recibo ='" + bool_ventas
                         + "' WHERE num_bol = '" + nro + "'";
                 try {
                     Connection cn = conectar.getInstance().getConnection();
@@ -1138,6 +1330,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
                 String nro = txt_nro_venta.getText();
 
                 String sql = "UPDATE ventas_25 SET monto_cred = '" + monto
+                        + "',bool_recibo ='" + bool_ventas
                         + "' WHERE num_bol = '" + nro + "'";
                 try {
                     Connection cn = conectar.getInstance().getConnection();
@@ -1160,6 +1353,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
                 String nro = txt_nro_venta.getText();
 
                 String sql = "UPDATE ventas_26 SET monto_cred = '" + monto
+                        + "',bool_recibo ='" + bool_ventas
                         + "' WHERE num_bol = '" + nro + "'";
                 try {
                     Connection cn = conectar.getInstance().getConnection();
@@ -1183,6 +1377,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
                 String nro = txt_nro_venta.getText();
 
                 String sql = "UPDATE ventas_27 SET monto_cred = '" + monto
+                        + "',bool_recibo ='" + bool_ventas
                         + "' WHERE num_bol = '" + nro + "'";
                 try {
                     Connection cn = conectar.getInstance().getConnection();
@@ -1206,6 +1401,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
                 String nro = txt_nro_venta.getText();
 
                 String sql = "UPDATE ventas_28 SET monto_cred = '" + monto
+                        + "',bool_recibo ='" + bool_ventas
                         + "' WHERE num_bol = '" + nro + "'";
                 try {
                     Connection cn = conectar.getInstance().getConnection();
@@ -1229,6 +1425,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
                 String nro = txt_nro_venta.getText();
 
                 String sql = "UPDATE ventas_29 SET monto_cred = '" + monto
+                        + "',bool_recibo ='" + bool_ventas
                         + "' WHERE num_bol = '" + nro + "'";
                 try {
                     Connection cn = conectar.getInstance().getConnection();
@@ -1252,6 +1449,7 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
                 String nro = txt_nro_venta.getText();
 
                 String sql = "UPDATE ventas_30 SET monto_cred = '" + monto
+                        + "',bool_recibo ='" + bool_ventas
                         + "' WHERE num_bol = '" + nro + "'";
                 try {
                     Connection cn = conectar.getInstance().getConnection();
@@ -1945,6 +2143,38 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
         }
     }
 
+    void detalle_pago_dev() {
+        for (int i = 0; i < tb_nota_cred_ventas.getRowCount(); i++) {
+            String InsertarSQL = "INSERT INTO pago_cred_ventas_devo (nro_nota_rec,nro_nota_dev,monto_importe,monto_saldo,fecha_data,fecha_vista,ope_sucursal) VALUES (?,?,?,?,?,?,?)";
+            String numNota = lbl_serie_pago.getText();
+            String numDevol = tb_nota_cred_ventas.getValueAt(i, 0).toString();
+            String MontoImport = tb_nota_cred_ventas.getValueAt(i, 1).toString();
+            String MotoSaldo = tb_nota_cred_ventas.getValueAt(i, 2).toString();
+            String fecha_det_con = lbl_fecha_hoy.getText();
+            String dataVista = lbl_fecha_principal.getText();
+            String sucursal = txt_almacen.getText();
+
+            try {
+                Connection cn = conectar.getInstance().getConnection();
+
+                PreparedStatement pst = cn.prepareStatement(InsertarSQL);
+                pst.setString(1, numNota);
+                pst.setString(2, numDevol);
+                pst.setString(3, MontoImport);
+                pst.setString(4, MotoSaldo);
+                pst.setString(5, fecha_det_con);
+                pst.setString(6, dataVista);
+                pst.setString(7, sucursal);
+                pst.executeUpdate();
+                conectar.getInstance().closeConnection(cn);
+
+            } catch (SQLException ex) {
+                Logger.getLogger(pago_plazo_ventas.class
+                        .getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
     void pago_credito() {
 
         String InsertarSQL = "INSERT INTO pago_credito_comun(id_venta,id_cliente,nom_cliente,monto_pagado,saldo_pend,id_surcusal,data_control,data_vista,id_cuenta,user_pago,seire) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
@@ -1981,13 +2211,648 @@ public class pago_plazo_ventas extends javax.swing.JDialog {
             conectar.getInstance().closeConnection(cn);
 
             if (n > 0) {
+                detalle_pago_dev();
+                //actualiza saldo
+                String cod = "", scred = "";
+                for (int i = 0; i < pago_plazo_ventas.tb_nota_cred_ventas.getRowCount(); i++) {
+                    cod = pago_plazo_ventas.tb_nota_cred_ventas.getValueAt(i, 0).toString();
+                    scred = pago_plazo_ventas.tb_nota_cred_ventas.getValueAt(i, 2).toString();
 
+                    actEstadoDevo(cod, scred);
+                }
+                //actuliza el saldo
+                actEstadoVentas();
+                //actualiza que tiene un recibo
+                actpagos();
+                //carga detales en caja
+                cargar_Caja();
+                JOptionPane.showMessageDialog(null, "Operación exitosa!");
+
+                if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
+                        "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+
+                    Reportes reporte = new Reportes();
+                    try {
+                        reporte.receb(lbl_serie_pago.getText());
+
+                    } catch (SQLException | JRException ex) {
+                        Logger.getLogger(pago_plazo_ventas.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
                 // JOptionPane.showMessageDialog(null, "Confirmado");
             }
 
         } catch (SQLException ex) {
             Logger.getLogger(Caja_caja.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    //actualiza saldo devolucion
+    void actEstadoDevo(String cod, String monto) {
+        if (txt_almacen.getText().equals("0000001")) {
+            try {
+
+                String sql = "UPDATE devoluciones SET saldo_devol = '" + monto
+                        + "' WHERE cod_dev = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+
+        //2
+        if (txt_almacen.getText().equals("0000002")) {
+            try {
+
+                String sql = "UPDATE devoluciones_surc_2 SET saldo_cred = '" + monto
+                        + "' WHERE cod_dev = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+
+        if (txt_almacen.getText().equals("0000003")) {
+            try {
+
+                String sql = "UPDATE devoluciones_surc_3 SET saldo_cred = '" + monto
+                        + "' WHERE cod_dev = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+        if (txt_almacen.getText().equals("0000004")) {
+            try {
+
+                String sql = "UPDATE devoluciones_surc_4 SET saldo_cred = '" + monto
+                        + "' WHERE cod_dev = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+        if (txt_almacen.getText().equals("0000005")) {
+            try {
+
+                String sql = "UPDATE devoluciones_surc_5 SET saldo_cred = '" + monto
+                        + "' WHERE cod_dev = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+        if (txt_almacen.getText().equals("0000006")) {
+            try {
+
+                String sql = "UPDATE devoluciones_surc_6 SET saldo_cred = '" + monto
+                        + "' WHERE cod_dev = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+        if (txt_almacen.getText().equals("0000007")) {
+            try {
+
+                String sql = "UPDATE devoluciones_surc_7 SET saldo_cred = '" + monto
+                        + "' WHERE cod_dev = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+        if (txt_almacen.getText().equals("0000008")) {
+            try {
+
+                String sql = "UPDATE devoluciones_surc_8 SET saldo_cred = '" + monto
+                        + "' WHERE cod_dev = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+        if (txt_almacen.getText().equals("0000009")) {
+            try {
+
+                String sql = "UPDATE devoluciones_surc_9 SET saldo_cred = '" + monto
+                        + "' WHERE cod_dev = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+        if (txt_almacen.getText().equals("0000010")) {
+            try {
+
+                String sql = "UPDATE devoluciones_surc_10 SET saldo_cred = '" + monto
+                        + "' WHERE cod_dev = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+        if (txt_almacen.getText().equals("0000011")) {
+            try {
+
+                String sql = "UPDATE devoluciones_surc_11 SET saldo_cred = '" + monto
+                        + "' WHERE cod_dev = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+        if (txt_almacen.getText().equals("0000012")) {
+            try {
+
+                String sql = "UPDATE devoluciones_surc_12 SET saldo_cred = '" + monto
+                        + "' WHERE cod_dev = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+        if (txt_almacen.getText().equals("0000013")) {
+            try {
+
+                String sql = "UPDATE devoluciones_surc_13 SET saldo_cred = '" + monto
+                        + "' WHERE cod_dev = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+        if (txt_almacen.getText().equals("0000014")) {
+            try {
+
+                String sql = "UPDATE devoluciones_surc_14 SET saldo_cred = '" + monto
+                        + "' WHERE cod_dev = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+        if (txt_almacen.getText().equals("0000015")) {
+            try {
+
+                String sql = "UPDATE devoluciones_surc_15 SET saldo_cred = '" + monto
+                        + "' WHERE cod_dev = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+        if (txt_almacen.getText().equals("0000016")) {
+            try {
+
+                String sql = "UPDATE devoluciones_surc_16 SET saldo_cred = '" + monto
+                        + "' WHERE cod_dev = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+        if (txt_almacen.getText().equals("0000017")) {
+            try {
+
+                String sql = "UPDATE devoluciones_surc_17 SET saldo_cred = '" + monto
+                        + "' WHERE cod_dev = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+        if (txt_almacen.getText().equals("0000018")) {
+            try {
+
+                String sql = "UPDATE devoluciones_surc_18 SET saldo_cred = '" + monto
+                        + "' WHERE cod_dev = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+        if (txt_almacen.getText().equals("0000019")) {
+            try {
+
+                String sql = "UPDATE devoluciones_surc_19 SET saldo_cred = '" + monto
+                        + "' WHERE cod_dev = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+        if (txt_almacen.getText().equals("0000020")) {
+            try {
+
+                String sql = "UPDATE devoluciones_surc_20 SET saldo_cred = '" + monto
+                        + "' WHERE cod_dev = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+        if (txt_almacen.getText().equals("0000021")) {
+            try {
+
+                String sql = "UPDATE devoluciones_surc_21 SET saldo_cred = '" + monto
+                        + "' WHERE cod_dev = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+        if (txt_almacen.getText().equals("0000022")) {
+            try {
+
+                String sql = "UPDATE devoluciones_surc_22 SET saldo_cred = '" + monto
+                        + "' WHERE cod_dev = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+        if (txt_almacen.getText().equals("0000023")) {
+            try {
+
+                String sql = "UPDATE devoluciones_surc_23 SET saldo_cred = '" + monto
+                        + "' WHERE cod_dev = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+        if (txt_almacen.getText().equals("0000024")) {
+            try {
+
+                String sql = "UPDATE devoluciones_surc_24 SET saldo_cred = '" + monto
+                        + "' WHERE cod_dev = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+        if (txt_almacen.getText().equals("0000025")) {
+            try {
+
+                String sql = "UPDATE devoluciones_surc_25 SET saldo_cred = '" + monto
+                        + "' WHERE cod_dev = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+        if (txt_almacen.getText().equals("0000026")) {
+            try {
+
+                String sql = "UPDATE devoluciones_surc_26 SET saldo_cred = '" + monto
+                        + "' WHERE cod_dev = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+        if (txt_almacen.getText().equals("0000027")) {
+            try {
+
+                String sql = "UPDATE devoluciones_surc_27 SET saldo_cred = '" + monto
+                        + "' WHERE cod_dev = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+        if (txt_almacen.getText().equals("0000028")) {
+            try {
+
+                String sql = "UPDATE devoluciones_surc_28 SET saldo_cred = '" + monto
+                        + "' WHERE cod_dev = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+        if (txt_almacen.getText().equals("0000029")) {
+            try {
+
+                String sql = "UPDATE devoluciones_surc_29 SET saldo_cred = '" + monto
+                        + "' WHERE cod_dev = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+        if (txt_almacen.getText().equals("0000030")) {
+            try {
+
+                String sql = "UPDATE devoluciones_surc_30 SET saldo_cred = '" + monto
+                        + "' WHERE cod_dev = '" + cod + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
+
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+
+                    //  JOptionPane.showMessageDialog(null, "Actualizado");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (HeadlessException e) {
+            }
+        }
+
     }
 
 }

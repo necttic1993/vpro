@@ -41,9 +41,9 @@ public class Clientes_ventas extends javax.swing.JDialog {
     }
 
     void cargar(String valor) {
-        String mostrar = "SELECT cli_cod,cli_nombre,cli_razon,cli_ruc,cli_contacto,cli_tipo,cli_pais,nro_registro FROM tienda_clientes WHERE CONCAT(cli_nombre,cli_ruc) LIKE '%" + valor + "%'";
-        String[] titulos = {"Código", "Nombre", "Razón Social", "RUC", "Contacto", "Tipo", "Sucursal", "RT"};
-        String[] Registros = new String[9];
+        String mostrar = "SELECT cli_cod,cli_nombre,cli_razon,cli_ruc,cli_contacto,cli_tipo,cli_pais,nro_registro,limite_credito FROM tienda_clientes WHERE CONCAT(cli_nombre,cli_ruc) LIKE '%" + valor + "%'";
+        String[] titulos = {"Código", "Nombre", "Razón Social", "RUC", "Contacto", "Tipo", "Sucursal", "RT","Límite cred."};
+        String[] Registros = new String[10];
         model = new DefaultTableModel(null, titulos);
 
         try {
@@ -59,6 +59,7 @@ public class Clientes_ventas extends javax.swing.JDialog {
                 Registros[5] = rs.getString("cli_tipo");
                 Registros[6] = rs.getString("cli_pais");
                 Registros[7] = rs.getString("nro_registro");
+                Registros[8] = rs.getString("limite_credito");
                 model.addRow(Registros);
             }
             tbclientes.setModel(model);
@@ -70,6 +71,7 @@ public class Clientes_ventas extends javax.swing.JDialog {
             tbclientes.getColumnModel().getColumn(5).setPreferredWidth(150);
             tbclientes.getColumnModel().getColumn(6).setPreferredWidth(100);
             tbclientes.getColumnModel().getColumn(7).setPreferredWidth(200);
+            tbclientes.getColumnModel().getColumn(8).setPreferredWidth(150);
             conectar.getInstance().closeConnection(cn);
 
         } catch (SQLException ex) {
@@ -201,7 +203,7 @@ public class Clientes_ventas extends javax.swing.JDialog {
     }//GEN-LAST:event_txtbusKeyReleased
 
     private void tbclientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbclientesMouseClicked
-        String nom = "", dp = "", surc = "", cod = "", tipo = "",rt="";
+        String nom = "", dp = "", surc = "", cod = "", tipo = "",rt="",limite="";
         int fila = tbclientes.getSelectedRow();
         try {
             if (fila == -1) {
@@ -214,15 +216,17 @@ public class Clientes_ventas extends javax.swing.JDialog {
                 tipo = (String) tbclientes.getValueAt(fila, 5);
                 surc = (String) tbclientes.getValueAt(fila, 6);
                 rt = (String) tbclientes.getValueAt(fila, 7);
+                limite = (String) tbclientes.getValueAt(fila, 8);
 
                 Ventas_venta.txt_cod_cli.setText(cod);
                 Ventas_venta.txt_cli_nom.setText(nom);
                 Ventas_venta.txt_class_cli_ventas.setText(tipo);
                 Ventas_venta.txt_tipo_clientes.setText(surc);
                 Ventas_venta.txt_rt_cli.setText(rt);
+                Ventas_venta.txt_limite_cred_cli.setText(limite);
 
                 this.dispose();
-                Ventas_venta.btn_buscaar_items.doClick();
+                //Ventas_venta.btn_buscaar_items.doClick();
 
             }
         } catch (HeadlessException e) {
@@ -233,7 +237,7 @@ public class Clientes_ventas extends javax.swing.JDialog {
         char Tecla = evt.getKeyChar();
 
         if (Tecla == KeyEvent.VK_ENTER) {
-            String nom = "", dp = "", dir = "", cod = "", tipo = "", surc = "",rt="";
+            String nom = "", dp = "", dir = "", cod = "", tipo = "", surc = "",rt="", limite="";
             int fila = tbclientes.getSelectedRow();
             try {
                 if (fila == -1) {
@@ -246,15 +250,17 @@ public class Clientes_ventas extends javax.swing.JDialog {
                     tipo = (String) tbclientes.getValueAt(fila, 5);
                     surc = (String) tbclientes.getValueAt(fila, 6);
                     rt = (String) tbclientes.getValueAt(fila, 7);
+                    limite = (String) tbclientes.getValueAt(fila, 8);
 
                     Ventas_venta.txt_cod_cli.setText(cod);
                     Ventas_venta.txt_cli_nom.setText(nom);
                     Ventas_venta.txt_class_cli_ventas.setText(tipo);
                     Ventas_venta.txt_tipo_clientes.setText(surc);
                     Ventas_venta.txt_rt_cli.setText(rt);
+                      Ventas_venta.txt_limite_cred_cli.setText(limite);
 
                     this.dispose();
-                    Ventas_venta.btn_buscaar_items.doClick();
+                   // Ventas_venta.btn_buscaar_items.doClick();
 
                 }
             } catch (Exception e) {

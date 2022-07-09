@@ -122,7 +122,7 @@
               <Font name="Arial" size="12" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/icon_4/check.png"/>
+              <Image iconType="3" name="/icon_4/buscar.png"/>
             </Property>
             <Property name="mnemonic" type="int" value="118"/>
             <Property name="toolTipText" type="java.lang.String" value="Ver listado de Mov. de caja"/>

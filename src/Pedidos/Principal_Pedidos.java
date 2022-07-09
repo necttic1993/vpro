@@ -8,7 +8,6 @@ package Pedidos;
 import Clases.Colorear_Pedidos;
 import Conexion_DB.conectar;
 import Loggin_Principal.Principal;
-import static Loggin_Principal.Principal.lbl_usu_nom;
 import Loggin_Principal.Seleccion_alma_pedidos;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
@@ -332,7 +331,7 @@ public class Principal_Pedidos extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane4;
     public static javax.swing.JLabel lbl_almacen_pedidos;
-    private javax.swing.JLabel lbl_ambiente;
+    public static javax.swing.JLabel lbl_ambiente;
     public static javax.swing.JTable tbProductos_pedido;
     public static javax.swing.JTextField txt_bus;
     // End of variables declaration//GEN-END:variables

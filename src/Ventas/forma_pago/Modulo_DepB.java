@@ -1,11 +1,9 @@
 package Ventas.forma_pago;
 
 import Administrativo.bancos.Lista_dep_bancos;
-import Conexion_DB.conectar;
 import static Loggin_Principal.Principal.lbl_mone_def;
 import java.awt.event.KeyEvent;
 import java.math.BigDecimal;
-import java.sql.Connection;
 import java.text.DecimalFormat;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;

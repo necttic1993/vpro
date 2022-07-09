@@ -107,7 +107,6 @@ public class Devol_surc_fiscal extends javax.swing.JDialog {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         txt_timbrado = new javax.swing.JTextField();
-        lbl_sub_total = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
@@ -123,6 +122,7 @@ public class Devol_surc_fiscal extends javax.swing.JDialog {
         txt_forma_pago = new javax.swing.JTextField();
         lbl_literal_pro = new javax.swing.JLabel();
         btn_buscar = new javax.swing.JButton();
+        lbl_sub_total = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Facturas");
@@ -383,7 +383,6 @@ public class Devol_surc_fiscal extends javax.swing.JDialog {
             }
         });
         jPanel1.add(txt_timbrado, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 40, 100, 30));
-        jPanel1.add(lbl_sub_total, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 580, 170, 20));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -491,7 +490,6 @@ public class Devol_surc_fiscal extends javax.swing.JDialog {
         btn_buscar.setBackground(new java.awt.Color(255, 255, 255));
         btn_buscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btn_buscar.setForeground(new java.awt.Color(255, 255, 255));
-        btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
         btn_buscar.setToolTipText("");
         btn_buscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_buscar.addActionListener(new java.awt.event.ActionListener() {
@@ -499,9 +497,10 @@ public class Devol_surc_fiscal extends javax.swing.JDialog {
                 btn_buscarActionPerformed(evt);
             }
         });
-        pn_componentes.add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 50, 32));
+        pn_componentes.add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 50, 20));
+        pn_componentes.add(lbl_sub_total, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 60, 20));
 
-        jPanel1.add(pn_componentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 510, 140, 80));
+        jPanel1.add(pn_componentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 510, 140, 70));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 600));
 

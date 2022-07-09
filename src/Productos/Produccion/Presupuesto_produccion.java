@@ -12,6 +12,7 @@ import Loggin_Principal.Principal;
 import static Loggin_Principal.Principal.lbl_fecha_hoy;
 import static Loggin_Principal.Principal.lbl_usu_nom;
 import java.awt.Color;
+import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.sql.Connection;
@@ -37,15 +38,17 @@ public class Presupuesto_produccion extends javax.swing.JDialog {
      *
      * @param parent
      */
+    DefaultTableModel model;
+
     public Presupuesto_produccion(javax.swing.JDialog parent, boolean modal) throws IOException {
         super(parent, modal);
         initComponents();
         codigos();
+        btn_cargar_pedidos.setVisible(false);
         txt_cli_nom.setDisabledTextColor(Color.black);
         lbl_fecha_VISOR.setText(fechaactS());
-        tb_factura.getColumnModel().getColumn(0).setPreferredWidth(120);
-        tb_factura.getColumnModel().getColumn(1).setPreferredWidth(120);
-        tb_factura.getColumnModel().getColumn(2).setPreferredWidth(350);
+        tb_prod_pedi.getColumnModel().getColumn(0).setPreferredWidth(120);
+        tb_prod_pedi.getColumnModel().getColumn(1).setPreferredWidth(520);
 
         txt_usu_ventas.setText(lbl_usu_nom.getText());
 
@@ -53,15 +56,13 @@ public class Presupuesto_produccion extends javax.swing.JDialog {
 
     public static String nro_pedido = "";
 
-
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tb_factura = new javax.swing.JTable();
+        tb_prod_pedi = new javax.swing.JTable();
         lbl_cod = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -77,9 +78,17 @@ public class Presupuesto_produccion extends javax.swing.JDialog {
         btnven = new javax.swing.JButton();
         btn_salir = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        cb_prioridad = new javax.swing.JComboBox();
+        txt_nro_op = new javax.swing.JTextField();
+        btn_cargar_pedidos = new javax.swing.JButton();
+        jLabel22 = new javax.swing.JLabel();
+        txt_des_prod = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
+        jd_ini = new org.jdesktop.swingx.JXDatePicker();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("PRESUPUESTO");
+        setTitle("PRODUCCIÓN");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
@@ -97,30 +106,30 @@ public class Presupuesto_produccion extends javax.swing.JDialog {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tb_factura = new javax.swing.JTable(){
+        tb_prod_pedi = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
                 return false;
             }
         };
-        tb_factura.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        tb_factura.setModel(new javax.swing.table.DefaultTableModel(
+        tb_prod_pedi.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        tb_prod_pedi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Código", "Nro OP", "Descripción"
+                "Código", "Descripción"
             }
         ));
-        tb_factura.setGridColor(new java.awt.Color(255, 255, 255));
-        tb_factura.setRowHeight(22);
-        tb_factura.addMouseListener(new java.awt.event.MouseAdapter() {
+        tb_prod_pedi.setGridColor(new java.awt.Color(255, 255, 255));
+        tb_prod_pedi.setRowHeight(22);
+        tb_prod_pedi.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tb_facturaMouseClicked(evt);
+                tb_prod_pediMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tb_factura);
+        jScrollPane1.setViewportView(tb_prod_pedi);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 960, 350));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 960, 340));
 
         lbl_cod.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbl_cod.setForeground(new java.awt.Color(255, 0, 0));
@@ -136,9 +145,10 @@ public class Presupuesto_produccion extends javax.swing.JDialog {
         jLabel16.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel16.setText("Nro Pedido:");
         jLabel16.setFocusable(false);
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 80, 30));
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 80, 30));
 
         txt_cod_cli.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txt_cod_cli.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_cod_cli.setEnabled(false);
         txt_cod_cli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,7 +160,7 @@ public class Presupuesto_produccion extends javax.swing.JDialog {
                 txt_cod_cliKeyPressed(evt);
             }
         });
-        jPanel1.add(txt_cod_cli, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 8, 90, 32));
+        jPanel1.add(txt_cod_cli, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 90, 32));
 
         txt_cli_nom.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txt_cli_nom.setEnabled(false);
@@ -159,7 +169,7 @@ public class Presupuesto_produccion extends javax.swing.JDialog {
                 txt_cli_nomActionPerformed(evt);
             }
         });
-        jPanel1.add(txt_cli_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 8, 330, 32));
+        jPanel1.add(txt_cli_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 400, 32));
 
         btn_buscaar_items.setBackground(new java.awt.Color(255, 255, 255));
         btn_buscaar_items.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -182,17 +192,17 @@ public class Presupuesto_produccion extends javax.swing.JDialog {
                 btn_buscaar_itemsKeyPressed(evt);
             }
         });
-        jPanel1.add(btn_buscaar_items, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 60, 140, 45));
+        jPanel1.add(btn_buscaar_items, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 80, 140, 45));
 
         jLabel17.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel17.setText("Nombre del Cliente :");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 8, 130, 32));
+        jLabel17.setText("Nro Cliente :");
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 32));
 
         txt_usu_ventas.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txt_usu_ventas.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_usu_ventas.setEnabled(false);
         txt_usu_ventas.setFocusable(false);
-        jPanel1.add(txt_usu_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 220, 30));
+        jPanel1.add(txt_usu_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 220, 30));
 
         jLabel18.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel18.setText("Usuario Ventas:");
@@ -205,15 +215,15 @@ public class Presupuesto_produccion extends javax.swing.JDialog {
         lbl_fecha_VISOR.setFocusable(false);
         jPanel1.add(lbl_fecha_VISOR, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, 100, 30));
 
-        txt_nro_pedido.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txt_nro_pedido.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txt_nro_pedido.setDisabledTextColor(new java.awt.Color(0, 0, 51));
         txt_nro_pedido.setEnabled(false);
-        jPanel1.add(txt_nro_pedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 120, 30));
+        jPanel1.add(txt_nro_pedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 160, 30));
 
         jLabel21.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel21.setText("Fecha:");
         jLabel21.setFocusable(false);
-        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 10, 50, 30));
+        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 10, 50, 30));
 
         btnven.setBackground(new java.awt.Color(255, 255, 255));
         btnven.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -249,12 +259,48 @@ public class Presupuesto_produccion extends javax.swing.JDialog {
                 btn_salirKeyReleased(evt);
             }
         });
-        jPanel1.add(btn_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 490, 130, 45));
+        jPanel1.add(btn_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 490, 130, 45));
 
         jLabel19.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel19.setText("Nro O.P:");
+        jLabel19.setText("Fecha de Entrega:");
         jLabel19.setFocusable(false);
-        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 90, 30));
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 120, 30));
+
+        jLabel20.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel20.setText("Descripción:");
+        jLabel20.setFocusable(false);
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 90, 30));
+
+        cb_prioridad.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        cb_prioridad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "URGENTE", "INTERMEDIO", "BAJO" }));
+        jPanel1.add(cb_prioridad, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 160, 30));
+
+        txt_nro_op.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txt_nro_op.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txt_nro_op.setEnabled(false);
+        jPanel1.add(txt_nro_op, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 40, 100, 30));
+
+        btn_cargar_pedidos.setText("cargar");
+        btn_cargar_pedidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cargar_pedidosActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_cargar_pedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 500, -1, 30));
+
+        jLabel22.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel22.setText("Nro O.P:");
+        jLabel22.setFocusable(false);
+        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 40, 60, 30));
+
+        txt_des_prod.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jPanel1.add(txt_des_prod, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 490, 30));
+
+        jLabel23.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel23.setText("Prioridad:");
+        jLabel23.setFocusable(false);
+        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 70, 30));
+        jPanel1.add(jd_ini, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 70, 160, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 560));
 
@@ -270,7 +316,6 @@ public class Presupuesto_produccion extends javax.swing.JDialog {
         char Tecla = evt.getKeyChar();
 
         if (Tecla == KeyEvent.VK_ENTER) {
-       
 
         }
 
@@ -278,7 +323,7 @@ public class Presupuesto_produccion extends javax.swing.JDialog {
             if (JOptionPane.showConfirmDialog(null, "¿Desea realmente salir ?",
                     "Salir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                 this.dispose();
-        
+
             }
 
         }
@@ -296,7 +341,7 @@ public class Presupuesto_produccion extends javax.swing.JDialog {
     }//GEN-LAST:event_btn_buscaar_itemsKeyPressed
 
     private void btn_buscaar_itemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscaar_itemsActionPerformed
-       
+
         try {
             Notas_pedidos as;
             as = new Notas_pedidos(new javax.swing.JDialog(), true);
@@ -304,7 +349,7 @@ public class Presupuesto_produccion extends javax.swing.JDialog {
         } catch (IOException ex) {
             Logger.getLogger(Presupuesto_produccion.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_btn_buscaar_itemsActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -322,42 +367,35 @@ public class Presupuesto_produccion extends javax.swing.JDialog {
 
     private void btnvenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvenActionPerformed
 
-       
+        if ((lbl_cod.getText().equals("")) || (txt_nro_pedido.getText().equals("")) || (txt_cod_cli.getText().equals(""))) {
+            JOptionPane.showMessageDialog(this, "Ingrese cliente, producto o realice operacion");
+        } else {
 
-            if ((lbl_cod.getText().equals("")) || (txt_nro_pedido.getText().equals("")) || (txt_cod_cli.getText().equals(""))) {
-                JOptionPane.showMessageDialog(this, "Ingrese cliente, producto o realice operacion");
-            } else {
+            ticket();
 
-                ticket();
+            if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
+                    "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 
-                // caja();
-                if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
-                        "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-
-                   // cod_print_presupuesto_modulo = lbl_cod.getText();
-                    //printers_pres est;
-                   // est = new printers_pres(new javax.swing.JDialog(), true);
-                   // est.setVisible(true);
-                }
-
-
-                DefaultTableModel modelo = (DefaultTableModel) tb_factura.getModel();
-                int a = tb_factura.getRowCount() - 1;
-                int i;
-                for (i = a; i >= 0; i--) {
-                    modelo.removeRow(i);
-                }
-                codigos();
-
-              
-
+                // cod_print_presupuesto_modulo = lbl_cod.getText();
+                //printers_pres est;
+                // est = new printers_pres(new javax.swing.JDialog(), true);
+                // est.setVisible(true);
             }
-        
 
-    
+            DefaultTableModel modelo = (DefaultTableModel) tb_prod_pedi.getModel();
+            int a = tb_prod_pedi.getRowCount() - 1;
+            int i;
+            for (i = a; i >= 0; i--) {
+                modelo.removeRow(i);
+            }
+            codigos();
+
+        }
 
         txt_cod_cli.requestFocus();
         Principal_produccion.btn_cargar_datos.doClick();
+        this.dispose();
+
     }//GEN-LAST:event_btnvenActionPerformed
 
     private void btn_salirKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_salirKeyReleased
@@ -380,9 +418,14 @@ public class Presupuesto_produccion extends javax.swing.JDialog {
 
     }//GEN-LAST:event_btn_salirActionPerformed
 
-    private void tb_facturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_facturaMouseClicked
+    private void tb_prod_pediMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_prod_pediMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_tb_facturaMouseClicked
+    }//GEN-LAST:event_tb_prod_pediMouseClicked
+
+    private void btn_cargar_pedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cargar_pedidosActionPerformed
+        cargarTxt();
+        cargar_detalle();
+    }//GEN-LAST:event_btn_cargar_pedidosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -444,44 +487,49 @@ public class Presupuesto_produccion extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton btn_buscaar_items;
+    public static javax.swing.JButton btn_cargar_pedidos;
     private javax.swing.JButton btn_salir;
     private javax.swing.JButton btnven;
+    private javax.swing.JComboBox cb_prioridad;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     public static javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private org.jdesktop.swingx.JXDatePicker jd_ini;
     public static javax.swing.JLabel lbl_cod;
     private javax.swing.JTextField lbl_fecha_VISOR;
-    public static javax.swing.JTable tb_factura;
+    public static javax.swing.JTable tb_prod_pedi;
     public static javax.swing.JTextField txt_cli_nom;
     public static javax.swing.JTextField txt_cod_cli;
+    private javax.swing.JTextField txt_des_prod;
+    private javax.swing.JTextField txt_nro_op;
     public static javax.swing.JTextField txt_nro_pedido;
     private javax.swing.JTextField txt_usu_ventas;
     // End of variables declaration//GEN-END:variables
 
-
     void ticket() {
         codigos();
-      /*  String InsertarSQL = "INSERT INTO presupuesto (num_bol,cod_cli_ventas,nom_cli_ventas,forma_pag_ventas,dias_plazo_ventas,total_ventas,total_real,total_dolar,estado_ventas,fecha_ventas,user_ventas,almacen_ventas,cant_ventas,letras_ventas,vac_ventas) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String InsertarSQL = "INSERT INTO produccions (num_prod,cod_cli_prod,nom_cli_prods,estado_prod,priori_prod,nro_op_prod,descrip_prod,fecha_prod,user_prod,nro_pedido,fecha_entre) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
         String numbol = lbl_cod.getText();
         String cod_cli = txt_cod_cli.getText();
         String nom_cli = txt_cli_nom.getText();//cambiar en db
-        String formapag = chk_contado.getText();
-        String dias_pla = txt_dias_plazo.getText();
-        String total_ventas = txttotal.getText();
-        String total_real = lbl_cambio_real.getText();
-        String total_dolar = lbl_cambio_dolar.getText();
-        String estado = ("PRESUPUESTADO");
+        String estado_prod = ("EN PROCESO");
+        String prioridad = cb_prioridad.getSelectedItem().toString();
+        String nro_op = txt_nro_op.getText();
+        String descrip = txt_des_prod.getText();
         String fecha = lbl_fecha_hoy.getText();
         String user = lbl_usu_nom.getText();
-        String cantidad = lblcanpro.getText();//cambiar en db
-        String almacen = lbl_default_id.getText();
-        String literal = lbl_literal.getText();
-        String valor_amort = ("0");
+        String pedido = txt_nro_pedido.getText();
+        java.sql.Date date = new java.sql.Date(jd_ini.getDate().getTime());
+        String fecha_data = String.valueOf(date);
+        System.out.println(fecha_data);
 
         try {
             Connection cn = conectar.getInstance().getConnection();
@@ -490,23 +538,20 @@ public class Presupuesto_produccion extends javax.swing.JDialog {
             pst.setString(1, numbol);
             pst.setString(2, cod_cli);
             pst.setString(3, nom_cli);
-            pst.setString(4, formapag);
-            pst.setString(5, dias_pla);
-            pst.setString(6, total_ventas);
-            pst.setString(7, total_real);
-            pst.setString(8, total_dolar);
-            pst.setString(9, estado);
-            pst.setString(10, fecha);
-            pst.setString(11, user);
-            pst.setString(12, almacen);
-            pst.setString(13, cantidad);
-            pst.setString(14, literal);
-            pst.setString(15, valor_amort);
+            pst.setString(4, estado_prod);
+            pst.setString(5, prioridad);
+            pst.setString(6, nro_op);
+            pst.setString(7, descrip);
+            pst.setString(8, fecha);
+            pst.setString(9, user);
+            pst.setString(10, pedido);
+            pst.setString(11, fecha_data);
             int n = pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
             if (n > 0) {
                 detalle_ticket();
+                actEstadoVentas();
                 JOptionPane.showMessageDialog(null, "Nota realizada con éxito");
 
             }
@@ -514,36 +559,29 @@ public class Presupuesto_produccion extends javax.swing.JDialog {
         } catch (SQLException ex) {
             Logger.getLogger(Presupuesto_produccion.class
                     .getName()).log(Level.SEVERE, null, ex);
-        }*/
+        }
 
     }
 
- 
-
     void detalle_ticket() {
-        for (int i = 0; i < tb_factura.getRowCount(); i++) {
-            String InsertarSQL = "INSERT INTO presupuesto_detalles (num_bol,cod_pro,des_pro,cant_pro,pre_unit,cant_kg,pre_venta,data) VALUES (?,?,?,?,?,?,?,?)";
-            String numbol = lbl_cod.getText();
-            String codpro = tb_factura.getValueAt(i, 0).toString();
-            String despro = tb_factura.getValueAt(i, 1).toString();
-            String cantpro = tb_factura.getValueAt(i, 3).toString();
-            String cantkg = tb_factura.getValueAt(i, 4).toString();
-            String preunit = tb_factura.getValueAt(i, 2).toString();
-            String importe = tb_factura.getValueAt(i, 5).toString();
-            String fecha_det_con = lbl_fecha_hoy.getText();
+        for (int i = 0; i < tb_prod_pedi.getRowCount(); i++) {
+            String InsertarSQL = "INSERT INTO produccions_detalles (num_prod,num_prod_op,cod_prod,des_prod,fecha_prod) VALUES (?,?,?,?,?)";
+            String id_prod = lbl_cod.getText();
+            String nro_serie_pro = txt_nro_op.getText() + txt_nro_pedido.getText();
+            String codpro = tb_prod_pedi.getValueAt(i, 0).toString();
+            String despro = tb_prod_pedi.getValueAt(i, 1).toString();
+            String fecha_det_prod = lbl_fecha_hoy.getText();
 
             try {
                 Connection cn = conectar.getInstance().getConnection();
 
                 PreparedStatement pst = cn.prepareStatement(InsertarSQL);
-                pst.setString(1, numbol);
-                pst.setString(2, codpro);
-                pst.setString(3, despro);
-                pst.setString(4, cantpro);
-                pst.setString(5, preunit);
-                pst.setString(6, cantkg);
-                pst.setString(7, importe);
-                pst.setString(8, fecha_det_con);
+                pst.setString(1, id_prod);
+                pst.setString(2, nro_serie_pro);
+                pst.setString(3, codpro);
+                pst.setString(4, despro);
+                pst.setString(5, fecha_det_prod);
+
                 pst.executeUpdate();
                 conectar.getInstance().closeConnection(cn);
 
@@ -572,7 +610,7 @@ public class Presupuesto_produccion extends javax.swing.JDialog {
     void codigos() {
 
         String c = "";
-        String SQL = "select max(num_bol) from presupuesto";
+        String SQL = "select max(num_prod) from produccions";
 
         try {
             Connection cn = conectar.getInstance().getConnection();
@@ -606,6 +644,84 @@ public class Presupuesto_produccion extends javax.swing.JDialog {
 
     }
 
-  
+    void cargarTxt() {
+        String ped_id = txt_nro_pedido.getText();
+        String mostrar = "SELECT cod_provee,nom_provee,vac_ventas FROM pedidos WHERE  num_pedi='" + ped_id + "'";
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(mostrar);
+            while (rs.next()) {
+                txt_cod_cli.setText(rs.getString(1));
+                txt_cli_nom.setText(rs.getString(2));
+                txt_nro_op.setText(rs.getString(3));
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Visor_produccion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    void cargar_detalle() {
+        String ped_id = txt_nro_pedido.getText();
+
+        String mostrar = "SELECT * FROM pedidos_detalles WHERE  num_pedi='" + ped_id + "'";
+        String[] titulos = {"Id Producto", "Descripción"};
+        String[] Registros = new String[7];
+        model = new DefaultTableModel(null, titulos);
+
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(mostrar);
+            while (rs.next()) {
+                Registros[0] = rs.getString(2);
+                Registros[1] = rs.getString(3);
+
+                model.addRow(Registros);
+            }
+            tb_prod_pedi.setModel(model);
+
+            tb_prod_pedi.getColumnModel().getColumn(0).setPreferredWidth(120);
+            tb_prod_pedi.getColumnModel().getColumn(1).setPreferredWidth(520);
+
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Visor_produccion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    void actEstadoVentas() {
+
+        try {
+
+            String esta = ("Produccion");
+            String nro = txt_nro_pedido.getText();
+
+            String sql = "UPDATE pedidos SET estado_pedi = '" + esta
+                    + "' WHERE num_pedi = '" + nro + "'";
+            try {
+                Connection cn = conectar.getInstance().getConnection();
+
+                PreparedStatement pst = cn.prepareStatement(sql);
+                pst.executeUpdate();
+                conectar.getInstance().closeConnection(cn);
+
+                //  JOptionPane.showMessageDialog(null, "Actualizado");
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+
+        } catch (Exception e) {
+        }
+
+    }
 
 }

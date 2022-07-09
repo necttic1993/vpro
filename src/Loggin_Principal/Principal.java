@@ -93,7 +93,7 @@ import Productos.Produccion.Principal_produccion;
 import Productos.Productos;
 import Productos.Sub_Categorias_Principal;
 import Productos.Tama_Principal;
-import Productos.barcod.pro_codbar;
+import Productos.barcod.selecionar_tipo;
 import Productos.transferencias.Principal_transferencia;
 import Proveedores.Plataforma_proveedor;
 import Ventas.Exportacion.Principal_factura_expo;
@@ -173,7 +173,9 @@ import Ventas_25.Principal_ventas_25;
 import Ventas_26.Principal_ventas_26;
 import Ventas_27.Principal_ventas_27;
 import Ventas_28.Principal_ventas_28;
+import Ventas_29.Principal_ventas_29;
 import Ventas_3.Principal_ventas_3;
+import Ventas_30.Principal_ventas_30;
 import Ventas_4.Principal_ventas_4;
 import Ventas_5.Principal_ventas_5;
 import Ventas_6.Principal_ventas_6;
@@ -218,6 +220,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
+import user.Agenda_diaria;
 import user.empre_config_serial;
 import user.user;
 import ventas_16.Principal_ventas_16;
@@ -266,8 +269,10 @@ public class Principal extends javax.swing.JFrame {
         System.out.println("Hora del servidor OK");
         if (lbl_id_user.getText().equals("1")) {
             menu_serv.setVisible(true);
+            menu_fact_expo.setVisible(true);
         } else {
             menu_serv.setVisible(false);
+            menu_fact_expo.setVisible(false);
         }
 
     }
@@ -365,7 +370,10 @@ public class Principal extends javax.swing.JFrame {
         jLabel48 = new javax.swing.JLabel();
         modelo_cp = new javax.swing.JLabel();
         jLabel50 = new javax.swing.JLabel();
-        jLabel51 = new javax.swing.JLabel();
+        lbl_nota_credito = new javax.swing.JLabel();
+        jLabel52 = new javax.swing.JLabel();
+        jLabel53 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         lbl_version = new javax.swing.JLabel();
         version_alerta = new javax.swing.JLabel();
         botton_config = new javax.swing.JButton();
@@ -434,7 +442,7 @@ public class Principal extends javax.swing.JFrame {
         menu_list_cp = new javax.swing.JMenuItem();
         menu_lista_trans = new javax.swing.JMenuItem();
         menu_stock_sucursales = new javax.swing.JMenuItem();
-        jMenuItem13 = new javax.swing.JMenuItem();
+        menu_prod_facturas = new javax.swing.JMenuItem();
         menu_esta_ventas = new javax.swing.JMenu();
         menu_list_venta = new javax.swing.JMenuItem();
         menu_ventas_gral = new javax.swing.JMenuItem();
@@ -466,6 +474,7 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem18 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
+        menu_recibos1 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenuItem28 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -818,15 +827,33 @@ public class Principal extends javax.swing.JFrame {
         jLabel50.setText("Lote facturas:");
         panel_config_gral.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, -1, 20));
 
-        jLabel51.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel51.setText("Modelo CP:");
-        panel_config_gral.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, -1, 20));
+        lbl_nota_credito.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbl_nota_credito.setText("                  ");
+        panel_config_gral.add(lbl_nota_credito, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 130, -1, 20));
+
+        jLabel52.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel52.setText("Modelo CP:");
+        panel_config_gral.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, -1, 20));
+
+        jLabel53.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel53.setText("Nota de cred. en:");
+        panel_config_gral.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 130, -1, 20));
+
+        jButton1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/abacus.png"))); // NOI18N
+        jButton1.setText("Log");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        panel_config_gral.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(565, 30, 120, -1));
 
         panel_principal.add(panel_config_gral, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 690, 340));
 
         lbl_version.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         lbl_version.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_version.setText("4.4.6");
+        lbl_version.setText("4.4.8");
         panel_principal.add(lbl_version, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 206, 50, 40));
 
         version_alerta.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
@@ -1483,16 +1510,16 @@ public class Principal extends javax.swing.JFrame {
         });
         menu_esta_stock.add(menu_stock_sucursales);
 
-        jMenuItem13.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jMenuItem13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/report.png"))); // NOI18N
-        jMenuItem13.setText("-Productos en Facturas");
-        jMenuItem13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
+        menu_prod_facturas.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        menu_prod_facturas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/report.png"))); // NOI18N
+        menu_prod_facturas.setText("-Productos en Facturas");
+        menu_prod_facturas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        menu_prod_facturas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem13ActionPerformed(evt);
+                menu_prod_facturasActionPerformed(evt);
             }
         });
-        menu_esta_stock.add(jMenuItem13);
+        menu_esta_stock.add(menu_prod_facturas);
 
         jMenu9.add(menu_esta_stock);
 
@@ -1801,6 +1828,17 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         menu_surcusales.add(jMenuItem9);
+
+        menu_recibos1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        menu_recibos1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/agreement.png"))); // NOI18N
+        menu_recibos1.setText("Recibos");
+        menu_recibos1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        menu_recibos1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_recibos1ActionPerformed(evt);
+            }
+        });
+        menu_surcusales.add(menu_recibos1);
 
         jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/graphic.png"))); // NOI18N
         jMenu6.setText("Relatorios de Ventas");
@@ -2788,8 +2826,8 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     }//GEN-LAST:event_menu_lucro_userActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-        pro_codbar codbar;
-        codbar = new pro_codbar(new javax.swing.JDialog(), true);
+        selecionar_tipo codbar;
+        codbar = new selecionar_tipo(new javax.swing.JDialog(), true);
         codbar.setVisible(true);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
@@ -3760,11 +3798,25 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
             }
 
             if (Principal.lbl_usu_almacen.getText().equals("0000029")) {
-                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+                try {
+                    Principal_ventas_29 pv_29 = new Principal_ventas_29(new javax.swing.JDialog(), true);
+                    pv_29.setVisible(true);
+
+                } catch (IOException ex) {
+                    Logger.getLogger(Principal.class
+                            .getName()).log(Level.SEVERE, null, ex);
+                }
 
             }
             if (Principal.lbl_usu_almacen.getText().equals("0000030")) {
-                JOptionPane.showMessageDialog(null, "Habilitar este Almacen en el menu");
+                try {
+                    Principal_ventas_30 pv_30 = new Principal_ventas_30(new javax.swing.JDialog(), true);
+                    pv_30.setVisible(true);
+
+                } catch (IOException ex) {
+                    Logger.getLogger(Principal.class
+                            .getName()).log(Level.SEVERE, null, ex);
+                }
 
             }
             if (Principal.lbl_usu_almacen.getText().equals("0000031")) {
@@ -4056,17 +4108,18 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     }//GEN-LAST:event_menu_nota_creActionPerformed
 
     private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
-        try {
-            /*   Principal_fabrica dfi;
-             dfi = new Principal_fabrica(new javax.swing.JDialog(), true);
-             dfi.setVisible(true);*/
 
-            Principal_produccion dfi;
-            dfi = new Principal_produccion(new javax.swing.JDialog(), true);
-            dfi.setVisible(true);
-        } catch (IOException ex) {
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       // try {
+            /* Principal_fabrica dfi;
+             dfi = new Principal_fabrica(new javax.swing.JDialog(), true);
+             dfi.setVisible(true);*/ //este no es
+
+           // Principal_produccion dfi;
+           // dfi = new Principal_produccion(new javax.swing.JDialog(), true);
+           // dfi.setVisible(true);
+        //} catch (IOException ex) {
+          //  Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+       // }
 
     }//GEN-LAST:event_jMenuItem16ActionPerformed
 
@@ -4444,7 +4497,6 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
 
         if (lbl_serie_empre.getText().equals("KYR")) {
             Productos_consulta_stock cs;
-
             cs = new Productos_consulta_stock(new javax.swing.JDialog(), true);
             cs.setVisible(true);
         } else {
@@ -4460,12 +4512,26 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         ec.setVisible(true);
     }//GEN-LAST:event_menu_list_compras_proActionPerformed
 
-    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
+    private void menu_prod_facturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_prod_facturasActionPerformed
 
         extracto_fasct_surc_1_pro fd;
         fd = new extracto_fasct_surc_1_pro(new javax.swing.JDialog(), true);
         fd.setVisible(true);
-    }//GEN-LAST:event_jMenuItem13ActionPerformed
+    }//GEN-LAST:event_menu_prod_facturasActionPerformed
+
+    private void menu_recibos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_recibos1ActionPerformed
+        Principal_recibos prec;
+        prec = new Principal_recibos(new javax.swing.JDialog(), true);
+        prec.setVisible(true);
+    }//GEN-LAST:event_menu_recibos1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        Agenda_diaria age;
+        age = new Agenda_diaria(new javax.swing.JDialog(), true);
+        age.setVisible(true);
+
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -4509,6 +4575,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LBL_HORA_SERVER;
     private javax.swing.JButton botton_config;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -4545,7 +4612,8 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
-    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -4563,7 +4631,6 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem16;
@@ -4612,6 +4679,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     public static javax.swing.JLabel lbl_mode_dark;
     public static javax.swing.JLabel lbl_model_lucro;
     public static javax.swing.JLabel lbl_mone_def;
+    public static javax.swing.JLabel lbl_nota_credito;
     private javax.swing.JLabel lbl_notifi_pedidos;
     public static javax.swing.JLabel lbl_panel_pre_usu;
     public static javax.swing.JLabel lbl_periodo_fiscal;
@@ -4669,12 +4737,14 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     public static javax.swing.JMenuItem menu_os_prin_os;
     private javax.swing.JMenuItem menu_pedidos;
     public static javax.swing.JMenuItem menu_presupuesto;
+    private javax.swing.JMenuItem menu_prod_facturas;
     public static javax.swing.JMenu menu_producto;
     private javax.swing.JMenuItem menu_productos;
     public static javax.swing.JMenu menu_proveedor;
     private javax.swing.JMenuItem menu_razon_pro;
     private javax.swing.JMenuItem menu_recibo_fisc;
     private javax.swing.JMenuItem menu_recibos;
+    private javax.swing.JMenuItem menu_recibos1;
     private javax.swing.JMenu menu_reporte_fiscal;
     private javax.swing.JMenuItem menu_salida_stock;
     private javax.swing.JMenu menu_serv;
@@ -5232,6 +5302,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 lbl_id_empre.setText(rs.getString(1));
                 lbl_lote_activa.setText(rs.getString(57));
                 modelo_cp.setText(rs.getString(52));
+                lbl_nota_credito.setText(rs.getString(58));
                 /*  is = rs.getBinaryStream(4);
                  if (is == null) {
                  System.out.println("imagen vacia");
@@ -5412,9 +5483,13 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         if (m20.equals("S")) {
             menu_razon_pro.setVisible(true);
             menu_lista_trans.setVisible(true);
+            menu_prod_facturas.setVisible(true);
+            menu_list_compras_pro.setVisible(true);
         } else {
             menu_razon_pro.setVisible(false);
             menu_lista_trans.setVisible(false);
+            menu_prod_facturas.setVisible(false);
+            menu_list_compras_pro.setVisible(false);
         }
         if (m21.equals("S")) {
             menu_list_dto.setVisible(true);

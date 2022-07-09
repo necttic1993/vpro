@@ -208,10 +208,10 @@ where
      ventas_facturacion.`mes_lit` AS ventas_facturacion_mes_lit,
      ventas_facturacion.`years_lit` AS ventas_facturacion_years_lit,
      ventas_facturacion.`seq_pro` AS ventas_facturacion_seq_pro,
-     ventas_facturacion.`saldo_cred` AS ventas_facturacion_saldo_cred
+     ventas_facturacion.`saldo_cred` AS ventas_facturacion_saldo_cred,
+     ventas_facturacion.`op_ventas` AS ventas_facturacion_op_ventas
 FROM
-     `tienda_clientes` tienda_clientes inner join 
-     `ventas_facturacion` ventas_facturacion on tienda_clientes.`cli_cod`=  ventas_facturacion.`cod_cli_ventas`
+     `tienda_clientes` tienda_clientes INNER JOIN `ventas_facturacion` ventas_facturacion ON tienda_clientes.`cli_cod` = ventas_facturacion.`cod_cli_ventas`
 WHERE
      ventas_facturacion.`num_bol` = $P{codigp}]]>
 	</queryString>
@@ -257,6 +257,7 @@ WHERE
 	<field name="ventas_facturacion_years_lit" class="java.lang.String"/>
 	<field name="ventas_facturacion_seq_pro" class="java.lang.String"/>
 	<field name="ventas_facturacion_saldo_cred" class="java.lang.String"/>
+	<field name="ventas_facturacion_op_ventas" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -305,14 +306,14 @@ WHERE
 				<textFieldExpression><![CDATA[$F{ventas_facturacion_dia_lit}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="141" y="40" width="80" height="10" uuid="09eeb86a-204e-4f4e-823b-eec54f03bd0b"/>
+				<reportElement x="141" y="40" width="52" height="10" uuid="09eeb86a-204e-4f4e-823b-eec54f03bd0b"/>
 				<textElement>
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ventas_facturacion_mes_lit}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="257" y="40" width="40" height="10" uuid="f4217c65-7941-409d-ae72-31331b8f341c"/>
+				<reportElement x="235" y="40" width="40" height="10" uuid="f4217c65-7941-409d-ae72-31331b8f341c"/>
 				<textElement>
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
@@ -475,6 +476,20 @@ WHERE
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ventas_facturacion_simb_moneda}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="277" y="40" width="34" height="10" uuid="1b4712e2-758e-4407-a57f-2779ff9d9e13"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nro OP:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="311" y="40" width="66" height="11" uuid="ddd2b6a9-591a-438a-a87c-99e5b7be47a4"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_facturacion_op_ventas}]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>

@@ -24,8 +24,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;
@@ -100,7 +98,7 @@ public class Presupuesto_presupuesto_franco extends javax.swing.JDialog {
                 }
                 if (Principal.txt_simbolo.getText().equals("US$")) {
                     lbl_r.setText(rs.getString(3));
-                    lbl_dolar.setText(rs.getString(2));
+                    lbl_dolar.setText(rs.getString(5));
                 }
             }
             conectar.getInstance().closeConnection(cn);

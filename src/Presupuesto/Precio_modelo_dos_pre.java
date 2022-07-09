@@ -576,7 +576,7 @@ public class Precio_modelo_dos_pre extends javax.swing.JDialog {
         try {
             Connection cn = conectar.getInstance().getConnection();
 
-            String pre_compra = "", pre_a = "", codi = "", des = "", pre_b = "", stock = "", pre_ataca = "";
+            String pre_compra = "", pre_a = "", codi = "", des = "", pre_b = "", stock = "", pre_ataca = "", pre_d = "";
             String cons = "select * from tienda_productos WHERE pro_cod='" + cod + "'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
@@ -588,6 +588,7 @@ public class Precio_modelo_dos_pre extends javax.swing.JDialog {
                 pre_a = rs.getString(7);
                 pre_b = rs.getString(8);
                 pre_ataca = rs.getString(9);
+                pre_d = rs.getString(60);
 
             }
             txt_cod.setText(codi);
@@ -595,6 +596,17 @@ public class Precio_modelo_dos_pre extends javax.swing.JDialog {
             txt_pre_a.setText(pre_a);
             txt_pre.setText(pre_a);
             txt_stock.setText(stock);
+
+            if (Presupuesto_presupuesto.txt_class_cli.getText().equals("MAYORISTAS")) {
+                txt_pre.setText(pre_b);
+            } else if (Presupuesto_presupuesto.txt_class_cli.getText().equals("SUBDISTRIBUIDOR")) {
+                txt_pre.setText(pre_ataca);
+            } else if (Presupuesto_presupuesto.txt_class_cli.getText().equals("DISTRIBUIDOR")) {
+                txt_pre.setText(pre_d);
+            } else if (Presupuesto_presupuesto.txt_class_cli.getText().equals("MINORISTAS")) {
+                txt_pre.setText(pre_a);
+            }
+
             if (lbl_pre_b.getText().equals("S")) {
                 lbl_precio_b.setText(pre_b);
             } else {

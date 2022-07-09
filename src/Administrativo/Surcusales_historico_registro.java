@@ -120,34 +120,40 @@ public class Surcusales_historico_registro extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String sql = "";
-        String cod = txtdes.getText();
-        String tipo = (String) cb_tipo.getSelectedItem();
-        String clase = (String) cb_class.getSelectedItem();
-        String surc = txt_user_alma.getText();
 
-        sql = "INSERT INTO historicos_surc (des_his,tipo_des,surc_his,class_his) VALUES (?,?,?,?)";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+        if (txtdes.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "El nombre no es válido, verifique!");
+        } else {
+            String sql = "";
+            String cod = txtdes.getText();
+            String tipo = (String) cb_tipo.getSelectedItem();
+            String clase = (String) cb_class.getSelectedItem();
+            String surc = txt_user_alma.getText();
 
-            PreparedStatement pst = cn.prepareStatement(sql);
-            pst.setString(1, cod);
-            pst.setString(2, tipo);
-            pst.setString(3, surc);
-            pst.setString(4, clase);
+            sql = "INSERT INTO historicos_surc (des_his,tipo_des,surc_his,class_his) VALUES (?,?,?,?)";
+            try {
+                Connection cn = conectar.getInstance().getConnection();
 
-            int n = pst.executeUpdate();
-            conectar.getInstance().closeConnection(cn);
-            if (n > 0) {
-                JOptionPane.showMessageDialog(null, "Registro Guardado ");
-                txtdes.setText("");
-                cb_tipo.setSelectedItem("");
+                PreparedStatement pst = cn.prepareStatement(sql);
+                pst.setString(1, cod);
+                pst.setString(2, tipo);
+                pst.setString(3, surc);
+                pst.setString(4, clase);
+
+                int n = pst.executeUpdate();
+                conectar.getInstance().closeConnection(cn);
+                if (n > 0) {
+                    JOptionPane.showMessageDialog(null, "Registro Guardado ");
+                    txtdes.setText("");
+                    cb_tipo.setSelectedItem("");
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(Surcusales_historico_registro.class.getName()).log(Level.SEVERE, null, ex);
             }
+            Historico_Surcusales.btn_cargar_datos.doClick();
 
-        } catch (SQLException ex) {
-            Logger.getLogger(Surcusales_historico_registro.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Historico_Surcusales.btn_cargar_datos.doClick();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

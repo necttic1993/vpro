@@ -18,7 +18,7 @@ import java.sql.Statement;
  *
  * @author user
  */
-public class Consulta_stock extends javax.swing.JDialog {
+public final class Consulta_stock extends javax.swing.JDialog {
 
     /**
      * Creates new form DetallesProductos
@@ -26,12 +26,38 @@ public class Consulta_stock extends javax.swing.JDialog {
     public Consulta_stock(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        BuscarImagen(cod_pro_con_sucursales);
+
         BuscarProductoDes(cod_pro_con_sucursales);
-
-    }
-
-    void BuscarImagen(String cod) {
+        BuscarScursales_1();
+        BuscarScursales_2();
+        BuscarScursales_3();
+        BuscarScursales_4();
+        BuscarScursales_5();
+        BuscarScursales_6();
+        BuscarScursales_7();
+        BuscarScursales_8();
+        BuscarScursales_9();
+        BuscarScursales_10();
+        BuscarScursales_11();
+        BuscarScursales_12();
+        BuscarScursales_13();
+        BuscarScursales_14();
+        BuscarScursales_15();
+        BuscarScursales_16();
+        BuscarScursales_17();
+        BuscarScursales_18();
+        BuscarScursales_19();
+        BuscarScursales_20();
+        BuscarScursales_21();
+        BuscarScursales_22();
+        BuscarScursales_23();
+        BuscarScursales_24();
+        BuscarScursales_25();
+        BuscarScursales_26();
+        BuscarScursales_27();
+        BuscarScursales_28();
+        BuscarScursales_29();
+        BuscarScursales_30();
 
     }
 
@@ -64,7 +90,7 @@ public class Consulta_stock extends javax.swing.JDialog {
                 } else {
                     lbl_stock_2.setText(rs.getString(25));
                 }
-                
+
                 int stock_3 = Integer.parseInt(rs.getString(26));
                 if (stock_3 > minimo) {
                     lbl_stock_3.setText(rs.getString(26));
@@ -72,7 +98,7 @@ public class Consulta_stock extends javax.swing.JDialog {
                 } else {
                     lbl_stock_3.setText(rs.getString(26));
                 }
-                
+
                 int stock_4 = Integer.parseInt(rs.getString(27));
                 if (stock_4 > minimo) {
                     lbl_stock_4.setText(rs.getString(27));
@@ -80,7 +106,7 @@ public class Consulta_stock extends javax.swing.JDialog {
                 } else {
                     lbl_stock_4.setText(rs.getString(27));
                 }
-                
+
                 int stock_5 = Integer.parseInt(rs.getString(28));
                 if (stock_5 > minimo) {
                     lbl_stock_5.setText(rs.getString(28));
@@ -88,7 +114,7 @@ public class Consulta_stock extends javax.swing.JDialog {
                 } else {
                     lbl_stock_5.setText(rs.getString(28));
                 }
-                
+
                 int stock_6 = Integer.parseInt(rs.getString(29));
                 if (stock_6 > minimo) {
                     lbl_stock_6.setText(rs.getString(29));
@@ -96,7 +122,7 @@ public class Consulta_stock extends javax.swing.JDialog {
                 } else {
                     lbl_stock_6.setText(rs.getString(29));
                 }
-                
+
                 int stock_7 = Integer.parseInt(rs.getString(30));
                 if (stock_7 > minimo) {
                     lbl_stock_7.setText(rs.getString(30));
@@ -104,7 +130,7 @@ public class Consulta_stock extends javax.swing.JDialog {
                 } else {
                     lbl_stock_7.setText(rs.getString(30));
                 }
-                
+
                 int stock_8 = Integer.parseInt(rs.getString(31));
                 if (stock_8 > minimo) {
                     lbl_stock_8.setText(rs.getString(31));
@@ -112,7 +138,7 @@ public class Consulta_stock extends javax.swing.JDialog {
                 } else {
                     lbl_stock_8.setText(rs.getString(31));
                 }
-                
+
                 int stock_9 = Integer.parseInt(rs.getString(32));
                 if (stock_9 > minimo) {
                     lbl_stock_9.setText(rs.getString(32));
@@ -120,7 +146,7 @@ public class Consulta_stock extends javax.swing.JDialog {
                 } else {
                     lbl_stock_9.setText(rs.getString(32));
                 }
-                
+
                 int stock_10 = Integer.parseInt(rs.getString(33));
                 if (stock_10 > minimo) {
                     lbl_stock_10.setText(rs.getString(33));
@@ -128,7 +154,7 @@ public class Consulta_stock extends javax.swing.JDialog {
                 } else {
                     lbl_stock_10.setText(rs.getString(33));
                 }
-                
+
                 int stock_11 = Integer.parseInt(rs.getString(34));
                 if (stock_11 > minimo) {
                     lbl_stock_11.setText(rs.getString(34));
@@ -136,7 +162,7 @@ public class Consulta_stock extends javax.swing.JDialog {
                 } else {
                     lbl_stock_11.setText(rs.getString(34));
                 }
-                
+
                 int stock_12 = Integer.parseInt(rs.getString(35));
                 if (stock_12 > minimo) {
                     lbl_stock_12.setText(rs.getString(35));
@@ -144,7 +170,7 @@ public class Consulta_stock extends javax.swing.JDialog {
                 } else {
                     lbl_stock_12.setText(rs.getString(35));
                 }
-                
+
                 int stock_13 = Integer.parseInt(rs.getString(36));
                 if (stock_13 > minimo) {
                     lbl_stock_13.setText(rs.getString(36));
@@ -152,7 +178,7 @@ public class Consulta_stock extends javax.swing.JDialog {
                 } else {
                     lbl_stock_13.setText(rs.getString(36));
                 }
-                
+
                 int stock_14 = Integer.parseInt(rs.getString(37));
                 if (stock_14 > minimo) {
                     lbl_stock_14.setText(rs.getString(37));
@@ -160,7 +186,7 @@ public class Consulta_stock extends javax.swing.JDialog {
                 } else {
                     lbl_stock_14.setText(rs.getString(37));
                 }
-                
+
                 int stock_15 = Integer.parseInt(rs.getString(38));
                 if (stock_15 > minimo) {
                     lbl_stock_15.setText(rs.getString(38));
@@ -168,7 +194,7 @@ public class Consulta_stock extends javax.swing.JDialog {
                 } else {
                     lbl_stock_15.setText(rs.getString(38));
                 }
-                
+
                 int stock_16 = Integer.parseInt(rs.getString(39));
                 if (stock_16 > minimo) {
                     lbl_stock_16.setText(rs.getString(39));
@@ -176,7 +202,7 @@ public class Consulta_stock extends javax.swing.JDialog {
                 } else {
                     lbl_stock_16.setText(rs.getString(39));
                 }
-                
+
                 int stock_17 = Integer.parseInt(rs.getString(40));
                 if (stock_17 > minimo) {
                     lbl_stock_17.setText(rs.getString(40));
@@ -184,7 +210,7 @@ public class Consulta_stock extends javax.swing.JDialog {
                 } else {
                     lbl_stock_17.setText(rs.getString(40));
                 }
-                
+
                 int stock_18 = Integer.parseInt(rs.getString(41));
                 if (stock_18 > minimo) {
                     lbl_stock_18.setText(rs.getString(41));
@@ -192,7 +218,7 @@ public class Consulta_stock extends javax.swing.JDialog {
                 } else {
                     lbl_stock_18.setText(rs.getString(41));
                 }
-                
+
                 int stock_19 = Integer.parseInt(rs.getString(42));
                 if (stock_19 > minimo) {
                     lbl_stock_19.setText(rs.getString(42));
@@ -200,7 +226,7 @@ public class Consulta_stock extends javax.swing.JDialog {
                 } else {
                     lbl_stock_19.setText(rs.getString(42));
                 }
-                
+
                 int stock_20 = Integer.parseInt(rs.getString(43));
                 if (stock_20 > minimo) {
                     lbl_stock_20.setText(rs.getString(43));
@@ -208,7 +234,7 @@ public class Consulta_stock extends javax.swing.JDialog {
                 } else {
                     lbl_stock_20.setText(rs.getString(43));
                 }
-                
+
                 int stock_21 = Integer.parseInt(rs.getString(44));
                 if (stock_21 > minimo) {
                     lbl_stock_21.setText(rs.getString(44));
@@ -216,7 +242,7 @@ public class Consulta_stock extends javax.swing.JDialog {
                 } else {
                     lbl_stock_21.setText(rs.getString(44));
                 }
-                
+
                 int stock_22 = Integer.parseInt(rs.getString(45));
                 if (stock_22 > minimo) {
                     lbl_stock_22.setText(rs.getString(45));
@@ -224,7 +250,7 @@ public class Consulta_stock extends javax.swing.JDialog {
                 } else {
                     lbl_stock_22.setText(rs.getString(45));
                 }
-                
+
                 int stock_23 = Integer.parseInt(rs.getString(46));
                 if (stock_23 > minimo) {
                     lbl_stock_23.setText(rs.getString(46));
@@ -232,7 +258,7 @@ public class Consulta_stock extends javax.swing.JDialog {
                 } else {
                     lbl_stock_23.setText(rs.getString(46));
                 }
-                
+
                 int stock_24 = Integer.parseInt(rs.getString(47));
                 if (stock_24 > minimo) {
                     lbl_stock_24.setText(rs.getString(47));
@@ -240,7 +266,7 @@ public class Consulta_stock extends javax.swing.JDialog {
                 } else {
                     lbl_stock_24.setText(rs.getString(47));
                 }
-                
+
                 int stock_25 = Integer.parseInt(rs.getString(48));
                 if (stock_25 > minimo) {
                     lbl_stock_25.setText(rs.getString(48));
@@ -248,7 +274,7 @@ public class Consulta_stock extends javax.swing.JDialog {
                 } else {
                     lbl_stock_25.setText(rs.getString(48));
                 }
-                
+
                 int stock_26 = Integer.parseInt(rs.getString(49));
                 if (stock_26 > minimo) {
                     lbl_stock_26.setText(rs.getString(49));
@@ -270,7 +296,61 @@ public class Consulta_stock extends javax.swing.JDialog {
                 } else {
                     lbl_stock_28.setText(rs.getString(51));
                 }
+                int stock_29 = Integer.parseInt(rs.getString(52));
+                if (stock_29 > minimo) {
+                    lbl_stock_29.setText(rs.getString(52));
+                    lbl_stock_29.setForeground(Color.BLUE);
+                } else {
+                    lbl_stock_29.setText(rs.getString(52));
+                }
+                int stock_30 = Integer.parseInt(rs.getString(53));
+                if (stock_30 > minimo) {
+                    lbl_stock_30.setText(rs.getString(53));
+                    lbl_stock_30.setForeground(Color.BLUE);
+                } else {
+                    lbl_stock_30.setText(rs.getString(53));
+                }
 
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException e) {
+            System.out.println("el error"+e.getMessage());
+        }
+
+    }
+
+    void BuscarScursales_1() {
+
+        try {
+
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select alm_nom from almacenes where alm_cod='0000001'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                lbl_1.setText(rs.getString(1));
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException e) {
+            System.out.println("el error 1"+e.getMessage());
+        }
+
+    }
+
+    void BuscarScursales_2() {
+
+        try {
+
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select alm_nom from almacenes where alm_cod='0000002'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                lbl_2.setText(rs.getString(1));
             }
             conectar.getInstance().closeConnection(cn);
 
@@ -280,50 +360,562 @@ public class Consulta_stock extends javax.swing.JDialog {
 
     }
 
-    void BuscarScursales() {
+    void BuscarScursales_3() {
 
         try {
+
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from almacenes ";
+            String cons = "select alm_nom from almacenes where alm_cod='0000003'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
-
-                lbl_1.setText(rs.getString(2));
-                lbl_2.setText(rs.getString(25));
-                lbl_3.setText(rs.getString(26));
-                lbl_4.setText(rs.getString(27));
-                lbl_5.setText(rs.getString(28));
-                lbl_6.setText(rs.getString(29));
-                lbl_7.setText(rs.getString(30));
-                lbl_8.setText(rs.getString(31));
-                lbl_9.setText(rs.getString(32));
-                lbl_10.setText(rs.getString(33));
-                lbl_11.setText(rs.getString(34));
-                lbl_12.setText(rs.getString(35));
-                lbl_13.setText(rs.getString(36));
-                lbl_14.setText(rs.getString(37));
-                lbl_15.setText(rs.getString(38));
-                lbl_16.setText(rs.getString(39));
-                lbl_17.setText(rs.getString(40));
-                lbl_18.setText(rs.getString(41));
-                lbl_19.setText(rs.getString(42));
-                lbl_20.setText(rs.getString(43));
-                lbl_21.setText(rs.getString(44));
-                lbl_22.setText(rs.getString(45));
-                lbl_23.setText(rs.getString(46));
-                lbl_24.setText(rs.getString(47));
-                lbl_25.setText(rs.getString(48));
-                lbl_26.setText(rs.getString(49));
-                lbl_27.setText(rs.getString(50));
-                lbl_28.setText(rs.getString(51));
-
+                lbl_3.setText(rs.getString(1));
             }
             conectar.getInstance().closeConnection(cn);
 
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            System.out.println(" "+e.getMessage());
+        }
+
+    }
+
+    void BuscarScursales_4() {
+
+        try {
+
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select alm_nom from almacenes where alm_cod='0000004'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                lbl_4.setText(rs.getString(1));
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException e) {
+            System.out.println(" 4"+e.getMessage());
+        }
+
+    }
+
+    void BuscarScursales_5() {
+
+        try {
+
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select alm_nom from almacenes where alm_cod='0000005'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                lbl_5.setText(rs.getString(1));
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException e) {
+            System.out.println(" 5"+e.getMessage());
+        }
+
+    }
+
+    void BuscarScursales_6() {
+
+        try {
+
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select alm_nom from almacenes where alm_cod='0000006'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                lbl_6.setText(rs.getString(1));
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException e) {
+            System.out.println(" 6"+e.getMessage());
+        }
+
+    }
+
+    void BuscarScursales_7() {
+
+        try {
+
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select alm_nom from almacenes where alm_cod='0000007'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                lbl_7.setText(rs.getString(1));
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException e) {
+            System.out.println(" 7"+e.getMessage());
+        }
+
+    }
+
+    void BuscarScursales_8() {
+
+        try {
+
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select alm_nom from almacenes where alm_cod='0000008'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                lbl_8.setText(rs.getString(1));
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException e) {
+            System.out.println("8 "+e.getMessage());
+        }
+
+    }
+
+    void BuscarScursales_9() {
+
+        try {
+
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select alm_nom from almacenes where alm_cod='0000009'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                lbl_9.setText(rs.getString(1));
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException e) {
+            System.out.println(" 9"+e.getMessage());
+        }
+
+    }
+
+    void BuscarScursales_10() {
+
+        try {
+
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select alm_nom from almacenes where alm_cod='0000010'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                lbl_10.setText(rs.getString(1));
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException e) {
+            System.out.println("10 "+e.getMessage());
+        }
+
+    }
+
+    void BuscarScursales_11() {
+
+        try {
+
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select alm_nom from almacenes where alm_cod='0000011'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                lbl_11.setText(rs.getString(1));
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException e) {
+            System.out.println("11 "+e.getMessage());
+        }
+
+    }
+
+    void BuscarScursales_12() {
+
+        try {
+
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select alm_nom from almacenes where alm_cod='0000012'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                lbl_12.setText(rs.getString(1));
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException e) {
+            System.out.println(" 12"+e.getMessage());
+        }
+
+    }
+
+    void BuscarScursales_13() {
+
+        try {
+
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select alm_nom from almacenes where alm_cod='0000013'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                lbl_13.setText(rs.getString(1));
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException e) {
+            System.out.println(" 13"+e.getMessage());
+        }
+
+    }
+
+    void BuscarScursales_14() {
+
+        try {
+
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select alm_nom from almacenes where alm_cod='0000014'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                lbl_14.setText(rs.getString(1));
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException e) {
+            System.out.println(" 14"+e.getMessage());
+        }
+
+    }
+
+    void BuscarScursales_15() {
+
+        try {
+
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select alm_nom from almacenes where alm_cod='0000015'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                lbl_15.setText(rs.getString(1));
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException e) {
+            System.out.println(" 15"+e.getMessage());
+        }
+
+    }
+
+    void BuscarScursales_16() {
+
+        try {
+
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select alm_nom from almacenes where alm_cod='0000016'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                lbl_16.setText(rs.getString(1));
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException e) {
+            System.out.println(" 16"+e.getMessage());
+        }
+
+    }
+
+    void BuscarScursales_17() {
+
+        try {
+
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select alm_nom from almacenes where alm_cod='0000017'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                lbl_17.setText(rs.getString(1));
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException e) {
+            System.out.println(" 17"+e.getMessage());
+        }
+
+    }
+
+    void BuscarScursales_18() {
+
+        try {
+
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select alm_nom from almacenes where alm_cod='0000018'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                lbl_18.setText(rs.getString(1));
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException e) {
+            System.out.println(" 18"+e.getMessage());
+        }
+
+    }
+
+    void BuscarScursales_19() {
+
+        try {
+
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select alm_nom from almacenes where alm_cod='0000019'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                lbl_19.setText(rs.getString(1));
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException e) {
+            System.out.println(" 19"+e.getMessage());
+        }
+
+    }
+
+    void BuscarScursales_20() {
+
+        try {
+
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select alm_nom from almacenes where alm_cod='0000020'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                lbl_20.setText(rs.getString(1));
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException e) {
+            System.out.println("20 "+e.getMessage());
+        }
+
+    }
+
+    void BuscarScursales_21() {
+
+        try {
+
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select alm_nom from almacenes where alm_cod='0000021'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                lbl_21.setText(rs.getString(1));
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException e) {
+            System.out.println("21"+e.getMessage());
+        }
+
+    }
+
+    void BuscarScursales_22() {
+
+        try {
+
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select alm_nom from almacenes where alm_cod='0000022'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                lbl_22.setText(rs.getString(1));
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException e) {
+            System.out.println(" 22"+e.getMessage());
+        }
+
+    }
+
+    void BuscarScursales_23() {
+
+        try {
+
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select alm_nom from almacenes where alm_cod='0000023'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                lbl_23.setText(rs.getString(1));
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException e) {
+            System.out.println("23 "+e.getMessage());
+        }
+
+    }
+
+    void BuscarScursales_24() {
+
+        try {
+
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select alm_nom from almacenes where alm_cod='0000024'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                lbl_24.setText(rs.getString(1));
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException e) {
+            System.out.println(" 24"+e.getMessage());
+        }
+
+    }
+
+    void BuscarScursales_25() {
+
+        try {
+
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select alm_nom from almacenes where alm_cod='0000025'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                lbl_25.setText(rs.getString(1));
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException e) {
+            System.out.println(" 25"+e.getMessage());
+        }
+
+    }
+
+    void BuscarScursales_26() {
+
+        try {
+
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select alm_nom from almacenes where alm_cod='0000026'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                lbl_26.setText(rs.getString(1));
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException e) {
+            System.out.println(" 26"+e.getMessage());
+        }
+
+    }
+
+    void BuscarScursales_27() {
+
+        try {
+
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select alm_nom from almacenes where alm_cod='0000027'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                lbl_27.setText(rs.getString(1));
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException e) {
+            System.out.println("27 "+e.getMessage());
+        }
+
+    }
+
+    void BuscarScursales_28() {
+
+        try {
+
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select alm_nom from almacenes where alm_cod='0000028'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                lbl_28.setText(rs.getString(1));
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException e) {
+            System.out.println(" 28"+e.getMessage());
+        }
+
+    }
+
+    void BuscarScursales_29() {
+
+        try {
+
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select alm_nom from almacenes where alm_cod='0000029'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                lbl_29.setText(rs.getString(1));
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException e) {
+            System.out.println(" 29"+e.getMessage());
+        }
+
+    }
+
+    void BuscarScursales_30() {
+
+        try {
+
+            Connection cn = conectar.getInstance().getConnection();
+
+            String cons = "select alm_nom from almacenes where alm_cod='0000030'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(cons);
+            while (rs.next()) {
+                lbl_30.setText(rs.getString(1));
+            }
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException e) {
+            System.out.println("30"+e.getMessage());
         }
 
     }
@@ -365,8 +957,8 @@ public class Consulta_stock extends javax.swing.JDialog {
         lbl_26 = new javax.swing.JLabel();
         lbl_27 = new javax.swing.JLabel();
         lbl_28 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
-        jLabel43 = new javax.swing.JLabel();
+        lbl_29 = new javax.swing.JLabel();
+        lbl_30 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
         lbl_id_pro = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -399,10 +991,10 @@ public class Consulta_stock extends javax.swing.JDialog {
         lbl_stock_26 = new javax.swing.JLabel();
         lbl_stock_27 = new javax.swing.JLabel();
         lbl_stock_28 = new javax.swing.JLabel();
+        lbl_stock_29 = new javax.swing.JLabel();
         lbl_stock_30 = new javax.swing.JLabel();
-        lbl_stock_31 = new javax.swing.JLabel();
         lbl_stock_32 = new javax.swing.JLabel();
-        lbl_stock_33 = new javax.swing.JLabel();
+        lbl_stock_31 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconImage(null);
@@ -450,7 +1042,7 @@ public class Consulta_stock extends javax.swing.JDialog {
 
         lbl_1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lbl_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/localizar.png"))); // NOI18N
-        lbl_1.setText("PRINCIPAL");
+        lbl_1.setText("NULL");
         lbl_1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 0, 102), 2, true));
         jPanel1.add(lbl_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 290, 60));
 
@@ -604,17 +1196,17 @@ public class Consulta_stock extends javax.swing.JDialog {
         lbl_28.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 0, 102), 2, true));
         jPanel1.add(lbl_28, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 270, 290, 60));
 
-        jLabel42.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel42.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/localizar.png"))); // NOI18N
-        jLabel42.setText("SUCURSAL PROX");
-        jLabel42.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 0, 102), 2, true));
-        jPanel1.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 340, 290, 60));
+        lbl_29.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbl_29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/localizar.png"))); // NOI18N
+        lbl_29.setText("SUCURSAL PROX");
+        lbl_29.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 0, 102), 2, true));
+        jPanel1.add(lbl_29, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 340, 290, 60));
 
-        jLabel43.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/localizar.png"))); // NOI18N
-        jLabel43.setText("SUCURSAL PROX");
-        jLabel43.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 0, 102), 2, true));
-        jPanel1.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 410, 290, 60));
+        lbl_30.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbl_30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/localizar.png"))); // NOI18N
+        lbl_30.setText("SUCURSAL PROX");
+        lbl_30.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 0, 102), 2, true));
+        jPanel1.add(lbl_30, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 410, 290, 60));
 
         jLabel44.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/localizar.png"))); // NOI18N
@@ -699,7 +1291,7 @@ public class Consulta_stock extends javax.swing.JDialog {
         lbl_stock_11.setForeground(new java.awt.Color(204, 0, 51));
         lbl_stock_11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_stock_11.setText("0");
-        jPanel1.add(lbl_stock_11, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 210, 50, 40));
+        jPanel1.add(lbl_stock_11, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 210, 50, 40));
 
         lbl_stock_12.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lbl_stock_12.setForeground(new java.awt.Color(204, 0, 51));
@@ -803,17 +1395,17 @@ public class Consulta_stock extends javax.swing.JDialog {
         lbl_stock_28.setText("0");
         jPanel1.add(lbl_stock_28, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 280, 50, 40));
 
+        lbl_stock_29.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        lbl_stock_29.setForeground(new java.awt.Color(204, 0, 51));
+        lbl_stock_29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_stock_29.setText("0");
+        jPanel1.add(lbl_stock_29, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 350, 50, 40));
+
         lbl_stock_30.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lbl_stock_30.setForeground(new java.awt.Color(204, 0, 51));
         lbl_stock_30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_stock_30.setText("0");
-        jPanel1.add(lbl_stock_30, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 350, 50, 40));
-
-        lbl_stock_31.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        lbl_stock_31.setForeground(new java.awt.Color(204, 0, 51));
-        lbl_stock_31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_stock_31.setText("0");
-        jPanel1.add(lbl_stock_31, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 420, 50, 40));
+        jPanel1.add(lbl_stock_30, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 420, 50, 40));
 
         lbl_stock_32.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lbl_stock_32.setForeground(new java.awt.Color(204, 0, 51));
@@ -821,11 +1413,11 @@ public class Consulta_stock extends javax.swing.JDialog {
         lbl_stock_32.setText("0");
         jPanel1.add(lbl_stock_32, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 560, 50, 40));
 
-        lbl_stock_33.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        lbl_stock_33.setForeground(new java.awt.Color(204, 0, 51));
-        lbl_stock_33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_stock_33.setText("0");
-        jPanel1.add(lbl_stock_33, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 490, 50, 40));
+        lbl_stock_31.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        lbl_stock_31.setForeground(new java.awt.Color(204, 0, 51));
+        lbl_stock_31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_stock_31.setText("0");
+        jPanel1.add(lbl_stock_31, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 490, 50, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 630));
 
@@ -890,8 +1482,6 @@ public class Consulta_stock extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator3;
@@ -916,7 +1506,9 @@ public class Consulta_stock extends javax.swing.JDialog {
     private javax.swing.JLabel lbl_26;
     private javax.swing.JLabel lbl_27;
     private javax.swing.JLabel lbl_28;
+    private javax.swing.JLabel lbl_29;
     private javax.swing.JLabel lbl_3;
+    private javax.swing.JLabel lbl_30;
     private javax.swing.JLabel lbl_4;
     private javax.swing.JLabel lbl_5;
     private javax.swing.JLabel lbl_6;
@@ -946,11 +1538,11 @@ public class Consulta_stock extends javax.swing.JDialog {
     private javax.swing.JLabel lbl_stock_26;
     private javax.swing.JLabel lbl_stock_27;
     private javax.swing.JLabel lbl_stock_28;
+    private javax.swing.JLabel lbl_stock_29;
     private javax.swing.JLabel lbl_stock_3;
     private javax.swing.JLabel lbl_stock_30;
     private javax.swing.JLabel lbl_stock_31;
     private javax.swing.JLabel lbl_stock_32;
-    private javax.swing.JLabel lbl_stock_33;
     private javax.swing.JLabel lbl_stock_4;
     private javax.swing.JLabel lbl_stock_5;
     private javax.swing.JLabel lbl_stock_6;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="53e51476-e3d4-401e-a00b-c782196d9310">
-	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="codigo" class="java.lang.String">
@@ -8,86 +8,181 @@
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT
-     empresas.`id_empre` AS empresas_id_empre,
-     empresas.`emp_nom` AS empresas_emp_nom,
-     empresas.`emp_des` AS empresas_emp_des,
-     empresas.`emp_imag` AS empresas_emp_imag,
-     presupuesto.`num_bol` AS presupuesto_num_bol,
-     presupuesto.`cod_cli_ventas` AS presupuesto_cod_cli_ventas,
-     presupuesto.`nom_cli_ventas` AS presupuesto_nom_cli_ventas,
-     presupuesto.`forma_pag_ventas` AS presupuesto_forma_pag_ventas,
-     presupuesto.`dias_plazo_ventas` AS presupuesto_dias_plazo_ventas,
-     presupuesto.`total_ventas` AS presupuesto_total_ventas,
-     presupuesto.`total_real` AS presupuesto_total_real,
-     presupuesto.`total_dolar` AS presupuesto_total_dolar,
-     presupuesto.`estado_ventas` AS presupuesto_estado_ventas,
-     presupuesto.`fecha_ventas` AS presupuesto_fecha_ventas,
-     presupuesto.`fecha_control_ventas` AS presupuesto_fecha_control_ventas,
-     presupuesto.`user_ventas` AS presupuesto_user_ventas,
-     presupuesto.`almacen_ventas` AS presupuesto_almacen_ventas,
-     presupuesto.`cant_ventas` AS presupuesto_cant_ventas,
-     presupuesto.`letras_ventas` AS presupuesto_letras_ventas,
-     presupuesto.`nro_fact_ventas` AS presupuesto_nro_fact_ventas,
-     presupuesto.`vac_ventas` AS presupuesto_vac_ventas,
-     presupuesto.`id_presupuesto` AS presupuesto_id_presupuesto,
-     presupuesto_detalles.`num_bol` AS presupuesto_detalles_num_bol,
-     presupuesto_detalles.`cod_pro` AS presupuesto_detalles_cod_pro,
-     presupuesto_detalles.`des_pro` AS presupuesto_detalles_des_pro,
-     presupuesto_detalles.`cant_pro` AS presupuesto_detalles_cant_pro,
-     presupuesto_detalles.`pre_unit` AS presupuesto_detalles_pre_unit,
-     presupuesto_detalles.`cant_kg` AS presupuesto_detalles_cant_kg,
-     presupuesto_detalles.`pre_venta` AS presupuesto_detalles_pre_venta,
-     presupuesto_detalles.`data` AS presupuesto_detalles_data,
-     presupuesto_detalles.`id_pre_det` AS presupuesto_detalles_id_pre_det
+    (select d.des_depar from cliente_depar as d where d.id_depar=cc.id_depar) as departamento,
+     p.dias_plazo_ventas,
+     p.total_ventas,
+     p.`num_bol`,
+     pd.`num_bol`,
+     pd.`cod_pro`,
+     pd.`des_pro`,
+     pd.`cant_pro`,
+     pd.`pre_unit`,
+     pd.`cant_kg`,
+     pd.`pre_venta`,
+     pd.`data`,
+     pd.`id_pre_det`,
+     c.`cli_cod`,
+     c.`cli_nombre`,
+     c.`cli_ruc`,
+     c.`cli_razon`,
+     c.`cli_contacto`,
+     c.`cli_email`,
+     c.`cli_dir`,
+     c.`cli_ciudad`,
+     cc.`id_ciudad`,
+     cc.`des_ciudad`,
+     cc.`id_depar`,
+     e.`id_empre`,
+     e.`emp_nom`,
+     e.`emp_des`,
+     e.`emp_imag`,
+     p.`cod_cli_ventas`,
+     p.`nom_cli_ventas`,
+     p.`forma_pag_ventas`,
+     p.`total_real` ,
+     p.`total_dolar`,
+     p.`anticip_cliente`,
+     p.`vac_ventas` ,
+     p.`nro_fact_ventas` ,
+     p.`user_ventas`,
+     p.`fecha_ventas`,
+     p.`cant_ventas`,
+     p.pre_saldo_antic,
+     p.nro_fact_ventas
 FROM
-     `empresas` empresas,
-     `presupuesto` presupuesto INNER JOIN 
-     `presupuesto_detalles` presupuesto_detalles ON presupuesto.`num_bol`=   presupuesto_detalles.`num_bol`
+     `presupuesto` p INNER JOIN `presupuesto_detalles` pd ON p.`num_bol` = pd.`num_bol`
+     INNER JOIN `tienda_clientes` c ON p.`cod_cli_ventas` = c.`cli_cod`
+     INNER JOIN `clientes_ciudad` cc ON c.`cli_ciudad` = cc.`id_ciudad`,
+     `empresas` e
 WHERE
-         presupuesto.`num_bol` = $P{codigo}]]>
+     p.num_bol = $P{codigo}]]>
 	</queryString>
-	<field name="empresas_id_empre" class="java.lang.Integer"/>
-	<field name="empresas_emp_nom" class="java.lang.String"/>
-	<field name="empresas_emp_des" class="java.lang.String"/>
-	<field name="empresas_emp_imag" class="java.io.InputStream"/>
-	<field name="presupuesto_num_bol" class="java.lang.String"/>
-	<field name="presupuesto_cod_cli_ventas" class="java.lang.String"/>
-	<field name="presupuesto_nom_cli_ventas" class="java.lang.String"/>
-	<field name="presupuesto_forma_pag_ventas" class="java.lang.String"/>
-	<field name="presupuesto_dias_plazo_ventas" class="java.lang.String"/>
-	<field name="presupuesto_total_ventas" class="java.lang.String"/>
-	<field name="presupuesto_total_real" class="java.lang.String"/>
-	<field name="presupuesto_total_dolar" class="java.lang.String"/>
-	<field name="presupuesto_estado_ventas" class="java.lang.String"/>
-	<field name="presupuesto_fecha_ventas" class="java.sql.Date"/>
-	<field name="presupuesto_fecha_control_ventas" class="java.sql.Timestamp"/>
-	<field name="presupuesto_user_ventas" class="java.lang.String"/>
-	<field name="presupuesto_almacen_ventas" class="java.lang.String"/>
-	<field name="presupuesto_cant_ventas" class="java.lang.String"/>
-	<field name="presupuesto_letras_ventas" class="java.lang.String"/>
-	<field name="presupuesto_nro_fact_ventas" class="java.lang.String"/>
-	<field name="presupuesto_vac_ventas" class="java.lang.String"/>
-	<field name="presupuesto_id_presupuesto" class="java.lang.Integer"/>
-	<field name="presupuesto_detalles_num_bol" class="java.lang.String"/>
-	<field name="presupuesto_detalles_cod_pro" class="java.lang.String"/>
-	<field name="presupuesto_detalles_des_pro" class="java.lang.String"/>
-	<field name="presupuesto_detalles_cant_pro" class="java.lang.Integer"/>
-	<field name="presupuesto_detalles_pre_unit" class="java.lang.String"/>
-	<field name="presupuesto_detalles_cant_kg" class="java.lang.String"/>
-	<field name="presupuesto_detalles_pre_venta" class="java.lang.String"/>
-	<field name="presupuesto_detalles_data" class="java.sql.Date"/>
-	<field name="presupuesto_detalles_id_pre_det" class="java.lang.Integer"/>
+	<field name="departamento" class="java.lang.String"/>
+	<field name="dias_plazo_ventas" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total_ventas" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="num_bol" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cod_pro" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="des_pro" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cant_pro" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pre_unit" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cant_kg" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pre_venta" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="data" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_pre_det" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cli_cod" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cli_nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cli_ruc" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cli_razon" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cli_contacto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cli_email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cli_dir" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cli_ciudad" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_ciudad" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="des_ciudad" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_depar" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_empre" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="emp_nom" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="emp_des" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="emp_imag" class="java.io.InputStream">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cod_cli_ventas" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nom_cli_ventas" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="forma_pag_ventas" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total_real" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total_dolar" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="anticip_cliente" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="vac_ventas" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nro_fact_ventas" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="user_ventas" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_ventas" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cant_ventas" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pre_saldo_antic" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<title>
-		<band height="139" splitType="Stretch">
+		<band height="187" splitType="Stretch">
 			<textField>
-				<reportElement x="76" y="22" width="242" height="27" uuid="bc120586-b34b-4823-a1b8-7dd347f92792"/>
+				<reportElement x="114" y="23" width="242" height="27" uuid="bc120586-b34b-4823-a1b8-7dd347f92792"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{empresas_emp_nom}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emp_des}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="383" y="64" width="139" height="15" uuid="7881c4c1-a18a-455c-81f1-f274bec2b825"/>
+				<reportElement x="386" y="28" width="139" height="15" uuid="7881c4c1-a18a-455c-81f1-f274bec2b825"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="11" isBold="true"/>
 				</textElement>
@@ -101,49 +196,49 @@ WHERE
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="13" y="118" width="63" height="16" uuid="ab7cef6d-322e-4d02-86af-27849f9bab81"/>
+				<reportElement x="13" y="96" width="63" height="16" uuid="ab7cef6d-322e-4d02-86af-27849f9bab81"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Señor(es):]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="13" y="88" width="88" height="15" uuid="562b6520-7464-4253-836f-002e9ce17a59"/>
+				<reportElement x="13" y="79" width="88" height="15" uuid="562b6520-7464-4253-836f-002e9ce17a59"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Fecha de emisión:]]></text>
 			</staticText>
 			<componentElement>
-				<reportElement x="353" y="97" width="198" height="33" uuid="5499c86e-9785-4ffe-a2ba-da8e2568a31c"/>
+				<reportElement x="356" y="61" width="198" height="33" uuid="5499c86e-9785-4ffe-a2ba-da8e2568a31c"/>
 				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code128" drawText="false" checksumRequired="false">
 					<jr:codeExpression><![CDATA[$P{codigo}]]></jr:codeExpression>
 				</jr:barbecue>
 			</componentElement>
 			<image hAlign="Center" vAlign="Middle">
-				<reportElement x="13" y="8" width="63" height="56" uuid="eae0742d-579a-41c9-9223-f135ac884d8b"/>
-				<imageExpression><![CDATA[$F{empresas_emp_imag}]]></imageExpression>
+				<reportElement x="13" y="8" width="101" height="58" uuid="eae0742d-579a-41c9-9223-f135ac884d8b"/>
+				<imageExpression><![CDATA[$F{emp_imag}]]></imageExpression>
 			</image>
 			<textField>
-				<reportElement x="76" y="118" width="267" height="16" uuid="7368d69d-eff1-4b0f-81ae-c1c8626bd7d6"/>
+				<reportElement x="76" y="96" width="259" height="16" uuid="7368d69d-eff1-4b0f-81ae-c1c8626bd7d6"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial" size="10" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{presupuesto_nom_cli_ventas}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{cli_nombre}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="383" y="79" width="139" height="15" uuid="aa1bf72a-9ab3-46ea-b680-a5e54253a0c9"/>
+				<reportElement x="386" y="43" width="139" height="15" uuid="aa1bf72a-9ab3-46ea-b680-a5e54253a0c9"/>
 				<textElement textAlignment="Center">
 					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{presupuesto_num_bol}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{num_bol}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="101" y="88" width="49" height="15" uuid="b251459a-2690-4cef-a676-c414315db523"/>
+				<reportElement x="101" y="79" width="68" height="15" uuid="b251459a-2690-4cef-a676-c414315db523"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial" size="10" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{presupuesto_fecha_ventas}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{fecha_ventas}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="365" y="8" width="35" height="15" uuid="147d647c-b4d4-4d88-9149-06eccb033779"/>
@@ -152,29 +247,131 @@ WHERE
 				</textElement>
 				<text><![CDATA[Fecha:]]></text>
 			</staticText>
-			<rectangle radius="10">
-				<reportElement x="179" y="60" width="186" height="24" backcolor="#000000" uuid="258ad016-e386-4259-ba22-e3fec4d842fa"/>
-			</rectangle>
 			<staticText>
-				<reportElement mode="Opaque" x="202" y="63" width="140" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="7d1a968d-e2cd-4b5e-a4c8-d6715d70214d"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="10" isBold="true"/>
-				</textElement>
-				<text><![CDATA[PRESUPUESTO]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="13" y="103" width="63" height="15" uuid="22551640-8f5b-4804-b23a-8eb885600098"/>
+				<reportElement x="14" y="156" width="63" height="15" uuid="22551640-8f5b-4804-b23a-8eb885600098"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Emitido por:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="76" y="103" width="266" height="15" uuid="430962ad-60d7-463c-8476-d1ae279271e7"/>
+				<reportElement x="77" y="156" width="266" height="15" uuid="430962ad-60d7-463c-8476-d1ae279271e7"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial" isBold="true"/>
+					<font fontName="Arial" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{presupuesto_user_ventas}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{user_ventas}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="111" width="63" height="15" uuid="36123cfc-3f7e-4134-b126-2c493741d0c9"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dirección:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="126" width="63" height="15" uuid="9dabad63-b537-40ad-902e-02022ace6d82"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telefóno:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="343" y="96" width="33" height="15" uuid="8e6d792c-ea48-472d-b068-36d08c458af4"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RUC:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="343" y="111" width="43" height="15" uuid="1133d06c-8ba0-4beb-a54f-323586af9c54"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ciudad:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="343" y="126" width="72" height="15" uuid="bbffe38b-030d-487a-8574-085a174bd215"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Departamento:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="141" width="62" height="15" uuid="fe1eedc3-8afd-492f-b737-7af4a2a95b25"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Email:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="76" y="112" width="259" height="15" uuid="e482635a-cc5d-4b38-b738-c81345b1e576"/>
+				<textElement>
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cli_dir}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="77" y="127" width="258" height="14" uuid="2ac00a26-cf18-4f01-ac44-600a962d4218"/>
+				<textElement>
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cli_contacto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="77" y="141" width="258" height="15" uuid="1d7f755f-f183-4620-8735-aacfbbd8ff24"/>
+				<textElement>
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cli_email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="415" y="96" width="134" height="15" uuid="ab7d1ac7-c020-4d42-a4e0-72b5fcd4d2b8"/>
+				<textElement>
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cli_ruc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="415" y="112" width="134" height="15" uuid="32feaf46-6fb3-45a4-9829-f3e38881e901"/>
+				<textElement>
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{des_ciudad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="415" y="127" width="134" height="14" uuid="89c2503b-f930-4060-bdb2-a4b96c68684e"/>
+				<textElement>
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{departamento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="343" y="141" width="72" height="15" uuid="04893afa-eeab-4b4f-bd11-f34974f5968e"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nro  OP:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="415" y="141" width="129" height="15" uuid="353dcfac-10fd-4a74-83c9-bc2f0a1a2578"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nro_fact_ventas}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="171" width="63" height="15" uuid="8a6471c0-6c5c-444f-81e2-ab39c98d51b8"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descripción:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="77" y="171" width="467" height="15" uuid="7f220769-dcef-420b-abcd-d54d251cc9ad"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vac_ventas}]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>
@@ -183,7 +380,7 @@ WHERE
 	</pageHeader>
 	<columnHeader>
 		<band height="19" splitType="Stretch">
-			<rectangle radius="10">
+			<rectangle radius="2">
 				<reportElement x="1" y="1" width="554" height="17" uuid="25ebb1a4-b817-41c3-8bac-2001572188a8"/>
 			</rectangle>
 			<staticText>
@@ -245,28 +442,28 @@ WHERE
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="9" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{presupuesto_detalles_des_pro}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{des_pro}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="330" y="0" width="81" height="14" uuid="1e246967-d607-4698-af76-5aa782afb4a7"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="9" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{presupuesto_detalles_pre_unit}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pre_unit}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="473" y="0" width="76" height="14" uuid="5355c013-dff2-4f83-b6a2-6a9322ce4744"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="9" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{presupuesto_detalles_pre_venta}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pre_venta}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="412" y="0" width="60" height="14" uuid="a947345c-eeaa-49eb-9c2c-5374122271aa"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="9" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{presupuesto_detalles_cant_pro}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{cant_pro}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="0" y="0" width="1" height="15" uuid="53ec2d77-ffe9-4a42-ad59-b5803b25808e"/>
@@ -279,7 +476,7 @@ WHERE
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{presupuesto_detalles_cod_pro}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{cod_pro}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
@@ -287,33 +484,68 @@ WHERE
 		<band splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="54" splitType="Stretch">
-			<rectangle radius="10">
-				<reportElement x="411" y="14" width="143" height="24" backcolor="#000000" uuid="34c6c754-2d3a-4737-8b7b-e837cadf3a9b"/>
+		<band height="115" splitType="Stretch">
+			<rectangle radius="3">
+				<reportElement x="2" y="0" width="553" height="74" backcolor="#FFFFFF" uuid="34c6c754-2d3a-4737-8b7b-e837cadf3a9b"/>
 			</rectangle>
 			<textField>
-				<reportElement mode="Opaque" x="421" y="15" width="123" height="23" forecolor="#FFFFFF" backcolor="#000000" uuid="421dee0a-a29a-4da8-ae2f-382d78f4e9fb"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement mode="Opaque" x="444" y="2" width="100" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="421dee0a-a29a-4da8-ae2f-382d78f4e9fb"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{presupuesto_total_ventas}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{total_ventas}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="1" y="4" width="553" height="1" uuid="7162d5ab-b6d6-4368-9547-73cdf60b47df"/>
+				<reportElement x="2" y="40" width="553" height="1" uuid="7162d5ab-b6d6-4368-9547-73cdf60b47df"/>
 			</line>
 			<staticText>
-				<reportElement x="11" y="14" width="81" height="21" uuid="304be266-a384-4d21-94aa-0c08af04d85b"/>
+				<reportElement x="11" y="41" width="81" height="21" uuid="304be266-a384-4d21-94aa-0c08af04d85b"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font fontName="Arial" size="11" isBold="true"/>
 				</textElement>
 				<text><![CDATA[TOTAL ITEMS:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="92" y="15" width="100" height="20" uuid="455c8532-bcac-4284-a846-4bc109658b3f"/>
+				<reportElement x="92" y="41" width="100" height="21" uuid="455c8532-bcac-4284-a846-4bc109658b3f"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="11" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{presupuesto_cant_ventas}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{cant_ventas}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="365" y="2" width="46" height="15" uuid="e3b916e7-b789-4a3a-99e4-a12039c996a6"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Subtotal:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="329" y="17" width="82" height="15" uuid="ec469548-bca7-413f-96eb-7ab8810bd1ec"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Anticipo Cliente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="318" y="41" width="92" height="21" uuid="517eb806-955d-4b2a-9d9d-f3b52811babf"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Saldo a pagar:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="444" y="17" width="100" height="15" uuid="7a79cb35-ad24-4c68-94ca-0d7f319e93a2"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{anticip_cliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="432" y="41" width="112" height="20" uuid="93ed3c15-af0f-40fc-8a23-e252bd8add64"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pre_saldo_antic}]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageFooter>

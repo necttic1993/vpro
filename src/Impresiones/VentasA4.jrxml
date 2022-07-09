@@ -191,16 +191,6 @@ WHERE
 				</textElement>
 				<text><![CDATA[Fecha:]]></text>
 			</staticText>
-			<rectangle radius="10">
-				<reportElement x="210" y="61" width="141" height="25" backcolor="#000000" uuid="5630c99c-8a12-48f8-a5fe-e40016137223"/>
-			</rectangle>
-			<staticText>
-				<reportElement mode="Opaque" x="241" y="62" width="88" height="25" forecolor="#FFFFFF" backcolor="#000000" uuid="ce28e7e6-6bb4-41a3-824a-0eb88dfe95d0"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="9" isBold="true"/>
-				</textElement>
-				<text><![CDATA[VENTAS]]></text>
-			</staticText>
 		</band>
 	</title>
 	<pageHeader>
@@ -317,17 +307,17 @@ WHERE
 				<reportElement x="1" y="3" width="551" height="1" uuid="7162d5ab-b6d6-4368-9547-73cdf60b47df"/>
 			</line>
 			<rectangle radius="10">
-				<reportElement x="408" y="8" width="141" height="25" backcolor="#000000" uuid="8daefa67-ef08-4ca9-bc3e-de55ef5192be"/>
+				<reportElement x="408" y="8" width="141" height="25" forecolor="#000000" backcolor="#FFFFFF" uuid="8daefa67-ef08-4ca9-bc3e-de55ef5192be"/>
 			</rectangle>
 			<textField>
-				<reportElement mode="Opaque" x="423" y="12" width="85" height="17" forecolor="#FFFFFF" backcolor="#000000" uuid="74987a33-ad24-449f-b1b8-37c3e03e4200"/>
+				<reportElement mode="Opaque" x="423" y="12" width="85" height="17" forecolor="#000000" backcolor="#FFFFFF" uuid="74987a33-ad24-449f-b1b8-37c3e03e4200"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ventas_total_ventas}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement mode="Opaque" x="511" y="12" width="19" height="17" forecolor="#FFFFFF" backcolor="#000000" uuid="3d8ddece-639f-441c-aecf-c94fe3bad70c"/>
+				<reportElement mode="Opaque" x="511" y="12" width="19" height="17" forecolor="#000000" backcolor="#FFFFFF" uuid="3d8ddece-639f-441c-aecf-c94fe3bad70c"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>

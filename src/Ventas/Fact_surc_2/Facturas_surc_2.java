@@ -935,6 +935,7 @@ public class Facturas_surc_2 extends javax.swing.JDialog {
 
             if (n > 0) {
                 detalle_factura();
+                actEstadoVentas();
                 JOptionPane.showMessageDialog(null, "Factura de venta realizada con éxito");
                 if (JOptionPane.showConfirmDialog(rootPane, "Imprimir Factura de venta" + ": " + txt_sequencia.getText() + "-" + txt_esta.getText() + "-" + lbl_cod.getText() + ", ¿desea continuar?",
                         "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
@@ -1147,7 +1148,7 @@ public class Facturas_surc_2 extends javax.swing.JDialog {
     }
 
     public void cargarTxt(String valor) {
-        String mostrar = "SELECT * FROM ventas_2 WHERE CONCAT(num_bol) LIKE '%" + valor + "%'";
+        String mostrar = "SELECT cod_cli_ventas,nom_cli_ventas,forma_pag_ventas FROM ventas_2 WHERE num_bol= '" + valor + "'";
 
         try {
             Connection cn = conectar.getInstance().getConnection();
@@ -1155,9 +1156,9 @@ public class Facturas_surc_2 extends javax.swing.JDialog {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(mostrar);
             while (rs.next()) {
-                txt_cod_cli.setText(rs.getString(2));
-                txt_cli_nom.setText(rs.getString(3));
-                txt_forma_pago.setText(rs.getString(4));
+                txt_cod_cli.setText(rs.getString(1));
+                txt_cli_nom.setText(rs.getString(2));
+                txt_forma_pago.setText(rs.getString(3));
                 //txt_da.setText(rs.getString(6));
 
             }
@@ -1169,7 +1170,7 @@ public class Facturas_surc_2 extends javax.swing.JDialog {
 
     }
 
-    void actEstadoVentas() {//analizar mañana cargar datos de nro de factura
+    void actEstadoFact() {//analizar mañana cargar datos de nro de factura
 
         try {
             String es = lbl_cod.getText();
@@ -1194,8 +1195,31 @@ public class Facturas_surc_2 extends javax.swing.JDialog {
 
     }
 
+    public void actEstadoVentas() {
+        try {
+            String es = "1";
+            String nro = txt_cod.getText();
+
+            String sql = "UPDATE ventas_2 SET bool_fact = '" + es
+                    + "' WHERE num_bol = '" + nro + "'";
+            try {
+                Connection cn = conectar.getInstance().getConnection();
+
+                PreparedStatement pst = cn.prepareStatement(sql);
+                pst.executeUpdate();
+                //  JOptionPane.showMessageDialog(null, "Actualizado");
+                conectar.getInstance().closeConnection(cn);
+
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+
+        } catch (Exception e) {
+        }
+    }
+
     void cargarConfig() {
-        String mostrar = "SELECT * FROM empresas";
+        String mostrar = "SELECT timbra_surc_2,seq_surc_2,lote_surc_2 FROM empresas";
 
         try {
             Connection cn = conectar.getInstance().getConnection();
@@ -1204,9 +1228,9 @@ public class Facturas_surc_2 extends javax.swing.JDialog {
             ResultSet rs = st.executeQuery(mostrar);
             while (rs.next()) {
 
-                txt_timbrado.setText(rs.getString(30));
-                txt_sequencia.setText(rs.getString(32));
-                txt_esta.setText(rs.getString(33));
+                txt_timbrado.setText(rs.getString(1));
+                txt_sequencia.setText(rs.getString(2));
+                txt_esta.setText(rs.getString(3));
 
             }
             conectar.getInstance().closeConnection(cn);
@@ -1309,15 +1333,15 @@ public class Facturas_surc_2 extends javax.swing.JDialog {
             String registro = "", cli_pais = "";
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from tienda_clientes WHERE cli_cod='" + cod + "'";
+            String cons = "select cli_ruc,cli_razon,nro_registro,cli_pais from tienda_clientes WHERE cli_cod='" + cod + "'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
 
-                ruc = rs.getString(3);
-                razon = rs.getString(4);
-                registro = rs.getString(13);
-                cli_pais = rs.getString(14);
+                ruc = rs.getString(1);
+                razon = rs.getString(2);
+                registro = rs.getString(3);
+                cli_pais = rs.getString(4);
 
             }
 

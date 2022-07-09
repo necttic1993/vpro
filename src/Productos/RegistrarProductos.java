@@ -194,6 +194,8 @@ public class RegistrarProductos extends javax.swing.JDialog {
         txt_precio_d = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
         txt_pre_outlet = new javax.swing.JTextField();
+        jLabel31 = new javax.swing.JLabel();
+        txt_url_imagen = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registrar Productos");
@@ -324,7 +326,7 @@ public class RegistrarProductos extends javax.swing.JDialog {
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel5.setText("Marca:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 110, 30));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, 110, 30));
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel9.setText("Tamaño/Calce:");
@@ -423,7 +425,7 @@ public class RegistrarProductos extends javax.swing.JDialog {
 
         jLabel13.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel13.setText("Departamento:");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 110, 30));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 110, 30));
 
         jLabel14.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel14.setText("Color:");
@@ -480,7 +482,7 @@ public class RegistrarProductos extends javax.swing.JDialog {
                 btnguardarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 530, 110, 40));
+        jPanel1.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 560, 110, 40));
 
         btn_ima.setBackground(new java.awt.Color(255, 255, 255));
         btn_ima.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -491,7 +493,7 @@ public class RegistrarProductos extends javax.swing.JDialog {
                 btn_imaActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_ima, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 530, -1, 40));
+        jPanel1.add(btn_ima, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 560, -1, 40));
 
         jLabel22.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel22.setText("Específicación:");
@@ -510,7 +512,7 @@ public class RegistrarProductos extends javax.swing.JDialog {
         jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 90, 30));
 
         lbl_barra.setText("lbl_barra");
-        jPanel1.add(lbl_barra, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 530, 130, -1));
+        jPanel1.add(lbl_barra, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 570, 130, -1));
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel8.setText("Res. S/N:");
@@ -538,7 +540,7 @@ public class RegistrarProductos extends javax.swing.JDialog {
         jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 100, 30));
 
         cb_status.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        cb_status.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A", "I", "S", "P" }));
+        cb_status.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A", "I", "S", "P", "M" }));
         jPanel1.add(cb_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 60, 30));
 
         txt_vol.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -558,26 +560,26 @@ public class RegistrarProductos extends javax.swing.JDialog {
         txt_id_dep.setText("1");
         txt_id_dep.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_id_dep.setEnabled(false);
-        jPanel1.add(txt_id_dep, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 90, 30));
+        jPanel1.add(txt_id_dep, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 400, 90, 30));
 
         txt_nom_dep.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_nom_dep.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txt_nom_dep.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_nom_dep.setEnabled(false);
-        jPanel1.add(txt_nom_dep, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 420, 30));
+        jPanel1.add(txt_nom_dep, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, 420, 30));
 
         txt_nom_cate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_nom_cate.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txt_nom_cate.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_nom_cate.setEnabled(false);
-        jPanel1.add(txt_nom_cate, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, 420, 30));
+        jPanel1.add(txt_nom_cate, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 420, 30));
 
         txt_id_cate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_id_cate.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txt_id_cate.setText("1");
         txt_id_cate.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_id_cate.setEnabled(false);
-        jPanel1.add(txt_id_cate, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 400, 90, 30));
+        jPanel1.add(txt_id_cate, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, 90, 30));
 
         jButton8.setBackground(new java.awt.Color(255, 255, 255));
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
@@ -587,7 +589,7 @@ public class RegistrarProductos extends javax.swing.JDialog {
                 jButton8ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 400, 60, 30));
+        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 430, 60, 30));
 
         jButton7.setBackground(new java.awt.Color(255, 255, 255));
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
@@ -597,24 +599,24 @@ public class RegistrarProductos extends javax.swing.JDialog {
                 jButton7ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 370, 60, 30));
+        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 400, 60, 30));
 
         jLabel15.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel15.setText("Categoría:");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 110, 30));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 110, 30));
 
         jLabel16.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel16.setText("Sub Categoría:");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 110, 30));
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, 110, 30));
 
         jLabel17.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel17.setText("Categoría Espec:");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, 110, 30));
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 110, 30));
 
         txt_des_marca.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_des_marca.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_des_marca.setEnabled(false);
-        jPanel1.add(txt_des_marca, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 490, 420, 30));
+        jPanel1.add(txt_des_marca, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 520, 420, 30));
 
         txt_id_subcate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_id_subcate.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -626,14 +628,14 @@ public class RegistrarProductos extends javax.swing.JDialog {
                 txt_id_subcateActionPerformed(evt);
             }
         });
-        jPanel1.add(txt_id_subcate, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, 90, 30));
+        jPanel1.add(txt_id_subcate, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 460, 90, 30));
 
         txt_id_especate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_id_especate.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txt_id_especate.setText("1");
         txt_id_especate.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_id_especate.setEnabled(false);
-        jPanel1.add(txt_id_especate, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 460, 90, 30));
+        jPanel1.add(txt_id_especate, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 490, 90, 30));
 
         txt_idmarca.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_idmarca.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -645,17 +647,17 @@ public class RegistrarProductos extends javax.swing.JDialog {
                 txt_idmarcaActionPerformed(evt);
             }
         });
-        jPanel1.add(txt_idmarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 490, 90, 30));
+        jPanel1.add(txt_idmarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 520, 90, 30));
 
         txt_des_subcate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_des_subcate.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_des_subcate.setEnabled(false);
-        jPanel1.add(txt_des_subcate, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 420, 30));
+        jPanel1.add(txt_des_subcate, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 460, 420, 30));
 
         txt_nom_especate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_nom_especate.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_nom_especate.setEnabled(false);
-        jPanel1.add(txt_nom_especate, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 460, 420, 30));
+        jPanel1.add(txt_nom_especate, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 490, 420, 30));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
@@ -665,7 +667,7 @@ public class RegistrarProductos extends javax.swing.JDialog {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 490, 60, 30));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 520, 60, 30));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
@@ -675,7 +677,7 @@ public class RegistrarProductos extends javax.swing.JDialog {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 430, 60, 30));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 460, 60, 30));
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
@@ -685,7 +687,7 @@ public class RegistrarProductos extends javax.swing.JDialog {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 460, 60, 30));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 490, 60, 30));
 
         jLabel19.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel19.setText("Mínimo:");
@@ -736,13 +738,13 @@ public class RegistrarProductos extends javax.swing.JDialog {
                 txt_kgKeyReleased(evt);
             }
         });
-        jPanel2.add(txt_kg, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 60, 30));
+        jPanel2.add(txt_kg, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 90, 30));
 
         txt_udcaja.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt_udcaja.setText("0");
         jPanel2.add(txt_udcaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, 60, 30));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 680, 90));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 680, 90));
 
         txt_precio_d.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txt_precio_d.setText("0");
@@ -766,7 +768,14 @@ public class RegistrarProductos extends javax.swing.JDialog {
         });
         jPanel1.add(txt_pre_outlet, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 230, 160, 30));
 
-        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 580));
+        jLabel31.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel31.setText("URL Imagen:");
+        jPanel1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 90, 30));
+
+        txt_url_imagen.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jPanel1.add(txt_url_imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 580, 30));
+
+        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 610));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -826,8 +835,9 @@ public class RegistrarProductos extends javax.swing.JDialog {
                 String presenta = cb_tipo_merca.getSelectedItem().toString();
                 String pre_d = txt_precio_d.getText();
                 String pre_o = txt_pre_outlet.getText();
+                String url = txt_url_imagen.getText();
 
-                sql = "INSERT INTO tienda_productos (pro_cod,pro_cod_barra,pro_des,pro_des_espec,pro_cant,pro_pre_costo,pro_pre_a,pro_pre_b,pro_pre_atacado,pro_vol,pro_resol,pro_iva,pro_peso,pro_color,pro_tama,pro_provee,pro_depa,pro_cat,pro_sub_cat,pro_cat_esp,pro_marca,pro_mini,pro_alma,pro_stock,cod_ncm,pro_po,pro_kg,pro_unicaja,pro_volumen,pro_presenta,pro_pre_d,pro_pre_o) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                sql = "INSERT INTO tienda_productos (pro_cod,pro_cod_barra,pro_des,pro_des_espec,pro_cant,pro_pre_costo,pro_pre_a,pro_pre_b,pro_pre_atacado,pro_vol,pro_resol,pro_iva,pro_peso,pro_color,pro_tama,pro_provee,pro_depa,pro_cat,pro_sub_cat,pro_cat_esp,pro_marca,pro_mini,pro_alma,pro_stock,cod_ncm,pro_po,pro_kg,pro_unicaja,pro_volumen,pro_presenta,pro_pre_d,pro_pre_o,pro_imagen) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
                 try {
                     Connection cn = conectar.getInstance().getConnection();
 
@@ -864,7 +874,7 @@ public class RegistrarProductos extends javax.swing.JDialog {
                     pst.setString(30, presenta);
                     pst.setString(31, pre_d);
                     pst.setString(32, pre_o);
-
+                    pst.setString(33, url);
                     int n = pst.executeUpdate();
                     conectar.getInstance().closeConnection(cn);
 
@@ -1100,7 +1110,7 @@ public class RegistrarProductos extends javax.swing.JDialog {
     }//GEN-LAST:event_txt_kgKeyReleased
 
     private void txt_pre_outletKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_pre_outletKeyReleased
-         ActivatedYourLifeO(txt_pre_outlet, evt);
+        ActivatedYourLifeO(txt_pre_outlet, evt);
     }//GEN-LAST:event_txt_pre_outletKeyReleased
 
     private void txt_id_subcateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_id_subcateActionPerformed
@@ -1190,6 +1200,7 @@ public class RegistrarProductos extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1228,6 +1239,7 @@ public class RegistrarProductos extends javax.swing.JDialog {
     private javax.swing.JTextField txt_resol_iva;
     private javax.swing.JTextField txt_tama;
     private javax.swing.JTextField txt_udcaja;
+    private javax.swing.JTextField txt_url_imagen;
     private javax.swing.JComboBox txt_vol;
     private javax.swing.JTextField txt_volum;
     private javax.swing.JTextField txtcod;
@@ -1287,6 +1299,8 @@ public class RegistrarProductos extends javax.swing.JDialog {
             }
             if (c == null) {
                 txtcod.setText("00000001");
+                txt_cod_barra.setText("00000001");
+
             } else {
                 int j = Integer.parseInt(c);
                 if (Principal.txt_dir_backup.getText().equals("1")) {
@@ -1294,16 +1308,19 @@ public class RegistrarProductos extends javax.swing.JDialog {
                         GenerarNumero gen = new GenerarNumero();
                         gen.generar(j);
                         txtcod.setText(gen.serie());
+                        txt_cod_barra.setText(gen.serie());
 
                     } else {
                         Generar_Num_Pro gen = new Generar_Num_Pro();
                         gen.generar(j);
                         txtcod.setText(gen.serie());
+                        txt_cod_barra.setText(gen.serie());
                     }
                 } else {
                     GenerarNumero gen = new GenerarNumero();
                     gen.generar(j);
                     txtcod.setText(gen.serie());
+                    txt_cod_barra.setText(gen.serie());
                 }
             }
             conectar.getInstance().closeConnection(cn);
@@ -2539,8 +2556,7 @@ public class RegistrarProductos extends javax.swing.JDialog {
         return Retorno;
     }// FIN 1º METODO
 
-    
-   public String ActivatedYourLifeO(JTextField CampoTexto, java.awt.event.KeyEvent evt) {
+    public String ActivatedYourLifeO(JTextField CampoTexto, java.awt.event.KeyEvent evt) {
         String Retorno = "";
         //<editor-fold defaultstate="collapsed" desc="ACTIONS">
         //<editor-fold defaultstate="collapsed" desc="CLOSER EYES">  
@@ -2737,7 +2753,7 @@ public class RegistrarProductos extends javax.swing.JDialog {
         //</editor-fold>
         return Retorno;
     }// FIN 1º METODO
-    
+
     public String MaskaraEnteros(String ValorGuaranies) {
         //<editor-fold defaultstate="collapsed" desc="IF">        
         ValorGuaranies = ValorGuaranies.replaceAll("\\s", "").replaceAll("\\D", "");

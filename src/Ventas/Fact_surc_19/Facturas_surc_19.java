@@ -835,6 +835,7 @@ public class Facturas_surc_19 extends javax.swing.JDialog {
 
             if (n > 0) {
                 detalle_factura();
+                actEstadoVentas();
                 JOptionPane.showMessageDialog(null, "Factura de venta realizada con éxito");
                 if (JOptionPane.showConfirmDialog(rootPane, "Imprimir Factura de venta" + ": " + lbl_cod.getText() + ", ¿desea continuar?",
                         "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
@@ -1048,14 +1049,13 @@ public class Facturas_surc_19 extends javax.swing.JDialog {
 
     }
 
-    void actEstadoVentas() {//analizar mañana cargar datos de nro de factura
-
+ public void actEstadoVentas() {
         try {
-            String es = lbl_cod.getText();
-            String nro = Principal.lbl_id_empre.getText();
+            String es = "1";
+            String nro = txt_cod.getText();
 
-            String sql = "UPDATE empresas SET nro_fact_surc_19 = '" + es
-                    + "' WHERE id_empre = '" + nro + "'";
+            String sql = "UPDATE ventas_19 SET bool_fact = '" + es
+                    + "' WHERE num_bol = '" + nro + "'";
             try {
                 Connection cn = conectar.getInstance().getConnection();
 
@@ -1070,7 +1070,6 @@ public class Facturas_surc_19 extends javax.swing.JDialog {
 
         } catch (Exception e) {
         }
-
     }
 
     void cargarConfig() {

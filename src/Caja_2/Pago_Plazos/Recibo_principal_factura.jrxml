@@ -23,7 +23,7 @@ FROM
 	<title>
 		<band height="680" splitType="Stretch">
 			<subreport>
-				<reportElement x="0" y="0" width="610" height="80" uuid="bdf5878e-fa4a-4cf8-8dd8-acb36c6fa9db"/>
+				<reportElement x="0" y="1" width="610" height="80" uuid="bdf5878e-fa4a-4cf8-8dd8-acb36c6fa9db"/>
 				<subreportParameter name="serie">
 					<subreportParameterExpression><![CDATA[$P{serienro}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -31,7 +31,7 @@ FROM
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Recibo_sub_factura.jasper"]]></subreportExpression>
 			</subreport>
 			<subreport>
-				<reportElement x="0" y="295" width="610" height="63" uuid="c4e57471-e89c-46ec-94a1-c3d49e620873"/>
+				<reportElement x="0" y="296" width="610" height="63" uuid="c4e57471-e89c-46ec-94a1-c3d49e620873"/>
 				<subreportParameter name="serie">
 					<subreportParameterExpression><![CDATA[$P{serienro}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -39,7 +39,7 @@ FROM
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Recibo_sub_factura.jasper"]]></subreportExpression>
 			</subreport>
 			<subreport>
-				<reportElement x="0" y="593" width="610" height="75" uuid="5ef1d03a-2a33-43ca-b6bd-0fd3262a220d"/>
+				<reportElement x="0" y="594" width="610" height="63" uuid="5ef1d03a-2a33-43ca-b6bd-0fd3262a220d"/>
 				<subreportParameter name="serie">
 					<subreportParameterExpression><![CDATA[$P{serienro}]]></subreportParameterExpression>
 				</subreportParameter>

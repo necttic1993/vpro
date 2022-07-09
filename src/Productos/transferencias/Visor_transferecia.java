@@ -383,8 +383,10 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
                 btn_destino.setEnabled(false);
                 if ((lbl_alma_destino.getText().equals("0000001"))) {
-                    String capcod = "", capcan = "";
+
                     for (int i = 0; i < tb_visor_recep.getRowCount(); i++) {
+                        System.out.println("este es el comienzo ");
+                        String capcod = "", capcan = "";
                         capcod = tb_visor_recep.getValueAt(i, 1).toString();
                         capcan = tb_visor_recep.getValueAt(i, 4).toString();
                         AumnetarStock(capcod, capcan);
@@ -397,8 +399,10 @@ public class Visor_transferecia extends javax.swing.JDialog {
                 }
 
                 if ((lbl_alma_destino.getText().equals("0000002"))) {
-                    String capcod = "", capcan = "";
+
                     for (int i = 0; i < tb_visor_recep.getRowCount(); i++) {
+                        System.out.println("este es el comienzo ");
+                        String capcod = "", capcan = "";
                         capcod = tb_visor_recep.getValueAt(i, 1).toString();
                         capcan = tb_visor_recep.getValueAt(i, 4).toString();
                         AumnetarStock_2(capcod, capcan);
@@ -410,8 +414,9 @@ public class Visor_transferecia extends javax.swing.JDialog {
                     this.dispose();
                 }
                 if ((lbl_alma_destino.getText().equals("0000003"))) {
-                    String capcod = "", capcan = "";
+
                     for (int i = 0; i < tb_visor_recep.getRowCount(); i++) {
+                        String capcod = "", capcan = "";
                         capcod = tb_visor_recep.getValueAt(i, 1).toString();
                         capcan = tb_visor_recep.getValueAt(i, 4).toString();
                         AumnetarStock_3(capcod, capcan);
@@ -423,8 +428,9 @@ public class Visor_transferecia extends javax.swing.JDialog {
                     this.dispose();
                 }
                 if ((lbl_alma_destino.getText().equals("0000004"))) {
-                    String capcod = "", capcan = "";
+
                     for (int i = 0; i < tb_visor_recep.getRowCount(); i++) {
+                        String capcod = "", capcan = "";
                         capcod = tb_visor_recep.getValueAt(i, 1).toString();
                         capcan = tb_visor_recep.getValueAt(i, 4).toString();
                         AumnetarStock_4(capcod, capcan);
@@ -436,8 +442,9 @@ public class Visor_transferecia extends javax.swing.JDialog {
                     this.dispose();
                 }
                 if ((lbl_alma_destino.getText().equals("0000005"))) {
-                    String capcod = "", capcan = "";
+
                     for (int i = 0; i < tb_visor_recep.getRowCount(); i++) {
+                        String capcod = "", capcan = "";
                         capcod = tb_visor_recep.getValueAt(i, 1).toString();
                         capcan = tb_visor_recep.getValueAt(i, 4).toString();
                         AumnetarStock_5(capcod, capcan);
@@ -451,8 +458,9 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
                 ///new deposito
                 if ((lbl_alma_destino.getText().equals("0000006"))) {
-                    String capcod = "", capcan = "";
+
                     for (int i = 0; i < tb_visor_recep.getRowCount(); i++) {
+                        String capcod = "", capcan = "";
                         capcod = tb_visor_recep.getValueAt(i, 1).toString();
                         capcan = tb_visor_recep.getValueAt(i, 4).toString();
                         AumnetarStock_6(capcod, capcan);
@@ -464,8 +472,9 @@ public class Visor_transferecia extends javax.swing.JDialog {
                     this.dispose();
                 }
                 if ((lbl_alma_destino.getText().equals("0000007"))) {
-                    String capcod = "", capcan = "";
+
                     for (int i = 0; i < tb_visor_recep.getRowCount(); i++) {
+                        String capcod = "", capcan = "";
                         capcod = tb_visor_recep.getValueAt(i, 1).toString();
                         capcan = tb_visor_recep.getValueAt(i, 4).toString();
                         AumnetarStock_7(capcod, capcan);
@@ -477,8 +486,9 @@ public class Visor_transferecia extends javax.swing.JDialog {
                     this.dispose();
                 }
                 if ((lbl_alma_destino.getText().equals("0000008"))) {
-                    String capcod = "", capcan = "";
+
                     for (int i = 0; i < tb_visor_recep.getRowCount(); i++) {
+                        String capcod = "", capcan = "";
                         capcod = tb_visor_recep.getValueAt(i, 1).toString();
                         capcan = tb_visor_recep.getValueAt(i, 4).toString();
                         AumnetarStock_8(capcod, capcan);
@@ -490,8 +500,9 @@ public class Visor_transferecia extends javax.swing.JDialog {
                     this.dispose();
                 }
                 if ((lbl_alma_destino.getText().equals("0000009"))) {
-                    String capcod = "", capcan = "";
+
                     for (int i = 0; i < tb_visor_recep.getRowCount(); i++) {
+                        String capcod = "", capcan = "";
                         capcod = tb_visor_recep.getValueAt(i, 1).toString();
                         capcan = tb_visor_recep.getValueAt(i, 4).toString();
                         AumnetarStock_9(capcod, capcan);
@@ -503,8 +514,9 @@ public class Visor_transferecia extends javax.swing.JDialog {
                     this.dispose();
                 }
                 if ((lbl_alma_destino.getText().equals("0000010"))) {
-                    String capcod = "", capcan = "";
+
                     for (int i = 0; i < tb_visor_recep.getRowCount(); i++) {
+                        String capcod = "", capcan = "";
                         capcod = tb_visor_recep.getValueAt(i, 1).toString();
                         capcan = tb_visor_recep.getValueAt(i, 4).toString();
                         AumnetarStock_10(capcod, capcan);
@@ -516,8 +528,9 @@ public class Visor_transferecia extends javax.swing.JDialog {
                     this.dispose();
                 }
                 if ((lbl_alma_destino.getText().equals("0000011"))) {
-                    String capcod = "", capcan = "";
+
                     for (int i = 0; i < tb_visor_recep.getRowCount(); i++) {
+                        String capcod = "", capcan = "";
                         capcod = tb_visor_recep.getValueAt(i, 1).toString();
                         capcan = tb_visor_recep.getValueAt(i, 4).toString();
                         AumnetarStock_11(capcod, capcan);
@@ -529,8 +542,9 @@ public class Visor_transferecia extends javax.swing.JDialog {
                     this.dispose();
                 }
                 if ((lbl_alma_destino.getText().equals("0000012"))) {
-                    String capcod = "", capcan = "";
+
                     for (int i = 0; i < tb_visor_recep.getRowCount(); i++) {
+                        String capcod = "", capcan = "";
                         capcod = tb_visor_recep.getValueAt(i, 1).toString();
                         capcan = tb_visor_recep.getValueAt(i, 4).toString();
                         AumnetarStock_12(capcod, capcan);
@@ -542,8 +556,9 @@ public class Visor_transferecia extends javax.swing.JDialog {
                     this.dispose();
                 }
                 if ((lbl_alma_destino.getText().equals("0000013"))) {
-                    String capcod = "", capcan = "";
+
                     for (int i = 0; i < tb_visor_recep.getRowCount(); i++) {
+                        String capcod = "", capcan = "";
                         capcod = tb_visor_recep.getValueAt(i, 1).toString();
                         capcan = tb_visor_recep.getValueAt(i, 4).toString();
                         AumnetarStock_13(capcod, capcan);
@@ -555,8 +570,9 @@ public class Visor_transferecia extends javax.swing.JDialog {
                     this.dispose();
                 }
                 if ((lbl_alma_destino.getText().equals("0000014"))) {
-                    String capcod = "", capcan = "";
+
                     for (int i = 0; i < tb_visor_recep.getRowCount(); i++) {
+                        String capcod = "", capcan = "";
                         capcod = tb_visor_recep.getValueAt(i, 1).toString();
                         capcan = tb_visor_recep.getValueAt(i, 4).toString();
                         AumnetarStock_14(capcod, capcan);
@@ -568,8 +584,9 @@ public class Visor_transferecia extends javax.swing.JDialog {
                     this.dispose();
                 }
                 if ((lbl_alma_destino.getText().equals("0000015"))) {
-                    String capcod = "", capcan = "";
+
                     for (int i = 0; i < tb_visor_recep.getRowCount(); i++) {
+                        String capcod = "", capcan = "";
                         capcod = tb_visor_recep.getValueAt(i, 1).toString();
                         capcan = tb_visor_recep.getValueAt(i, 4).toString();
                         AumnetarStock_15(capcod, capcan);
@@ -581,8 +598,9 @@ public class Visor_transferecia extends javax.swing.JDialog {
                     this.dispose();
                 }
                 if ((lbl_alma_destino.getText().equals("0000016"))) {
-                    String capcod = "", capcan = "";
+
                     for (int i = 0; i < tb_visor_recep.getRowCount(); i++) {
+                        String capcod = "", capcan = "";
                         capcod = tb_visor_recep.getValueAt(i, 1).toString();
                         capcan = tb_visor_recep.getValueAt(i, 4).toString();
                         AumnetarStock_16(capcod, capcan);
@@ -594,8 +612,9 @@ public class Visor_transferecia extends javax.swing.JDialog {
                     this.dispose();
                 }
                 if ((lbl_alma_destino.getText().equals("0000017"))) {
-                    String capcod = "", capcan = "";
+
                     for (int i = 0; i < tb_visor_recep.getRowCount(); i++) {
+                        String capcod = "", capcan = "";
                         capcod = tb_visor_recep.getValueAt(i, 1).toString();
                         capcan = tb_visor_recep.getValueAt(i, 4).toString();
                         AumnetarStock_17(capcod, capcan);
@@ -607,8 +626,9 @@ public class Visor_transferecia extends javax.swing.JDialog {
                     this.dispose();
                 }
                 if ((lbl_alma_destino.getText().equals("0000018"))) {
-                    String capcod = "", capcan = "";
+
                     for (int i = 0; i < tb_visor_recep.getRowCount(); i++) {
+                        String capcod = "", capcan = "";
                         capcod = tb_visor_recep.getValueAt(i, 1).toString();
                         capcan = tb_visor_recep.getValueAt(i, 4).toString();
                         AumnetarStock_18(capcod, capcan);
@@ -620,8 +640,9 @@ public class Visor_transferecia extends javax.swing.JDialog {
                     this.dispose();
                 }
                 if ((lbl_alma_destino.getText().equals("0000019"))) {
-                    String capcod = "", capcan = "";
+
                     for (int i = 0; i < tb_visor_recep.getRowCount(); i++) {
+                        String capcod = "", capcan = "";
                         capcod = tb_visor_recep.getValueAt(i, 1).toString();
                         capcan = tb_visor_recep.getValueAt(i, 4).toString();
                         AumnetarStock_19(capcod, capcan);
@@ -633,8 +654,9 @@ public class Visor_transferecia extends javax.swing.JDialog {
                     this.dispose();
                 }
                 if ((lbl_alma_destino.getText().equals("0000020"))) {
-                    String capcod = "", capcan = "";
+
                     for (int i = 0; i < tb_visor_recep.getRowCount(); i++) {
+                        String capcod = "", capcan = "";
                         capcod = tb_visor_recep.getValueAt(i, 1).toString();
                         capcan = tb_visor_recep.getValueAt(i, 4).toString();
                         AumnetarStock_20(capcod, capcan);
@@ -646,8 +668,9 @@ public class Visor_transferecia extends javax.swing.JDialog {
                     this.dispose();
                 }
                 if ((lbl_alma_destino.getText().equals("0000021"))) {
-                    String capcod = "", capcan = "";
+
                     for (int i = 0; i < tb_visor_recep.getRowCount(); i++) {
+                        String capcod = "", capcan = "";
                         capcod = tb_visor_recep.getValueAt(i, 1).toString();
                         capcan = tb_visor_recep.getValueAt(i, 4).toString();
                         AumnetarStock_21(capcod, capcan);
@@ -659,8 +682,9 @@ public class Visor_transferecia extends javax.swing.JDialog {
                     this.dispose();
                 }
                 if ((lbl_alma_destino.getText().equals("0000022"))) {
-                    String capcod = "", capcan = "";
+
                     for (int i = 0; i < tb_visor_recep.getRowCount(); i++) {
+                        String capcod = "", capcan = "";
                         capcod = tb_visor_recep.getValueAt(i, 1).toString();
                         capcan = tb_visor_recep.getValueAt(i, 4).toString();
                         AumnetarStock_22(capcod, capcan);
@@ -672,8 +696,9 @@ public class Visor_transferecia extends javax.swing.JDialog {
                     this.dispose();
                 }
                 if ((lbl_alma_destino.getText().equals("0000023"))) {
-                    String capcod = "", capcan = "";
+
                     for (int i = 0; i < tb_visor_recep.getRowCount(); i++) {
+                        String capcod = "", capcan = "";
                         capcod = tb_visor_recep.getValueAt(i, 1).toString();
                         capcan = tb_visor_recep.getValueAt(i, 4).toString();
                         AumnetarStock_23(capcod, capcan);
@@ -686,8 +711,9 @@ public class Visor_transferecia extends javax.swing.JDialog {
                     this.dispose();
                 }
                 if ((lbl_alma_destino.getText().equals("0000024"))) {
-                    String capcod = "", capcan = "";
+
                     for (int i = 0; i < tb_visor_recep.getRowCount(); i++) {
+                        String capcod = "", capcan = "";
                         capcod = tb_visor_recep.getValueAt(i, 1).toString();
                         capcan = tb_visor_recep.getValueAt(i, 4).toString();
                         AumnetarStock_24(capcod, capcan);
@@ -699,8 +725,9 @@ public class Visor_transferecia extends javax.swing.JDialog {
                     this.dispose();
                 }
                 if ((lbl_alma_destino.getText().equals("0000025"))) {
-                    String capcod = "", capcan = "";
+
                     for (int i = 0; i < tb_visor_recep.getRowCount(); i++) {
+                        String capcod = "", capcan = "";
                         capcod = tb_visor_recep.getValueAt(i, 1).toString();
                         capcan = tb_visor_recep.getValueAt(i, 4).toString();
                         AumnetarStock_25(capcod, capcan);
@@ -712,8 +739,9 @@ public class Visor_transferecia extends javax.swing.JDialog {
                     this.dispose();
                 }
                 if ((lbl_alma_destino.getText().equals("0000026"))) {
-                    String capcod = "", capcan = "";
+
                     for (int i = 0; i < tb_visor_recep.getRowCount(); i++) {
+                        String capcod = "", capcan = "";
                         capcod = tb_visor_recep.getValueAt(i, 1).toString();
                         capcan = tb_visor_recep.getValueAt(i, 4).toString();
                         AumnetarStock_26(capcod, capcan);
@@ -725,8 +753,9 @@ public class Visor_transferecia extends javax.swing.JDialog {
                     this.dispose();
                 }
                 if ((lbl_alma_destino.getText().equals("0000027"))) {
-                    String capcod = "", capcan = "";
+
                     for (int i = 0; i < tb_visor_recep.getRowCount(); i++) {
+                        String capcod = "", capcan = "";
                         capcod = tb_visor_recep.getValueAt(i, 1).toString();
                         capcan = tb_visor_recep.getValueAt(i, 4).toString();
                         AumnetarStock_27(capcod, capcan);
@@ -738,8 +767,9 @@ public class Visor_transferecia extends javax.swing.JDialog {
                     this.dispose();
                 }
                 if ((lbl_alma_destino.getText().equals("0000028"))) {
-                    String capcod = "", capcan = "";
+
                     for (int i = 0; i < tb_visor_recep.getRowCount(); i++) {
+                        String capcod = "", capcan = "";
                         capcod = tb_visor_recep.getValueAt(i, 1).toString();
                         capcan = tb_visor_recep.getValueAt(i, 4).toString();
                         AumnetarStock_28(capcod, capcan);
@@ -751,8 +781,9 @@ public class Visor_transferecia extends javax.swing.JDialog {
                     this.dispose();
                 }
                 if ((lbl_alma_destino.getText().equals("0000029"))) {
-                    String capcod = "", capcan = "";
+
                     for (int i = 0; i < tb_visor_recep.getRowCount(); i++) {
+                        String capcod = "", capcan = "";
                         capcod = tb_visor_recep.getValueAt(i, 1).toString();
                         capcan = tb_visor_recep.getValueAt(i, 4).toString();
                         AumnetarStock_29(capcod, capcan);
@@ -765,8 +796,9 @@ public class Visor_transferecia extends javax.swing.JDialog {
                 }
 
                 if ((lbl_alma_destino.getText().equals("0000030"))) {
-                    String capcod = "", capcan = "";
+
                     for (int i = 0; i < tb_visor_recep.getRowCount(); i++) {
+                        String capcod = "", capcan = "";
                         capcod = tb_visor_recep.getValueAt(i, 1).toString();
                         capcan = tb_visor_recep.getValueAt(i, 4).toString();
                         AumnetarStock_30(capcod, capcan);
@@ -792,11 +824,18 @@ public class Visor_transferecia extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Transferencia ya esta confirmada");
         } else {
 
-            if (lbl_tipo_transferencia.getText().equals("V")) {
+            if (Principal_transferencia.lbl_ambiente_transfer.getText().equals("0")) {
+                if (lbl_tipo_transferencia.getText().equals("V")) {
+                    if (JOptionPane.showConfirmDialog(rootPane, "Desea eliminar la transferencia" + ", ¿desea continuar?",
+                            "Eliminar", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 
-            } else if (lbl_tipo_transferencia.getText().equals("T")) {
+                        eliminarTansferencia();
+                        JOptionPane.showMessageDialog(null, "Transferencia eliminada " + "" + lbl_alma_destino.getText());
+                        Principal_transferencia.btn_cargar_trans.doClick();
+                        this.dispose();
+                    }
 
-                if (Principal_transferencia.lbl_ambiente_transfer.getText().equals("0")) {
+                } else if (lbl_tipo_transferencia.getText().equals("T")) {
 
                     if (JOptionPane.showConfirmDialog(rootPane, "Desea eliminar la transferencia" + ", ¿desea continuar?",
                             "Eliminar", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
@@ -807,13 +846,13 @@ public class Visor_transferecia extends javax.swing.JDialog {
                         Principal_transferencia.btn_cargar_trans.doClick();
                         this.dispose();
                     }
+
                 } else {
-
-                    JOptionPane.showMessageDialog(null, "Función no autorizada,Verifique");
-
+                    JOptionPane.showMessageDialog(null, "Transferencia no definida");
                 }
+
             } else {
-                JOptionPane.showMessageDialog(null, "Transferencia no definida");
+                JOptionPane.showMessageDialog(null, "Función no autorizada,Verifique");
             }
         }
     }//GEN-LAST:event_btn_eliminar_transActionPerformed
@@ -1710,26 +1749,29 @@ public class Visor_transferecia extends javax.swing.JDialog {
     }
 
     void AumnetarStock(String codi, String can) {
-        String cap = "";
+        String stockActual = "";
         String consul = "SELECT pro_cant FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(1);
+                stockActual = rs.getString(1);
             }
             ///suma el stock
-            int desfinal = Integer.parseInt(cap) + Integer.parseInt(can);
+            int desfinal = Integer.parseInt(stockActual) + Integer.parseInt(can);
             String modi = "UPDATE tienda_productos SET pro_cant='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
+            System.out.println("Actualizando sotck=" + desfinal + " en el codigo=" + codi);
             conectar.getInstance().closeConnection(cn);
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
+//for
 
     void AumnetarStock_2(String codi, String can) {
         String cap = "";
@@ -1746,10 +1788,12 @@ public class Visor_transferecia extends javax.swing.JDialog {
             String modi = "UPDATE tienda_productos SET pro_stock_2='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
+            System.out.println("Actualizando producto id:" + codi + " sql=" + modi);
             conectar.getInstance().closeConnection(cn);
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -1772,6 +1816,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -1794,6 +1839,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -1816,6 +1862,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -1838,6 +1885,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -1860,6 +1908,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -1882,6 +1931,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -1904,6 +1954,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -1926,6 +1977,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -1948,6 +2000,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -1970,6 +2023,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -1992,6 +2046,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2014,6 +2069,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2036,6 +2092,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2058,6 +2115,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2080,6 +2138,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2102,6 +2161,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2124,6 +2184,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2146,6 +2207,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2168,6 +2230,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2190,6 +2253,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2212,6 +2276,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2234,6 +2299,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2256,6 +2322,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2278,6 +2345,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2300,6 +2368,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2322,6 +2391,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2344,6 +2414,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2366,6 +2437,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2389,6 +2461,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2411,6 +2484,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2433,6 +2507,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2455,6 +2530,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2477,6 +2553,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2499,6 +2576,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2521,6 +2599,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2543,6 +2622,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2565,6 +2645,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2587,6 +2668,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2609,6 +2691,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2631,6 +2714,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2653,6 +2737,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2675,6 +2760,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2697,6 +2783,7 @@ public class Visor_transferecia extends javax.swing.JDialog {
 
         } catch (SQLException | NumberFormatException e) {
             System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Comunique este error:" + e);
         }
     }
 
@@ -2721,6 +2808,14 @@ public class Visor_transferecia extends javax.swing.JDialog {
             }
 
         } catch (Exception e) {
+        }
+
+    }
+
+    public void delay(Long time) {
+        try {
+            Thread.sleep(time);
+        } catch (InterruptedException e) {
         }
 
     }

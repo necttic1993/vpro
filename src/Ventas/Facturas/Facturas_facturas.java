@@ -150,6 +150,8 @@ public class Facturas_facturas extends javax.swing.JDialog {
         txt_ruc = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        txt_nro_op = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Facturas");
@@ -473,8 +475,8 @@ public class Facturas_facturas extends javax.swing.JDialog {
         jPanel1.add(lbl_literal, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 520, 180, 20));
 
         jLabel12.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel12.setText("Número de Venta :");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 130, 30));
+        jLabel12.setText("Nro OP:");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, 50, 30));
 
         jPanel4.setBackground(new java.awt.Color(0, 102, 204));
 
@@ -547,6 +549,15 @@ public class Facturas_facturas extends javax.swing.JDialog {
         jLabel26.setForeground(new java.awt.Color(153, 0, 0));
         jLabel26.setText("Lote de Factura:");
         jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 100, 130, 30));
+
+        jLabel15.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel15.setText("Número de Venta :");
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 130, 30));
+
+        txt_nro_op.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txt_nro_op.setDisabledTextColor(new java.awt.Color(204, 0, 0));
+        txt_nro_op.setEnabled(false);
+        jPanel1.add(txt_nro_op, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 40, 130, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 600));
 
@@ -772,6 +783,7 @@ public class Facturas_facturas extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -808,6 +820,7 @@ public class Facturas_facturas extends javax.swing.JDialog {
     public static javax.swing.JTextField txt_cod_cli;
     public static javax.swing.JTextField txt_esta;
     private javax.swing.JTextField txt_forma_pago;
+    private javax.swing.JTextField txt_nro_op;
     private javax.swing.JTextField txt_pais;
     private javax.swing.JTextField txt_registro;
     private javax.swing.JTextField txt_ruc;
@@ -872,7 +885,7 @@ public class Facturas_facturas extends javax.swing.JDialog {
 
     void factura_ventas() {
 
-        String InsertarSQL = "INSERT INTO ventas_facturacion (num_bol,cod_cli_ventas,nom_cli_ventas,forma_pag_efectivo,forma_pag_credito,total_ventas,fecha_ventas,user_ventas,cant_ventas,letras_ventas,nro_seq_ventas,nro_estable_ventas,nro_fact_ventas,nro_timbra_ventas,fact_sub_exe,fact_sub_5,fact_sub_10,total_iva_5,total_iva_10,total_iva,data_vista,simb_moneda,form_pag_lit,dia_lit,mes_lit,years_lit,saldo_cred,dolar_x,gs_x,lote_fact,estado_fact) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String InsertarSQL = "INSERT INTO ventas_facturacion (num_bol,cod_cli_ventas,nom_cli_ventas,forma_pag_efectivo,forma_pag_credito,total_ventas,fecha_ventas,user_ventas,cant_ventas,letras_ventas,nro_seq_ventas,nro_estable_ventas,nro_fact_ventas,nro_timbra_ventas,fact_sub_exe,fact_sub_5,fact_sub_10,total_iva_5,total_iva_10,total_iva,data_vista,simb_moneda,form_pag_lit,dia_lit,mes_lit,years_lit,saldo_cred,dolar_x,gs_x,lote_fact,estado_fact,op_ventas) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         String num_bol = txt_cod.getText();
         String id_cli = txt_cod_cli.getText();
         String des_cli = txt_cli_nom.getText();
@@ -904,6 +917,7 @@ public class Facturas_facturas extends javax.swing.JDialog {
         String years = lbl_año_actual.getText();
         String mone_uss_x = uss;
         String mone_gs_x = gs;
+        String op_ventas = txt_nro_op.getText();
 
         try {
             Connection cn = conectar.getInstance().getConnection();
@@ -966,11 +980,13 @@ public class Facturas_facturas extends javax.swing.JDialog {
                 String estado = ("PENDIENTE");
                 pst.setString(31, estado);
             }
+            pst.setString(32, op_ventas);
 
             int n = pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
             if (n > 0) {
                 detalle_factura();
+                actEstadoVentas();
                 JOptionPane.showMessageDialog(null, "Factura de venta realizada con éxito");
                 if (JOptionPane.showConfirmDialog(rootPane, "Imprimir Factura de venta" + ": " + txt_sequencia.getText() + "-" + txt_esta.getText() + "-" + lbl_cod.getText() + ", ¿desea continuar?",
                         "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
@@ -1236,7 +1252,7 @@ public class Facturas_facturas extends javax.swing.JDialog {
     }
 
     public void cargarTxt(String valor) {
-        String mostrar = "SELECT * FROM ventas WHERE CONCAT(num_bol) LIKE '%" + valor + "%'";
+        String mostrar = "SELECT * FROM ventas WHERE num_bol= '" + valor + "'";
 
         try {
             Connection cn = conectar.getInstance().getConnection();
@@ -1244,8 +1260,8 @@ public class Facturas_facturas extends javax.swing.JDialog {
             ResultSet rs = st.executeQuery(mostrar);
             while (rs.next()) {
                 txt_cod_cli.setText(rs.getString(2));
-                // txt_cli_nom.setText(rs.getString(3));
                 txt_forma_pago.setText(rs.getString(4));
+                txt_nro_op.setText(rs.getString(21));
                 //txt_da.setText(rs.getString(6));
 
             }
@@ -1256,28 +1272,27 @@ public class Facturas_facturas extends javax.swing.JDialog {
 
     }
 
-    void actEstadoVentas() {//analizar mañana cargar datos de nro de factura
-
+    public void actEstadoVentas() {
         try {
+            String es = "1";
+            String nro = txt_cod.getText();
 
-            String es = lbl_cod.getText();
-            String nro = ("1");
-
-            String sql = "UPDATE empresas SET nro_fact = '" + es
-                    + "' WHERE id_empre = '" + nro + "'";
+            String sql = "UPDATE ventas SET bool_fact = '" + es
+                    + "' WHERE num_bol = '" + nro + "'";
             try {
                 Connection cn = conectar.getInstance().getConnection();
+
                 PreparedStatement pst = cn.prepareStatement(sql);
                 pst.executeUpdate();
                 //  JOptionPane.showMessageDialog(null, "Actualizado");
                 conectar.getInstance().closeConnection(cn);
+
             } catch (SQLException | HeadlessException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
 
         } catch (Exception e) {
         }
-
     }
 
     void StatusVentas() {//analizar mañana cargar datos de nro de factura

@@ -204,8 +204,8 @@ public class Actual_Productos extends javax.swing.JDialog {
         try {
 
             String codi = "", cod_barra = "", desc = "", esp = "", cant = "", precio = "", precio_a = "", precio_b = "";
-            String atacado = "", volum = "", resol_cb = "", iva = "", peso = "", color_cb = "", tama = "", provee = "";
-            String dep_cb = "", cat_cb = "", sub_cat_cb = "", esp_cat_cb = "", marca_cb = "", cant_min = "", ncm = "", pre_d = "";
+            String atacado = "", volum = "", resol_cb = "", iva = "", peso = "", color_cb = "", tama = "", tipo_pro = "";
+            String dep_cb = "", cat_cb = "", sub_cat_cb = "", esp_cat_cb = "", marca_cb = "", cant_min = "", ncm = "", pre_d = "", pro_imagen = "";
             String po = "", kg = "", uni = "", volumen = "", tipo = "", pro_pre_o = "";
             Connection cn = conectar.getInstance().getConnection();
 
@@ -228,13 +228,14 @@ public class Actual_Productos extends javax.swing.JDialog {
                 peso = rs.getString(13);
                 color_cb = rs.getString(14);
                 tama = rs.getString(15);
-                provee = rs.getString(16);
+                // provee = rs.getString(16);
                 dep_cb = rs.getString(17);
                 cat_cb = rs.getString(18);
                 sub_cat_cb = rs.getString(19);
                 esp_cat_cb = rs.getString(20);
                 marca_cb = rs.getString(21);
                 cant_min = rs.getString(22);
+                tipo_pro = rs.getString(24);
                 ncm = rs.getString(54);
 
                 po = rs.getString(55);
@@ -244,6 +245,7 @@ public class Actual_Productos extends javax.swing.JDialog {
                 tipo = rs.getString(59);
                 pre_d = rs.getString(60);
                 pro_pre_o = rs.getString(61);
+                pro_imagen = rs.getString(62);
             }
 
             txtcod.setText(codi);
@@ -256,10 +258,11 @@ public class Actual_Productos extends javax.swing.JDialog {
             txt_pre_b.setText(precio_b);
             txt_pre_atacado.setText(atacado);
             txt_vol.addItem(volum);
+            cb_status.setSelectedItem(tipo_pro);
             txt_resol_iva.setText(resol_cb);
             txt_iva.setText(iva);
             txt_peso.setText(peso);
-            cb_color.addItem(color_cb);
+            cb_color.setSelectedItem(color_cb);
             txt_tama.setText(tama);
             txt_id_dep.setText(dep_cb);
             txt_id_cate.setText(cat_cb);
@@ -272,9 +275,10 @@ public class Actual_Productos extends javax.swing.JDialog {
             txt_kg.setText(kg);
             txt_udcaja.setText(uni);
             txt_volum.setText(volumen);
-            cb_tipo_merca.addItem(tipo);
+            cb_tipo_merca.setSelectedItem(tipo);
             txt_precio_d.setText(pre_d);
             txt_pre_outlet.setText(pro_pre_o);
+            txt_url_imagen.setText(pro_imagen);
             conectar.getInstance().closeConnection(cn);
 
         } catch (Exception e) {
@@ -362,6 +366,8 @@ public class Actual_Productos extends javax.swing.JDialog {
         txt_precio_d = new javax.swing.JTextField();
         txt_pre_outlet = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        txt_url_imagen = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Editar Productos");
@@ -488,7 +494,7 @@ public class Actual_Productos extends javax.swing.JDialog {
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel5.setText("Categoría:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 70, 30));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 70, 30));
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel9.setText("Tamaño/Calce:");
@@ -564,7 +570,7 @@ public class Actual_Productos extends javax.swing.JDialog {
 
         jLabel13.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel13.setText("Departamento:");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 100, 30));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 100, 30));
 
         jLabel14.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel14.setText("Color:");
@@ -619,7 +625,7 @@ public class Actual_Productos extends javax.swing.JDialog {
                 btnguardarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 540, 110, 40));
+        jPanel1.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 570, 110, 40));
 
         btn_ima.setBackground(new java.awt.Color(255, 255, 255));
         btn_ima.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -630,7 +636,7 @@ public class Actual_Productos extends javax.swing.JDialog {
                 btn_imaActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_ima, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 540, -1, 40));
+        jPanel1.add(btn_ima, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 570, -1, 40));
 
         jLabel22.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel22.setText("Específicación:");
@@ -645,8 +651,8 @@ public class Actual_Productos extends javax.swing.JDialog {
         jPanel1.add(txt_espe, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 580, 28));
 
         jLabel23.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel23.setText("Stock Mínimo:");
-        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 90, 30));
+        jLabel23.setText("URL Imagen:");
+        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 90, 30));
 
         txt_resol_iva.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt_resol_iva.addActionListener(new java.awt.event.ActionListener() {
@@ -665,7 +671,7 @@ public class Actual_Productos extends javax.swing.JDialog {
         jPanel1.add(cb_color, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 180, 30));
 
         cb_status.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        cb_status.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A", "I", "S", "P" }));
+        cb_status.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A", "I", "S", "P", "M" }));
         jPanel1.add(cb_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 50, 30));
 
         jLabel24.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -691,13 +697,13 @@ public class Actual_Productos extends javax.swing.JDialog {
         txt_id_dep.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txt_id_dep.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_id_dep.setEnabled(false);
-        jPanel1.add(txt_id_dep, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 90, 30));
+        jPanel1.add(txt_id_dep, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 400, 90, 30));
 
         txt_nom_dep.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_nom_dep.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txt_nom_dep.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_nom_dep.setEnabled(false);
-        jPanel1.add(txt_nom_dep, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, 430, 30));
+        jPanel1.add(txt_nom_dep, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, 430, 30));
 
         jButton7.setBackground(new java.awt.Color(255, 255, 255));
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
@@ -707,19 +713,19 @@ public class Actual_Productos extends javax.swing.JDialog {
                 jButton7ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 370, 60, 30));
+        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 400, 60, 30));
 
         txt_id_cate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_id_cate.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txt_id_cate.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_id_cate.setEnabled(false);
-        jPanel1.add(txt_id_cate, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, 90, 30));
+        jPanel1.add(txt_id_cate, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, 90, 30));
 
         txt_nom_cate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_nom_cate.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txt_nom_cate.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_nom_cate.setEnabled(false);
-        jPanel1.add(txt_nom_cate, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 400, 430, 30));
+        jPanel1.add(txt_nom_cate, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 430, 30));
 
         jButton8.setBackground(new java.awt.Color(255, 255, 255));
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
@@ -729,7 +735,7 @@ public class Actual_Productos extends javax.swing.JDialog {
                 jButton8ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 400, 60, 30));
+        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 430, 60, 30));
 
         jLabel12.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel12.setText("Costo Medio:");
@@ -759,48 +765,48 @@ public class Actual_Productos extends javax.swing.JDialog {
 
         jLabel16.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel16.setText("Sub Categoría:");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 100, 30));
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 100, 30));
 
         jLabel17.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel17.setText("Categoría Espec:");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, 100, 30));
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 100, 30));
 
         jLabel15.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel15.setText("Marca:");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 100, 30));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 520, 100, 30));
 
         txt_id_subcate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_id_subcate.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txt_id_subcate.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_id_subcate.setEnabled(false);
-        jPanel1.add(txt_id_subcate, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, 90, 30));
+        jPanel1.add(txt_id_subcate, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 460, 90, 30));
 
         txt_des_subcate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_des_subcate.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_des_subcate.setEnabled(false);
-        jPanel1.add(txt_des_subcate, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 430, 430, 30));
+        jPanel1.add(txt_des_subcate, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 460, 430, 30));
 
         txt_nom_especate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_nom_especate.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_nom_especate.setEnabled(false);
-        jPanel1.add(txt_nom_especate, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 460, 430, 30));
+        jPanel1.add(txt_nom_especate, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 490, 430, 30));
 
         txt_id_especate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_id_especate.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txt_id_especate.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_id_especate.setEnabled(false);
-        jPanel1.add(txt_id_especate, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 460, 90, 30));
+        jPanel1.add(txt_id_especate, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 490, 90, 30));
 
         txt_idmarca.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_idmarca.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txt_idmarca.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_idmarca.setEnabled(false);
-        jPanel1.add(txt_idmarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 490, 90, 30));
+        jPanel1.add(txt_idmarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 520, 90, 30));
 
         txt_des_marca.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_des_marca.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_des_marca.setEnabled(false);
-        jPanel1.add(txt_des_marca, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 490, 430, 30));
+        jPanel1.add(txt_des_marca, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 520, 430, 30));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
@@ -810,7 +816,7 @@ public class Actual_Productos extends javax.swing.JDialog {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 430, 60, 30));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 460, 60, 30));
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
@@ -820,7 +826,7 @@ public class Actual_Productos extends javax.swing.JDialog {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 460, 60, 30));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 490, 60, 30));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_3/lupa.png"))); // NOI18N
@@ -830,7 +836,7 @@ public class Actual_Productos extends javax.swing.JDialog {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 490, 60, 30));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 520, 60, 30));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Exclusivo para productos  import/export", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12), new java.awt.Color(153, 0, 0))); // NOI18N
@@ -874,13 +880,13 @@ public class Actual_Productos extends javax.swing.JDialog {
                 txt_kgKeyReleased(evt);
             }
         });
-        jPanel2.add(txt_kg, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 60, 30));
+        jPanel2.add(txt_kg, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 90, 30));
 
         txt_udcaja.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt_udcaja.setText("0");
         jPanel2.add(txt_udcaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, 60, 30));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 680, 90));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 680, 90));
 
         jLabel19.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel19.setText("Precio D:");
@@ -909,7 +915,14 @@ public class Actual_Productos extends javax.swing.JDialog {
         jLabel20.setText("P.  OUTLET:");
         jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 230, 70, 30));
 
-        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 600));
+        jLabel31.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel31.setText("Stock Mínimo:");
+        jPanel1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 90, 30));
+
+        txt_url_imagen.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jPanel1.add(txt_url_imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 580, 30));
+
+        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 620));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -979,7 +992,8 @@ public class Actual_Productos extends javax.swing.JDialog {
                     + "',pro_volumen ='" + txt_volum.getText()
                     + "',pro_presenta ='" + cb_tipo_merca.getSelectedItem().toString()
                     + "',pro_pre_d ='" + txt_precio_d.getText()
-                     + "',pro_pre_o ='" + txt_pre_outlet.getText()
+                    + "',pro_pre_o ='" + txt_pre_outlet.getText()
+                    + "',pro_imagen ='" + txt_url_imagen.getText()
                     + "' WHERE pro_cod = '" + txtcod.getText() + "'";
             try {
                 Connection cn = conectar.getInstance().getConnection();
@@ -1181,15 +1195,15 @@ public class Actual_Productos extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txt_precio_dKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_precio_dKeyReleased
-          ActivatedYourLifeD(txt_precio_d, evt);
+        ActivatedYourLifeD(txt_precio_d, evt);
     }//GEN-LAST:event_txt_precio_dKeyReleased
 
     private void txt_kgKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_kgKeyReleased
-         ActivatedYourLifePeso(txt_kg, evt);
+        ActivatedYourLifePeso(txt_kg, evt);
     }//GEN-LAST:event_txt_kgKeyReleased
 
     private void txt_pre_outletKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_pre_outletKeyReleased
-            ActivatedYourLifeO(txt_pre_outlet, evt);
+        ActivatedYourLifeO(txt_pre_outlet, evt);
     }//GEN-LAST:event_txt_pre_outletKeyReleased
     //<editor-fold defaultstate="collapsed" desc="METODOS PRINCIPAL">
 
@@ -1277,6 +1291,7 @@ public class Actual_Productos extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1314,6 +1329,7 @@ public class Actual_Productos extends javax.swing.JDialog {
     private javax.swing.JTextField txt_resol_iva;
     private javax.swing.JTextField txt_tama;
     private javax.swing.JTextField txt_udcaja;
+    private javax.swing.JTextField txt_url_imagen;
     private javax.swing.JComboBox txt_vol;
     private javax.swing.JTextField txt_volum;
     private javax.swing.JTextField txtcod;
@@ -2212,7 +2228,8 @@ public class Actual_Productos extends javax.swing.JDialog {
         //</editor-fold>
         return Retorno;
     }// FIN 1º METODO
- public String ActivatedYourLifeD(JTextField CampoTexto, java.awt.event.KeyEvent evt) {
+
+    public String ActivatedYourLifeD(JTextField CampoTexto, java.awt.event.KeyEvent evt) {
         String Retorno = "";
         //<editor-fold defaultstate="collapsed" desc="ACTIONS">
         //<editor-fold defaultstate="collapsed" desc="CLOSER EYES">  
@@ -2409,6 +2426,7 @@ public class Actual_Productos extends javax.swing.JDialog {
         //</editor-fold>
         return Retorno;
     }// FIN 1º METODO
+
     public String MaskaraEnteros(String ValorGuaranies) {
         //<editor-fold defaultstate="collapsed" desc="IF">        
         ValorGuaranies = ValorGuaranies.replaceAll("\\s", "").replaceAll("\\D", "");
@@ -2432,8 +2450,8 @@ public class Actual_Productos extends javax.swing.JDialog {
         ReadyToExhibit = ReadyToExhibit.replace(".", ",");
         return ReadyToExhibit;
     }// FIN METODO
-    
-       public String ActivatedYourLifePeso(JTextField CampoTexto, java.awt.event.KeyEvent evt) {
+
+    public String ActivatedYourLifePeso(JTextField CampoTexto, java.awt.event.KeyEvent evt) {
         String Retorno = "";
         //<editor-fold defaultstate="collapsed" desc="ACTIONS">
         //<editor-fold defaultstate="collapsed" desc="CLOSER EYES">  
@@ -2630,10 +2648,8 @@ public class Actual_Productos extends javax.swing.JDialog {
         //</editor-fold>
         return Retorno;
     }// FIN 1º METODO
-       
-       
-       
-         public String ActivatedYourLifeO(JTextField CampoTexto, java.awt.event.KeyEvent evt) {
+
+    public String ActivatedYourLifeO(JTextField CampoTexto, java.awt.event.KeyEvent evt) {
         String Retorno = "";
         //<editor-fold defaultstate="collapsed" desc="ACTIONS">
         //<editor-fold defaultstate="collapsed" desc="CLOSER EYES">  

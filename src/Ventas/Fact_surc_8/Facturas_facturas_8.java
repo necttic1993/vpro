@@ -18,6 +18,7 @@ import static Loggin_Principal.Principal.lbl_mes_actual;
 import static Loggin_Principal.Principal.lbl_usu_nom;
 import static Loggin_Principal.Principal.txt_simbolo;
 import java.awt.Color;
+import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -429,7 +430,7 @@ public class Facturas_facturas_8 extends javax.swing.JDialog {
 
         txt_timbrado.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_timbrado.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt_timbrado.setText("10101010");
+        txt_timbrado.setText("0");
         txt_timbrado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txt_timbrado.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_timbrado.setEnabled(false);
@@ -664,132 +665,6 @@ public class Facturas_facturas_8 extends javax.swing.JDialog {
         }
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         //</editor-fold>
         //</editor-fold>
@@ -958,6 +833,7 @@ public class Facturas_facturas_8 extends javax.swing.JDialog {
             conectar.getInstance().closeConnection(cn);
             if (n > 0) {
                 detalle_factura();
+                actEstadoVentas();
                 JOptionPane.showMessageDialog(null, "Factura de venta realizada con éxito");
                 if (JOptionPane.showConfirmDialog(rootPane, "Imprimir Factura de venta" + ": " + txt_sequencia.getText() + "-" + txt_esta.getText() + "-" + lbl_cod.getText() + ", ¿desea continuar?",
                         "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
@@ -970,70 +846,6 @@ public class Facturas_facturas_8 extends javax.swing.JDialog {
                         Logger.getLogger(Facturas_facturas_8.class.getName()).log(Level.SEVERE, null, ex);
                     }
 
-                    /*   String cod = lbl_cod.getText();
-                     Reportes reporte = new Reportes();
-                     try {
-                     reporte.factKyrios(cod);
-                     } catch (SQLException | JRException ex) {
-                     Logger.getLogger(Facturas_facturas_8.class.getName()).log(Level.SEVERE, null, ex);
-                     }
-
-                     /*   String cod = lbl_cod.getText();
-                     Reportes reporte = new Reportes();
-                     try {
-                     reporte.factKyrios(cod);
-                     } catch (SQLException | JRException ex) {
-                     Logger.getLogger(Facturas_facturas_8.class.getName()).log(Level.SEVERE, null, ex);
-                     }
-
-                     /*   String cod = lbl_cod.getText();
-                     Reportes reporte = new Reportes();
-                     try {
-                     reporte.factKyrios(cod);
-                     } catch (SQLException | JRException ex) {
-                     Logger.getLogger(Facturas_facturas_8.class.getName()).log(Level.SEVERE, null, ex);
-                     }
-
-                     /*   String cod = lbl_cod.getText();
-                     Reportes reporte = new Reportes();
-                     try {
-                     reporte.factKyrios(cod);
-                     } catch (SQLException | JRException ex) {
-                     Logger.getLogger(Facturas_facturas_8.class.getName()).log(Level.SEVERE, null, ex);
-                     }
-
-                     /*   String cod = lbl_cod.getText();
-                     Reportes reporte = new Reportes();
-                     try {
-                     reporte.factKyrios(cod);
-                     } catch (SQLException | JRException ex) {
-                     Logger.getLogger(Facturas_facturas_8.class.getName()).log(Level.SEVERE, null, ex);
-                     }
-
-                     /*   String cod = lbl_cod.getText();
-                     Reportes reporte = new Reportes();
-                     try {
-                     reporte.factKyrios(cod);
-                     } catch (SQLException | JRException ex) {
-                     Logger.getLogger(Facturas_facturas_8.class.getName()).log(Level.SEVERE, null, ex);
-                     }
-
-                     /*   String cod = lbl_cod.getText();
-                     Reportes reporte = new Reportes();
-                     try {
-                     reporte.factKyrios(cod);
-                     } catch (SQLException | JRException ex) {
-                     Logger.getLogger(Facturas_facturas_8.class.getName()).log(Level.SEVERE, null, ex);
-                     }
-
-                     /*   String cod = lbl_cod.getText();
-                     Reportes reporte = new Reportes();
-                     try {
-                     reporte.factKyrios(cod);
-                     } catch (SQLException | JRException ex) {
-                     Logger.getLogger(Facturas_facturas_8.class.getName()).log(Level.SEVERE, null, ex);
-                     }
-                     */
                 }
 
             }
@@ -1080,6 +892,29 @@ public class Facturas_facturas_8 extends javax.swing.JDialog {
                 Logger.getLogger(Facturas_facturas_8.class
                         .getName()).log(Level.SEVERE, null, ex);
             }
+        }
+    }
+
+    public void actEstadoVentas() {
+        try {
+            String es = "1";
+            String nro = txt_cod.getText();
+
+            String sql = "UPDATE ventas_8 SET bool_fact = '" + es
+                    + "' WHERE num_bol = '" + nro + "'";
+            try {
+                Connection cn = conectar.getInstance().getConnection();
+
+                PreparedStatement pst = cn.prepareStatement(sql);
+                pst.executeUpdate();
+                //  JOptionPane.showMessageDialog(null, "Actualizado");
+                conectar.getInstance().closeConnection(cn);
+
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+
+        } catch (Exception e) {
         }
     }
 
@@ -1207,7 +1042,7 @@ public class Facturas_facturas_8 extends javax.swing.JDialog {
     }
 
     public void cargarTxt(String valor) {
-        String mostrar = "SELECT * FROM ventas_8 WHERE CONCAT(num_bol) LIKE '%" + valor + "%'";
+        String mostrar = "SELECT * FROM ventas_8 WHERE num_bol='" + valor + "'";
 
         try {
             Connection cn = conectar.getInstance().getConnection();
@@ -1231,7 +1066,7 @@ public class Facturas_facturas_8 extends javax.swing.JDialog {
     }
 
     void cargarConfig() {
-        String mostrar = "SELECT * FROM almacenes_facturas";
+        String mostrar = "SELECT nro_timbra_8,nro_esta_8,nro_seq_8 FROM almacenes_facturas";
 
         try {
             Connection cn = conectar.getInstance().getConnection();
@@ -1240,9 +1075,9 @@ public class Facturas_facturas_8 extends javax.swing.JDialog {
             ResultSet rs = st.executeQuery(mostrar);
             while (rs.next()) {
 
-                txt_timbrado.setText(rs.getString("nro_timbra_8"));
-                txt_sequencia.setText(rs.getString("nro_esta_8"));
-                txt_esta.setText(rs.getString("nro_seq_8"));
+                txt_timbrado.setText(rs.getString(1));
+                txt_sequencia.setText(rs.getString(2));
+                txt_esta.setText(rs.getString(3));
 
             }
             conectar.getInstance().closeConnection(cn);

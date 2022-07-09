@@ -6,7 +6,6 @@ package Administrativo;
 import Clases.GenerarNumero;
 import Conexion_DB.conectar;
 import Loggin_Principal.Principal;
-import static Loggin_Principal.Principal.lbl_mone_def;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.io.FileInputStream;
@@ -49,6 +48,9 @@ public class cambios extends javax.swing.JDialog {
     }// FIN CONSTRUCTOR
     //</editor-fold>
 
+    public static String modo_gs = "guaranies";
+    public static String modo_ext = "extranjero";
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -68,7 +70,7 @@ public class cambios extends javax.swing.JDialog {
         lbl_tercero = new javax.swing.JLabel();
         txtcod = new javax.swing.JTextField();
         lbl_mon_principal = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cambios del día");
@@ -167,6 +169,11 @@ public class cambios extends javax.swing.JDialog {
                 txt_guaraniActionPerformed(evt);
             }
         });
+        txt_guarani.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_guaraniKeyReleased(evt);
+            }
+        });
         jPanel3.add(txt_guarani, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 130, 40));
 
         lbl_segundo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -216,11 +223,11 @@ public class cambios extends javax.swing.JDialog {
         jPanel3.add(txtcod, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, 60, 10));
 
         lbl_mon_principal.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jPanel3.add(lbl_mon_principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 200, 30));
+        jPanel3.add(lbl_mon_principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 120, 30));
 
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel2.setText("Moneda Principal:");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 10, 140, 30));
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel3.setText("Moneda Principal:");
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 10, 140, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -230,7 +237,7 @@ public class cambios extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
         );
 
         pack();
@@ -277,7 +284,10 @@ public class cambios extends javax.swing.JDialog {
     private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
         // TODO add your handling code here:
 
-        String sql = "UPDATE cotizaciones SET cot_rs ='" + txt_real.getText() + "',cot_dolar ='" + txt_dolar.getText() + "' WHERE cot_id = '" + txtcod.getText() + "'";
+        String sql = "UPDATE cotizaciones SET cot_rs ='" + txt_real.getText()
+                + "',cot_dolar ='" + txt_dolar.getText()
+                + "',cot_gs ='" + txt_guarani.getText()
+                + "' WHERE cot_id = '" + txtcod.getText() + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
 
@@ -377,12 +387,21 @@ public class cambios extends javax.swing.JDialog {
     }//GEN-LAST:event_txt_realActionPerformed
 
     private void txt_realKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_realKeyReleased
-//        ActivatedYourLife(txt_real, evt);
+
+        if (Principal.txt_simbolo.getText().equals("Gs")) {
+            ActivatedYourLifeRs(txt_real, evt);
+        } else {
+            ActivatedYourLifeEx(txt_real, evt);
+        }
     }//GEN-LAST:event_txt_realKeyReleased
 
     private void txt_dolarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_dolarKeyReleased
-//        ActivatedYourLife2(txt_dolar, evt);
+        ActivatedYourLifeUs(txt_dolar, evt);
     }//GEN-LAST:event_txt_dolarKeyReleased
+
+    private void txt_guaraniKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_guaraniKeyReleased
+        ActivatedYourLifeGs(txt_guarani, evt);
+    }//GEN-LAST:event_txt_guaraniKeyReleased
     //<editor-fold defaultstate="collapsed" desc="METODOS PRINCIPAL">
 
     /**
@@ -446,7 +465,7 @@ public class cambios extends javax.swing.JDialog {
     private javax.swing.JButton btnborrar;
     private javax.swing.JButton btncancelar;
     private javax.swing.JButton btnguardar;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_mon_principal;
@@ -530,7 +549,7 @@ public class cambios extends javax.swing.JDialog {
     }
     //</editor-fold>
 
-    public String ActivatedYourLife(JTextField CampoTexto, java.awt.event.KeyEvent evt) {
+    public String ActivatedYourLifeEx(JTextField CampoTexto, java.awt.event.KeyEvent evt) {
         String Retorno = "";
         //<editor-fold defaultstate="collapsed" desc="ACTIONS">
         //<editor-fold defaultstate="collapsed" desc="CLOSER EYES">  
@@ -558,7 +577,7 @@ public class cambios extends javax.swing.JDialog {
             //<editor-fold defaultstate="collapsed" desc="ELSE">
             else {
                 //<editor-fold defaultstate="collapsed" desc="MSK">            
-                String Tag = lbl_mon_principal.getText().replaceAll("\\s", "").toLowerCase();
+                String Tag = modo_ext.replaceAll("\\s", "").toLowerCase();
                 if (!Tag.equals("Guaraníes")) {
                     //<editor-fold defaultstate="collapsed" desc="PARA MONEDAS CON NROS ENTEROS Y QUE TAMBIEN TENGA PARTE FRACCIONARIA">
                     /*
@@ -728,7 +747,8 @@ public class cambios extends javax.swing.JDialog {
         return Retorno;
     }// FIN 1º METODO
 
-    public String ActivatedYourLife2(JTextField CampoTexto, java.awt.event.KeyEvent evt) {
+    //siempre en fromato guarani
+    public String ActivatedYourLifeGs(JTextField CampoTexto, java.awt.event.KeyEvent evt) {
         String Retorno = "";
         //<editor-fold defaultstate="collapsed" desc="ACTIONS">
         //<editor-fold defaultstate="collapsed" desc="CLOSER EYES">  
@@ -756,8 +776,404 @@ public class cambios extends javax.swing.JDialog {
             //<editor-fold defaultstate="collapsed" desc="ELSE">
             else {
                 //<editor-fold defaultstate="collapsed" desc="MSK">            
-                String Tag = lbl_mon_principal.getText().replaceAll("\\s", "").toLowerCase();
-                if (!Tag.equals("Guaraníes")) {
+                String Tag = modo_gs.replaceAll("\\s", "").toLowerCase();
+                if (!Tag.equals("guaranies")) {
+                    //<editor-fold defaultstate="collapsed" desc="PARA MONEDAS CON NROS ENTEROS Y QUE TAMBIEN TENGA PARTE FRACCIONARIA">
+                    /*
+                     POR EJEMPLO REAL BRASILERO O DOLAR 
+                     QUE SI POSEE APARTE DEL ENTERO, TAMBIEN LA PARTE FRACCIONARIA.-
+                     VALGA LA REDUNDANCIA EJEMPLO: 
+                     2,000.99 $
+                     O
+                     5.25 R$
+                     RECUERDE MY FRIEND DEPENDE DEL CONOCIMIENTO DEL OBSERVADOR LA INTERPRETACION DE LOS SIGNOS, 
+                     UNA INTERPRETACION VALIDA SERIA QUE LA COMA " , " FUNCIONARIA COMO SEPARADOR DE MILES
+                     Y EL PUNTO " . " COMO DELIMITADOR DE LA PARTE ENTERA DE LA PARTE FRACCIONARIA.-                
+                     */
+                    //<editor-fold defaultstate="collapsed" desc="CUENTA CUANTOS PUNTOS DECIMALES INGRESO EL USER">
+                    int PointCounter = 0, i = 0;
+                    while (i < DigitedText.length()) {
+                        Object CharacterByCharacter = DigitedText.charAt(i);
+                        if (CharacterByCharacter.toString().equals(".")) {
+                            PointCounter = PointCounter + 1;
+                            if (PointCounter == 2) {
+                                i = i + DigitedText.length();
+                            }//FIN IF
+                        }//FIN IF                    
+                        i++;
+                    }// FIN WHILE
+                    //</editor-fold>
+                    //<editor-fold defaultstate="collapsed" desc="CASO INGRESE DOS PUNTOS DE SEGUIDO">
+                    if (PointCounter == 2) {
+                        String Entera = DigitedText.substring(0, DigitedText.indexOf("."));
+                        Entera = Entera.replaceAll("\\s", "");
+                        if (Entera.isEmpty() && KeyCode != 46) {
+                            CampoTexto.setCaretPosition(Entera.length());
+                        }//FIN IF
+                        else {
+                            if (Entera.isEmpty() && KeyCode == 46) {
+                                //<editor-fold defaultstate="collapsed" desc="ACTIONS">
+                                String Fraccion = DigitedText.substring(DigitedText.indexOf(".") + 1, DigitedText.length());
+                                Fraccion = Fraccion.replace(".", "").replaceAll("\\s", "");
+                                String ReIntegrated = "." + Fraccion;
+                                CampoTexto.setText(ReIntegrated);
+                                int Lenght = ReIntegrated.substring(0, ReIntegrated.indexOf(".")).length();
+                                CampoTexto.setCaretPosition(Lenght);
+                                //</editor-fold>
+                            }//FIN IF
+                            else {
+                                //<editor-fold defaultstate="collapsed" desc="ACTIONS">
+                                String Fraccion = DigitedText.substring(DigitedText.indexOf(".") + 1, DigitedText.length());
+                                Entera = MaskaraEnteros(Entera);
+                                Fraccion = Fraccion.replace(".", "").replaceAll("\\s", "");
+                                if (Fraccion.isEmpty()) {
+                                    Fraccion = "00";
+                                }//FIN IF
+                                if (Fraccion.length() >= 3) {
+                                    Fraccion = Fraccion.substring(0, 2);
+                                }//FIN IF                                   
+                                String ReIntegrated = Entera + ".";
+                                CampoTexto.setText(ReIntegrated);
+                                CampoTexto.setCaretPosition(ReIntegrated.length());
+                                //</editor-fold>
+                            }//FIN ELSE
+                        }//FIN ELSE
+                    }// FIN IF
+                    //</editor-fold>
+                    //<editor-fold defaultstate="collapsed" desc="INGRESO DE PUNTOS DECIMALES - DOS CASOS">
+                    else {
+                        //<editor-fold defaultstate="collapsed" desc="CASO 1 - INGRESO PRIMERA VEZ EL PUNTO DECIMAL">
+                        if (PointCounter == 1 && evt.getKeyCode() != KeyEvent.VK_BACK_SPACE) {
+                            String Entera = DigitedText.substring(0, DigitedText.indexOf("."));
+                            String Fraccion = DigitedText.substring(DigitedText.indexOf(".") + 1, DigitedText.length());
+                            Entera = MaskaraEnteros(Entera);
+                            Fraccion = Fraccion.replace(".", "").replaceAll("\\s", "");
+                            if (Fraccion.length() >= 3) {
+                                Fraccion = Fraccion.substring(0, 2);
+                            }//FIN IF
+                            String ReIntegrated = Entera + "." + Fraccion;
+                            CampoTexto.setText(ReIntegrated);
+                            if (Fraccion.length() == 2) {
+                                CampoTexto.setCaretPosition(Entera.length());
+                            }//FIN IF
+                            else {
+                                if (Fraccion.length() != 2) {
+                                    CampoTexto.setCaretPosition(ReIntegrated.length());
+                                }//FIN IF                            
+                            }//FIN ELSE
+                        }//FIN IF
+                        //</editor-fold>                    
+                        //<editor-fold defaultstate="collapsed" desc="CASO 2">
+                        else {
+                            //<editor-fold defaultstate="collapsed" desc="PRESIONO BACK_SPACE Y YA HAY UN PUNTO DECIMAL">
+                            if (PointCounter == 1
+                                    && evt.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
+                                if (DigitedText.contains(".")) {
+                                    String Entera = DigitedText.substring(0, DigitedText.indexOf("."));
+                                    Entera = MaskaraEnteros(Entera);
+                                    String Fraccion = DigitedText.substring(DigitedText.indexOf(".") + 1, DigitedText.length());
+                                    if (Fraccion.length() >= 3) {
+                                        Fraccion = Fraccion.substring(0, 2);
+                                    }//FIN IF
+                                    String ReIntegrated = Entera + "." + Fraccion;
+                                    CampoTexto.setText(ReIntegrated);
+                                    if (Fraccion.length() == 2) {
+                                        CampoTexto.setCaretPosition(Entera.length());
+                                    }//FIN IF
+                                    else {
+                                        if (Fraccion.length() != 2) {
+                                            CampoTexto.setCaretPosition(ReIntegrated.length());
+                                        }//FIN IF                            
+                                    }//FIN ELSE                                
+                                }//FIN IF                                    
+                            }// FIN IF
+                            //</editor-fold>
+                            //<editor-fold defaultstate="collapsed" desc="CASO 2 - INGRESO SOLO NRO ENTERO NADA DE PUNTO DECIMAL AUN">
+                            if (PointCounter == 0) {
+                                String Entera = DigitedText.substring(0, DigitedText.length());
+                                Entera = MaskaraEnteros(Entera);
+                                String ReIntegrated = Entera + ".00";
+                                CampoTexto.setText(ReIntegrated);
+                                CampoTexto.setCaretPosition(Entera.length());
+                            }//FIN IF                    
+                            //</editor-fold>                        
+                        }// FIN ELSE
+                        //</editor-fold>
+                        //</editor-fold>
+                    }// FIN ELSE
+                    //</editor-fold>
+                }//FIN IF
+                else {
+                    //<editor-fold defaultstate="collapsed" desc="PARA MONEDAS QUE SOLO POSEA NROS ENTEROS">
+                    /*
+                     POR EJEMPLO NUESTRO ESTIMADO GUARANI SOLO POSEE PARTE ENTERA NO TIENE FRACCIONES.- 
+                     VALGA LA REDUNDANCIA EJEMPLO: 
+                     10,000 Gs
+                     O
+                     1,500 Gs
+                     RECUERDE MY FRIEND DEPENDE DEL CONOCIMIENTO DEL OBSERVADOR LA INTERPRETACION DE LOS SIGNOS, 
+                     UNA INTERPRETACION VALIDA SERIA QUE LA COMA " , " FUNCIONARIA COMO SEPARADOR DE MILES
+                     Y EL PUNTO " . " COMO DELIMITADOR DE LA PARTE ENTERA DE LA PARTE FRACCIONARIA.-
+                     */
+                    this.txt_guarani.setText(
+                            MaskaraEnteros(DigitedText)
+                    );
+                    //</editor-fold>
+                }//FIN ELSE        
+                //</editor-fold>    
+            }// FIN ELSE
+            //</editor-fold>    
+            //</editor-fold>
+            //</editor-fold>
+        }//FIN IF
+        else {
+            //<editor-fold defaultstate="collapsed" desc="OBTIENE PARTE ENTERA Y FRACCIONES">
+            String Texting = txt_guarani.getText();
+            if (Texting.contains(".")) {
+                String Entero = Texting.substring(0, Texting.indexOf("."));
+                Entero = MaskaraEnteros(Entero);
+                String Fraccion = Texting.substring(Texting.indexOf(".") + 1, Texting.length());
+                String Integrated = Entero + "." + Fraccion.replaceAll("\\D", "");
+                this.txt_guarani.setText(Integrated);
+            }//FIN IF            
+            //</editor-fold>            
+            //<editor-fold defaultstate="collapsed" desc="ALARMA">
+
+            //</editor-fold>            
+        }//FIN ELSE
+        //</editor-fold>        
+        //</editor-fold>
+        return Retorno;
+    }// FIN 1º METODO
+
+    public String ActivatedYourLifeRs(JTextField CampoTexto, java.awt.event.KeyEvent evt) {
+        String Retorno = "";
+        //<editor-fold defaultstate="collapsed" desc="ACTIONS">
+        //<editor-fold defaultstate="collapsed" desc="CLOSER EYES">  
+        int KeyCode = evt.getKeyCode();
+        if ( //<editor-fold defaultstate="collapsed" desc="PARAMS">
+                (KeyCode >= 48 // 48  = VK_0
+                && KeyCode <= 57 // 57  = VK_9                
+                )
+                || (KeyCode >= 96 // 96  = VK_NUMPAD0
+                && KeyCode <= 105// 105 = VK_NUMPAD9
+                )
+                || KeyCode == 8 // 8   = VK_BACK_SPACE
+                || KeyCode == 46 // 46  = PUNTO DECIMAL
+                //</editor-fold>                        
+                ) {
+            //<editor-fold defaultstate="collapsed" desc="ACTIONS">
+            //<editor-fold defaultstate="collapsed" desc="SECURE ALPHA">
+            //<editor-fold defaultstate="collapsed" desc="IF">
+            String DigitedText = CampoTexto.getText().replaceAll("\\s", "");
+            if (DigitedText.isEmpty()
+                    || KeyCode == 44) {
+                // NO HACE NADA.-
+            }// FIN IF
+            //</editor-fold>
+            //<editor-fold defaultstate="collapsed" desc="ELSE">
+            else {
+                //<editor-fold defaultstate="collapsed" desc="MSK">            
+                String Tag = modo_gs.replaceAll("\\s", "").toLowerCase();
+                if (!Tag.equals("guaranies")) {
+                    //<editor-fold defaultstate="collapsed" desc="PARA MONEDAS CON NROS ENTEROS Y QUE TAMBIEN TENGA PARTE FRACCIONARIA">
+                    /*
+                     POR EJEMPLO REAL BRASILERO O DOLAR 
+                     QUE SI POSEE APARTE DEL ENTERO, TAMBIEN LA PARTE FRACCIONARIA.-
+                     VALGA LA REDUNDANCIA EJEMPLO: 
+                     2,000.99 $
+                     O
+                     5.25 R$
+                     RECUERDE MY FRIEND DEPENDE DEL CONOCIMIENTO DEL OBSERVADOR LA INTERPRETACION DE LOS SIGNOS, 
+                     UNA INTERPRETACION VALIDA SERIA QUE LA COMA " , " FUNCIONARIA COMO SEPARADOR DE MILES
+                     Y EL PUNTO " . " COMO DELIMITADOR DE LA PARTE ENTERA DE LA PARTE FRACCIONARIA.-                
+                     */
+                    //<editor-fold defaultstate="collapsed" desc="CUENTA CUANTOS PUNTOS DECIMALES INGRESO EL USER">
+                    int PointCounter = 0, i = 0;
+                    while (i < DigitedText.length()) {
+                        Object CharacterByCharacter = DigitedText.charAt(i);
+                        if (CharacterByCharacter.toString().equals(".")) {
+                            PointCounter = PointCounter + 1;
+                            if (PointCounter == 2) {
+                                i = i + DigitedText.length();
+                            }//FIN IF
+                        }//FIN IF                    
+                        i++;
+                    }// FIN WHILE
+                    //</editor-fold>
+                    //<editor-fold defaultstate="collapsed" desc="CASO INGRESE DOS PUNTOS DE SEGUIDO">
+                    if (PointCounter == 2) {
+                        String Entera = DigitedText.substring(0, DigitedText.indexOf("."));
+                        Entera = Entera.replaceAll("\\s", "");
+                        if (Entera.isEmpty() && KeyCode != 46) {
+                            CampoTexto.setCaretPosition(Entera.length());
+                        }//FIN IF
+                        else {
+                            if (Entera.isEmpty() && KeyCode == 46) {
+                                //<editor-fold defaultstate="collapsed" desc="ACTIONS">
+                                String Fraccion = DigitedText.substring(DigitedText.indexOf(".") + 1, DigitedText.length());
+                                Fraccion = Fraccion.replace(".", "").replaceAll("\\s", "");
+                                String ReIntegrated = "." + Fraccion;
+                                CampoTexto.setText(ReIntegrated);
+                                int Lenght = ReIntegrated.substring(0, ReIntegrated.indexOf(".")).length();
+                                CampoTexto.setCaretPosition(Lenght);
+                                //</editor-fold>
+                            }//FIN IF
+                            else {
+                                //<editor-fold defaultstate="collapsed" desc="ACTIONS">
+                                String Fraccion = DigitedText.substring(DigitedText.indexOf(".") + 1, DigitedText.length());
+                                Entera = MaskaraEnteros(Entera);
+                                Fraccion = Fraccion.replace(".", "").replaceAll("\\s", "");
+                                if (Fraccion.isEmpty()) {
+                                    Fraccion = "00";
+                                }//FIN IF
+                                if (Fraccion.length() >= 3) {
+                                    Fraccion = Fraccion.substring(0, 2);
+                                }//FIN IF                                   
+                                String ReIntegrated = Entera + ".";
+                                CampoTexto.setText(ReIntegrated);
+                                CampoTexto.setCaretPosition(ReIntegrated.length());
+                                //</editor-fold>
+                            }//FIN ELSE
+                        }//FIN ELSE
+                    }// FIN IF
+                    //</editor-fold>
+                    //<editor-fold defaultstate="collapsed" desc="INGRESO DE PUNTOS DECIMALES - DOS CASOS">
+                    else {
+                        //<editor-fold defaultstate="collapsed" desc="CASO 1 - INGRESO PRIMERA VEZ EL PUNTO DECIMAL">
+                        if (PointCounter == 1 && evt.getKeyCode() != KeyEvent.VK_BACK_SPACE) {
+                            String Entera = DigitedText.substring(0, DigitedText.indexOf("."));
+                            String Fraccion = DigitedText.substring(DigitedText.indexOf(".") + 1, DigitedText.length());
+                            Entera = MaskaraEnteros(Entera);
+                            Fraccion = Fraccion.replace(".", "").replaceAll("\\s", "");
+                            if (Fraccion.length() >= 3) {
+                                Fraccion = Fraccion.substring(0, 2);
+                            }//FIN IF
+                            String ReIntegrated = Entera + "." + Fraccion;
+                            CampoTexto.setText(ReIntegrated);
+                            if (Fraccion.length() == 2) {
+                                CampoTexto.setCaretPosition(Entera.length());
+                            }//FIN IF
+                            else {
+                                if (Fraccion.length() != 2) {
+                                    CampoTexto.setCaretPosition(ReIntegrated.length());
+                                }//FIN IF                            
+                            }//FIN ELSE
+                        }//FIN IF
+                        //</editor-fold>                    
+                        //<editor-fold defaultstate="collapsed" desc="CASO 2">
+                        else {
+                            //<editor-fold defaultstate="collapsed" desc="PRESIONO BACK_SPACE Y YA HAY UN PUNTO DECIMAL">
+                            if (PointCounter == 1
+                                    && evt.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
+                                if (DigitedText.contains(".")) {
+                                    String Entera = DigitedText.substring(0, DigitedText.indexOf("."));
+                                    Entera = MaskaraEnteros(Entera);
+                                    String Fraccion = DigitedText.substring(DigitedText.indexOf(".") + 1, DigitedText.length());
+                                    if (Fraccion.length() >= 3) {
+                                        Fraccion = Fraccion.substring(0, 2);
+                                    }//FIN IF
+                                    String ReIntegrated = Entera + "." + Fraccion;
+                                    CampoTexto.setText(ReIntegrated);
+                                    if (Fraccion.length() == 2) {
+                                        CampoTexto.setCaretPosition(Entera.length());
+                                    }//FIN IF
+                                    else {
+                                        if (Fraccion.length() != 2) {
+                                            CampoTexto.setCaretPosition(ReIntegrated.length());
+                                        }//FIN IF                            
+                                    }//FIN ELSE                                
+                                }//FIN IF                                    
+                            }// FIN IF
+                            //</editor-fold>
+                            //<editor-fold defaultstate="collapsed" desc="CASO 2 - INGRESO SOLO NRO ENTERO NADA DE PUNTO DECIMAL AUN">
+                            if (PointCounter == 0) {
+                                String Entera = DigitedText.substring(0, DigitedText.length());
+                                Entera = MaskaraEnteros(Entera);
+                                String ReIntegrated = Entera + ".00";
+                                CampoTexto.setText(ReIntegrated);
+                                CampoTexto.setCaretPosition(Entera.length());
+                            }//FIN IF                    
+                            //</editor-fold>                        
+                        }// FIN ELSE
+                        //</editor-fold>
+                        //</editor-fold>
+                    }// FIN ELSE
+                    //</editor-fold>
+                }//FIN IF
+                else {
+                    //<editor-fold defaultstate="collapsed" desc="PARA MONEDAS QUE SOLO POSEA NROS ENTEROS">
+                    /*
+                     POR EJEMPLO NUESTRO ESTIMADO GUARANI SOLO POSEE PARTE ENTERA NO TIENE FRACCIONES.- 
+                     VALGA LA REDUNDANCIA EJEMPLO: 
+                     10,000 Gs
+                     O
+                     1,500 Gs
+                     RECUERDE MY FRIEND DEPENDE DEL CONOCIMIENTO DEL OBSERVADOR LA INTERPRETACION DE LOS SIGNOS, 
+                     UNA INTERPRETACION VALIDA SERIA QUE LA COMA " , " FUNCIONARIA COMO SEPARADOR DE MILES
+                     Y EL PUNTO " . " COMO DELIMITADOR DE LA PARTE ENTERA DE LA PARTE FRACCIONARIA.-
+                     */
+                    this.txt_real.setText(
+                            MaskaraEnteros(DigitedText)
+                    );
+                    //</editor-fold>
+                }//FIN ELSE        
+                //</editor-fold>    
+            }// FIN ELSE
+            //</editor-fold>    
+            //</editor-fold>
+            //</editor-fold>
+        }//FIN IF
+        else {
+            //<editor-fold defaultstate="collapsed" desc="OBTIENE PARTE ENTERA Y FRACCIONES">
+            String Texting = txt_real.getText();
+            if (Texting.contains(".")) {
+                String Entero = Texting.substring(0, Texting.indexOf("."));
+                Entero = MaskaraEnteros(Entero);
+                String Fraccion = Texting.substring(Texting.indexOf(".") + 1, Texting.length());
+                String Integrated = Entero + "." + Fraccion.replaceAll("\\D", "");
+                this.txt_real.setText(Integrated);
+            }//FIN IF            
+            //</editor-fold>            
+            //<editor-fold defaultstate="collapsed" desc="ALARMA">
+
+            //</editor-fold>            
+        }//FIN ELSE
+        //</editor-fold>        
+        //</editor-fold>
+        return Retorno;
+    }// FIN 1º METODO
+
+    public String ActivatedYourLifeUs(JTextField CampoTexto, java.awt.event.KeyEvent evt) {
+        String Retorno = "";
+        //<editor-fold defaultstate="collapsed" desc="ACTIONS">
+        //<editor-fold defaultstate="collapsed" desc="CLOSER EYES">  
+        int KeyCode = evt.getKeyCode();
+        if ( //<editor-fold defaultstate="collapsed" desc="PARAMS">
+                (KeyCode >= 48 // 48  = VK_0
+                && KeyCode <= 57 // 57  = VK_9                
+                )
+                || (KeyCode >= 96 // 96  = VK_NUMPAD0
+                && KeyCode <= 105// 105 = VK_NUMPAD9
+                )
+                || KeyCode == 8 // 8   = VK_BACK_SPACE
+                || KeyCode == 46 // 46  = PUNTO DECIMAL
+                //</editor-fold>                        
+                ) {
+            //<editor-fold defaultstate="collapsed" desc="ACTIONS">
+            //<editor-fold defaultstate="collapsed" desc="SECURE ALPHA">
+            //<editor-fold defaultstate="collapsed" desc="IF">
+            String DigitedText = CampoTexto.getText().replaceAll("\\s", "");
+            if (DigitedText.isEmpty()
+                    || KeyCode == 44) {
+                // NO HACE NADA.-
+            }// FIN IF
+            //</editor-fold>
+            //<editor-fold defaultstate="collapsed" desc="ELSE">
+            else {
+                //<editor-fold defaultstate="collapsed" desc="MSK">            
+                String Tag = modo_gs.replaceAll("\\s", "").toLowerCase();
+                if (!Tag.equals("guaranies")) {
                     //<editor-fold defaultstate="collapsed" desc="PARA MONEDAS CON NROS ENTEROS Y QUE TAMBIEN TENGA PARTE FRACCIONARIA">
                     /*
                      POR EJEMPLO REAL BRASILERO O DOLAR 

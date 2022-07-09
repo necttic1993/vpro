@@ -8,7 +8,6 @@ package Estadisticas_productos;
 
 import Clases.machusculas;
 import Conexion_DB.conectar;
-import Productos.Categorias;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;

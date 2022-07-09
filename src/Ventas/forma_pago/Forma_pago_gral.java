@@ -110,7 +110,7 @@ public class Forma_pago_gral extends javax.swing.JDialog {
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/check.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/buscar.png"))); // NOI18N
         jButton1.setMnemonic('v');
         jButton1.setToolTipText("Ver listado de Mov. de caja");
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -337,13 +337,9 @@ public class Forma_pago_gral extends javax.swing.JDialog {
             MDB = new Modulo_DepB(new javax.swing.JDialog(), true);
             MDB.setVisible(true);
         }
-        if ((cb_forma_pago.getSelectedItem().equals("NOTA DE CRÉDITO"))) {
-            Modulo_DepB MDB;
-            MDB = new Modulo_DepB(new javax.swing.JDialog(), true);
-            MDB.setVisible(true);
-        }
-        
-        
+       
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btn_calcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_calcActionPerformed
@@ -516,7 +512,7 @@ public class Forma_pago_gral extends javax.swing.JDialog {
             String user = lbl_usu_nom.getText();
             String nro_doc_pag = lbl_nro_doc.getText();
             String nro_cuenta_pag = lbl_nro_cuenta.getText();
-            String almacen= lbl_usu_sucursal.getText();
+            String almacen = lbl_usu_sucursal.getText();
 
             sql = "INSERT INTO forma_pago (nro_doc,tipo_pago,pago_cont,clas,monto,fecha_det_con,fecha_vista,user,nro_doc_pag,nro_cuenta_pag,pago_surc) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
             try {

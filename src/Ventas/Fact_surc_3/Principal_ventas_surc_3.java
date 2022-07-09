@@ -354,6 +354,27 @@ public class Principal_ventas_surc_3 extends javax.swing.JDialog {
 
     }
 
+    public void actEstadoVentas(String cod) {
+        try {
+            String es = "0";
+            String sql = "UPDATE ventas_3 SET bool_fact = '" + es
+                    + "' WHERE num_bol = '" + cod + "'";
+            try {
+                Connection cn = conectar.getInstance().getConnection();
+
+                PreparedStatement pst = cn.prepareStatement(sql);
+                pst.executeUpdate();
+                //  JOptionPane.showMessageDialog(null, "Actualizado");
+                conectar.getInstance().closeConnection(cn);
+
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+
+        } catch (Exception e) {
+        }
+    }
+
     void eliminarProducto() {
 
         int filasel = tbProductos.getSelectedRow();
@@ -364,6 +385,7 @@ public class Principal_ventas_surc_3 extends javax.swing.JDialog {
                 if (JOptionPane.showConfirmDialog(rootPane, "Anular Factura de venta" + ", ¿desea continuar?",
                         "Anular", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                     String cod = (String) tbProductos.getValueAt(filasel, 0);
+                    String cod_ventas = (String) tbProductos.getValueAt(filasel, 7);
                     String eliminarSQL = "DELETE FROM ventas_facturacion_surc_3 WHERE nro_fact_ventas = '" + cod + "'";
 
                     try {
@@ -374,6 +396,7 @@ public class Principal_ventas_surc_3 extends javax.swing.JDialog {
                         conectar.getInstance().closeConnection(cn);
 
                         JOptionPane.showMessageDialog(null, "Factura de venta cancelada");
+                        actEstadoVentas(cod_ventas);
                         cargar("");
 
                     } catch (SQLException | HeadlessException e) {
@@ -410,7 +433,7 @@ public class Principal_ventas_surc_3 extends javax.swing.JDialog {
             int des = Integer.parseInt(grado);
             int nv = Integer.parseInt(nivel);
             if (des >= nv) {
-            btn_cargar_datos.doClick();
+                btn_cargar_datos.doClick();
                 eliminarProducto();
             } else {
 

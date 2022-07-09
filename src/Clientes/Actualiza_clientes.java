@@ -9,7 +9,9 @@ import Clases.machusculas;
 import static Clientes.Plataforma_clientes.cod_cliente;
 
 import Conexion_DB.conectar;
+import static Loggin_Principal.Principal.lbl_mone_def;
 import java.awt.HeadlessException;
+import java.awt.event.KeyEvent;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,6 +22,7 @@ import java.text.DecimalFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -104,6 +107,8 @@ public class Actualiza_clientes extends javax.swing.JDialog {
         jLabel22 = new javax.swing.JLabel();
         txt_id_ciudad = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jLabel23 = new javax.swing.JLabel();
+        txt_limite_cliente = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registrar Clientes");
@@ -304,6 +309,22 @@ public class Actualiza_clientes extends javax.swing.JDialog {
         });
         jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, -1, 30));
 
+        jLabel23.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel23.setText("Limite de Crédito:");
+        jPanel3.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, 120, 30));
+
+        txt_limite_cliente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txt_limite_cliente.setText("0");
+        txt_limite_cliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_limite_clienteKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_limite_clienteKeyReleased(evt);
+            }
+        });
+        jPanel3.add(txt_limite_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 160, 30));
+
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 270));
 
         pack();
@@ -347,6 +368,7 @@ public class Actualiza_clientes extends javax.swing.JDialog {
                     + "',cli_pais ='" + cb_cli_pais.getSelectedItem().toString()
                     + "',cli_surc ='" + cb_contro_surc.getSelectedItem().toString()
                     + "',cli_ciudad ='" + txt_id_ciudad.getText()
+                    + "',limite_credito ='" + txt_limite_cliente.getText()
                     + "' WHERE cli_cod = '" + txtcod.getText() + "'";
             try {
                 Connection cn = conectar.getInstance().getConnection();
@@ -378,6 +400,14 @@ public class Actualiza_clientes extends javax.swing.JDialog {
         ac = new ciudad_clientes_update(new javax.swing.JDialog(), true);
         ac.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txt_limite_clienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_limite_clienteKeyPressed
+
+    }//GEN-LAST:event_txt_limite_clienteKeyPressed
+
+    private void txt_limite_clienteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_limite_clienteKeyReleased
+        ActivatedYourLife(txt_limite_cliente, evt);
+    }//GEN-LAST:event_txt_limite_clienteKeyReleased
 
     /**
      * @param args the command line arguments
@@ -444,6 +474,7 @@ public class Actualiza_clientes extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -453,6 +484,7 @@ public class Actualiza_clientes extends javax.swing.JDialog {
     private javax.swing.JTextField txt_cli_registro;
     private javax.swing.JTextField txt_dias_plazos;
     public static javax.swing.JTextField txt_id_ciudad;
+    private javax.swing.JTextField txt_limite_cliente;
     private javax.swing.JTextField txt_razon;
     private javax.swing.JTextField txtcod;
     private javax.swing.JTextField txtdir;
@@ -467,7 +499,7 @@ public class Actualiza_clientes extends javax.swing.JDialog {
         try {
 
             String codi = "", nom = "", ruc = "", razon = "", contacto = "", email = "", dir = "", tipo = "", ciudad = "";
-            String registro = "", dias_cre = "", cli_status = "", cli_pais = "", surc = "";
+            String registro = "", dias_cre = "", cli_status = "", cli_pais = "", surc = "",credito="";
             Connection cn = conectar.getInstance().getConnection();
 
             String cons = "select * from tienda_clientes WHERE cli_cod='" + cod + "'";
@@ -489,6 +521,7 @@ public class Actualiza_clientes extends javax.swing.JDialog {
                 cli_pais = rs.getString(14);
                 surc = rs.getString(15);
                 ciudad = rs.getString(16);
+                 credito = rs.getString(19);
 
             }
 
@@ -506,6 +539,7 @@ public class Actualiza_clientes extends javax.swing.JDialog {
             cb_cli_pais.setSelectedItem(cli_pais);
             cb_contro_surc.setSelectedItem(surc);
             txt_id_ciudad.setText(ciudad);
+            txt_limite_cliente.setText(credito);
             conectar.getInstance().closeConnection(cn);
 
         } catch (SQLException e) {
@@ -537,5 +571,203 @@ public class Actualiza_clientes extends javax.swing.JDialog {
         ReadyToExhibit = ReadyToExhibit.replace(".", ",");
         return ReadyToExhibit;
     }// FIN METODO
+    
+     public String ActivatedYourLife(JTextField CampoTexto, java.awt.event.KeyEvent evt) {
+        String Retorno = "";
+        //<editor-fold defaultstate="collapsed" desc="ACTIONS">
+        //<editor-fold defaultstate="collapsed" desc="CLOSER EYES">  
+        int KeyCode = evt.getKeyCode();
+        if ( //<editor-fold defaultstate="collapsed" desc="PARAMS">
+                (KeyCode >= 48 // 48  = VK_0
+                && KeyCode <= 57 // 57  = VK_9                
+                )
+                || (KeyCode >= 96 // 96  = VK_NUMPAD0
+                && KeyCode <= 105// 105 = VK_NUMPAD9
+                )
+                || KeyCode == 8 // 8   = VK_BACK_SPACE
+                || KeyCode == 46 // 46  = PUNTO DECIMAL
+                //</editor-fold>                        
+                ) {
+            //<editor-fold defaultstate="collapsed" desc="ACTIONS">
+            //<editor-fold defaultstate="collapsed" desc="SECURE ALPHA">
+            //<editor-fold defaultstate="collapsed" desc="IF">
+            String DigitedText = CampoTexto.getText().replaceAll("\\s", "");
+            if (DigitedText.isEmpty()
+                    || KeyCode == 44) {
+                // NO HACE NADA.-
+            }// FIN IF
+            //</editor-fold>
+            //<editor-fold defaultstate="collapsed" desc="ELSE">
+            else {
+                //<editor-fold defaultstate="collapsed" desc="MSK">            
+                String Tag = lbl_mone_def.getText().replaceAll("\\s", "").toLowerCase();
+                if (!Tag.equals("guaraníes")) {
+                    //<editor-fold defaultstate="collapsed" desc="PARA MONEDAS CON NROS ENTEROS Y QUE TAMBIEN TENGA PARTE FRACCIONARIA">
+                    /*
+                     POR EJEMPLO REAL BRASILERO O DOLAR 
+                     QUE SI POSEE APARTE DEL ENTERO, TAMBIEN LA PARTE FRACCIONARIA.-
+                     VALGA LA REDUNDANCIA EJEMPLO: 
+                     2,000.99 $
+                     O
+                     5.25 R$
+                     RECUERDE MY FRIEND DEPENDE DEL CONOCIMIENTO DEL OBSERVADOR LA INTERPRETACION DE LOS SIGNOS, 
+                     UNA INTERPRETACION VALIDA SERIA QUE LA COMA " , " FUNCIONARIA COMO SEPARADOR DE MILES
+                     Y EL PUNTO " . " COMO DELIMITADOR DE LA PARTE ENTERA DE LA PARTE FRACCIONARIA.-                
+                     */
+                    //<editor-fold defaultstate="collapsed" desc="CUENTA CUANTOS PUNTOS DECIMALES INGRESO EL USER">
+                    int PointCounter = 0, i = 0;
+                    while (i < DigitedText.length()) {
+                        Object CharacterByCharacter = DigitedText.charAt(i);
+                        if (CharacterByCharacter.toString().equals(".")) {
+                            PointCounter = PointCounter + 1;
+                            if (PointCounter == 2) {
+                                i = i + DigitedText.length();
+                            }//FIN IF
+                        }//FIN IF                    
+                        i++;
+                    }// FIN WHILE
+                    //</editor-fold>
+                    //<editor-fold defaultstate="collapsed" desc="CASO INGRESE DOS PUNTOS DE SEGUIDO">
+                    if (PointCounter == 2) {
+                        String Entera = DigitedText.substring(0, DigitedText.indexOf("."));
+                        Entera = Entera.replaceAll("\\s", "");
+                        if (Entera.isEmpty() && KeyCode != 46) {
+                            CampoTexto.setCaretPosition(Entera.length());
+                        }//FIN IF
+                        else {
+                            if (Entera.isEmpty() && KeyCode == 46) {
+                                //<editor-fold defaultstate="collapsed" desc="ACTIONS">
+                                String Fraccion = DigitedText.substring(DigitedText.indexOf(".") + 1, DigitedText.length());
+                                Fraccion = Fraccion.replace(".", "").replaceAll("\\s", "");
+                                String ReIntegrated = "." + Fraccion;
+                                CampoTexto.setText(ReIntegrated);
+                                int Lenght = ReIntegrated.substring(0, ReIntegrated.indexOf(".")).length();
+                                CampoTexto.setCaretPosition(Lenght);
+                                //</editor-fold>
+                            }//FIN IF
+                            else {
+                                //<editor-fold defaultstate="collapsed" desc="ACTIONS">
+                                String Fraccion = DigitedText.substring(DigitedText.indexOf(".") + 1, DigitedText.length());
+                                Entera = MaskaraEnteros(Entera);
+                                Fraccion = Fraccion.replace(".", "").replaceAll("\\s", "");
+                                if (Fraccion.isEmpty()) {
+                                    Fraccion = "00";
+                                }//FIN IF
+                                if (Fraccion.length() >= 3) {
+                                    Fraccion = Fraccion.substring(0, 2);
+                                }//FIN IF                                   
+                                String ReIntegrated = Entera + ".";
+                                CampoTexto.setText(ReIntegrated);
+                                CampoTexto.setCaretPosition(ReIntegrated.length());
+                                //</editor-fold>
+                            }//FIN ELSE
+                        }//FIN ELSE
+                    }// FIN IF
+                    //</editor-fold>
+                    //<editor-fold defaultstate="collapsed" desc="INGRESO DE PUNTOS DECIMALES - DOS CASOS">
+                    else {
+                        //<editor-fold defaultstate="collapsed" desc="CASO 1 - INGRESO PRIMERA VEZ EL PUNTO DECIMAL">
+                        if (PointCounter == 1 && evt.getKeyCode() != KeyEvent.VK_BACK_SPACE) {
+                            String Entera = DigitedText.substring(0, DigitedText.indexOf("."));
+                            String Fraccion = DigitedText.substring(DigitedText.indexOf(".") + 1, DigitedText.length());
+                            Entera = MaskaraEnteros(Entera);
+                            Fraccion = Fraccion.replace(".", "").replaceAll("\\s", "");
+                            if (Fraccion.length() >= 3) {
+                                Fraccion = Fraccion.substring(0, 2);
+                            }//FIN IF
+                            String ReIntegrated = Entera + "." + Fraccion;
+                            CampoTexto.setText(ReIntegrated);
+                            if (Fraccion.length() == 2) {
+                                CampoTexto.setCaretPosition(Entera.length());
+                            }//FIN IF
+                            else {
+                                if (Fraccion.length() != 2) {
+                                    CampoTexto.setCaretPosition(ReIntegrated.length());
+                                }//FIN IF                            
+                            }//FIN ELSE
+                        }//FIN IF
+                        //</editor-fold>                    
+                        //<editor-fold defaultstate="collapsed" desc="CASO 2">
+                        else {
+                            //<editor-fold defaultstate="collapsed" desc="PRESIONO BACK_SPACE Y YA HAY UN PUNTO DECIMAL">
+                            if (PointCounter == 1
+                                    && evt.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
+                                if (DigitedText.contains(".")) {
+                                    String Entera = DigitedText.substring(0, DigitedText.indexOf("."));
+                                    Entera = MaskaraEnteros(Entera);
+                                    String Fraccion = DigitedText.substring(DigitedText.indexOf(".") + 1, DigitedText.length());
+                                    if (Fraccion.length() >= 3) {
+                                        Fraccion = Fraccion.substring(0, 2);
+                                    }//FIN IF
+                                    String ReIntegrated = Entera + "." + Fraccion;
+                                    CampoTexto.setText(ReIntegrated);
+                                    if (Fraccion.length() == 2) {
+                                        CampoTexto.setCaretPosition(Entera.length());
+                                    }//FIN IF
+                                    else {
+                                        if (Fraccion.length() != 2) {
+                                            CampoTexto.setCaretPosition(ReIntegrated.length());
+                                        }//FIN IF                            
+                                    }//FIN ELSE                                
+                                }//FIN IF                                    
+                            }// FIN IF
+                            //</editor-fold>
+                            //<editor-fold defaultstate="collapsed" desc="CASO 2 - INGRESO SOLO NRO ENTERO NADA DE PUNTO DECIMAL AUN">
+                            if (PointCounter == 0) {
+                                String Entera = DigitedText.substring(0, DigitedText.length());
+                                Entera = MaskaraEnteros(Entera);
+                                String ReIntegrated = Entera + ".00";
+                                CampoTexto.setText(ReIntegrated);
+                                CampoTexto.setCaretPosition(Entera.length());
+                            }//FIN IF                    
+                            //</editor-fold>                        
+                        }// FIN ELSE
+                        //</editor-fold>
+                        //</editor-fold>
+                    }// FIN ELSE
+                    //</editor-fold>
+                }//FIN IF
+                else {
+                    //<editor-fold defaultstate="collapsed" desc="PARA MONEDAS QUE SOLO POSEA NROS ENTEROS">
+                    /*
+                     POR EJEMPLO NUESTRO ESTIMADO GUARANI SOLO POSEE PARTE ENTERA NO TIENE FRACCIONES.- 
+                     VALGA LA REDUNDANCIA EJEMPLO: 
+                     10,000 Gs
+                     O
+                     1,500 Gs
+                     RECUERDE MY FRIEND DEPENDE DEL CONOCIMIENTO DEL OBSERVADOR LA INTERPRETACION DE LOS SIGNOS, 
+                     UNA INTERPRETACION VALIDA SERIA QUE LA COMA " , " FUNCIONARIA COMO SEPARADOR DE MILES
+                     Y EL PUNTO " . " COMO DELIMITADOR DE LA PARTE ENTERA DE LA PARTE FRACCIONARIA.-
+                     */
+                    this.txt_limite_cliente.setText(
+                            MaskaraEnteros(DigitedText)
+                    );
+                    //</editor-fold>
+                }//FIN ELSE        
+                //</editor-fold>    
+            }// FIN ELSE
+            //</editor-fold>    
+            //</editor-fold>
+            //</editor-fold>
+        }//FIN IF
+        else {
+            //<editor-fold defaultstate="collapsed" desc="OBTIENE PARTE ENTERA Y FRACCIONES">
+            String Texting = txt_limite_cliente.getText();
+            if (Texting.contains(".")) {
+                String Entero = Texting.substring(0, Texting.indexOf("."));
+                Entero = MaskaraEnteros(Entero);
+                String Fraccion = Texting.substring(Texting.indexOf(".") + 1, Texting.length());
+                String Integrated = Entero + "." + Fraccion.replaceAll("\\D", "");
+                this.txt_limite_cliente.setText(Integrated);
+            }//FIN IF            
+            //</editor-fold>            
+            //<editor-fold defaultstate="collapsed" desc="ALARMA">
+
+            //</editor-fold>            
+        }//FIN ELSE
+        //</editor-fold>        
+        //</editor-fold>
+        return Retorno;
+    }// FIN 1º METODO
 
 }

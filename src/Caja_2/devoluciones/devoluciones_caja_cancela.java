@@ -9,7 +9,6 @@ import Caja_2.Caja_caja;
 import static Caja_2.Caja_caja.txt_alma_caja;
 import Clases.ColorearFilas_devoluciones;
 import Conexion_DB.conectar;
-import Loggin_Principal.Principal;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
@@ -133,7 +132,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
             } else {
                 String codins = tb_devolucion.getValueAt(fila, 0).toString();
                 String desins = ("CANC. NOTA DE DEV. NOTA N°" + tb_devolucion.getValueAt(fila, 0).toString());
-                String preins = tb_devolucion.getValueAt(fila, 5).toString();
+                String preins = tb_devolucion.getValueAt(fila, 7).toString();
 
                 Caja_caja.txt_nro_docu.setText(codins);
                 Caja_caja.txt_des_caja.setText(desins);
@@ -177,7 +176,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
                 } else {
                     String codins = tb_devolucion.getValueAt(fila, 0).toString();
                     String desins = ("CANC. NOTA DE DEV. NOTA N°" + tb_devolucion.getValueAt(fila, 0).toString());
-                    String preins = tb_devolucion.getValueAt(fila, 5).toString();
+                    String preins = tb_devolucion.getValueAt(fila, 7).toString();
 
                     Caja_caja.txt_nro_docu.setText(codins);
                     Caja_caja.txt_des_caja.setText(desins);
@@ -200,22 +199,105 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
             this.dispose();
         }
 
-        if (Principal.lbl_usu_almacen.getText().equals("TODOS")) {
-            cargar(txt_bus.getText());
-        }
-        if (Principal.lbl_usu_almacen.getText().equals("0000001")) {
-            cargar(txt_bus.getText());
-        }
-
-        //2
-        if (Principal.lbl_usu_almacen.getText().equals("0000002")) {
-            cargar_surc_2(txt_bus.getText());
-        }
 
     }//GEN-LAST:event_txt_busKeyPressed
 
     private void txt_busKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_busKeyReleased
+        if (Caja_2.Caja_caja.txt_alma_caja.getText().equals("TODOS")) {
+            cargar(txt_bus.getText());
+        }
+        if (Caja_2.Caja_caja.txt_alma_caja.getText().equals("0000001")) {
+            cargar(txt_bus.getText());
+        }
 
+        //2
+        if (Caja_2.Caja_caja.txt_alma_caja.getText().equals("0000002")) {
+            cargar_surc_2(txt_bus.getText());
+        }
+        if (Caja_2.Caja_caja.txt_alma_caja.getText().equals("0000003")) {
+            cargar_surc_3(txt_bus.getText());
+        }
+        if (Caja_2.Caja_caja.txt_alma_caja.getText().equals("0000004")) {
+            cargar_surc_4(txt_bus.getText());
+        }
+        if (Caja_2.Caja_caja.txt_alma_caja.getText().equals("0000005")) {
+            cargar_surc_5(txt_bus.getText());
+        }
+        if (Caja_2.Caja_caja.txt_alma_caja.getText().equals("0000006")) {
+            cargar_surc_6(txt_bus.getText());
+        }
+        if (Caja_2.Caja_caja.txt_alma_caja.getText().equals("0000007")) {
+            cargar_surc_7(txt_bus.getText());
+        }
+        if (Caja_2.Caja_caja.txt_alma_caja.getText().equals("0000008")) {
+            cargar_surc_8(txt_bus.getText());
+        }
+        if (Caja_2.Caja_caja.txt_alma_caja.getText().equals("0000009")) {
+            cargar_surc_9(txt_bus.getText());
+        }
+        if (Caja_2.Caja_caja.txt_alma_caja.getText().equals("0000010")) {
+            cargar_surc_10(txt_bus.getText());
+        }
+        if (Caja_2.Caja_caja.txt_alma_caja.getText().equals("0000011")) {
+            cargar_surc_11(txt_bus.getText());
+        }
+        if (Caja_2.Caja_caja.txt_alma_caja.getText().equals("0000012")) {
+            cargar_surc_12(txt_bus.getText());
+        }
+        if (Caja_2.Caja_caja.txt_alma_caja.getText().equals("0000013")) {
+            cargar_surc_13(txt_bus.getText());
+        }
+        if (Caja_2.Caja_caja.txt_alma_caja.getText().equals("0000014")) {
+            cargar_surc_14(txt_bus.getText());
+        }
+        if (Caja_2.Caja_caja.txt_alma_caja.getText().equals("0000015")) {
+            cargar_surc_15(txt_bus.getText());
+        }
+        if (Caja_2.Caja_caja.txt_alma_caja.getText().equals("0000016")) {
+            cargar_surc_16(txt_bus.getText());
+        }
+        if (Caja_2.Caja_caja.txt_alma_caja.getText().equals("0000017")) {
+            cargar_surc_17(txt_bus.getText());
+        }
+        if (Caja_2.Caja_caja.txt_alma_caja.getText().equals("0000018")) {
+            cargar_surc_18(txt_bus.getText());
+        }
+        if (Caja_2.Caja_caja.txt_alma_caja.getText().equals("0000019")) {
+            cargar_surc_19(txt_bus.getText());
+        }
+        if (Caja_2.Caja_caja.txt_alma_caja.getText().equals("0000020")) {
+            cargar_surc_20(txt_bus.getText());
+        }
+        if (Caja_2.Caja_caja.txt_alma_caja.getText().equals("0000021")) {
+            cargar_surc_21(txt_bus.getText());
+        }
+        if (Caja_2.Caja_caja.txt_alma_caja.getText().equals("0000022")) {
+            cargar_surc_22(txt_bus.getText());
+        }
+        if (Caja_2.Caja_caja.txt_alma_caja.getText().equals("0000023")) {
+            cargar_surc_23(txt_bus.getText());
+        }
+        if (Caja_2.Caja_caja.txt_alma_caja.getText().equals("0000024")) {
+            cargar_surc_24(txt_bus.getText());
+        }
+        if (Caja_2.Caja_caja.txt_alma_caja.getText().equals("0000025")) {
+            cargar_surc_25(txt_bus.getText());
+        }
+        if (Caja_2.Caja_caja.txt_alma_caja.getText().equals("0000026")) {
+            cargar_surc_26(txt_bus.getText());
+        }
+        if (Caja_2.Caja_caja.txt_alma_caja.getText().equals("0000027")) {
+            cargar_surc_27(txt_bus.getText());
+        }
+        if (Caja_2.Caja_caja.txt_alma_caja.getText().equals("0000028")) {
+            cargar_surc_28(txt_bus.getText());
+        }
+        if (Caja_2.Caja_caja.txt_alma_caja.getText().equals("0000029")) {
+            cargar_surc_29(txt_bus.getText());
+        }
+        if (Caja_2.Caja_caja.txt_alma_caja.getText().equals("0000030")) {
+            cargar_surc_30(txt_bus.getText());
+        }
     }//GEN-LAST:event_txt_busKeyReleased
 
     /**
@@ -303,7 +385,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
     void cargar(String valor) {
         try {
 
-            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado"};
+            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado", "Saldo Crédito"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -319,6 +401,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
                 registros[4] = rs.getString(6);
                 registros[5] = rs.getString(7);
                 registros[6] = rs.getString(11);
+                registros[7] = rs.getString(13);
 
                 model.addRow(registros);
             }
@@ -334,6 +417,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
             tb_devolucion.getColumnModel().getColumn(4).setPreferredWidth(80);
             tb_devolucion.getColumnModel().getColumn(5).setPreferredWidth(100);
             tb_devolucion.getColumnModel().getColumn(6).setPreferredWidth(150);
+            tb_devolucion.getColumnModel().getColumn(7).setPreferredWidth(150);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -345,7 +429,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
     void cargar_surc_2(String valor) {
         try {
 
-            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado"};
+            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado", "Saldo Crédito"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -361,6 +445,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
                 registros[4] = rs.getString(6);
                 registros[5] = rs.getString(7);
                 registros[6] = rs.getString(11);
+                registros[7] = rs.getString(13);
 
                 model.addRow(registros);
             }
@@ -376,6 +461,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
             tb_devolucion.getColumnModel().getColumn(4).setPreferredWidth(80);
             tb_devolucion.getColumnModel().getColumn(5).setPreferredWidth(100);
             tb_devolucion.getColumnModel().getColumn(6).setPreferredWidth(150);
+            tb_devolucion.getColumnModel().getColumn(7).setPreferredWidth(150);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -383,12 +469,11 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
         }
 
     }
-    
-    
-       void cargar_surc_3(String valor) {
+
+    void cargar_surc_3(String valor) {
         try {
 
-            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado"};
+            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado", "Saldo Crédito"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -404,6 +489,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
                 registros[4] = rs.getString(6);
                 registros[5] = rs.getString(7);
                 registros[6] = rs.getString(11);
+                registros[7] = rs.getString(13);
 
                 model.addRow(registros);
             }
@@ -419,6 +505,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
             tb_devolucion.getColumnModel().getColumn(4).setPreferredWidth(80);
             tb_devolucion.getColumnModel().getColumn(5).setPreferredWidth(100);
             tb_devolucion.getColumnModel().getColumn(6).setPreferredWidth(150);
+            tb_devolucion.getColumnModel().getColumn(7).setPreferredWidth(150);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -430,7 +517,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
     void cargar_surc_4(String valor) {
         try {
 
-            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado"};
+            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado", "Saldo Crédito"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -446,6 +533,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
                 registros[4] = rs.getString(6);
                 registros[5] = rs.getString(7);
                 registros[6] = rs.getString(11);
+                registros[7] = rs.getString(13);
 
                 model.addRow(registros);
             }
@@ -461,6 +549,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
             tb_devolucion.getColumnModel().getColumn(4).setPreferredWidth(80);
             tb_devolucion.getColumnModel().getColumn(5).setPreferredWidth(100);
             tb_devolucion.getColumnModel().getColumn(6).setPreferredWidth(150);
+            tb_devolucion.getColumnModel().getColumn(7).setPreferredWidth(150);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -472,7 +561,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
     void cargar_surc_5(String valor) {
         try {
 
-            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado"};
+            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado", "Saldo Crédito"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -488,6 +577,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
                 registros[4] = rs.getString(6);
                 registros[5] = rs.getString(7);
                 registros[6] = rs.getString(11);
+                registros[7] = rs.getString(13);
 
                 model.addRow(registros);
             }
@@ -503,6 +593,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
             tb_devolucion.getColumnModel().getColumn(4).setPreferredWidth(80);
             tb_devolucion.getColumnModel().getColumn(5).setPreferredWidth(100);
             tb_devolucion.getColumnModel().getColumn(6).setPreferredWidth(150);
+            tb_devolucion.getColumnModel().getColumn(7).setPreferredWidth(150);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -514,7 +605,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
     void cargar_surc_6(String valor) {
         try {
 
-            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado"};
+            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado", "Saldo Crédito"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -530,6 +621,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
                 registros[4] = rs.getString(6);
                 registros[5] = rs.getString(7);
                 registros[6] = rs.getString(11);
+                registros[7] = rs.getString(13);
 
                 model.addRow(registros);
             }
@@ -545,6 +637,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
             tb_devolucion.getColumnModel().getColumn(4).setPreferredWidth(80);
             tb_devolucion.getColumnModel().getColumn(5).setPreferredWidth(100);
             tb_devolucion.getColumnModel().getColumn(6).setPreferredWidth(150);
+            tb_devolucion.getColumnModel().getColumn(7).setPreferredWidth(150);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -556,7 +649,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
     void cargar_surc_7(String valor) {
         try {
 
-            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado"};
+            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado", "Saldo Crédito"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -572,6 +665,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
                 registros[4] = rs.getString(6);
                 registros[5] = rs.getString(7);
                 registros[6] = rs.getString(11);
+                registros[7] = rs.getString(13);
 
                 model.addRow(registros);
             }
@@ -587,6 +681,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
             tb_devolucion.getColumnModel().getColumn(4).setPreferredWidth(80);
             tb_devolucion.getColumnModel().getColumn(5).setPreferredWidth(100);
             tb_devolucion.getColumnModel().getColumn(6).setPreferredWidth(150);
+            tb_devolucion.getColumnModel().getColumn(7).setPreferredWidth(150);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -598,7 +693,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
     void cargar_surc_8(String valor) {
         try {
 
-            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado"};
+            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado", "Saldo Crédito"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -614,6 +709,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
                 registros[4] = rs.getString(6);
                 registros[5] = rs.getString(7);
                 registros[6] = rs.getString(11);
+                registros[7] = rs.getString(13);
 
                 model.addRow(registros);
             }
@@ -629,6 +725,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
             tb_devolucion.getColumnModel().getColumn(4).setPreferredWidth(80);
             tb_devolucion.getColumnModel().getColumn(5).setPreferredWidth(100);
             tb_devolucion.getColumnModel().getColumn(6).setPreferredWidth(150);
+            tb_devolucion.getColumnModel().getColumn(7).setPreferredWidth(150);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -640,7 +737,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
     void cargar_surc_9(String valor) {
         try {
 
-            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado"};
+            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado", "Saldo Crédito"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -656,6 +753,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
                 registros[4] = rs.getString(6);
                 registros[5] = rs.getString(7);
                 registros[6] = rs.getString(11);
+                registros[7] = rs.getString(13);
 
                 model.addRow(registros);
             }
@@ -671,6 +769,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
             tb_devolucion.getColumnModel().getColumn(4).setPreferredWidth(80);
             tb_devolucion.getColumnModel().getColumn(5).setPreferredWidth(100);
             tb_devolucion.getColumnModel().getColumn(6).setPreferredWidth(150);
+            tb_devolucion.getColumnModel().getColumn(7).setPreferredWidth(150);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -682,7 +781,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
     void cargar_surc_10(String valor) {
         try {
 
-            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado"};
+            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado", "Saldo Crédito"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -698,6 +797,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
                 registros[4] = rs.getString(6);
                 registros[5] = rs.getString(7);
                 registros[6] = rs.getString(11);
+                registros[7] = rs.getString(13);
 
                 model.addRow(registros);
             }
@@ -713,6 +813,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
             tb_devolucion.getColumnModel().getColumn(4).setPreferredWidth(80);
             tb_devolucion.getColumnModel().getColumn(5).setPreferredWidth(100);
             tb_devolucion.getColumnModel().getColumn(6).setPreferredWidth(150);
+            tb_devolucion.getColumnModel().getColumn(7).setPreferredWidth(150);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -724,7 +825,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
     void cargar_surc_11(String valor) {
         try {
 
-            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado"};
+            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado", "Saldo Crédito"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -740,6 +841,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
                 registros[4] = rs.getString(6);
                 registros[5] = rs.getString(7);
                 registros[6] = rs.getString(11);
+                registros[7] = rs.getString(13);
 
                 model.addRow(registros);
             }
@@ -755,6 +857,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
             tb_devolucion.getColumnModel().getColumn(4).setPreferredWidth(80);
             tb_devolucion.getColumnModel().getColumn(5).setPreferredWidth(100);
             tb_devolucion.getColumnModel().getColumn(6).setPreferredWidth(150);
+            tb_devolucion.getColumnModel().getColumn(7).setPreferredWidth(150);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -766,7 +869,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
     void cargar_surc_12(String valor) {
         try {
 
-            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado"};
+            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado", "Saldo Crédito"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -782,6 +885,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
                 registros[4] = rs.getString(6);
                 registros[5] = rs.getString(7);
                 registros[6] = rs.getString(11);
+                registros[7] = rs.getString(13);
 
                 model.addRow(registros);
             }
@@ -797,6 +901,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
             tb_devolucion.getColumnModel().getColumn(4).setPreferredWidth(80);
             tb_devolucion.getColumnModel().getColumn(5).setPreferredWidth(100);
             tb_devolucion.getColumnModel().getColumn(6).setPreferredWidth(150);
+            tb_devolucion.getColumnModel().getColumn(7).setPreferredWidth(150);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -808,7 +913,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
     void cargar_surc_13(String valor) {
         try {
 
-            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado"};
+            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado", "Saldo Crédito"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -824,6 +929,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
                 registros[4] = rs.getString(6);
                 registros[5] = rs.getString(7);
                 registros[6] = rs.getString(11);
+                registros[7] = rs.getString(13);
 
                 model.addRow(registros);
             }
@@ -839,6 +945,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
             tb_devolucion.getColumnModel().getColumn(4).setPreferredWidth(80);
             tb_devolucion.getColumnModel().getColumn(5).setPreferredWidth(100);
             tb_devolucion.getColumnModel().getColumn(6).setPreferredWidth(150);
+            tb_devolucion.getColumnModel().getColumn(7).setPreferredWidth(150);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -850,7 +957,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
     void cargar_surc_14(String valor) {
         try {
 
-            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado"};
+            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado", "Saldo Crédito"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -866,6 +973,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
                 registros[4] = rs.getString(6);
                 registros[5] = rs.getString(7);
                 registros[6] = rs.getString(11);
+                registros[7] = rs.getString(13);
 
                 model.addRow(registros);
             }
@@ -881,6 +989,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
             tb_devolucion.getColumnModel().getColumn(4).setPreferredWidth(80);
             tb_devolucion.getColumnModel().getColumn(5).setPreferredWidth(100);
             tb_devolucion.getColumnModel().getColumn(6).setPreferredWidth(150);
+            tb_devolucion.getColumnModel().getColumn(7).setPreferredWidth(150);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -892,7 +1001,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
     void cargar_surc_15(String valor) {
         try {
 
-            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado"};
+            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado", "Saldo Crédito"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -908,6 +1017,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
                 registros[4] = rs.getString(6);
                 registros[5] = rs.getString(7);
                 registros[6] = rs.getString(11);
+                registros[7] = rs.getString(13);
 
                 model.addRow(registros);
             }
@@ -923,6 +1033,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
             tb_devolucion.getColumnModel().getColumn(4).setPreferredWidth(80);
             tb_devolucion.getColumnModel().getColumn(5).setPreferredWidth(100);
             tb_devolucion.getColumnModel().getColumn(6).setPreferredWidth(150);
+            tb_devolucion.getColumnModel().getColumn(7).setPreferredWidth(150);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -934,7 +1045,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
     void cargar_surc_16(String valor) {
         try {
 
-            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado"};
+            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado", "Saldo Crédito"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -950,6 +1061,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
                 registros[4] = rs.getString(6);
                 registros[5] = rs.getString(7);
                 registros[6] = rs.getString(11);
+                registros[7] = rs.getString(13);
 
                 model.addRow(registros);
             }
@@ -965,6 +1077,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
             tb_devolucion.getColumnModel().getColumn(4).setPreferredWidth(80);
             tb_devolucion.getColumnModel().getColumn(5).setPreferredWidth(100);
             tb_devolucion.getColumnModel().getColumn(6).setPreferredWidth(150);
+            tb_devolucion.getColumnModel().getColumn(7).setPreferredWidth(150);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -976,7 +1089,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
     void cargar_surc_17(String valor) {
         try {
 
-            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado"};
+            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado", "Saldo Crédito"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -992,6 +1105,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
                 registros[4] = rs.getString(6);
                 registros[5] = rs.getString(7);
                 registros[6] = rs.getString(11);
+                registros[7] = rs.getString(13);
 
                 model.addRow(registros);
             }
@@ -1007,6 +1121,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
             tb_devolucion.getColumnModel().getColumn(4).setPreferredWidth(80);
             tb_devolucion.getColumnModel().getColumn(5).setPreferredWidth(100);
             tb_devolucion.getColumnModel().getColumn(6).setPreferredWidth(150);
+            tb_devolucion.getColumnModel().getColumn(7).setPreferredWidth(150);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -1018,7 +1133,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
     void cargar_surc_18(String valor) {
         try {
 
-            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado"};
+            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado", "Saldo Crédito"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -1034,6 +1149,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
                 registros[4] = rs.getString(6);
                 registros[5] = rs.getString(7);
                 registros[6] = rs.getString(11);
+                registros[7] = rs.getString(13);
 
                 model.addRow(registros);
             }
@@ -1049,6 +1165,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
             tb_devolucion.getColumnModel().getColumn(4).setPreferredWidth(80);
             tb_devolucion.getColumnModel().getColumn(5).setPreferredWidth(100);
             tb_devolucion.getColumnModel().getColumn(6).setPreferredWidth(150);
+            tb_devolucion.getColumnModel().getColumn(7).setPreferredWidth(150);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -1060,7 +1177,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
     void cargar_surc_19(String valor) {
         try {
 
-            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado"};
+            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado", "Saldo Crédito"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -1076,6 +1193,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
                 registros[4] = rs.getString(6);
                 registros[5] = rs.getString(7);
                 registros[6] = rs.getString(11);
+                registros[7] = rs.getString(13);
 
                 model.addRow(registros);
             }
@@ -1091,6 +1209,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
             tb_devolucion.getColumnModel().getColumn(4).setPreferredWidth(80);
             tb_devolucion.getColumnModel().getColumn(5).setPreferredWidth(100);
             tb_devolucion.getColumnModel().getColumn(6).setPreferredWidth(150);
+            tb_devolucion.getColumnModel().getColumn(7).setPreferredWidth(150);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -1102,7 +1221,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
     void cargar_surc_20(String valor) {
         try {
 
-            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado"};
+            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado", "Saldo Crédito"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -1118,6 +1237,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
                 registros[4] = rs.getString(6);
                 registros[5] = rs.getString(7);
                 registros[6] = rs.getString(11);
+                registros[7] = rs.getString(13);
 
                 model.addRow(registros);
             }
@@ -1133,6 +1253,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
             tb_devolucion.getColumnModel().getColumn(4).setPreferredWidth(80);
             tb_devolucion.getColumnModel().getColumn(5).setPreferredWidth(100);
             tb_devolucion.getColumnModel().getColumn(6).setPreferredWidth(150);
+            tb_devolucion.getColumnModel().getColumn(7).setPreferredWidth(150);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -1141,11 +1262,10 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
 
     }
 
-    
     void cargar_surc_21(String valor) {
         try {
 
-            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado"};
+            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado", "Saldo Crédito"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -1161,6 +1281,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
                 registros[4] = rs.getString(6);
                 registros[5] = rs.getString(7);
                 registros[6] = rs.getString(11);
+                registros[7] = rs.getString(13);
 
                 model.addRow(registros);
             }
@@ -1176,6 +1297,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
             tb_devolucion.getColumnModel().getColumn(4).setPreferredWidth(80);
             tb_devolucion.getColumnModel().getColumn(5).setPreferredWidth(100);
             tb_devolucion.getColumnModel().getColumn(6).setPreferredWidth(150);
+            tb_devolucion.getColumnModel().getColumn(7).setPreferredWidth(150);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -1187,7 +1309,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
     void cargar_surc_22(String valor) {
         try {
 
-            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado"};
+            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado", "Saldo Crédito"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -1203,6 +1325,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
                 registros[4] = rs.getString(6);
                 registros[5] = rs.getString(7);
                 registros[6] = rs.getString(11);
+                registros[7] = rs.getString(13);
 
                 model.addRow(registros);
             }
@@ -1218,6 +1341,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
             tb_devolucion.getColumnModel().getColumn(4).setPreferredWidth(80);
             tb_devolucion.getColumnModel().getColumn(5).setPreferredWidth(100);
             tb_devolucion.getColumnModel().getColumn(6).setPreferredWidth(150);
+            tb_devolucion.getColumnModel().getColumn(7).setPreferredWidth(150);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -1229,7 +1353,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
     void cargar_surc_23(String valor) {
         try {
 
-            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado"};
+            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado", "Saldo Crédito"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -1245,6 +1369,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
                 registros[4] = rs.getString(6);
                 registros[5] = rs.getString(7);
                 registros[6] = rs.getString(11);
+                registros[7] = rs.getString(13);
 
                 model.addRow(registros);
             }
@@ -1260,6 +1385,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
             tb_devolucion.getColumnModel().getColumn(4).setPreferredWidth(80);
             tb_devolucion.getColumnModel().getColumn(5).setPreferredWidth(100);
             tb_devolucion.getColumnModel().getColumn(6).setPreferredWidth(150);
+            tb_devolucion.getColumnModel().getColumn(7).setPreferredWidth(150);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -1271,7 +1397,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
     void cargar_surc_24(String valor) {
         try {
 
-            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado"};
+            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado", "Saldo Crédito"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -1287,6 +1413,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
                 registros[4] = rs.getString(6);
                 registros[5] = rs.getString(7);
                 registros[6] = rs.getString(11);
+                registros[7] = rs.getString(13);
 
                 model.addRow(registros);
             }
@@ -1302,6 +1429,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
             tb_devolucion.getColumnModel().getColumn(4).setPreferredWidth(80);
             tb_devolucion.getColumnModel().getColumn(5).setPreferredWidth(100);
             tb_devolucion.getColumnModel().getColumn(6).setPreferredWidth(150);
+            tb_devolucion.getColumnModel().getColumn(7).setPreferredWidth(150);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -1313,7 +1441,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
     void cargar_surc_25(String valor) {
         try {
 
-            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado"};
+            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado", "Saldo Crédito"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -1329,6 +1457,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
                 registros[4] = rs.getString(6);
                 registros[5] = rs.getString(7);
                 registros[6] = rs.getString(11);
+                registros[7] = rs.getString(13);
 
                 model.addRow(registros);
             }
@@ -1344,6 +1473,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
             tb_devolucion.getColumnModel().getColumn(4).setPreferredWidth(80);
             tb_devolucion.getColumnModel().getColumn(5).setPreferredWidth(100);
             tb_devolucion.getColumnModel().getColumn(6).setPreferredWidth(150);
+            tb_devolucion.getColumnModel().getColumn(7).setPreferredWidth(150);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -1355,7 +1485,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
     void cargar_surc_26(String valor) {
         try {
 
-            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado"};
+            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado", "Saldo Crédito"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -1371,6 +1501,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
                 registros[4] = rs.getString(6);
                 registros[5] = rs.getString(7);
                 registros[6] = rs.getString(11);
+                registros[7] = rs.getString(13);
 
                 model.addRow(registros);
             }
@@ -1386,6 +1517,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
             tb_devolucion.getColumnModel().getColumn(4).setPreferredWidth(80);
             tb_devolucion.getColumnModel().getColumn(5).setPreferredWidth(100);
             tb_devolucion.getColumnModel().getColumn(6).setPreferredWidth(150);
+            tb_devolucion.getColumnModel().getColumn(7).setPreferredWidth(150);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -1397,7 +1529,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
     void cargar_surc_27(String valor) {
         try {
 
-            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado"};
+            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado", "Saldo Crédito"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -1413,6 +1545,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
                 registros[4] = rs.getString(6);
                 registros[5] = rs.getString(7);
                 registros[6] = rs.getString(11);
+                registros[7] = rs.getString(13);
 
                 model.addRow(registros);
             }
@@ -1428,6 +1561,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
             tb_devolucion.getColumnModel().getColumn(4).setPreferredWidth(80);
             tb_devolucion.getColumnModel().getColumn(5).setPreferredWidth(100);
             tb_devolucion.getColumnModel().getColumn(6).setPreferredWidth(150);
+            tb_devolucion.getColumnModel().getColumn(7).setPreferredWidth(150);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -1439,7 +1573,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
     void cargar_surc_28(String valor) {
         try {
 
-            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado"};
+            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado", "Saldo Crédito"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -1455,6 +1589,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
                 registros[4] = rs.getString(6);
                 registros[5] = rs.getString(7);
                 registros[6] = rs.getString(11);
+                registros[7] = rs.getString(13);
 
                 model.addRow(registros);
             }
@@ -1470,6 +1605,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
             tb_devolucion.getColumnModel().getColumn(4).setPreferredWidth(80);
             tb_devolucion.getColumnModel().getColumn(5).setPreferredWidth(100);
             tb_devolucion.getColumnModel().getColumn(6).setPreferredWidth(150);
+            tb_devolucion.getColumnModel().getColumn(7).setPreferredWidth(150);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -1481,7 +1617,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
     void cargar_surc_29(String valor) {
         try {
 
-            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado"};
+            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado", "Saldo Crédito"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -1497,6 +1633,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
                 registros[4] = rs.getString(6);
                 registros[5] = rs.getString(7);
                 registros[6] = rs.getString(11);
+                registros[7] = rs.getString(13);
 
                 model.addRow(registros);
             }
@@ -1512,6 +1649,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
             tb_devolucion.getColumnModel().getColumn(4).setPreferredWidth(80);
             tb_devolucion.getColumnModel().getColumn(5).setPreferredWidth(100);
             tb_devolucion.getColumnModel().getColumn(6).setPreferredWidth(150);
+            tb_devolucion.getColumnModel().getColumn(7).setPreferredWidth(150);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -1523,7 +1661,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
     void cargar_surc_30(String valor) {
         try {
 
-            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado"};
+            String[] titulos = {"Nro Devol.", "Venta Nro", "Nombre del Cliente", "Descripción", "Total Items", "Valor Total", "Estado", "Saldo Crédito"};
             String[] registros = new String[9];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -1539,6 +1677,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
                 registros[4] = rs.getString(6);
                 registros[5] = rs.getString(7);
                 registros[6] = rs.getString(11);
+                registros[7] = rs.getString(13);
 
                 model.addRow(registros);
             }
@@ -1554,6 +1693,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
             tb_devolucion.getColumnModel().getColumn(4).setPreferredWidth(80);
             tb_devolucion.getColumnModel().getColumn(5).setPreferredWidth(100);
             tb_devolucion.getColumnModel().getColumn(6).setPreferredWidth(150);
+            tb_devolucion.getColumnModel().getColumn(7).setPreferredWidth(150);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -1561,8 +1701,6 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
         }
 
     }
-
- 
 
     void control() {
 
@@ -1574,7 +1712,7 @@ public class devoluciones_caja_cancela extends javax.swing.JDialog {
         if (txt_alma_caja.getText().equals("0000002")) {
             cargar_surc_2("");
         }
-        
+
         if (txt_alma_caja.getText().equals("0000003")) {
             cargar_surc_3("");
         }

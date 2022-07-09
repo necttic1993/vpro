@@ -297,7 +297,7 @@ public class Visor_devoluciones extends javax.swing.JDialog {
             if (JOptionPane.showConfirmDialog(rootPane, "Se eliminará el registro, ¿desea continuar?",
                     "Eliminar Registro", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                 eliminarDev();
-                actEstadoVentas();
+               
                 limpiar();
                 Principal_devoluciones.btn_cargar_datos.doClick();
                 this.dispose();
@@ -392,6 +392,7 @@ public class Visor_devoluciones extends javax.swing.JDialog {
                 capcan = tb_visor_recep.getValueAt(i, 4).toString();
                 devolverstock(capcod, capcan);
             }
+             actEstadoVentas();
             JOptionPane.showMessageDialog(null, "Borrado");
 
         } catch (SQLException | HeadlessException e) {
@@ -418,31 +419,24 @@ public class Visor_devoluciones extends javax.swing.JDialog {
     }
 
     void devolverstock(String codi, String can) {
-        int des = Integer.parseInt(can);
-        String cap = "";
-        int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+    String cap = "";
+        String consul = "SELECT pro_cant FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(5);
+                cap = rs.getString(1);
             }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_cant='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+            ///suma el stock
+            int desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_cant='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
 

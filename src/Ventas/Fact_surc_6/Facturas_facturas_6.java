@@ -17,6 +17,7 @@ import static Loggin_Principal.Principal.lbl_mes_actual;
 import static Loggin_Principal.Principal.lbl_usu_nom;
 import static Loggin_Principal.Principal.txt_simbolo;
 import java.awt.Color;
+import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -1086,6 +1087,7 @@ public class Facturas_facturas_6 extends javax.swing.JDialog {
             conectar.getInstance().closeConnection(cn);
             if (n > 0) {
                 detalle_factura();
+                actEstadoVentas();
                 JOptionPane.showMessageDialog(null, "Factura de venta realizada con éxito");
                 if (JOptionPane.showConfirmDialog(rootPane, "Imprimir Factura de venta" + ": " + txt_sequencia.getText() + "-" + txt_esta.getText() + "-" + lbl_cod.getText() + ", ¿desea continuar?",
                         "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
@@ -1098,134 +1100,6 @@ public class Facturas_facturas_6 extends javax.swing.JDialog {
                         Logger.getLogger(Facturas_facturas_6.class.getName()).log(Level.SEVERE, null, ex);
                     }
 
-                    /*   String cod = lbl_cod.getText();
-                     Reportes reporte = new Reportes();
-                     try {
-                     reporte.factKyrios(cod);
-                     } catch (SQLException | JRException ex) {
-                     Logger.getLogger(Facturas_facturas_24.class.getName()).log(Level.SEVERE, null, ex);
-                     }
-
-                     /*   String cod = lbl_cod.getText();
-                     Reportes reporte = new Reportes();
-                     try {
-                     reporte.factKyrios(cod);
-                     } catch (SQLException | JRException ex) {
-                     Logger.getLogger(Facturas_facturas_24.class.getName()).log(Level.SEVERE, null, ex);
-                     }
-
-                     /*   String cod = lbl_cod.getText();
-                     Reportes reporte = new Reportes();
-                     try {
-                     reporte.factKyrios(cod);
-                     } catch (SQLException | JRException ex) {
-                     Logger.getLogger(Facturas_facturas_24.class.getName()).log(Level.SEVERE, null, ex);
-                     }
-
-                     /*   String cod = lbl_cod.getText();
-                     Reportes reporte = new Reportes();
-                     try {
-                     reporte.factKyrios(cod);
-                     } catch (SQLException | JRException ex) {
-                     Logger.getLogger(Facturas_facturas_24.class.getName()).log(Level.SEVERE, null, ex);
-                     }
-
-                     /*   String cod = lbl_cod.getText();
-                     Reportes reporte = new Reportes();
-                     try {
-                     reporte.factKyrios(cod);
-                     } catch (SQLException | JRException ex) {
-                     Logger.getLogger(Facturas_facturas_24.class.getName()).log(Level.SEVERE, null, ex);
-                     }
-
-                     /*   String cod = lbl_cod.getText();
-                     Reportes reporte = new Reportes();
-                     try {
-                     reporte.factKyrios(cod);
-                     } catch (SQLException | JRException ex) {
-                     Logger.getLogger(Facturas_facturas_24.class.getName()).log(Level.SEVERE, null, ex);
-                     }
-
-                     /*   String cod = lbl_cod.getText();
-                     Reportes reporte = new Reportes();
-                     try {
-                     reporte.factKyrios(cod);
-                     } catch (SQLException | JRException ex) {
-                     Logger.getLogger(Facturas_facturas_24.class.getName()).log(Level.SEVERE, null, ex);
-                     }
-
-                     /*   String cod = lbl_cod.getText();
-                     Reportes reporte = new Reportes();
-                     try {
-                     reporte.factKyrios(cod);
-                     } catch (SQLException | JRException ex) {
-                     Logger.getLogger(Facturas_facturas_24.class.getName()).log(Level.SEVERE, null, ex);
-                     }
-
-                     /*   String cod = lbl_cod.getText();
-                     Reportes reporte = new Reportes();
-                     try {
-                     reporte.factKyrios(cod);
-                     } catch (SQLException | JRException ex) {
-                     Logger.getLogger(Facturas_facturas_24.class.getName()).log(Level.SEVERE, null, ex);
-                     }
-
-                     /*   String cod = lbl_cod.getText();
-                     Reportes reporte = new Reportes();
-                     try {
-                     reporte.factKyrios(cod);
-                     } catch (SQLException | JRException ex) {
-                     Logger.getLogger(Facturas_facturas_24.class.getName()).log(Level.SEVERE, null, ex);
-                     }
-
-                     /*   String cod = lbl_cod.getText();
-                     Reportes reporte = new Reportes();
-                     try {
-                     reporte.factKyrios(cod);
-                     } catch (SQLException | JRException ex) {
-                     Logger.getLogger(Facturas_facturas_24.class.getName()).log(Level.SEVERE, null, ex);
-                     }
-
-                     /*   String cod = lbl_cod.getText();
-                     Reportes reporte = new Reportes();
-                     try {
-                     reporte.factKyrios(cod);
-                     } catch (SQLException | JRException ex) {
-                     Logger.getLogger(Facturas_facturas_24.class.getName()).log(Level.SEVERE, null, ex);
-                     }
-
-                     /*   String cod = lbl_cod.getText();
-                     Reportes reporte = new Reportes();
-                     try {
-                     reporte.factKyrios(cod);
-                     } catch (SQLException | JRException ex) {
-                     Logger.getLogger(Facturas_facturas_24.class.getName()).log(Level.SEVERE, null, ex);
-                     }
-
-                     /*   String cod = lbl_cod.getText();
-                     Reportes reporte = new Reportes();
-                     try {
-                     reporte.factKyrios(cod);
-                     } catch (SQLException | JRException ex) {
-                     Logger.getLogger(Facturas_facturas_24.class.getName()).log(Level.SEVERE, null, ex);
-                     }
-
-                     /*   String cod = lbl_cod.getText();
-                     Reportes reporte = new Reportes();
-                     try {
-                     reporte.factKyrios(cod);
-                     } catch (SQLException | JRException ex) {
-                     Logger.getLogger(Facturas_facturas_24.class.getName()).log(Level.SEVERE, null, ex);
-                     }
-
-                     /*   String cod = lbl_cod.getText();
-                     Reportes reporte = new Reportes();
-                     try {
-                     reporte.factKyrios(cod);
-                     } catch (SQLException | JRException ex) {
-                     Logger.getLogger(Facturas_facturas_24.class.getName()).log(Level.SEVERE, null, ex);
-                     }
-                     */
                 }
 
             }
@@ -1331,6 +1205,29 @@ public class Facturas_facturas_6 extends javax.swing.JDialog {
 
         }
 
+    }
+
+    public void actEstadoVentas() {
+        try {
+            String es = "1";
+            String nro = txt_cod.getText();
+
+            String sql = "UPDATE ventas_6 SET bool_fact = '" + es
+                    + "' WHERE num_bol = '" + nro + "'";
+            try {
+                Connection cn = conectar.getInstance().getConnection();
+
+                PreparedStatement pst = cn.prepareStatement(sql);
+                pst.executeUpdate();
+                //  JOptionPane.showMessageDialog(null, "Actualizado");
+                conectar.getInstance().closeConnection(cn);
+
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+
+        } catch (Exception e) {
+        }
     }
 
     public void calcular10() {

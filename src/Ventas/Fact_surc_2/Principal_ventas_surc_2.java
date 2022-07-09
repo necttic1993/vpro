@@ -325,6 +325,27 @@ public class Principal_ventas_surc_2 extends javax.swing.JDialog {
 
     }
 
+    public void actEstadoVentas(String cod) {
+        try {
+            String es = "0";
+            String sql = "UPDATE ventas_2 SET bool_fact = '" + es
+                    + "' WHERE num_bol = '" + cod + "'";
+            try {
+                Connection cn = conectar.getInstance().getConnection();
+
+                PreparedStatement pst = cn.prepareStatement(sql);
+                pst.executeUpdate();
+                //  JOptionPane.showMessageDialog(null, "Actualizado");
+                conectar.getInstance().closeConnection(cn);
+
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+
+        } catch (Exception e) {
+        }
+    }
+
     void eliminarProducto() {
 
         int filasel = tbProductos.getSelectedRow();
@@ -336,6 +357,7 @@ public class Principal_ventas_surc_2 extends javax.swing.JDialog {
                         "Anular", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                     String cod = (String) tbProductos.getValueAt(filasel, 0);
                     String timbra = (String) tbProductos.getValueAt(filasel, 6);
+                    String cod_ventas = (String) tbProductos.getValueAt(filasel, 7);
                     String eliminarSQL = "DELETE FROM ventas_facturacion_surc_2 WHERE nro_fact_ventas = '" + cod + "' AND nro_timbra_ventas='" + timbra + "'";
 
                     try {
@@ -346,6 +368,7 @@ public class Principal_ventas_surc_2 extends javax.swing.JDialog {
                         conectar.getInstance().closeConnection(cn);
 
                         JOptionPane.showMessageDialog(null, "Factura de venta cancelada");
+                        actEstadoVentas(cod_ventas);
                         cargar("");
 
                     } catch (SQLException | HeadlessException e) {

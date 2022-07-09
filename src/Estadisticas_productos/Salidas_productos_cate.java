@@ -311,7 +311,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //todos
                 if (depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -322,7 +322,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo departamento
                 if (!depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -331,7 +331,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo categorias
                 if (depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -340,7 +340,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //categorias y departamentos
                 if (!depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -349,7 +349,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 ///new add especific
                 if (depa.equals(var) && cate.equals(var) && !cat_espe.equals(var)) {
 
-                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat_esp='" + cat_espe + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat_esp='" + cat_espe + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -358,7 +358,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
 
                 if (!depa.equals(var) && !cate.equals(var) && !cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_cat_esp='" + cat_espe + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_cat_esp='" + cat_espe + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -371,7 +371,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //todos
                 if (depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_2 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_2 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -382,7 +382,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo departamento
                 if (!depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_2 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_2 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -391,7 +391,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo categorias
                 if (depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_2 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_2 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -400,7 +400,26 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
 
                 if (!depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_2 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_2 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+
+                ///new add especific
+                if (depa.equals(var) && cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_2 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat_esp='" + cat_espe + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+
+                if (!depa.equals(var) && !cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_2 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_cat_esp='" + cat_espe + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -413,7 +432,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //todos
                 if (depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_3 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_3 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -424,7 +443,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo departamento
                 if (!depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_3 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_3 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -433,7 +452,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo categorias
                 if (depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_3 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_3 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -441,7 +460,25 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
 
                 if (!depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_3 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_3 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+                ///new add especific
+                if (depa.equals(var) && cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_3 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat_esp='" + cat_espe + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+
+                if (!depa.equals(var) && !cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_3 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_cat_esp='" + cat_espe + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -454,7 +491,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //todos
                 if (depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_4 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_4 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -465,7 +502,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo departamento
                 if (!depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_4 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_4 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -474,7 +511,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo categorias
                 if (depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_4 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_4 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -483,7 +520,25 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
 
                 if (!depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_4 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_4 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+                ///new add especific
+                if (depa.equals(var) && cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_4 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat_esp='" + cat_espe + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+
+                if (!depa.equals(var) && !cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_4 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_cat_esp='" + cat_espe + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -497,7 +552,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //todos
                 if (depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_5 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_5 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -508,7 +563,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo departamento
                 if (!depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_5 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_5 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -517,7 +572,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo categorias
                 if (depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_5 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_5 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -526,7 +581,25 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
 
                 if (!depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_5 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_5 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+                ///new add especific
+                if (depa.equals(var) && cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_5 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat_esp='" + cat_espe + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+
+                if (!depa.equals(var) && !cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_5 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_cat_esp='" + cat_espe + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -539,7 +612,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //todos
                 if (depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_6 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_6 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -550,7 +623,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo departamento
                 if (!depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_6 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_6 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -559,7 +632,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo categorias
                 if (depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_6 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_6 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -568,7 +641,25 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
 
                 if (!depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_6 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_6 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+                ///new add especific
+                if (depa.equals(var) && cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_6 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat_esp='" + cat_espe + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+
+                if (!depa.equals(var) && !cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_6 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_cat_esp='" + cat_espe + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -581,7 +672,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //todos
                 if (depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_7 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_7 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -592,7 +683,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo departamento
                 if (!depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_7 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_7 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -601,7 +692,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo categorias
                 if (depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_7 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_7 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -610,7 +701,25 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
 
                 if (!depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_7 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_7 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+                ///new add especific
+                if (depa.equals(var) && cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_7 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat_esp='" + cat_espe + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+
+                if (!depa.equals(var) && !cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_7 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_cat_esp='" + cat_espe + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -623,7 +732,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //todos
                 if (depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_8 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_8 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -634,7 +743,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo departamento
                 if (!depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_8 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_8 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -643,7 +752,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo categorias
                 if (depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_8 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_8 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -652,7 +761,25 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
 
                 if (!depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_8 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_8 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+                ///new add especific
+                if (depa.equals(var) && cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_8 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat_esp='" + cat_espe + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+
+                if (!depa.equals(var) && !cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_8 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_cat_esp='" + cat_espe + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -665,7 +792,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //todos
                 if (depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_9 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_9 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -676,7 +803,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo departamento
                 if (!depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_9 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_9 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -685,7 +812,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo categorias
                 if (depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_9 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_9 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -694,7 +821,25 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
 
                 if (!depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_9 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_9 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+                ///new add especific
+                if (depa.equals(var) && cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_9 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat_esp='" + cat_espe + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+
+                if (!depa.equals(var) && !cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_9 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_cat_esp='" + cat_espe + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -707,7 +852,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //todos
                 if (depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_10 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_10 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -718,7 +863,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo departamento
                 if (!depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_10 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_10 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -727,7 +872,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo categorias
                 if (depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_10 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_10 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -736,7 +881,25 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
 
                 if (!depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_10 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_10 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+                ///new add especific
+                if (depa.equals(var) && cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_10 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat_esp='" + cat_espe + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+
+                if (!depa.equals(var) && !cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_10 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_cat_esp='" + cat_espe + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -749,7 +912,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //todos
                 if (depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_11 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_11 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -760,7 +923,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo departamento
                 if (!depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_11 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_11 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -769,7 +932,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo categorias
                 if (depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_11 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_11 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -778,7 +941,25 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
 
                 if (!depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_11 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_11 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+                ///new add especific
+                if (depa.equals(var) && cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_11 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat_esp='" + cat_espe + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+
+                if (!depa.equals(var) && !cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_11 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_cat_esp='" + cat_espe + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -791,7 +972,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //todos
                 if (depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_12 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_12 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -802,7 +983,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo departamento
                 if (!depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_12 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_12 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -811,7 +992,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo categorias
                 if (depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_12 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_12 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -820,7 +1001,25 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
 
                 if (!depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_12 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_12 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+                ///new add especific
+                if (depa.equals(var) && cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_12 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat_esp='" + cat_espe + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+
+                if (!depa.equals(var) && !cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_12 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_cat_esp='" + cat_espe + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -833,7 +1032,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //todos
                 if (depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_13 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_13 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -844,7 +1043,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo departamento
                 if (!depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_13 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_13 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -853,7 +1052,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo categorias
                 if (depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_13 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_13 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -862,7 +1061,25 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
 
                 if (!depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_13 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_13 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+                ///new add especific
+                if (depa.equals(var) && cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_13 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat_esp='" + cat_espe + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+
+                if (!depa.equals(var) && !cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_13 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_cat_esp='" + cat_espe + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -875,7 +1092,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //todos
                 if (depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_14 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_14 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -886,7 +1103,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo departamento
                 if (!depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_14 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_14 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -894,7 +1111,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo categorias
                 if (depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_14 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_14 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -903,7 +1120,25 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
 
                 if (!depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_14 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_14 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+                ///new add especific
+                if (depa.equals(var) && cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_14 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat_esp='" + cat_espe + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+
+                if (!depa.equals(var) && !cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_14 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_cat_esp='" + cat_espe + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -916,7 +1151,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //todos
                 if (depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_15 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_15 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -927,7 +1162,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo departamento
                 if (!depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_15 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_15 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -936,7 +1171,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo categorias
                 if (depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_15 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_15 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -944,7 +1179,25 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
 
                 if (!depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_15 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_15 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+                ///new add especific
+                if (depa.equals(var) && cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_15 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat_esp='" + cat_espe + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+
+                if (!depa.equals(var) && !cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_15 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_cat_esp='" + cat_espe + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -957,7 +1210,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //todos
                 if (depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_16 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_16 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -968,7 +1221,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo departamento
                 if (!depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_16 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_16 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -977,7 +1230,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo categorias
                 if (depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_16 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_16 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -986,7 +1239,25 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
 
                 if (!depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_16 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_16 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+                ///new add especific
+                if (depa.equals(var) && cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_16 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat_esp='" + cat_espe + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+
+                if (!depa.equals(var) && !cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_16 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_cat_esp='" + cat_espe + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -999,7 +1270,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //todos
                 if (depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_17 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_17 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1010,7 +1281,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo departamento
                 if (!depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_17 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_17 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1019,7 +1290,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo categorias
                 if (depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_17 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_17 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1028,7 +1299,25 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
 
                 if (!depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_17 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_17 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+                ///new add especific
+                if (depa.equals(var) && cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_17 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat_esp='" + cat_espe + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+
+                if (!depa.equals(var) && !cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_17 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_cat_esp='" + cat_espe + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1041,7 +1330,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //todos
                 if (depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_18 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_18 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1052,7 +1341,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo departamento
                 if (!depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_18 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_18 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1061,7 +1350,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo categorias
                 if (depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_18 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_18 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1070,7 +1359,25 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
 
                 if (!depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_18 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_18 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+                ///new add especific
+                if (depa.equals(var) && cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_18 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat_esp='" + cat_espe + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+
+                if (!depa.equals(var) && !cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_18 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_cat_esp='" + cat_espe + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1083,7 +1390,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //todos
                 if (depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_19 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_19 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1094,7 +1401,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo departamento
                 if (!depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_19 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_19 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1103,7 +1410,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo categorias
                 if (depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_19 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_19 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1112,7 +1419,25 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
 
                 if (!depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',',''))  FROM ventas_detalles_19 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2)  FROM ventas_detalles_19 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+                ///new add especific
+                if (depa.equals(var) && cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_19 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat_esp='" + cat_espe + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+
+                if (!depa.equals(var) && !cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_19 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_cat_esp='" + cat_espe + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1125,7 +1450,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //todos
                 if (depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_20 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_20 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1136,7 +1461,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo departamento
                 if (!depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_20 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_20 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1145,7 +1470,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo categorias
                 if (depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_20 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_20 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1154,7 +1479,25 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
 
                 if (!depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_20 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_20 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+                ///new add especific
+                if (depa.equals(var) && cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_20 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat_esp='" + cat_espe + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+
+                if (!depa.equals(var) && !cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_20 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_cat_esp='" + cat_espe + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1167,7 +1510,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //todos
                 if (depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_21 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_21 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1178,7 +1521,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo departamento
                 if (!depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_21 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_21 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1187,7 +1530,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo categorias
                 if (depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_21 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_21 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1196,7 +1539,25 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
 
                 if (!depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_21 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_21 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+                ///new add especific
+                if (depa.equals(var) && cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_21 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat_esp='" + cat_espe + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+
+                if (!depa.equals(var) && !cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_21 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_cat_esp='" + cat_espe + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1209,7 +1570,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //todos
                 if (depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_22 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_22 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1220,7 +1581,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo departamento
                 if (!depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_22 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_22 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1229,7 +1590,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo categorias
                 if (depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_22 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_22 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1238,7 +1599,25 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
 
                 if (!depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_22 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_22 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+                ///new add especific
+                if (depa.equals(var) && cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_22 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat_esp='" + cat_espe + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+
+                if (!depa.equals(var) && !cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_22 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_cat_esp='" + cat_espe + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1251,7 +1630,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //todos
                 if (depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_23 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_23 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1262,7 +1641,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo departamento
                 if (!depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_23 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_23 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1271,7 +1650,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo categorias
                 if (depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_23 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_23 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1280,7 +1659,25 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
 
                 if (!depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_23 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_23 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+                ///new add especific
+                if (depa.equals(var) && cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_23 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat_esp='" + cat_espe + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+
+                if (!depa.equals(var) && !cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_23 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_cat_esp='" + cat_espe + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1293,7 +1690,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //todos
                 if (depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_24 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_24 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1304,7 +1701,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo departamento
                 if (!depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_24 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_24 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1313,7 +1710,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo categorias
                 if (depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_24 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_24 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1322,7 +1719,25 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
 
                 if (!depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_24 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_24 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+                ///new add especific
+                if (depa.equals(var) && cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_24 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat_esp='" + cat_espe + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+
+                if (!depa.equals(var) && !cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_24 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_cat_esp='" + cat_espe + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1335,7 +1750,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //todos
                 if (depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_25 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_25 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1346,7 +1761,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo departamento
                 if (!depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_25 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_25 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1355,7 +1770,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo categorias
                 if (depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_25 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_25 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1364,7 +1779,25 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
 
                 if (!depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_25 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_25 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+                ///new add especific
+                if (depa.equals(var) && cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_25 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat_esp='" + cat_espe + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+
+                if (!depa.equals(var) && !cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_25 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_cat_esp='" + cat_espe + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1377,7 +1810,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //todos
                 if (depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_26 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_26 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1388,7 +1821,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo departamento
                 if (!depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_26 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_26 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1397,7 +1830,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo categorias
                 if (depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_26 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_26 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1406,7 +1839,25 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
 
                 if (!depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_26 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_26 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+                ///new add especific
+                if (depa.equals(var) && cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_26 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat_esp='" + cat_espe + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+
+                if (!depa.equals(var) && !cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_26 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_cat_esp='" + cat_espe + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1419,7 +1870,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //todos
                 if (depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_27 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_27 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1430,7 +1881,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo departamento
                 if (!depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_27 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_27 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1439,7 +1890,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo categorias
                 if (depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_27 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_27 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1448,7 +1899,25 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
 
                 if (!depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_27 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_27 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+                ///new add especific
+                if (depa.equals(var) && cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_27 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat_esp='" + cat_espe + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+
+                if (!depa.equals(var) && !cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_27 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_cat_esp='" + cat_espe + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1461,7 +1930,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //todos
                 if (depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_28 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_28 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1472,7 +1941,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo departamento
                 if (!depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_28 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_28 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1481,7 +1950,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo categorias
                 if (depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_28 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_28 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1490,7 +1959,25 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
 
                 if (!depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_28 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_28 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+                ///new add especific
+                if (depa.equals(var) && cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_28 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat_esp='" + cat_espe + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+
+                if (!depa.equals(var) && !cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_28 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_cat_esp='" + cat_espe + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1503,7 +1990,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //todos
                 if (depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_29 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_29 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1514,7 +2001,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo departamento
                 if (!depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_29 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_29 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1523,7 +2010,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo categorias
                 if (depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_29 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_29 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1532,7 +2019,25 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
 
                 if (!depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_29 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_29 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+                ///new add especific
+                if (depa.equals(var) && cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_29 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat_esp='" + cat_espe + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+
+                if (!depa.equals(var) && !cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_29 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_cat_esp='" + cat_espe + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1545,7 +2050,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //todos
                 if (depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_30 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_30 AS v INNER JOIN  tienda_productos AS p ON v.cod_pro=p.pro_cod WHERE v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "'  group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1556,7 +2061,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo departamento
                 if (!depa.equals(var) && cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_30 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_30 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1565,7 +2070,7 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
                 //solo categorias
                 if (depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_30 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_30 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1574,7 +2079,25 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
 
                 if (!depa.equals(var) && !cate.equals(var) && cat_espe.equals(var)) {
 
-                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,sum(REPLACE(v.pre_venta,',','')) FROM ventas_detalles_30 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_30 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+                ///new add especific
+                if (depa.equals(var) && cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = "SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_30 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat_esp='" + cat_espe + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
+                    cargarVentas(sql);
+                    calcularcantida();
+                    calcularTotal();
+                    ValorTotal();
+                }
+
+                if (!depa.equals(var) && !cate.equals(var) && !cat_espe.equals(var)) {
+
+                    String sql = " SELECT v.cod_pro,count(v.num_bol),sum(v.cant_pro),p.pro_des,p.pro_cod,ROUND(sum(REPLACE(v.pre_venta,',','')),2) FROM ventas_detalles_30 AS v INNER JOIN tienda_productos AS p ON  v.cod_pro = p.pro_cod WHERE p.pro_cat='" + cate + "' AND  p.pro_cat_esp='" + cat_espe + "' AND  p.pro_depa='" + depa + "' AND v.data BETWEEN '" + fecha_ini + "' AND '" + fecha_fin + "' group by v.cod_pro";
                     cargarVentas(sql);
                     calcularcantida();
                     calcularTotal();
@@ -1677,6 +2200,11 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
+
+        Categorias_espec_vs pce;
+        pce = new Categorias_espec_vs(new javax.swing.JDialog(), true);
+        pce.setVisible(true);
+
     }//GEN-LAST:event_jButton9ActionPerformed
 
     /**
@@ -1749,9 +2277,9 @@ public class Salidas_productos_cate extends javax.swing.JDialog {
     private javax.swing.JTextField txt_cant_pro;
     public static javax.swing.JTextField txt_cat_vs;
     public static javax.swing.JTextField txt_id_dep_salidas;
-    private javax.swing.JTextField txt_id_espec;
+    public static javax.swing.JTextField txt_id_espec;
     public static javax.swing.JTextField txt_nom_dep_salidas;
-    private javax.swing.JTextField txt_nom_espec;
+    public static javax.swing.JTextField txt_nom_espec;
     public static javax.swing.JTextField txt_nom_vs;
     private javax.swing.JTextField txt_total_ventas;
     private javax.swing.JTextField txt_valor_total;

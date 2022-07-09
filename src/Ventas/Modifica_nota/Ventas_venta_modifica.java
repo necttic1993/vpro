@@ -156,6 +156,8 @@ public class Ventas_venta_modifica extends javax.swing.JDialog {
         txt_tipo_clientes = new javax.swing.JTextField();
         txt_rt_cli = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        txt_ventas_op = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         btn_cajaR = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
@@ -251,7 +253,7 @@ public class Ventas_venta_modifica extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tb_factura);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 800, 320));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 800, 310));
 
         chk_contado.setBackground(new java.awt.Color(255, 255, 255));
         chk_contado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -316,7 +318,7 @@ public class Ventas_venta_modifica extends javax.swing.JDialog {
                 btn_buscaar_itemsKeyPressed(evt);
             }
         });
-        jPanel1.add(btn_buscaar_items, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 90, 70, 45));
+        jPanel1.add(btn_buscaar_items, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 100, 70, 45));
 
         jLabel17.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel17.setText("Nombre del Cliente :");
@@ -449,7 +451,7 @@ public class Ventas_venta_modifica extends javax.swing.JDialog {
                 btneliActionPerformed(evt);
             }
         });
-        jPanel1.add(btneli, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 90, 70, 45));
+        jPanel1.add(btneli, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 100, 70, 45));
 
         lbl_plazos_dias1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lbl_plazos_dias1.setText("Clasif.");
@@ -479,6 +481,15 @@ public class Ventas_venta_modifica extends javax.swing.JDialog {
         jLabel24.setText("RT:");
         jLabel24.setFocusable(false);
         jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, 30, 30));
+
+        jLabel25.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel25.setText("Nro OP:");
+        jLabel25.setFocusable(false);
+        jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 70, 50, 30));
+
+        txt_ventas_op.setBackground(new java.awt.Color(255, 255, 0));
+        txt_ventas_op.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jPanel1.add(txt_ventas_op, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 70, 150, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 550));
 
@@ -1195,8 +1206,8 @@ public class Ventas_venta_modifica extends javax.swing.JDialog {
         char Tecla = evt.getKeyChar();
         if (Tecla == KeyEvent.VK_ENTER) {
 
-            btncalcular.doClick();
-            JOptionPane.showMessageDialog(null, "Recalculando");
+          //  btncalcular.doClick();
+          //  JOptionPane.showMessageDialog(null, "Recalculando");
         }
 
     }//GEN-LAST:event_tb_facturaKeyPressed
@@ -1217,7 +1228,7 @@ public class Ventas_venta_modifica extends javax.swing.JDialog {
             cant_pro_modifica = (String) tb_factura.getValueAt(filaModi, 3);
             id_deta_modifica = (String) tb_factura.getValueAt(filaModi, 6);
             almacen_modifica = Principal_ventas.lbl_almacen_ventas.getText();
-          //  tipo_cli_modifica = txt_tipo_surc_modi.getText();
+            //  tipo_cli_modifica = txt_tipo_surc_modi.getText();
             Ajuste_nota_modifica an;
             an = new Ajuste_nota_modifica(new javax.swing.JDialog(), true);
             an.setVisible(true);
@@ -1308,6 +1319,7 @@ public class Ventas_venta_modifica extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
@@ -1356,6 +1368,7 @@ public class Ventas_venta_modifica extends javax.swing.JDialog {
     public static javax.swing.JTextField txt_rt_cli;
     public static javax.swing.JTextField txt_tipo_clientes;
     private javax.swing.JTextField txt_usu_ventas;
+    private javax.swing.JTextField txt_ventas_op;
     public static javax.swing.JLabel txttotal;
     // End of variables declaration//GEN-END:variables
 
@@ -1729,7 +1742,6 @@ public class Ventas_venta_modifica extends javax.swing.JDialog {
                 txt_rt_cli.setText(rs.getString(33));
                 txt_tipo_clientes.setText(rs.getString(34));
                 txt_class_cli_ventas.setText(rs.getString(28));
-    
 
                 if (tipo.equals("CONTADO")) {
                     chk_plazo.setSelected(false);
@@ -1825,7 +1837,7 @@ public class Ventas_venta_modifica extends javax.swing.JDialog {
             lbl_cant_produ_modifica.setText(i + "");
 
             if (i < 0) {
-              txttotal.setText("0");
+                txttotal.setText("0");
 
             }
         }
@@ -1848,9 +1860,10 @@ public class Ventas_venta_modifica extends javax.swing.JDialog {
             String user = lbl_usu_nom.getText();
             String cantidad = lblcanpro.getText();//cambiar en db
             String sucursal = Principal_ventas.lbl_almacen_ventas.getText();
-            String literal = lbl_literal.getText();
+            String literal = ("EDITADO");
             String id_user = Principal.lbl_id_user.getText();
             String describe = txt_des_ventas.getText();
+            String ventas_op = txt_ventas_op.getText();
             String sql = "UPDATE ventas SET cod_cli_ventas = '" + cod_cli
                     + "',nom_cli_ventas ='" + nom_cli
                     + "',forma_pag_ventas ='" + formapag
@@ -1902,9 +1915,10 @@ public class Ventas_venta_modifica extends javax.swing.JDialog {
             String user = lbl_usu_nom.getText();
             String cantidad = lblcanpro.getText();//cambiar en db
             String sucursal = Principal_ventas.lbl_almacen_ventas.getText();
-            String literal = lbl_literal.getText();
+            String literal = ("EDITADO");
             String id_user = Principal.lbl_id_user.getText();
             String describe = txt_des_ventas.getText();
+            String ventas_op = txt_ventas_op.getText();
             String sql = "UPDATE ventas SET cod_cli_ventas = '" + cod_cli
                     + "',nom_cli_ventas ='" + nom_cli
                     + "',forma_pag_ventas ='" + formapag
@@ -1921,6 +1935,7 @@ public class Ventas_venta_modifica extends javax.swing.JDialog {
                     + "',vac_ventas ='" + id_user
                     + "',ventas_des ='" + describe
                     + "',monto_cred ='" + total_ventas
+                    + "',ventas_op ='" + ventas_op
                     + "' WHERE num_bol = '" + numbol + "'";
             try {
                 Connection cn = conectar.getInstance().getConnection();
@@ -1959,6 +1974,7 @@ public class Ventas_venta_modifica extends javax.swing.JDialog {
             String literal = lbl_literal.getText();
             String id_user = Principal.lbl_id_user.getText();
             String describe = txt_des_ventas.getText();
+            String ventas_op = txt_ventas_op.getText();
             String sql = "UPDATE ventas SET cod_cli_ventas = '" + cod_cli
                     + "',nom_cli_ventas ='" + nom_cli
                     + "',forma_pag_ventas ='" + formapag
@@ -1975,6 +1991,7 @@ public class Ventas_venta_modifica extends javax.swing.JDialog {
                     + "',vac_ventas ='" + id_user
                     + "',ventas_des ='" + describe
                     + "',monto_cred ='" + total_ventas
+                    + "',ventas_op ='" + ventas_op
                     + "' WHERE num_bol = '" + numbol + "'";
             try {
                 Connection cn = conectar.getInstance().getConnection();
@@ -2014,7 +2031,7 @@ public class Ventas_venta_modifica extends javax.swing.JDialog {
             String literal = lbl_literal.getText();
             String id_user = Principal.lbl_id_user.getText();
             String describe = txt_des_ventas.getText();
-
+            String ventas_op = txt_ventas_op.getText();
             String sql = "UPDATE ventas SET cod_cli_ventas = '" + cod_cli
                     + "',nom_cli_ventas ='" + nom_cli
                     + "',forma_pag_ventas ='" + formapag
@@ -2031,6 +2048,7 @@ public class Ventas_venta_modifica extends javax.swing.JDialog {
                     + "',vac_ventas ='" + id_user
                     + "',ventas_des ='" + describe
                     + "',monto_cred ='" + total_ventas
+                    + "',ventas_op ='" + ventas_op
                     + "' WHERE num_bol = '" + numbol + "'";
             try {
                 Connection cn = conectar.getInstance().getConnection();
@@ -2066,7 +2084,7 @@ public class Ventas_venta_modifica extends javax.swing.JDialog {
             String user = lbl_usu_nom.getText();
             String cantidad = lblcanpro.getText();//cambiar en db
             String sucursal = Principal_ventas.lbl_almacen_ventas.getText();
-            String literal = lbl_literal.getText();
+            String literal = ("EDITADO");
             String id_user = Principal.lbl_id_user.getText();
             String describe = txt_des_ventas.getText();
             String sql = "UPDATE ventas SET cod_cli_ventas = '" + cod_cli

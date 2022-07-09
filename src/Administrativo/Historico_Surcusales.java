@@ -230,11 +230,15 @@ public class Historico_Surcusales extends javax.swing.JDialog {
         if (Tecla == KeyEvent.VK_ESCAPE) {
             this.dispose();
         }
-        cargar(txt_bus.getText());
+     
     }//GEN-LAST:event_txt_busKeyPressed
 
     private void txt_busKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_busKeyReleased
-
+ if (Principal.lbl_usu_almacen.getText().equals("TODOS")) {
+            cargar(txt_bus.getText());
+        } else {
+            cargar_espec(txt_bus.getText());
+        }
     }//GEN-LAST:event_txt_busKeyReleased
 
     private void btn_cargar_datosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cargar_datosActionPerformed

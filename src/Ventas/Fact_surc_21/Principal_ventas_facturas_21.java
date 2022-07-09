@@ -5,8 +5,6 @@
  */
 package Ventas.Fact_surc_21;
 
-
-
 import Conexion_DB.conectar;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
@@ -221,8 +219,6 @@ public class Principal_ventas_facturas_21 extends javax.swing.JDialog {
             java.util.logging.Logger.getLogger(Principal_ventas_facturas_21.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-      
-     
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -290,6 +286,27 @@ public class Principal_ventas_facturas_21 extends javax.swing.JDialog {
 
     }
 
+    public void actEstadoVentas(String cod) {
+        try {
+            String es = "0";
+            String sql = "UPDATE ventas_21 SET bool_fact = '" + es
+                    + "' WHERE num_bol = '" + cod + "'";
+            try {
+                Connection cn = conectar.getInstance().getConnection();
+
+                PreparedStatement pst = cn.prepareStatement(sql);
+                pst.executeUpdate();
+                //  JOptionPane.showMessageDialog(null, "Actualizado");
+                conectar.getInstance().closeConnection(cn);
+
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+
+        } catch (Exception e) {
+        }
+    }
+
     void eliminarProducto() {
 
         int filasel = tbProductos.getSelectedRow();
@@ -301,6 +318,7 @@ public class Principal_ventas_facturas_21 extends javax.swing.JDialog {
                 if (JOptionPane.showConfirmDialog(rootPane, "Anular Factura de venta" + ", ¿desea continuar?",
                         "Anular", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                     String cod = (String) tbProductos.getValueAt(filasel, 0);
+                    String cod_ventas = (String) tbProductos.getValueAt(filasel, 7);
                     String eliminarSQL = "DELETE FROM ventas_facturacion_surc_21 WHERE nro_fact_ventas = '" + cod + "'";
 
                     try {
@@ -309,6 +327,7 @@ public class Principal_ventas_facturas_21 extends javax.swing.JDialog {
                         pst.executeUpdate();
                         conectar.getInstance().closeConnection(cn);
                         JOptionPane.showMessageDialog(null, "Factura de venta cancelada");
+                        actEstadoVentas(cod_ventas);
                         cargar("");
 
                     } catch (SQLException | HeadlessException e) {

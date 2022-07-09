@@ -273,7 +273,7 @@ public class Productos_ventas_18 extends javax.swing.JDialog {
 
     private void txtprodKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtprodKeyReleased
 
-        if (lbl_surcusal_id.getText().equals("0000018")) {
+        if (lbl_surcusal_id.getText().equals("0000018")|| lbl_surcusal_id.getText().equals("TODOS")) {
             cargarCod_18(txtprod.getText());
 
         }

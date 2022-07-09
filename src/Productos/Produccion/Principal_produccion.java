@@ -6,7 +6,6 @@
 package Productos.Produccion;
 
 import Conexion_DB.conectar;
-import Loggin_Principal.Principal;
 import static Loggin_Principal.Principal.lbl_usu_nom;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
@@ -49,6 +48,7 @@ public class Principal_produccion extends javax.swing.JDialog {
     }
 
     public static String cod_produccion = "";
+    public static String cod_serie = "";
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -61,9 +61,10 @@ public class Principal_produccion extends javax.swing.JDialog {
         txt_bus = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         btn_cargar_datos = new javax.swing.JButton();
+        jLabel20 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("PRESUPUESTO");
+        setTitle("PRODUCCIÓN");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -107,7 +108,7 @@ public class Principal_produccion extends javax.swing.JDialog {
         });
         jScrollPane4.setViewportView(tbProductos_presupuesto);
 
-        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 1230, 500));
+        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 1230, 510));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -151,7 +152,12 @@ public class Principal_produccion extends javax.swing.JDialog {
         });
         jPanel1.add(btn_cargar_datos, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 20, -1, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 580));
+        jLabel20.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/info.png"))); // NOI18N
+        jLabel20.setText("ESPACIO = AGREGAR ITEMS      ENTER=VER PRODUCCIÓN");
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 570, 380, 40));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 610));
 
         pack();
         setLocationRelativeTo(null);
@@ -174,21 +180,25 @@ public class Principal_produccion extends javax.swing.JDialog {
         }
         if (Tecla == KeyEvent.VK_ENTER) {
 
+        }
+
+        if (Tecla == KeyEvent.VK_SPACE) {
             int filaMod = tbProductos_presupuesto.getSelectedRow();
             cod_produccion = (String) tbProductos_presupuesto.getValueAt(filaMod, 0);
+            cod_serie = (String) tbProductos_presupuesto.getValueAt(filaMod, 5);
 
             Visor_produccion visor;
             visor = new Visor_produccion(new javax.swing.JDialog(), true);
             visor.setVisible(true);
         }
 
-
+     
     }//GEN-LAST:event_tbProductos_presupuestoKeyPressed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         try {
-            Presupuesto_produccion pp = null;            
+            Presupuesto_produccion pp = null;
             pp = new Presupuesto_produccion(new javax.swing.JDialog(), true);
             pp.setVisible(true);
         } catch (IOException ex) {
@@ -205,7 +215,6 @@ public class Principal_produccion extends javax.swing.JDialog {
             this.dispose();
         }
 
-     
 
     }//GEN-LAST:event_txt_busKeyPressed
 
@@ -303,6 +312,7 @@ public class Principal_produccion extends javax.swing.JDialog {
     public static javax.swing.JButton btn_cargar_datos;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane4;
     public static javax.swing.JTable tbProductos_presupuesto;
@@ -312,12 +322,12 @@ public class Principal_produccion extends javax.swing.JDialog {
     void cargar(String valor) {
         try {
 
-            String[] titulos = {"Nro Venta", "Cód. Cliente", "Cliente", "Condición", "N° Cuotas", "Valor Total", "Estado  ", "Fecha", "Usuario", "Almacén"};
+            String[] titulos = {"Nro Producción", "Cód. Cliente", "Cliente", "Estado", "Prioridad", "Nro OP", "Nro Pedido"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
 
-            String cons = "select * from presupuesto WHERE CONCAT (num_bol,nom_cli_ventas) LIKE '%" + valor + "%' ORDER BY num_bol DESC limit 100";
+            String cons = "select * from produccions WHERE CONCAT (nom_cli_prods,nro_op_prod) LIKE '%" + valor + "%' ORDER BY num_prod DESC limit 100";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -327,10 +337,7 @@ public class Principal_produccion extends javax.swing.JDialog {
                 registros[3] = rs.getString(4);
                 registros[4] = rs.getString(5);
                 registros[5] = rs.getString(6);
-                registros[6] = rs.getString(9);
-                registros[7] = rs.getString(10);
-                registros[8] = rs.getString(12);
-                registros[9] = rs.getString(13);
+                registros[6] = rs.getString(11);
 
                 model.addRow(registros);
             }
@@ -340,12 +347,10 @@ public class Principal_produccion extends javax.swing.JDialog {
             tbProductos_presupuesto.getColumnModel().getColumn(1).setPreferredWidth(87);
             tbProductos_presupuesto.getColumnModel().getColumn(2).setPreferredWidth(300);
             tbProductos_presupuesto.getColumnModel().getColumn(3).setPreferredWidth(100);
-            tbProductos_presupuesto.getColumnModel().getColumn(4).setPreferredWidth(80);
+            tbProductos_presupuesto.getColumnModel().getColumn(4).setPreferredWidth(100);
             tbProductos_presupuesto.getColumnModel().getColumn(5).setPreferredWidth(100);
-            tbProductos_presupuesto.getColumnModel().getColumn(6).setPreferredWidth(120);
-            tbProductos_presupuesto.getColumnModel().getColumn(7).setPreferredWidth(100);
-            tbProductos_presupuesto.getColumnModel().getColumn(8).setPreferredWidth(140);
-            tbProductos_presupuesto.getColumnModel().getColumn(9).setPreferredWidth(100);
+            tbProductos_presupuesto.getColumnModel().getColumn(6).setPreferredWidth(100);
+
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -356,7 +361,7 @@ public class Principal_produccion extends javax.swing.JDialog {
 
     void cargar_espe(String valor) {
         try {
-     
+
             String[] titulos = {"Nro Venta", "Cód. Cliente", "Cliente", "Condición", "N° Cuotas", "Valor Total", "Estado", "Fecha", "Usuario", "Almacén"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
@@ -441,10 +446,10 @@ public class Principal_produccion extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(null, "Seleccione algun dato");
             } else {
                 int filaMod = tbProductos_presupuesto.getSelectedRow();
-              //  cod_print_presupuesto = (String) tbProductos_presupuesto.getValueAt(filaMod, 0);
-              //  printers_pres_re est;
-              //  est = new printers_pres_re(new javax.swing.JDialog(), true);
-              //  est.setVisible(true);
+                //  cod_print_presupuesto = (String) tbProductos_presupuesto.getValueAt(filaMod, 0);
+                //  printers_pres_re est;
+                //  est = new printers_pres_re(new javax.swing.JDialog(), true);
+                //  est.setVisible(true);
             }
 
         });
@@ -493,8 +498,7 @@ public class Principal_produccion extends javax.swing.JDialog {
             ResultSet rs = st.executeQuery(mostrar);
             while (rs.next()) {
 
-              //  lbl_almacen_ventas.setText(rs.getString(6));
-
+                //  lbl_almacen_ventas.setText(rs.getString(6));
             }
             conectar.getInstance().closeConnection(cn);
 
@@ -506,8 +510,7 @@ public class Principal_produccion extends javax.swing.JDialog {
 
     void control_permisos() {
 
-            cargar("");
-        
+        cargar("");
 
     }
 

@@ -12,7 +12,6 @@
      empresas.`emp_nom` AS empresas_emp_nom,
      empresas.`emp_des` AS empresas_emp_des,
      empresas.`emp_imag` AS empresas_emp_imag,
- 
      pago_credito_comun.`id_pago` AS pago_credito_comun_id_pago,
      pago_credito_comun.`id_venta` AS pago_credito_comun_id_venta,
      pago_credito_comun.`id_cliente` AS pago_credito_comun_id_cliente,
@@ -24,8 +23,8 @@
      pago_credito_comun.`data_vista` AS pago_credito_comun_data_vista,
      pago_credito_comun.`id_cuenta` AS pago_credito_comun_id_cuenta,
      pago_credito_comun.`user_pago` AS pago_credito_comun_user_pago,
-     pago_credito_comun.`seire` AS pago_credito_comun_seire,
-     pago_credito_comun.`nro_facuta` AS pago_credito_comun_nro_facuta
+     pago_credito_comun.`seire` AS pago_credito_comun_seire
+     
 FROM
      `empresas` empresas,
      `pago_credito_comun` pago_credito_comun
@@ -48,12 +47,11 @@ WHERE
 	<field name="pago_credito_comun_id_cuenta" class="java.lang.String"/>
 	<field name="pago_credito_comun_user_pago" class="java.lang.String"/>
 	<field name="pago_credito_comun_seire" class="java.lang.String"/>
-	<field name="pago_credito_comun_nro_facuta" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="331" splitType="Stretch">
+		<band height="404" splitType="Stretch">
 			<staticText>
 				<reportElement x="4" y="143" width="52" height="13" uuid="15568565-029d-4a07-b79c-0e15061be749"/>
 				<textElement verticalAlignment="Middle">
@@ -108,7 +106,7 @@ WHERE
 				<text><![CDATA[==============================================]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="320" width="200" height="11" uuid="4f7bf0fb-75af-44c7-b0c9-e4f0e3271ac2"/>
+				<reportElement x="0" y="382" width="200" height="11" uuid="4f7bf0fb-75af-44c7-b0c9-e4f0e3271ac2"/>
 				<textElement>
 					<font size="8" isBold="true"/>
 				</textElement>
@@ -192,11 +190,39 @@ WHERE
 				<text><![CDATA[.---------]]></text>
 			</staticText>
 			<componentElement>
-				<reportElement x="4" y="258" width="194" height="29" uuid="0d643884-da90-4a65-a0c6-e8f46f206330"/>
+				<reportElement x="15" y="324" width="166" height="29" uuid="0d643884-da90-4a65-a0c6-e8f46f206330"/>
 				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code128" drawText="true" checksumRequired="false">
 					<jr:codeExpression><![CDATA[$F{pago_credito_comun_id_pago}]]></jr:codeExpression>
 				</jr:barbecue>
 			</componentElement>
+			<staticText>
+				<reportElement x="15" y="290" width="52" height="17" uuid="a2c9e4a2-df6c-41c7-b61d-f5e24e72829e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Recibido por:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="279" width="124" height="11" uuid="43d04dee-921f-4fa6-acba-8fdf87a5e8fd"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[----------------------------------------------------------------------------------]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="67" y="290" width="131" height="17" uuid="d1d0722c-c352-4a8d-b149-e2cd358a9ca8"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pago_credito_comun_user_pago}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="13" y="362" width="168" height="20" uuid="d44963f7-21e7-4681-951f-41951608901a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pago_credito_comun_seire}]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<pageHeader>

@@ -551,6 +551,7 @@ public class Principal_ventas_facturas extends javax.swing.JDialog {
             String nro = (String) tbProductos.getValueAt(filaMode, 8);
 
             String sql = "UPDATE ventas SET nro_fact_ventas = '" + es
+                    + "',bool_fact ='" + es
                     + "' WHERE num_bol = '" + nro + "'";
             try {
                 Connection cn = conectar.getInstance().getConnection();

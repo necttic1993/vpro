@@ -60,10 +60,11 @@ public class Exporta_excell extends javax.swing.JDialog {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Colores");
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -79,7 +80,7 @@ public class Exporta_excell extends javax.swing.JDialog {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 220, 60));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 220, 60));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -120,7 +121,20 @@ public class Exporta_excell extends javax.swing.JDialog {
         });
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 160, 60));
 
-        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
+        jButton5.setBackground(new java.awt.Color(255, 255, 255));
+        jButton5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_5/sobresalir.png"))); // NOI18N
+        jButton5.setText("Stock c/  Mínimo");
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 220, 60));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 240));
 
         pack();
         setLocationRelativeTo(null);
@@ -136,7 +150,7 @@ public class Exporta_excell extends javax.swing.JDialog {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-          try {
+        try {
             reporteProdA();
         } catch (IOException ex) {
             Logger.getLogger(Productos.class.getName()).log(Level.SEVERE, null, ex);
@@ -144,7 +158,7 @@ public class Exporta_excell extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-         try {
+        try {
             reporteProdAB();
         } catch (IOException ex) {
             Logger.getLogger(Productos.class.getName()).log(Level.SEVERE, null, ex);
@@ -158,6 +172,14 @@ public class Exporta_excell extends javax.swing.JDialog {
             Logger.getLogger(Productos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        try {
+            reporteProdStockM();
+        } catch (IOException ex) {
+            Logger.getLogger(Productos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -209,8 +231,123 @@ public class Exporta_excell extends javax.swing.JDialog {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    public static void reporteProdStockM() throws IOException {
+
+        Workbook book = new XSSFWorkbook();
+        Sheet sheet = book.createSheet("Productos con Stock Minimo");
+
+        try {
+
+            CellStyle tituloEstilo = book.createCellStyle();
+            tituloEstilo.setAlignment(HorizontalAlignment.CENTER);
+            tituloEstilo.setVerticalAlignment(VerticalAlignment.CENTER);
+            Font fuenteTitulo = book.createFont();
+            fuenteTitulo.setFontName("Arial");
+            fuenteTitulo.setBold(true);
+            fuenteTitulo.setFontHeightInPoints((short) 12);
+            tituloEstilo.setFont(fuenteTitulo);
+
+            Row filaTitulo = sheet.createRow(1);
+            Cell celdaTitulo = filaTitulo.createCell(1);
+            celdaTitulo.setCellStyle(tituloEstilo);
+            celdaTitulo.setCellValue("Reporte de Productos con Stock Minimo");
+
+            sheet.addMergedRegion(new CellRangeAddress(1, 2, 1, 3));
+
+            String[] cabecera = new String[]{"Código", "Código de Barras", "Nombre", "Descripción", "Cantidad", "Stock Minimo", "Departamento"};
+
+            CellStyle headerStyle = book.createCellStyle();
+            headerStyle.setFillForegroundColor(IndexedColors.LIGHT_BLUE.getIndex());
+            headerStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+            headerStyle.setBorderBottom(BorderStyle.THIN);
+            headerStyle.setBorderLeft(BorderStyle.THIN);
+            headerStyle.setBorderRight(BorderStyle.THIN);
+            headerStyle.setBorderBottom(BorderStyle.THIN);
+
+            Font font = book.createFont();
+            font.setFontName("Arial");
+            font.setBold(true);
+            font.setColor(IndexedColors.WHITE.getIndex());
+            font.setFontHeightInPoints((short) 10);
+            headerStyle.setFont(font);
+
+            Row filaEncabezados = sheet.createRow(4);
+
+            for (int i = 0; i < cabecera.length; i++) {
+                Cell celdaEnzabezado = filaEncabezados.createCell(i);
+                celdaEnzabezado.setCellStyle(headerStyle);
+                celdaEnzabezado.setCellValue(cabecera[i]);
+            }
+
+            PreparedStatement ps;
+            ResultSet rs;
+
+            int numFilaDatos = 6;
+
+            CellStyle datosEstilo = book.createCellStyle();
+            datosEstilo.setBorderBottom(BorderStyle.THIN);
+            datosEstilo.setBorderLeft(BorderStyle.THIN);
+            datosEstilo.setBorderRight(BorderStyle.THIN);
+            datosEstilo.setBorderBottom(BorderStyle.THIN);
+            Connection cn = conectar.getInstance().getConnection();
+
+            ps = cn.prepareStatement("SELECT pro_cod, pro_cod_barra, pro_des, pro_des_espec,pro_cant,pro_mini,pro_depa FROM tienda_productos where pro_cant < pro_mini and pro_stock <> 'I'");
+            rs = ps.executeQuery();
+
+            int numCol = rs.getMetaData().getColumnCount();
+
+            while (rs.next()) {
+                Row filaDatos = sheet.createRow(numFilaDatos);
+
+                for (int a = 0; a < numCol; a++) {
+
+                    Cell CeldaDatos = filaDatos.createCell(a);
+                    CeldaDatos.setCellStyle(datosEstilo);
+
+                    if (a == 2 || a == 3) {
+                        CeldaDatos.setCellValue(rs.getString(a + 1));
+                    } else {
+                        CeldaDatos.setCellValue(rs.getString(a + 1));
+                    }
+                }
+
+                /* Cell celdaImporte = filaDatos.createCell(4);
+                 celdaImporte.setCellStyle(datosEstilo);
+                 celdaImporte.setCellFormula(String.format("C%d+D%d", numFilaDatos + 1, numFilaDatos + 1));*/
+                numFilaDatos++;
+
+            }
+
+            sheet.autoSizeColumn(0);
+            sheet.autoSizeColumn(1);
+            sheet.autoSizeColumn(2);
+            sheet.autoSizeColumn(3);
+            sheet.autoSizeColumn(4);
+            sheet.autoSizeColumn(5);
+            sheet.autoSizeColumn(6);
+
+
+            sheet.setZoom(120);
+
+            try (FileOutputStream fileOut = new FileOutputStream("C:\\Informes\\Reporte_Productos con Stock minimo_" + txt_fecha_backup.getText() + ".xlsx")) {
+                book.write(fileOut);
+            }
+            JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Productos.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException | SQLException ex) {
+            Logger.getLogger(Productos.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 
     public static void reporteProd() throws IOException {
 
@@ -351,7 +488,7 @@ public class Exporta_excell extends javax.swing.JDialog {
 
             sheet.addMergedRegion(new CellRangeAddress(1, 2, 1, 3));
 
-            String[] cabecera = new String[]{"Código", "Código de Barras", "Nombre", "Descripción", "Cantidad",  "Precio A"};
+            String[] cabecera = new String[]{"Código", "Código de Barras", "Nombre", "Descripción", "Cantidad", "Precio A"};
 
             CellStyle headerStyle = book.createCellStyle();
             headerStyle.setFillForegroundColor(IndexedColors.LIGHT_BLUE.getIndex());
@@ -421,8 +558,6 @@ public class Exporta_excell extends javax.swing.JDialog {
             sheet.autoSizeColumn(3);
             sheet.autoSizeColumn(4);
             sheet.autoSizeColumn(5);
-          
-
 
             sheet.setZoom(120);
 
@@ -537,7 +672,6 @@ public class Exporta_excell extends javax.swing.JDialog {
             sheet.autoSizeColumn(4);
             sheet.autoSizeColumn(5);
             sheet.autoSizeColumn(6);
-          
 
             sheet.setZoom(120);
 
@@ -558,7 +692,6 @@ public class Exporta_excell extends javax.swing.JDialog {
     }
 
     //precio ac
-
     public static void reporteProdAC() throws IOException {
 
         Workbook book = new XSSFWorkbook();
@@ -582,7 +715,7 @@ public class Exporta_excell extends javax.swing.JDialog {
 
             sheet.addMergedRegion(new CellRangeAddress(1, 2, 1, 3));
 
-            String[] cabecera = new String[]{"Código", "Código de Barras", "Nombre", "Descripción", "Cantidad",  "Precio A", "Precio C", };
+            String[] cabecera = new String[]{"Código", "Código de Barras", "Nombre", "Descripción", "Cantidad", "Precio A", "Precio C",};
 
             CellStyle headerStyle = book.createCellStyle();
             headerStyle.setFillForegroundColor(IndexedColors.LIGHT_BLUE.getIndex());
@@ -653,7 +786,6 @@ public class Exporta_excell extends javax.swing.JDialog {
             sheet.autoSizeColumn(4);
             sheet.autoSizeColumn(5);
             sheet.autoSizeColumn(6);
-        
 
             sheet.setZoom(120);
 

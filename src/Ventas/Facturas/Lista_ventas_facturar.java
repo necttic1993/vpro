@@ -21,9 +21,9 @@ import javax.swing.table.DefaultTableModel;
  * @author user
  */
 public class Lista_ventas_facturar extends javax.swing.JDialog {
-    
+
     DefaultTableModel model;
-    
+
     public Lista_ventas_facturar(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -31,7 +31,7 @@ public class Lista_ventas_facturar extends javax.swing.JDialog {
         txt_bus.requestFocus();
         //OpcionMenu();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -145,18 +145,18 @@ public class Lista_ventas_facturar extends javax.swing.JDialog {
 
     private void tb_can_devMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_can_devMouseClicked
         try {
-            
+
             int fila = tb_can_dev.getSelectedRow();
-            
+
             if (fila == -1) {
                 JOptionPane.showMessageDialog(null, "No  ha seleccionado ningun registro");
             } else {
                 String codins = tb_can_dev.getValueAt(fila, 0).toString();
-                
+
                 Facturas_facturas.txt_cod.setText(codins);
-                 Facturas_facturas.btn_buscar.doClick();
+                Facturas_facturas.btn_buscar.doClick();
                 this.dispose();
-                
+
             }
         } catch (HeadlessException | NumberFormatException e) {
         }
@@ -168,37 +168,37 @@ public class Lista_ventas_facturar extends javax.swing.JDialog {
 
     private void tb_can_devKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_can_devKeyPressed
         char Tecla = evt.getKeyChar();
-        
+
         if (Tecla == KeyEvent.VK_ESCAPE) {
             txt_bus.requestFocus();
             txt_bus.setText("");
         }
         if (Tecla == KeyEvent.VK_ENTER) {
-            
+
             try {
-                
+
                 int fila = tb_can_dev.getSelectedRow();
-                
+
                 if (fila == -1) {
                     JOptionPane.showMessageDialog(null, "No  ha seleccionado ningun registro");
                 } else {
                     String codins = tb_can_dev.getValueAt(fila, 0).toString();
-                    
+
                     Facturas_facturas.txt_cod.setText(codins);
                     Facturas_facturas.btn_buscar.doClick();
                     this.dispose();
-                    
+
                 }
             } catch (HeadlessException | NumberFormatException e) {
             }
         }
-        
+
 
     }//GEN-LAST:event_tb_can_devKeyPressed
 
     private void txt_busKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_busKeyPressed
         char Tecla = evt.getKeyChar();
-        
+
         if (Tecla == KeyEvent.VK_ESCAPE) {
             this.dispose();
         }
@@ -206,29 +206,29 @@ public class Lista_ventas_facturar extends javax.swing.JDialog {
     }//GEN-LAST:event_txt_busKeyPressed
 
     private void txt_busKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_busKeyReleased
-        
+
         if (txt_bus.getText() == null) {
-            
+
         } else {
             if (ch_contado.isSelected()) {
                 cargarContado(txt_bus.getText());
             } else if (ch_credito.isSelected()) {
                 cargarCredito(txt_bus.getText());
             }
-            
+
         }
 
     }//GEN-LAST:event_txt_busKeyReleased
 
     private void ch_contadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ch_contadoActionPerformed
-       
+
         ch_credito.setSelected(false);
         ch_contado.setSelected(true);
         cargarContado("");
     }//GEN-LAST:event_ch_contadoActionPerformed
 
     private void ch_creditoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ch_creditoActionPerformed
-      
+
         ch_credito.setSelected(true);
         ch_contado.setSelected(false);
         cargarCredito("");
@@ -299,14 +299,13 @@ public class Lista_ventas_facturar extends javax.swing.JDialog {
     public static javax.swing.JTextField txt_bus;
     // End of variables declaration//GEN-END:variables
 
-    
     void cargarCredito(String valor) {
         try {
             Connection cn = conectar.getInstance().getConnection();
-            String[] titulos = {"Nro Venta", "Cód. Cliente", "Cliente", "Forma de Pago", "Días Plazos", "Valor Total", "Estado de Ventas", "Fecha", "Usuario"};
+            String[] titulos = {"Nro Venta", "Cód. Cliente", "Cliente", "Forma de Pago", "Días Plazos", "Valor Total", "Estado de Ventas", "Fecha", "Usuario", "OP"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
-            
+
             String cons = "select * from ventas WHERE CONCAT (num_bol) LIKE '%" + valor + "%' AND forma_pag_ventas='CRÉDITO' AND nro_fact_ventas='0' AND estado_ventas='FINALIZADA'  ORDER BY num_bol DESC  LIMIT 100";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
@@ -320,14 +319,14 @@ public class Lista_ventas_facturar extends javax.swing.JDialog {
                 registros[6] = rs.getString(9);
                 registros[7] = rs.getString(11);
                 registros[8] = rs.getString(12);
-                
+                registros[9] = rs.getString(21);
                 model.addRow(registros);
             }
             tb_can_dev.setModel(model);
-            
+
             ColorearFilas color = new ColorearFilas(6);
             tb_can_dev.getColumnModel().getColumn(0).setCellRenderer(color);
-            
+
             tb_can_dev.getColumnModel().getColumn(0).setPreferredWidth(87);
             tb_can_dev.getColumnModel().getColumn(1).setPreferredWidth(87);
             tb_can_dev.getColumnModel().getColumn(2).setPreferredWidth(340);
@@ -337,21 +336,22 @@ public class Lista_ventas_facturar extends javax.swing.JDialog {
             tb_can_dev.getColumnModel().getColumn(6).setPreferredWidth(120);
             tb_can_dev.getColumnModel().getColumn(7).setPreferredWidth(150);
             tb_can_dev.getColumnModel().getColumn(8).setPreferredWidth(150);
-            
+            tb_can_dev.getColumnModel().getColumn(8).setPreferredWidth(100);
+
             conectar.getInstance().closeConnection(cn);
         } catch (HeadlessException | NumberFormatException | SQLException e) {
             System.out.println(e.getMessage());
         }
-        
+
     }
-    
+
     void cargarContado(String valor) {
         try {
             Connection cn = conectar.getInstance().getConnection();
-            String[] titulos = {"Nro Venta", "Cód. Cliente", "Cliente", "Forma de Pago", "Días Plazos", "Valor Total", "Estado de Ventas", "Fecha", "Usuario"};
+            String[] titulos = {"Nro Venta", "Cód. Cliente", "Cliente", "Forma de Pago", "Días Plazos", "Valor Total", "Estado de Ventas", "Fecha", "Usuario", "OP"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
-            
+
             String cons = "select * from ventas WHERE CONCAT (num_bol) LIKE '%" + valor + "%'  AND forma_pag_ventas='CONTADO' AND nro_fact_ventas='0' AND  estado_ventas='CONFIRMADA' ORDER BY num_bol DESC  LIMIT 100";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
@@ -365,14 +365,15 @@ public class Lista_ventas_facturar extends javax.swing.JDialog {
                 registros[6] = rs.getString(9);
                 registros[7] = rs.getString(11);
                 registros[8] = rs.getString(12);
-                
+                registros[9] = rs.getString(21);
+
                 model.addRow(registros);
             }
             tb_can_dev.setModel(model);
-            
+
             ColorearFilas color = new ColorearFilas(6);
             tb_can_dev.getColumnModel().getColumn(0).setCellRenderer(color);
-            
+
             tb_can_dev.getColumnModel().getColumn(0).setPreferredWidth(87);
             tb_can_dev.getColumnModel().getColumn(1).setPreferredWidth(87);
             tb_can_dev.getColumnModel().getColumn(2).setPreferredWidth(340);
@@ -382,12 +383,13 @@ public class Lista_ventas_facturar extends javax.swing.JDialog {
             tb_can_dev.getColumnModel().getColumn(6).setPreferredWidth(120);
             tb_can_dev.getColumnModel().getColumn(7).setPreferredWidth(150);
             tb_can_dev.getColumnModel().getColumn(8).setPreferredWidth(150);
-            
+            tb_can_dev.getColumnModel().getColumn(9).setPreferredWidth(100);
+
             conectar.getInstance().closeConnection(cn);
         } catch (HeadlessException | NumberFormatException | SQLException e) {
             System.out.println(e.getMessage());
         }
-        
+
     }
-    
+
 }

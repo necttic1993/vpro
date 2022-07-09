@@ -912,6 +912,7 @@ public class Facturas_surc_22 extends javax.swing.JDialog {
 
             if (n > 0) {
                 detalle_factura();
+                actEstadoVentas();
                 JOptionPane.showMessageDialog(null, "Factura de venta realizada con éxito");
                 if (JOptionPane.showConfirmDialog(rootPane, "Imprimir Factura de venta" + ": " + txt_sequencia.getText() + "-" + txt_esta.getText() + "-" + lbl_cod.getText() + ", ¿desea continuar?",
                         "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
@@ -1121,27 +1122,27 @@ public class Facturas_surc_22 extends javax.swing.JDialog {
 
     }
 
-    void actEstadoVentas() {//analizar mañana cargar datos de nro de factura
-
+    public void actEstadoVentas() {
         try {
-            String es = lbl_cod.getText();
-            String nro = Principal.lbl_id_empre.getText();
+            String es = "1";
+            String nro = txt_cod.getText();
 
-            String sql = "UPDATE empresas SET nro_fact_surc_22 = '" + es
-                    + "' WHERE id_empre = '" + nro + "'";
+            String sql = "UPDATE ventas_22 SET bool_fact = '" + es
+                    + "' WHERE num_bol = '" + nro + "'";
             try {
                 Connection cn = conectar.getInstance().getConnection();
+
                 PreparedStatement pst = cn.prepareStatement(sql);
                 pst.executeUpdate();
-                conectar.getInstance().closeConnection(cn);
                 //  JOptionPane.showMessageDialog(null, "Actualizado");
+                conectar.getInstance().closeConnection(cn);
+
             } catch (SQLException | HeadlessException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
 
         } catch (Exception e) {
         }
-
     }
 
     void cargarConfig() {

@@ -5,6 +5,7 @@
  */
 package Presupuesto;
 
+import Clases.ColorearStatusPresupuesto;
 import Conexion_DB.conectar;
 import Loggin_Principal.Principal;
 import static Loggin_Principal.Principal.lbl_usu_nom;
@@ -56,6 +57,11 @@ public class Principal_presupuesto extends javax.swing.JDialog {
     public static String cod_ver_ventas_plazo = "";
     public static String cod_ver_ventas_cli = "";
     public static String cod_ver_ventas_cli_factura = "";
+    //enviar id y codigo para modificacion
+    public static String cod_modificacion = "";
+    public static String cod_nota_pre = "";
+    ///modificacion de status
+    public static String cod_nota_status = "";
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -203,6 +209,7 @@ public class Principal_presupuesto extends javax.swing.JDialog {
 
         Presupuesto_presupuesto pp = null;
         try {
+            cod_modificacion = "0";
             pp = new Presupuesto_presupuesto(new javax.swing.JDialog(), true);
         } catch (IOException ex) {
             Logger.getLogger(Principal_presupuesto.class.getName()).log(Level.SEVERE, null, ex);
@@ -339,6 +346,10 @@ public class Principal_presupuesto extends javax.swing.JDialog {
             }
             tbProductos_presupuesto.setModel(model);
 
+            ColorearStatusPresupuesto color = new ColorearStatusPresupuesto(6);
+            tbProductos_presupuesto.getColumnModel().getColumn(0).setCellRenderer(color);
+            tbProductos_presupuesto.getColumnModel().getColumn(6).setCellRenderer(color);
+
             tbProductos_presupuesto.getColumnModel().getColumn(0).setPreferredWidth(87);
             tbProductos_presupuesto.getColumnModel().getColumn(1).setPreferredWidth(87);
             tbProductos_presupuesto.getColumnModel().getColumn(2).setPreferredWidth(300);
@@ -383,6 +394,10 @@ public class Principal_presupuesto extends javax.swing.JDialog {
                 model.addRow(registros);
             }
             tbProductos_presupuesto.setModel(model);
+
+            ColorearStatusPresupuesto color = new ColorearStatusPresupuesto(6);
+            tbProductos_presupuesto.getColumnModel().getColumn(0).setCellRenderer(color);
+            tbProductos_presupuesto.getColumnModel().getColumn(6).setCellRenderer(color);
 
             tbProductos_presupuesto.getColumnModel().getColumn(0).setPreferredWidth(87);
             tbProductos_presupuesto.getColumnModel().getColumn(1).setPreferredWidth(87);
@@ -436,7 +451,8 @@ public class Principal_presupuesto extends javax.swing.JDialog {
         JPopupMenu menu_opcion = new JPopupMenu();
 
         JMenuItem menu_modPro = new JMenuItem("Re-Imprimir Nota", new ImageIcon(getClass().getResource("/icon_4/print.png")));
-        JMenuItem menu_eliminar_Pro = new JMenuItem("Anular Presupuesto", new ImageIcon(getClass().getResource("/icon_4/eliminar.png")));
+        JMenuItem menu_modify = new JMenuItem("Modificar Nota", new ImageIcon(getClass().getResource("/icon_4/modificar.png")));
+        JMenuItem status = new JMenuItem("Cambio de status", new ImageIcon(getClass().getResource("/icon_4/lapiz_editar.png")));
 
         menu_modPro.addActionListener((ActionEvent e) -> {
             int filasel = tbProductos_presupuesto.getSelectedRow();
@@ -451,35 +467,45 @@ public class Principal_presupuesto extends javax.swing.JDialog {
             }
 
         });
-        menu_eliminar_Pro.addActionListener((ActionEvent e) -> {
+        menu_modify.addActionListener((ActionEvent e) -> {
 
-            int filasel = tbProductos_presupuesto.getSelectedRow();
+            int filase = tbProductos_presupuesto.getSelectedRow();
 
-            if (filasel == -1) {
+            if (filase == -1) {
                 JOptionPane.showMessageDialog(null, "Seleccione algun dato");
             } else {
-                String cant = JOptionPane.showInputDialog("Ingrese Credencial");
-                String seña = ("sistema123");
-                if ((cant.equals("")) || (cant.equals("0"))) {
-                    JOptionPane.showMessageDialog(this, "Debe ingresar un credencial válido");
+
+                String verificar = (String) tbProductos_presupuesto.getValueAt(filase, 6);
+                String situacion = ("CONFIRMADO");
+                if (verificar.equals(situacion)) {
+                    JOptionPane.showMessageDialog(null, "La nota ya fue confirmado");
                 } else {
-                    if (!cant.equals(seña)) {
-                        JOptionPane.showMessageDialog(this, "Ud. no cuenta con autorizacion");
-                    } else {
-
-                        if (JOptionPane.showConfirmDialog(rootPane, "Se anulara el registro, ¿desea continuar?",
-                                "Eliminar Registro", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-                            eliminarProducto();
-                            control_permisos();
-                        }
-
+                    cod_modificacion = "1";
+                    cod_nota_pre = (String) tbProductos_presupuesto.getValueAt(filase, 0);
+                    Presupuesto_presupuesto pp = null;
+                    try {
+                        pp = new Presupuesto_presupuesto(new javax.swing.JDialog(), true);
+                        pp.setVisible(true);
+                    } catch (IOException ex) {
+                        Logger.getLogger(Principal_presupuesto.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
             }
         });
 
+        status.addActionListener((ActionEvent e) -> {
+            int filaMod = tbProductos_presupuesto.getSelectedRow();
+            cod_nota_status = (String) tbProductos_presupuesto.getValueAt(filaMod, 0);
+
+            Status_presupuesto sls;
+            sls = new Status_presupuesto(new javax.swing.JDialog(), true);
+            sls.setVisible(true);
+        });
+
         menu_opcion.add(menu_modPro);
-        menu_opcion.add(menu_eliminar_Pro);
+        menu_opcion.add(menu_modify);
+        menu_opcion.add(status);
+
         tbProductos_presupuesto.setComponentPopupMenu(menu_opcion);
 
     }

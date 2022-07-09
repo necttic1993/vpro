@@ -7,18 +7,20 @@ package Productos;
 
 import Conexion_DB.conectar;
 import static Productos.Productos.cod_pro_gral;
-import static Ventas.Productos_ventas.cod_pro_ventas_des;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,46 +28,11 @@ import javax.swing.ImageIcon;
  */
 public class DetallesPro_gral extends javax.swing.JDialog {
 
-    /**
-     * Creates new form DetallesProductos
-     */
     public DetallesPro_gral(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        BuscarProducto(cod_pro_gral);
         BuscarProductoDes(cod_pro_gral);
-        BuscarProducto(cod_pro_ventas_des);
-        BuscarProductoDes(cod_pro_ventas_des);
-
-    }
-
-    void BuscarProducto(String cod) {
-        ImageIcon foto;
-        InputStream is;
-
-        try {
-            Connection cn = conectar.getInstance().getConnection();
-
-            String cons = "select * from imag_productos WHERE imag_cod='" + cod + "'";
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(cons);
-            while (rs.next()) {
-
-                is = rs.getBinaryStream(2);
-
-                BufferedImage bi = ImageIO.read(is);
-                foto = new ImageIcon(bi);
-                Image img = foto.getImage();
-                Image newimg = img.getScaledInstance(420, 450, java.awt.Image.SCALE_SMOOTH);
-                ImageIcon newicon = new ImageIcon(newimg);
-                lbl_ima1.setIcon(newicon);
-
-            }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (SQLException | IOException e) {
-            System.out.println(e.getMessage());
-        }
+        cargarImage();
 
     }
 
@@ -81,14 +48,17 @@ public class DetallesPro_gral extends javax.swing.JDialog {
 
                 lbl_des.setText(rs.getString(3));
                 lbl_des_pro.setText(rs.getString(4));
+                 //precios
+                lbl_precio_a.setText(rs.getString(7));
+                lbl_precioi_b.setText(rs.getString(8));
                 lbl_departa.setText(rs.getString(17));
                 lbl_cat.setText(rs.getString(18));
                 lbl_sub_cat.setText(rs.getString(19));
                 lbl_cat_esp.setText(rs.getString(20));
                 lbl_marca.setText(rs.getString(21));
-                lbl_peso.setText(rs.getString(13));
                 lbl_color.setText(rs.getString(14));
                 lbl_tc.setText(rs.getString(15));
+                lblb_url_image.setText(rs.getString(62));
 
             }
             conectar.getInstance().closeConnection(cn);
@@ -104,7 +74,7 @@ public class DetallesPro_gral extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        lbl_ima1 = new javax.swing.JLabel();
+        lbl_ima_pro = new javax.swing.JLabel();
         txt_focus = new javax.swing.JTextField();
         lbl_tc = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -113,7 +83,7 @@ public class DetallesPro_gral extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        lbl_precioi_b = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         lbl_des = new javax.swing.JLabel();
@@ -122,10 +92,10 @@ public class DetallesPro_gral extends javax.swing.JDialog {
         lbl_sub_cat = new javax.swing.JLabel();
         lbl_cat_esp = new javax.swing.JLabel();
         lbl_marca = new javax.swing.JLabel();
-        lbl_peso = new javax.swing.JLabel();
+        lbl_precio_a = new javax.swing.JLabel();
         lbl_color = new javax.swing.JLabel();
         lbl_des_pro = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        lblb_url_image = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
@@ -133,9 +103,12 @@ public class DetallesPro_gral extends javax.swing.JDialog {
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
         jSeparator8 = new javax.swing.JSeparator();
-        jSeparator9 = new javax.swing.JSeparator();
         jSeparator10 = new javax.swing.JSeparator();
         jSeparator11 = new javax.swing.JSeparator();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconImage(null);
@@ -145,13 +118,12 @@ public class DetallesPro_gral extends javax.swing.JDialog {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lbl_ima1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lbl_ima1.setForeground(new java.awt.Color(102, 102, 102));
-        lbl_ima1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_ima1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/ajust.png"))); // NOI18N
-        lbl_ima1.setText("NO HAY IMAGEN DISPONIBLE");
-        lbl_ima1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
-        jPanel1.add(lbl_ima1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 20, 380, 420));
+        lbl_ima_pro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbl_ima_pro.setForeground(new java.awt.Color(102, 102, 102));
+        lbl_ima_pro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_ima_pro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/ajust.png"))); // NOI18N
+        lbl_ima_pro.setText("NO HAY IMAGEN DISPONIBLE");
+        jPanel1.add(lbl_ima_pro, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 20, 400, 400));
 
         txt_focus.setBorder(null);
         txt_focus.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -200,15 +172,14 @@ public class DetallesPro_gral extends javax.swing.JDialog {
         jLabel7.setText("Marca:");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 60, 30));
 
-        jLabel8.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel8.setText("Costo medio:");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 100, 30));
+        lbl_precioi_b.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbl_precioi_b.setText("0");
+        jPanel1.add(lbl_precioi_b, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, 210, 30));
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(102, 102, 102));
         jLabel9.setText("Color:");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 60, 30));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 210, 60, 30));
 
         jLabel10.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(102, 102, 102));
@@ -267,16 +238,17 @@ public class DetallesPro_gral extends javax.swing.JDialog {
         lbl_marca.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lbl_marca.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         lbl_marca.setOpaque(true);
-        jPanel1.add(lbl_marca, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 520, 30));
+        jPanel1.add(lbl_marca, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 200, 30));
 
-        lbl_peso.setBackground(new java.awt.Color(255, 255, 255));
-        lbl_peso.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        lbl_peso.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lbl_peso.setToolTipText("");
-        lbl_peso.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        lbl_peso.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        lbl_peso.setOpaque(true);
-        jPanel1.add(lbl_peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 100, 30));
+        lbl_precio_a.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_precio_a.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbl_precio_a.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbl_precio_a.setText("0");
+        lbl_precio_a.setToolTipText("");
+        lbl_precio_a.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lbl_precio_a.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        lbl_precio_a.setOpaque(true);
+        jPanel1.add(lbl_precio_a, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 170, 30));
 
         lbl_color.setBackground(new java.awt.Color(255, 255, 255));
         lbl_color.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -285,29 +257,48 @@ public class DetallesPro_gral extends javax.swing.JDialog {
         lbl_color.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lbl_color.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         lbl_color.setOpaque(true);
-        jPanel1.add(lbl_color, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 260, 30));
+        jPanel1.add(lbl_color, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, 250, 30));
 
         lbl_des_pro.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lbl_des_pro.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_des_pro.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         lbl_des_pro.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         lbl_des_pro.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-        jPanel1.add(lbl_des_pro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 580, 80));
+        jPanel1.add(lbl_des_pro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 580, 60));
 
-        jLabel11.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel11.setText("Nombre:");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 70, 30));
-        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 580, 10));
+        lblb_url_image.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        lblb_url_image.setForeground(new java.awt.Color(0, 102, 51));
+        lblb_url_image.setText("https://");
+        jPanel1.add(lblb_url_image, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, 930, 30));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 580, 10));
         jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 580, 10));
         jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 580, 10));
         jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 580, 10));
         jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 580, 10));
         jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 580, 10));
         jPanel1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 580, 10));
-        jPanel1.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 310, 10));
-        jPanel1.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 240, 10));
-        jPanel1.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 190, 10));
+        jPanel1.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 580, 10));
+        jPanel1.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 580, 10));
+
+        jLabel12.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel12.setText("Nombre:");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 70, 30));
+
+        jLabel13.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel13.setText("URL:");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 40, 30));
+
+        jLabel11.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel11.setText("Precio A:");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 70, 30));
+
+        jLabel14.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel14.setText("Precio B:");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 70, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 460));
 
@@ -369,13 +360,15 @@ public class DetallesPro_gral extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator10;
@@ -387,19 +380,35 @@ public class DetallesPro_gral extends javax.swing.JDialog {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
-    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JLabel lbl_cat;
     private javax.swing.JLabel lbl_cat_esp;
     private javax.swing.JLabel lbl_color;
     private javax.swing.JLabel lbl_departa;
     private javax.swing.JLabel lbl_des;
     private javax.swing.JLabel lbl_des_pro;
-    private javax.swing.JLabel lbl_ima1;
+    private javax.swing.JLabel lbl_ima_pro;
     private javax.swing.JLabel lbl_marca;
-    private javax.swing.JLabel lbl_peso;
+    private javax.swing.JLabel lbl_precio_a;
+    private javax.swing.JLabel lbl_precioi_b;
     private javax.swing.JLabel lbl_sub_cat;
     private javax.swing.JLabel lbl_tc;
+    private javax.swing.JLabel lblb_url_image;
     private javax.swing.JTextField txt_focus;
     // End of variables declaration//GEN-END:variables
 
+    void cargarImage() {
+        try {
+            Image image = null;
+            URL url;
+            url = new URL(lblb_url_image.getText());
+            image = ImageIO.read(url).getScaledInstance(lbl_ima_pro.getWidth(), lbl_ima_pro.getHeight(), Image.SCALE_SMOOTH);
+            lbl_ima_pro.setIcon(new ImageIcon(image));
+        } catch (MalformedURLException ex) {
+            JOptionPane.showMessageDialog(null, "No se puedo cargar la imagen o el producto no cuenta con imagenes");
+            Logger.getLogger(DetallesPro_gral.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(DetallesPro_gral.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 }

@@ -86,6 +86,7 @@ public class Visor_devoluciones_3 extends javax.swing.JDialog {
             ResultSet rs = st.executeQuery(mostrar);
             while (rs.next()) {
                 txt_nro_venta.setText(rs.getString(1));
+                lbl_nro_de_venta.setText(rs.getString(2));
                 cliente.setText(rs.getString(4));
                 txt_des.setText(rs.getString(5));
                 valot_total.setText(rs.getString(7));
@@ -126,6 +127,8 @@ public class Visor_devoluciones_3 extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         lbl_nro_ventas = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        lbl_nro_de_venta = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Consulta Devoluciones");
@@ -247,6 +250,14 @@ public class Visor_devoluciones_3 extends javax.swing.JDialog {
         lbl_nro_ventas.setForeground(new java.awt.Color(0, 153, 51));
         jPanel2.add(lbl_nro_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 100, 30));
 
+        jLabel26.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel26.setText(" Nº de Venta:");
+        jPanel2.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 80, 30));
+
+        lbl_nro_de_venta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbl_nro_de_venta.setForeground(new java.awt.Color(153, 0, 0));
+        jPanel2.add(lbl_nro_de_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 90, 120, 30));
+
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 500));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 500));
@@ -288,7 +299,7 @@ public class Visor_devoluciones_3 extends javax.swing.JDialog {
                 eliminarDev();
                 limpiar();
 
-                Principal_devoluciones.btn_cargar_datos.doClick();
+                Principal_devoluciones_3.btn_cargar_datos.doClick();
                 this.dispose();
             }
         }
@@ -380,9 +391,11 @@ public class Visor_devoluciones_3 extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lbl_nro_de_venta;
     private javax.swing.JLabel lbl_nro_ventas;
     public static javax.swing.JTable tb_visor_recep;
     private javax.swing.JLabel txt_des;
@@ -403,6 +416,16 @@ public class Visor_devoluciones_3 extends javax.swing.JDialog {
             PreparedStatement pst = cn.prepareStatement(eliminarSQL);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
+            String capcod = "", capcan = "";
+            for (int i = 0; i < tb_visor_recep.getRowCount(); i++) {
+                capcod = tb_visor_recep.getValueAt(i, 1).toString();
+                capcan = tb_visor_recep.getValueAt(i, 4).toString();
+                AjustarStock(capcod, capcan);
+
+            }
+
+            //update nota venta
+            actEstadoVentas();
 
             JOptionPane.showMessageDialog(null, "Borrado");
 
@@ -425,6 +448,53 @@ public class Visor_devoluciones_3 extends javax.swing.JDialog {
         int i;
         for (i = a; i >= 0; i--) {
             modelo.removeRow(i);
+        }
+
+    }
+
+    void AjustarStock(String codi, String can) {
+
+        String cap = "";
+        String consul = "SELECT pro_stock_3 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(consul);
+            while (rs.next()) {
+                cap = rs.getString(1);
+            }
+            ///suma el stock
+            int desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_3='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
+            PreparedStatement pst = cn.prepareStatement(modi);
+            pst.executeUpdate();
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
+        }
+    }
+
+    void actEstadoVentas() {
+
+        try {
+            String es = ("CONFIRMADA");
+            String nro = lbl_nro_de_venta.getText();
+
+            String sql = "UPDATE ventas_3 SET estado_ventas = '" + es
+                    + "' WHERE num_bol = '" + nro + "'";
+            try {
+                Connection cn = conectar.getInstance().getConnection();
+                PreparedStatement pst = cn.prepareStatement(sql);
+                pst.executeUpdate();
+                conectar.getInstance().closeConnection(cn);
+
+                //  JOptionPane.showMessageDialog(null, "Actualizado");
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+
+        } catch (Exception e) {
         }
 
     }

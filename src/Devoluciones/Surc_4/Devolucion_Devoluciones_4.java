@@ -629,30 +629,24 @@ public class Devolucion_Devoluciones_4 extends javax.swing.JDialog {
     }//FIN METODO public vo
 
     void ajustartarstock(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
-        int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_stock_4 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(25);//pendiente a modificacion
+                cap = rs.getString(1);
             }
-            conectar.getInstance().closeConnection(cn);
-            
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) + des;
-        String modi = "UPDATE tienda_productos SET pro_stock_4='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+            ///suma el stock
+            int desfinal = Integer.parseInt(cap) + Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_4='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
-            
-        } catch (Exception e) {
+
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
     

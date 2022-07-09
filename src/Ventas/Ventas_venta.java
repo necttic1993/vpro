@@ -17,7 +17,6 @@ import static Loggin_Principal.Principal.lbl_fecha_hoy;
 import static Loggin_Principal.Principal.lbl_fecha_principal;
 import static Loggin_Principal.Principal.lbl_usu_almacen;
 import static Loggin_Principal.Principal.lbl_usu_nom;
-import static Loggin_Principal.Principal.txt_act_vuelto;
 import static Loggin_Principal.Principal.txt_simbolo;
 import static Ventas.Principal_ventas.lbl_almacen_ventas;
 import Ventas.pago_caja_rapida.Forma_pago_gral_rap;
@@ -64,7 +63,7 @@ public class Ventas_venta extends javax.swing.JDialog {
             panel_info_all.setBackground(new java.awt.Color(69, 84, 92));
             panel_total_2.setBackground(new java.awt.Color(69, 84, 92));
             panel_total.setBackground(new java.awt.Color(69, 84, 92));
-            
+
         }
         // Shape forma = new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 20, 20);
         //  AWTUtilities.setWindowShape(this, forma);
@@ -83,7 +82,7 @@ public class Ventas_venta extends javax.swing.JDialog {
         tb_factura.getColumnModel().getColumn(3).setPreferredWidth(75);
         tb_factura.getColumnModel().getColumn(4).setPreferredWidth(75);
         tb_factura.getColumnModel().getColumn(5).setPreferredWidth(120);
-        
+
         txt_des_ventas.setDocument(new machusculas());
         chk_contado.setSelected(true);
         lbl_plazos_dias.setVisible(false);
@@ -102,36 +101,41 @@ public class Ventas_venta extends javax.swing.JDialog {
         lbl_tipo_venta.setText("CONTADO");
         txt_usu_ventas.setText(lbl_usu_nom.getText());
         lbl_sur_nombre.setText(lbl_usu_almacen.getText());
-        
+
     }
-    
+
     public static String cod_alamacen_user = "";
-     public static String pro_bloq = "0";
-    
+    public static String pro_bloq = "0";
+    //
+    public static String cod_pro_mod_venta = "";
+    public static String cant_pro_mod_venta = "";
+    public static String stock_actual_mod = "";
+    public static String stock_pre_mod = "";
+
     void CajaR() {
-        
+
         if (Principal.lbl_usu_caj_rap.getText().equals("SI")) {
             btn_cajaR.setVisible(true);
             btnven.setVisible(false);
-            
+
         } else {
             btn_cajaR.setVisible(false);
             btnven.setVisible(true);
         }
-        
+
     }
-    
+
     public static String nro_nota_plazo = "";
     public static String tota_ventas = "";
     public static String id_venta_pago_ventas_normal = "";
     public static String id_nro_cuentas = "";
     public static String total_ventas_normal = "";
-    
+
     public static String id_doc_nro_ventas = "";
     public static String id_nro_cuenta_ventas = "";
     public static String total_doc_ventas = "";
     public static String id_doc_ventas = "";
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -155,7 +159,6 @@ public class Ventas_venta extends javax.swing.JDialog {
         txt_des_ventas = new javax.swing.JTextField();
         chk_ecommerce = new javax.swing.JCheckBox();
         txt_class_cli_ventas = new javax.swing.JTextField();
-        lbl_plazos_dias1 = new javax.swing.JLabel();
         panel_total = new javax.swing.JPanel();
         txttotal = new javax.swing.JLabel();
         lbl_cambio_conver_3 = new javax.swing.JLabel();
@@ -170,6 +173,10 @@ public class Ventas_venta extends javax.swing.JDialog {
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         txt_rt_cli = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
+        txt_ventas_op = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        lbl_plazos_dias2 = new javax.swing.JLabel();
         panel_info = new javax.swing.JPanel();
         btn_cajaR = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
@@ -211,7 +218,6 @@ public class Ventas_venta extends javax.swing.JDialog {
         pn_tipo_venta = new javax.swing.JPanel();
         lbl_tipo_venta = new javax.swing.JLabel();
         btnven = new javax.swing.JButton();
-        jLabel20 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lbl_r = new javax.swing.JLabel();
         lbl_cambio_mon_2 = new javax.swing.JLabel();
@@ -220,6 +226,12 @@ public class Ventas_venta extends javax.swing.JDialog {
         btn_busqueda = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         lbl_cod = new javax.swing.JLabel();
+        lbl_plazos_dias3 = new javax.swing.JLabel();
+        txt_limite_cred_cli = new javax.swing.JTextField();
+        ttx_credito_total_cli = new javax.swing.JTextField();
+        lbl_result_credito = new javax.swing.JLabel();
+        lbl_plazos_dias5 = new javax.swing.JLabel();
+        lbl_plazos_dias6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("VENTAS");
@@ -240,11 +252,11 @@ public class Ventas_venta extends javax.swing.JDialog {
         panel_info_all.setBackground(new java.awt.Color(255, 255, 255));
         panel_info_all.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        /*tb_factura = new javax.swing.JTable(){
+        tb_factura = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
                 return false;
             }
-        };*/
+        };
         tb_factura.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         tb_factura.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -271,7 +283,7 @@ public class Ventas_venta extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tb_factura);
 
-        panel_info_all.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 800, 320));
+        panel_info_all.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 800, 310));
 
         chk_contado.setBackground(new java.awt.Color(255, 255, 255));
         chk_contado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -331,7 +343,7 @@ public class Ventas_venta extends javax.swing.JDialog {
                 btn_buscaar_itemsKeyPressed(evt);
             }
         });
-        panel_info_all.add(btn_buscaar_items, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 90, 70, 45));
+        panel_info_all.add(btn_buscaar_items, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 100, 70, 45));
 
         jLabel17.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel17.setText("Nombre del Cliente :");
@@ -397,7 +409,7 @@ public class Ventas_venta extends javax.swing.JDialog {
                 btn_buscaar_presupuestoKeyPressed(evt);
             }
         });
-        panel_info_all.add(btn_buscaar_presupuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 90, 70, 45));
+        panel_info_all.add(btn_buscaar_presupuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 100, 70, 45));
 
         jLabel21.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel21.setText("Condición de pago :");
@@ -409,7 +421,7 @@ public class Ventas_venta extends javax.swing.JDialog {
                 txt_des_ventasActionPerformed(evt);
             }
         });
-        panel_info_all.add(txt_des_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 460, 30));
+        panel_info_all.add(txt_des_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 380, 30));
 
         chk_ecommerce.setBackground(new java.awt.Color(255, 255, 255));
         chk_ecommerce.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -425,10 +437,6 @@ public class Ventas_venta extends javax.swing.JDialog {
         txt_class_cli_ventas.setDisabledTextColor(new java.awt.Color(0, 0, 51));
         txt_class_cli_ventas.setEnabled(false);
         panel_info_all.add(txt_class_cli_ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 40, 150, 30));
-
-        lbl_plazos_dias1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        lbl_plazos_dias1.setText("Clasif.");
-        panel_info_all.add(lbl_plazos_dias1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 40, 40, 30));
 
         panel_total.setBackground(new java.awt.Color(255, 255, 255));
         panel_total.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Total", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 51, 153))); // NOI18N
@@ -495,7 +503,7 @@ public class Ventas_venta extends javax.swing.JDialog {
                 btneliActionPerformed(evt);
             }
         });
-        panel_info_all.add(btneli, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 90, 70, 45));
+        panel_info_all.add(btneli, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 100, 70, 45));
 
         jLabel22.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel22.setText("Fecha:");
@@ -508,9 +516,9 @@ public class Ventas_venta extends javax.swing.JDialog {
         panel_info_all.add(txt_tipo_clientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, 50, 30));
 
         jLabel23.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel23.setText("Nac.:");
+        jLabel23.setText("Nro OP:");
         jLabel23.setFocusable(false);
-        panel_info_all.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, 40, 30));
+        panel_info_all.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 70, 50, 30));
 
         jLabel24.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel24.setText("RT:");
@@ -521,6 +529,28 @@ public class Ventas_venta extends javax.swing.JDialog {
         txt_rt_cli.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_rt_cli.setEnabled(false);
         panel_info_all.add(txt_rt_cli, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, 180, 30));
+
+        jLabel25.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel25.setText("Nac.:");
+        jLabel25.setFocusable(false);
+        panel_info_all.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, 40, 30));
+
+        txt_ventas_op.setBackground(new java.awt.Color(255, 255, 0));
+        txt_ventas_op.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        panel_info_all.add(txt_ventas_op, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 70, 150, 30));
+
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/lapiz_editar.png"))); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        panel_info_all.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 100, 70, 45));
+
+        lbl_plazos_dias2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lbl_plazos_dias2.setText("Clasif.");
+        panel_info_all.add(lbl_plazos_dias2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 40, 40, 30));
 
         getContentPane().add(panel_info_all, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 550));
 
@@ -553,7 +583,7 @@ public class Ventas_venta extends javax.swing.JDialog {
         jLabel6.setText("Caja Rápida:");
         jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, 28));
 
-        panel_info.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 160, -1));
+        panel_info.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 160, -1));
 
         jPanel4.setBackground(new java.awt.Color(0, 153, 204));
 
@@ -585,7 +615,7 @@ public class Ventas_venta extends javax.swing.JDialog {
                 .addGap(0, 2, Short.MAX_VALUE))
         );
 
-        panel_info.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 150, 30));
+        panel_info.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 150, 30));
 
         panel_calculo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -705,9 +735,9 @@ public class Ventas_venta extends javax.swing.JDialog {
         panel_calculo.add(lbl_cod_pedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 40, 20));
 
         lbl_control_tipo.setText("NORMAL");
-        panel_calculo.add(lbl_control_tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, -1, -1));
+        panel_calculo.add(lbl_control_tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, -1, -1));
 
-        panel_info.add(panel_calculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 320, 160));
+        panel_info.add(panel_calculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 320, 50));
 
         pn_amortizacion.setBackground(new java.awt.Color(0, 102, 0));
         pn_amortizacion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -722,7 +752,7 @@ public class Ventas_venta extends javax.swing.JDialog {
         jLabel8.setText("Amortización:");
         pn_amortizacion.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, 28));
 
-        panel_info.add(pn_amortizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 210, 30));
+        panel_info.add(pn_amortizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 210, 30));
 
         btn_salir.setBackground(new java.awt.Color(255, 255, 255));
         btn_salir.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
@@ -753,11 +783,11 @@ public class Ventas_venta extends javax.swing.JDialog {
                 txt_dias_plazoActionPerformed(evt);
             }
         });
-        panel_info.add(txt_dias_plazo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 50, 30));
+        panel_info.add(txt_dias_plazo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, 50, 30));
 
         lbl_plazos_dias.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        lbl_plazos_dias.setText("N° Cuotas:");
-        panel_info.add(lbl_plazos_dias, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 60, 30));
+        lbl_plazos_dias.setText("x Días:");
+        panel_info.add(lbl_plazos_dias, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 60, 30));
 
         pn_tipo_venta.setBackground(new java.awt.Color(0, 0, 255));
         pn_tipo_venta.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -768,7 +798,7 @@ public class Ventas_venta extends javax.swing.JDialog {
         lbl_tipo_venta.setText("CONTADO");
         pn_tipo_venta.add(lbl_tipo_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 30));
 
-        panel_info.add(pn_tipo_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 330, -1));
+        panel_info.add(pn_tipo_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 330, -1));
 
         btnven.setBackground(new java.awt.Color(255, 255, 255));
         btnven.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
@@ -785,35 +815,29 @@ public class Ventas_venta extends javax.swing.JDialog {
         });
         panel_info.add(btnven, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 485, 130, 50));
 
-        jLabel20.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel20.setText("Informaciones:");
-        jLabel20.setFocusable(false);
-        panel_info.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 30));
-
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/dollar.png"))); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setText("   Cotización:");
-        panel_info.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 160, 40));
+        panel_info.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 160, 40));
 
         lbl_r.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbl_r.setText("1,365");
-        panel_info.add(lbl_r, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 70, 30));
+        panel_info.add(lbl_r, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 70, 30));
 
         lbl_cambio_mon_2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lbl_cambio_mon_2.setForeground(new java.awt.Color(0, 0, 102));
         lbl_cambio_mon_2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_1/estados-unidos.png"))); // NOI18N
         lbl_cambio_mon_2.setText("=");
-        panel_info.add(lbl_cambio_mon_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, -1, 30));
+        panel_info.add(lbl_cambio_mon_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, -1, 30));
 
         lbl_dolar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbl_dolar.setForeground(new java.awt.Color(0, 0, 102));
         lbl_dolar.setText("5,780");
-        panel_info.add(lbl_dolar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 60, 30));
+        panel_info.add(lbl_dolar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 60, 30));
 
         lbl_cambio_mon_1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lbl_cambio_mon_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos_1/brasil (1).png"))); // NOI18N
         lbl_cambio_mon_1.setText("=");
-        panel_info.add(lbl_cambio_mon_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, 30));
+        panel_info.add(lbl_cambio_mon_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, 30));
 
         btn_busqueda.setBackground(new java.awt.Color(255, 255, 255));
         btn_busqueda.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
@@ -838,14 +862,46 @@ public class Ventas_venta extends javax.swing.JDialog {
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel11.setText("Nro de Venta:");
-        panel_info.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 90, 30));
+        panel_info.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 90, 30));
 
         lbl_cod.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbl_cod.setForeground(new java.awt.Color(255, 0, 0));
         lbl_cod.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_cod.setText("0000001");
         lbl_cod.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panel_info.add(lbl_cod, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 110, 30));
+        panel_info.add(lbl_cod, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 110, 30));
+
+        lbl_plazos_dias3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lbl_plazos_dias3.setText("Deuda Actual:");
+        panel_info.add(lbl_plazos_dias3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 100, 30));
+
+        txt_limite_cred_cli.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txt_limite_cred_cli.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txt_limite_cred_cli.setText(" ");
+        txt_limite_cred_cli.setDisabledTextColor(new java.awt.Color(204, 0, 0));
+        txt_limite_cred_cli.setEnabled(false);
+        panel_info.add(txt_limite_cred_cli, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 210, 30));
+
+        ttx_credito_total_cli.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        ttx_credito_total_cli.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        ttx_credito_total_cli.setText(" ");
+        ttx_credito_total_cli.setDisabledTextColor(new java.awt.Color(0, 102, 51));
+        ttx_credito_total_cli.setEnabled(false);
+        panel_info.add(ttx_credito_total_cli, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 210, 30));
+
+        lbl_result_credito.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        lbl_result_credito.setForeground(new java.awt.Color(153, 0, 0));
+        lbl_result_credito.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbl_result_credito.setText("0");
+        panel_info.add(lbl_result_credito, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 150, 30));
+
+        lbl_plazos_dias5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        lbl_plazos_dias5.setText(">>>>");
+        panel_info.add(lbl_plazos_dias5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 60, 30));
+
+        lbl_plazos_dias6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lbl_plazos_dias6.setText("Límite Crédito:");
+        panel_info.add(lbl_plazos_dias6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 100, 30));
 
         getContentPane().add(panel_info, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 0, 340, 550));
 
@@ -855,7 +911,7 @@ public class Ventas_venta extends javax.swing.JDialog {
 
     private void btneliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliActionPerformed
         for (int i = 0; i < tb_factura.getRowCount(); i++) {
-            
+
             DefaultTableModel model = (DefaultTableModel) tb_factura.getModel();
             int fila = tb_factura.getSelectedRow();
             if (fila >= 0) {
@@ -863,7 +919,7 @@ public class Ventas_venta extends javax.swing.JDialog {
                 calcular();
                 calcularMoneda();
                 calcularCantidadPro();
-                
+
             }
             if (fila == 0) {
                 lbl_cambio_dolar.setText("0");
@@ -877,9 +933,9 @@ public class Ventas_venta extends javax.swing.JDialog {
     }//GEN-LAST:event_btneliActionPerformed
 
     private void btnvenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvenActionPerformed
-        
+
         if (chk_contado.isSelected()) {
-            
+
             if ((lbl_cod.getText().equals("")) || (txttotal.getText().equals("")) || (txt_cli_nom.getText().equals(""))) {
                 JOptionPane.showMessageDialog(this, "Ingrese cliente, producto o realice operacion");
             } else {
@@ -893,30 +949,30 @@ public class Ventas_venta extends javax.swing.JDialog {
                 // caja();
                 if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
                         "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-                    
+
                     if (Principal.txt_model_ticket.getText().equals("1")) {
                         id_doc_ventas = Ventas_venta.lbl_cod.getText();
                         Printers_ventas_modulo est;
                         est = new Printers_ventas_modulo(new javax.swing.JDialog(), true);
                         est.setVisible(true);
                     }
-                    
+
                     if (Principal.txt_model_ticket.getText().equals("2")) {
                         Reportes reporte = new Reportes();
                         try {
                             String moneda = Principal.txt_simbolo.getText();
                             reporte.recepM2(Ventas_venta.lbl_cod.getText(), moneda);
-                            
+
                         } catch (SQLException | JRException ex) {
                             Logger.getLogger(Ventas_venta.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
-                    
+
                 }
                 lbl_cambio_dolar.setText("");
                 lbl_cambio_real.setText("");
                 txttotal.setText("");
-                
+
                 DefaultTableModel modelo = (DefaultTableModel) tb_factura.getModel();
                 int a = tb_factura.getRowCount() - 1;
                 int i;
@@ -943,33 +999,33 @@ public class Ventas_venta extends javax.swing.JDialog {
                 txt_tipo_clientes.setText("");
                 txt_class_cli_ventas.setText("");
                 btnven.setEnabled(true);
-                
+
             }
         }
-        
+
         if (chk_plazo.isSelected()) {
-            
+
             if ((lbl_cod.getText().equals("")) || (txttotal.getText().equals("")) || (txt_cli_nom.getText().equals(""))) {
                 JOptionPane.showMessageDialog(this, "Ingrese cliente, producto o realice operacion");
             } else {
                 btnven.setEnabled(false);
-                
+
                 ticket_plazo();
-                
+
                 if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
                         "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                     Reportes reporte = new Reportes();
                     try {
                         String moneda = Principal.txt_simbolo.getText();
                         reporte.recep(Ventas_venta.lbl_cod.getText(), moneda);
-                        
+
                     } catch (SQLException | JRException ex) {
                         Logger.getLogger(Ventas_venta.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
                 lbl_cambio_real.setText("");
                 txttotal.setText("");
-                
+
                 DefaultTableModel modelo = (DefaultTableModel) tb_factura.getModel();
                 int a = tb_factura.getRowCount() - 1;
                 int i;
@@ -985,7 +1041,7 @@ public class Ventas_venta extends javax.swing.JDialog {
                 chk_plazo.setSelected(false);
                 chk_ecommerce.setSelected(false);
                 lbl_plazos_dias.setVisible(false);
-                
+
                 txt_dias_plazo.setText("");
                 txt_dias_plazo.setVisible(false);
                 lbl_tipo_venta.setText("CONTADO");
@@ -995,7 +1051,7 @@ public class Ventas_venta extends javax.swing.JDialog {
                 txt_tipo_clientes.setText("");
                 txt_class_cli_ventas.setText("");
                 btnven.setEnabled(true);
-                
+
             }
         }
         if (chk_ecommerce.isSelected()) {
@@ -1003,23 +1059,23 @@ public class Ventas_venta extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(this, "Ingrese cliente, producto o realice operacion");
             } else {
                 btnven.setEnabled(false);
-                
+
                 ticket_ecommerce();
-                
+
                 if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
                         "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                     Reportes reporte = new Reportes();
                     try {
                         String moneda = Principal.txt_simbolo.getText();
                         reporte.recep(Ventas_venta.lbl_cod.getText(), moneda);
-                        
+
                     } catch (SQLException | JRException ex) {
                         Logger.getLogger(Ventas_venta.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
                 lbl_cambio_real.setText("");
                 txttotal.setText("");
-                
+
                 DefaultTableModel modelo = (DefaultTableModel) tb_factura.getModel();
                 int a = tb_factura.getRowCount() - 1;
                 int i;
@@ -1035,7 +1091,7 @@ public class Ventas_venta extends javax.swing.JDialog {
                 chk_plazo.setSelected(false);
                 chk_ecommerce.setSelected(false);
                 lbl_plazos_dias.setVisible(false);
-                
+
                 txt_dias_plazo.setText("");
                 txt_dias_plazo.setVisible(false);
                 lbl_tipo_venta.setText("CONTADO");
@@ -1045,10 +1101,10 @@ public class Ventas_venta extends javax.swing.JDialog {
                 txt_tipo_clientes.setText("");
                 txt_class_cli_ventas.setText("");
                 btnven.setEnabled(true);
-                
+
             }
         }
-        
+
         txt_cod_cli.requestFocus();
         Principal_ventas.btn_cargar_datos.doClick();
     }//GEN-LAST:event_btnvenActionPerformed
@@ -1059,14 +1115,14 @@ public class Ventas_venta extends javax.swing.JDialog {
 
     private void txt_cod_cliKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_cod_cliKeyPressed
         char Tecla = evt.getKeyChar();
-        
+
         if (Tecla == KeyEvent.VK_ENTER) {
             Clientes_ventas cv;
             cv = new Clientes_ventas(new javax.swing.JDialog(), true);
             cv.setVisible(true);
-            
+
         }
-        
+
 
     }//GEN-LAST:event_txt_cod_cliKeyPressed
 
@@ -1089,7 +1145,7 @@ public class Ventas_venta extends javax.swing.JDialog {
         lbl_plazos_dias.setVisible(false);
         txt_dias_plazo.setVisible(false);
         chk_ecommerce.setSelected(false);
-        
+
         txt_dias_plazo.setText("");
         lbl_tipo_venta.setText("CONTADO");
         pn_tipo_venta.setBackground(Color.blue);
@@ -1103,14 +1159,14 @@ public class Ventas_venta extends javax.swing.JDialog {
     }//GEN-LAST:event_txt_dias_plazoActionPerformed
 
     private void btncalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncalcularActionPerformed
-        
+
         contarFilas();
         calcular();
         calcularMoneda();
         calcularCantidadPro();
         calcularCaja();
         literal();
-        
+
 
     }//GEN-LAST:event_btncalcularActionPerformed
 
@@ -1132,7 +1188,7 @@ public class Ventas_venta extends javax.swing.JDialog {
             Productos_ventas vrp;
             vrp = new Productos_ventas(new javax.swing.JDialog(), true);
             vrp.setVisible(true);
-            
+
         }
     }//GEN-LAST:event_btn_buscaar_itemsActionPerformed
 
@@ -1144,157 +1200,165 @@ public class Ventas_venta extends javax.swing.JDialog {
     }//GEN-LAST:event_btn_moneActionPerformed
 
     private void btn_cajaRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cajaRActionPerformed
-        if (chk_contado.isSelected()) {
-            
-            if ((lbl_cod.getText().equals("")) || (txttotal.getText().equals("")) || (txt_cli_nom.getText().equals(""))) {
-                JOptionPane.showMessageDialog(this, "Ingrese cliente, producto o realice operacion");
-            } else {
-                
-                ticketCR();
-                
-                caja();
-                actCuenta();
-                cobrar();
-                
-                String capcod = "", capcan = "";
-                for (int i = 0; i < Ventas_venta.tb_factura.getRowCount(); i++) {
-                    capcod = Ventas_venta.tb_factura.getValueAt(i, 0).toString();
-                    capcan = Ventas_venta.tb_factura.getValueAt(i, 3).toString();
-                    
-                    descontarstock(capcod, capcan);
-                    
-                }
-                
-                if (txt_act_vuelto.getText().equals("S")) {
-                    id_nro_cuentas = lbl_nro_cuenta.getText();
-                    id_venta_pago_ventas_normal = (String) lbl_cod.getText();
-                    total_ventas_normal = txttotal.getText();
-                    
-                }
-                
-                if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
-                        "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-                    
-                    if (Principal.txt_model_ticket.getText().equals("1")) {
-                        Reportes reporte = new Reportes();
-                        try {
-                            String moneda = Principal.txt_simbolo.getText();
-                            reporte.recep(Ventas_venta.lbl_cod.getText(), moneda);
-                            
-                        } catch (SQLException | JRException ex) {
-                            Logger.getLogger(Ventas_venta.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-                    
-                    if (Principal.txt_model_ticket.getText().equals("2")) {
-                        Reportes reporte = new Reportes();
-                        try {
-                            String moneda = Principal.txt_simbolo.getText();
-                            reporte.recepM2(Ventas_venta.lbl_cod.getText(), moneda);
-                            
-                        } catch (SQLException | JRException ex) {
-                            Logger.getLogger(Ventas_venta.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-                    
-                }
-                lbl_cambio_dolar.setText("");
-                lbl_cambio_real.setText("");
-                txttotal.setText("");
-                
-                DefaultTableModel modelo = (DefaultTableModel) tb_factura.getModel();
-                int a = tb_factura.getRowCount() - 1;
-                int i;
-                for (i = a; i >= 0; i--) {
-                    modelo.removeRow(i);
-                }
-                codigos();
-                txt_cod_cli.setText("");
-                txt_cli_nom.setText("");
-                lblcanpro.setText("0");
-                lbl_cambio_dolar.setText("0");
-                txttotal.setText("0");
-                lbl_cambio_real.setText("0");
-                chk_plazo.setSelected(false);
-                lbl_plazos_dias.setVisible(false);
-                
-                txt_dias_plazo.setVisible(false);
-                lbl_tipo_venta.setText("CONTADO");
-                pn_tipo_venta.setBackground(Color.blue);
-                pn_amortizacion.setVisible(false);
-                lbl_valor_amortz.setText("0");
-                txt_tipo_clientes.setText("");
-                txt_class_cli_ventas.setText("");
-            }
-        }
-        
-        if (chk_plazo.isSelected()) {
-            
-            if ((lbl_cod.getText().equals("")) || (txttotal.getText().equals("")) || (txt_cli_nom.getText().equals(""))) {
-                JOptionPane.showMessageDialog(this, "Ingrese cliente, producto o realice operacion");
-            } else {
-                
-                ticket_plazoCR();
-                
-                caja();
-                actCuenta();
-                cobrar();
-                if (Principal.lbl_usu_caj_rap.getText().equals("SI")) {
-                    id_nro_cuentas = lbl_nro_cuenta.getText();
-                    id_venta_pago_ventas_normal = (String) lbl_cod.getText();
-                    total_ventas_normal = txttotal.getText();
-                    
-                }
-                
-                if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
-                        "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-                    Reportes reporte = new Reportes();
-                    try {
-                        String moneda = Principal.txt_simbolo.getText();
-                        reporte.recep(Ventas_venta.lbl_cod.getText(), moneda);
-                        
-                    } catch (SQLException | JRException ex) {
-                        Logger.getLogger(Ventas_venta.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-                lbl_cambio_real.setText("");
-                txttotal.setText("");
-                
-                DefaultTableModel modelo = (DefaultTableModel) tb_factura.getModel();
-                int a = tb_factura.getRowCount() - 1;
-                int i;
-                for (i = a; i >= 0; i--) {
-                    modelo.removeRow(i);
-                }
-                codigos();
-                txt_cod_cli.setText("");
-                txt_cli_nom.setText("");
-                lblcanpro.setText("0");
-                lbl_cambio_dolar.setText("");
-                chk_contado.setSelected(true);
-                chk_plazo.setSelected(false);
-                lbl_plazos_dias.setVisible(false);
-                
-                txt_dias_plazo.setText("");
-                txt_dias_plazo.setVisible(false);
-                lbl_tipo_venta.setText("CONTADO");
-                pn_tipo_venta.setBackground(Color.blue);
-                pn_amortizacion.setVisible(false);
-                lbl_valor_amortz.setText("0");
-                txt_tipo_clientes.setText("");
-                txt_class_cli_ventas.setText("");
-                
-            }
-        }
-        
-        txt_cod_cli.requestFocus();
-        Principal_ventas.btn_cargar_datos.doClick();
+        /*   if (chk_contado.isSelected()) {
+
+         if ((lbl_cod.getText().equals("")) || (txttotal.getText().equals("")) || (txt_cli_nom.getText().equals(""))) {
+         JOptionPane.showMessageDialog(this, "Ingrese cliente, producto o realice operacion");
+         } else {
+
+         ticketCR();
+
+         caja();
+         actCuenta();
+         cobrar();
+
+         String capcod = "", capcan = "";
+         for (int i = 0; i < Ventas_venta.tb_factura.getRowCount(); i++) {
+         capcod = Ventas_venta.tb_factura.getValueAt(i, 0).toString();
+         capcan = Ventas_venta.tb_factura.getValueAt(i, 3).toString();
+
+         descontarstock(capcod, capcan);
+
+         }
+
+         if (txt_act_vuelto.getText().equals("S")) {
+         id_nro_cuentas = lbl_nro_cuenta.getText();
+         id_venta_pago_ventas_normal = (String) lbl_cod.getText();
+         total_ventas_normal = txttotal.getText();
+
+         }
+
+         if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
+         "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+
+         if (Principal.txt_model_ticket.getText().equals("1")) {
+         Reportes reporte = new Reportes();
+         try {
+         String moneda = Principal.txt_simbolo.getText();
+         reporte.recep(Ventas_venta.lbl_cod.getText(), moneda);
+
+         } catch (SQLException | JRException ex) {
+         Logger.getLogger(Ventas_venta.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         }
+
+         if (Principal.txt_model_ticket.getText().equals("2")) {
+         Reportes reporte = new Reportes();
+         try {
+         String moneda = Principal.txt_simbolo.getText();
+         reporte.recepM2(Ventas_venta.lbl_cod.getText(), moneda);
+
+         } catch (SQLException | JRException ex) {
+         Logger.getLogger(Ventas_venta.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         }
+
+         }
+         lbl_cambio_dolar.setText("");
+         lbl_cambio_real.setText("");
+         txttotal.setText("");
+
+         DefaultTableModel modelo = (DefaultTableModel) tb_factura.getModel();
+         int a = tb_factura.getRowCount() - 1;
+         int i;
+         for (i = a; i >= 0; i--) {
+         modelo.removeRow(i);
+         }
+         codigos();
+         txt_cod_cli.setText("");
+         txt_cli_nom.setText("");
+         lblcanpro.setText("0");
+         lbl_cambio_dolar.setText("0");
+         txttotal.setText("0");
+         lbl_cambio_real.setText("0");
+         chk_plazo.setSelected(false);
+         lbl_plazos_dias.setVisible(false);
+
+         txt_dias_plazo.setVisible(false);
+         lbl_tipo_venta.setText("CONTADO");
+         pn_tipo_venta.setBackground(Color.blue);
+         pn_amortizacion.setVisible(false);
+         lbl_valor_amortz.setText("0");
+         txt_tipo_clientes.setText("");
+         txt_class_cli_ventas.setText("");
+         }
+         }
+
+         if (chk_plazo.isSelected()) {
+
+         if ((lbl_cod.getText().equals("")) || (txttotal.getText().equals("")) || (txt_cli_nom.getText().equals(""))) {
+         JOptionPane.showMessageDialog(this, "Ingrese cliente, producto o realice operacion");
+         } else {
+
+         ticket_plazoCR();
+
+         caja();
+         actCuenta();
+         cobrar();
+         if (Principal.lbl_usu_caj_rap.getText().equals("SI")) {
+         id_nro_cuentas = lbl_nro_cuenta.getText();
+         id_venta_pago_ventas_normal = (String) lbl_cod.getText();
+         total_ventas_normal = txttotal.getText();
+
+         }
+
+         if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
+         "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+         Reportes reporte = new Reportes();
+         try {
+         String moneda = Principal.txt_simbolo.getText();
+         reporte.recep(Ventas_venta.lbl_cod.getText(), moneda);
+
+         } catch (SQLException | JRException ex) {
+         Logger.getLogger(Ventas_venta.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         }
+         lbl_cambio_real.setText("");
+         txttotal.setText("");
+
+         DefaultTableModel modelo = (DefaultTableModel) tb_factura.getModel();
+         int a = tb_factura.getRowCount() - 1;
+         int i;
+         for (i = a; i >= 0; i--) {
+         modelo.removeRow(i);
+         }
+         codigos();
+         txt_cod_cli.setText("");
+         txt_cli_nom.setText("");
+         lblcanpro.setText("0");
+         lbl_cambio_dolar.setText("");
+         chk_contado.setSelected(true);
+         chk_plazo.setSelected(false);
+         lbl_plazos_dias.setVisible(false);
+
+         txt_dias_plazo.setText("");
+         txt_dias_plazo.setVisible(false);
+         lbl_tipo_venta.setText("CONTADO");
+         pn_tipo_venta.setBackground(Color.blue);
+         pn_amortizacion.setVisible(false);
+         lbl_valor_amortz.setText("0");
+         txt_tipo_clientes.setText("");
+         txt_class_cli_ventas.setText("");
+
+         }
+         }
+
+         txt_cod_cli.requestFocus();
+         Principal_ventas.btn_cargar_datos.doClick();*/
     }//GEN-LAST:event_btn_cajaRActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Clientes_ventas cv;
         cv = new Clientes_ventas(new javax.swing.JDialog(), true);
         cv.setVisible(true);
+        if (Principal.lbl_nota_credito.getText().equals("NV")) {
+            ConsultaCreditoCli();
+            calcular_limite();
+        } else {
+            ConsultaCreditoCliFisc();
+            calcular_limite();
+        }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btn_calc_amortizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_calc_amortizacionActionPerformed
@@ -1305,22 +1369,22 @@ public class Ventas_venta extends javax.swing.JDialog {
     }//GEN-LAST:event_btn_calc_amortizacionActionPerformed
 
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
-        
+
         if (JOptionPane.showConfirmDialog(null, "¿Desea realmente salir de ventas?",
                 "Salir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
             dispose();
         }
-        
+
 
     }//GEN-LAST:event_btn_salirActionPerformed
 
     private void btn_salirKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_salirKeyReleased
         char Tecla = evt.getKeyChar();
-        
+
         if (Tecla == KeyEvent.VK_ESCAPE) {
-            
+
             btn_salir.doClick();
-            
+
         }
     }//GEN-LAST:event_btn_salirKeyReleased
 
@@ -1338,7 +1402,7 @@ public class Ventas_venta extends javax.swing.JDialog {
     }//GEN-LAST:event_formWindowIconified
 
     private void btn_buscaar_presupuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscaar_presupuestoActionPerformed
-        
+
         Select_pedi_presupuesto bpp;
         bpp = new Select_pedi_presupuesto(new javax.swing.JDialog(), true);
         bpp.setVisible(true);
@@ -1361,16 +1425,16 @@ public class Ventas_venta extends javax.swing.JDialog {
         calcularCantidadPro();
         calcularCaja();
         literal();
-        
+
         for (int i = 0; i < Ventas_venta.tb_factura.getRowCount(); i++) {
             String capcod = Ventas_venta.tb_factura.getValueAt(i, 0).toString();
             int cap = 0;
-            
+
             String separa = "";
             String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + capcod + "'";
             try {
                 Connection cn = conectar.getInstance().getConnection();
-                
+
                 Statement st = cn.createStatement();
                 ResultSet rs = st.executeQuery(consul);
                 while (rs.next()) {
@@ -1378,12 +1442,12 @@ public class Ventas_venta extends javax.swing.JDialog {
                     //separa = rs.getString(23);
                 }
                 conectar.getInstance().closeConnection(cn);
-                
+
             } catch (Exception e) {
             }
-            
+
             tb_factura.setValueAt(String.valueOf(cap), i, 4);
-            
+
         }
     }//GEN-LAST:event_btn_calc_preActionPerformed
 
@@ -1399,17 +1463,17 @@ public class Ventas_venta extends javax.swing.JDialog {
         calcularCantidadPro();
         calcularCaja();
         literal();
-        
+
         for (int i = 0; i < Ventas_venta.tb_factura.getRowCount(); i++) {
             String capcod = Ventas_venta.tb_factura.getValueAt(i, 0).toString();
             // String cap = "";
             int cap = 0;
-            
+
             String separa = "";
             String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + capcod + "'";
             try {
                 Connection cn = conectar.getInstance().getConnection();
-                
+
                 Statement st = cn.createStatement();
                 ResultSet rs = st.executeQuery(consul);
                 while (rs.next()) {
@@ -1417,11 +1481,11 @@ public class Ventas_venta extends javax.swing.JDialog {
                     //separa = rs.getString(23);
                 }
                 conectar.getInstance().closeConnection(cn);
-                
+
             } catch (Exception e) {
             }
             tb_factura.setValueAt(String.valueOf(cap), i, 4);
-            
+
         }
     }//GEN-LAST:event_btn_calc_pedidosActionPerformed
 
@@ -1434,7 +1498,7 @@ public class Ventas_venta extends javax.swing.JDialog {
         lbl_plazos_dias.setVisible(false);
         txt_dias_plazo.setVisible(false);
         chk_contado.setSelected(false);
-        
+
         txt_dias_plazo.setText("");
         lbl_tipo_venta.setText("E-COMMERCE");
         lbl_tipo_venta.setForeground(Color.black);
@@ -1463,7 +1527,7 @@ public class Ventas_venta extends javax.swing.JDialog {
     private void tb_facturaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_facturaKeyPressed
         char Tecla = evt.getKeyChar();
         if (Tecla == KeyEvent.VK_ENTER) {
-            
+
             btncalcular.doClick();
             JOptionPane.showMessageDialog(null, "Recalculando");
         }
@@ -1480,6 +1544,26 @@ public class Ventas_venta extends javax.swing.JDialog {
 
     }//GEN-LAST:event_btn_busquedaKeyReleased
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        int filasel = tb_factura.getSelectedRow();
+        if (filasel == -1) {
+            JOptionPane.showMessageDialog(null, "Seleccione un registro válido");
+        } else {
+
+            int filaModi = tb_factura.getSelectedRow();
+            cod_pro_mod_venta = (String) tb_factura.getValueAt(filaModi, 0);
+            stock_pre_mod = (String) tb_factura.getValueAt(filaModi, 2);
+            cant_pro_mod_venta = (String) tb_factura.getValueAt(filaModi, 3);
+            stock_actual_mod = (String) tb_factura.getValueAt(filaModi, 4);
+
+            Ajuste_nota_cantidad an;
+            an = new Ajuste_nota_cantidad(new javax.swing.JDialog(), true);
+            an.setVisible(true);
+
+        }
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1494,7 +1578,7 @@ public class Ventas_venta extends javax.swing.JDialog {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                    
+
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
@@ -1512,9 +1596,9 @@ public class Ventas_venta extends javax.swing.JDialog {
             public void run() {
                 try {
                     Ventas_venta dialog = null;
-                    
+
                     dialog = new Ventas_venta(new javax.swing.JDialog(), true);
-                    
+
                     dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                         @Override
                         public void windowClosing(java.awt.event.WindowEvent e) {
@@ -1554,16 +1638,17 @@ public class Ventas_venta extends javax.swing.JDialog {
     private javax.swing.JCheckBox chk_plazo;
     public static javax.swing.JLabel id_ventas_modif;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
@@ -1591,8 +1676,12 @@ public class Ventas_venta extends javax.swing.JDialog {
     private javax.swing.JLabel lbl_nom_cuenta;
     private javax.swing.JLabel lbl_nro_cuenta;
     private javax.swing.JLabel lbl_plazos_dias;
-    private javax.swing.JLabel lbl_plazos_dias1;
+    private javax.swing.JLabel lbl_plazos_dias2;
+    private javax.swing.JLabel lbl_plazos_dias3;
+    private javax.swing.JLabel lbl_plazos_dias5;
+    private javax.swing.JLabel lbl_plazos_dias6;
     private javax.swing.JLabel lbl_r;
+    private javax.swing.JLabel lbl_result_credito;
     private javax.swing.JLabel lbl_saldo_actual;
     private javax.swing.JLabel lbl_saldo_cuenta;
     private javax.swing.JLabel lbl_sur_nombre;
@@ -1608,54 +1697,57 @@ public class Ventas_venta extends javax.swing.JDialog {
     private javax.swing.JPanel pn_amortizacion;
     private javax.swing.JPanel pn_tipo_venta;
     public static javax.swing.JTable tb_factura;
+    private javax.swing.JTextField ttx_credito_total_cli;
     public static javax.swing.JTextField txt_class_cli_ventas;
     public static javax.swing.JTextField txt_cli_nom;
     public static javax.swing.JTextField txt_cod_cli;
     private javax.swing.JTextField txt_des_ventas;
     public static javax.swing.JTextField txt_dias_plazo;
+    public static javax.swing.JTextField txt_limite_cred_cli;
     public static javax.swing.JTextField txt_rt_cli;
     public static javax.swing.JTextField txt_tipo_clientes;
     private javax.swing.JTextField txt_usu_ventas;
+    private javax.swing.JTextField txt_ventas_op;
     public static javax.swing.JLabel txttotal;
     // End of variables declaration//GEN-END:variables
 
     public void calcular() {
-        
+
         String imp = "0", subtotal = "0", iva = "0", total = "0";
-        
+
         for (int i = 0; i < tb_factura.getRowCount(); i++) {
             BigDecimal PulidoPrec = ingreso.TransformReales(tb_factura.getValueAt(i, 2).toString().replaceAll("\\s", ""));
             BigDecimal PulidoCant = ingreso.TransformReales(tb_factura.getValueAt(i, 3).toString().replaceAll("\\s", ""));
-            
+
             imp = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(PulidoPrec.multiply(PulidoCant).toString());
             subtotal = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(ingreso.TransformReales(subtotal).add(ingreso.TransformReales(imp)).toString());
-            
+
             tb_factura.setValueAt(ingreso.MaskareaRealesDado_String_ExclusiveMonedas(String.valueOf(imp)), i, 5);
-            
+
             total = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(ingreso.TransformReales(subtotal).add(ingreso.TransformReales(iva)).toString());
-            
+
             txttotal.setText(total);
             lbl_total_amort.setText(total);
-            
+
         }
     }
-    
+
     public void calcularMoneda() {
-        
+
         String real = "0", dolar = "0";
-        
+
         BigDecimal ValorGuaranies = ingreso.TransformReales(txttotal.getText().replaceAll("\\s", ""));
         BigDecimal ValorGuaranies2 = ingreso.TransformReales(txttotal.getText().replaceAll("\\s", ""));
         BigDecimal ValorDolar = ingreso.TransformReales(lbl_dolar.getText().replaceAll("\\s", ""));
         BigDecimal ValorReal = ingreso.TransformReales(lbl_r.getText().replaceAll("\\s", ""));
-        
+
         if (Principal.txt_simbolo.getText().equals("Gs")) {
             real = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(ValorGuaranies.divide(ValorReal, 2, RoundingMode.HALF_UP).toString());
             dolar = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(ValorGuaranies2.divide(ValorDolar, 2, RoundingMode.HALF_UP).toString());
             lbl_cambio_real.setText(real);
             lbl_cambio_dolar.setText(dolar);
         }
-        
+
         if (Principal.txt_simbolo.getText().equals("US$")) {
             String reale = "0", guaranies = "0";
             int decimalPlace = 2;
@@ -1672,9 +1764,9 @@ public class Ventas_venta extends javax.swing.JDialog {
             guaranies = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rcg);
             lbl_cambio_dolar.setText(guaranies);
         }
-        
+
     }
-    
+
     void descontarstock(String codi, String can) {
         int des = Integer.parseInt(can);
         String cap = "";
@@ -1682,25 +1774,25 @@ public class Ventas_venta extends javax.swing.JDialog {
         String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-            
+
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
                 cap = rs.getString(5);//pendiente a modificacion
             }
             conectar.getInstance().closeConnection(cn);
-            
+
         } catch (Exception e) {
         }
         desfinal = Integer.parseInt(cap) - des;
         String modi = "UPDATE tienda_productos SET pro_cant='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-            
+
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
-            
+
         } catch (Exception e) {
         }
     }
@@ -1713,32 +1805,32 @@ public class Ventas_venta extends javax.swing.JDialog {
         String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-            
+
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
                 cap = rs.getString(23);//pendiente a modificacion
             }
             conectar.getInstance().closeConnection(cn);
-            
+
         } catch (Exception e) {
         }
         desfinal = Integer.parseInt(cap) + des;
         String modi = "UPDATE tienda_productos SET pro_alma='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-            
+
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
-            
+
         } catch (Exception e) {
         }
     }
-    
+
     void ticket() {
         codigos();
-        String InsertarSQL = "INSERT INTO ventas (num_bol,cod_cli_ventas,nom_cli_ventas,forma_pag_ventas,dias_plazo_ventas,total_ventas,total_real,total_dolar,estado_ventas,fecha_ventas,user_ventas,almacen_ventas,cant_ventas,letras_ventas,vac_ventas,ventas_des) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String InsertarSQL = "INSERT INTO ventas (num_bol,cod_cli_ventas,nom_cli_ventas,forma_pag_ventas,dias_plazo_ventas,total_ventas,total_real,total_dolar,estado_ventas,fecha_ventas,user_ventas,almacen_ventas,cant_ventas,letras_ventas,vac_ventas,ventas_des,ventas_op) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         String numbol = lbl_cod.getText();
         String cod_cli = txt_cod_cli.getText();
         String nom_cli = txt_cli_nom.getText();//cambiar en db
@@ -1755,9 +1847,10 @@ public class Ventas_venta extends javax.swing.JDialog {
         String literal = lbl_literal.getText();
         String id_user = Principal.lbl_id_user.getText();
         String describe = txt_des_ventas.getText();
+        String ventas_op = txt_ventas_op.getText();
         try {
             Connection cn = conectar.getInstance().getConnection();
-            
+
             PreparedStatement pst = cn.prepareStatement(InsertarSQL);
             pst.setString(1, numbol);
             pst.setString(2, cod_cli);
@@ -1775,21 +1868,22 @@ public class Ventas_venta extends javax.swing.JDialog {
             pst.setString(14, literal);
             pst.setString(15, id_user);
             pst.setString(16, describe);
+            pst.setString(17, ventas_op);
             int n = pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
-            
+
             if (n > 0) {
                 detalle_ticket();
-                
+
                 String capcod = "", capcan = "";
                 for (int i = 0; i < Ventas_venta.tb_factura.getRowCount(); i++) {
                     capcod = Ventas_venta.tb_factura.getValueAt(i, 0).toString();
                     capcan = Ventas_venta.tb_factura.getValueAt(i, 3).toString();
                     System.out.println("Ventas stock");
                     descontarstock(capcod, capcan);
-                    
+
                 }
-                
+
                 if (lbl_cod_pedidos.getText().equals("0")) {
                     System.out.println("sin pedidos");
                 } else {
@@ -1797,19 +1891,19 @@ public class Ventas_venta extends javax.swing.JDialog {
                 }
                 //
                 JOptionPane.showMessageDialog(null, "Venta realizada con éxito");
-                
+
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(Ventas_venta.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
-    
+
     void ticket_ecommerce() {
         codigos();
-        String InsertarSQL = "INSERT INTO ventas (num_bol,cod_cli_ventas,nom_cli_ventas,forma_pag_ventas,dias_plazo_ventas,total_ventas,total_real,total_dolar,estado_ventas,fecha_ventas,user_ventas,almacen_ventas,cant_ventas,letras_ventas,vac_ventas,ventas_des) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String InsertarSQL = "INSERT INTO ventas (num_bol,cod_cli_ventas,nom_cli_ventas,forma_pag_ventas,dias_plazo_ventas,total_ventas,total_real,total_dolar,estado_ventas,fecha_ventas,user_ventas,almacen_ventas,cant_ventas,letras_ventas,vac_ventas,ventas_des,ventas_op) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         String numbol = lbl_cod.getText();
         String cod_cli = txt_cod_cli.getText();
         String nom_cli = txt_cli_nom.getText();//cambiar en db
@@ -1826,9 +1920,10 @@ public class Ventas_venta extends javax.swing.JDialog {
         String literal = lbl_literal.getText();
         String id_user = Principal.lbl_id_user.getText();
         String describe = txt_des_ventas.getText();
+        String ventas_op = txt_ventas_op.getText();
         try {
             Connection cn = conectar.getInstance().getConnection();
-            
+
             PreparedStatement pst = cn.prepareStatement(InsertarSQL);
             pst.setString(1, numbol);
             pst.setString(2, cod_cli);
@@ -1846,34 +1941,35 @@ public class Ventas_venta extends javax.swing.JDialog {
             pst.setString(14, literal);
             pst.setString(15, id_user);
             pst.setString(16, describe);
+            pst.setString(17, ventas_op);
             int n = pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
-            
+
             if (n > 0) {
                 detalle_ticket();
                 String capcod = "", capcan = "";
                 for (int i = 0; i < Ventas_venta.tb_factura.getRowCount(); i++) {
                     capcod = Ventas_venta.tb_factura.getValueAt(i, 0).toString();
                     capcan = Ventas_venta.tb_factura.getValueAt(i, 3).toString();
-                    
+
                     descontarstock(capcod, capcan);
-                    
+
                 }
-                
+
                 JOptionPane.showMessageDialog(null, "Venta realizada con éxito");
-                
+
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(Ventas_venta.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
-    
+
     void ticket_plazo() {
         codigos();
-        String InsertarSQL = "INSERT INTO ventas (num_bol,cod_cli_ventas,nom_cli_ventas,forma_pag_ventas,dias_plazo_ventas,total_ventas,total_real,total_dolar,estado_ventas,fecha_ventas,user_ventas,almacen_ventas,cant_ventas,letras_ventas,vac_ventas,monto_cred,ventas_des) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String InsertarSQL = "INSERT INTO ventas (num_bol,cod_cli_ventas,nom_cli_ventas,forma_pag_ventas,dias_plazo_ventas,total_ventas,total_real,total_dolar,estado_ventas,fecha_ventas,user_ventas,almacen_ventas,cant_ventas,letras_ventas,vac_ventas,monto_cred,ventas_des,ventas_op) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         String numbol = lbl_cod.getText();
         String cod_cli = txt_cod_cli.getText();
         String nom_cli = txt_cli_nom.getText();//cambiar en db
@@ -1891,9 +1987,10 @@ public class Ventas_venta extends javax.swing.JDialog {
         String id_user = Principal.lbl_id_user.getText();
         String monto_cred = txttotal.getText();
         String describe = txt_des_ventas.getText();
+        String ventas_op = txt_ventas_op.getText();
         try {
             Connection cn = conectar.getInstance().getConnection();
-            
+
             PreparedStatement pst = cn.prepareStatement(InsertarSQL);
             pst.setString(1, numbol);
             pst.setString(2, cod_cli);
@@ -1912,31 +2009,32 @@ public class Ventas_venta extends javax.swing.JDialog {
             pst.setString(15, id_user);
             pst.setString(16, monto_cred);
             pst.setString(17, describe);
+            pst.setString(18, ventas_op);
             int n = pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
-            
+
             if (n > 0) {
                 detalle_ticket();
-                
+
                 String capcod = "", capcan = "";
                 for (int i = 0; i < Ventas_venta.tb_factura.getRowCount(); i++) {
                     capcod = Ventas_venta.tb_factura.getValueAt(i, 0).toString();
                     capcan = Ventas_venta.tb_factura.getValueAt(i, 3).toString();
-                    
+
                     descontarstock(capcod, capcan);
                 }
-                
+
                 JOptionPane.showMessageDialog(null, "Venta realizada con éxito");
-                
+
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(Ventas_venta.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
-    
+
     void detalle_ticket() {
         for (int i = 0; i < tb_factura.getRowCount(); i++) {
             String InsertarSQL = "INSERT INTO ventas_detalles (num_bol,cod_pro,des_pro,cant_pro,pre_unit,cant_kg,pre_venta,data) VALUES (?,?,?,?,?,?,?,?)";
@@ -1948,10 +2046,10 @@ public class Ventas_venta extends javax.swing.JDialog {
             String preunit = tb_factura.getValueAt(i, 2).toString();
             String importe = tb_factura.getValueAt(i, 5).toString();
             String fecha_det_con = lbl_fecha_hoy.getText();
-            
+
             try {
                 Connection cn = conectar.getInstance().getConnection();
-                
+
                 PreparedStatement pst = cn.prepareStatement(InsertarSQL);
                 pst.setString(1, numbol);
                 pst.setString(2, codpro);
@@ -1963,7 +2061,7 @@ public class Ventas_venta extends javax.swing.JDialog {
                 pst.setString(8, fecha_det_con);
                 pst.executeUpdate();
                 conectar.getInstance().closeConnection(cn);
-                
+
             } catch (SQLException ex) {
                 Logger.getLogger(Ventas_venta.class
                         .getName()).log(Level.SEVERE, null, ex);
@@ -1991,10 +2089,10 @@ public class Ventas_venta extends javax.swing.JDialog {
         String literal = lbl_literal.getText();
         String id_user = Principal.lbl_id_user.getText();
         String describe = txt_des_ventas.getText();
-        
+
         try {
             Connection cn = conectar.getInstance().getConnection();
-            
+
             PreparedStatement pst = cn.prepareStatement(InsertarSQL);
             pst.setString(1, numbol);
             pst.setString(2, cod_cli);
@@ -2014,23 +2112,23 @@ public class Ventas_venta extends javax.swing.JDialog {
             pst.setString(16, describe);
             int n = pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
-            
+
             if (n > 0) {
                 detalle_ticket();
                 UpdatePedido();
                 JOptionPane.showMessageDialog(null, "Venta realizada con éxito");
-                
+
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(Ventas_venta.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
-    
+
     void ticket_ecommerceR() {
-        
+
         String InsertarSQL = "INSERT INTO ventas (num_bol,cod_cli_ventas,nom_cli_ventas,forma_pag_ventas,dias_plazo_ventas,total_ventas,total_real,total_dolar,estado_ventas,fecha_ventas,user_ventas,almacen_ventas,cant_ventas,letras_ventas,vac_ventas) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         String numbol = lbl_cod.getText();
         String cod_cli = txt_cod_cli.getText();
@@ -2047,10 +2145,10 @@ public class Ventas_venta extends javax.swing.JDialog {
         String almacen = lbl_almacen_ventas.getText();
         String literal = lbl_literal.getText();
         String id_user = Principal.lbl_id_user.getText();
-        
+
         try {
             Connection cn = conectar.getInstance().getConnection();
-            
+
             PreparedStatement pst = cn.prepareStatement(InsertarSQL);
             pst.setString(1, numbol);
             pst.setString(2, cod_cli);
@@ -2068,21 +2166,21 @@ public class Ventas_venta extends javax.swing.JDialog {
             pst.setString(14, literal);
             pst.setString(15, id_user);
             conectar.getInstance().closeConnection(cn);
-            
+
             int n = pst.executeUpdate();
             if (n > 0) {
                 detalle_ticket();
                 JOptionPane.showMessageDialog(null, "Venta realizada con éxito");
-                
+
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(Ventas_venta.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
-    
+
     void ticket_plazoCR() {
         codigos();
         String InsertarSQL = "INSERT INTO ventas (num_bol,cod_cli_ventas,nom_cli_ventas,forma_pag_ventas,dias_plazo_ventas,total_ventas,total_real,total_dolar,estado_ventas,fecha_ventas,user_ventas,almacen_ventas,cant_ventas,letras_ventas,vac_ventas,ventas_des) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -2104,7 +2202,7 @@ public class Ventas_venta extends javax.swing.JDialog {
         String describe = txt_des_ventas.getText();
         try {
             Connection cn = conectar.getInstance().getConnection();
-            
+
             PreparedStatement pst = cn.prepareStatement(InsertarSQL);
             pst.setString(1, numbol);
             pst.setString(2, cod_cli);
@@ -2124,28 +2222,28 @@ public class Ventas_venta extends javax.swing.JDialog {
             pst.setString(16, describe);
             int n = pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
-            
+
             if (n > 0) {
-                
+
                 detalle_ticket();
                 String capcod = "", capcan = "";
                 for (int i = 0; i < Ventas_venta.tb_factura.getRowCount(); i++) {
                     capcod = Ventas_venta.tb_factura.getValueAt(i, 0).toString();
                     capcan = Ventas_venta.tb_factura.getValueAt(i, 3).toString();
-                    
+
                     descontarstock(capcod, capcan);
-                    
+
                 }
-                
+
                 JOptionPane.showMessageDialog(null, "Venta realizada con éxito");
-                
+
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(Ventas_venta.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2155,23 +2253,23 @@ public class Ventas_venta extends javax.swing.JDialog {
         SimpleDateFormat formatofecha = new SimpleDateFormat("YYYY-MM-dd");
         return formatofecha.format(fecha);
     }
-    
+
     @SuppressWarnings("unchecked")
     public static String fechaactS() {
         Date fecha = new Date();
         SimpleDateFormat formatofecha = new SimpleDateFormat("dd/MM/YYYY");
         return formatofecha.format(fecha);
-        
+
     }
-    
+
     void codigos() {
-        
+
         String c = "";
         String SQL = "select max(num_bol) from ventas";
-        
+
         try {
             Connection cn = conectar.getInstance().getConnection();
-            
+
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             if (rs.next()) {
@@ -2185,7 +2283,7 @@ public class Ventas_venta extends javax.swing.JDialog {
                     GenerarNumero gen = new GenerarNumero();
                     gen.generar(j);
                     lbl_cod.setText(gen.serie());
-                    
+
                 } else {
                     Generar_Num_Pro gen = new Generar_Num_Pro();
                     gen.generar(j);
@@ -2193,16 +2291,16 @@ public class Ventas_venta extends javax.swing.JDialog {
                 }
             }
             conectar.getInstance().closeConnection(cn);
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(Ventas_venta.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
-    
+
     public void calcularCantidadPro() {
-        
+
         int Acumulador = 0;
         int TF = tb_factura.getRowCount();
         for (int i = 0; i < TF; i++) {
@@ -2211,11 +2309,11 @@ public class Ventas_venta extends javax.swing.JDialog {
         }
         //</editor-fold>
         lblcanpro.setText(MaskaraPrecioUnitarioEnteros(String.valueOf(Acumulador)));
-        
+
     }
-    
+
     public void calcularSubtotal() {
-        
+
         int Acumulador = 0;
         int TF = tb_factura.getRowCount();
         for (int i = 0; i < TF; i++) {
@@ -2224,9 +2322,9 @@ public class Ventas_venta extends javax.swing.JDialog {
         }
         //</editor-fold>
         txttotal.setText(ingreso.MaskareaRealesDado_String_ExclusiveMonedas(String.valueOf(Acumulador)));
-        
+
     }
-    
+
     public String MaskaraPrecioUnitarioEnteros(String ValorGuaranies) {
         DecimalFormat format = new DecimalFormat("###,###.##");
         long NumeroIntacto = 0L;
@@ -2238,18 +2336,18 @@ public class Ventas_venta extends javax.swing.JDialog {
         String LuzParaMisOjos = NroFormatado;
         return LuzParaMisOjos;
     }
-    
+
     void TiposPagos() {
-        
+
         if (chk_plazo.isSelected()) {
             lbl_plazos_dias.setVisible(true);
             txt_dias_plazo.setVisible(true);
-            
+
         }
     }
-    
+
     void caja() {
-        
+
         String InsertarSQL = "INSERT INTO caja(des_caja,moneda1_caja_in,moneda2_caja_in,moneda1_caja_eg,moneda2_caja_eg,fecha_caja,user,caja_mon_cambio,caja_tipo,cuenta_nro,cuenta_nom) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
         String descaja = ("EN CONCEPTO DE VENTA:NOTA N°" + lbl_cod.getText());
         String total_gs = txttotal.getText();
@@ -2264,7 +2362,7 @@ public class Ventas_venta extends javax.swing.JDialog {
         String cuenta = lbl_nom_cuenta.getText();
         try {
             Connection cn = conectar.getInstance().getConnection();
-            
+
             PreparedStatement pst = cn.prepareStatement(InsertarSQL);
             pst.setString(1, descaja);
             pst.setString(2, total_gs);
@@ -2277,21 +2375,21 @@ public class Ventas_venta extends javax.swing.JDialog {
             pst.setString(9, tipo_caja);
             pst.setString(10, cuenta_nro);
             pst.setString(11, cuenta);
-            
+
             int n = pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
-            
+
             if (n > 0) {
                 //JOptionPane.showMessageDialog(null, "Los datos se guardaron correctamente");
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(Ventas_venta.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     void literal() {
-        
+
         String emi = txttotal.getText();
         String emi1 = emi.replaceAll(",", "");
         lbl_literal_pro.setText(emi1);
@@ -2299,19 +2397,19 @@ public class Ventas_venta extends javax.swing.JDialog {
             Clase_Literal NumLetra = new Clase_Literal();
             String numero = lbl_literal_pro.getText();
             lbl_literal.setText(NumLetra.Convertir(numero, true));
-            
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-        
+
     }
-    
+
     void cargarConfig() throws IOException {
         String mostrar = "SELECT * FROM empresas";
-        
+
         try {
             Connection cn = conectar.getInstance().getConnection();
-            
+
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(mostrar);
             while (rs.next()) {
@@ -2322,20 +2420,20 @@ public class Ventas_venta extends javax.swing.JDialog {
 
             }
             conectar.getInstance().closeConnection(cn);
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(Ventas_venta.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
-    
+
     void cargarCuenta() throws IOException {
         String id = lbl_nro_cuenta.getText();
         String mostrar = "SELECT saldo_cuenta FROM cuentas where nro_cuentas ='" + id + "' ";
-        
+
         try {
             Connection cn = conectar.getInstance().getConnection();
-            
+
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(mostrar);
             while (rs.next()) {
@@ -2343,56 +2441,56 @@ public class Ventas_venta extends javax.swing.JDialog {
 
             }
             conectar.getInstance().closeConnection(cn);
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(Ventas_venta.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
-    
+
     public void calcularCaja() {
-        
+
         String totalCuenta = "0";
         BigDecimal ValorTotal = ingreso.TransformReales(txttotal.getText().replaceAll("\\s", ""));
         BigDecimal ValorCuenta = ingreso.TransformReales(lbl_saldo_cuenta.getText().replaceAll("\\s", ""));
         totalCuenta = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(ValorTotal.add(ValorCuenta).toString());
         lbl_saldo_actual.setText(totalCuenta);
-        
+
     }
-    
+
     public void calcular_amorti() {
-        
+
         String totalCuenta = "0";
         BigDecimal ValorTotal = ingreso.TransformReales(lbl_total_amort.getText().replaceAll("\\s", ""));
         BigDecimal ValorCuenta = ingreso.TransformReales(lbl_valor_amortz.getText().replaceAll("\\s", ""));
         totalCuenta = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(ValorTotal.add(ValorCuenta).toString());
         txttotal.setText(totalCuenta);
-        
+
     }
-    
+
     void actCuenta() {
-        
+
         try {
             String id = lbl_nro_cuenta.getText();
             String saldo = lbl_saldo_actual.getText();
-            
+
             String sql = "UPDATE cuentas SET saldo_cuenta = '" + saldo
                     + "' WHERE nro_cuentas = '" + id + "'";
             try {
                 Connection cn = conectar.getInstance().getConnection();
-                
+
                 PreparedStatement pst = cn.prepareStatement(sql);
                 pst.executeUpdate();
                 // JOptionPane.showMessageDialog(null, "Actualizado");
                 conectar.getInstance().closeConnection(cn);
-                
+
             } catch (SQLException | HeadlessException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
-            
+
         } catch (Exception e) {
         }
-        
+
     }
 
     ////////////buscar presupuesto///////////////////////////////
@@ -2401,31 +2499,31 @@ public class Ventas_venta extends javax.swing.JDialog {
         String[] titulos = {"Id Producto", "Descripción", "Precio Unitario", "Unidad", "Stock Ref.", "Precio Venta"};
         String[] Registros = new String[9];
         DefaultTableModel model = new DefaultTableModel(null, titulos);
-        
+
         try {
             Connection cn = conectar.getInstance().getConnection();
-            
+
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(mostrar);
             while (rs.next()) {
-                
+
                 Registros[0] = rs.getString("cod_pro");
                 Registros[1] = rs.getString("des_pro");
                 Registros[2] = rs.getString("pre_unit");
                 Registros[3] = rs.getString("cant_pro");
                 Registros[4] = rs.getString("cant_kg");
                 Registros[5] = rs.getString("pre_venta");
-                
+
                 model.addRow(Registros);
             }
             tb_factura.setModel(model);
-            
+
             Stock_minimo_pro color = new Stock_minimo_pro(4, 3);
-            
+
             tb_factura.getColumnModel().getColumn(0).setCellRenderer(color);
             tb_factura.getColumnModel().getColumn(4).setCellRenderer(color);
             tb_factura.getColumnModel().getColumn(3).setCellRenderer(color);
-            
+
             tb_factura.getColumnModel().getColumn(0).setPreferredWidth(90);
             tb_factura.getColumnModel().getColumn(1).setPreferredWidth(330);
             tb_factura.getColumnModel().getColumn(2).setPreferredWidth(130);
@@ -2433,19 +2531,19 @@ public class Ventas_venta extends javax.swing.JDialog {
             tb_factura.getColumnModel().getColumn(4).setPreferredWidth(83);
             tb_factura.getColumnModel().getColumn(5).setPreferredWidth(130);
             conectar.getInstance().closeConnection(cn);
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(Ventas_venta.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
-    
+
     public void cargarTxt(String valor) {
         String mostrar = "select c.cli_cod,c.cli_nombre,p.dias_plazo_ventas,p.almacen_ventas,c.nro_registro,c.cli_tipo,cli_pais from presupuesto as p inner join tienda_clientes as c on p.cod_cli_ventas=c.cli_cod  WHERE CONCAT(num_bol) LIKE '%" + valor + "%'";
-        
+
         try {
             Connection cn = conectar.getInstance().getConnection();
-            
+
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(mostrar);
             while (rs.next()) {
@@ -2458,11 +2556,11 @@ public class Ventas_venta extends javax.swing.JDialog {
                 txt_tipo_clientes.setText(rs.getString(7));
             }
             conectar.getInstance().closeConnection(cn);
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(Ventas_venta.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     ///////buscar pedidos
@@ -2471,31 +2569,31 @@ public class Ventas_venta extends javax.swing.JDialog {
         String[] titulos = {"Id Producto", "Descripción", "Precio Unitario", "Unidad", "Stock Ref.", "Precio Venta"};
         String[] Registros = new String[9];
         DefaultTableModel model = new DefaultTableModel(null, titulos);
-        
+
         try {
             Connection cn = conectar.getInstance().getConnection();
-            
+
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(mostrar);
             while (rs.next()) {
-                
+
                 Registros[0] = rs.getString("cod_pro");
                 Registros[1] = rs.getString("des_pro");
                 Registros[2] = rs.getString("pre_unit");
                 Registros[3] = rs.getString("cant_pro");
                 Registros[4] = rs.getString("cant_kg");
                 Registros[5] = rs.getString("pre_venta");
-                
+
                 model.addRow(Registros);
             }
             tb_factura.setModel(model);
-            
+
             Stock_minimo_pro color = new Stock_minimo_pro(4, 3);
-            
+
             tb_factura.getColumnModel().getColumn(0).setCellRenderer(color);
             tb_factura.getColumnModel().getColumn(4).setCellRenderer(color);
             tb_factura.getColumnModel().getColumn(3).setCellRenderer(color);
-            
+
             tb_factura.getColumnModel().getColumn(0).setPreferredWidth(90);
             tb_factura.getColumnModel().getColumn(1).setPreferredWidth(330);
             tb_factura.getColumnModel().getColumn(2).setPreferredWidth(130);
@@ -2503,33 +2601,33 @@ public class Ventas_venta extends javax.swing.JDialog {
             tb_factura.getColumnModel().getColumn(4).setPreferredWidth(83);
             tb_factura.getColumnModel().getColumn(5).setPreferredWidth(130);
             conectar.getInstance().closeConnection(cn);
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(Ventas_venta.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
-    
+
     public void cargarTxtPedidos(String valor) {
         String mostrar = "SELECT * FROM pedidos WHERE CONCAT(num_pedi) LIKE '%" + valor + "%'";
-        
+
         try {
             Connection cn = conectar.getInstance().getConnection();
-            
+
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(mostrar);
             while (rs.next()) {
-                
+
                 txt_dias_plazo.setText(rs.getString(5));
                 lbl_default_id.setText(rs.getString(13));
-                
+
             }
             conectar.getInstance().closeConnection(cn);
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(Ventas_venta.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     ////////////buscar ventas_mofid///////////////////////////////
@@ -2538,25 +2636,25 @@ public class Ventas_venta extends javax.swing.JDialog {
         String[] titulos = {"Id Producto", "Descripción", "Precio Unitario", "Unidad", "Stock Ref.", "Precio Venta"};
         String[] Registros = new String[9];
         DefaultTableModel model = new DefaultTableModel(null, titulos);
-        
+
         try {
             Connection cn = conectar.getInstance().getConnection();
-            
+
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(mostrar);
             while (rs.next()) {
-                
+
                 Registros[0] = rs.getString("id_ven_deta");
                 Registros[1] = rs.getString("des_pro");
                 Registros[2] = rs.getString("pre_unit");
                 Registros[3] = rs.getString("cant_pro");
                 Registros[4] = rs.getString("cant_kg");
                 Registros[5] = rs.getString("pre_venta");
-                
+
                 model.addRow(Registros);
             }
             tb_factura.setModel(model);
-            
+
             tb_factura.getColumnModel().getColumn(0).setPreferredWidth(90);
             tb_factura.getColumnModel().getColumn(1).setPreferredWidth(330);
             tb_factura.getColumnModel().getColumn(2).setPreferredWidth(130);
@@ -2564,19 +2662,19 @@ public class Ventas_venta extends javax.swing.JDialog {
             tb_factura.getColumnModel().getColumn(4).setPreferredWidth(83);
             tb_factura.getColumnModel().getColumn(5).setPreferredWidth(130);
             conectar.getInstance().closeConnection(cn);
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(Ventas_venta.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
-    
+
     public void cargarTxtVEntas(String valor) {
         String mostrar = "SELECT * FROM ventas WHERE CONCAT(num_bol) LIKE '%" + valor + "%'";
-        
+
         try {
             Connection cn = conectar.getInstance().getConnection();
-            
+
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(mostrar);
             while (rs.next()) {
@@ -2584,112 +2682,105 @@ public class Ventas_venta extends javax.swing.JDialog {
                 txt_cli_nom.setText(rs.getString(3));
                 txt_dias_plazo.setText(rs.getString(5));
                 lbl_default_id.setText(rs.getString(13));
-                
+
             }
             conectar.getInstance().closeConnection(cn);
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(Ventas_venta.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
-    
+
     public void calcular_pre() {
-        
+
         String imp = "0", subtotal = "0", iva = "0", total = "0";
-        
+
         for (int i = 0; i < tb_factura.getRowCount(); i++) {
             BigDecimal PulidoPrec = ingreso.TransformReales(tb_factura.getValueAt(i, 2).toString().replaceAll("\\s", ""));
             BigDecimal PulidoCant = ingreso.TransformReales(tb_factura.getValueAt(i, 3).toString().replaceAll("\\s", ""));
-            
+
             imp = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(PulidoPrec.multiply(PulidoCant).toString());
             subtotal = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(ingreso.TransformReales(subtotal).add(ingreso.TransformReales(imp)).toString());
-            
+
             total = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(ingreso.TransformReales(subtotal).add(ingreso.TransformReales(iva)).toString());
-            
+
             txttotal.setText(total);
             lbl_total_amort.setText(total);
-            
+
         }
     }
-    
+
     void cargar() {
         String mostrar = "SELECT * FROM cotizaciones ORDER BY cot_fecha ASC";
-        
+
         try {
             Connection cn = conectar.getInstance().getConnection();
-            
+
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(mostrar);
             while (rs.next()) {
-                
+
                 if (Principal.txt_simbolo.getText().equals("Gs")) {
                     lbl_r.setText(rs.getString(3));
                     lbl_dolar.setText(rs.getString(5));
                 }
                 if (Principal.txt_simbolo.getText().equals("US$")) {
                     lbl_r.setText(rs.getString(3));
-                    lbl_dolar.setText(rs.getString(2));
+                    lbl_dolar.setText(rs.getString(5));
                 }
             }
             conectar.getInstance().closeConnection(cn);
             cargarCambiosConf();
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(Ventas_venta.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
-    
+
     void Consultastock(String codi) {
-        
+
         String cap = "";
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_cant FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-            
+
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(5);//pendiente a modificacion
+                cap = rs.getString(1);//pendiente a modificacion
 
             }
             conectar.getInstance().closeConnection(cn);
-            
+
         } catch (Exception e) {
         }
 
-        /*desfinal = Integer.parseInt(cap) - des;
-         String modi = "UPDATE tienda_productos SET pro_cant='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-         try {
-         PreparedStatement pst = cn.prepareStatement(modi);
-         pst.executeUpdate();
-         } catch (Exception e) {
-         }*/
     }
-    
+
     void cobrar() {
         id_doc_nro_ventas = lbl_cod.getText();
         id_nro_cuenta_ventas = lbl_nro_cuenta.getText();
         total_doc_ventas = txttotal.getText();
-        
+
         Forma_pago_gral_rap fvv = null;
         fvv = new Forma_pago_gral_rap(new javax.swing.JDialog(), true);
         fvv.setVisible(true);
-        
+
     }
-    
+
     void contarFilas() {
         for (int i = 0; i < tb_factura.getRowCount(); i++) {
             lbl_cant_produ.setText(i + "");
         }
-        
+
     }
-    
+
     void cargarCambiosConf() {
-        
+
         if (Principal.txt_simbolo.getText().equals("Gs")) {
-            
+
             Icon Imagenes = new ImageIcon(getClass().getResource("/Iconos_1/paraguay.png"));
             lbl_cambio_conver_3.setIcon(Imagenes);
             Icon Imagenes2 = new ImageIcon(getClass().getResource("/Iconos_1/brasil (1).png"));
@@ -2715,15 +2806,15 @@ public class Ventas_venta extends javax.swing.JDialog {
             lbl_cambio_conver_2.setText("GS:");
             lbl_cambio_conver_1.setText("RS$:");
         }
-        
+
     }
-    
+
     public static void UpdatePedido() {
-        
+
         try {
             String id = lbl_cod_pedidos.getText();
             String des = "Confirmado";
-            
+
             String sql = "UPDATE pedidos SET estado_pedi = '" + des
                     + "' WHERE num_pedi = '" + id + "'";
             try {
@@ -2732,12 +2823,74 @@ public class Ventas_venta extends javax.swing.JDialog {
                 pst.executeUpdate();
                 conectar.getInstance().closeConnection(cn);
                 System.out.println("Confirmado");
-                
+
             } catch (SQLException | HeadlessException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
-            
+
         } catch (Exception e) {
         }
     }
+
+    void ConsultaCreditoCli() {
+
+        String codigo_cliente = txt_cod_cli.getText();
+        String limit = "";
+        String consul = "SELECT sum(REPLACE(v.monto_cred,',','')) FROM ventas as v where v.cod_cli_ventas='" + codigo_cliente + "' and v.monto_cred <> 0  and v.estado_ventas='FINALIZADA'";
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(consul);
+            while (rs.next()) {
+                limit = rs.getString(1);//pendiente a modificacion
+
+            }
+            conectar.getInstance().closeConnection(cn);
+
+            ttx_credito_total_cli.setText(ingreso.MaskareaRealesDado_String_ExclusiveMonedas(limit));
+
+        } catch (Exception e) {
+        }
+
+    }
+
+    void ConsultaCreditoCliFisc() {
+
+        String codigo_cliente = txt_cod_cli.getText();
+        String limit = "";
+        String consul = "SELECT sum(REPLACE(v.saldo_cred,',','')) FROM necttic.ventas_facturacion as v where v.cod_cli_ventas='" + codigo_cliente + "' and v.saldo_cred <> 0 and v.estado_fact='PENDIENTE'";
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(consul);
+            while (rs.next()) {
+                limit = rs.getString(1);//pendiente a modificacion
+
+            }
+            conectar.getInstance().closeConnection(cn);
+
+            ttx_credito_total_cli.setText(ingreso.MaskareaRealesDado_String_ExclusiveMonedas(limit));
+
+        } catch (Exception e) {
+        }
+
+    }
+
+    public void calcular_limite() {
+
+        String imp = "0", subtotal = "0", iva = "0", total = "0";
+
+        BigDecimal credi_total = ingreso.TransformReales(ttx_credito_total_cli.getText().replaceAll("\\s", ""));
+        BigDecimal credi_limite = ingreso.TransformReales(txt_limite_cred_cli.getText().replaceAll("\\s", ""));
+
+        imp = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(credi_limite.subtract(credi_total).toString());
+        lbl_result_credito.setText(imp);
+        if (imp.contains("-")) {
+            System.out.println("esta negativo");
+            JOptionPane.showMessageDialog(null, "El cliente " + txt_cli_nom.getText() + " a superado el límite de crédito establecido");
+        }
+    }
+
 }

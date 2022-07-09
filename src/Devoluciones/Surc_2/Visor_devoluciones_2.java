@@ -36,7 +36,7 @@ public class Visor_devoluciones_2 extends javax.swing.JDialog {
 
         cargar(cod_devol_surc_2);
         cargarTxt(cod_devol_surc_2);
-       //  consultar();
+        //  consultar();
 
     }
 
@@ -286,7 +286,7 @@ public class Visor_devoluciones_2 extends javax.swing.JDialog {
             if (JOptionPane.showConfirmDialog(rootPane, "Se eliminará el registro, ¿desea continuar?",
                     "Eliminar Registro", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                 eliminarDev();
-                actEstadoVentas();
+
                 limpiar();
 
                 Principal_devoluciones_2.btn_cargar_datos.doClick();
@@ -395,6 +395,8 @@ public class Visor_devoluciones_2 extends javax.swing.JDialog {
                 devolverstock(capcod, capcan);
             }
 
+            actEstadoVentas();
+
             JOptionPane.showMessageDialog(null, "Borrado");
 
         } catch (SQLException | HeadlessException e) {
@@ -421,36 +423,28 @@ public class Visor_devoluciones_2 extends javax.swing.JDialog {
     }
 
     void devolverstock(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
-        int desfinal;
         String consul = "SELECT pro_stock_2 FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
                 cap = rs.getString(1);
             }
-          //  System.out.println(cap);
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_stock_2='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
+            ///suma el stock
+            int desfinal = Integer.parseInt(cap) - Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_stock_2='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
-    
-       void actEstadoVentas() {
+
+    void actEstadoVentas() {
 
         try {
             String es = ("CONFIRMADA");
@@ -473,8 +467,5 @@ public class Visor_devoluciones_2 extends javax.swing.JDialog {
         }
 
     }
-    
-    
-    
 
 }

@@ -193,98 +193,98 @@ WHERE
 	<title>
 		<band height="242" splitType="Stretch">
 			<textField>
-				<reportElement x="245" y="44" width="92" height="10" uuid="9a3bfcfc-2a7f-434a-ace5-102bf6b332a9"/>
+				<reportElement x="245" y="41" width="92" height="10" uuid="9a3bfcfc-2a7f-434a-ace5-102bf6b332a9"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pago_credito_id_cli}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="337" y="44" width="78" height="10" uuid="41b8bc4d-6843-4475-9d3d-95fafb5c31e5"/>
+				<reportElement x="337" y="41" width="78" height="10" uuid="41b8bc4d-6843-4475-9d3d-95fafb5c31e5"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pago_credito_data_vista}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="395" y="20" width="100" height="20" uuid="7c301f4f-10b9-413e-8243-0f4eea867f55"/>
+				<reportElement x="395" y="17" width="100" height="20" uuid="7c301f4f-10b9-413e-8243-0f4eea867f55"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pago_credito_total_importe}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="52" y="60" width="351" height="10" uuid="1ff4ae55-a37b-4318-a570-cb6745ec5b05"/>
+				<reportElement x="52" y="56" width="351" height="10" uuid="1ff4ae55-a37b-4318-a570-cb6745ec5b05"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{tienda_clientes_cli_razon}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="130" y="209" width="54" height="10" uuid="be41052d-764f-4955-9fe1-bf5ab12c824e"/>
+				<reportElement x="130" y="205" width="54" height="10" uuid="be41052d-764f-4955-9fe1-bf5ab12c824e"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pago_credito_total_importe}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="315" y="114" width="17" height="12" uuid="be005cb2-f141-4d41-adda-3425ec80a78a"/>
+				<reportElement x="319" y="111" width="17" height="12" uuid="be005cb2-f141-4d41-adda-3425ec80a78a"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pago_credito_concept_pag_cuenta}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="316" y="127" width="16" height="12" uuid="657f456c-dbf0-4241-8ce7-0983cba7e132"/>
+				<reportElement x="320" y="124" width="16" height="12" uuid="657f456c-dbf0-4241-8ce7-0983cba7e132"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pago_credito_concept_canc}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="414" y="114" width="21" height="12" uuid="a3bd6463-c17e-4ea4-ac83-c2ae86490c64"/>
+				<reportElement x="418" y="111" width="21" height="12" uuid="a3bd6463-c17e-4ea4-ac83-c2ae86490c64"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pago_credito_paga_efec}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="414" y="127" width="21" height="12" uuid="306b7877-04d9-42ef-8244-0a47ed1c257f"/>
+				<reportElement x="418" y="124" width="21" height="12" uuid="306b7877-04d9-42ef-8244-0a47ed1c257f"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pago_credito_paga_cheque}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="393" y="211" width="100" height="9" uuid="766d5166-f46f-44ef-a928-8e3de1205845"/>
+				<reportElement x="393" y="208" width="100" height="9" uuid="766d5166-f46f-44ef-a928-8e3de1205845"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial" size="7" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pago_credito_total_efect}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="393" y="218" width="100" height="9" uuid="0bcd8b7f-336f-48da-8798-786db44cc903"/>
+				<reportElement x="393" y="215" width="100" height="9" uuid="0bcd8b7f-336f-48da-8798-786db44cc903"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial" size="7" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pago_credito_total_importe}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="87" y="72" width="416" height="10" uuid="e276ecfb-8102-42b4-a20e-eb73849b8c38"/>
+				<reportElement x="87" y="69" width="416" height="10" uuid="e276ecfb-8102-42b4-a20e-eb73849b8c38"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pago_credito_literal}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="393" y="202" width="100" height="9" uuid="8a51208c-1984-40b2-b9c7-973c1705a285"/>
+				<reportElement x="393" y="199" width="100" height="9" uuid="8a51208c-1984-40b2-b9c7-973c1705a285"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial" size="7" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pago_credito_total_cheq}]]></textFieldExpression>
 			</textField>
 			<componentElement>
-				<reportElement key="table 2" style="table 2" x="206" y="159" width="287" height="13" uuid="91a6de77-1c4c-4b40-8d81-86e846c1a714"/>
+				<reportElement key="table 2" style="table 2" x="206" y="155" width="287" height="13" uuid="91a6de77-1c4c-4b40-8d81-86e846c1a714"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="detalles" uuid="2e29135c-a7fc-49ca-8de1-c61acd9d5109">
 						<datasetParameter name="id">
@@ -339,14 +339,14 @@ WHERE
 				</jr:table>
 			</componentElement>
 			<textField>
-				<reportElement x="417" y="61" width="87" height="10" uuid="d5fca457-5959-4d37-abbb-0add89bdca1d"/>
+				<reportElement x="435" y="56" width="75" height="10" uuid="d5fca457-5959-4d37-abbb-0add89bdca1d"/>
 				<textElement>
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{tienda_clientes_cli_ruc}]]></textFieldExpression>
 			</textField>
 			<componentElement>
-				<reportElement key="table 3" style="table 3" x="16" y="110" width="168" height="96" uuid="d22a9669-2a4b-450a-9ae0-41aa8a1ea3e4"/>
+				<reportElement key="table 3" style="table 3" x="16" y="106" width="168" height="96" uuid="d22a9669-2a4b-450a-9ae0-41aa8a1ea3e4"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="facturas" uuid="93324cd7-d11a-475a-9d07-cce35aceb7b3">
 						<datasetParameter name="id_fact">

@@ -5,23 +5,8 @@
  */
 package Productos.Produccion;
 
-
-import Conexion_DB.*;
 import Clases.machusculas;
-import java.net.URL;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperPrintManager;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.util.JRLoader;
 
 /**
  *
@@ -35,7 +20,7 @@ public class zona_produccion extends javax.swing.JDialog {
     public zona_produccion(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        txt_cant.setDocument(new machusculas());
+    
 
     }
 
@@ -49,68 +34,48 @@ public class zona_produccion extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        txt_cant = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         txt_id = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txt_nom = new javax.swing.JTextField();
         btnbuscar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        txtstock = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        des_out = new javax.swing.JLabel();
-        txt_pre_a = new javax.swing.JCheckBox();
-        txt_pre_d = new javax.swing.JCheckBox();
-        lbl_precio_b = new javax.swing.JCheckBox();
-        ch_precio_outlet = new javax.swing.JCheckBox();
-        txt_pre_ata = new javax.swing.JCheckBox();
-        jSeparator1 = new javax.swing.JSeparator();
+        txt_id_area = new javax.swing.JTextField();
+        btnbuscar1 = new javax.swing.JButton();
+        txt_id_func = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Etiquetas");
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txt_cant.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jPanel1.add(txt_cant, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 80, 30));
-
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/agrega.png"))); // NOI18N
-        jButton1.setText("ok");
+        jButton1.setText("Confirmar");
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, 110, 50));
-
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel2.setText("Id Producto:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 30));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, 130, 50));
 
         txt_id.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_id.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_id.setEnabled(false);
-        jPanel1.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 120, 30));
+        jPanel1.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 320, 30));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel4.setText("Encargado:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, 30));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, 30));
 
         txt_nom.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txt_nom.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txt_nom.setEnabled(false);
-        jPanel1.add(txt_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 410, 30));
+        jPanel1.add(txt_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 320, 30));
 
         btnbuscar.setBackground(new java.awt.Color(255, 255, 255));
         btnbuscar.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -121,91 +86,34 @@ public class zona_produccion extends javax.swing.JDialog {
                 btnbuscarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 40, 70, 30));
+        jPanel1.add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 50, 30));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel5.setText("Area:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, 30));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 50, 30));
 
-        txtstock.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        txtstock.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        txtstock.setEnabled(false);
-        jPanel1.add(txtstock, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 160, 30));
+        txt_id_area.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txt_id_area.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txt_id_area.setEnabled(false);
+        jPanel1.add(txt_id_area, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 90, 30));
 
-        jLabel6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel6.setText("Cantidad :");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, 30));
-
-        jLabel8.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel8.setText("Precio venta(A*):");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, 30));
-
-        jLabel14.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel14.setText("Precio D*:");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 70, 30));
-
-        jLabel10.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel10.setText("Precio B*:");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, -1, 30));
-
-        jLabel9.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel9.setText("Mínimo(C*):");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, -1, 30));
-
-        des_out.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        des_out.setText("Outlet:");
-        jPanel1.add(des_out, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 80, 30));
-
-        txt_pre_a.setBackground(new java.awt.Color(255, 255, 255));
-        txt_pre_a.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        txt_pre_a.addActionListener(new java.awt.event.ActionListener() {
+        btnbuscar1.setBackground(new java.awt.Color(255, 255, 255));
+        btnbuscar1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        btnbuscar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/busqueda.png"))); // NOI18N
+        btnbuscar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnbuscar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_pre_aActionPerformed(evt);
+                btnbuscar1ActionPerformed(evt);
             }
         });
-        jPanel1.add(txt_pre_a, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 100, 30));
+        jPanel1.add(btnbuscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 40, 50, 30));
 
-        txt_pre_d.setBackground(new java.awt.Color(255, 255, 255));
-        txt_pre_d.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        txt_pre_d.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_pre_dActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txt_pre_d, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 100, 30));
+        txt_id_func.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txt_id_func.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txt_id_func.setEnabled(false);
+        jPanel1.add(txt_id_func, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 90, 30));
 
-        lbl_precio_b.setBackground(new java.awt.Color(255, 255, 255));
-        lbl_precio_b.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        lbl_precio_b.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lbl_precio_bActionPerformed(evt);
-            }
-        });
-        jPanel1.add(lbl_precio_b, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 100, 30));
-
-        ch_precio_outlet.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        ch_precio_outlet.setForeground(new java.awt.Color(204, 0, 0));
-        ch_precio_outlet.setContentAreaFilled(false);
-        ch_precio_outlet.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ch_precio_outletActionPerformed(evt);
-            }
-        });
-        jPanel1.add(ch_precio_outlet, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 110, 30));
-
-        txt_pre_ata.setBackground(new java.awt.Color(255, 255, 255));
-        txt_pre_ata.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        txt_pre_ata.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_pre_ataActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txt_pre_ata, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 110, 30));
-
-        jSeparator1.setForeground(new java.awt.Color(51, 0, 0));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 570, 10));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 290));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 180));
 
         pack();
         setLocationRelativeTo(null);
@@ -213,230 +121,22 @@ public class zona_produccion extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        if (txt_cant.getText().isEmpty()) {
+        if (txt_id_area.getText().isEmpty() && txt_id_func.getText().isEmpty() ) {
             JOptionPane.showMessageDialog(rootPane, "Ingrese una cantidad válida");
         } else {
-            String cont = txt_cant.getText();
-            int n = Integer.parseInt(cont);
-
-        
-
-                if (txt_pre_a.isSelected()) {
-                    for (int i = 0; i < n; i++) {
-                        try {
-                            Connection cn = conectar.getInstance().getConnection();
-
-                            String codigo = txt_id.getText();
-                            Map parametro = new HashMap();
-                            parametro.clear();
-                            parametro.put("codigo", codigo);
-                            URL in = this.getClass().getResource("/Productos/barcod/codbar_precio.jasper");
-                            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                            JasperPrintManager.printPage(print, 0, false);
-                            conectar.getInstance().closeConnection(cn);
-
-                        } catch (JRException ex) {
-
-                        } catch (SQLException ex) {
-                            Logger.getLogger(zona_produccion.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-
-                
-
-                if (lbl_precio_b.isSelected()) {
-                    for (int i = 0; i < n; i++) {
-                        try {
-                            Connection cn = conectar.getInstance().getConnection();
-
-                            String codigo = txt_id.getText();
-                            Map parametro = new HashMap();
-                            parametro.clear();
-                            parametro.put("codigo", codigo);
-                            URL in = this.getClass().getResource("/Productos/barcod/codbar_precio_b.jasper");
-                            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                            JasperPrintManager.printPage(print, 0, false);
-                            conectar.getInstance().closeConnection(cn);
-
-                        } catch (JRException ex) {
-
-                        } catch (SQLException ex) {
-                            Logger.getLogger(zona_produccion.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-                }
-
-                if (txt_pre_ata.isSelected()) {
-                    for (int i = 0; i < n; i++) {
-                        try {
-                            Connection cn = conectar.getInstance().getConnection();
-
-                            String codigo = txt_id.getText();
-                            Map parametro = new HashMap();
-                            parametro.clear();
-                            parametro.put("codigo", codigo);
-                            URL in = this.getClass().getResource("/Productos/barcod/codbar_precio_c.jasper");
-                            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                            JasperPrintManager.printPage(print, 0, false);
-                            conectar.getInstance().closeConnection(cn);
-
-                        } catch (JRException ex) {
-
-                        } catch (SQLException ex) {
-                            Logger.getLogger(zona_produccion.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-                }
-                if (txt_pre_d.isSelected()) {
-                    for (int i = 0; i < n; i++) {
-                        try {
-                            Connection cn = conectar.getInstance().getConnection();
-
-                            String codigo = txt_id.getText();
-                            Map parametro = new HashMap();
-                            parametro.clear();
-                            parametro.put("codigo", codigo);
-                            URL in = this.getClass().getResource("/Productos/barcod/codbar_precio_d.jasper");
-                            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                            JasperPrintManager.printPage(print, 0, false);
-                            conectar.getInstance().closeConnection(cn);
-
-                        } catch (JRException ex) {
-
-                        } catch (SQLException ex) {
-                            Logger.getLogger(zona_produccion.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-                }
-
-                if (ch_precio_outlet.isSelected()) {
-                    for (int i = 0; i < n; i++) {
-                        try {
-                            Connection cn = conectar.getInstance().getConnection();
-
-                            String codigo = txt_id.getText();
-                            Map parametro = new HashMap();
-                            parametro.clear();
-                            parametro.put("codigo", codigo);
-                            URL in = this.getClass().getResource("/Productos/barcod/codbar_precio_o.jasper");
-                            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                            JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                            JasperPrintManager.printPage(print, 0, false);
-                            conectar.getInstance().closeConnection(cn);
-
-                        } catch (JRException ex) {
-
-                        } catch (SQLException ex) {
-                            Logger.getLogger(zona_produccion.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-                }
-
-            } else {
-
-                for (int i = 0; i < n; i++) {
-                    try {
-                        Connection cn = conectar.getInstance().getConnection();
-
-                        String codigo = txt_id.getText();
-                        Map parametro = new HashMap();
-                        parametro.clear();
-                        parametro.put("codigo", codigo);
-                        URL in = this.getClass().getResource("/Productos/barcod/codbar.jasper");
-                        JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-                        JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-                        JasperPrintManager.printPage(print, 0, false);
-                        conectar.getInstance().closeConnection(cn);
-
-                    } catch (JRException ex) {
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(zona_produccion.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
+      
 
         }
-
-        /*
-         PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
-         if (printService.length > 0)//si existen impresoras
-         {
-         //se elige la impresora
-         PrintService impresora = (PrintService) JOptionPane.showInputDialog(null, "Seleccionar  impresora:",
-         "Imprimir ", JOptionPane.QUESTION_MESSAGE, null, printService, printService[0]);
-         if (impresora != null) //Si se selecciono una impresora
-         {
-         try {
-         String codigo = txt_id.getText();
-         Map parametro = new HashMap();
-         parametro.clear();
-         parametro.put("codigo", codigo);
-         URL in = this.getClass().getResource("/Productos/barcod/codbar.jasper");
-         JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-         JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-         JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-         jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-         jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
-         // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-         jrprintServiceExporter.exportReport();
-
-         } catch (JRException ex) {
-
-         }
-         }
-
-         }*/
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
-      
+
     }//GEN-LAST:event_btnbuscarActionPerformed
 
-    private void txt_pre_aActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_pre_aActionPerformed
-        txt_pre_a.setSelected(true);
-        lbl_precio_b.setSelected(false);
-        txt_pre_ata.setSelected(false);
-        txt_pre_d.setSelected(false);
-        ch_precio_outlet.setSelected(false);
-    }//GEN-LAST:event_txt_pre_aActionPerformed
-
-    private void txt_pre_dActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_pre_dActionPerformed
-        txt_pre_a.setSelected(false);
-        lbl_precio_b.setSelected(false);
-        txt_pre_ata.setSelected(false);
-        txt_pre_d.setSelected(true);
-        ch_precio_outlet.setSelected(false);
-    }//GEN-LAST:event_txt_pre_dActionPerformed
-
-    private void lbl_precio_bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbl_precio_bActionPerformed
-        txt_pre_a.setSelected(false);
-        lbl_precio_b.setSelected(true);
-        txt_pre_ata.setSelected(false);
-        txt_pre_d.setSelected(false);
-        ch_precio_outlet.setSelected(false);
-    }//GEN-LAST:event_lbl_precio_bActionPerformed
-
-    private void txt_pre_ataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_pre_ataActionPerformed
-        txt_pre_a.setSelected(false);
-        lbl_precio_b.setSelected(false);
-        txt_pre_ata.setSelected(true);
-        txt_pre_d.setSelected(false);
-        ch_precio_outlet.setSelected(false);
-    }//GEN-LAST:event_txt_pre_ataActionPerformed
-
-    private void ch_precio_outletActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ch_precio_outletActionPerformed
-        txt_pre_a.setSelected(false);
-        lbl_precio_b.setSelected(false);
-        txt_pre_ata.setSelected(false);
-        txt_pre_d.setSelected(false);
-        ch_precio_outlet.setSelected(true);
-    }//GEN-LAST:event_ch_precio_outletActionPerformed
+    private void btnbuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnbuscar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -507,27 +207,15 @@ public class zona_produccion extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnbuscar;
-    private javax.swing.JCheckBox ch_precio_outlet;
-    private javax.swing.JLabel des_out;
+    private javax.swing.JButton btnbuscar1;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JCheckBox lbl_precio_b;
-    private javax.swing.JTextField txt_cant;
     public static javax.swing.JTextField txt_id;
+    public static javax.swing.JTextField txt_id_area;
+    public static javax.swing.JTextField txt_id_func;
     public static javax.swing.JTextField txt_nom;
-    private javax.swing.JCheckBox txt_pre_a;
-    private javax.swing.JCheckBox txt_pre_ata;
-    private javax.swing.JCheckBox txt_pre_d;
-    public static javax.swing.JTextField txtstock;
     // End of variables declaration//GEN-END:variables
 
 }

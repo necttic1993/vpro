@@ -49,7 +49,7 @@ public class Facturas_surc_10 extends javax.swing.JDialog {
     public Facturas_surc_10(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        
+
         cargarConfig();
         codigos();
         lbl_count_filas.setVisible(false);
@@ -912,6 +912,7 @@ public class Facturas_surc_10 extends javax.swing.JDialog {
 
             if (n > 0) {
                 detalle_factura();
+                actEstadoVentas();
                 JOptionPane.showMessageDialog(null, "Factura de venta realizada con éxito");
                 if (JOptionPane.showConfirmDialog(rootPane, "Imprimir Factura de venta" + ": " + txt_sequencia.getText() + "-" + txt_esta.getText() + "-" + lbl_cod.getText() + ", ¿desea continuar?",
                         "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
@@ -1103,7 +1104,7 @@ public class Facturas_surc_10 extends javax.swing.JDialog {
     }
 
     public void cargarTxt(String valor) {
-        String mostrar = "SELECT * FROM ventas_10 WHERE CONCAT(num_bol) LIKE '%" + valor + "%'";
+        String mostrar = "SELECT * FROM ventas_10 WHERE num_bol= '" + valor + "'";
 
         try {
             Connection cn = conectar.getInstance().getConnection();
@@ -1128,11 +1129,11 @@ public class Facturas_surc_10 extends javax.swing.JDialog {
     void actEstadoVentas() {//analizar mañana cargar datos de nro de factura
 
         try {
-            String es = lbl_cod.getText();
-            String nro = Principal.lbl_id_empre.getText();
-
-            String sql = "UPDATE empresas SET nro_fact_surc_10 = '" + es
-                    + "' WHERE id_empre = '" + nro + "'";
+            String es = "1";
+            String nro = txt_cod.getText();
+            
+            String sql = "UPDATE ventas_10 SET bool_fact = '" + es
+                    + "' WHERE num_bol = '" + nro + "'";
             try {
                 Connection cn = conectar.getInstance().getConnection();
 

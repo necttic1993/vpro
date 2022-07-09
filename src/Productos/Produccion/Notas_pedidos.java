@@ -6,13 +6,10 @@
 package Productos.Produccion;
 
 import Conexion_DB.conectar;
-import Loggin_Principal.Principal;
-import static Loggin_Principal.Principal.lbl_usu_nom;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -134,7 +131,7 @@ public class Notas_pedidos extends javax.swing.JDialog {
                 String codins = tbProductos_pedido.getValueAt(fila, 0).toString();
 
                 Presupuesto_produccion.txt_nro_pedido.setText(codins);
-
+                Presupuesto_produccion.btn_cargar_pedidos.doClick();
                 this.dispose();
 
             }
@@ -164,7 +161,7 @@ public class Notas_pedidos extends javax.swing.JDialog {
                     String codins = tbProductos_pedido.getValueAt(fila, 0).toString();
 
                     Presupuesto_produccion.txt_nro_pedido.setText(codins);
-                    // Presupuesto_produccion.btn_busca_pedidos.doClick();
+                    Presupuesto_produccion.btn_cargar_pedidos.doClick();
                     this.dispose();
 
                 }
@@ -259,7 +256,7 @@ public class Notas_pedidos extends javax.swing.JDialog {
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
 
-            String cons = "select * from pedidos WHERE CONCAT (num_pedi,nom_provee) LIKE '%" + valor + "%' AND estado_pedi='En Proceso' ORDER BY num_pedi DESC";
+            String cons = "select * from pedidos WHERE CONCAT (num_pedi,nom_provee) LIKE '%" + valor + "%' AND estado_pedi='En Proceso ' ORDER BY num_pedi DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(cons);
             while (rs.next()) {
@@ -292,36 +289,6 @@ public class Notas_pedidos extends javax.swing.JDialog {
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
             System.out.println(e.getMessage());
-        }
-
-    }
-
-    void eliminarProducto() {
-
-        int filasel = tbProductos_pedido.getSelectedRow();
-        try {
-            if (filasel == -1) {
-                JOptionPane.showMessageDialog(null, "Seleccione algun dato");
-            } else {
-
-                String cod = (String) tbProductos_pedido.getValueAt(filasel, 0);
-                String eliminarSQL = "DELETE FROM pedidos WHERE num_pedi = '" + cod + "'";
-
-                try {
-                    Connection cn = conectar.getInstance().getConnection();
-
-                    PreparedStatement pst = cn.prepareStatement(eliminarSQL);
-
-                    pst.executeUpdate();
-                    conectar.getInstance().closeConnection(cn);
-
-                    JOptionPane.showMessageDialog(null, "Borrado");
-
-                } catch (SQLException | HeadlessException e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-            }
-        } catch (Exception e) {
         }
 
     }

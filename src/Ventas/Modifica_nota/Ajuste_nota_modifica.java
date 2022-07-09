@@ -157,10 +157,11 @@ public class Ajuste_nota_modifica extends javax.swing.JDialog {
             String eliminarSQL = "DELETE FROM ventas_detalles WHERE id_ven_deta = '" + id + "'";
             PreparedStatement pst = cn.prepareStatement(eliminarSQL);
             pst.executeUpdate();
+            conectar.getInstance().closeConnection(cn);
             JOptionPane.showMessageDialog(null, "OK");
             Ventas_venta_modifica.btncalcular.doClick();
             this.dispose();
-            conectar.getInstance().closeConnection(cn);
+
         } catch (SQLException | HeadlessException e) {
             // JOptionPane.showMessageDialog(null, e);
         }
@@ -302,32 +303,32 @@ public class Ajuste_nota_modifica extends javax.swing.JDialog {
         } catch (Exception e) {
         }
     }
+    /*
+     void DescontarstockPedido(String codi, String can) {
+     int des = Integer.parseInt(can);
+     String cap = "";
+     int desfinal;
+     String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+     try {
+     Connection cn = conectar.getInstance().getConnection();
+     Statement st = cn.createStatement();
+     ResultSet rs = st.executeQuery(consul);
+     while (rs.next()) {
+     cap = rs.getString(23);//pendiente a modificacion
+     }
+     conectar.getInstance().closeConnection(cn);
+     } catch (Exception e) {
+     }
+     desfinal = Integer.parseInt(cap) - des;
+     String modi = "UPDATE tienda_productos SET pro_alma='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
+     try {
+     Connection cn = conectar.getInstance().getConnection();
 
-    void DescontarstockPedido(String codi, String can) {
-        int des = Integer.parseInt(can);
-        String cap = "";
-        int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(consul);
-            while (rs.next()) {
-                cap = rs.getString(23);//pendiente a modificacion
-            }
-            conectar.getInstance().closeConnection(cn);
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) - des;
-        String modi = "UPDATE tienda_productos SET pro_alma='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
-
-            PreparedStatement pst = cn.prepareStatement(modi);
-            pst.executeUpdate();
-            conectar.getInstance().closeConnection(cn);
-        } catch (Exception e) {
-        }
-    }
+     PreparedStatement pst = cn.prepareStatement(modi);
+     pst.executeUpdate();
+     conectar.getInstance().closeConnection(cn);
+     } catch (Exception e) {
+     }
+     }*/
 
 }

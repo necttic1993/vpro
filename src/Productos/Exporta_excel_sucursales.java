@@ -106,6 +106,11 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
         ch_impresion.setText("IMPRESIÓN REMOTA");
         ch_impresion.setFocusPainted(false);
         ch_impresion.setOpaque(false);
+        ch_impresion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ch_impresionActionPerformed(evt);
+            }
+        });
         jPanel5.add(ch_impresion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 150, 40));
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 190, 40));
@@ -374,6 +379,10 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
 
         }
     }//GEN-LAST:event_lbl_almacen_excellMouseClicked
+
+    private void ch_impresionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ch_impresionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ch_impresionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -906,7 +915,7 @@ public class Exporta_excel_sucursales extends javax.swing.JDialog {
             sheet.setZoom(120);
 
             if (ch_impresion.isSelected()) {
-                try (FileOutputStream fileOut = new FileOutputStream("\\tsclient\\c\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
+                try (FileOutputStream fileOut = new FileOutputStream("\\\\tsclient\\C\\Informes\\Productos_Stock " + txt_fecha_backup.getText() + ".xlsx")) {
                     book.write(fileOut);
                 }
                 JOptionPane.showMessageDialog(null, "Datos guardados en C:Informes");

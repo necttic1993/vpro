@@ -28,7 +28,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -62,12 +61,13 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
     public Pedidos_pedidos(javax.swing.JDialog parent, boolean modal) throws IOException {
         super(parent, modal);
         initComponents();
+        panel_config_presupuesto.setVisible(false);
         codigos();
         control_proveedores();
         cargar();
         server();
         btncalcular.setVisible(false);
-
+        
         txt_cli_nom.setDisabledTextColor(Color.black);
         tb_pedidos.getColumnModel().getColumn(0).setPreferredWidth(80);
         tb_pedidos.getColumnModel().getColumn(1).setPreferredWidth(323);
@@ -89,9 +89,15 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
         lbl_tipo_venta.setText("CONTADO");
         txt_usu_ventas.setText(lbl_usu_nom.getText());
         lbl_sur_nombre.setText(lbl_usu_almacen.getText());
-
+        
+        if (Principal_Pedidos.lbl_ambiente.getText().equals("0")) {
+            btn_buscar_presupuesto.setVisible(true);
+        } else {
+            btn_buscar_presupuesto.setVisible(false);
+        }
+        
     }
-
+    
     public static String cod_alamacen_user = "";
 
     /* public static String nro_nota_plazo = "";
@@ -101,14 +107,14 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
      public static String total_ventas_normal = "";*/
     void cargar() {
         String mostrar = "SELECT * FROM cotizaciones ORDER BY cot_fecha ASC";
-
+        
         try {
             Connection cn = conectar.getInstance().getConnection();
-
+            
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(mostrar);
             while (rs.next()) {
-
+                
                 if (Principal.txt_simbolo.getText().equals("Gs")) {
                     lbl_r.setText(rs.getString(3));
                     lbl_dolar.setText(rs.getString(5));
@@ -124,9 +130,9 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
         } catch (SQLException ex) {
             Logger.getLogger(Pedidos_pedidos.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -161,6 +167,7 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
         jPanel2 = new javax.swing.JPanel();
         txttotal = new javax.swing.JLabel();
         lbl_cambio_conver_3 = new javax.swing.JLabel();
+        btn_buscar_presupuesto = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         lblcanpro = new javax.swing.JLabel();
@@ -183,6 +190,7 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
         btn_mone = new javax.swing.JButton();
         lbl_literal_pro = new javax.swing.JLabel();
         lbl_literal = new javax.swing.JLabel();
+        panel_config_presupuesto = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("PEDIDOS");
@@ -323,7 +331,7 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
                 lbl_fecha_VISORActionPerformed(evt);
             }
         });
-        jPanel1.add(lbl_fecha_VISOR, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, 120, 30));
+        jPanel1.add(lbl_fecha_VISOR, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, 100, 30));
 
         chk_plazo.setBackground(new java.awt.Color(255, 255, 255));
         chk_plazo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -366,7 +374,7 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
         jPanel1.add(lbl_plazos_dias1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 70, 30, 30));
 
         txt_op_pedidos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jPanel1.add(txt_op_pedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, 150, 30));
+        jPanel1.add(txt_op_pedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, 100, 30));
 
         btn_excluir.setBackground(new java.awt.Color(255, 255, 255));
         btn_excluir.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -434,6 +442,28 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
         jPanel2.add(lbl_cambio_conver_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 90, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 460, 310, 80));
+
+        btn_buscar_presupuesto.setBackground(new java.awt.Color(255, 255, 255));
+        btn_buscar_presupuesto.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_buscar_presupuesto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/timer.png"))); // NOI18N
+        btn_buscar_presupuesto.setMnemonic('a');
+        btn_buscar_presupuesto.setToolTipText("Subir ventas-pedidos");
+        btn_buscar_presupuesto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_buscar_presupuesto.setFocusable(false);
+        btn_buscar_presupuesto.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btn_buscar_presupuesto.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btn_buscar_presupuesto.setVerifyInputWhenFocusTarget(false);
+        btn_buscar_presupuesto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_buscar_presupuestoActionPerformed(evt);
+            }
+        });
+        btn_buscar_presupuesto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btn_buscar_presupuestoKeyPressed(evt);
+            }
+        });
+        jPanel1.add(btn_buscar_presupuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 60, 60, 45));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 550));
 
@@ -552,7 +582,7 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
         jPanel3.add(lbl_dolar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 60, 30));
 
         lbl_default_id.setText("lbl_default");
-        jPanel3.add(lbl_default_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, -1, -1));
+        jPanel3.add(lbl_default_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, -1, -1));
 
         lbl_cant_produ_pedido.setText("count");
         jPanel3.add(lbl_cant_produ_pedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 80, 20));
@@ -595,6 +625,19 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
         lbl_literal.setText("gs");
         jPanel3.add(lbl_literal, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 30, 20));
 
+        javax.swing.GroupLayout panel_config_presupuestoLayout = new javax.swing.GroupLayout(panel_config_presupuesto);
+        panel_config_presupuesto.setLayout(panel_config_presupuestoLayout);
+        panel_config_presupuestoLayout.setHorizontalGroup(
+            panel_config_presupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 260, Short.MAX_VALUE)
+        );
+        panel_config_presupuestoLayout.setVerticalGroup(
+            panel_config_presupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jPanel3.add(panel_config_presupuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 260, -1));
+
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 0, 350, 550));
 
         pack();
@@ -602,17 +645,16 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnvenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvenActionPerformed
-
+        
         if (chk_contado.isSelected()) {
-
+            
             if ((txt_cli_nom.getText().equals("")) || (txttotal.getText().equals("0")) || txt_cod_cli.getText().equals("")) {
                 JOptionPane.showMessageDialog(this, "Ingrese cliente, producto o realice operacion");
             } else {
-
+                
                 ticket();
-                detalle_ticket();
-                // caja();
 
+                // caja();
                 PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
                 if (printService.length > 0)//si existen impresoras
                 {
@@ -623,39 +665,39 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
                     {
                         try {
                             Connection cn = conectar.getInstance().getConnection();
-
+                            
                             String cod = lbl_cod.getText();
                             Map parametro = new HashMap();
                             parametro.clear();
                             parametro.put("codigo", cod);
-
+                            
                             URL in = this.getClass().getResource("/Pedidos/impresiones/Nota_pedidos.jasper");
-
+                            
                             JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
+                            
                             JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
+                            
                             JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
+                            
                             jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
                             jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
                             // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
                             jrprintServiceExporter.exportReport();
                             conectar.getInstance().closeConnection(cn);
-
+                            
                         } catch (JRException ex) {
-
+                            
                         } catch (SQLException ex) {
                             Logger.getLogger(Pedidos_pedidos.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
-
+                    
                 }
-
+                
                 lbl_cambio_dolar.setText("");
                 lbl_cambio_real.setText("");
                 txttotal.setText("");
-
+                
                 DefaultTableModel modelo = (DefaultTableModel) tb_pedidos.getModel();
                 int a = tb_pedidos.getRowCount() - 1;
                 int i;
@@ -675,26 +717,18 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
                 txt_dias_plazo.setVisible(false);
                 lbl_tipo_venta.setText("CONTADO");
                 pn_tipo_venta.setBackground(Color.blue);
-
+                
             }
         }
-
+        
         if (chk_plazo.isSelected()) {
-
+            
             if ((lbl_cod.getText().equals("")) || (txttotal.getText().equals(""))) {
                 JOptionPane.showMessageDialog(this, "Ingrese cliente, producto o realice operacion");
             } else {
-
-                String capcod = "", capcan = "";
-                for (int i = 0; i < Pedidos_pedidos.tb_pedidos.getRowCount(); i++) {
-                    capcod = Pedidos_pedidos.tb_pedidos.getValueAt(i, 0).toString();
-                    capcan = Pedidos_pedidos.tb_pedidos.getValueAt(i, 3).toString();
-
-                }
-                codigos();
+                
                 ticket_plazo();
-                detalle_ticket();
-
+                
                 if (JOptionPane.showConfirmDialog(rootPane, "Imprimir comprobante, ¿desea continuar?",
                         "Imprimir", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                     PrintService[] printService = PrintServiceLookup.lookupPrintServices(null, null);
@@ -707,39 +741,39 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
                         {
                             try {
                                 Connection cn = conectar.getInstance().getConnection();
-
+                                
                                 String cod = lbl_cod.getText();
                                 Map parametro = new HashMap();
                                 parametro.clear();
                                 parametro.put("codigo", cod);
-
+                                
                                 URL in = this.getClass().getResource("/Pedidos/impresiones/Nota_pedidos.jasper");
-
+                                
                                 JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
-
+                                
                                 JasperPrint print = JasperFillManager.fillReport(reporte, parametro, cn);
-
+                                
                                 JRPrintServiceExporter jrprintServiceExporter = new JRPrintServiceExporter();
-
+                                
                                 jrprintServiceExporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
                                 jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, impresora);
                                 // jrprintServiceExporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
                                 jrprintServiceExporter.exportReport();
                                 conectar.getInstance().closeConnection(cn);
-
+                                
                             } catch (JRException ex) {
-
+                                
                             } catch (SQLException ex) {
                                 Logger.getLogger(Pedidos_pedidos.class.getName()).log(Level.SEVERE, null, ex);
                             }
                         }
-
+                        
                     }
-
+                    
                 }
                 lbl_cambio_real.setText("");
                 txttotal.setText("");
-
+                
                 DefaultTableModel modelo = (DefaultTableModel) tb_pedidos.getModel();
                 int a = tb_pedidos.getRowCount() - 1;
                 int i;
@@ -759,10 +793,10 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
                 txt_dias_plazo.setVisible(false);
                 lbl_tipo_venta.setText("CONTADO");
                 pn_tipo_venta.setBackground(Color.blue);
-
+                
             }
         }
-
+        
         txt_cod_cli.requestFocus();
         Principal_Pedidos.btn_cargar_datos.doClick();
     }//GEN-LAST:event_btnvenActionPerformed
@@ -773,14 +807,14 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
 
     private void txt_cod_cliKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_cod_cliKeyPressed
         char Tecla = evt.getKeyChar();
-
+        
         if (Tecla == KeyEvent.VK_ENTER) {
             Proveedor_pedidos cv;
             cv = new Proveedor_pedidos(new javax.swing.JDialog(), true);
             cv.setVisible(true);
-
+            
         }
-
+        
         if (Tecla == KeyEvent.VK_ESCAPE) {
             if (JOptionPane.showConfirmDialog(null, "¿Desea realmente salir ?",
                     "Salir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
@@ -788,7 +822,7 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
                 Pedidos.Principal_Pedidos.txt_bus.requestFocus();
                 Pedidos.Principal_Pedidos.txt_bus.setText("");
             }
-
+            
         }
     }//GEN-LAST:event_txt_cod_cliKeyPressed
 
@@ -808,11 +842,11 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
         chk_plazo.setSelected(false);
         lbl_plazos_dias.setVisible(false);
         txt_dias_plazo.setVisible(false);
-
+        
         txt_dias_plazo.setText("");
         lbl_tipo_venta.setText("CONTADO");
         pn_tipo_venta.setBackground(Color.blue);
-
+        
 
     }//GEN-LAST:event_chk_contadoActionPerformed
 
@@ -821,7 +855,7 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
     }//GEN-LAST:event_txt_dias_plazoActionPerformed
 
     private void btncalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncalcularActionPerformed
-
+        
         contarFilas();
         calcular();
         calcularMoneda();
@@ -847,7 +881,7 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
             Pedidos_pro rp;
             rp = new Pedidos_pro(new javax.swing.JDialog(), true);
             rp.setVisible(true);
-
+            
         }
     }//GEN-LAST:event_btn_buscaar_itemsActionPerformed
 
@@ -867,9 +901,9 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
             calcular();
             calcularMoneda();
             calcularCantidadPro();
-
+            
         } else {
-
+            
             JOptionPane.showMessageDialog(null, "Tabla vacia o no seleccione ninguna fila");
         }
         if (fila < 0) {
@@ -889,29 +923,29 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
     }//GEN-LAST:event_btn_proveeActionPerformed
 
     private void btn_calc_amortizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_calc_amortizacionActionPerformed
-
+        
         calcularMoneda();
         literal();
     }//GEN-LAST:event_btn_calc_amortizacionActionPerformed
 
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
-
+        
         if (JOptionPane.showConfirmDialog(null, "¿Desea realmente salir?",
                 "Salir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
             //  new Thread(new hilo()).interrupt();
             dispose();
         }
-
+        
 
     }//GEN-LAST:event_btn_salirActionPerformed
 
     private void btn_salirKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_salirKeyReleased
         char Tecla = evt.getKeyChar();
-
+        
         if (Tecla == KeyEvent.VK_ESCAPE) {
-
+            
             btn_salir.doClick();
-
+            
         }
     }//GEN-LAST:event_btn_salirKeyReleased
 
@@ -932,6 +966,21 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_lbl_fecha_VISORActionPerformed
 
+    private void btn_buscar_presupuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_presupuestoActionPerformed
+        
+        try {
+            Buscar_pres_by_pedido bp;
+            bp = new Buscar_pres_by_pedido(new javax.swing.JDialog(), true);
+            bp.setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(Pedidos_pedidos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_buscar_presupuestoActionPerformed
+
+    private void btn_buscar_presupuestoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_buscar_presupuestoKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_buscar_presupuestoKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -946,7 +995,7 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-
+                    
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
@@ -970,9 +1019,9 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
             public void run() {
                 try {
                     Pedidos_pedidos dialog = null;
-
+                    
                     dialog = new Pedidos_pedidos(new javax.swing.JDialog(), true);
-
+                    
                     dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                         @Override
                         public void windowClosing(java.awt.event.WindowEvent e) {
@@ -992,6 +1041,7 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton btn_buscaar_items;
+    public static javax.swing.JButton btn_buscar_presupuesto;
     public static javax.swing.JButton btn_calc_amortizacion;
     private javax.swing.JButton btn_excluir;
     public static javax.swing.JButton btn_mone;
@@ -1035,6 +1085,7 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
     private javax.swing.JLabel lbl_sur_nombre;
     private javax.swing.JLabel lbl_tipo_venta;
     public static javax.swing.JLabel lblcanpro;
+    private javax.swing.JPanel panel_config_presupuesto;
     private javax.swing.JPanel pn_tipo_venta;
     public static javax.swing.JTable tb_pedidos;
     public static javax.swing.JTextField txt_cli_nom;
@@ -1046,40 +1097,40 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     public void calcular() {
-
+        
         String imp = "0", subtotal = "0", iva = "0", total = "0";
-
+        
         for (int i = 0; i < tb_pedidos.getRowCount(); i++) {
             BigDecimal PulidoPrec = ingreso.TransformReales(tb_pedidos.getValueAt(i, 2).toString().replaceAll("\\s", ""));
             BigDecimal PulidoCant = ingreso.TransformReales(tb_pedidos.getValueAt(i, 3).toString().replaceAll("\\s", ""));
-
+            
             imp = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(PulidoPrec.multiply(PulidoCant).toString());
             subtotal = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(ingreso.TransformReales(subtotal).add(ingreso.TransformReales(imp)).toString());
-
+            
             tb_pedidos.setValueAt(ingreso.MaskareaRealesDado_String_ExclusiveMonedas(String.valueOf(imp)), i, 5);
             total = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(ingreso.TransformReales(subtotal).add(ingreso.TransformReales(iva)).toString());
-
+            
             txttotal.setText(total);
-
+            
         }
     }
-
+    
     public void calcularMoneda() {
-
+        
         String real = "0", dolar = "0";
-
+        
         BigDecimal ValorGuaranies = ingreso.TransformReales(txttotal.getText().replaceAll("\\s", ""));
         BigDecimal ValorGuaranies2 = ingreso.TransformReales(txttotal.getText().replaceAll("\\s", ""));
         BigDecimal ValorDolar = ingreso.TransformReales(lbl_dolar.getText().replaceAll("\\s", ""));
         BigDecimal ValorReal = ingreso.TransformReales(lbl_r.getText().replaceAll("\\s", ""));
-
+        
         if (Principal.txt_simbolo.getText().equals("Gs")) {
             real = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(ValorGuaranies.divide(ValorReal, 2, RoundingMode.HALF_UP).toString());
             dolar = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(ValorGuaranies2.divide(ValorDolar, 2, RoundingMode.HALF_UP).toString());
             lbl_cambio_real.setText(real);
             lbl_cambio_dolar.setText(dolar);
         }
-
+        
         if (Principal.txt_simbolo.getText().equals("US$")) {
             String reale = "0", guaranies = "0";
             int decimalPlace = 2;
@@ -1096,7 +1147,7 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
             guaranies = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(rcg);
             lbl_cambio_dolar.setText(guaranies);
         }
-
+        
     }//FIN METODO public vo
 
     void ticket() {
@@ -1117,10 +1168,10 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
         String almacen = lbl_default_id.getText();
         String literal = lbl_literal.getText();
         String valor_amort = txt_op_pedidos.getText();
-
+        
         try {
             Connection cn = conectar.getInstance().getConnection();
-
+            
             PreparedStatement pst = cn.prepareStatement(InsertarSQL);
             pst.setString(1, numbol);
             pst.setString(2, cod_cli);
@@ -1139,20 +1190,20 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
             pst.setString(15, valor_amort);
             int n = pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
-
+            
             if (n > 0) {
-
+                detalle_ticket();
                 JOptionPane.showMessageDialog(null, "Nota realizada con éxito");
-
+                
             }
-
+            
         } catch (SQLException ex) {
             Logger.getLogger(Pedidos_pedidos.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
-
+        
     }
-
+    
     void ticket_plazo() {
         codigos();
         String InsertarSQL = "INSERT INTO pedidos (num_pedi,cod_provee,nom_provee,forma_pag_pedi,dias_plazo_pedi,total_pedi,total_real,total_dolar,estado_pedi,fecha_pedi,user_pedi,almacen_pedi,cant_pedi,letras_pedi,vac_ventas) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -1171,7 +1222,7 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
         String almacen = lbl_default_id.getText();
         String literal = lbl_literal.getText();
         String valor_amort = txt_op_pedidos.getText();
-
+        
         try {
             Connection cn = conectar.getInstance().getConnection();
             PreparedStatement pst = cn.prepareStatement(InsertarSQL);
@@ -1192,20 +1243,20 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
             pst.setString(15, valor_amort);
             int n = pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
-
+            
             if (n > 0) {
-                cn.createStatement().execute("UNLOCK TABLES");
+                detalle_ticket();
                 JOptionPane.showMessageDialog(null, "Nota realizada con éxito");
-
+                
             }
-
+            
         } catch (SQLException ex) {
             Logger.getLogger(Pedidos_pedidos.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
-
+        
     }
-
+    
     void detalle_ticket() {
         for (int i = 0; i < tb_pedidos.getRowCount(); i++) {
             String InsertarSQL = "INSERT INTO pedidos_detalles (num_pedi,cod_pro,des_pro,cant_pro,pre_unit,cant_kg,pre_venta,data) VALUES (?,?,?,?,?,?,?,?)";
@@ -1217,10 +1268,10 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
             String preunit = tb_pedidos.getValueAt(i, 2).toString();
             String importe = tb_pedidos.getValueAt(i, 5).toString();
             String fecha_det_con = lbl_fecha_hoy.getText();
-
+            
             try {
                 Connection cn = conectar.getInstance().getConnection();
-
+                
                 PreparedStatement pst = cn.prepareStatement(InsertarSQL);
                 pst.setString(1, numbol);
                 pst.setString(2, codpro);
@@ -1231,7 +1282,7 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
                 pst.setString(7, importe);
                 pst.setString(8, fecha_det_con);
                 pst.executeUpdate();
-
+                
             } catch (SQLException ex) {
                 Logger.getLogger(Pedidos_pedidos.class
                         .getName()).log(Level.SEVERE, null, ex);
@@ -1241,13 +1292,13 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////
     void codigos() {
-
+        
         String c = "";
         String SQL = "select max(num_pedi) from pedidos";
-
+        
         try {
             Connection cn = conectar.getInstance().getConnection();
-
+            
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             if (rs.next()) {
@@ -1261,7 +1312,7 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
                     GenerarNumero gen = new GenerarNumero();
                     gen.generar(j);
                     lbl_cod.setText(gen.serie());
-
+                    
                 } else {
                     Generar_Num_Pro gen = new Generar_Num_Pro();
                     gen.generar(j);
@@ -1269,41 +1320,40 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
                 }
             }
             conectar.getInstance().closeConnection(cn);
-
+            
         } catch (SQLException ex) {
             Logger.getLogger(Pedidos_pedidos.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
-
+        
     }
-
+    
     void server() {
-
+        
         String c = "";
         String SQL = "select now()";
-
+        
         try {
             Connection cn = conectar.getInstance().getConnection();
-
+            
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             if (rs.next()) {
-              //  c = rs.getString(1);
+                //  c = rs.getString(1);
                 lbl_fecha_VISOR.setText(new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate(1)));
             }
-           
-
+            
             conectar.getInstance().closeConnection(cn);
-
+            
         } catch (SQLException ex) {
             Logger.getLogger(Pedidos_pedidos.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
-
+        
     }
-
+    
     public void calcularCantidadPro() {
-
+        
         int Acumulador = 0;
         int TF = tb_pedidos.getRowCount();
         for (int i = 0; i < TF; i++) {
@@ -1312,11 +1362,11 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
         }
         //</editor-fold>
         lblcanpro.setText(MaskaraPrecioUnitarioEnteros(String.valueOf(Acumulador)));
-
+        
     }
-
+    
     public void calcularSubtotal() {
-
+        
         int Acumulador = 0;
         int TF = tb_pedidos.getRowCount();
         for (int i = 0; i < TF; i++) {
@@ -1325,9 +1375,9 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
         }
         //</editor-fold>
         txttotal.setText(ingreso.MaskareaRealesDado_String_ExclusiveMonedas(String.valueOf(Acumulador)));
-
+        
     }
-
+    
     public String MaskaraPrecioUnitarioEnteros(String ValorGuaranies) {
         DecimalFormat format = new DecimalFormat("###,###.##");
         long NumeroIntacto = 0L;
@@ -1339,18 +1389,18 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
         String LuzParaMisOjos = NroFormatado;
         return LuzParaMisOjos;
     }
-
+    
     void TiposPagos() {
-
+        
         if (chk_plazo.isSelected()) {
             lbl_plazos_dias.setVisible(true);
             txt_dias_plazo.setVisible(true);
-
+            
         }
     }
-
+    
     void literal() {
-
+        
         String emi = txttotal.getText();
         String emi1 = emi.replaceAll(",", "");
         lbl_literal_pro.setText(emi1);
@@ -1358,36 +1408,36 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
             Clase_Literal NumLetra = new Clase_Literal();
             String numero = lbl_literal_pro.getText();
             lbl_literal.setText(NumLetra.Convertir(numero, true));
-
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-
+        
     }
-
+    
     class hilo implements Runnable {
-
+        
         @Override
         public void run() {
             while (true) {
                 JOptionPane.showMessageDialog(null, "TAREAS ACTUALIZADAS....");
                 codigos();
-
+                
                 try {
                     Thread.sleep(120000);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Pedidos_pedidos.class.getName()).log(Level.SEVERE, null, ex);
-
+                    
                 }
             }
         }
-
+        
     }
-
+    
     void control_proveedores() {
-
+        
         String verificar = Principal_Pedidos.lbl_almacen_pedidos.getText();
-
+        
         if (verificar.equals("TODOS") || verificar.equals("0000001")) {
             btn_provee.setEnabled(true);
         } else {
@@ -1396,20 +1446,20 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
             txt_cod_cli.setText("0000001");
             txt_cli_nom.setText("KYRIOS CENTRAL FABRICA");
         }
-
+        
     }
-
+    
     void contarFilas() {
         for (int i = 0; i < tb_pedidos.getRowCount(); i++) {
             lbl_cant_produ_pedido.setText(i + "");
         }
-
+        
     }
-
+    
     void cargarCambiosConf() {
-
+        
         if (Principal.txt_simbolo.getText().equals("Gs")) {
-
+            
             Icon Imagenes = new ImageIcon(getClass().getResource("/Iconos_1/paraguay.png"));
             lbl_cambio_conver_3.setIcon(Imagenes);
             Icon Imagenes2 = new ImageIcon(getClass().getResource("/Iconos_1/brasil (1).png"));
@@ -1435,7 +1485,7 @@ public class Pedidos_pedidos extends javax.swing.JDialog {
             lbl_cambio_conver_2.setText("GS:");
             lbl_cambio_conver_1.setText("RS$:");
         }
-
+        
     }
-
+    
 }

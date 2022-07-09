@@ -289,7 +289,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                     String monto_total = tb_pago_cred.getValueAt(fila, 5).toString();
                     String lote = tb_pago_cred.getValueAt(fila, 6).toString();
                     String surcu = txt_alma_caja.getText();
-                     String fecha_fact = tb_pago_cred.getValueAt(fila, 7).toString();
+                    String fecha_fact = tb_pago_cred.getValueAt(fila, 7).toString();
 
                     Agregar_factura_recibo.txt_nro_venta.setText(nro_fact);
                     Agregar_factura_recibo.txt_plazo_saldo.setText(saldo);
@@ -569,7 +569,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_3(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote", "Fecha"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -585,6 +585,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
                 registros[6] = rs.getString(35);
+                registros[7] = rs.getString(22);
 
                 model.addRow(registros);
             }
@@ -597,6 +598,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
+            tb_pago_cred.getColumnModel().getColumn(7).setPreferredWidth(80);
             conectar.getInstance().closeConnection(cn);
             System.out.println("etron en lista");
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -608,7 +610,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_4(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote", "Fecha"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -624,6 +626,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
                 registros[6] = rs.getString(35);
+                registros[7] = rs.getString(22);
 
                 model.addRow(registros);
             }
@@ -636,6 +639,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
+            tb_pago_cred.getColumnModel().getColumn(7).setPreferredWidth(80);
             conectar.getInstance().closeConnection(cn);
             System.out.println("etron en lista");
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -647,7 +651,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_5(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote", "Fecha"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -663,6 +667,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
                 registros[6] = rs.getString(35);
+                registros[7] = rs.getString(22);
 
                 model.addRow(registros);
             }
@@ -675,6 +680,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
+            tb_pago_cred.getColumnModel().getColumn(7).setPreferredWidth(80);
             conectar.getInstance().closeConnection(cn);
             System.out.println("etron en lista");
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -686,7 +692,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_6(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote", "Fecha"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -702,6 +708,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
                 registros[6] = rs.getString(35);
+                registros[7] = rs.getString(22);
 
                 model.addRow(registros);
             }
@@ -714,6 +721,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
+            tb_pago_cred.getColumnModel().getColumn(7).setPreferredWidth(80);
             conectar.getInstance().closeConnection(cn);
             System.out.println("etron en lista");
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -725,7 +733,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_7(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote", "Fecha"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -741,6 +749,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
                 registros[6] = rs.getString(35);
+                registros[7] = rs.getString(22);
 
                 model.addRow(registros);
             }
@@ -753,6 +762,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
+            tb_pago_cred.getColumnModel().getColumn(7).setPreferredWidth(80);
             conectar.getInstance().closeConnection(cn);
             System.out.println("etron en lista");
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -764,7 +774,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_8(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote", "Fecha"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -780,7 +790,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
                 registros[6] = rs.getString(35);
-
+                registros[7] = rs.getString(22);
                 model.addRow(registros);
             }
             tb_pago_cred.setModel(model);
@@ -792,6 +802,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
+            tb_pago_cred.getColumnModel().getColumn(7).setPreferredWidth(80);
             conectar.getInstance().closeConnection(cn);
             System.out.println("etron en lista");
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -803,7 +814,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_9(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote", "Fecha"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -819,6 +830,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
                 registros[6] = rs.getString(35);
+                registros[7] = rs.getString(22);
 
                 model.addRow(registros);
             }
@@ -831,6 +843,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
+            tb_pago_cred.getColumnModel().getColumn(7).setPreferredWidth(80);
             conectar.getInstance().closeConnection(cn);
             System.out.println("etron en lista");
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -842,7 +855,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_10(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote", "Fecha"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -858,6 +871,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
                 registros[6] = rs.getString(35);
+                registros[7] = rs.getString(22);
 
                 model.addRow(registros);
             }
@@ -870,6 +884,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
+            tb_pago_cred.getColumnModel().getColumn(7).setPreferredWidth(80);
             conectar.getInstance().closeConnection(cn);
             System.out.println("etron en lista");
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -881,7 +896,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_11(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote", "Fecha"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -897,6 +912,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
                 registros[6] = rs.getString(35);
+                registros[7] = rs.getString(22);
 
                 model.addRow(registros);
             }
@@ -909,6 +925,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
+            tb_pago_cred.getColumnModel().getColumn(7).setPreferredWidth(80);
             conectar.getInstance().closeConnection(cn);
             System.out.println("etron en lista");
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -920,7 +937,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_12(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote", "Fecha"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -936,6 +953,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
                 registros[6] = rs.getString(35);
+                registros[7] = rs.getString(22);
 
                 model.addRow(registros);
             }
@@ -948,6 +966,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
+            tb_pago_cred.getColumnModel().getColumn(7).setPreferredWidth(80);
             conectar.getInstance().closeConnection(cn);
             System.out.println("etron en lista");
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -959,7 +978,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_13(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote", "Fecha"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -975,6 +994,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
                 registros[6] = rs.getString(35);
+                registros[7] = rs.getString(22);
 
                 model.addRow(registros);
             }
@@ -987,6 +1007,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
+            tb_pago_cred.getColumnModel().getColumn(7).setPreferredWidth(80);
             conectar.getInstance().closeConnection(cn);
             System.out.println("etron en lista");
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -998,7 +1019,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_14(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote", "Fecha"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -1014,6 +1035,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
                 registros[6] = rs.getString(35);
+                registros[7] = rs.getString(22);
 
                 model.addRow(registros);
             }
@@ -1026,6 +1048,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
+            tb_pago_cred.getColumnModel().getColumn(7).setPreferredWidth(80);
             conectar.getInstance().closeConnection(cn);
             System.out.println("etron en lista");
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -1037,7 +1060,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_15(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote", "Fecha"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -1053,6 +1076,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
                 registros[6] = rs.getString(35);
+                registros[7] = rs.getString(22);
 
                 model.addRow(registros);
             }
@@ -1065,6 +1089,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
+            tb_pago_cred.getColumnModel().getColumn(7).setPreferredWidth(80);
             conectar.getInstance().closeConnection(cn);
             System.out.println("etron en lista");
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -1076,7 +1101,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_16(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote", "Fecha"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -1092,6 +1117,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
                 registros[6] = rs.getString(35);
+                registros[7] = rs.getString(22);
 
                 model.addRow(registros);
             }
@@ -1104,6 +1130,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
+            tb_pago_cred.getColumnModel().getColumn(7).setPreferredWidth(80);
 
             conectar.getInstance().closeConnection(cn);
 
@@ -1116,7 +1143,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_17(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote", "Fecha"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -1132,6 +1159,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
                 registros[6] = rs.getString(35);
+                registros[7] = rs.getString(22);
 
                 model.addRow(registros);
             }
@@ -1144,6 +1172,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
+            tb_pago_cred.getColumnModel().getColumn(7).setPreferredWidth(80);
             conectar.getInstance().closeConnection(cn);
             System.out.println("etron en lista");
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -1155,7 +1184,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_18(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote", "Fecha"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -1171,6 +1200,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
                 registros[6] = rs.getString(35);
+                registros[7] = rs.getString(22);
 
                 model.addRow(registros);
             }
@@ -1183,6 +1213,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
+            tb_pago_cred.getColumnModel().getColumn(7).setPreferredWidth(80);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -1194,7 +1225,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_19(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote", "Fecha"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -1210,6 +1241,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
                 registros[6] = rs.getString(35);
+                registros[7] = rs.getString(22);
 
                 model.addRow(registros);
             }
@@ -1222,6 +1254,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
+            tb_pago_cred.getColumnModel().getColumn(7).setPreferredWidth(80);
             conectar.getInstance().closeConnection(cn);
             System.out.println("etron en lista");
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -1233,7 +1266,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_20(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote", "Fecha"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -1249,6 +1282,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
                 registros[6] = rs.getString(35);
+                registros[7] = rs.getString(22);
 
                 model.addRow(registros);
             }
@@ -1261,6 +1295,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
+            tb_pago_cred.getColumnModel().getColumn(7).setPreferredWidth(80);
             conectar.getInstance().closeConnection(cn);
 
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -1272,7 +1307,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_21(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote", "Fecha"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -1288,6 +1323,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
                 registros[6] = rs.getString(35);
+                registros[7] = rs.getString(22);
 
                 model.addRow(registros);
             }
@@ -1300,6 +1336,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
+            tb_pago_cred.getColumnModel().getColumn(7).setPreferredWidth(80);
             conectar.getInstance().closeConnection(cn);
             System.out.println("etron en lista");
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -1311,7 +1348,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_22(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote", "Fecha"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -1327,6 +1364,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
                 registros[6] = rs.getString(35);
+                registros[7] = rs.getString(22);
 
                 model.addRow(registros);
             }
@@ -1339,6 +1377,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
+            tb_pago_cred.getColumnModel().getColumn(7).setPreferredWidth(80);
             conectar.getInstance().closeConnection(cn);
             System.out.println("etron en lista");
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -1350,7 +1389,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_23(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote", "Fecha"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -1366,6 +1405,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
                 registros[6] = rs.getString(35);
+                registros[7] = rs.getString(22);
 
                 model.addRow(registros);
             }
@@ -1378,6 +1418,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
+            tb_pago_cred.getColumnModel().getColumn(7).setPreferredWidth(80);
             conectar.getInstance().closeConnection(cn);
             System.out.println("etron en lista");
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -1389,7 +1430,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_24(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote", "Fecha"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -1405,6 +1446,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
                 registros[6] = rs.getString(35);
+                registros[7] = rs.getString(22);
 
                 model.addRow(registros);
             }
@@ -1417,6 +1459,8 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
+            tb_pago_cred.getColumnModel().getColumn(7).setPreferredWidth(80);
+
             conectar.getInstance().closeConnection(cn);
             System.out.println("etron en lista");
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -1428,7 +1472,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_25(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote", "Fecha"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -1444,6 +1488,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
                 registros[6] = rs.getString(35);
+                registros[7] = rs.getString(22);
 
                 model.addRow(registros);
             }
@@ -1456,6 +1501,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
+            tb_pago_cred.getColumnModel().getColumn(7).setPreferredWidth(80);
             conectar.getInstance().closeConnection(cn);
             System.out.println("etron en lista");
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -1467,7 +1513,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_26(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote", "Fecha"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -1483,6 +1529,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
                 registros[6] = rs.getString(35);
+                registros[7] = rs.getString(22);
 
                 model.addRow(registros);
             }
@@ -1495,6 +1542,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
+            tb_pago_cred.getColumnModel().getColumn(7).setPreferredWidth(80);
             conectar.getInstance().closeConnection(cn);
             System.out.println("etron en lista");
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -1506,7 +1554,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_27(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote", "Fecha"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -1522,6 +1570,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
                 registros[6] = rs.getString(35);
+                registros[7] = rs.getString(22);
 
                 model.addRow(registros);
             }
@@ -1534,6 +1583,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
+            tb_pago_cred.getColumnModel().getColumn(7).setPreferredWidth(80);
             conectar.getInstance().closeConnection(cn);
             System.out.println("etron en lista");
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -1545,7 +1595,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_28(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote", "Fecha"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -1561,6 +1611,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
                 registros[6] = rs.getString(35);
+                registros[7] = rs.getString(22);
 
                 model.addRow(registros);
             }
@@ -1573,6 +1624,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
+            tb_pago_cred.getColumnModel().getColumn(7).setPreferredWidth(80);
             conectar.getInstance().closeConnection(cn);
             System.out.println("etron en lista");
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -1584,7 +1636,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_29(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote", "Fecha"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -1600,6 +1652,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
                 registros[6] = rs.getString(35);
+                registros[7] = rs.getString(22);
 
                 model.addRow(registros);
             }
@@ -1612,6 +1665,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
+            tb_pago_cred.getColumnModel().getColumn(7).setPreferredWidth(80);
             conectar.getInstance().closeConnection(cn);
             System.out.println("etron en lista");
         } catch (HeadlessException | NumberFormatException | SQLException e) {
@@ -1623,7 +1677,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
     void cargar_30(String valor) {
         try {
 
-            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote"};
+            String[] titulos = {"Nro Factura", "Cód. Cliente", "Cliente", "Nro de venta", "Saldo Pendiente", "Valor Total", "Lote", "Fecha"};
             String[] registros = new String[23];
             model = new DefaultTableModel(null, titulos);
             Connection cn = conectar.getInstance().getConnection();
@@ -1639,6 +1693,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
                 registros[4] = rs.getString(30);
                 registros[5] = rs.getString(6);
                 registros[6] = rs.getString(35);
+                registros[7] = rs.getString(22);
 
                 model.addRow(registros);
             }
@@ -1651,6 +1706,7 @@ public class Lista_facturas_recibimiento extends javax.swing.JDialog {
             tb_pago_cred.getColumnModel().getColumn(4).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(5).setPreferredWidth(120);
             tb_pago_cred.getColumnModel().getColumn(6).setPreferredWidth(50);
+            tb_pago_cred.getColumnModel().getColumn(7).setPreferredWidth(80);
             conectar.getInstance().closeConnection(cn);
             System.out.println("etron en lista");
         } catch (HeadlessException | NumberFormatException | SQLException e) {

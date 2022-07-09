@@ -127,36 +127,38 @@ public class Surcusales_historico_actu extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-        try {
-            String id = txt_id.getText();
-            String des = txtdes.getText();
-            String tipo = (String) cb_tipo.getSelectedItem();
-            String clase = (String) cb_class.getSelectedItem();
-            String surc = txt_user_alma.getText();
-
-            String sql = "UPDATE historicos_surc SET des_his = '" + des
-                    + "',tipo_des ='" + tipo
-                    + "',surc_his ='" + surc
-                    + "',class_his ='" + clase
-                    + "' WHERE cod_his = '" + id + "'";
+        if (txtdes.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "El nombre no es válido, verifique!");
+        } else {
             try {
-                Connection cn = conectar.getInstance().getConnection();
+                String id = txt_id.getText();
+                String des = txtdes.getText();
+                String tipo = (String) cb_tipo.getSelectedItem();
+                String clase = (String) cb_class.getSelectedItem();
+                String surc = txt_user_alma.getText();
 
-                PreparedStatement pst = cn.prepareStatement(sql);
-                pst.executeUpdate();
-                conectar.getInstance().closeConnection(cn);
-                JOptionPane.showMessageDialog(null, "Actualizado");
-                this.dispose();
+                String sql = "UPDATE historicos_surc SET des_his = '" + des
+                        + "',tipo_des ='" + tipo
+                        + "',surc_his ='" + surc
+                        + "',class_his ='" + clase
+                        + "' WHERE cod_his = '" + id + "'";
+                try {
+                    Connection cn = conectar.getInstance().getConnection();
 
-            } catch (SQLException | HeadlessException e) {
-                JOptionPane.showMessageDialog(null, e);
+                    PreparedStatement pst = cn.prepareStatement(sql);
+                    pst.executeUpdate();
+                    conectar.getInstance().closeConnection(cn);
+                    JOptionPane.showMessageDialog(null, "Actualizado");
+                    this.dispose();
+
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } catch (Exception e) {
             }
-
-        } catch (Exception e) {
+            Historico_Surcusales.btn_cargar_datos.doClick();
         }
-        Historico_Surcusales.btn_cargar_datos.doClick();
-
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

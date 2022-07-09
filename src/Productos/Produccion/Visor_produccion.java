@@ -7,7 +7,7 @@ package Productos.Produccion;
 
 import Conexion_DB.conectar;
 import static Productos.Produccion.Principal_produccion.cod_produccion;
-import java.awt.event.KeyEvent;
+import static Productos.Produccion.Principal_produccion.cod_serie;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,6 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -30,12 +31,13 @@ public class Visor_produccion extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         // visor_recepcion   visor = new visor_recepcion(new javax.swing.JDialog(), true);
-        // txtcod.setText(cod);
-
-       // cargar(cod_produccion);
+        lbl_nro_pedido.setText(cod_produccion);
+        lbl_serie.setText(cod_serie);
+        // cargar(cod_produccion);
         // cargarTxt(cod_produccion);
     }
-     public static String cod_prod_op = "";
+    public static String cod_prod_op = "";
+    public static String cod_pro_sub = "";
 
     void cargar(String valor) {
         String mostrar = "SELECT * FROM presupuesto_detalles WHERE  num_bol='" + valor + "'";
@@ -85,13 +87,7 @@ public class Visor_produccion extends javax.swing.JDialog {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(mostrar);
             while (rs.next()) {
-                txt_nro_venta.setText(rs.getString(1));
-                cliente.setText(rs.getString(3));
-                forma_pago.setText(rs.getString(4));
-                dias_plazo.setText(rs.getString(5));
-                txt_fecha.setText(rs.getString(10));
-                txt_usuario.setText(rs.getString(12));
-                lbl_sucursal_id.setText(rs.getString(13));
+                //   txt_nro_venta.setText(rs.getString(1));
 
             }
             conectar.getInstance().closeConnection(cn);
@@ -114,109 +110,24 @@ public class Visor_produccion extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        dias_plazo = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        forma_pago = new javax.swing.JLabel();
-        cliente = new javax.swing.JLabel();
-        txt_usuario = new javax.swing.JLabel();
-        txt_fecha = new javax.swing.JLabel();
-        txt_nro_venta = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        lbl_sucursal_id = new javax.swing.JLabel();
-        txt_salir = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tb_visor_produccion = new javax.swing.JTable();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tbclientes = new javax.swing.JTable();
-        jLabel13 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        lbl_serie = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        lbl_nro_pedido = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jLabel20 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Consulta Ventas");
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel2.setBackground(new java.awt.Color(204, 255, 255));
-        jPanel2.setForeground(new java.awt.Color(153, 255, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel19.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel19.setText("OP Nº:");
-        jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 70, 30));
-
-        jLabel21.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel21.setText("Usuario:");
-        jPanel2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 60, 30));
-
-        dias_plazo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jPanel2.add(dias_plazo, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 50, 70, 30));
-
-        jLabel23.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel23.setText("Fecha :");
-        jPanel2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 20, -1, 30));
-
-        forma_pago.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        forma_pago.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        forma_pago.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jPanel2.add(forma_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 90, 30));
-
-        cliente.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        cliente.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jPanel2.add(cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 390, 30));
-
-        txt_usuario.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jPanel2.add(txt_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 190, 30));
-
-        txt_fecha.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jPanel2.add(txt_fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 60, 30));
-
-        txt_nro_venta.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        txt_nro_venta.setForeground(new java.awt.Color(204, 51, 0));
-        jPanel2.add(txt_nro_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 130, 30));
-
-        jLabel24.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel24.setText("Cond. de  Pago:");
-        jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 110, 30));
-
-        jLabel25.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel25.setText("Cliente:");
-        jPanel2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 60, 30));
-
-        lbl_sucursal_id.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        lbl_sucursal_id.setForeground(new java.awt.Color(153, 0, 0));
-        jPanel2.add(lbl_sucursal_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 140, 30));
-
-        txt_salir.setBorder(null);
-        txt_salir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_salirActionPerformed(evt);
-            }
-        });
-        txt_salir.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txt_salirKeyPressed(evt);
-            }
-        });
-        jPanel2.add(txt_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 190, 0));
-
-        jLabel12.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel12.setText("N° Cuotas:");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, 90, 30));
-
-        jLabel14.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel14.setText("Almacén-Sucursal:");
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 140, 30));
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 870, 140));
 
         tb_visor_produccion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         tb_visor_produccion.setModel(new javax.swing.table.DefaultTableModel(
@@ -233,50 +144,69 @@ public class Visor_produccion extends javax.swing.JDialog {
             }
         });
         tb_visor_produccion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tb_visor_produccionKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tb_visor_produccionKeyReleased(evt);
             }
         });
         jScrollPane2.setViewportView(tb_visor_produccion);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 870, -1));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 1090, 450));
 
-        tbclientes = new javax.swing.JTable(){
-            public boolean isCellEditable(int rowIndex, int colIndex){
-                return false;
-            }
-        };
-        tbclientes.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        tbclientes.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jButton2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/eliminar.png"))); // NOI18N
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 10, 60, 50));
 
-            }
-        ));
-        tbclientes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbclientesMouseClicked(evt);
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
+        jButton3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/paquete.png"))); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
             }
         });
-        tbclientes.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                tbclientesKeyPressed(evt);
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 10, 60, 50));
+
+        lbl_serie.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbl_serie.setForeground(new java.awt.Color(153, 0, 0));
+        jPanel1.add(lbl_serie, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 140, 30));
+
+        jLabel21.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel21.setText("Nro Pedido:");
+        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 80, 30));
+
+        lbl_nro_pedido.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jPanel1.add(lbl_nro_pedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 140, 30));
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/agrega.png"))); // NOI18N
+        jButton1.setText("Guardar");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
-        jScrollPane1.setViewportView(tbclientes);
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 540, 120, 50));
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 160, 190, 400));
+        jButton4.setBackground(new java.awt.Color(255, 255, 255));
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/lapiz_editar.png"))); // NOI18N
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 10, 60, 50));
 
-        jLabel13.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel13.setText("Historial");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 120, 140, 30));
+        jLabel20.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel20.setText("Nro de Serie:");
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 80, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 580));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 610));
 
         pack();
         setLocationRelativeTo(null);
@@ -289,31 +219,44 @@ public class Visor_produccion extends javax.swing.JDialog {
     private void tb_visor_produccionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_visor_produccionMouseClicked
         int filaMod = tb_visor_produccion.getSelectedRow();
         cod_prod_op = (String) tb_visor_produccion.getValueAt(filaMod, 0);
-
-        zona_produccion zona;
-        zona = new zona_produccion(new javax.swing.JDialog(), true);
-        zona.setVisible(true);
+        /*
+         zona_produccion zona;
+         zona = new zona_produccion(new javax.swing.JDialog(), true);
+         zona.setVisible(true);*/
     }//GEN-LAST:event_tb_visor_produccionMouseClicked
 
-    private void txt_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_salirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_salirActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        //id pedido
+        //id serie
+        agregar_pro_prod zp;
+        zp = new agregar_pro_prod(new javax.swing.JDialog(), true);
+        zp.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void txt_salirKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_salirKeyPressed
-        char Tecla = evt.getKeyChar();
+    private void tb_visor_produccionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_visor_produccionKeyPressed
+        System.out.println("");
+    }//GEN-LAST:event_tb_visor_produccionKeyPressed
 
-        if (Tecla == KeyEvent.VK_ESCAPE) {
-            this.dispose();
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        int filasel = tb_visor_produccion.getSelectedRow();
+        if (filasel == -1) {
+            JOptionPane.showMessageDialog(null, "Seleccione un registro válido");
+        } else {
+
+            int filaModi = tb_visor_produccion.getSelectedRow();
+            cod_pro_sub = (String) tb_visor_produccion.getValueAt(filaModi, 0);
+
+
+            /*   Ajuste_nota_cantidad an;
+             an = new Ajuste_nota_cantidad(new javax.swing.JDialog(), true);
+             an.setVisible(true);*/
         }
-    }//GEN-LAST:event_txt_salirKeyPressed
-
-    private void tbclientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbclientesMouseClicked
-    
-    }//GEN-LAST:event_tbclientesMouseClicked
-
-    private void tbclientesKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbclientesKeyPressed
-  
-    }//GEN-LAST:event_tbclientesKeyPressed
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -344,8 +287,6 @@ public class Visor_produccion extends javax.swing.JDialog {
         //</editor-fold>
         //</editor-fold>
 
-
-
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -362,28 +303,17 @@ public class Visor_produccion extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel cliente;
-    private javax.swing.JLabel dias_plazo;
-    private javax.swing.JLabel forma_pago;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel19;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel lbl_sucursal_id;
+    private javax.swing.JLabel lbl_nro_pedido;
+    private javax.swing.JLabel lbl_serie;
     public static javax.swing.JTable tb_visor_produccion;
-    private javax.swing.JTable tbclientes;
-    private javax.swing.JLabel txt_fecha;
-    public static javax.swing.JLabel txt_nro_venta;
-    private javax.swing.JTextField txt_salir;
-    private javax.swing.JLabel txt_usuario;
     // End of variables declaration//GEN-END:variables
 
 }

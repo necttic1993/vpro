@@ -235,10 +235,15 @@ public class Productos_presupuesto extends javax.swing.JDialog {
                 registros[2] = rs.getString(3);
                 registros[3] = rs.getString(4);
                 registros[4] = rs.getString(5);
-                if (txt_class_cli.getText().equals("MAYORISTAS")) {
-                    registros[5] = rs.getString(8);
-                } else {
+
+                if (txt_class_cli.getText().equals("MINORISTAS")) {
                     registros[5] = rs.getString(7);
+                } else if (txt_class_cli.getText().equals("MAYORISTAS")) {
+                    registros[5] = rs.getString(8);
+                } else if (txt_class_cli.getText().equals("SUBDISTRIBUIDOR")) {
+                    registros[5] = rs.getString(9);
+                } else if (txt_class_cli.getText().equals("DISTRIBUIDOR")) {
+                    registros[5] = rs.getString(60);
                 }
                 model.addRow(registros);
             }

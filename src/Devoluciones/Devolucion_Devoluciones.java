@@ -47,19 +47,20 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
         btn_buscar.setVisible(false);
         btncalcular.setVisible(false);
         txt_cli_nom.setDisabledTextColor(Color.black);
-        txt_forma_pago.setDisabledTextColor(Color.black);
-        txt_dias_plazo.setDisabledTextColor(Color.black);
-        txt_forma_pago.setDisabledTextColor(Color.black);
-        txt_da.setDisabledTextColor(Color.black);
         txt_des.setDocument(new machusculas());
-
-        tb_factura.getColumnModel().getColumn(0).setPreferredWidth(90);
-        tb_factura.getColumnModel().getColumn(1).setPreferredWidth(330);
-        tb_factura.getColumnModel().getColumn(2).setPreferredWidth(130);
-        tb_factura.getColumnModel().getColumn(3).setPreferredWidth(83);
-        tb_factura.getColumnModel().getColumn(4).setPreferredWidth(130);
+        ch_generar_stock.setSelected(true);
+        tb_factura_dev.getColumnModel().getColumn(0).setPreferredWidth(90);
+        tb_factura_dev.getColumnModel().getColumn(1).setPreferredWidth(330);
+        tb_factura_dev.getColumnModel().getColumn(2).setPreferredWidth(130);
+        tb_factura_dev.getColumnModel().getColumn(3).setPreferredWidth(83);
+        tb_factura_dev.getColumnModel().getColumn(4).setPreferredWidth(130);
 
     }
+
+    public static String cod_pro_mod_dev = "";
+    public static String cant_pro_mod_dev = "";
+    public static String stock_actual_mod_dev = "";
+    public static String stock_pre_mod_dev = "";
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -67,21 +68,15 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tb_factura = new javax.swing.JTable();
+        tb_factura_dev = new javax.swing.JTable();
         jLabel11 = new javax.swing.JLabel();
-        lbl_da = new javax.swing.JLabel();
-        txt_da = new javax.swing.JTextField();
-        txt_dias_plazo = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         txt_cod_cli = new javax.swing.JTextField();
-        lbl_plazos_dias = new javax.swing.JLabel();
         txt_cli_nom = new javax.swing.JTextField();
         txt_cod = new javax.swing.JTextField();
-        txt_forma_pago = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         lbl_cod = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
         txt_des = new javax.swing.JTextField();
         btn_buscar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -92,9 +87,12 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
         btncalcular = new javax.swing.JButton();
         btnven = new javax.swing.JButton();
         btn_salir = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        ch_generar_stock = new javax.swing.JCheckBox();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
         txttotal = new javax.swing.JLabel();
-        lbl_plazos_dias2 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Devolución de Ventas");
@@ -104,8 +102,13 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tb_factura.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        tb_factura.setModel(new javax.swing.table.DefaultTableModel(
+        tb_factura_dev = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
+        tb_factura_dev.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        tb_factura_dev.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -113,42 +116,20 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
                 "Código", "Descripción", "Precio Unitario", "Cantidad", "Precio Total"
             }
         ));
-        tb_factura.setGridColor(new java.awt.Color(255, 255, 255));
-        tb_factura.setRowHeight(22);
-        tb_factura.addKeyListener(new java.awt.event.KeyAdapter() {
+        tb_factura_dev.setGridColor(new java.awt.Color(255, 255, 255));
+        tb_factura_dev.setRowHeight(22);
+        tb_factura_dev.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                tb_facturaKeyPressed(evt);
+                tb_factura_devKeyPressed(evt);
             }
         });
-        jScrollPane1.setViewportView(tb_factura);
+        jScrollPane1.setViewportView(tb_factura_dev);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 860, 290));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 910, 320));
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel11.setText("Número de Venta :");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 130, 30));
-
-        lbl_da.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        lbl_da.setText("D/A:");
-        jPanel1.add(lbl_da, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 30, 30));
-
-        txt_da.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        txt_da.setEnabled(false);
-        txt_da.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_daActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txt_da, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, 250, 30));
-
-        txt_dias_plazo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        txt_dias_plazo.setEnabled(false);
-        txt_dias_plazo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_dias_plazoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txt_dias_plazo, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 70, 30));
 
         jLabel16.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel16.setText("Nombre del Cliente :");
@@ -156,7 +137,7 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
 
         jLabel18.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel18.setText("Descripción:");
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 130, 30));
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 130, 30));
 
         txt_cod_cli.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt_cod_cli.setEnabled(false);
@@ -172,10 +153,6 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
         });
         jPanel1.add(txt_cod_cli, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 90, 30));
 
-        lbl_plazos_dias.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        lbl_plazos_dias.setText("Nro Cuotas:");
-        jPanel1.add(lbl_plazos_dias, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, 80, 30));
-
         txt_cli_nom.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt_cli_nom.setEnabled(false);
         txt_cli_nom.addActionListener(new java.awt.event.ActionListener() {
@@ -183,7 +160,7 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
                 txt_cli_nomActionPerformed(evt);
             }
         });
-        jPanel1.add(txt_cli_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 510, 30));
+        jPanel1.add(txt_cli_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 480, 30));
 
         txt_cod.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txt_cod.setDisabledTextColor(new java.awt.Color(204, 0, 0));
@@ -200,24 +177,17 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
         });
         jPanel1.add(txt_cod, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 9, 140, 32));
 
-        txt_forma_pago.setEnabled(false);
-        jPanel1.add(txt_forma_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 150, 30));
-
         jLabel12.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel12.setText("N°:");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 10, -1, 30));
+        jLabel12.setText("N° Doc:");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(751, 10, 50, 30));
 
         lbl_cod.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lbl_cod.setForeground(new java.awt.Color(255, 0, 0));
         lbl_cod.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_cod.setText("0000001");
         lbl_cod.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(lbl_cod, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 10, 120, 30));
-
-        jLabel19.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel19.setText("Condición de pago :");
-        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 130, 30));
-        jPanel1.add(txt_des, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 100, 600, 30));
+        jPanel1.add(lbl_cod, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 10, 120, 30));
+        jPanel1.add(txt_des, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 430, 30));
 
         btn_buscar.setBackground(new java.awt.Color(255, 255, 255));
         btn_buscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -281,7 +251,7 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
                 btneliActionPerformed(evt);
             }
         });
-        jPanel1.add(btneli, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 90, 70, 45));
+        jPanel1.add(btneli, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 70, 60, 40));
 
         btncalcular.setBackground(new java.awt.Color(255, 255, 255));
         btncalcular.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -308,7 +278,7 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
                 btnvenActionPerformed(evt);
             }
         });
-        jPanel1.add(btnven, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 520, 130, 50));
+        jPanel1.add(btnven, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 490, 130, 50));
 
         btn_salir.setBackground(new java.awt.Color(255, 255, 255));
         btn_salir.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -329,28 +299,77 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
                 btn_salirKeyReleased(evt);
             }
         });
-        jPanel1.add(btn_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 520, 130, 50));
+        jPanel1.add(btn_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 490, 130, 50));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(0, 51, 153))); // NOI18N
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/ajust.png"))); // NOI18N
+        jButton2.setToolTipText("");
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 70, 60, 40));
 
-        txttotal.setBackground(new java.awt.Color(102, 102, 102));
-        txttotal.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        txttotal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        ch_generar_stock.setBackground(new java.awt.Color(0, 0, 153));
+        ch_generar_stock.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        ch_generar_stock.setForeground(new java.awt.Color(255, 255, 255));
+        ch_generar_stock.setText("Devolver Stock ");
+        ch_generar_stock.setContentAreaFilled(false);
+        ch_generar_stock.setOpaque(true);
+        ch_generar_stock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ch_generar_stockActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ch_generar_stock, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, 130, 30));
+
+        jPanel3.setBackground(new java.awt.Color(0, 102, 51));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("TOTAL :");
+
+        txttotal.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        txttotal.setForeground(new java.awt.Color(255, 255, 255));
+        txttotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txttotal.setText("0");
-        txttotal.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        txttotal.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         txttotal.setVerifyInputWhenFocusTarget(false);
-        txttotal.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-        jPanel2.add(txttotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 180, 30));
 
-        lbl_plazos_dias2.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        lbl_plazos_dias2.setText("Valor Total:");
-        jPanel2.add(lbl_plazos_dias2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 110, 30));
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txttotal, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txttotal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 440, 300, 70));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 440, 270, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 580));
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/lapiz_editar.png"))); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 70, 60, 40));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 560));
 
         pack();
         setLocationRelativeTo(null);
@@ -364,9 +383,9 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
     }//GEN-LAST:event_btncalcularActionPerformed
 
     private void btneliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliActionPerformed
-        for (int i = 0; i < Devolucion_Devoluciones.tb_factura.getRowCount(); i++) {
-            DefaultTableModel model = (DefaultTableModel) tb_factura.getModel();
-            int fila = tb_factura.getSelectedRow();
+        for (int i = 0; i < Devolucion_Devoluciones.tb_factura_dev.getRowCount(); i++) {
+            DefaultTableModel model = (DefaultTableModel) tb_factura_dev.getModel();
+            int fila = tb_factura_dev.getSelectedRow();
             if (fila >= 0) {
                 model.removeRow(fila);
                 btncalcular.doClick();
@@ -392,8 +411,8 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
 
             devolucion();
 
-            DefaultTableModel modelo = (DefaultTableModel) tb_factura.getModel();
-            int a = tb_factura.getRowCount() - 1;
+            DefaultTableModel modelo = (DefaultTableModel) tb_factura_dev.getModel();
+            int a = tb_factura_dev.getRowCount() - 1;
             int i;
             for (i = a; i >= 0; i--) {
                 modelo.removeRow(i);
@@ -402,12 +421,8 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
             txt_cod_cli.setText("");
             txt_cli_nom.setText("");
             lblcanpro.setText("0");
-
             txttotal.setText("0");
-
             txt_cod.setText("");
-            txt_forma_pago.setText("");
-            txt_dias_plazo.setText("");
             txt_des.setText("");
         }
 
@@ -415,14 +430,6 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
         Principal_devoluciones.btn_cargar_datos.doClick();
         btnven.setEnabled(true);
     }//GEN-LAST:event_btnvenActionPerformed
-
-    private void txt_daActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_daActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_daActionPerformed
-
-    private void txt_dias_plazoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_dias_plazoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_dias_plazoActionPerformed
 
     private void txt_cod_cliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cod_cliActionPerformed
         // TODO add your handling code here:
@@ -458,7 +465,7 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_txt_codKeyPressed
 
-    private void tb_facturaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_facturaKeyPressed
+    private void tb_factura_devKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tb_factura_devKeyPressed
         char Tecla = evt.getKeyChar();
         if (Tecla == KeyEvent.VK_ENTER) {
 
@@ -466,7 +473,7 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Recalculando");
         }
 
-    }//GEN-LAST:event_tb_facturaKeyPressed
+    }//GEN-LAST:event_tb_factura_devKeyPressed
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
         cargar(txt_cod.getText());
@@ -479,8 +486,11 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
     }//GEN-LAST:event_txt_codActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Lista_ventas_canc lisv;
-        lisv = new Lista_ventas_canc(new javax.swing.JDialog(), true);
+        txt_cod.setText("");
+        txt_cod_cli.setText("");
+        txt_cli_nom.setText("");
+        Selec_mode_dev_comun lisv;
+        lisv = new Selec_mode_dev_comun(new javax.swing.JDialog(), true);
         lisv.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -501,6 +511,35 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
             dispose();
         }
     }//GEN-LAST:event_btn_salirActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Productos_Dev_comun prod;
+        prod = new Productos_Dev_comun(new javax.swing.JDialog(), true);
+        prod.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void ch_generar_stockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ch_generar_stockActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ch_generar_stockActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        int filasel = tb_factura_dev.getSelectedRow();
+        if (filasel == -1) {
+            JOptionPane.showMessageDialog(null, "Seleccione un registro válido");
+        } else {
+
+            int filaModi = tb_factura_dev.getSelectedRow();
+            cod_pro_mod_dev = (String) tb_factura_dev.getValueAt(filaModi, 0);
+            stock_pre_mod_dev = (String) tb_factura_dev.getValueAt(filaModi, 2);
+            cant_pro_mod_dev = (String) tb_factura_dev.getValueAt(filaModi, 3);
+            stock_actual_mod_dev = (String) tb_factura_dev.getValueAt(filaModi, 4);
+
+            Ajuste_nota_cantidad_devol an;
+            an = new Ajuste_nota_cantidad_devol(new javax.swing.JDialog(), true);
+            an.setVisible(true);
+
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -552,30 +591,27 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
     public static javax.swing.JButton btncalcular;
     private javax.swing.JButton btneli;
     private javax.swing.JButton btnven;
+    public static javax.swing.JCheckBox ch_generar_stock;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel7;
     public static javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JLabel lbl_cod;
-    private javax.swing.JLabel lbl_da;
-    private javax.swing.JLabel lbl_plazos_dias;
-    private javax.swing.JLabel lbl_plazos_dias2;
     public static javax.swing.JLabel lblcanpro;
-    public static javax.swing.JTable tb_factura;
+    public static javax.swing.JTable tb_factura_dev;
     public static javax.swing.JTextField txt_cli_nom;
     public static javax.swing.JTextField txt_cod;
     public static javax.swing.JTextField txt_cod_cli;
-    public static javax.swing.JTextField txt_da;
     private javax.swing.JTextField txt_des;
-    public static javax.swing.JTextField txt_dias_plazo;
-    private javax.swing.JTextField txt_forma_pago;
     public static javax.swing.JLabel txttotal;
     // End of variables declaration//GEN-END:variables
 
@@ -583,16 +619,16 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
 
         String imp = "0", subtotal = "0", iva = "0", total = "0";
 
-        for (int i = 0; i < tb_factura.getRowCount(); i++) {
-            BigDecimal PulidoPrec = ingreso.TransformReales(tb_factura.getValueAt(i, 2).toString().replaceAll("\\s", ""));
-            BigDecimal PulidoCant = ingreso.TransformReales(tb_factura.getValueAt(i, 3).toString().replaceAll("\\s", ""));
+        for (int i = 0; i < tb_factura_dev.getRowCount(); i++) {
+            BigDecimal PulidoPrec = ingreso.TransformReales(tb_factura_dev.getValueAt(i, 2).toString().replaceAll("\\s", ""));
+            BigDecimal PulidoCant = ingreso.TransformReales(tb_factura_dev.getValueAt(i, 3).toString().replaceAll("\\s", ""));
 
             imp = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(PulidoPrec.multiply(PulidoCant).toString());
             subtotal = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(ingreso.TransformReales(subtotal).add(ingreso.TransformReales(imp)).toString());
 
             // iva = ingreso.TransformReales(subtotal).divide(ingreso.TransformReales("11"), 2, RoundingMode.HALF_UP).toString();
             //   txt_nac.setText(ingreso.MaskareaRealesDado_String_ExclusiveMonedas(String.valueOf(iva)));
-            tb_factura.setValueAt(ingreso.MaskareaRealesDado_String_ExclusiveMonedas(String.valueOf(imp)), i, 4);
+            tb_factura_dev.setValueAt(ingreso.MaskareaRealesDado_String_ExclusiveMonedas(String.valueOf(imp)), i, 4);
             total = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(ingreso.TransformReales(subtotal).add(ingreso.TransformReales(iva)).toString());
 
             txttotal.setText(total);
@@ -602,38 +638,30 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
     }//FIN METODO public vo
 
     void ajustartarstock(String codi, String can) {
-        int des = Integer.parseInt(can);
         String cap = "";
-        int desfinal;
-        String consul = "SELECT * FROM tienda_productos WHERE  pro_cod='" + codi + "'";
+        String consul = "SELECT pro_cant FROM tienda_productos WHERE  pro_cod='" + codi + "'";
         try {
             Connection cn = conectar.getInstance().getConnection();
-
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(consul);
             while (rs.next()) {
-                cap = rs.getString(5);//pendiente a modificacion
+                cap = rs.getString(1);
             }
-            conectar.getInstance().closeConnection(cn);
-
-        } catch (Exception e) {
-        }
-        desfinal = Integer.parseInt(cap) + des;
-        String modi = "UPDATE tienda_productos SET pro_cant='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
-        try {
-            Connection cn = conectar.getInstance().getConnection();
-
+            ///suma el stock
+            int desfinal = Integer.parseInt(cap) + Integer.parseInt(can);
+            String modi = "UPDATE tienda_productos SET pro_cant='" + desfinal + "' WHERE pro_cod = '" + codi + "'";
             PreparedStatement pst = cn.prepareStatement(modi);
             pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
         }
     }
 
     void devolucion() {
         codigos();
-        String InsertarSQL = "INSERT INTO devoluciones (cod_dev,cod_venta_dev,cod_cli_dev,nom_cli_dev,des_dev,items_dev,total_dev,fecha_dev,user_dev,estado_dev) VALUES (?,?,?,?,?,?,?,?,?,?)";
+        String InsertarSQL = "INSERT INTO devoluciones (cod_dev,cod_venta_dev,cod_cli_dev,nom_cli_dev,des_dev,items_dev,total_dev,fecha_dev,user_dev,estado_dev,saldo_devol) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
         String num_dev = lbl_cod.getText();
         String num_vent = txt_cod.getText();
         String cod_cli = txt_cod_cli.getText();
@@ -644,6 +672,7 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
         String fecha = Principal.lbl_fecha_hoy.getText();
         String user = lbl_usu_nom.getText();
         String estado = ("FINALIZADA");
+        String saldo_dev = txttotal.getText();
 
         try {
             Connection cn = conectar.getInstance().getConnection();
@@ -659,6 +688,7 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
             pst.setString(8, fecha);
             pst.setString(9, user);
             pst.setString(10, estado);
+            pst.setString(11, saldo_dev);
 
             int n = pst.executeUpdate();
             conectar.getInstance().closeConnection(cn);
@@ -668,9 +698,9 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
                 actEstadoVentas();
 
                 String capcod = "", capcan = "";
-                for (int i = 0; i < Devolucion_Devoluciones.tb_factura.getRowCount(); i++) {
-                    capcod = Devolucion_Devoluciones.tb_factura.getValueAt(i, 0).toString();
-                    capcan = Devolucion_Devoluciones.tb_factura.getValueAt(i, 3).toString();
+                for (int i = 0; i < Devolucion_Devoluciones.tb_factura_dev.getRowCount(); i++) {
+                    capcod = Devolucion_Devoluciones.tb_factura_dev.getValueAt(i, 0).toString();
+                    capcan = Devolucion_Devoluciones.tb_factura_dev.getValueAt(i, 3).toString();
                     ajustartarstock(capcod, capcan);
 
                 }
@@ -698,14 +728,14 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
     }
 
     void detalle_devo() {
-        for (int i = 0; i < tb_factura.getRowCount(); i++) {
+        for (int i = 0; i < tb_factura_dev.getRowCount(); i++) {
             String InsertarSQL = "INSERT INTO devoluciones_detalles (cod_dev,cod_pro,des_pro,cant_pro,pre_unit,pre_venta,data) VALUES (?,?,?,?,?,?,?)";
             String numbol = lbl_cod.getText();
-            String codpro = tb_factura.getValueAt(i, 0).toString();
-            String despro = tb_factura.getValueAt(i, 1).toString();
-            String cantpro = tb_factura.getValueAt(i, 3).toString();
-            String preunit = tb_factura.getValueAt(i, 2).toString();
-            String importe = tb_factura.getValueAt(i, 4).toString();
+            String codpro = tb_factura_dev.getValueAt(i, 0).toString();
+            String despro = tb_factura_dev.getValueAt(i, 1).toString();
+            String cantpro = tb_factura_dev.getValueAt(i, 3).toString();
+            String preunit = tb_factura_dev.getValueAt(i, 2).toString();
+            String importe = tb_factura_dev.getValueAt(i, 4).toString();
             String fecha = Principal.lbl_fecha_hoy.getText();
 
             try {
@@ -768,9 +798,9 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
     public void calcularCantidadPro() {
 
         int Acumulador = 0;
-        int TF = tb_factura.getRowCount();
+        int TF = tb_factura_dev.getRowCount();
         for (int i = 0; i < TF; i++) {
-            int CantidadPro = Integer.valueOf(Devolucion_Devoluciones.tb_factura.getValueAt(i, 3).toString().replaceAll("\\s", "").replaceAll("[^0-9]", ""));
+            int CantidadPro = Integer.valueOf(Devolucion_Devoluciones.tb_factura_dev.getValueAt(i, 3).toString().replaceAll("\\s", "").replaceAll("[^0-9]", ""));
             Acumulador = Acumulador + CantidadPro;
         }
         //</editor-fold>
@@ -810,13 +840,13 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
 
                 model.addRow(Registros);
             }
-            tb_factura.setModel(model);
+            tb_factura_dev.setModel(model);
 
-            tb_factura.getColumnModel().getColumn(0).setPreferredWidth(90);
-            tb_factura.getColumnModel().getColumn(1).setPreferredWidth(330);
-            tb_factura.getColumnModel().getColumn(2).setPreferredWidth(130);
-            tb_factura.getColumnModel().getColumn(3).setPreferredWidth(83);
-            tb_factura.getColumnModel().getColumn(4).setPreferredWidth(130);
+            tb_factura_dev.getColumnModel().getColumn(0).setPreferredWidth(90);
+            tb_factura_dev.getColumnModel().getColumn(1).setPreferredWidth(330);
+            tb_factura_dev.getColumnModel().getColumn(2).setPreferredWidth(130);
+            tb_factura_dev.getColumnModel().getColumn(3).setPreferredWidth(83);
+            tb_factura_dev.getColumnModel().getColumn(4).setPreferredWidth(130);
             conectar.getInstance().closeConnection(cn);
 
         } catch (SQLException ex) {
@@ -826,7 +856,7 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
     }
 
     public void cargarTxt(String valor) {
-        String mostrar = "SELECT * FROM ventas WHERE CONCAT(num_bol) LIKE '%" + valor + "%'";
+        String mostrar = "SELECT * FROM ventas WHERE num_bol= '" + valor + "'";
 
         try {
             Connection cn = conectar.getInstance().getConnection();
@@ -836,9 +866,6 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
             while (rs.next()) {
                 txt_cod_cli.setText(rs.getString(2));
                 txt_cli_nom.setText(rs.getString(3));
-                txt_forma_pago.setText(rs.getString(4));
-                txt_dias_plazo.setText(rs.getString(5));
-
                 //txt_da.setText(rs.getString(6));
             }
             conectar.getInstance().closeConnection(cn);
@@ -871,6 +898,35 @@ public class Devolucion_Devoluciones extends javax.swing.JDialog {
         } catch (Exception e) {
         }
 
+    }
+
+    //no esta en uso
+    void controlCredito() {
+        String credito = "";
+        String cliente = txt_cod_cli.getText();
+        String consul = "SELECT sum(REPLACE(v.monto_cred,',','')) FROM necttic.ventas as v where v.cod_cli_ventas='" + cliente + "' and v.monto_cred <> 0;";
+        try {
+            Connection cn = conectar.getInstance().getConnection();
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(consul);
+            while (rs.next()) {
+                credito = rs.getString(1);
+            }
+            ///suma 
+
+            BigDecimal creditoCli = ingreso.TransformReales(credito.replaceAll("\\s", ""));
+            BigDecimal nontoCredito = ingreso.TransformReales(txttotal.getText().replaceAll("\\s", ""));
+
+            String monto_total_credito = ingreso.MaskareaRealesDado_String_ExclusiveMonedas(creditoCli.add(nontoCredito).toString());
+
+            String modi = "UPDATE tienda_clientes SET cli_lim_cre='0' WHERE cli_cod='0000001';";
+            PreparedStatement pst = cn.prepareStatement(modi);
+            pst.executeUpdate();
+            conectar.getInstance().closeConnection(cn);
+
+        } catch (SQLException | NumberFormatException e) {
+            System.out.println("error" + e);
+        }
     }
 
 }

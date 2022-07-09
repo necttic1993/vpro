@@ -239,7 +239,7 @@ public class pago_factura_credito extends javax.swing.JDialog {
         lbl_literal_pro.setText("Son:");
         panel_config.add(lbl_literal_pro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 40, -1));
 
-        jPanel2.add(panel_config, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 510, -1, 10));
+        jPanel2.add(panel_config, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 510, -1, 80));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jLabel4.setText("Surcusal:");
@@ -345,7 +345,7 @@ public class pago_factura_credito extends javax.swing.JDialog {
         btn_cheques.setBackground(new java.awt.Color(255, 255, 255));
         btn_cheques.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_cheques.setForeground(new java.awt.Color(255, 255, 255));
-        btn_cheques.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/agrega.png"))); // NOI18N
+        btn_cheques.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/buscar.png"))); // NOI18N
         btn_cheques.setBorderPainted(false);
         btn_cheques.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_cheques.addActionListener(new java.awt.event.ActionListener() {
@@ -442,7 +442,7 @@ public class pago_factura_credito extends javax.swing.JDialog {
         btn_agreagr_factura.setBackground(new java.awt.Color(255, 255, 255));
         btn_agreagr_factura.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_agreagr_factura.setForeground(new java.awt.Color(255, 255, 255));
-        btn_agreagr_factura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/agrega.png"))); // NOI18N
+        btn_agreagr_factura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/buscar.png"))); // NOI18N
         btn_agreagr_factura.setBorderPainted(false);
         btn_agreagr_factura.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_agreagr_factura.addActionListener(new java.awt.event.ActionListener() {
@@ -454,7 +454,7 @@ public class pago_factura_credito extends javax.swing.JDialog {
 
         btn_busar.setBackground(new java.awt.Color(255, 255, 255));
         btn_busar.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btn_busar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Caja_2/iconos/filtros.png"))); // NOI18N
+        btn_busar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/buscar.png"))); // NOI18N
         btn_busar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_busar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -533,7 +533,7 @@ public class pago_factura_credito extends javax.swing.JDialog {
         jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 320, 430, 120));
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/agrega.png"))); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon_4/buscar.png"))); // NOI18N
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -4274,7 +4274,7 @@ public class pago_factura_credito extends javax.swing.JDialog {
                             String nro = lbl_serie_pago.getText();
                             Connection cn = conectar.getInstance().getConnection();
 
-                            URL in = this.getClass().getResource("/Caja_2/Pago_Plazos/recibo_principal.jasper");
+                            URL in = this.getClass().getResource("/Caja_2/Pago_Plazos/Recibo_principal_factura.jasper");
                             Map parametro = new HashMap();
                             parametro.clear();
                             parametro.put("serienro", nro);

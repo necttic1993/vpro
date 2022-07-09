@@ -5,7 +5,7 @@
  */
 package Presupuesto;
 
-import static Compras.Compras_compras.lbl_cod;
+
 import Conexion_DB.conectar;
 import static Presupuesto.Presupuesto_presupuesto.cod_print_presupuesto_modulo;
 import java.net.URL;

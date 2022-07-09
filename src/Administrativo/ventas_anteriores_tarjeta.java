@@ -7,11 +7,8 @@ import Conexion_DB.conectar;
 
 import static Loggin_Principal.NECTTIC.ingreso;
 import Loggin_Principal.Principal;
-import static Loggin_Principal.Principal.lbl_usu_almacen;
-import static Loggin_Principal.Principal.lbl_usu_nom;
 import Loggin_Principal.Seleccion_surcusal_free;
 import java.awt.Color;
-import java.io.File;
 import java.io.FileInputStream;
 import java.math.BigDecimal;
 import java.net.URL;

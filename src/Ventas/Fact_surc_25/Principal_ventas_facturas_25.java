@@ -5,9 +5,6 @@
  */
 package Ventas.Fact_surc_25;
 
-
-
-
 import Ventas.Fact_surc_25.*;
 import Conexion_DB.conectar;
 import java.awt.HeadlessException;
@@ -2296,7 +2293,7 @@ public class Principal_ventas_facturas_25 extends javax.swing.JDialog {
     public static javax.swing.JTextField txt_bus;
     // End of variables declaration//GEN-END:variables
 
-      void cargar(String valor) {
+    void cargar(String valor) {
         try {
             Connection cn = conectar.getInstance().getConnection();
             String[] titulos = {"Factura Nro", "Cód Cliente", "Cliente/Razón Social", "Valor Total", "Fecha Emisión", "Usuario", "Moneda", "Venta Nro", "Estado"};
@@ -2337,6 +2334,27 @@ public class Principal_ventas_facturas_25 extends javax.swing.JDialog {
 
     }
 
+    public void actEstadoVentas(String cod) {
+        try {
+            String es = "0";
+            String sql = "UPDATE ventas_25 SET bool_fact = '" + es
+                    + "' WHERE num_bol = '" + cod + "'";
+            try {
+                Connection cn = conectar.getInstance().getConnection();
+
+                PreparedStatement pst = cn.prepareStatement(sql);
+                pst.executeUpdate();
+                //  JOptionPane.showMessageDialog(null, "Actualizado");
+                conectar.getInstance().closeConnection(cn);
+
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+
+        } catch (Exception e) {
+        }
+    }
+
     void eliminarProducto() {
 
         int filasel = tbProductos.getSelectedRow();
@@ -2348,6 +2366,7 @@ public class Principal_ventas_facturas_25 extends javax.swing.JDialog {
                 if (JOptionPane.showConfirmDialog(rootPane, "Anular Factura de venta" + ", ¿desea continuar?",
                         "Anular", JOptionPane.WARNING_MESSAGE, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                     String cod = (String) tbProductos.getValueAt(filasel, 0);
+                    String cod_ventas = (String) tbProductos.getValueAt(filasel, 7);
                     String eliminarSQL = "DELETE FROM ventas_facturacion_surc_25 WHERE nro_fact_ventas = '" + cod + "'";
 
                     try {
@@ -2356,6 +2375,7 @@ public class Principal_ventas_facturas_25 extends javax.swing.JDialog {
                         pst.executeUpdate();
                         conectar.getInstance().closeConnection(cn);
                         JOptionPane.showMessageDialog(null, "Factura de venta cancelada");
+                        actEstadoVentas(cod_ventas);
                         cargar("");
 
                     } catch (SQLException | HeadlessException e) {
